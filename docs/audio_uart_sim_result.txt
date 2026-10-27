@@ -1,0 +1,5 @@
+PASS UART RX 115200 8N1, command bytes, short-glitch rejection and invalid-stop rejection
+- sim/audio_test\tb_uart_rx.sv:22: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.036 2025-04-27
+- Verilator: $finish at 430us; walltime 0.003 s; speed 0.000 s/s
+- Verilator: cpu 0.000 s on 1 threads; alloced 5 MB

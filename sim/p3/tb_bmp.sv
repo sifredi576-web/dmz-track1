@@ -23,6 +23,8 @@ function automatic [7:0] disk(input integer l,input integer i);
   if(f16) begin
    case(i) 17:disk=16;22:disk=4;36:disk=0;44:disk=0;default:begin end endcase
   end
+  if($test$plusargs("bpb")&&i==13) disk=3;
+  if($test$plusargs("signature")&&i==511) disk=0;
  end else if(l>=1&&l<=fat_end) begin
   entry=(l-1)*(f16?256:128)+i/(f16?2:4);
   if(entry==2) value=32'h0fffffff;
@@ -35,6 +37,8 @@ function automatic [7:0] disk(input integer l,input integer i);
   if(i>=32&&i<=39) disk="PICDEMO ">>((i-32)*8);
   if(i>=60&&i<=63) disk=32'(file_bytes)>>((i-60)*8);
   case(i) 40:disk="B";41:disk="M";42:disk="P";43:disk=32;58:disk=3;default:begin end endcase
+  if($test$plusargs("nobmp")&&i==40) disk="J";
+  if($test$plusargs("shortfile")&&i>=60&&i<=63) disk=32'd100>>((i-60)*8);
  end else if(l>=file_lba) begin
   c=(l-file_lba)/8;
   if(c%2==0) begin
@@ -48,6 +52,9 @@ function automatic [7:0] disk(input integer l,input integer i);
     if(ofs==28 && rgba) disk=32;
     if(top && ofs>=22&&ofs<=25) disk=32'hfffffe20>>((ofs-22)*8);
     if($test$plusargs("bad")&&ofs==30) disk=1;
+    if($test$plusargs("dimensions")&&ofs==18) disk=0;
+    if($test$plusargs("offset")&&ofs>=10&&ofs<=13) disk=32'hffffffff>>((ofs-10)*8);
+    if($test$plusargs("bmpmagic")&&ofs==0) disk=0;
    end else begin
     pix=(ofs-54)/(rgba?4:3);x=pix%640;y=top?pix/640:479-pix/640;channel=(ofs-54)%(rgba?4:3);
     case(channel) 0:disk=8'(x);1:disk=8'(y);2:disk=8'(x^y);3:disk=255;endcase
@@ -77,7 +84,16 @@ end
 initial begin
  #100;reset=0;
  wait(done||error!=0);
- if($test$plusargs("bad")) begin if(error!=8||bursts!=0) $fatal(1,"bad BMP not rejected");$display("PASS unsupported compressed BMP rejected");end
+ if($test$plusargs("bad")||$test$plusargs("bpb")||$test$plusargs("signature")||$test$plusargs("nobmp")||$test$plusargs("shortfile")||$test$plusargs("dimensions")||$test$plusargs("offset")||$test$plusargs("bmpmagic")) begin
+  if(bursts!=0||done) $fatal(1,"invalid file wrote/committed pixels");
+  if($test$plusargs("signature")&&error!=1) $fatal(1,"signature error code");
+  if($test$plusargs("bpb")&&error!=3) $fatal(1,"BPB error code");
+  if($test$plusargs("nobmp")&&error!=5) $fatal(1,"missing BMP error code");
+  if(($test$plusargs("bad")||$test$plusargs("bmpmagic"))&&error!=8) $fatal(1,"BMP format error code");
+  if($test$plusargs("dimensions")&&error!=9) $fatal(1,"dimensions error code");
+  if(($test$plusargs("shortfile")||$test$plusargs("offset"))&&error!=10) $fatal(1,"size/offset error code");
+  $display("PASS malformed media rejected before framebuffer write; code=%0d",error);
+ end
  else begin
   if(error!=0||pixels!=307200||bursts!=19200) $fatal(1,"loader error=%0d pixels=%0d bursts=%0d status=%0d",error,pixels,bursts,status);
   $display("PASS FAT32 fragmented cluster chain, directory skip, BMP bottom-up, 307200 pixels, %0d bursts %0d sectors",bursts,sectors);

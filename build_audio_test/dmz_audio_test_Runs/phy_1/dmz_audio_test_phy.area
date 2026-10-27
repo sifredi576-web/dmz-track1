@@ -8,19 +8,19 @@ IO Statistics
   #inout                    0
 
 Utilization Statistics
-#lut                     6671   out of  19600   34.04%
-#reg                     3994   out of  19600   20.38%
-#le                      7316
-  #lut only              3322   out of   7316   45.41%
-  #reg only               645   out of   7316    8.82%
-  #lut&reg               3349   out of   7316   45.78%
+#lut                     6783   out of  19600   34.61%
+#reg                     4066   out of  19600   20.74%
+#le                      7451
+  #lut only              3385   out of   7451   45.43%
+  #reg only               668   out of   7451    8.97%
+  #lut&reg               3398   out of   7451   45.60%
 #bram                      13   out of     64   20.31%
   #bram9k                  13
   #fifo9k                   0
 #bram32k                    0   out of     16    0.00%
 #dsp                        8   out of     29   27.59%
 #pad                       26   out of    188   13.83%
-  #ireg                     3
+  #ireg                     4
   #oreg                    12
   #treg                     0
 #pll                        1   out of      4   25.00%
@@ -35,7 +35,7 @@ Detailed IO Report
    mute_switch        INPUT        A10        LVCMOS33      PAD           N/A          PULLUP      IREG    
   pattern_switch      INPUT        B10        LVCMOS33      PAD           N/A          PULLUP      IREG    
       run_n           INPUT         A9        LVCMOS33      PAD           N/A          PULLUP      NONE    
-     uart_rx          INPUT        F12        LVCMOS33      PAD           N/A          PULLUP      NONE    
+     uart_rx          INPUT        F12        LVCMOS33      PAD           N/A          PULLUP      IREG    
     HDMI_CLK_P       OUTPUT         P1         LVDS33       PAD           NA            NONE       DDRX1   
   HDMI_CLK_P(n)      OUTPUT         R1         LVDS33       PAD           NA            NONE       NONE    
     HDMI_D0_P        OUTPUT         N1         LVDS33       PAD           NA            NONE       DDRX1   
@@ -117,16 +117,16 @@ Report Clock Domain Luts:
 ---------------------------------------------------------------------------------------------------------------------------
   Index   |  Name                  |  Frequency   |  LUT As Logic   |  LUT As Shifter   |  LUT As Dram   |  BRAM   |  DSP
 ---------------------------------------------------------------------------------------------------------------------------
-  #1      |  pll/pll_inst.clkc[0]  |  25MHz       |  828            |  0                |  16            |  13     |  0
-  #2      |  pll/pll_inst.clkc[1]  |  125MHz      |  30             |  0                |  0             |  0      |  0
-  #3      |  pll/pll_inst.clkc[2]  |  50MHz       |  2246           |  0                |  256           |  8      |  8
-  #4      |  pll/pll_inst.clkc[3]  |  50MHz       |  61             |  0                |  0             |  0      |  0
+  #1      |  pll/pll_inst.clkc[0]  |  25MHz       |  895            |  0                |  16            |  13     |  0
+  #2      |  pll/pll_inst.clkc[1]  |  125MHz      |  25             |  0                |  0             |  0      |  0
+  #3      |  pll/pll_inst.clkc[2]  |  50MHz       |  2249           |  0                |  256           |  8      |  8
+  #4      |  pll/pll_inst.clkc[3]  |  50MHz       |  53             |  0                |  0             |  0      |  0
 ---------------------------------------------------------------------------------------------------------------------------
 
 Clock Resource Statistics
 Index     ClockNet                      Type               DriverType         Driver                Fanout
-#1        bist/clk                      Global             pll                pll/pll_inst.clkc2    1922
-#2        pll/clk0_buf                  Global             pll                pll/pll_inst.clkc0    722
+#1        bist/clk                      Global             pll                pll/pll_inst.clkc2    1930
+#2        pll/clk0_buf                  Global             pll                pll/pll_inst.clkc0    764
 #3        tx/serializer/clk_pixel_x5    Global             pll                pll/pll_inst.clkc1    23
 #4        clk_50m_dup_1                 GeneralRouting     io                 clk_50m_syn_2.di      1
 #5        sdram_clk                     Global             pll                pll/pll_inst.clkc3    0
@@ -135,36 +135,37 @@ Report Hierarchy Area:
 +-----------------------------------------------------------------------------------------------------------------------------+
 |Instance                              |Module                          |le      |lut     |ripple  |seq     |bram    |dsp     |
 +-----------------------------------------------------------------------------------------------------------------------------+
-|top                                   |dmz_av_test_top                 |7316    |5870    |801     |4009    |13      |8       |
-|  bist                                |dmz_sdram_bist                  |711     |652     |44      |434     |0       |0       |
-|  ctrl                                |dmz_sdram_ctrl                  |788     |646     |27      |570     |0       |0       |
-|  fb                                  |dmz_image_framebuffer           |366     |346     |20      |291     |0       |0       |
-|  fifo                                |dmz_pixel_fifo                  |235     |196     |21      |126     |8       |0       |
-|  loader                              |dmz_bmp_loader                  |2693    |1965    |424     |1182    |0       |8       |
-|  pll                                 |dmz_p2_pll                      |0       |0       |0       |0       |0       |0       |
-|  sd                                  |dmz_sd_reader                   |442     |395     |40      |216     |0       |0       |
-|    spi                               |dmz_spi_byte                    |47      |43      |4       |27      |0       |0       |
-|  telemetry                           |dmz_status_uart                 |518     |451     |16      |452     |0       |0       |
-|  tone                                |dmz_tone                        |125     |95      |30      |38      |0       |0       |
-|  tx                                  |hdmi                            |1173    |962     |156     |472     |5       |0       |
-|    serializer                        |serializer                      |36      |34      |0       |36      |0       |0       |
-|    tmds_gen[0]$tmds_channel          |tmds_channel                    |92      |83      |9       |32      |0       |0       |
-|    tmds_gen[1]$tmds_channel          |tmds_channel                    |89      |80      |9       |18      |0       |0       |
-|    tmds_gen[2]$tmds_channel          |tmds_channel                    |85      |76      |9       |15      |0       |0       |
-|    true_hdmi_output$packet_assembler |packet_assembler                |281     |279     |0       |72      |0       |0       |
-|    true_hdmi_output$packet_picker    |packet_picker                   |151     |114     |18      |77      |5       |0       |
-|      audio_clock_regeneration_packet |audio_clock_regeneration_packet |56      |31      |10      |40      |0       |0       |
+|top                                   |dmz_av_test_top                 |7451    |5978    |805     |4082    |13      |8       |
+|  bist                                |dmz_sdram_bist                  |736     |681     |44      |426     |0       |0       |
+|  command_rx                          |dmz_uart_rx                     |74      |65      |9       |39      |0       |0       |
+|  ctrl                                |dmz_sdram_ctrl                  |770     |619     |27      |570     |0       |0       |
+|  fb                                  |dmz_image_framebuffer           |359     |337     |20      |282     |0       |0       |
+|  fifo                                |dmz_pixel_fifo                  |236     |194     |21      |117     |8       |0       |
+|  loader                              |dmz_bmp_loader                  |2723    |1977    |424     |1230    |0       |8       |
+|  pll                                 |dmz_p2_pll                      |1       |1       |0       |0       |0       |0       |
+|  sd                                  |dmz_sd_reader                   |445     |388     |40      |213     |0       |0       |
+|    spi                               |dmz_spi_byte                    |50      |46      |4       |28      |0       |0       |
+|  telemetry                           |dmz_status_uart                 |548     |489     |16      |450     |0       |0       |
+|  tone                                |dmz_tone                        |117     |92      |25      |39      |0       |0       |
+|  tx                                  |hdmi                            |1162    |980     |156     |477     |5       |0       |
+|    serializer                        |serializer                      |36      |36      |0       |35      |0       |0       |
+|    tmds_gen[0]$tmds_channel          |tmds_channel                    |84      |75      |9       |25      |0       |0       |
+|    tmds_gen[1]$tmds_channel          |tmds_channel                    |97      |88      |9       |18      |0       |0       |
+|    tmds_gen[2]$tmds_channel          |tmds_channel                    |87      |78      |9       |29      |0       |0       |
+|    true_hdmi_output$packet_assembler |packet_assembler                |278     |278     |0       |77      |0       |0       |
+|    true_hdmi_output$packet_picker    |packet_picker                   |152     |114     |18      |67      |5       |0       |
+|      audio_clock_regeneration_packet |audio_clock_regeneration_packet |52      |35      |10      |35      |0       |0       |
 +-----------------------------------------------------------------------------------------------------------------------------+
 
 
 DataNet Average Fanout:
 
    Index     Fanout    Nets  
-    #1         1       6604  
-    #2         2       1820  
-    #3         3       701   
-    #4         4       209   
-    #5        5-10     500   
-    #6       11-50     341   
-    #7       51-100     58   
-  Average     2.79           
+    #1         1       6681  
+    #2         2       1830  
+    #3         3       739   
+    #4         4       212   
+    #5        5-10     512   
+    #6       11-50     315   
+    #7       51-100     67   
+  Average     2.80           

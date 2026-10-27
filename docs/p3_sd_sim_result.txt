@@ -1,5 +1,5 @@
-PASS SD SPI initialization CMD0/8/55/41/58, SDHC addressing, CMD17 512 indexed bytes
-- sim/p3\tb_sd.sv:48: Verilog $finish
+PASS SD initialization, address mode, sector data/CRC or requested error case; code=0 bytes=512
+- sim/p3\tb_sd.sv:68: Verilog $finish
 - S i m u l a t i o n   R e p o r t: Verilator 5.036 2025-04-27
-- Verilator: $finish at 4ms; walltime 0.075 s; speed 0.000 s/s
+- Verilator: $finish at 4ms; walltime 0.049 s; speed 0.000 s/s
 - Verilator: cpu 0.000 s on 1 threads; alloced 5 MB

@@ -291,6 +291,7 @@ VL_ATTR_COLD void Vtb_bmp___024root___ctor_var_reset(Vtb_bmp___024root* vlSelf) 
     vlSelf->tb_bmp__DOT__dut__DOT__pending_addr = VL_RAND_RESET_I(18);
     vlSelf->tb_bmp__DOT__dut__DOT__color = VL_RAND_RESET_I(16);
     vlSelf->tb_bmp__DOT__dut__DOT__target_addr = VL_RAND_RESET_I(18);
+    vlSelf->tb_bmp__DOT__dut__DOT__required_file_end = VL_RAND_RESET_I(32);
     vlSelf->tb_bmp__DOT__dut__DOT__fat_entry = VL_RAND_RESET_I(32);
     vlSelf->tb_bmp__DOT__dut__DOT__fat_byte_offset = VL_RAND_RESET_I(9);
     vlSelf->__Vtrigprevexpr___TOP__tb_bmp__DOT__clk__0 = VL_RAND_RESET_I(1);

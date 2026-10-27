@@ -10,10 +10,17 @@ VL_INLINE_OPT VlCoroutine Vtb_bmp___024root___eval_initial__TOP__Vtiming__0(Vtb_
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_bmp___024root___eval_initial__TOP__Vtiming__0\n"); );
     Vtb_bmp__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Init
+    VlWide<3>/*95:0*/ __Vtemp_1;
+    VlWide<3>/*95:0*/ __Vtemp_2;
+    VlWide<3>/*95:0*/ __Vtemp_3;
+    VlWide<3>/*95:0*/ __Vtemp_4;
+    VlWide<3>/*95:0*/ __Vtemp_5;
+    VlWide<3>/*95:0*/ __Vtemp_6;
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x186a0ULL, 
                                          nullptr, "sim/p3\tb_bmp.sv", 
-                                         78);
+                                         85);
     vlSelfRef.tb_bmp__DOT__reset = 0U;
     while ((1U & (~ ((IData)(vlSelfRef.tb_bmp__DOT__done) 
                      | (0U != (IData)(vlSelfRef.tb_bmp__DOT__error)))))) {
@@ -21,34 +28,104 @@ VL_INLINE_OPT VlCoroutine Vtb_bmp___024root___eval_initial__TOP__Vtiming__0(Vtb_
                                                              nullptr, 
                                                              "@( (tb_bmp.done | (8'h0 != tb_bmp.error)))", 
                                                              "sim/p3\tb_bmp.sv", 
-                                                             79);
+                                                             86);
     }
-    if (VL_TESTPLUSARGS_I(std::string{"bad"})) {
-        if (VL_UNLIKELY((((8U != (IData)(vlSelfRef.tb_bmp__DOT__error)) 
-                          | (0U != vlSelfRef.tb_bmp__DOT__bursts))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:80: Assertion failed in %Ntb_bmp: bad BMP not rejected\n",0,
+    __Vtemp_1[0U] = 0x74757265U;
+    __Vtemp_1[1U] = 0x69676e61U;
+    __Vtemp_1[2U] = 0x73U;
+    __Vtemp_2[0U] = 0x66696c65U;
+    __Vtemp_2[1U] = 0x686f7274U;
+    __Vtemp_2[2U] = 0x73U;
+    __Vtemp_3[0U] = 0x696f6e73U;
+    __Vtemp_3[1U] = 0x6d656e73U;
+    __Vtemp_3[2U] = 0x6469U;
+    if ((((((((VL_TESTPLUSARGS_I(std::string{"bad"}) 
+               || VL_TESTPLUSARGS_I(std::string{"bpb"})) 
+              || VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_1))) 
+             || VL_TESTPLUSARGS_I(std::string{"nobmp"})) 
+            || VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_2))) 
+           || VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_3))) 
+          || VL_TESTPLUSARGS_I(std::string{"offset"})) 
+         || VL_TESTPLUSARGS_I(std::string{"bmpmagic"}))) {
+        if (VL_UNLIKELY((((0U != vlSelfRef.tb_bmp__DOT__bursts) 
+                          | (IData)(vlSelfRef.tb_bmp__DOT__done))))) {
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:88: Assertion failed in %Ntb_bmp: invalid file wrote/committed pixels\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
-            VL_STOP_MT("sim/p3\\tb_bmp.sv", 80, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 88, "", false);
         }
-        VL_WRITEF_NX("PASS unsupported compressed BMP rejected\n",0);
+        __Vtemp_4[0U] = 0x74757265U;
+        __Vtemp_4[1U] = 0x69676e61U;
+        __Vtemp_4[2U] = 0x73U;
+        if (VL_UNLIKELY(((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_4)) 
+                          && (1U != (IData)(vlSelfRef.tb_bmp__DOT__error)))))) {
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:89: Assertion failed in %Ntb_bmp: signature error code\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,vlSymsp->name());
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 89, "", false);
+        }
+        if (VL_UNLIKELY(((VL_TESTPLUSARGS_I(std::string{"bpb"}) 
+                          && (3U != (IData)(vlSelfRef.tb_bmp__DOT__error)))))) {
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:90: Assertion failed in %Ntb_bmp: BPB error code\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,vlSymsp->name());
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 90, "", false);
+        }
+        if (VL_UNLIKELY(((VL_TESTPLUSARGS_I(std::string{"nobmp"}) 
+                          && (5U != (IData)(vlSelfRef.tb_bmp__DOT__error)))))) {
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:91: Assertion failed in %Ntb_bmp: missing BMP error code\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,vlSymsp->name());
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 91, "", false);
+        }
+        if (VL_UNLIKELY((((VL_TESTPLUSARGS_I(std::string{"bad"}) 
+                           || VL_TESTPLUSARGS_I(std::string{"bmpmagic"})) 
+                          & (8U != (IData)(vlSelfRef.tb_bmp__DOT__error)))))) {
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:92: Assertion failed in %Ntb_bmp: BMP format error code\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,vlSymsp->name());
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 92, "", false);
+        }
+        __Vtemp_5[0U] = 0x696f6e73U;
+        __Vtemp_5[1U] = 0x6d656e73U;
+        __Vtemp_5[2U] = 0x6469U;
+        if (VL_UNLIKELY(((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_5)) 
+                          && (9U != (IData)(vlSelfRef.tb_bmp__DOT__error)))))) {
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:93: Assertion failed in %Ntb_bmp: dimensions error code\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,vlSymsp->name());
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 93, "", false);
+        }
+        __Vtemp_6[0U] = 0x66696c65U;
+        __Vtemp_6[1U] = 0x686f7274U;
+        __Vtemp_6[2U] = 0x73U;
+        if (VL_UNLIKELY((((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_6)) 
+                           || VL_TESTPLUSARGS_I(std::string{"offset"})) 
+                          & (0xaU != (IData)(vlSelfRef.tb_bmp__DOT__error)))))) {
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:94: Assertion failed in %Ntb_bmp: size/offset error code\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,vlSymsp->name());
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 94, "", false);
+        }
+        VL_WRITEF_NX("PASS malformed media rejected before framebuffer write; code=%0#\n",0,
+                     8,vlSelfRef.tb_bmp__DOT__error);
     } else {
         if (VL_UNLIKELY(((((0U != (IData)(vlSelfRef.tb_bmp__DOT__error)) 
                            | (0x4b000U != vlSelfRef.tb_bmp__DOT__pixels)) 
                           | (0x4b00U != vlSelfRef.tb_bmp__DOT__bursts))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:82: Assertion failed in %Ntb_bmp: loader error=%0# pixels=%0# bursts=%0d status=%0#\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:98: Assertion failed in %Ntb_bmp: loader error=%0# pixels=%0# bursts=%0d status=%0#\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),8,(IData)(vlSelfRef.tb_bmp__DOT__error),
                          32,vlSelfRef.tb_bmp__DOT__pixels,
                          32,vlSelfRef.tb_bmp__DOT__bursts,
                          8,(IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__state));
-            VL_STOP_MT("sim/p3\\tb_bmp.sv", 82, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 98, "", false);
         }
         VL_WRITEF_NX("PASS FAT32 fragmented cluster chain, directory skip, BMP bottom-up, 307200 pixels, %0d bursts %0d sectors\n",0,
                      32,vlSelfRef.tb_bmp__DOT__bursts,
                      32,vlSelfRef.tb_bmp__DOT__sectors);
     }
-    VL_FINISH_MT("sim/p3\\tb_bmp.sv", 85, "");
+    VL_FINISH_MT("sim/p3\\tb_bmp.sv", 101, "");
 }
 
 VL_INLINE_OPT VlCoroutine Vtb_bmp___024root___eval_initial__TOP__Vtiming__1(Vtb_bmp___024root* vlSelf) {
@@ -58,12 +135,12 @@ VL_INLINE_OPT VlCoroutine Vtb_bmp___024root___eval_initial__TOP__Vtiming__1(Vtb_
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x2e90edd000ULL, 
                                          nullptr, "sim/p3\tb_bmp.sv", 
-                                         87);
-    VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:87: Assertion failed in %Ntb_bmp: timeout state=%0# lba=%0#\n",0,
+                                         103);
+    VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:103: Assertion failed in %Ntb_bmp: timeout state=%0# lba=%0#\n",0,
                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                  8,(IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__state),
                  32,vlSelfRef.tb_bmp__DOT__lba);
-    VL_STOP_MT("sim/p3\\tb_bmp.sv", 87, "", false);
+    VL_STOP_MT("sim/p3\\tb_bmp.sv", 103, "", false);
 }
 
 #ifdef VL_DEBUG
@@ -176,14 +253,14 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
     __Vfunc_tb_bmp__DOT__expected__2__g = 0;
     CData/*7:0*/ __Vfunc_tb_bmp__DOT__expected__2__b;
     __Vfunc_tb_bmp__DOT__expected__2__b = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__3__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le32__3__Vfuncout = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__4__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le16__4__Vfuncout = 0;
-    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__5__lba;
-    __Vtask_tb_bmp__DOT__dut__DOT__sector__5__lba = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__6__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le16__6__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__7__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le16__7__Vfuncout = 0;
+    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__7__lba;
+    __Vtask_tb_bmp__DOT__dut__DOT__sector__7__lba = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__8__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le16__8__Vfuncout = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__9__Vfuncout;
@@ -196,86 +273,86 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
     __Vfunc_tb_bmp__DOT__dut__DOT__le16__12__Vfuncout = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__13__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le16__13__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__14__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le32__14__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__14__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le16__14__Vfuncout = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__15__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le16__15__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__16__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le16__16__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__16__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le32__16__Vfuncout = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__17__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le16__17__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__18__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le32__18__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__18__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le16__18__Vfuncout = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__19__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le16__19__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__20__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le16__20__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__21__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le32__21__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__20__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le32__20__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__21__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le16__21__Vfuncout = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__22__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le16__22__Vfuncout = 0;
-    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__23__lba;
-    __Vtask_tb_bmp__DOT__dut__DOT__sector__23__lba = 0;
-    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__24__lba;
-    __Vtask_tb_bmp__DOT__dut__DOT__sector__24__lba = 0;
-    CData/*7:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__upper__25__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__upper__25__Vfuncout = 0;
-    CData/*7:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__upper__25__c;
-    __Vfunc_tb_bmp__DOT__dut__DOT__upper__25__c = 0;
-    CData/*7:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__upper__26__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__upper__26__Vfuncout = 0;
-    CData/*7:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__upper__26__c;
-    __Vfunc_tb_bmp__DOT__dut__DOT__upper__26__c = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__23__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le32__23__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__24__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le16__24__Vfuncout = 0;
+    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__25__lba;
+    __Vtask_tb_bmp__DOT__dut__DOT__sector__25__lba = 0;
+    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__26__lba;
+    __Vtask_tb_bmp__DOT__dut__DOT__sector__26__lba = 0;
     CData/*7:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__upper__27__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__upper__27__Vfuncout = 0;
     CData/*7:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c;
     __Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c = 0;
-    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d16__28__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__d16__28__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d16__29__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__d16__29__Vfuncout = 0;
+    CData/*7:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__upper__28__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__upper__28__Vfuncout = 0;
+    CData/*7:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__upper__28__c;
+    __Vfunc_tb_bmp__DOT__dut__DOT__upper__28__c = 0;
+    CData/*7:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__upper__29__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__upper__29__Vfuncout = 0;
+    CData/*7:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__upper__29__c;
+    __Vfunc_tb_bmp__DOT__dut__DOT__upper__29__c = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d16__30__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__d16__30__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d32__31__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__d32__31__Vfuncout = 0;
-    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__32__lba;
-    __Vtask_tb_bmp__DOT__dut__DOT__sector__32__lba = 0;
-    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d16__33__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__d16__33__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d16__34__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__d16__34__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d16__31__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__d16__31__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d16__32__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__d16__32__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d32__33__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__d32__33__Vfuncout = 0;
+    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__34__lba;
+    __Vtask_tb_bmp__DOT__dut__DOT__sector__34__lba = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d16__35__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__d16__35__Vfuncout = 0;
-    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__36__lba;
-    __Vtask_tb_bmp__DOT__dut__DOT__sector__36__lba = 0;
-    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__37__lba;
-    __Vtask_tb_bmp__DOT__dut__DOT__sector__37__lba = 0;
-    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__38__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le16__38__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__39__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le32__39__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d16__36__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__d16__36__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__d16__37__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__d16__37__Vfuncout = 0;
+    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__38__lba;
+    __Vtask_tb_bmp__DOT__dut__DOT__sector__38__lba = 0;
+    IData/*31:0*/ __Vtask_tb_bmp__DOT__dut__DOT__sector__39__lba;
+    __Vtask_tb_bmp__DOT__dut__DOT__sector__39__lba = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__40__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le16__40__Vfuncout = 0;
     IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__41__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le32__41__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__42__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le32__42__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__42__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le16__42__Vfuncout = 0;
     IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__43__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le32__43__Vfuncout = 0;
     IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__44__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le32__44__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__45__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le16__45__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__46__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le16__46__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__47__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le32__47__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__48__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le32__48__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__45__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le32__45__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__46__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le32__46__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__47__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le16__47__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__48__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le16__48__Vfuncout = 0;
     IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__49__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le32__49__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__50__Vfuncout;
-    __Vfunc_tb_bmp__DOT__dut__DOT__le16__50__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__50__Vfuncout;
+    __Vfunc_tb_bmp__DOT__dut__DOT__le32__50__Vfuncout = 0;
     IData/*31:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le32__51__Vfuncout;
     __Vfunc_tb_bmp__DOT__dut__DOT__le32__51__Vfuncout = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__dut__DOT__le16__52__Vfuncout;
@@ -378,6 +455,9 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
     __VdlyDim0__tb_bmp__DOT__dut__DOT__header__v0 = 0;
     CData/*0:0*/ __VdlySet__tb_bmp__DOT__dut__DOT__header__v0;
     __VdlySet__tb_bmp__DOT__dut__DOT__header__v0 = 0;
+    VlWide<3>/*95:0*/ __Vtemp_4;
+    VlWide<3>/*95:0*/ __Vtemp_5;
+    VlWide<3>/*95:0*/ __Vtemp_6;
     // Body
     __Vdly__tb_bmp__DOT__ack_delay = vlSelfRef.tb_bmp__DOT__ack_delay;
     __Vdly__tb_bmp__DOT__reading = vlSelfRef.tb_bmp__DOT__reading;
@@ -503,13 +583,13 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                     vlSelfRef.tb_bmp__DOT__error = 1U;
                     __Vdly__tb_bmp__DOT__dut__DOT__state = 0x3fU;
                 } else if (((0x200U == ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__4__Vfuncout 
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__6__Vfuncout 
                                         = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                             [0xcU] 
                                             << 8U) 
                                            | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                            [0xbU]);
-                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__4__Vfuncout))) 
+                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__6__Vfuncout))) 
                             & (0U != vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                [0xdU]))) {
                     __Vdly__tb_bmp__DOT__dut__DOT__volume_base = 0U;
@@ -520,9 +600,9 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                     __Vdly__tb_bmp__DOT__start = 1U;
                     __Vdly__tb_bmp__DOT__dut__DOT__after_read = 3U;
                     __Vdly__tb_bmp__DOT__dut__DOT__state = 1U;
-                    __Vtask_tb_bmp__DOT__dut__DOT__sector__5__lba 
+                    __Vtask_tb_bmp__DOT__dut__DOT__sector__7__lba 
                         = vlSelfRef.tb_bmp__DOT__dut__DOT__partition_start;
-                    __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__5__lba;
+                    __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__7__lba;
                 } else {
                     vlSelfRef.tb_bmp__DOT__error = 2U;
                     __Vdly__tb_bmp__DOT__dut__DOT__state = 0x3fU;
@@ -530,14 +610,14 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
             } else if ((3U == (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__state))) {
                 if (((((((0xaa55U != (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__signature)) 
                          | (0x200U != ([&]() {
-                                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__6__Vfuncout 
+                                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__8__Vfuncout 
                                                         = 
                                                         ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                           [0xcU] 
                                                           << 8U) 
                                                          | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                          [0xbU]);
-                                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__6__Vfuncout)))) 
+                                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__8__Vfuncout)))) 
                         | (0U == vlSelfRef.tb_bmp__DOT__dut__DOT__header
                            [0xdU])) | (0U != (vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                               [0xdU] 
@@ -545,13 +625,13 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  [0xdU] 
                                                  - (IData)(1U))))) 
                       | (0U == ([&]() {
-                                        __Vfunc_tb_bmp__DOT__dut__DOT__le16__7__Vfuncout 
+                                        __Vfunc_tb_bmp__DOT__dut__DOT__le16__9__Vfuncout 
                                             = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                 [0xfU] 
                                                 << 8U) 
                                                | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                [0xeU]);
-                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__7__Vfuncout)))) 
+                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__9__Vfuncout)))) 
                      | (0U == vlSelfRef.tb_bmp__DOT__dut__DOT__header
                         [0x10U]))) {
                     vlSelfRef.tb_bmp__DOT__error = 3U;
@@ -565,66 +645,66 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                     __Vdly__tb_bmp__DOT__dut__DOT__state = 5U;
                     __Vdly__tb_bmp__DOT__dut__DOT__fat16 
                         = (0U != ([&]() {
-                                __Vfunc_tb_bmp__DOT__dut__DOT__le16__8__Vfuncout 
+                                __Vfunc_tb_bmp__DOT__dut__DOT__le16__10__Vfuncout 
                                     = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                         [0x17U] << 8U) 
                                        | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                        [0x16U]);
-                            }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__8__Vfuncout)));
+                            }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__10__Vfuncout)));
                     __Vdly__tb_bmp__DOT__dut__DOT__fat_base 
                         = (vlSelfRef.tb_bmp__DOT__dut__DOT__volume_base 
                            + VL_EXTEND_II(32,16, ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__9__Vfuncout 
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__11__Vfuncout 
                                         = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                             [0xfU] 
                                             << 8U) 
                                            | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                            [0xeU]);
-                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__9__Vfuncout))));
+                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__11__Vfuncout))));
                     __Vdly__tb_bmp__DOT__dut__DOT__root_sectors 
                         = VL_SHIFTR_III(32,32,32, ((IData)(0xfU) 
                                                    + 
                                                    VL_EXTEND_II(32,16, 
                                                                 ([&]() {
-                                        __Vfunc_tb_bmp__DOT__dut__DOT__le16__10__Vfuncout 
+                                        __Vfunc_tb_bmp__DOT__dut__DOT__le16__12__Vfuncout 
                                             = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                 [0x12U] 
                                                 << 8U) 
                                                | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                [0x11U]);
-                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__10__Vfuncout)))), 4U);
+                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__12__Vfuncout)))), 4U);
                     __Vdly__tb_bmp__DOT__dut__DOT__root_base 
                         = ((vlSelfRef.tb_bmp__DOT__dut__DOT__volume_base 
                             + VL_EXTEND_II(32,16, ([&]() {
-                                        __Vfunc_tb_bmp__DOT__dut__DOT__le16__11__Vfuncout 
+                                        __Vfunc_tb_bmp__DOT__dut__DOT__le16__13__Vfuncout 
                                             = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                 [0xfU] 
                                                 << 8U) 
                                                | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                [0xeU]);
-                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__11__Vfuncout)))) 
+                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__13__Vfuncout)))) 
                            + (vlSelfRef.tb_bmp__DOT__dut__DOT__header
                               [0x10U] * ((0U != ([&]() {
-                                            __Vfunc_tb_bmp__DOT__dut__DOT__le16__12__Vfuncout 
+                                            __Vfunc_tb_bmp__DOT__dut__DOT__le16__14__Vfuncout 
                                                 = (
                                                    (vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                     [0x17U] 
                                                     << 8U) 
                                                    | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                    [0x16U]);
-                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__12__Vfuncout)))
+                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__14__Vfuncout)))
                                           ? VL_EXTEND_II(32,16, 
                                                          ([&]() {
-                                            __Vfunc_tb_bmp__DOT__dut__DOT__le16__13__Vfuncout 
+                                            __Vfunc_tb_bmp__DOT__dut__DOT__le16__15__Vfuncout 
                                                 = (
                                                    (vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                     [0x17U] 
                                                     << 8U) 
                                                    | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                    [0x16U]);
-                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__13__Vfuncout)))
+                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__15__Vfuncout)))
                                           : ([&]() {
-                                        __Vfunc_tb_bmp__DOT__dut__DOT__le32__14__Vfuncout 
+                                        __Vfunc_tb_bmp__DOT__dut__DOT__le32__16__Vfuncout 
                                             = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                  [0x27U] 
                                                  << 0x18U) 
@@ -636,41 +716,41 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                    << 8U) 
                                                   | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                   [0x24U]));
-                                    }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__14__Vfuncout))));
+                                    }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__16__Vfuncout))));
                     __Vdly__tb_bmp__DOT__dut__DOT__data_base 
                         = (((vlSelfRef.tb_bmp__DOT__dut__DOT__volume_base 
                              + VL_EXTEND_II(32,16, 
                                             ([&]() {
-                                            __Vfunc_tb_bmp__DOT__dut__DOT__le16__15__Vfuncout 
+                                            __Vfunc_tb_bmp__DOT__dut__DOT__le16__17__Vfuncout 
                                                 = (
                                                    (vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                     [0xfU] 
                                                     << 8U) 
                                                    | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                    [0xeU]);
-                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__15__Vfuncout)))) 
+                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__17__Vfuncout)))) 
                             + (vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                [0x10U] * ((0U != ([&]() {
-                                                __Vfunc_tb_bmp__DOT__dut__DOT__le16__16__Vfuncout 
+                                                __Vfunc_tb_bmp__DOT__dut__DOT__le16__18__Vfuncout 
                                                     = 
                                                     ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                       [0x17U] 
                                                       << 8U) 
                                                      | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                      [0x16U]);
-                                            }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__16__Vfuncout)))
+                                            }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__18__Vfuncout)))
                                            ? VL_EXTEND_II(32,16, 
                                                           ([&]() {
-                                                __Vfunc_tb_bmp__DOT__dut__DOT__le16__17__Vfuncout 
+                                                __Vfunc_tb_bmp__DOT__dut__DOT__le16__19__Vfuncout 
                                                     = 
                                                     ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                       [0x17U] 
                                                       << 8U) 
                                                      | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                      [0x16U]);
-                                            }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__17__Vfuncout)))
+                                            }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__19__Vfuncout)))
                                            : ([&]() {
-                                            __Vfunc_tb_bmp__DOT__dut__DOT__le32__18__Vfuncout 
+                                            __Vfunc_tb_bmp__DOT__dut__DOT__le32__20__Vfuncout 
                                                 = (
                                                    ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                      [0x27U] 
@@ -683,30 +763,30 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                        << 8U) 
                                                       | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                       [0x24U]));
-                                        }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__18__Vfuncout)))) 
+                                        }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__20__Vfuncout)))) 
                            + VL_SHIFTR_III(32,32,32, 
                                            ((IData)(0xfU) 
                                             + VL_EXTEND_II(32,16, 
                                                            ([&]() {
-                                            __Vfunc_tb_bmp__DOT__dut__DOT__le16__19__Vfuncout 
+                                            __Vfunc_tb_bmp__DOT__dut__DOT__le16__21__Vfuncout 
                                                 = (
                                                    (vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                     [0x12U] 
                                                     << 8U) 
                                                    | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                    [0x11U]);
-                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__19__Vfuncout)))), 4U));
+                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__21__Vfuncout)))), 4U));
                     __Vdly__tb_bmp__DOT__dut__DOT__cluster 
                         = ((0U != ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__20__Vfuncout 
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__22__Vfuncout 
                                         = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                             [0x17U] 
                                             << 8U) 
                                            | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                            [0x16U]);
-                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__20__Vfuncout)))
+                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__22__Vfuncout)))
                             ? 0U : (0xfffffffU & ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__le32__21__Vfuncout 
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__le32__23__Vfuncout 
                                         = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                              [0x2fU] 
                                              << 0x18U) 
@@ -718,15 +798,15 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                << 8U) 
                                               | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                               [0x2cU]));
-                                }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__21__Vfuncout)));
+                                }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__23__Vfuncout)));
                     __Vdly__tb_bmp__DOT__dut__DOT__dir_is_fixed 
                         = (0U != ([&]() {
-                                __Vfunc_tb_bmp__DOT__dut__DOT__le16__22__Vfuncout 
+                                __Vfunc_tb_bmp__DOT__dut__DOT__le16__24__Vfuncout 
                                     = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                         [0x17U] << 8U) 
                                        | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                        [0x16U]);
-                            }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__22__Vfuncout)));
+                            }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__24__Vfuncout)));
                 }
             } else if ((5U == (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__state))) {
                 __Vdly__tb_bmp__DOT__dut__DOT__directory_sectors 
@@ -742,10 +822,10 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                         vlSelfRef.tb_bmp__DOT__error = 5U;
                         __Vdly__tb_bmp__DOT__dut__DOT__state = 0x3fU;
                     } else {
-                        __Vtask_tb_bmp__DOT__dut__DOT__sector__23__lba 
+                        __Vtask_tb_bmp__DOT__dut__DOT__sector__25__lba 
                             = (vlSelfRef.tb_bmp__DOT__dut__DOT__root_base 
                                + vlSelfRef.tb_bmp__DOT__dut__DOT__fixed_root_index);
-                        __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__23__lba;
+                        __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__25__lba;
                         __Vdly__tb_bmp__DOT__start = 1U;
                         __Vdly__tb_bmp__DOT__dut__DOT__after_read = 0xdU;
                         __Vdly__tb_bmp__DOT__dut__DOT__state = 1U;
@@ -754,12 +834,12 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                     vlSelfRef.tb_bmp__DOT__error = 6U;
                     __Vdly__tb_bmp__DOT__dut__DOT__state = 0x3fU;
                 } else {
-                    __Vtask_tb_bmp__DOT__dut__DOT__sector__24__lba 
+                    __Vtask_tb_bmp__DOT__dut__DOT__sector__26__lba 
                         = ((vlSelfRef.tb_bmp__DOT__dut__DOT__data_base 
                             + ((vlSelfRef.tb_bmp__DOT__dut__DOT__cluster 
                                 - (IData)(2U)) * (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__spc))) 
                            + (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__cluster_sector));
-                    __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__24__lba;
+                    __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__26__lba;
                     __Vdly__tb_bmp__DOT__start = 1U;
                     __Vdly__tb_bmp__DOT__dut__DOT__after_read = 0xdU;
                     __Vdly__tb_bmp__DOT__dut__DOT__state = 1U;
@@ -789,84 +869,84 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                & (0xfU != vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                   [0xbU])) & (0x42U 
                                               == ([&]() {
-                                            __Vfunc_tb_bmp__DOT__dut__DOT__upper__25__c 
+                                            __Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c 
                                                 = vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                 [8U];
-                                            __Vfunc_tb_bmp__DOT__dut__DOT__upper__25__Vfuncout 
+                                            __Vfunc_tb_bmp__DOT__dut__DOT__upper__27__Vfuncout 
                                                 = (0xffU 
                                                    & (((0x61U 
-                                                        <= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__25__c)) 
+                                                        <= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c)) 
                                                        & (0x7aU 
-                                                          >= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__25__c)))
+                                                          >= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c)))
                                                        ? 
-                                                      ((IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__25__c) 
+                                                      ((IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c) 
                                                        - (IData)(0x20U))
-                                                       : (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__25__c)));
-                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__25__Vfuncout)))) 
+                                                       : (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c)));
+                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__27__Vfuncout)))) 
                              & (0x4dU == ([&]() {
-                                        __Vfunc_tb_bmp__DOT__dut__DOT__upper__26__c 
+                                        __Vfunc_tb_bmp__DOT__dut__DOT__upper__28__c 
                                             = vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                             [9U];
-                                        __Vfunc_tb_bmp__DOT__dut__DOT__upper__26__Vfuncout 
+                                        __Vfunc_tb_bmp__DOT__dut__DOT__upper__28__Vfuncout 
                                             = (0xffU 
                                                & (((0x61U 
-                                                    <= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__26__c)) 
+                                                    <= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__28__c)) 
                                                    & (0x7aU 
-                                                      >= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__26__c)))
+                                                      >= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__28__c)))
                                                    ? 
-                                                  ((IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__26__c) 
+                                                  ((IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__28__c) 
                                                    - (IData)(0x20U))
-                                                   : (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__26__c)));
-                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__26__Vfuncout)))) 
+                                                   : (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__28__c)));
+                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__28__Vfuncout)))) 
                             & (0x50U == ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c 
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__upper__29__c 
                                         = vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                         [0xaU];
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__upper__27__Vfuncout 
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__upper__29__Vfuncout 
                                         = (0xffU & 
                                            (((0x61U 
-                                              <= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c)) 
+                                              <= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__29__c)) 
                                              & (0x7aU 
-                                                >= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c)))
-                                             ? ((IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c) 
+                                                >= (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__29__c)))
+                                             ? ((IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__29__c) 
                                                 - (IData)(0x20U))
-                                             : (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__27__c)));
-                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__27__Vfuncout))))) {
+                                             : (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__29__c)));
+                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__upper__29__Vfuncout))))) {
                     __Vdly__tb_bmp__DOT__dut__DOT__cluster 
                         = ((IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__fat16)
                             ? VL_EXTEND_II(32,16, ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__d16__28__Vfuncout 
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__d16__30__Vfuncout 
                                         = ((vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                             [0x1bU] 
                                             << 8U) 
                                            | vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                            [0x1aU]);
-                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__28__Vfuncout)))
+                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__30__Vfuncout)))
                             : (VL_EXTEND_II(32,16, 
                                             ([&]() {
-                                        __Vfunc_tb_bmp__DOT__dut__DOT__d16__29__Vfuncout 
+                                        __Vfunc_tb_bmp__DOT__dut__DOT__d16__31__Vfuncout 
                                             = ((vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                 [0x1bU] 
                                                 << 8U) 
                                                | vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                [0x1aU]);
-                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__29__Vfuncout))) 
+                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__31__Vfuncout))) 
                                | VL_SHIFTL_III(32,32,32, 
                                                VL_EXTEND_II(32,16, 
                                                             ([&]() {
-                                            __Vfunc_tb_bmp__DOT__dut__DOT__d16__30__Vfuncout 
+                                            __Vfunc_tb_bmp__DOT__dut__DOT__d16__32__Vfuncout 
                                                 = (
                                                    (vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                     [0x15U] 
                                                     << 8U) 
                                                    | vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                    [0x14U]);
-                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__30__Vfuncout))), 0x10U)));
+                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__32__Vfuncout))), 0x10U)));
                     __Vdly__tb_bmp__DOT__dut__DOT__cluster_sector = 0U;
                     __Vdly__tb_bmp__DOT__start = 1U;
                     __Vdly__tb_bmp__DOT__dut__DOT__after_read = 7U;
                     __Vdly__tb_bmp__DOT__dut__DOT__state = 1U;
-                    __Vfunc_tb_bmp__DOT__dut__DOT__d32__31__Vfuncout 
+                    __Vfunc_tb_bmp__DOT__dut__DOT__d32__33__Vfuncout 
                         = (((vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                              [0x1fU] << 0x18U) | (vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                   [0x1eU] 
@@ -875,7 +955,7 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                [0x1dU] << 8U) | vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                               [0x1cU]));
                     __Vdly__tb_bmp__DOT__dut__DOT__file_size 
-                        = __Vfunc_tb_bmp__DOT__dut__DOT__d32__31__Vfuncout;
+                        = __Vfunc_tb_bmp__DOT__dut__DOT__d32__33__Vfuncout;
                     tb_bmp__DOT__name = ((0xffffffffff000000ULL 
                                           & tb_bmp__DOT__name) 
                                          | (IData)((IData)(
@@ -908,42 +988,42 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                              | vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                              [6U]))) 
                                             << 0x30U));
-                    __Vtask_tb_bmp__DOT__dut__DOT__sector__32__lba 
+                    __Vtask_tb_bmp__DOT__dut__DOT__sector__34__lba 
                         = (vlSelfRef.tb_bmp__DOT__dut__DOT__data_base 
                            + ((((IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__fat16)
                                  ? VL_EXTEND_II(32,16, 
                                                 ([&]() {
-                                                __Vfunc_tb_bmp__DOT__dut__DOT__d16__33__Vfuncout 
+                                                __Vfunc_tb_bmp__DOT__dut__DOT__d16__35__Vfuncout 
                                                     = 
                                                     ((vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                       [0x1bU] 
                                                       << 8U) 
                                                      | vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                      [0x1aU]);
-                                            }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__33__Vfuncout)))
+                                            }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__35__Vfuncout)))
                                  : (VL_EXTEND_II(32,16, 
                                                  ([&]() {
-                                                    __Vfunc_tb_bmp__DOT__dut__DOT__d16__34__Vfuncout 
+                                                    __Vfunc_tb_bmp__DOT__dut__DOT__d16__36__Vfuncout 
                                                         = 
                                                         ((vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                           [0x1bU] 
                                                           << 8U) 
                                                          | vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                          [0x1aU]);
-                                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__34__Vfuncout))) 
+                                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__36__Vfuncout))) 
                                     | VL_SHIFTL_III(32,32,32, 
                                                     VL_EXTEND_II(32,16, 
                                                                  ([&]() {
-                                                        __Vfunc_tb_bmp__DOT__dut__DOT__d16__35__Vfuncout 
+                                                        __Vfunc_tb_bmp__DOT__dut__DOT__d16__37__Vfuncout 
                                                             = 
                                                             ((vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                               [0x15U] 
                                                               << 8U) 
                                                              | vlSelfRef.tb_bmp__DOT__dut__DOT__entry
                                                              [0x14U]);
-                                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__35__Vfuncout))), 0x10U))) 
+                                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__d16__37__Vfuncout))), 0x10U))) 
                                - (IData)(2U)) * (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__spc)));
-                    __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__32__lba;
+                    __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__34__lba;
                 } else if ((0x1e0U == (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__dir_pos))) {
                     if (vlSelfRef.tb_bmp__DOT__dut__DOT__dir_is_fixed) {
                         __Vdly__tb_bmp__DOT__dut__DOT__fixed_root_index 
@@ -956,13 +1036,13 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                         + (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__cluster_sector)));
                         __Vdly__tb_bmp__DOT__dut__DOT__state = 5U;
                     } else {
-                        __Vtask_tb_bmp__DOT__dut__DOT__sector__36__lba 
+                        __Vtask_tb_bmp__DOT__dut__DOT__sector__38__lba 
                             = (vlSelfRef.tb_bmp__DOT__dut__DOT__fat_base 
                                + ((IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__fat16)
                                    ? VL_SHIFTR_III(32,32,32, vlSelfRef.tb_bmp__DOT__dut__DOT__cluster, 8U)
                                    : VL_SHIFTR_III(32,32,32, vlSelfRef.tb_bmp__DOT__dut__DOT__cluster, 7U)));
                         __Vdly__tb_bmp__DOT__dut__DOT__fat_for_file = 0U;
-                        __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__36__lba;
+                        __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__38__lba;
                         __Vdly__tb_bmp__DOT__start = 1U;
                         __Vdly__tb_bmp__DOT__dut__DOT__after_read = 6U;
                         __Vdly__tb_bmp__DOT__dut__DOT__state = 1U;
@@ -987,11 +1067,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                     = vlSelfRef.tb_bmp__DOT__dut__DOT__fat_entry;
                 __Vdly__tb_bmp__DOT__dut__DOT__cluster_sector = 0U;
                 if (vlSelfRef.tb_bmp__DOT__dut__DOT__fat_for_file) {
-                    __Vtask_tb_bmp__DOT__dut__DOT__sector__37__lba 
+                    __Vtask_tb_bmp__DOT__dut__DOT__sector__39__lba 
                         = (vlSelfRef.tb_bmp__DOT__dut__DOT__data_base 
                            + ((vlSelfRef.tb_bmp__DOT__dut__DOT__fat_entry 
                                - (IData)(2U)) * (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__spc)));
-                    __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__37__lba;
+                    __Vdly__tb_bmp__DOT__lba = __Vtask_tb_bmp__DOT__dut__DOT__sector__39__lba;
                     __Vdly__tb_bmp__DOT__start = 1U;
                     __Vdly__tb_bmp__DOT__dut__DOT__after_read = 8U;
                     __Vdly__tb_bmp__DOT__dut__DOT__state = 1U;
@@ -1001,15 +1081,15 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
             }
         } else if ((7U == (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__state))) {
             if (((((0x4d42U != ([&]() {
-                                        __Vfunc_tb_bmp__DOT__dut__DOT__le16__38__Vfuncout 
+                                        __Vfunc_tb_bmp__DOT__dut__DOT__le16__40__Vfuncout 
                                             = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                 [1U] 
                                                 << 8U) 
                                                | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                [0U]);
-                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__38__Vfuncout))) 
+                                    }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__40__Vfuncout))) 
                    | (0x28U > ([&]() {
-                                        __Vfunc_tb_bmp__DOT__dut__DOT__le32__39__Vfuncout 
+                                        __Vfunc_tb_bmp__DOT__dut__DOT__le32__41__Vfuncout 
                                             = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                  [0x11U] 
                                                  << 0x18U) 
@@ -1021,17 +1101,17 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                    << 8U) 
                                                   | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                   [0xeU]));
-                                    }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__39__Vfuncout))) 
+                                    }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__41__Vfuncout))) 
                   | (1U != ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__40__Vfuncout 
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__42__Vfuncout 
                                         = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                             [0x1bU] 
                                             << 8U) 
                                            | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                            [0x1aU]);
-                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__40__Vfuncout)))) 
+                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__42__Vfuncout)))) 
                  | (0U != ([&]() {
-                                __Vfunc_tb_bmp__DOT__dut__DOT__le32__41__Vfuncout 
+                                __Vfunc_tb_bmp__DOT__dut__DOT__le32__43__Vfuncout 
                                     = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                          [0x21U] << 0x18U) 
                                         | (vlSelfRef.tb_bmp__DOT__dut__DOT__header
@@ -1042,11 +1122,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                            << 8U) | 
                                           vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                           [0x1eU]));
-                            }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__41__Vfuncout)))) {
+                            }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__43__Vfuncout)))) {
                 vlSelfRef.tb_bmp__DOT__error = 8U;
                 __Vdly__tb_bmp__DOT__dut__DOT__state = 0x3fU;
             } else if ((((0x280U != ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__le32__42__Vfuncout 
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__le32__44__Vfuncout 
                                         = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                              [0x15U] 
                                              << 0x18U) 
@@ -1058,9 +1138,9 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                << 8U) 
                                               | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                               [0x12U]));
-                                }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__42__Vfuncout)) 
+                                }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__44__Vfuncout)) 
                          | ((0x1e0U != ([&]() {
-                                        __Vfunc_tb_bmp__DOT__dut__DOT__le32__43__Vfuncout 
+                                        __Vfunc_tb_bmp__DOT__dut__DOT__le32__45__Vfuncout 
                                             = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                  [0x19U] 
                                                  << 0x18U) 
@@ -1072,9 +1152,9 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                    << 8U) 
                                                   | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                   [0x16U]));
-                                    }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__43__Vfuncout)) 
+                                    }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__45__Vfuncout)) 
                             & (0xfffffe20U != ([&]() {
-                                        __Vfunc_tb_bmp__DOT__dut__DOT__le32__44__Vfuncout 
+                                        __Vfunc_tb_bmp__DOT__dut__DOT__le32__46__Vfuncout 
                                             = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                  [0x19U] 
                                                  << 0x18U) 
@@ -1086,55 +1166,26 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                    << 8U) 
                                                   | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                                   [0x16U]));
-                                    }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__44__Vfuncout)))) 
+                                    }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__46__Vfuncout)))) 
                         | ((0x18U != ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__45__Vfuncout 
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__47__Vfuncout 
                                         = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                             [0x1dU] 
                                             << 8U) 
                                            | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                            [0x1cU]);
-                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__45__Vfuncout))) 
+                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__47__Vfuncout))) 
                            & (0x20U != ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__46__Vfuncout 
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__le16__48__Vfuncout 
                                         = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                             [0x1dU] 
                                             << 8U) 
                                            | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                            [0x1cU]);
-                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__46__Vfuncout)))))) {
+                                }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__48__Vfuncout)))))) {
                 vlSelfRef.tb_bmp__DOT__error = 9U;
                 __Vdly__tb_bmp__DOT__dut__DOT__state = 0x3fU;
             } else if ((((0x36U > ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__le32__47__Vfuncout 
-                                        = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
-                                             [0xdU] 
-                                             << 0x18U) 
-                                            | (vlSelfRef.tb_bmp__DOT__dut__DOT__header
-                                               [0xcU] 
-                                               << 0x10U)) 
-                                           | ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
-                                               [0xbU] 
-                                               << 8U) 
-                                              | vlSelfRef.tb_bmp__DOT__dut__DOT__header
-                                              [0xaU]));
-                                }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__47__Vfuncout)) 
-                         | (0x100000U < ([&]() {
-                                    __Vfunc_tb_bmp__DOT__dut__DOT__le32__48__Vfuncout 
-                                        = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
-                                             [0xdU] 
-                                             << 0x18U) 
-                                            | (vlSelfRef.tb_bmp__DOT__dut__DOT__header
-                                               [0xcU] 
-                                               << 0x10U)) 
-                                           | ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
-                                               [0xbU] 
-                                               << 8U) 
-                                              | vlSelfRef.tb_bmp__DOT__dut__DOT__header
-                                              [0xaU]));
-                                }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__48__Vfuncout))) 
-                        | (vlSelfRef.tb_bmp__DOT__dut__DOT__file_size 
-                           < (([&]() {
                                     __Vfunc_tb_bmp__DOT__dut__DOT__le32__49__Vfuncout 
                                         = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                              [0xdU] 
@@ -1147,17 +1198,23 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                << 8U) 
                                               | vlSelfRef.tb_bmp__DOT__dut__DOT__header
                                               [0xaU]));
-                                }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__49__Vfuncout) 
-                              + ((0x18U == ([&]() {
-                                            __Vfunc_tb_bmp__DOT__dut__DOT__le16__50__Vfuncout 
-                                                = (
-                                                   (vlSelfRef.tb_bmp__DOT__dut__DOT__header
-                                                    [0x1dU] 
-                                                    << 8U) 
-                                                   | vlSelfRef.tb_bmp__DOT__dut__DOT__header
-                                                   [0x1cU]);
-                                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__50__Vfuncout)))
-                                  ? 0xe1000U : 0x12c000U))))) {
+                                }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__49__Vfuncout)) 
+                         | (0x100000U < ([&]() {
+                                    __Vfunc_tb_bmp__DOT__dut__DOT__le32__50__Vfuncout 
+                                        = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
+                                             [0xdU] 
+                                             << 0x18U) 
+                                            | (vlSelfRef.tb_bmp__DOT__dut__DOT__header
+                                               [0xcU] 
+                                               << 0x10U)) 
+                                           | ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
+                                               [0xbU] 
+                                               << 8U) 
+                                              | vlSelfRef.tb_bmp__DOT__dut__DOT__header
+                                              [0xaU]));
+                                }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__50__Vfuncout))) 
+                        | (vlSelfRef.tb_bmp__DOT__dut__DOT__file_size 
+                           < vlSelfRef.tb_bmp__DOT__dut__DOT__required_file_end))) {
                 vlSelfRef.tb_bmp__DOT__error = 0xaU;
                 __Vdly__tb_bmp__DOT__dut__DOT__state = 0x3fU;
             } else {
@@ -1397,10 +1454,6 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
         vlSelfRef.tb_bmp__DOT__dut__DOT__entry[__VdlyDim0__tb_bmp__DOT__dut__DOT__entry__v0] 
             = __VdlyVal__tb_bmp__DOT__dut__DOT__entry__v0;
     }
-    if (__VdlySet__tb_bmp__DOT__dut__DOT__header__v0) {
-        vlSelfRef.tb_bmp__DOT__dut__DOT__header[__VdlyDim0__tb_bmp__DOT__dut__DOT__header__v0] 
-            = __VdlyVal__tb_bmp__DOT__dut__DOT__header__v0;
-    }
     vlSelfRef.tb_bmp__DOT__dut__DOT__cluster = __Vdly__tb_bmp__DOT__dut__DOT__cluster;
     vlSelfRef.tb_bmp__DOT__dut__DOT__burst_x = __Vdly__tb_bmp__DOT__dut__DOT__burst_x;
     vlSelfRef.tb_bmp__DOT__dut__DOT__fat16 = __Vdly__tb_bmp__DOT__dut__DOT__fat16;
@@ -1429,6 +1482,26 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
         = (0x1ffU & ((IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__top_down)
                       ? (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__source_y)
                       : ((IData)(0x1dfU) - (IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__source_y))));
+    vlSelfRef.tb_bmp__DOT__dut__DOT__required_file_end 
+        = ((IData)(vlSelfRef.tb_bmp__DOT__reset) ? 0U
+            : (([&]() {
+                    __Vfunc_tb_bmp__DOT__dut__DOT__le32__3__Vfuncout 
+                        = (((vlSelfRef.tb_bmp__DOT__dut__DOT__header
+                             [0xdU] << 0x18U) | (vlSelfRef.tb_bmp__DOT__dut__DOT__header
+                                                 [0xcU] 
+                                                 << 0x10U)) 
+                           | ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
+                               [0xbU] << 8U) | vlSelfRef.tb_bmp__DOT__dut__DOT__header
+                              [0xaU]));
+                }(), __Vfunc_tb_bmp__DOT__dut__DOT__le32__3__Vfuncout) 
+               + ((0x18U == ([&]() {
+                            __Vfunc_tb_bmp__DOT__dut__DOT__le16__4__Vfuncout 
+                                = ((vlSelfRef.tb_bmp__DOT__dut__DOT__header
+                                    [0x1dU] << 8U) 
+                                   | vlSelfRef.tb_bmp__DOT__dut__DOT__header
+                                   [0x1cU]);
+                        }(), (IData)(__Vfunc_tb_bmp__DOT__dut__DOT__le16__4__Vfuncout)))
+                   ? 0xe1000U : 0x12c000U)));
     vlSelfRef.tb_bmp__DOT__sd_done = 0U;
     vlSelfRef.tb_bmp__DOT__ack = 0U;
     vlSelfRef.tb_bmp__DOT__bvalid = 0U;
@@ -1492,11 +1565,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=0 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:79: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=0 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[0U]);
-            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 79, "", false);
         }
         vlSelfRef.tb_bmp__DOT__bursts = ((IData)(1U) 
                                          + vlSelfRef.tb_bmp__DOT__bursts);
@@ -1560,11 +1633,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=1 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:79: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=1 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[1U]);
-            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 79, "", false);
         }
         __Vdly__tb_bmp__DOT__ack_delay = 7U;
         vlSelfRef.tb_bmp__DOT__load_ready = 0U;
@@ -1628,11 +1701,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=2 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:79: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=2 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[2U]);
-            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 79, "", false);
         }
         if (VL_UNLIKELY(((vlSelfRef.tb_bmp__DOT__data[3U] 
                           != ((([&]() {
@@ -1694,11 +1767,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=3 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:79: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=3 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[3U]);
-            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 79, "", false);
         }
         if (VL_UNLIKELY(((vlSelfRef.tb_bmp__DOT__data[4U] 
                           != ((([&]() {
@@ -1760,11 +1833,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=4 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:79: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=4 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[4U]);
-            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 79, "", false);
         }
         if (VL_UNLIKELY(((vlSelfRef.tb_bmp__DOT__data[5U] 
                           != ((([&]() {
@@ -1826,11 +1899,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=5 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:79: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=5 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[5U]);
-            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 79, "", false);
         }
         if (VL_UNLIKELY(((vlSelfRef.tb_bmp__DOT__data[6U] 
                           != ((([&]() {
@@ -1892,11 +1965,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=6 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:79: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=6 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[6U]);
-            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 79, "", false);
         }
         if (VL_UNLIKELY(((vlSelfRef.tb_bmp__DOT__data[7U] 
                           != ((([&]() {
@@ -1958,11 +2031,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=7 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:79: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=7 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[7U]);
-            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 79, "", false);
         }
     }
     if (((IData)(vlSelfRef.tb_bmp__DOT__start) & (IData)(vlSelfRef.tb_bmp__DOT__sd_ready))) {
@@ -2070,6 +2143,17 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                         __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0U;
                     }
                 }
+                if ((VL_TESTPLUSARGS_I(std::string{"bpb"}) 
+                     && (0xdU == __Vfunc_tb_bmp__DOT__disk__0__i))) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 3U;
+                }
+                __Vtemp_4[0U] = 0x74757265U;
+                __Vtemp_4[1U] = 0x69676e61U;
+                __Vtemp_4[2U] = 0x73U;
+                if ((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_4)) 
+                     && (0x1ffU == __Vfunc_tb_bmp__DOT__disk__0__i))) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0U;
+                }
             } else if ((VL_LTES_III(32, 1U, __Vfunc_tb_bmp__DOT__disk__0__l) 
                         & VL_LTES_III(32, __Vfunc_tb_bmp__DOT__disk__0__l, __Vfunc_tb_bmp__DOT__disk__0__fat_end))) {
                 __Vfunc_tb_bmp__DOT__disk__0__entry 
@@ -2135,6 +2219,22 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                     __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x20U;
                 } else if ((0x3aU == __Vfunc_tb_bmp__DOT__disk__0__i)) {
                     __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 3U;
+                }
+                if ((VL_TESTPLUSARGS_I(std::string{"nobmp"}) 
+                     && (0x28U == __Vfunc_tb_bmp__DOT__disk__0__i))) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x4aU;
+                }
+                __Vtemp_5[0U] = 0x66696c65U;
+                __Vtemp_5[1U] = 0x686f7274U;
+                __Vtemp_5[2U] = 0x73U;
+                if (((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_5)) 
+                      && VL_LTES_III(32, 0x3cU, __Vfunc_tb_bmp__DOT__disk__0__i)) 
+                     & VL_GTES_III(32, 0x3fU, __Vfunc_tb_bmp__DOT__disk__0__i))) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                        = (0xffU & VL_SHIFTR_III(8,32,32, 0x64U, 
+                                                 VL_MULS_III(32, (IData)(8U), 
+                                                             (__Vfunc_tb_bmp__DOT__disk__0__i 
+                                                              - (IData)(0x3cU)))));
                 }
             } else if (VL_GTES_III(32, __Vfunc_tb_bmp__DOT__disk__0__l, __Vfunc_tb_bmp__DOT__disk__0__file_lba)) {
                 __Vfunc_tb_bmp__DOT__disk__0__c = VL_DIVS_III(32, 
@@ -2220,6 +2320,26 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                              && (0x1eU == __Vfunc_tb_bmp__DOT__disk__0__ofs))) {
                             __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 1U;
                         }
+                        __Vtemp_6[0U] = 0x696f6e73U;
+                        __Vtemp_6[1U] = 0x6d656e73U;
+                        __Vtemp_6[2U] = 0x6469U;
+                        if ((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_6)) 
+                             && (0x12U == __Vfunc_tb_bmp__DOT__disk__0__ofs))) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0U;
+                        }
+                        if (((VL_TESTPLUSARGS_I(std::string{"offset"}) 
+                              && VL_LTES_III(32, 0xaU, __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
+                             & VL_GTES_III(32, 0xdU, __Vfunc_tb_bmp__DOT__disk__0__ofs))) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                                = (0xffU & VL_SHIFTR_III(8,32,32, 0xffffffffU, 
+                                                         VL_MULS_III(32, (IData)(8U), 
+                                                                     (__Vfunc_tb_bmp__DOT__disk__0__ofs 
+                                                                      - (IData)(0xaU)))));
+                        }
+                        if ((VL_TESTPLUSARGS_I(std::string{"bmpmagic"}) 
+                             && (0U == __Vfunc_tb_bmp__DOT__disk__0__ofs))) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0U;
+                        }
                     } else {
                         __Vfunc_tb_bmp__DOT__disk__0__pix 
                             = VL_DIVS_III(32, (__Vfunc_tb_bmp__DOT__disk__0__ofs 
@@ -2280,6 +2400,10 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                      + (VL_SHIFTL_III(18,18,32, tb_bmp__DOT__dut__DOT____VdfgRegularize_h5b62b4c5_1_0, 6U) 
                         + ((IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__burst_x) 
                            << 3U))));
+    if (__VdlySet__tb_bmp__DOT__dut__DOT__header__v0) {
+        vlSelfRef.tb_bmp__DOT__dut__DOT__header[__VdlyDim0__tb_bmp__DOT__dut__DOT__header__v0] 
+            = __VdlyVal__tb_bmp__DOT__dut__DOT__header__v0;
+    }
     vlSelfRef.tb_bmp__DOT__data[0U] = __Vdly__tb_bmp__DOT__data[0U];
     vlSelfRef.tb_bmp__DOT__data[1U] = __Vdly__tb_bmp__DOT__data[1U];
     vlSelfRef.tb_bmp__DOT__data[2U] = __Vdly__tb_bmp__DOT__data[2U];

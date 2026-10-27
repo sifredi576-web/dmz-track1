@@ -41,7 +41,7 @@ VL_INLINE_OPT VlCoroutine Vtb_p2___024root___eval_initial__TOP__Vtiming__0(Vtb_p
     if (VL_UNLIKELY(((! VL_TESTPLUSARGS_I(std::string{"fault"}))))) {
         if (VL_UNLIKELY(((1U & ((~ ((5U == (IData)(vlSelfRef.tb_p2__DOT__bist__DOT__state)) 
                                     & (0U == vlSelfRef.tb_p2__DOT__errors))) 
-                                | (0x800000U != vlSelfRef.tb_p2__DOT__checked)))))) {
+                                | (0x4000U != vlSelfRef.tb_p2__DOT__checked)))))) {
             VL_WRITEF_NX("[%0t] %%Fatal: tb_p2.sv:53: Assertion failed in %Ntb_p2: BIST errors=%0# count=%0# first=%0# expected=%x actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),32,vlSelfRef.tb_p2__DOT__errors,
@@ -903,7 +903,7 @@ VL_INLINE_OPT void Vtb_p2___024root___nba_sequent__TOP__2(Vtb_p2___024root* vlSe
                     = vlSelfRef.tb_p2__DOT__rd[7U];
                 __Vdly__tb_p2__DOT__bist__DOT__beat = 0U;
                 __Vdly__tb_p2__DOT__bist__DOT__state = 3U;
-            } else if ((0x1ffff8U == vlSelfRef.tb_p2__DOT__bist__DOT__address)) {
+            } else if ((0xff8U == vlSelfRef.tb_p2__DOT__bist__DOT__address)) {
                 __Vdly__tb_p2__DOT__bist__DOT__address = 0U;
                 __Vdly__tb_p2__DOT__bist__DOT__hold_count = 0x1387U;
                 __Vdly__tb_p2__DOT__bist__DOT__state = 4U;
@@ -929,7 +929,7 @@ VL_INLINE_OPT void Vtb_p2___024root___nba_sequent__TOP__2(Vtb_p2___024root* vlSe
             }
         }
         if ((7U == (IData)(vlSelfRef.tb_p2__DOT__bist__DOT__beat))) {
-            if ((0x1ffff8U == vlSelfRef.tb_p2__DOT__bist__DOT__address)) {
+            if ((0xff8U == vlSelfRef.tb_p2__DOT__bist__DOT__address)) {
                 if ((3U == (IData)(vlSelfRef.tb_p2__DOT__bist__DOT__pattern))) {
                     __Vdly__tb_p2__DOT__bist__DOT__state = 5U;
                 } else {

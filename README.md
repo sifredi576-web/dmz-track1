@@ -2,14 +2,20 @@
 
 日期：2026-10-25。目标硬件：DMZ_EG4S20 / EG4S20BG256。按用户要求只处理技术实现。
 
-## 当前使用入口：TF 卡 BMP 图片显示
+**后续AI请先读：[交接README](README_AI_HANDOFF.md)。最新功能：[图片切换与轮播](docs/GALLERY_STATUS.md)。**
+
+## 当前使用入口：统一工程（默认静音）
 2026-10-27：P2 SDRAM 全容量自检与双缓冲链路通过；从 TF 卡读取的图片已经显示，用户确认图片正常、方向正确。
 
-- 当前运行工程：`build_p3/dmz_p3.al`；位流：`build_p3/dmz_p3_Runs/phy_1/dmz_p3.bit`。
+- 当前统一工程：`build_system/dmz_track1.al`，顶层：`rtl/system/dmz_track1_top.sv`；默认静音，用户已确认统一工程图片正常、方向正确。
+- 唯一操作入口：`scripts/project.ps1`；`-Action Build/Test/Download/Status/Mute/Tone/Reload/Smoke/Soak`。命令、验证范围和诊断协议见 [基础验收](docs/BASELINE_ACCEPTANCE.md)。
+- 静音/恢复与三次软件重新加载已通过实板；加入SD读CRC16验证和跨时钟一致诊断。P0～P3及audio_test历史工程保留作回退。
 - 说明与验证：[TF 卡 BMP 首图显示](docs/P3_BMP_preview.md)、[P2 SDRAM](docs/P2_status.md)。
-- 支持首张根目录 BMP：640×480、24/32位未压缩、FAT16/FAT32；当前静态显示，其他 P3 功能逐步推进。
-- SW0 高运行，低复位；当前 CH340 为 COM8。图片加载在 FPGA 内完成。
-- 声音按用户指示暂时跳过，P1 音频实测仍为待验收。
+- 当前已支持根目录最多32张BMP的索引、上一张/下一张、自动轮播与暂停，保持640×480、24/32位未压缩、FAT16/FAT32；用户已确认不同图片切换正常。
+- `project.ps1 -Action Next/Previous/Pause/Auto`控制图片；当前自动轮播、音频静音。实卡4图循环与命令验证通过，新位流建立+0.988ns/保持+0.032ns。
+- SW0 高运行，低复位；当前 CH340 为 COM3（早先曾为 COM8）。图片加载在 FPGA 内完成。
+- 2026-10-27 用户确认扩展屏内置喇叭能听到测试音；此前基线通过在线静音/恢复及30分钟自动状态监测。当前图库位流使用本轮针对性验证（4图循环、手动控制、错误/欠载0），默认静音；未重复长测。WAV解析器已完成21项离线测试，TF卡WAV播放尚未接入。
+- 后续开发按 [项目路线](docs/PROJECT_ROADMAP.md) 推进：文件服务/轮播→WAV→字幕/OSD→转场→缩放→音频可视化/应急模式。
 - 仅 SRAM 下载，掉电后需重新下载。P0/P1/P2 工程分别保留。
 
 以下为保留的 P0 记录。

@@ -1,7 +1,23 @@
-# TD generated projects, results, logs, and simulation output
+# OS-generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+desktop.ini
+
+# Editor backup / swap files
+*.swp
+*~
+
+# TD tool run logs — regenerated on every build. Real results live in *_Runs/*/
+# (final_timing.rpt, place.qor, route.qor, *.timing, *.area, *.bit) and are tracked.
 td_*.log
 td_*.logw
-*.vcd
-*.wlf
+
+# Backup / temp files
 *.tmp
 *.bak
+
+# Large regenerable simulation waveform dumps (recreated by the simulator on demand,
+# not part of the source tree or the build environment)
+*.vcd
+*.wlf

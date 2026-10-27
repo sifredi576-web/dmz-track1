@@ -17,6 +17,12 @@ reg [2:0] extra_count;
 reg high_capacity,v2,reading;
 reg [1:0] crc_left;
 reg [8:0] data_index;
+reg [15:0] data_crc;
+reg [7:0] received_crc_high;
+function automatic [15:0] crc16_byte(input [15:0] previous,input [7:0] value);
+ reg [15:0] c;integer k;
+ begin c=previous^{value,8'd0};for(k=0;k<8;k=k+1) c=c[15]?(c<<1)^16'h1021:(c<<1);crc16_byte=c;end
+endfunction
 wire busy,spi_done;wire [7:0] rx;
 wire issue=(state==CLOCKS||state==SEND||state==RESP||state==EXTRA||state==GAP||state==TOKEN||state==DATA||state==CRC);
 wire [7:0] send_byte=state==SEND?frame[47:40]:8'hff;
@@ -29,7 +35,7 @@ endtask
 always @(posedge clk) begin
  if(reset) begin
   state<=POWER;continuation<=0;frame<=0;bytes_left<=0;power_count<=50000;response_extra<=0;timeout_count<=0;init_attempts<=0;
-  response<=255;extra_count<=0;high_capacity<=0;v2<=0;reading<=0;crc_left<=0;initialized<=0;read_done<=0;byte_valid<=0;byte_index<=0;data_index<=0;byte_data<=0;error<=0;sectors_read<=0;sd_cs<=1;
+  response<=255;extra_count<=0;high_capacity<=0;v2<=0;reading<=0;crc_left<=0;data_crc<=0;received_crc_high<=0;initialized<=0;read_done<=0;byte_valid<=0;byte_index<=0;data_index<=0;byte_data<=0;error<=0;sectors_read<=0;sd_cs<=1;
  end else begin
   read_done<=0;byte_valid<=0;
   case(state)
@@ -73,14 +79,19 @@ always @(posedge clk) begin
   GAP_WAIT:if(spi_done) begin state<=continuation;if(reading) begin reading<=0;read_done<=1;sectors_read<=sectors_read+1'b1;end end
   TOKEN:if(!busy) state<=TOKEN_WAIT;
   TOKEN_WAIT:if(spi_done) begin
-   if(rx==8'hfe) begin data_index<=0;state<=DATA;end
+   if(rx==8'hfe) begin data_index<=0;data_crc<=0;state<=DATA;end
    else if(rx!=255 || timeout_count==20'h7ffff) begin error<=9;state<=FAIL;end
    else begin timeout_count<=timeout_count+1'b1;state<=TOKEN;end
   end
   DATA:if(!busy) state<=DATA_WAIT;
-  DATA_WAIT:if(spi_done) begin byte_data<=rx;byte_index<=data_index;byte_valid<=1;if(data_index==511) begin crc_left<=2;state<=CRC;end else begin data_index<=data_index+1'b1;state<=DATA;end end
+  DATA_WAIT:if(spi_done) begin byte_data<=rx;byte_index<=data_index;byte_valid<=1;data_crc<=crc16_byte(data_crc,rx);if(data_index==511) begin crc_left<=2;state<=CRC;end else begin data_index<=data_index+1'b1;state<=DATA;end end
   CRC:if(!busy) state<=CRC_WAIT;
-  CRC_WAIT:if(spi_done) begin if(crc_left==1) state<=GAP;else begin crc_left<=crc_left-1'b1;state<=CRC;end end
+  CRC_WAIT:if(spi_done) begin
+   if(crc_left==1) begin
+    if({received_crc_high,rx}!=data_crc) begin error<=10;state<=FAIL;end
+    else state<=GAP;
+   end else begin received_crc_high<=rx;crc_left<=crc_left-1'b1;state<=CRC;end
+  end
   FAIL:sd_cs<=1;
   default:begin error<=255;state<=FAIL;end
   endcase

@@ -1,1 +1,1 @@
-PASS: fresh P3 bitstream and routed timing including SDRAM hard macro
+PASS: fresh audio-test bitstream and routed timing including SDRAM hard macro

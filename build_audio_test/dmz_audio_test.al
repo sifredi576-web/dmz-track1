@@ -180,6 +180,14 @@
                     <Attr Name="CompileOrder" Val="21"/>
                 </FileInfo>
             </File>
+            <File Path="../rtl/audio_test/dmz_uart_rx.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="22"/>
+                </FileInfo>
+            </File>
         </System_Verilog>
         <ADC_FILE>
             <File Path="../constraints/dmz_p3.adc">

@@ -1,0 +1,59 @@
+standard
+***Report Model: dmz_track1_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        22
+  #input                    6
+  #output                  16
+  #inout                    0
+
+Gate Statistics
+#Basic gates            12107
+  #and                   2455
+  #nand                     0
+  #or                    2012
+  #nor                      0
+  #xor                    683
+  #xnor                    18
+  #buf                      0
+  #not                    461
+  #bufif1                  32
+  #MX21                  1934
+  #FADD                     0
+  #DFF                   4512
+  #LATCH                    0
+#MACRO_ADD                206
+#MACRO_EQ                 191
+#MACRO_MULT                 3
+#MACRO_MUX               1586
+#MACRO_OTHERS              11
+
+Report Hierarchy Area:
++-----------------------------------------------------------------------------------------------+
+|Instance                              |Module                          |gates  |seq    |macros |
++-----------------------------------------------------------------------------------------------+
+|top                                   |dmz_track1_top                  |7595   |4512   |411    |
+|  bist                                |dmz_sdram_bist                  |392    |383    |15     |
+|  command_rx                          |dmz_uart_rx                     |28     |42     |3      |
+|  controls                            |dmz_media_control               |67     |70     |26     |
+|  ctrl                                |dmz_sdram_ctrl                  |3989   |623    |8      |
+|  fb                                  |dmz_image_framebuffer           |325    |323    |8      |
+|  fifo                                |dmz_pixel_fifo                  |39     |94     |6      |
+|  gallery                             |dmz_gallery_control             |70     |75     |17     |
+|  loader                              |dmz_bmp_loader                  |660    |1232   |112    |
+|  pll                                 |dmz_p2_pll                      |0      |0      |1      |
+|  sd                                  |dmz_sd_reader                   |329    |228    |59     |
+|    spi                               |dmz_spi_byte                    |23     |29     |4      |
+|  snapshot                            |dmz_status_cdc                  |13     |334    |4      |
+|  telemetry                           |dmz_status_uart                 |21     |452    |8      |
+|  tone                                |dmz_tone                        |2      |38     |5      |
+|  tx                                  |hdmi                            |1095   |409    |131    |
+|    serializer                        |serializer                      |3      |36     |4      |
+|    tmds_gen[0]$tmds_channel          |tmds_channel                    |100    |14     |29     |
+|    tmds_gen[1]$tmds_channel          |tmds_channel                    |96     |14     |25     |
+|    tmds_gen[2]$tmds_channel          |tmds_channel                    |94     |14     |25     |
+|    true_hdmi_output$packet_assembler |packet_assembler                |30     |45     |4      |
+|    true_hdmi_output$packet_picker    |packet_picker                   |727    |78     |13     |
+|      audio_clock_regeneration_packet |audio_clock_regeneration_packet |2      |43     |3      |
+|      audio_sample_packet             |audio_sample_packet             |197    |0      |3      |
++-----------------------------------------------------------------------------------------------+

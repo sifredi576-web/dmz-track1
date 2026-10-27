@@ -3,5 +3,5 @@ PASS frames=3 samples=2419 serializer_symbols=1259998 ACR=50 PCM=604 AVI=4 SPD=4
 PASS reset recovery and mute
 - D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\tb_p1.sv:131: Verilog $finish
 - S i m u l a t i o n   R e p o r t: Verilator 5.036 2025-04-27
-- Verilator: $finish at 51ms; walltime 6.875 s; speed 9.735 ms/s
-- Verilator: cpu 5.188 s on 1 threads; alloced 6 MB
+- Verilator: $finish at 51ms; walltime 7.023 s; speed 7.659 ms/s
+- Verilator: cpu 6.594 s on 1 threads; alloced 6 MB

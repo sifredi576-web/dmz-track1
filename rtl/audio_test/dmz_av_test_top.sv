@@ -68,19 +68,34 @@ always @(posedge pixel_clk) begin
   else audio_phase_clock<=audio_phase_clock+1'b1;
  end
 end
-wire tone_muted=mute_sync[1] || (!continuous_sync[1] && !beep_phase);
+// Default: sound on. U=continuous, M=mute, B=beep, S=physical switches.
+wire command_valid;wire [7:0] command_byte;
+reg [1:0] audio_mode;
+dmz_uart_rx command_rx(.clk(pixel_clk),.reset(pixel_reset),.rx(uart_rx),.valid(command_valid),.data(command_byte));
+always @(posedge pixel_clk) begin
+ if(pixel_reset) audio_mode<=2'd1;
+ else if(command_valid) case(command_byte)
+  "U","u":audio_mode<=1;
+  "M","m":audio_mode<=2;
+  "B","b":audio_mode<=3;
+  "S","s":audio_mode<=0;
+  default:begin end
+ endcase
+end
+wire tone_muted=(audio_mode==2) || (audio_mode==3 && !beep_phase) ||
+ (audio_mode==0 && (mute_sync[1] || (!continuous_sync[1] && !beep_phase)));
 wire [31:0] dbg_samples,dbg_pcm_packets,dbg_nonzero_packets,dbg_acr_packets,dbg_pcm_pair;
 wire [19:0] dbg_cts;
 
 wire sample_ce;wire signed [15:0] sample;wire [15:0] aw[1:0];assign aw[0]=sample <<< 1;assign aw[1]=sample <<< 1;
 dmz_tone tone(.clk(pixel_clk),.reset(pixel_reset),.mute(tone_muted),.sample_ce(sample_ce),.sample(sample));
 wire [2:0] tmds;
-hdmi #(.VIDEO_ID_CODE(1),.VIDEO_REFRESH_RATE(59.5238095238),.AUDIO_RATE(48000),.AUDIO_BIT_WIDTH(16),.VENDOR_NAME("DMZ     "),.PRODUCT_DESCRIPTION("DMZ Audio Test       ")) tx(.clk_pixel_x5(serial_clk),.clk_pixel(pixel_clk),.clk_audio(sample_ce),.reset(pixel_reset),.rgb(rgb),.audio_sample_word(aw),.tmds(tmds),.tmds_clock(HDMI_CLK_P),.dbg_samples(dbg_samples),.dbg_pcm_packets(dbg_pcm_packets),.dbg_nonzero_packets(dbg_nonzero_packets),.dbg_acr_packets(dbg_acr_packets),.dbg_cts(dbg_cts),.dbg_pcm_pair(dbg_pcm_pair),.cx(x),.cy(y),.frame_width(),.frame_height(),.screen_width(),.screen_height());
+hdmi #(.VIDEO_ID_CODE(1),.VIDEO_REFRESH_RATE(59.5238095238),.AUDIO_RATE(48000),.AUDIO_BIT_WIDTH(16),.VENDOR_NAME("DMZ     "),.PRODUCT_DESCRIPTION("DMZ Audio Test  ")) tx(.clk_pixel_x5(serial_clk),.clk_pixel(pixel_clk),.clk_audio(sample_ce),.reset(pixel_reset),.rgb(rgb),.audio_sample_word(aw),.tmds(tmds),.tmds_clock(HDMI_CLK_P),.dbg_samples(dbg_samples),.dbg_pcm_packets(dbg_pcm_packets),.dbg_nonzero_packets(dbg_nonzero_packets),.dbg_acr_packets(dbg_acr_packets),.dbg_cts(dbg_cts),.dbg_pcm_pair(dbg_pcm_pair),.cx(x),.cy(y),.frame_width(),.frame_height(),.screen_width(),.screen_height());
 assign {HDMI_D2_P,HDMI_D1_P,HDMI_D0_P}=tmds;
 reg [31:0] uptime;always @(posedge mem_clk) if(reset) uptime<=0;else uptime<=uptime+1'b1;
 wire [31:0] words[15:0];
 assign words[0]=32'h54535641; // "AVST"
-assign words[1]={12'd0,continuous_sync[1],beep_phase,mute_sync[1],tone_muted,locked,fb_fault,(underflow_mem!=0),front_bank,display_valid,bist_passed,bist_done,init_done,8'd1};
+assign words[1]={10'd0,audio_mode,continuous_sync[1],beep_phase,mute_sync[1],tone_muted,locked,fb_fault,(underflow_mem!=0),front_bank,display_valid,bist_passed,bist_done,init_done,8'd1};
 assign words[2]=dbg_samples;assign words[3]=dbg_pcm_packets;assign words[4]=dbg_nonzero_packets;
 assign words[5]=dbg_acr_packets;assign words[6]={12'd0,dbg_cts};assign words[7]={16'd6144,16'd48000};
 assign words[8]=errors;assign words[9]=dv[1]?image_pixels:0;assign words[10]=underflow;

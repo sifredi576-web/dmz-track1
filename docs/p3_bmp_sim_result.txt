@@ -1,5 +1,5 @@
 PASS FAT32 fragmented cluster chain, directory skip, BMP bottom-up, 307200 pixels, 19200 bursts 2028 sectors
-- sim/p3\tb_bmp.sv:85: Verilog $finish
+- sim/p3\tb_bmp.sv:101: Verilog $finish
 - S i m u l a t i o n   R e p o r t: Verilator 5.036 2025-04-27
-- Verilator: $finish at 43ms; walltime 0.608 s; speed 0.000 s/s
+- Verilator: $finish at 43ms; walltime 0.564 s; speed 0.000 s/s
 - Verilator: cpu 0.000 s on 1 threads; alloced 5 MB

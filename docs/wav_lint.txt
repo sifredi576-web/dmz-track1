@@ -1,0 +1,23 @@
+%Warning-TIMESCALEMOD: rtl/media\dmz_wav_decoder.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module dmz_wav_decoder(
+      |        ^~~~~~~~~~~~~~~
+                       sim/media\tb_wav.sv:2:8: ... Location of module with timescale
+    2 | module tb_wav;
+      |        ^~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: sim/media\tb_wav.sv:71:11: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'error' generates 8 bits.
+                                               : ... note: In instance 'tb_wav'
+   71 |   if(error!=expected_error||done||received!=0) $fatal(1,"WAV rejection code=%0d expected=%0d received=%0d",error,expected_error,received);
+      |           ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: sim/media\tb_wav.sv:74:11: Logical operator LOGOR expects 1 bit on the LHS, but LHS's VARREF 'error' generates 8 bits.
+                                              : ... note: In instance 'tb_wav'
+   74 |   if(error||!done||received!=12||pairs!=12||total!=12) $fatal(1,"WAV decode failed received=%0d generated=%0d total=%0d error=%0d",received,pairs,total,error);
+      |           ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.048 MB sources in 3 modules, into 0.120 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.050 s (elab=0.001, cvt=0.014, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.074 MB

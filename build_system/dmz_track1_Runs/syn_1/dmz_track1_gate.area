@@ -1,0 +1,60 @@
+standard
+***Report Model: dmz_track1_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        22   out of    188   11.70%
+  #input                    6
+  #output                  16
+  #inout                    0
+
+LUT Statistics
+#Total_luts              4873
+  #lut4                  4330
+  #lut5                   543
+  #lut6                     0
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                     7163   out of  19600   36.55%
+#reg                     4474   out of  19600   22.83%
+#bram                      13   out of     64   20.31%
+  #bram9k                  13
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                        6   out of     29   20.69%
+#pad                       26   out of    188   13.83%
+  #ireg                     4
+  #oreg                    11
+  #treg                     0
+#pll                        1   out of      4   25.00%
+#gclk                       1   out of     16    6.25%
+
+Report Hierarchy Area:
++--------------------------------------------------------------------------------------------------------------------+
+|Instance                              |Module                          |lut     |ripple  |seq     |bram    |dsp     |
++--------------------------------------------------------------------------------------------------------------------+
+|top                                   |dmz_track1_top                  |6318    |845     |4489    |13      |6       |
+|  bist                                |dmz_sdram_bist                  |632     |44      |383     |0       |0       |
+|  command_rx                          |dmz_uart_rx                     |66      |5       |42      |0       |0       |
+|  controls                            |dmz_media_control               |67      |20      |70      |0       |0       |
+|  ctrl                                |dmz_sdram_ctrl                  |705     |27      |591     |0       |0       |
+|  fb                                  |dmz_image_framebuffer           |362     |29      |323     |0       |0       |
+|  fifo                                |dmz_pixel_fifo                  |228     |21      |94      |8       |0       |
+|  gallery                             |dmz_gallery_control             |108     |27      |75      |0       |0       |
+|  loader                              |dmz_bmp_loader                  |2072    |411     |1232    |0       |6       |
+|  pll                                 |dmz_p2_pll                      |1       |0       |0       |0       |0       |
+|  sd                                  |dmz_sd_reader                   |430     |40      |225     |0       |0       |
+|    spi                               |dmz_spi_byte                    |44      |4       |27      |0       |0       |
+|  snapshot                            |dmz_status_cdc                  |74      |8       |334     |0       |0       |
+|  telemetry                           |dmz_status_uart                 |447     |16      |451     |0       |0       |
+|  tone                                |dmz_tone                        |89      |25      |38      |0       |0       |
+|  tx                                  |hdmi                            |883     |156     |409     |5       |0       |
+|    serializer                        |serializer                      |34      |0       |36      |0       |0       |
+|    tmds_gen[0]$tmds_channel          |tmds_channel                    |79      |9       |14      |0       |0       |
+|    tmds_gen[1]$tmds_channel          |tmds_channel                    |83      |9       |14      |0       |0       |
+|    tmds_gen[2]$tmds_channel          |tmds_channel                    |65      |9       |14      |0       |0       |
+|    true_hdmi_output$packet_assembler |packet_assembler                |329     |0       |45      |0       |0       |
+|    true_hdmi_output$packet_picker    |packet_picker                   |107     |18      |78      |5       |0       |
+|      audio_clock_regeneration_packet |audio_clock_regeneration_packet |17      |10      |43      |0       |0       |
++--------------------------------------------------------------------------------------------------------------------+

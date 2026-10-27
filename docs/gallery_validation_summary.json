@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-27",
+  "passed": true,
+  "card_images": 4,
+  "manual_next": 3,
+  "manual_previous": 2,
+  "auto_visited_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "pause_verified": true,
+  "frame_commits_first": 14,
+  "frame_commits_last": 19,
+  "all_hardware_errors_zero": true,
+  "muted": true,
+  "visual_confirmation": "用户确认：能切换不同图片，画面正常",
+  "scope": "gallery feature verification only, not a repeated long soak"
+}

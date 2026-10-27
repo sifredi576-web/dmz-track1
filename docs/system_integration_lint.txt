@@ -1,0 +1,440 @@
+%Warning-TIMESCALEMOD: rtl/p2\dmz_pixel_fifo.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_pixel_fifo #(parameter AW=11)(
+      |        ^~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: rtl/p2\dmz_status_uart.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_status_uart #(parameter integer PERIOD=25000000,DIVISOR=434)(
+      |        ^~~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p3\dmz_bmp_loader.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_bmp_loader(input clk,reset,enable,
+      |        ^~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p3\dmz_image_framebuffer.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_image_framebuffer(
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/system\dmz_track1_top.sv:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    1 | module dmz_track1_top(
+      |        ^~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/audio_test\dmz_uart_rx.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_uart_rx #(parameter DIVISOR=217)(input clk,reset,rx,output reg valid,output reg [7:0] data);
+      |        ^~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/system\dmz_media_control.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_media_control #(parameter integer SECOND_CYCLES=25000000,
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/system\dmz_status_cdc.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_status_cdc #(parameter integer WIDTH=256,INTERVAL=25000)(
+      |        ^~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p3\dmz_sd_reader.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_sd_reader(input clk,reset,input read_start,input [31:0] read_lba,
+      |        ^~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p3\dmz_spi_byte.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_spi_byte(input clk,reset,start,input [7:0] tx,input [7:0] divider,input miso,
+      |        ^~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1\serializer.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module serializer #(parameter integer NUM_CHANNELS=3, parameter real VIDEO_RATE=25000000.0)(
+      |        ^~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1\dmz_tone.sv:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    1 | module dmz_tone(input wire clk, input wire reset, input wire mute,
+      |        ^~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1/hdmi_core\audio_clock_regeneration_packet.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module audio_clock_regeneration_packet
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1/hdmi_core\audio_info_frame.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module audio_info_frame
+      |        ^~~~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1/hdmi_core\audio_sample_packet.sv:8:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    8 | module audio_sample_packet 
+      |        ^~~~~~~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1/hdmi_core\auxiliary_video_information_info_frame.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module auxiliary_video_information_info_frame
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1/hdmi_core\hdmi.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module hdmi 
+      |        ^~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1/hdmi_core\packet_assembler.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module packet_assembler (
+      |        ^~~~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1/hdmi_core\packet_picker.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module packet_picker
+      |        ^~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1/hdmi_core\source_product_description_info_frame.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module source_product_description_info_frame
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1/hdmi_core\tmds_channel.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tmds_channel
+      |        ^~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: build_system/sim_config\dmz_sdram_ctrl.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_sdram_ctrl #(parameter integer INIT_CYCLES=10000,REFRESH_CYCLES=390,READ_WAIT_CYCLES=2)(
+      |        ^~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: build_system/sim_config\dmz_sdram_bist.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_sdram_bist #(parameter integer WORD_COUNT=4096,HOLD_CYCLES=5000)(
+      |        ^~~~~~~~~~~~~~
+                       sim/p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\auxiliary_video_information_info_frame.sv:18:19: Operator VAR 'VIDEO_ID_CODE' expects 32 bits on the Initial value, but Initial value's CONST '7'h1' generates 7 bits.
+                                                                                      : ... note: In instance 'tb_system.dut.tx.true_hdmi_output.packet_picker.auxiliary_video_information_info_frame'
+   18 |     parameter int VIDEO_ID_CODE = 4,  
+      |                   ^~~~~~~~~~~~~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\audio_sample_packet.sv:86:61: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'frame_counter' generates 8 bits.
+                                                                   : ... note: In instance 'tb_system.dut.tx.true_hdmi_output.packet_picker.audio_sample_packet'
+   86 |                 aligned_frame_counter[i] = 8'(frame_counter + i - CHANNEL_STATUS_LENGTH);
+      |                                                             ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\audio_clock_regeneration_packet.sv:36:35: Operator EQ expects 32 or 20 bits on the LHS, but LHS's VARREF 'clk_audio_counter' generates 6 bits.
+                                                                               : ... note: In instance 'tb_system.dut.tx.true_hdmi_output.packet_picker.audio_clock_regeneration_packet'
+   36 |             if (clk_audio_counter == (N / 128 - 1)) begin
+      |                                   ^~
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:34:25: Operator ADD expects 4 bits on the LHS, but LHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                         ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:34:25: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                         ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:34:41: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                         ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:34:57: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                                         ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:34:73: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                                                         ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:34:89: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                                                                         ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:34:105: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                             : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                                                                                         ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:34:121: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                             : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                                                                                                         ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:35:17: Operator ADD expects 4 bits on the LHS, but LHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                 ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:35:17: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                 ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:35:26: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:35:35: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                                   ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:35:44: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                                            ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:35:53: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                                                     ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:35:62: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                                                              ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\tmds_channel.sv:35:71: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                            : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                                                                       ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\packet_assembler.sv:43:38: Operator XOR expects 8 bits on the LHS, but LHS's SEL generates 1 bits.
+                                                                : ... note: In instance 'tb_system.dut.tx.true_hdmi_output.packet_assembler'
+   43 |     next_ecc = (ecc >> 1) ^ ((ecc[0] ^ next_bch_bit) ? 8'b10000011 : 8'd0);
+      |                                      ^
+%Warning-WIDTHTRUNC: rtl/p1/hdmi_core\packet_assembler.sv:43:54: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's XOR generates 8 bits.
+                                                               : ... note: In instance 'tb_system.dut.tx.true_hdmi_output.packet_assembler'
+   43 |     next_ecc = (ecc >> 1) ^ ((ecc[0] ^ next_bch_bit) ? 8'b10000011 : 8'd0);
+      |                                                      ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\packet_assembler.sv:61:37: Operator FUNCREF 'next_ecc' expects 8 bits on the Function Argument, but Function Argument's SEL generates 1 bits.
+                                                                : ... note: In instance 'tb_system.dut.tx.true_hdmi_output.packet_assembler'
+   61 |             assign parity_next[i] = next_ecc(parity[i], sub[i][counter_t2]);
+      |                                     ^~~~~~~~
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\packet_assembler.sv:62:42: Operator FUNCREF 'next_ecc' expects 8 bits on the Function Argument, but Function Argument's SEL generates 1 bits.
+                                                                : ... note: In instance 'tb_system.dut.tx.true_hdmi_output.packet_assembler'
+   62 |             assign parity_next_next[i] = next_ecc(parity_next[i], sub[i][counter_t2_p1]);
+      |                                          ^~~~~~~~
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\packet_assembler.sv:58:37: Operator FUNCREF 'next_ecc' expects 8 bits on the Function Argument, but Function Argument's SEL generates 1 bits.
+                                                                : ... note: In instance 'tb_system.dut.tx.true_hdmi_output.packet_assembler'
+   58 |             assign parity_next[i] = next_ecc(parity[i], header[counter]);
+      |                                     ^~~~~~~~
+%Warning-WIDTHTRUNC: rtl/p2\dmz_status_uart.sv:18:7: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's SUB generates 32 bits.
+                                                   : ... note: In instance 'tb_system.dut.telemetry'
+   18 |   baud<=DIVISOR-1;
+      |       ^~
+%Warning-WIDTHTRUNC: rtl/p1/hdmi_core\hdmi.sv:85:39: Operator ASSIGN expects 10 bits on the Assign RHS, but Assign RHS's VARREF 'START_X' generates 32 bits.
+                                                   : ... note: In instance 'tb_system.dut.tx'
+   85 |     output logic [BIT_WIDTH-1:0] cx = START_X,
+      |                                       ^~~~~~~
+%Warning-WIDTHTRUNC: rtl/p1/hdmi_core\hdmi.sv:86:40: Operator ASSIGN expects 10 bits on the Assign RHS, but Assign RHS's VARREF 'START_Y' generates 32 bits.
+                                                   : ... note: In instance 'tb_system.dut.tx'
+   86 |     output logic [BIT_HEIGHT-1:0] cy = START_Y,
+      |                                        ^~~~~~~
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\hdmi.sv:271:54: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'frame_width' generates 10 bits.
+                                                     : ... note: In instance 'tb_system.dut.tx'
+  271 |             max_num_packets_alongside = (frame_width - screen_width    - 2   - 8   - 4   - 2   - 2   - 8   - 4  ) / 32;
+      |                                                      ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\hdmi.sv:271:54: Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'screen_width' generates 10 bits.
+                                                     : ... note: In instance 'tb_system.dut.tx'
+  271 |             max_num_packets_alongside = (frame_width - screen_width    - 2   - 8   - 4   - 2   - 2   - 8   - 4  ) / 32;
+      |                                                      ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\hdmi.sv:281:74: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'cx' generates 10 bits.
+                                                     : ... note: In instance 'tb_system.dut.tx'
+  281 |         assign packet_enable = data_island_period_instantaneous && 5'(cx + screen_width + 18) == 5'd0;
+      |                                                                          ^
+%Warning-WIDTHEXPAND: rtl/p1/hdmi_core\hdmi.sv:281:74: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'screen_width' generates 10 bits.
+                                                     : ... note: In instance 'tb_system.dut.tx'
+  281 |         assign packet_enable = data_island_period_instantaneous && 5'(cx + screen_width + 18) == 5'd0;
+      |                                                                          ^
+%Warning-WIDTHEXPAND: build_system/sim_config\dmz_sdram_bist.sv:41:18: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'address' generates 21 bits.
+                                                                     : ... note: In instance 'tb_system.dut.bist'
+   41 |   else if(address==WORD_COUNT-8) begin address<=0;hold_count<=HOLD_CYCLES-1;state<=HOLD;end
+      |                  ^~
+%Warning-WIDTHEXPAND: build_system/sim_config\dmz_sdram_bist.sv:51:14: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'address' generates 21 bits.
+                                                                     : ... note: In instance 'tb_system.dut.bist'
+   51 |    if(address==WORD_COUNT-8) begin
+      |              ^~
+%Warning-WIDTHEXPAND: build_system/sim_config\dmz_sdram_ctrl.sv:23:45: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'refresh_age' generates 16 bits.
+                                                                     : ... note: In instance 'tb_system.dut.ctrl'
+   23 | assign req_ready=(state==IDLE && refresh_age<REFRESH_CYCLES);
+      |                                             ^
+%Warning-WIDTHTRUNC: build_system/sim_config\dmz_sdram_ctrl.sv:41:26: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's SUB generates 32 bits.
+                                                                    : ... note: In instance 'tb_system.dut.ctrl'
+   41 |   state<=POWER;wait_count<=INIT_CYCLES-1;refresh_age<=0;init_refresh<=0;
+      |                          ^~
+%Warning-WIDTHEXPAND: build_system/sim_config\dmz_sdram_ctrl.sv:56:18: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'refresh_age' generates 16 bits.
+                                                                     : ... note: In instance 'tb_system.dut.ctrl'
+   56 |    if(refresh_age>=REFRESH_CYCLES) state<=REFRESH;
+      |                  ^~
+%Warning-WIDTHTRUNC: build_system/sim_config\dmz_sdram_ctrl.sv:61:37: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'READ_WAIT_CYCLES' generates 32 bits.
+                                                                    : ... note: In instance 'tb_system.dut.ctrl'
+   61 |   READ:begin state<=RWAIT;wait_count<=READ_WAIT_CYCLES;end
+      |                                     ^~
+%Warning-WIDTHTRUNC: rtl/system\dmz_status_cdc.sv:27:64: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's SUB generates 32 bits.
+                                                       : ... note: In instance 'tb_system.dut.snapshot'
+   27 |    if(settle==2) begin dst_data<=held;waiting<=0;interval_count<=INTERVAL-1;end
+      |                                                                ^~
+%Warning-WIDTHEXPAND: rtl/system\dmz_media_control.sv:23:18: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'second_count' generates 25 bits.
+                                                           : ... note: In instance 'tb_system.dut.controls'
+   23 |   if(second_count==SECOND_CYCLES-1) begin second_count<=0;beep_phase<=~beep_phase;end
+      |                  ^~
+%Warning-WIDTHTRUNC: rtl/system\dmz_media_control.sv:34:41: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'RESTART_CYCLES' generates 32 bits.
+                                                          : ... note: In instance 'tb_system.dut.controls'
+   34 |      "R","r":begin mode<=2;restart_count<=RESTART_CYCLES;end
+      |                                         ^~
+%Warning-WIDTHEXPAND: rtl/p3\dmz_bmp_loader.sv:105:41: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'cluster_sector' generates 8 bits.
+                                                     : ... note: In instance 'tb_system.dut.loader'
+  105 |    else sector(data_base+(cluster-2)*spc+cluster_sector,DIR_FILL);
+      |                                         ^
+%Warning-WIDTHEXPAND: rtl/p3\dmz_bmp_loader.sv:153:34: Operator SHIFTR expects 32 or 6 bits on the LHS, but LHS's VARREF 'burst_pixel' generates 4 bits.
+                                                     : ... note: In instance 'tb_system.dut.loader'
+  153 |       else load_data[(burst_pixel>>1)*32+:32]<={color,low_pixel};
+      |                                  ^~
+%Warning-WIDTHEXPAND: rtl/p3\dmz_bmp_loader.sv:166:103: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'cluster_sector' generates 8 bits.
+                                                      : ... note: In instance 'tb_system.dut.loader'
+  166 |    if(cluster_sector+1<spc) begin cluster_sector<=cluster_sector+1'b1;sector(data_base+(cluster-2)*spc+cluster_sector+1,BYTES);end
+      |                                                                                                       ^
+%Warning-WIDTHEXPAND: rtl/p2\dmz_pixel_fifo.sv:10:18: Operator ADD expects 12 bits on the RHS, but RHS's VARREF 'pop' generates 1 bits.
+                                                    : ... note: In instance 'tb_system.dut.fifo'
+   10 | wire [AW:0] rn=rp+pop,wn=wp+push;
+      |                  ^
+%Warning-WIDTHEXPAND: rtl/p2\dmz_pixel_fifo.sv:10:28: Operator ADD expects 12 bits on the RHS, but RHS's VARREF 'push' generates 1 bits.
+                                                    : ... note: In instance 'tb_system.dut.fifo'
+   10 | wire [AW:0] rn=rp+pop,wn=wp+push;
+      |                            ^
+%Warning-WIDTHTRUNC: sim/system\media_fixture.svh:31:24: Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's SHIFTR generates 64 bits.
+                                                       : ... note: In instance 'tb_system.card'
+   31 |   if(i>=32&&i<=39) disk="PICDEMO ">>((i-32)*8);
+      |                        ^
+                     sim/system\system_sd_model.sv:4:1: ... note: In file included from 'system_sd_model.sv'
+%Warning-WIDTHTRUNC: sim/system\media_fixture.svh:32:24: Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's SHIFTR generates 32 bits.
+                                                       : ... note: In instance 'tb_system.card'
+   32 |   if(i>=60&&i<=63) disk=32'(file_bytes)>>((i-60)*8);
+      |                        ^
+                     sim/system\system_sd_model.sv:4:1: ... note: In file included from 'system_sd_model.sv'
+%Warning-WIDTHTRUNC: sim/system\media_fixture.svh:35:53: Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's SHIFTR generates 32 bits.
+                                                       : ... note: In instance 'tb_system.card'
+   35 |   if($test$plusargs("shortfile")&&i>=60&&i<=63) disk=32'd100>>((i-60)*8);
+      |                                                     ^
+                     sim/system\system_sd_model.sv:4:1: ... note: In file included from 'system_sd_model.sv'
+%Warning-WIDTHTRUNC: sim/system\media_fixture.svh:45:28: Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's SHIFTR generates 32 bits.
+                                                       : ... note: In instance 'tb_system.card'
+   45 |     if(ofs>=2&&ofs<=5) disk=32'(file_bytes)>>((ofs-2)*8);
+      |                            ^
+                     sim/system\system_sd_model.sv:4:1: ... note: In file included from 'system_sd_model.sv'
+%Warning-WIDTHTRUNC: sim/system\media_fixture.svh:47:37: Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's SHIFTR generates 32 bits.
+                                                       : ... note: In instance 'tb_system.card'
+   47 |     if(top && ofs>=22&&ofs<=25) disk=32'hfffffe20>>((ofs-22)*8);
+      |                                     ^
+                     sim/system\system_sd_model.sv:4:1: ... note: In file included from 'system_sd_model.sv'
+%Warning-WIDTHTRUNC: sim/system\media_fixture.svh:50:56: Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's SHIFTR generates 32 bits.
+                                                       : ... note: In instance 'tb_system.card'
+   50 |     if($test$plusargs("offset")&&ofs>=10&&ofs<=13) disk=32'hffffffff>>((ofs-10)*8);
+      |                                                        ^
+                     sim/system\system_sd_model.sv:4:1: ... note: In file included from 'system_sd_model.sv'
+%Warning-WIDTHEXPAND: sim/p2\sdram_model.sv:52:15: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's VARREF 'ba' generates 2 bits.
+                                                 : ... note: In instance 'tb_system.memory_model'
+   52 |    bank_active=ba;
+      |               ^
+%Warning-WIDTHEXPAND: sim/p2\sdram_model.sv:53:29: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 21 bits.
+                                                 : ... note: In instance 'tb_system.memory_model'
+   53 |    if(we_n) begin rd_address={ba,rows[ba],addr[7:0]};delay_read=3;end
+      |                             ^
+%Warning-WIDTHEXPAND: sim/p2\sdram_model.sv:56:15: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 21 bits.
+                                                 : ... note: In instance 'tb_system.memory_model'
+   56 |     wr_address={ba,rows[ba],addr[7:0]};mem[wr_address]=dq_out;wr_address=wr_address+1;wr_left=7;
+      |               ^
+%Warning-WIDTHTRUNC: sim/system\tb_system.sv:33:20: Logical operator LOGOR expects 1 bit on the LHS, but LHS's VARXREF 'image_error' generates 8 bits.
+                                                  : ... note: In instance 'tb_system'
+   33 |  if(dut.image_error||dut.sd_error||!dut.bist_passed||dut.errors) $fatal(1,"integrated boot/CRC/file error");
+      |                    ^~
+%Warning-WIDTHTRUNC: sim/system\tb_system.sv:33:20: Logical operator LOGOR expects 1 bit on the RHS, but RHS's VARXREF 'sd_error' generates 8 bits.
+                                                  : ... note: In instance 'tb_system'
+   33 |  if(dut.image_error||dut.sd_error||!dut.bist_passed||dut.errors) $fatal(1,"integrated boot/CRC/file error");
+      |                    ^~
+%Warning-WIDTHTRUNC: sim/system\tb_system.sv:33:52: Logical operator LOGOR expects 1 bit on the RHS, but RHS's VARXREF 'errors' generates 32 bits.
+                                                  : ... note: In instance 'tb_system'
+   33 |  if(dut.image_error||dut.sd_error||!dut.bist_passed||dut.errors) $fatal(1,"integrated boot/CRC/file error");
+      |                                                    ^~
+%Warning-WIDTHTRUNC: sim/system\tb_system.sv:36:19: Logical operator LOGOR expects 1 bit on the RHS, but RHS's VARXREF 'underflow' generates 32 bits.
+                                                  : ... note: In instance 'tb_system'
+   36 |  if(pixels!=614400||dut.underflow||dut.fb_fault) $fatal(1,"integrated frame count/underflow");
+      |                   ^~
+%Warning-WIDTHTRUNC: sim/system\tb_system.sv:42:83: Logical operator LOGOR expects 1 bit on the RHS, but RHS's VARXREF 'underflow' generates 32 bits.
+                                                  : ... note: In instance 'tb_system'
+   42 |  if(!dut.tone_muted||dut.dbg_nonzero_packets!=before_nonzero||dut.command_count!=2||dut.underflow) $fatal(1,"integrated mute");
+      |                                                                                   ^~
+%Warning-ALWCOMBORDER: rtl/p1/hdmi_core\tmds_channel.sv:60:13: Always_comb variable driven after use: 'q_m'
+                                                             : ... note: In instance 'tb_system.dut.tx.tmds_gen[2].tmds_channel'
+   60 |             q_m[i + 1] = q_m[i] ~^ video_data[i + 1];
+      |             ^~~
+                       ... For warning description see https://verilator.org/warn/ALWCOMBORDER?v=5.036
+                       ... Use "/* verilator lint_off ALWCOMBORDER */" and lint_on around source to disable this message.
+%Warning-CASEINCOMPLETE: rtl/p1/hdmi_core\tmds_channel.sv:160:5: Case values incompletely covered (example pattern 0x5)
+  160 |     case (mode)
+      |     ^~~~
+                         ... For warning description see https://verilator.org/warn/CASEINCOMPLETE?v=5.036
+                         ... Use "/* verilator lint_off CASEINCOMPLETE */" and lint_on around source to disable this message.
+%Warning-COMBDLY: rtl/p1/hdmi_core\hdmi.sv:196:11: Non-blocking assignment '<=' in combinational logic process
+                                                 : ... This will be executed as a blocking assignment '='!
+  196 |     hsync <= invert ^ (cx >= screen_width + hsync_pulse_start && cx < screen_width + hsync_pulse_start + hsync_pulse_size);
+      |           ^~
+                  ... For warning description see https://verilator.org/warn/COMBDLY?v=5.036
+                  ... Use "/* verilator lint_off COMBDLY */" and lint_on around source to disable this message.
+                  *** See https://verilator.org/warn/COMBDLY?v=5.036 before disabling this,
+                  else you may end up with different sim results.
+%Warning-COMBDLY: rtl/p1/hdmi_core\hdmi.sv:200:15: Non-blocking assignment '<=' in combinational logic process
+                                                 : ... This will be executed as a blocking assignment '='!
+  200 |         vsync <= invert ^ (cx >= screen_width + hsync_pulse_start);
+      |               ^~
+%Warning-UNOPTFLAT: rtl/p1/hdmi_core\tmds_channel.sv:24:13: Signal unoptimizable: Circular combinational logic: 'tb_system.dut.tx.tmds_gen[0].tmds_channel.q_m'
+   24 | logic [8:0] q_m;
+      |             ^~~
+                    ... For warning description see https://verilator.org/warn/UNOPTFLAT?v=5.036
+                    ... Use "/* verilator lint_off UNOPTFLAT */" and lint_on around source to disable this message.
+                    rtl/p1/hdmi_core\tmds_channel.sv:24:13:      Example path: tb_system.dut.tx.tmds_gen[0].tmds_channel.q_m
+                    rtl/p1/hdmi_core\tmds_channel.sv:32:1:      Example path: ALWAYS
+                    rtl/p1/hdmi_core\tmds_channel.sv:30:20:      Example path: tb_system.dut.tx.tmds_gen[0].tmds_channel.N1q_m07
+                    rtl/p1/hdmi_core\tmds_channel.sv:54:1:      Example path: ALWAYS
+                    rtl/p1/hdmi_core\tmds_channel.sv:24:13:      Example path: tb_system.dut.tx.tmds_gen[0].tmds_channel.q_m
+%Warning-UNOPTFLAT: rtl/p1/hdmi_core\auxiliary_video_information_info_frame.sv:39:13: Signal unoptimizable: Circular combinational logic: 'tb_system.dut.tx.true_hdmi_output.packet_picker.auxiliary_video_information_info_frame.packet_bytes'
+   39 | logic [7:0] packet_bytes [27:0];
+      |             ^~~~~~~~~~~~
+                    rtl/p1/hdmi_core\auxiliary_video_information_info_frame.sv:39:13:      Example path: tb_system.dut.tx.true_hdmi_output.packet_picker.auxiliary_video_information_info_frame.packet_bytes
+                    rtl/p1/hdmi_core\auxiliary_video_information_info_frame.sv:41:24:      Example path: ASSIGNW
+                    rtl/p1/hdmi_core\auxiliary_video_information_info_frame.sv:39:13:      Example path: tb_system.dut.tx.true_hdmi_output.packet_picker.auxiliary_video_information_info_frame.packet_bytes
+%Warning-UNOPTFLAT: rtl/p1/hdmi_core\source_product_description_info_frame.sv:26:13: Signal unoptimizable: Circular combinational logic: 'tb_system.dut.tx.true_hdmi_output.packet_picker.source_product_description_info_frame.packet_bytes'
+   26 | logic [7:0] packet_bytes [27:0];
+      |             ^~~~~~~~~~~~
+                    rtl/p1/hdmi_core\source_product_description_info_frame.sv:26:13:      Example path: tb_system.dut.tx.true_hdmi_output.packet_picker.source_product_description_info_frame.packet_bytes
+                    rtl/p1/hdmi_core\source_product_description_info_frame.sv:28:24:      Example path: ASSIGNW
+                    rtl/p1/hdmi_core\source_product_description_info_frame.sv:26:13:      Example path: tb_system.dut.tx.true_hdmi_output.packet_picker.source_product_description_info_frame.packet_bytes
+%Warning-UNOPTFLAT: rtl/p1/hdmi_core\audio_info_frame.sv:33:13: Signal unoptimizable: Circular combinational logic: 'tb_system.dut.tx.true_hdmi_output.packet_picker.audio_info_frame.packet_bytes'
+   33 | logic [7:0] packet_bytes [27:0];
+      |             ^~~~~~~~~~~~
+                    rtl/p1/hdmi_core\audio_info_frame.sv:33:13:      Example path: tb_system.dut.tx.true_hdmi_output.packet_picker.audio_info_frame.packet_bytes
+                    rtl/p1/hdmi_core\audio_info_frame.sv:35:24:      Example path: ASSIGNW
+                    rtl/p1/hdmi_core\audio_info_frame.sv:33:13:      Example path: tb_system.dut.tx.true_hdmi_output.packet_picker.audio_info_frame.packet_bytes
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 1.615 MB sources in 31 modules, into 1.313 MB in 10 C++ files needing 0.004 MB
+- Verilator: Walltime 0.270 s (elab=0.042, cvt=0.137, bld=0.000); cpu 0.000 s on 1 threads; alloced 30.586 MB

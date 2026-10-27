@@ -190,10 +190,18 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__5(Vtb_sd___024root* vlSe
     Vtb_sd__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Init
-    IData/*31:0*/ __Vtask_tb_sd__DOT__dut__DOT__command__22__argument;
-    __Vtask_tb_sd__DOT__dut__DOT__command__22__argument = 0;
-    IData/*31:0*/ __Vtask_tb_sd__DOT__dut__DOT__command__25__argument;
-    __Vtask_tb_sd__DOT__dut__DOT__command__25__argument = 0;
+    IData/*31:0*/ __Vtask_tb_sd__DOT__dut__DOT__command__28__argument;
+    __Vtask_tb_sd__DOT__dut__DOT__command__28__argument = 0;
+    IData/*31:0*/ __Vtask_tb_sd__DOT__dut__DOT__command__31__argument;
+    __Vtask_tb_sd__DOT__dut__DOT__command__31__argument = 0;
+    SData/*15:0*/ __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__Vfuncout;
+    __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__previous;
+    __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__previous = 0;
+    CData/*7:0*/ __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__value;
+    __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__value = 0;
+    SData/*15:0*/ __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c;
+    __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c = 0;
     // Body
     if (vlSelfRef.tb_sd__DOT__reset) {
         vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__state = 0U;
@@ -210,6 +218,8 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__5(Vtb_sd___024root* vlSe
         vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__v2 = 0U;
         vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__reading = 0U;
         vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__crc_left = 0U;
+        vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__data_crc = 0U;
+        vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__received_crc_high = 0U;
         vlSelfRef.tb_sd__DOT__initialized = 0U;
         vlSelfRef.tb_sd__DOT__done = 0U;
         vlSelfRef.tb_sd__DOT__bv = 0U;
@@ -304,11 +314,11 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__5(Vtb_sd___024root* vlSe
                 vlSelfRef.tb_sd__DOT__error = 3U;
                 vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__state = 0x3fU;
             } else {
-                __Vtask_tb_sd__DOT__dut__DOT__command__22__argument 
+                __Vtask_tb_sd__DOT__dut__DOT__command__28__argument 
                     = ((IData)(vlSelfRef.tb_sd__DOT__dut__DOT__v2)
                         ? 0x40000000U : 0U);
                 vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__frame 
-                    = (0x690000000001ULL | ((QData)((IData)(__Vtask_tb_sd__DOT__dut__DOT__command__22__argument)) 
+                    = (0x690000000001ULL | ((QData)((IData)(__Vtask_tb_sd__DOT__dut__DOT__command__28__argument)) 
                                             << 8U));
                 vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__bytes_left = 6U;
                 vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__extra_count = 0U;
@@ -380,12 +390,12 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__5(Vtb_sd___024root* vlSe
                 }
             } else if ((0xdU == (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__state))) {
                 if (vlSelfRef.tb_sd__DOT__start) {
-                    __Vtask_tb_sd__DOT__dut__DOT__command__25__argument 
+                    __Vtask_tb_sd__DOT__dut__DOT__command__31__argument 
                         = ((IData)(vlSelfRef.tb_sd__DOT__dut__DOT__high_capacity)
                             ? 3U : 0x600U);
                     vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__reading = 1U;
                     vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__frame 
-                        = (0x510000000001ULL | ((QData)((IData)(__Vtask_tb_sd__DOT__dut__DOT__command__25__argument)) 
+                        = (0x510000000001ULL | ((QData)((IData)(__Vtask_tb_sd__DOT__dut__DOT__command__31__argument)) 
                                                 << 8U));
                     vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__bytes_left = 6U;
                     vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__extra_count = 0U;
@@ -497,6 +507,7 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__5(Vtb_sd___024root* vlSe
             } else if (vlSelfRef.tb_sd__DOT__dut__DOT__spi_done) {
                 if ((0xfeU == (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__rx))) {
                     vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__data_index = 0U;
+                    vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__data_crc = 0U;
                     vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__state = 0x1eU;
                 } else if (((0xffU != (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__rx)) 
                             | (0x7ffffU == vlSelfRef.tb_sd__DOT__dut__DOT__timeout_count))) {
@@ -515,9 +526,49 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__5(Vtb_sd___024root* vlSe
             }
         } else if ((0x1fU == (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__state))) {
             if (vlSelfRef.tb_sd__DOT__dut__DOT__spi_done) {
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__value 
+                    = vlSelfRef.tb_sd__DOT__dut__DOT__rx;
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__previous 
+                    = vlSelfRef.tb_sd__DOT__dut__DOT__data_crc;
                 vlSelfRef.tb_sd__DOT__bd = vlSelfRef.tb_sd__DOT__dut__DOT__rx;
                 vlSelfRef.tb_sd__DOT__bi = vlSelfRef.tb_sd__DOT__dut__DOT__data_index;
                 vlSelfRef.tb_sd__DOT__bv = 1U;
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c 
+                    = ((IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__previous) 
+                       ^ ((IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__value) 
+                          << 8U));
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c 
+                    = (0xffffU & ((0x8000U & (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c))
+                                   ? (0x1021U ^ VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U))
+                                   : VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U)));
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c 
+                    = (0xffffU & ((0x8000U & (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c))
+                                   ? (0x1021U ^ VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U))
+                                   : VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U)));
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c 
+                    = (0xffffU & ((0x8000U & (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c))
+                                   ? (0x1021U ^ VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U))
+                                   : VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U)));
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c 
+                    = (0xffffU & ((0x8000U & (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c))
+                                   ? (0x1021U ^ VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U))
+                                   : VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U)));
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c 
+                    = (0xffffU & ((0x8000U & (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c))
+                                   ? (0x1021U ^ VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U))
+                                   : VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U)));
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c 
+                    = (0xffffU & ((0x8000U & (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c))
+                                   ? (0x1021U ^ VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U))
+                                   : VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U)));
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c 
+                    = (0xffffU & ((0x8000U & (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c))
+                                   ? (0x1021U ^ VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U))
+                                   : VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U)));
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c 
+                    = (0xffffU & ((0x8000U & (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c))
+                                   ? (0x1021U ^ VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U))
+                                   : VL_SHIFTL_III(16,16,32, (IData)(__Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c), 1U)));
                 if ((0x1ffU == (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__data_index))) {
                     vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__crc_left = 2U;
                     vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__state = 0x20U;
@@ -526,6 +577,10 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__5(Vtb_sd___024root* vlSe
                         = (0x1ffU & ((IData)(1U) + (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__data_index)));
                     vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__state = 0x1eU;
                 }
+                __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__Vfuncout 
+                    = __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__c;
+                vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__data_crc 
+                    = __Vfunc_tb_sd__DOT__dut__DOT__crc16_byte__32__Vfuncout;
             }
         } else if ((0x20U == (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__state))) {
             if ((1U & (~ (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__busy)))) {
@@ -534,11 +589,20 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__5(Vtb_sd___024root* vlSe
         } else if ((0x21U == (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__state))) {
             if (vlSelfRef.tb_sd__DOT__dut__DOT__spi_done) {
                 if ((1U == (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__crc_left))) {
-                    vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__state = 0x1aU;
+                    if (((((IData)(vlSelfRef.tb_sd__DOT__dut__DOT__received_crc_high) 
+                           << 8U) | (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__rx)) 
+                         != (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__data_crc))) {
+                        vlSelfRef.tb_sd__DOT__error = 0xaU;
+                        vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__state = 0x3fU;
+                    } else {
+                        vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__state = 0x1aU;
+                    }
                 } else {
                     vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__crc_left 
                         = (3U & ((IData)(vlSelfRef.tb_sd__DOT__dut__DOT__crc_left) 
                                  - (IData)(1U)));
+                    vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__received_crc_high 
+                        = vlSelfRef.tb_sd__DOT__dut__DOT__rx;
                     vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__state = 0x20U;
                 }
             }
@@ -563,6 +627,9 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__5(Vtb_sd___024root* vlSe
     vlSelfRef.tb_sd__DOT__dut__DOT__v2 = vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__v2;
     vlSelfRef.tb_sd__DOT__dut__DOT__reading = vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__reading;
     vlSelfRef.tb_sd__DOT__dut__DOT__crc_left = vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__crc_left;
+    vlSelfRef.tb_sd__DOT__dut__DOT__data_crc = vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__data_crc;
+    vlSelfRef.tb_sd__DOT__dut__DOT__received_crc_high 
+        = vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__received_crc_high;
     vlSelfRef.tb_sd__DOT__dut__DOT__data_index = vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__data_index;
     vlSelfRef.tb_sd__DOT__sectors = vlSelfRef.__Vdly__tb_sd__DOT__sectors;
     vlSelfRef.tb_sd__DOT__dut__DOT__rx = vlSelfRef.__Vdly__tb_sd__DOT__dut__DOT__rx;
@@ -595,8 +662,8 @@ void Vtb_sd___024root___timing_resume(Vtb_sd___024root* vlSelf) {
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     if ((0x20ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        vlSelfRef.__VtrigSched_h01437713__0.resume(
-                                                   "@( ((6'hd == tb_sd.dut.state) & tb_sd.initialized))");
+        vlSelfRef.__VtrigSched_hb702cdeb__0.resume(
+                                                   "@( (((6'hd == tb_sd.dut.state) & tb_sd.initialized) | (8'h0 != tb_sd.error)))");
     }
     if ((0x40ULL & vlSelfRef.__VactTriggered.word(0U))) {
         vlSelfRef.__VtrigSched_h6b5d801d__0.resume(
@@ -617,8 +684,8 @@ void Vtb_sd___024root___timing_commit(Vtb_sd___024root* vlSelf) {
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     if ((! (0x20ULL & vlSelfRef.__VactTriggered.word(0U)))) {
-        vlSelfRef.__VtrigSched_h01437713__0.commit(
-                                                   "@( ((6'hd == tb_sd.dut.state) & tb_sd.initialized))");
+        vlSelfRef.__VtrigSched_hb702cdeb__0.commit(
+                                                   "@( (((6'hd == tb_sd.dut.state) & tb_sd.initialized) | (8'h0 != tb_sd.error)))");
     }
     if ((! (0x40ULL & vlSelfRef.__VactTriggered.word(0U)))) {
         vlSelfRef.__VtrigSched_h6b5d801d__0.commit(

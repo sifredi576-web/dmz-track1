@@ -1,0 +1,11 @@
+%Warning-TIMESCALEMOD: rtl/audio_test\dmz_uart_rx.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_uart_rx #(parameter DIVISOR=217)(input clk,reset,rx,output reg valid,output reg [7:0] data);
+      |        ^~~~~~~~~~~
+                       sim/audio_test\tb_uart_rx.sv:2:8: ... Location of module with timescale
+    2 | module tb_uart_rx;
+      |        ^~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.038 MB sources in 3 modules, into 0.103 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.130 s (elab=0.002, cvt=0.033, bld=0.000); cpu 0.047 s on 1 threads; alloced 14.359 MB

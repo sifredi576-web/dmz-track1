@@ -1,0 +1,5 @@
+gallery: image=1/4 target=2 auto=True loading=True swaps=1
+0.3s ready=True muted=True PCM=97064 nonzero=0 refresh=0 errors=0/0/0 underrun=0
+gallery: image=2/4 target=2 auto=True loading=False swaps=2
+1.3s ready=True muted=True PCM=109198 nonzero=0 refresh=0 errors=0/0/0 underrun=0
+PASS SDRAM BIST, TF/BMP image and HDMI clock ready; Status observed for 8 seconds: no hardware error, live sample/packet/refresh counters

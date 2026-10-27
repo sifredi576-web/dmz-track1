@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "seconds": 1802.7401178,
+  "frames": 3566,
+  "observed_sample_rate": 48000.68287966462,
+  "checked_words": 8388608,
+  "pixels": 307200,
+  "refresh_delta": 225740112,
+  "errors": 0,
+  "underflow": 0
+}

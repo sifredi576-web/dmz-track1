@@ -1,0 +1,73 @@
+{
+  "generated": "2026-10-27T21:28:05.8490023+08:00",
+  "hardware": "DMZ_EG4S20 / EG4S20BG256",
+  "top": "dmz_track1_top",
+  "project": "build_system/dmz_track1.al",
+  "configuration": "SRAM",
+  "default_audio": "muted",
+  "source_and_bitstream_sha256": {
+    "build_system/dmz_track1_Runs/phy_1/dmz_track1.bit": "34f401dc17223580526c4f8c4c5a911641c1a5e89c5df4124ebf45ca9f17afb4",
+    "constraints/dmz_p3.adc": "831ffe57c0b1b6ec0d68a3521374e9351ffe277fedea87ff635a1d4623a22937",
+    "constraints/dmz_p3.sdc": "ad85876ec15b781b944c7d238231acb536c1c73d3b0f65031f06a0c101d74c11",
+    "rtl/audio_test/dmz_uart_rx.sv": "28fc18c44e2f0ae353c1029c5678a09672ea7b0600c8536c9d172c02df150df4",
+    "rtl/p1/dmz_tone.sv": "a67917a4f171074bd1be9ebaa6db0fd9788044313bc31606fa4ae0433ad21e30",
+    "rtl/p1/hdmi_core/audio_clock_regeneration_packet.sv": "f8fbd93e203dbeaeaa93a30d30a2ba5fb2cc6809692560546fb06acc8e9abc7d",
+    "rtl/p1/hdmi_core/audio_info_frame.sv": "4766ead71005d4659180f23ff810c6545a56f342bf0703b84a5f146591f7f300",
+    "rtl/p1/hdmi_core/audio_sample_packet.sv": "2117d6139e259e081a8500a68ef6ab9c8233224b3dbf359f8819b58756e3d41c",
+    "rtl/p1/hdmi_core/auxiliary_video_information_info_frame.sv": "ad549402b46d6b824d8a2cffe35b96943add581d4d5dc266a5ea33cd161b5d99",
+    "rtl/p1/hdmi_core/hdmi.sv": "8db8e29bf36c02e3f5d83135ebc6545df979a2844703311e2dd040d9743c9732",
+    "rtl/p1/hdmi_core/packet_assembler.sv": "0b31287e145d59d9b053e354c6b7b145f546bb33b2e099165d0113bd00f79e63",
+    "rtl/p1/hdmi_core/packet_picker.sv": "612076a9fb9b1bb2591c8509b2cf1bc41b0e3cd77d9d4e4cc5ebdebd8e8a093e",
+    "rtl/p1/hdmi_core/source_product_description_info_frame.sv": "1b35d31aafda97caac8afd6335f6e62bc290ec65a8a0570f206ac7d9395c2951",
+    "rtl/p1/hdmi_core/tmds_channel.sv": "ca606c6facebf0cc4a4a0310c9d4e1ca6196919d6565177957d83dcf574cd8f1",
+    "rtl/p1/serializer.sv": "42faf5b8ce12b9dbe19125aaa7f87142a60abe21a257ca6b4536ac36c58815e8",
+    "rtl/p2/dmz_p2_pll.v": "8d2ab2c3893aa0e3fb60f4efa9c4a6f874bc1c08af94c9c79d9e2b10cb8fa210",
+    "rtl/p2/dmz_pixel_fifo.sv": "d55ce31fce935780cd51aba96a7d2110ed13a22831ec37b7849fdcfe13c5264e",
+    "rtl/p2/dmz_sdram_bist.sv": "0414b6014cd42c7855fd7011a4bd2bed6a8dfd64caaa0b294f0103a2ca8cd0f6",
+    "rtl/p2/dmz_sdram_ctrl.sv": "0fd7fbef1f42adca0dd33ff886171bd6c3ecb1221eccfea7530156ad3f8c0178",
+    "rtl/p2/dmz_status_uart.sv": "08378dfe488aa447938d16e1295fbf039dd6eaefbc7d784f17a2c185f74d373e",
+    "rtl/p3/dmz_bmp_loader.sv": "689d8d02ab455a2ff066d47354d02de4f2ab6bb4ae0c499b17ae682472c18098",
+    "rtl/p3/dmz_image_framebuffer.sv": "f79c19bee964a1e74c474683300ca8cd9d225c20771911f15240e710527e4ff7",
+    "rtl/p3/dmz_sd_reader.sv": "bd5fc4b7e936019dae2a7c86d08cef45d568b0b75e9bbcf4107d8c76d0af587c",
+    "rtl/p3/dmz_spi_byte.sv": "863a302a5f119ca9b0dec813b0c5aa17e6ec13e037f781bfa27fd68f95638565",
+    "rtl/system/dmz_media_control.sv": "314450cb6c98c0b36d963c0a2044ee65d10b4b938876b3b83254e5e54cc1f513",
+    "rtl/system/dmz_status_cdc.sv": "189a004ad4fdd0c62e669c77105840dd2411f4077263f21f5429a1c474aba2e1",
+    "rtl/system/dmz_track1_top.sv": "a7c8233eb73d38b8ce978500073f4e2d84c598d826311fb1d9650635031f3dfc",
+    "scripts/build_system.ps1": "075cb1199719e2cf7ce821c22c95f1d6b0056ec05fa600fe65d4a2cf12dc0a1a",
+    "scripts/build_system.tcl": "c953c6ada3c9856a874ec32317a1e6b6a0061bd3f567e9947df2d93c35cb453f",
+    "scripts/download_system.ps1": "43d349fc9a77b5ee2b2a0ddfde4473f1965933986ca5abdddf1baea9f7d0781b",
+    "scripts/download_system.tcl": "356ee73e41944c8b28d45c75d316ed854262d3999f6c1399d64a263d8d8fe743",
+    "scripts/project.ps1": "3aeeae8048b0b17845714fa7afd12a71f8a1bfe2e0cb698967b074100688acf0",
+    "scripts/system_console.ps1": "01795c41deedd3c7775463aa7f01a51909dfd85de40d5a34c0b8a643f7ad07d1"
+  },
+  "setup_slack_ns": 1.308,
+  "hold_slack_ns": 0.014,
+  "hardware_evidence": {
+    "docs/system_smoke_status.json": {
+      "passed": true,
+      "elapsed_seconds": 15.3844975,
+      "sha256": "2aa9253b830d99cbd355522ddb755b65da13cd7ac775cb1cd6ba65d6ed936bcc"
+    },
+    "docs/system_soak_30min.json": {
+      "passed": true,
+      "elapsed_seconds": 1802.7401178,
+      "sha256": "dc36ccb85df79dbae407777507dbc70e966cba0e17f5940fe4c35c1bf53bad33"
+    }
+  },
+  "prepared_wav_component": {
+    "included_in_bitstream": false,
+    "source_sha256": "2804ad1cd4481ccf90af568b4c0e59ff0b8e51bb4477bb25dcf10418b2fe7100",
+    "test_result_sha256": "02e82316cceaaf082dbccc3cd241bcc2e27ff21061e51e92942839d1a16e480e",
+    "tested_cases": 21,
+    "scope": "standalone RTL simulation only; not TF/WAV playback"
+  },
+  "physical_picture_confirmation": "2026-10-27: user confirmed unified image normal, correct orientation",
+  "physical_hdmi_reconnect_confirmation": "2026-10-27: user confirmed unplug/replug at display restores normal image automatically",
+  "audio_confirmation": "2026-10-27: user heard same HDMI/tone chain in audio_test; unified mute/unmute validated by packet counters",
+  "pending": [
+    "Power-cycle / physical SW0 checks",
+    "More real TF cards and file compatibility",
+    "Long audible listening and later two-hour full-feature soak",
+    "WAV playback, playlist, interaction and five extensions"
+  ]
+}

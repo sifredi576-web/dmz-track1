@@ -15,6 +15,7 @@ add_files ../rtl/p2/dmz_status_uart.sv
 add_files ../rtl/p3/dmz_bmp_loader.sv
 add_files ../rtl/p3/dmz_image_framebuffer.sv
 add_files ../rtl/audio_test/dmz_av_test_top.sv
+add_files ../rtl/audio_test/dmz_uart_rx.sv
 add_files ../rtl/p3/dmz_sd_reader.sv
 add_files ../rtl/p3/dmz_spi_byte.sv
 add_files ../rtl/p1/serializer.sv

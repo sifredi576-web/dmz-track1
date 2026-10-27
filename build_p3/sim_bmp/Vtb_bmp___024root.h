@@ -84,6 +84,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_bmp___024root final : public VerilatedMod
     };
     struct {
         IData/*17:0*/ tb_bmp__DOT__dut__DOT__target_addr;
+        IData/*31:0*/ tb_bmp__DOT__dut__DOT__required_file_end;
         IData/*31:0*/ tb_bmp__DOT__dut__DOT__fat_entry;
         IData/*31:0*/ __VactIterCount;
         VlUnpacked<CData/*7:0*/, 512> tb_bmp__DOT__dut__DOT__cache;

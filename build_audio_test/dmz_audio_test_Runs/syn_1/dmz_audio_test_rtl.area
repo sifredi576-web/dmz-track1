@@ -2,54 +2,55 @@ standard
 ***Report Model: dmz_av_test_top Device: EG4S20BG256***
 
 IO Statistics
-#IO                        21
-  #input                    5
+#IO                        22
+  #input                    6
   #output                  16
   #inout                    0
 
 Gate Statistics
-#Basic gates            11052
-  #and                   2391
+#Basic gates            11187
+  #and                   2402
   #nand                     0
-  #or                    1968
+  #or                    1975
   #nor                      0
-  #xor                    672
+  #xor                    674
   #xnor                    18
   #buf                      0
-  #not                    385
+  #not                    401
   #bufif1                  32
-  #MX21                  1661
+  #MX21                  1682
   #FADD                     0
-  #DFF                   3925
+  #DFF                   4003
   #LATCH                    0
-#MACRO_ADD                192
-#MACRO_EQ                 149
+#MACRO_ADD                194
+#MACRO_EQ                 153
 #MACRO_MULT                 4
-#MACRO_MUX               1613
+#MACRO_MUX               1667
 #MACRO_OTHERS               9
 
 Report Hierarchy Area:
 +-----------------------------------------------------------------------------------------------+
 |Instance                              |Module                          |gates  |seq    |macros |
 +-----------------------------------------------------------------------------------------------+
-|top                                   |dmz_av_test_top                 |7127   |3925   |354    |
+|top                                   |dmz_av_test_top                 |7184   |4003   |360    |
 |  bist                                |dmz_sdram_bist                  |392    |383    |15     |
+|  command_rx                          |dmz_uart_rx                     |27     |42     |3      |
 |  ctrl                                |dmz_sdram_ctrl                  |3989   |623    |8      |
 |  fb                                  |dmz_image_framebuffer           |325    |292    |7      |
 |  fifo                                |dmz_pixel_fifo                  |39     |94     |6      |
-|  loader                              |dmz_bmp_loader                  |404    |1187   |105    |
+|  loader                              |dmz_bmp_loader                  |407    |1219   |105    |
 |  pll                                 |dmz_p2_pll                      |0      |0      |1      |
 |  sd                                  |dmz_sd_reader                   |292    |204    |58     |
 |    spi                               |dmz_spi_byte                    |22     |29     |4      |
-|  telemetry                           |dmz_status_uart                 |21     |452    |8      |
+|  telemetry                           |dmz_status_uart                 |21     |454    |8      |
 |  tone                                |dmz_tone                        |2      |38     |5      |
-|  tx                                  |hdmi                            |1097   |441    |131    |
-|    serializer                        |serializer                      |3      |36     |4      |
+|  tx                                  |hdmi                            |1099   |441    |131    |
+|    serializer                        |serializer                      |2      |36     |4      |
 |    tmds_gen[0]$tmds_channel          |tmds_channel                    |100    |14     |29     |
 |    tmds_gen[1]$tmds_channel          |tmds_channel                    |96     |14     |25     |
 |    tmds_gen[2]$tmds_channel          |tmds_channel                    |94     |14     |25     |
 |    true_hdmi_output$packet_assembler |packet_assembler                |30     |45     |4      |
-|    true_hdmi_output$packet_picker    |packet_picker                   |731    |78     |13     |
+|    true_hdmi_output$packet_picker    |packet_picker                   |735    |78     |13     |
 |      audio_clock_regeneration_packet |audio_clock_regeneration_packet |2      |43     |3      |
 |      audio_sample_packet             |audio_sample_packet             |197    |0      |3      |
 +-----------------------------------------------------------------------------------------------+

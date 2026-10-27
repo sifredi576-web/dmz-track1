@@ -18,7 +18,7 @@ Vtb_sd__Syms::Vtb_sd__Syms(VerilatedContext* contextp, const char* namep, Vtb_sd
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(40);
+        Verilated::stackCheck(146);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
     _vm_contextp__->timeprecision(-12);

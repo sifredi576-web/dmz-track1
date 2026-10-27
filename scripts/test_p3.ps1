@@ -21,6 +21,15 @@ try {
     if($LASTEXITCODE -ne 0){throw 'Unsupported BMP rejection failed'}
     & ./Vtb_bmp.exe +fat16 +mbr +rgba +top *> ../../docs/p3_bmp_variants_result.txt
     if($LASTEXITCODE -ne 0){throw 'FAT16/MBR/32-bit/top-down variant failed'}
+    foreach($case in @('bpb','signature','nobmp','shortfile','dimensions','offset','bmpmagic')){
+     & ./Vtb_bmp.exe "+$case" *> "../../docs/p3_bmp_${case}_result.txt"
+     if($LASTEXITCODE -ne 0){throw "Malformed media rejection failed: $case"}
+    }
+   }else{
+    foreach($case in @('sdsc','v1','noresponse','readerror','badtoken','badcrc')){
+     & ./Vtb_sd.exe "+$case" *> "../../docs/p3_sd_${case}_result.txt"
+     if($LASTEXITCODE -ne 0){throw "SD protocol/error case failed: $case"}
+    }
    }
   }finally{Pop-Location}
   Get-Content "docs/p3_${kind}_sim_result.txt" -TotalCount 2

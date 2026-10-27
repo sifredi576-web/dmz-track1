@@ -1,0 +1,6 @@
+PASS BIST four patterns, checked=8388608 refresh=120539
+PASS display frames=8 pixels=2457600 swaps=4 refresh=139885 no underrun/tearing
+- D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p2\tb_p2.sv:57: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.036 2025-04-27
+- Verilator: $finish at 1s; walltime 27.718 s; speed 43.107 ms/s
+- Verilator: cpu 26.078 s on 1 threads; alloced 14 MB

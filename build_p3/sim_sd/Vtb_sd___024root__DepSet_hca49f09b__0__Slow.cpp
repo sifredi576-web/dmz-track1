@@ -18,9 +18,11 @@ VL_ATTR_COLD void Vtb_sd___024root___eval_static(Vtb_sd___024root* vlSelf) {
     vlSelfRef.__Vtrigprevexpr___TOP__tb_sd__DOT__cs__0 
         = vlSelfRef.tb_sd__DOT__cs;
     vlSelfRef.__Vtrigprevexpr___TOP__tb_sd__DOT__clk__0 = 0U;
-    vlSelfRef.__Vtrigprevexpr_ha5752fe1__1 = ((0xdU 
-                                               == (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__state)) 
-                                              & (IData)(vlSelfRef.tb_sd__DOT__initialized));
+    vlSelfRef.__Vtrigprevexpr_h2f3589c9__1 = (((0xdU 
+                                                == (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__state)) 
+                                               & (IData)(vlSelfRef.tb_sd__DOT__initialized)) 
+                                              | (0U 
+                                                 != (IData)(vlSelfRef.tb_sd__DOT__error)));
     vlSelfRef.__Vtrigprevexpr_hd106087b__1 = ((IData)(vlSelfRef.tb_sd__DOT__done) 
                                               | (0U 
                                                  != (IData)(vlSelfRef.tb_sd__DOT__error)));
@@ -176,7 +178,7 @@ VL_ATTR_COLD void Vtb_sd___024root___dump_triggers__act(Vtb_sd___024root* vlSelf
         VL_DBG_MSGF("         'act' region trigger index 4 is active: @([true] __VdlySched.awaitingCurrentTime())\n");
     }
     if ((0x20ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        VL_DBG_MSGF("         'act' region trigger index 5 is active: @( ((6'hd == tb_sd.dut.state) & tb_sd.initialized))\n");
+        VL_DBG_MSGF("         'act' region trigger index 5 is active: @( (((6'hd == tb_sd.dut.state) & tb_sd.initialized) | (8'h0 != tb_sd.error)))\n");
     }
     if ((0x40ULL & vlSelfRef.__VactTriggered.word(0U))) {
         VL_DBG_MSGF("         'act' region trigger index 6 is active: @(negedge tb_sd.clk)\n");
@@ -212,7 +214,7 @@ VL_ATTR_COLD void Vtb_sd___024root___dump_triggers__nba(Vtb_sd___024root* vlSelf
         VL_DBG_MSGF("         'nba' region trigger index 4 is active: @([true] __VdlySched.awaitingCurrentTime())\n");
     }
     if ((0x20ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        VL_DBG_MSGF("         'nba' region trigger index 5 is active: @( ((6'hd == tb_sd.dut.state) & tb_sd.initialized))\n");
+        VL_DBG_MSGF("         'nba' region trigger index 5 is active: @( (((6'hd == tb_sd.dut.state) & tb_sd.initialized) | (8'h0 != tb_sd.error)))\n");
     }
     if ((0x40ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         VL_DBG_MSGF("         'nba' region trigger index 6 is active: @(negedge tb_sd.clk)\n");
@@ -257,7 +259,8 @@ VL_ATTR_COLD void Vtb_sd___024root___ctor_var_reset(Vtb_sd___024root* vlSelf) {
     vlSelf->tb_sd__DOT__received = VL_RAND_RESET_I(32);
     vlSelf->tb_sd__DOT__argument = VL_RAND_RESET_I(32);
     vlSelf->tb_sd__DOT__complete_byte = VL_RAND_RESET_I(8);
-    vlSelf->tb_sd__DOT__unnamedblk1__DOT__i = VL_RAND_RESET_I(32);
+    vlSelf->tb_sd__DOT__crc = VL_RAND_RESET_I(16);
+    vlSelf->tb_sd__DOT__unnamedblk2__DOT__i = VL_RAND_RESET_I(32);
     vlSelf->tb_sd__DOT____Vlvbound_ha33a169e__0 = VL_RAND_RESET_I(8);
     vlSelf->tb_sd__DOT__dut__DOT__state = VL_RAND_RESET_I(6);
     vlSelf->tb_sd__DOT__dut__DOT__continuation = VL_RAND_RESET_I(6);
@@ -274,6 +277,8 @@ VL_ATTR_COLD void Vtb_sd___024root___ctor_var_reset(Vtb_sd___024root* vlSelf) {
     vlSelf->tb_sd__DOT__dut__DOT__reading = VL_RAND_RESET_I(1);
     vlSelf->tb_sd__DOT__dut__DOT__crc_left = VL_RAND_RESET_I(2);
     vlSelf->tb_sd__DOT__dut__DOT__data_index = VL_RAND_RESET_I(9);
+    vlSelf->tb_sd__DOT__dut__DOT__data_crc = VL_RAND_RESET_I(16);
+    vlSelf->tb_sd__DOT__dut__DOT__received_crc_high = VL_RAND_RESET_I(8);
     vlSelf->tb_sd__DOT__dut__DOT__busy = VL_RAND_RESET_I(1);
     vlSelf->tb_sd__DOT__dut__DOT__spi_done = VL_RAND_RESET_I(1);
     vlSelf->tb_sd__DOT__dut__DOT__rx = VL_RAND_RESET_I(8);
@@ -296,6 +301,8 @@ VL_ATTR_COLD void Vtb_sd___024root___ctor_var_reset(Vtb_sd___024root* vlSelf) {
     vlSelf->__Vdly__tb_sd__DOT__dut__DOT__v2 = VL_RAND_RESET_I(1);
     vlSelf->__Vdly__tb_sd__DOT__dut__DOT__reading = VL_RAND_RESET_I(1);
     vlSelf->__Vdly__tb_sd__DOT__dut__DOT__crc_left = VL_RAND_RESET_I(2);
+    vlSelf->__Vdly__tb_sd__DOT__dut__DOT__data_crc = VL_RAND_RESET_I(16);
+    vlSelf->__Vdly__tb_sd__DOT__dut__DOT__received_crc_high = VL_RAND_RESET_I(8);
     vlSelf->__Vdly__tb_sd__DOT__dut__DOT__data_index = VL_RAND_RESET_I(9);
     vlSelf->__Vdly__tb_sd__DOT__sectors = VL_RAND_RESET_I(32);
     vlSelf->__Vdly__tb_sd__DOT__sck = VL_RAND_RESET_I(1);
@@ -308,7 +315,7 @@ VL_ATTR_COLD void Vtb_sd___024root___ctor_var_reset(Vtb_sd___024root* vlSelf) {
     vlSelf->__Vtrigprevexpr___TOP__tb_sd__DOT__sck__0 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr___TOP__tb_sd__DOT__cs__0 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr___TOP__tb_sd__DOT__clk__0 = VL_RAND_RESET_I(1);
-    vlSelf->__Vtrigprevexpr_ha5752fe1__1 = VL_RAND_RESET_I(1);
+    vlSelf->__Vtrigprevexpr_h2f3589c9__1 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr_hd106087b__1 = VL_RAND_RESET_I(1);
     vlSelf->__VactDidInit = 0;
 }
