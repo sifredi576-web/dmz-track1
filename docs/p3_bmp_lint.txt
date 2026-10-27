@@ -1,39 +1,51 @@
-%Warning-TIMESCALEMOD: dmz_track1/rtl/p3\dmz_bmp_loader.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+%Warning-TIMESCALEMOD: rtl/p3\dmz_bmp_loader.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
     3 | module dmz_bmp_loader(input clk,reset,enable,
       |        ^~~~~~~~~~~~~~
-                       dmz_track1/sim/p3\tb_bmp.sv:2:8: ... Location of module with timescale
+                       sim/p3\tb_bmp.sv:2:8: ... Location of module with timescale
     2 | module tb_bmp;
       |        ^~~~~~
                        ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
                        ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
-%Warning-WIDTHEXPAND: dmz_track1/rtl/p3\dmz_bmp_loader.sv:98:41: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'cluster_sector' generates 8 bits.
-                                                               : ... note: In instance 'tb_bmp.dut'
+%Warning-WIDTHEXPAND: rtl/p3\dmz_bmp_loader.sv:98:41: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'cluster_sector' generates 8 bits.
+                                                    : ... note: In instance 'tb_bmp.dut'
    98 |    else sector(data_base+(cluster-2)*spc+cluster_sector,DIR_FILL);
       |                                         ^
                       ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
                       ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
-%Warning-WIDTHEXPAND: dmz_track1/rtl/p3\dmz_bmp_loader.sv:146:34: Operator SHIFTR expects 32 or 6 bits on the LHS, but LHS's VARREF 'burst_pixel' generates 4 bits.
-                                                                : ... note: In instance 'tb_bmp.dut'
+%Warning-WIDTHEXPAND: rtl/p3\dmz_bmp_loader.sv:146:34: Operator SHIFTR expects 32 or 6 bits on the LHS, but LHS's VARREF 'burst_pixel' generates 4 bits.
+                                                     : ... note: In instance 'tb_bmp.dut'
   146 |       else load_data[(burst_pixel>>1)*32+:32]<={color,low_pixel};
       |                                  ^~
-%Warning-WIDTHEXPAND: dmz_track1/rtl/p3\dmz_bmp_loader.sv:159:103: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'cluster_sector' generates 8 bits.
-                                                                 : ... note: In instance 'tb_bmp.dut'
+%Warning-WIDTHEXPAND: rtl/p3\dmz_bmp_loader.sv:159:103: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'cluster_sector' generates 8 bits.
+                                                      : ... note: In instance 'tb_bmp.dut'
   159 |    if(cluster_sector+1<spc) begin cluster_sector<=cluster_sector+1'b1;sector(data_base+(cluster-2)*spc+cluster_sector+1,BYTES);end
       |                                                                                                       ^
-%Warning-WIDTHTRUNC: dmz_track1/sim/p3\tb_bmp.sv:26:24: Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's SHIFTR generates 64 bits.
-                                                      : ... note: In instance 'tb_bmp'
-   26 |   if(i>=32&&i<=39) disk="PICDEMO ">>((i-32)*8);
+%Warning-WIDTHTRUNC: sim/p3\tb_bmp.sv:35:24: Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's SHIFTR generates 64 bits.
+                                           : ... note: In instance 'tb_bmp'
+   35 |   if(i>=32&&i<=39) disk="PICDEMO ">>((i-32)*8);
       |                        ^
                      ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
                      ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
-%Warning-WIDTHEXPAND: dmz_track1/sim/p3\tb_bmp.sv:58:67: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'address' generates 18 bits.
-                                                       : ... note: In instance 'tb_bmp'
-   58 |   for(integer j=0;j<8;j=j+1) if(data[j*32+:32]!=={expected(address+j,1),expected(address+j,0)}) $fatal(1,"BMP pixel a=%0d j=%0d actual=%h",address,j,data[j*32+:32]);
+%Warning-WIDTHTRUNC: sim/p3\tb_bmp.sv:36:24: Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's SHIFTR generates 32 bits.
+                                           : ... note: In instance 'tb_bmp'
+   36 |   if(i>=60&&i<=63) disk=32'(file_bytes)>>((i-60)*8);
+      |                        ^
+%Warning-WIDTHTRUNC: sim/p3\tb_bmp.sv:47:28: Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's SHIFTR generates 32 bits.
+                                           : ... note: In instance 'tb_bmp'
+   47 |     if(ofs>=2&&ofs<=5) disk=32'(file_bytes)>>((ofs-2)*8);
+      |                            ^
+%Warning-WIDTHTRUNC: sim/p3\tb_bmp.sv:49:37: Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's SHIFTR generates 32 bits.
+                                           : ... note: In instance 'tb_bmp'
+   49 |     if(top && ofs>=22&&ofs<=25) disk=32'hfffffe20>>((ofs-22)*8);
+      |                                     ^
+%Warning-WIDTHEXPAND: sim/p3\tb_bmp.sv:72:67: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'address' generates 18 bits.
+                                            : ... note: In instance 'tb_bmp'
+   72 |   for(integer j=0;j<8;j=j+1) if(data[j*32+:32]!=={expected(address+j,1),expected(address+j,0)}) $fatal(1,"BMP pixel a=%0d j=%0d actual=%h",address,j,data[j*32+:32]);
       |                                                                   ^
-%Warning-WIDTHEXPAND: dmz_track1/sim/p3\tb_bmp.sv:58:89: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'address' generates 18 bits.
-                                                       : ... note: In instance 'tb_bmp'
-   58 |   for(integer j=0;j<8;j=j+1) if(data[j*32+:32]!=={expected(address+j,1),expected(address+j,0)}) $fatal(1,"BMP pixel a=%0d j=%0d actual=%h",address,j,data[j*32+:32]);
+%Warning-WIDTHEXPAND: sim/p3\tb_bmp.sv:72:89: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'address' generates 18 bits.
+                                            : ... note: In instance 'tb_bmp'
+   72 |   for(integer j=0;j<8;j=j+1) if(data[j*32+:32]!=={expected(address+j,1),expected(address+j,0)}) $fatal(1,"BMP pixel a=%0d j=%0d actual=%h",address,j,data[j*32+:32]);
       |                                                                                         ^
 - V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
-- Verilator: Built from 0.055 MB sources in 3 modules, into 0.181 MB in 9 C++ files needing 0.001 MB
-- Verilator: Walltime 0.088 s (elab=0.004, cvt=0.025, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.391 MB
+- Verilator: Built from 0.056 MB sources in 3 modules, into 0.187 MB in 9 C++ files needing 0.001 MB
+- Verilator: Walltime 0.075 s (elab=0.004, cvt=0.028, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.410 MB

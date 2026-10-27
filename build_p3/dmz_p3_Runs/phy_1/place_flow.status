@@ -1,0 +1,21 @@
+Location         : D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\build_p3\dmz_p3_Runs\phy_1
+Running with     : Tang Dynasty v6.2.168116
+                   Copyright (c) 2012-2025 Anlogic Inc.
+Top Model        : dmz_p3_top
+Device           : EG4S20BG256
+Speed            : NA
+
+Timing Mode      : manhattan
+Setup            : WNS -1444ps  TNS   -24146ps  NUM_FEPS    30
+Hold             : WNS    39ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+--------------------------------------------------------------------------------------------------
+     command     |  #calls  |  wall time  |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+--------------------------------------------------------------------------------------------------
+      place      |    1     |  16s(100%)  |   26(100%)    |        393        |        393        
+    import_db    |    1     |   0s(0%)    |     0(0%)     |        207        |        207        
+  import_device  |    1     |   0s(0%)    |     0(0%)     |        83         |        83         
+--------------------------------------------------------------------------------------------------
+      total      |    3     |     16s     |      26       |        393        |        393        
+--------------------------------------------------------------------------------------------------

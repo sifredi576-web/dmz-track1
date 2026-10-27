@@ -12,7 +12,7 @@ VL_INLINE_OPT VlCoroutine Vtb_sd___024root___eval_initial__TOP__Vtiming__0(Vtb_s
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x186a0ULL, 
-                                         nullptr, "dmz_track1/sim/p3\tb_sd.sv", 
+                                         nullptr, "sim/p3\tb_sd.sv", 
                                          48);
     vlSelfRef.tb_sd__DOT__reset = 0U;
     while ((1U & (~ ((0xdU == (IData)(vlSelfRef.tb_sd__DOT__dut__DOT__state)) 
@@ -20,19 +20,19 @@ VL_INLINE_OPT VlCoroutine Vtb_sd___024root___eval_initial__TOP__Vtiming__0(Vtb_s
         co_await vlSelfRef.__VtrigSched_h01437713__0.trigger(1U, 
                                                              nullptr, 
                                                              "@( ((6'hd == tb_sd.dut.state) & tb_sd.initialized))", 
-                                                             "dmz_track1/sim/p3\tb_sd.sv", 
+                                                             "sim/p3\tb_sd.sv", 
                                                              48);
     }
     co_await vlSelfRef.__VtrigSched_h6b5d801d__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_sd.clk)", 
-                                                         "dmz_track1/sim/p3\tb_sd.sv", 
+                                                         "sim/p3\tb_sd.sv", 
                                                          48);
     vlSelfRef.tb_sd__DOT__start = 1U;
     co_await vlSelfRef.__VtrigSched_h6b5d801d__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_sd.clk)", 
-                                                         "dmz_track1/sim/p3\tb_sd.sv", 
+                                                         "sim/p3\tb_sd.sv", 
                                                          48);
     vlSelfRef.tb_sd__DOT__start = 0U;
     while ((1U & (~ ((IData)(vlSelfRef.tb_sd__DOT__done) 
@@ -40,7 +40,7 @@ VL_INLINE_OPT VlCoroutine Vtb_sd___024root___eval_initial__TOP__Vtiming__0(Vtb_s
         co_await vlSelfRef.__VtrigSched_h54b24ea5__0.trigger(1U, 
                                                              nullptr, 
                                                              "@( (tb_sd.done | (8'h0 != tb_sd.error)))", 
-                                                             "dmz_track1/sim/p3\tb_sd.sv", 
+                                                             "sim/p3\tb_sd.sv", 
                                                              48);
     }
     if (VL_UNLIKELY((((0U != (IData)(vlSelfRef.tb_sd__DOT__error)) 
@@ -49,10 +49,10 @@ VL_INLINE_OPT VlCoroutine Vtb_sd___024root___eval_initial__TOP__Vtiming__0(Vtb_s
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      8,(IData)(vlSelfRef.tb_sd__DOT__error),
                      32,vlSelfRef.tb_sd__DOT__received);
-        VL_STOP_MT("dmz_track1/sim/p3\\tb_sd.sv", 48, "", false);
+        VL_STOP_MT("sim/p3\\tb_sd.sv", 48, "", false);
     }
     VL_WRITEF_NX("PASS SD SPI initialization CMD0/8/55/41/58, SDHC addressing, CMD17 512 indexed bytes\n",0);
-    VL_FINISH_MT("dmz_track1/sim/p3\\tb_sd.sv", 48, "");
+    VL_FINISH_MT("sim/p3\\tb_sd.sv", 48, "");
 }
 
 VL_INLINE_OPT VlCoroutine Vtb_sd___024root___eval_initial__TOP__Vtiming__1(Vtb_sd___024root* vlSelf) {
@@ -61,13 +61,13 @@ VL_INLINE_OPT VlCoroutine Vtb_sd___024root___eval_initial__TOP__Vtiming__1(Vtb_s
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x6fc23ac00ULL, 
-                                         nullptr, "dmz_track1/sim/p3\tb_sd.sv", 
+                                         nullptr, "sim/p3\tb_sd.sv", 
                                          49);
     VL_WRITEF_NX("[%0t] %%Fatal: tb_sd.sv:49: Assertion failed in %Ntb_sd: SD timeout state=%0# error=%0#\n",0,
                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                  8,(IData)(vlSelfRef.tb_sd__DOT__dut__DOT__state),
                  8,vlSelfRef.tb_sd__DOT__error);
-    VL_STOP_MT("dmz_track1/sim/p3\\tb_sd.sv", 49, "", false);
+    VL_STOP_MT("sim/p3\\tb_sd.sv", 49, "", false);
 }
 
 #ifdef VL_DEBUG
@@ -177,7 +177,7 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__0(Vtb_sd___024root* vlSe
                          -9,vlSymsp->name(),9,(IData)(vlSelfRef.tb_sd__DOT__bi),
                          32,vlSelfRef.tb_sd__DOT__received,
                          8,(IData)(vlSelfRef.tb_sd__DOT__bd));
-            VL_STOP_MT("dmz_track1/sim/p3\\tb_sd.sv", 45, "", false);
+            VL_STOP_MT("sim/p3\\tb_sd.sv", 45, "", false);
         }
         vlSelfRef.tb_sd__DOT__received = ((IData)(1U) 
                                           + vlSelfRef.tb_sd__DOT__received);
@@ -260,7 +260,7 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__2(Vtb_sd___024root* vlSe
                             VL_WRITEF_NX("[%0t] %%Fatal: tb_sd.sv:24: Assertion failed in %Ntb_sd: ACMD41 HCS\n",0,
                                          64,VL_TIME_UNITED_Q(1000),
                                          -9,vlSymsp->name());
-                            VL_STOP_MT("dmz_track1/sim/p3\\tb_sd.sv", 24, "", false);
+                            VL_STOP_MT("sim/p3\\tb_sd.sv", 24, "", false);
                         }
                         vlSelfRef.tb_sd__DOT__response[(0x3ffU 
                                                         & vlSelfRef.tb_sd__DOT__tail)] = 0U;
@@ -296,7 +296,7 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__2(Vtb_sd___024root* vlSe
                             VL_WRITEF_NX("[%0t] %%Fatal: tb_sd.sv:27: Assertion failed in %Ntb_sd: SDHC LBA\n",0,
                                          64,VL_TIME_UNITED_Q(1000),
                                          -9,vlSymsp->name());
-                            VL_STOP_MT("dmz_track1/sim/p3\\tb_sd.sv", 27, "", false);
+                            VL_STOP_MT("sim/p3\\tb_sd.sv", 27, "", false);
                         }
                         vlSelfRef.tb_sd__DOT__response[(0x3ffU 
                                                         & vlSelfRef.tb_sd__DOT__tail)] = 0U;
@@ -336,7 +336,7 @@ VL_INLINE_OPT void Vtb_sd___024root___nba_sequent__TOP__2(Vtb_sd___024root* vlSe
                                      -9,vlSymsp->name(),
                                      6,(0x3fU & vlSelfRef.tb_sd__DOT__command
                                         [0U]));
-                        VL_STOP_MT("dmz_track1/sim/p3\\tb_sd.sv", 31, "", false);
+                        VL_STOP_MT("sim/p3\\tb_sd.sv", 31, "", false);
                     }
                     vlSelfRef.tb_sd__DOT__cmdbytes = 0U;
                 } else {

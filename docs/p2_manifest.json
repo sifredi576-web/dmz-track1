@@ -1,16 +1,18 @@
 {
   "date": "2026-10-27",
-  "hardware": "BIST 8388608 words, 0 errors; swaps increase; underflow 0",
+  "standalone_bit": "fresh build verified; not downloaded after final shift-output optimization",
+  "hardware_evidence": "Same optimized SDRAM controller verified in currently running P3: 8388608 words, 0 errors; real BMP displayed and user confirmed.",
+  "simulation": "ideal pin model READ_WAIT_CYCLES=2; board hard-macro default=1",
   "sha256": {
     "rtl/p2/dmz_framebuffer.sv": "24d0f9d5efd55bdc08e347427114d1a2a9b4820e2723d1945cfcce379fc0666e",
     "rtl/p2/dmz_p2_pll.v": "8d2ab2c3893aa0e3fb60f4efa9c4a6f874bc1c08af94c9c79d9e2b10cb8fa210",
     "rtl/p2/dmz_p2_top.sv": "3fc52df22f6d61f2043158963aaa7a0690e86c147aeb62994a2500aeeee61dc4",
     "rtl/p2/dmz_pixel_fifo.sv": "d55ce31fce935780cd51aba96a7d2110ed13a22831ec37b7849fdcfe13c5264e",
     "rtl/p2/dmz_sdram_bist.sv": "0414b6014cd42c7855fd7011a4bd2bed6a8dfd64caaa0b294f0103a2ca8cd0f6",
-    "rtl/p2/dmz_sdram_ctrl.sv": "9a193d6cd051d4e3730088f391981e4b98bac4174119fdf892fa76e02bd42104",
+    "rtl/p2/dmz_sdram_ctrl.sv": "0fd7fbef1f42adca0dd33ff886171bd6c3ecb1221eccfea7530156ad3f8c0178",
     "rtl/p2/dmz_status_uart.sv": "08378dfe488aa447938d16e1295fbf039dd6eaefbc7d784f17a2c185f74d373e",
     "constraints/dmz_p2.adc": "573e60917ba0eb4b155d11469eede81ff4a68d1e42f904ba66f64c85504042e5",
     "constraints/dmz_p2.sdc": "8e3eb2cf57802ea5233570d19129514807aa35e1d6f7c0fcdf186bcda95fe028",
-    "build_p2/dmz_p2_Runs/phy_1/dmz_p2.bit": "04ef2a95e3547c5eb2c65690d8701f3e993a5b26c4caea7ee03549d057c6e9b7"
+    "build_p2/dmz_p2_Runs/phy_1/dmz_p2.bit": "302bdf7b8fece82462bb519d881711d8316af9312adb46705f5f3d7e5df772bc"
   }
 }

@@ -47,7 +47,7 @@ VM_USER_CLASSES = \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
-	../../.. \
+	../.. \
 
 
 ### Default rules...

@@ -1,0 +1,4 @@
+PASS SD SPI initialization CMD0/8/55/41/58, SDHC addressing, CMD17 512 indexed bytes
+- sim/p3\tb_sd.sv:48: Verilog $finish
+PASS FAT32 fragmented cluster chain, directory skip, BMP bottom-up, 307200 pixels, 19200 bursts 2028 sectors
+- sim/p3\tb_bmp.sv:85: Verilog $finish

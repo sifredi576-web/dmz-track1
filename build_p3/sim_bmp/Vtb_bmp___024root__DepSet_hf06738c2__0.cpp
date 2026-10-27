@@ -12,43 +12,43 @@ VL_INLINE_OPT VlCoroutine Vtb_bmp___024root___eval_initial__TOP__Vtiming__0(Vtb_
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x186a0ULL, 
-                                         nullptr, "dmz_track1/sim/p3\tb_bmp.sv", 
-                                         64);
+                                         nullptr, "sim/p3\tb_bmp.sv", 
+                                         78);
     vlSelfRef.tb_bmp__DOT__reset = 0U;
     while ((1U & (~ ((IData)(vlSelfRef.tb_bmp__DOT__done) 
                      | (0U != (IData)(vlSelfRef.tb_bmp__DOT__error)))))) {
         co_await vlSelfRef.__VtrigSched_hf82e2f98__0.trigger(1U, 
                                                              nullptr, 
                                                              "@( (tb_bmp.done | (8'h0 != tb_bmp.error)))", 
-                                                             "dmz_track1/sim/p3\tb_bmp.sv", 
-                                                             65);
+                                                             "sim/p3\tb_bmp.sv", 
+                                                             79);
     }
     if (VL_TESTPLUSARGS_I(std::string{"bad"})) {
         if (VL_UNLIKELY((((8U != (IData)(vlSelfRef.tb_bmp__DOT__error)) 
                           | (0U != vlSelfRef.tb_bmp__DOT__bursts))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:66: Assertion failed in %Ntb_bmp: bad BMP not rejected\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:80: Assertion failed in %Ntb_bmp: bad BMP not rejected\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
-            VL_STOP_MT("dmz_track1/sim/p3\\tb_bmp.sv", 66, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 80, "", false);
         }
         VL_WRITEF_NX("PASS unsupported compressed BMP rejected\n",0);
     } else {
         if (VL_UNLIKELY(((((0U != (IData)(vlSelfRef.tb_bmp__DOT__error)) 
                            | (0x4b000U != vlSelfRef.tb_bmp__DOT__pixels)) 
                           | (0x4b00U != vlSelfRef.tb_bmp__DOT__bursts))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:68: Assertion failed in %Ntb_bmp: loader error=%0# pixels=%0# bursts=%0d status=%0#\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:82: Assertion failed in %Ntb_bmp: loader error=%0# pixels=%0# bursts=%0d status=%0#\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),8,(IData)(vlSelfRef.tb_bmp__DOT__error),
                          32,vlSelfRef.tb_bmp__DOT__pixels,
                          32,vlSelfRef.tb_bmp__DOT__bursts,
                          8,(IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__state));
-            VL_STOP_MT("dmz_track1/sim/p3\\tb_bmp.sv", 68, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 82, "", false);
         }
         VL_WRITEF_NX("PASS FAT32 fragmented cluster chain, directory skip, BMP bottom-up, 307200 pixels, %0d bursts %0d sectors\n",0,
                      32,vlSelfRef.tb_bmp__DOT__bursts,
                      32,vlSelfRef.tb_bmp__DOT__sectors);
     }
-    VL_FINISH_MT("dmz_track1/sim/p3\\tb_bmp.sv", 71, "");
+    VL_FINISH_MT("sim/p3\\tb_bmp.sv", 85, "");
 }
 
 VL_INLINE_OPT VlCoroutine Vtb_bmp___024root___eval_initial__TOP__Vtiming__1(Vtb_bmp___024root* vlSelf) {
@@ -57,13 +57,13 @@ VL_INLINE_OPT VlCoroutine Vtb_bmp___024root___eval_initial__TOP__Vtiming__1(Vtb_
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x2e90edd000ULL, 
-                                         nullptr, "dmz_track1/sim/p3\tb_bmp.sv", 
-                                         73);
-    VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:73: Assertion failed in %Ntb_bmp: timeout state=%0# lba=%0#\n",0,
+                                         nullptr, "sim/p3\tb_bmp.sv", 
+                                         87);
+    VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:87: Assertion failed in %Ntb_bmp: timeout state=%0# lba=%0#\n",0,
                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                  8,(IData)(vlSelfRef.tb_bmp__DOT__dut__DOT__state),
                  32,vlSelfRef.tb_bmp__DOT__lba);
-    VL_STOP_MT("dmz_track1/sim/p3\\tb_bmp.sv", 73, "", false);
+    VL_STOP_MT("sim/p3\\tb_bmp.sv", 87, "", false);
 }
 
 #ifdef VL_DEBUG
@@ -130,8 +130,24 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
     __Vfunc_tb_bmp__DOT__disk__0__y = 0;
     IData/*31:0*/ __Vfunc_tb_bmp__DOT__disk__0__channel;
     __Vfunc_tb_bmp__DOT__disk__0__channel = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__disk__0__root_lba;
+    __Vfunc_tb_bmp__DOT__disk__0__root_lba = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__disk__0__file_lba;
+    __Vfunc_tb_bmp__DOT__disk__0__file_lba = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__disk__0__fat_end;
+    __Vfunc_tb_bmp__DOT__disk__0__fat_end = 0;
+    IData/*31:0*/ __Vfunc_tb_bmp__DOT__disk__0__file_bytes;
+    __Vfunc_tb_bmp__DOT__disk__0__file_bytes = 0;
     IData/*31:0*/ __Vfunc_tb_bmp__DOT__disk__0__value;
     __Vfunc_tb_bmp__DOT__disk__0__value = 0;
+    CData/*0:0*/ __Vfunc_tb_bmp__DOT__disk__0__f16;
+    __Vfunc_tb_bmp__DOT__disk__0__f16 = 0;
+    CData/*0:0*/ __Vfunc_tb_bmp__DOT__disk__0__mbr;
+    __Vfunc_tb_bmp__DOT__disk__0__mbr = 0;
+    CData/*0:0*/ __Vfunc_tb_bmp__DOT__disk__0__rgba;
+    __Vfunc_tb_bmp__DOT__disk__0__rgba = 0;
+    CData/*0:0*/ __Vfunc_tb_bmp__DOT__disk__0__top;
+    __Vfunc_tb_bmp__DOT__disk__0__top = 0;
     SData/*15:0*/ __Vfunc_tb_bmp__DOT__expected__1__Vfuncout;
     __Vfunc_tb_bmp__DOT__expected__1__Vfuncout = 0;
     IData/*31:0*/ __Vfunc_tb_bmp__DOT__expected__1__a;
@@ -1476,11 +1492,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:58: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=0 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=0 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[0U]);
-            VL_STOP_MT("dmz_track1/sim/p3\\tb_bmp.sv", 58, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
         }
         vlSelfRef.tb_bmp__DOT__bursts = ((IData)(1U) 
                                          + vlSelfRef.tb_bmp__DOT__bursts);
@@ -1544,11 +1560,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:58: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=1 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=1 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[1U]);
-            VL_STOP_MT("dmz_track1/sim/p3\\tb_bmp.sv", 58, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
         }
         __Vdly__tb_bmp__DOT__ack_delay = 7U;
         vlSelfRef.tb_bmp__DOT__load_ready = 0U;
@@ -1612,11 +1628,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:58: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=2 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=2 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[2U]);
-            VL_STOP_MT("dmz_track1/sim/p3\\tb_bmp.sv", 58, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
         }
         if (VL_UNLIKELY(((vlSelfRef.tb_bmp__DOT__data[3U] 
                           != ((([&]() {
@@ -1678,11 +1694,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:58: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=3 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=3 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[3U]);
-            VL_STOP_MT("dmz_track1/sim/p3\\tb_bmp.sv", 58, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
         }
         if (VL_UNLIKELY(((vlSelfRef.tb_bmp__DOT__data[4U] 
                           != ((([&]() {
@@ -1744,11 +1760,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:58: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=4 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=4 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[4U]);
-            VL_STOP_MT("dmz_track1/sim/p3\\tb_bmp.sv", 58, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
         }
         if (VL_UNLIKELY(((vlSelfRef.tb_bmp__DOT__data[5U] 
                           != ((([&]() {
@@ -1810,11 +1826,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:58: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=5 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=5 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[5U]);
-            VL_STOP_MT("dmz_track1/sim/p3\\tb_bmp.sv", 58, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
         }
         if (VL_UNLIKELY(((vlSelfRef.tb_bmp__DOT__data[6U] 
                           != ((([&]() {
@@ -1876,11 +1892,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:58: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=6 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=6 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[6U]);
-            VL_STOP_MT("dmz_track1/sim/p3\\tb_bmp.sv", 58, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
         }
         if (VL_UNLIKELY(((vlSelfRef.tb_bmp__DOT__data[7U] 
                           != ((([&]() {
@@ -1942,11 +1958,11 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
                                                  & ((IData)(__Vfunc_tb_bmp__DOT__expected__2__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_bmp__DOT__expected__2__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:58: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=7 actual=%x\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_bmp.sv:72: Assertion failed in %Ntb_bmp.unnamedblk1: BMP pixel a=%0# j=7 actual=%x\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),18,vlSelfRef.tb_bmp__DOT__dut__DOT__pending_addr,
                          32,vlSelfRef.tb_bmp__DOT__data[7U]);
-            VL_STOP_MT("dmz_track1/sim/p3\\tb_bmp.sv", 58, "", false);
+            VL_STOP_MT("sim/p3\\tb_bmp.sv", 72, "", false);
         }
     }
     if (((IData)(vlSelfRef.tb_bmp__DOT__start) & (IData)(vlSelfRef.tb_bmp__DOT__sd_ready))) {
@@ -1970,194 +1986,272 @@ VL_INLINE_OPT void Vtb_bmp___024root___nba_sequent__TOP__0(Vtb_bmp___024root* vl
         __Vfunc_tb_bmp__DOT__disk__0__channel = 0;
         __Vfunc_tb_bmp__DOT__disk__0__value = 0;
         __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0U;
-        if ((0U == __Vfunc_tb_bmp__DOT__disk__0__l)) {
-            if (((((((((0U == __Vfunc_tb_bmp__DOT__disk__0__i) 
-                       | (0xbU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                      | (0xcU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                     | (0xdU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                    | (0xeU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                   | (0x10U == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                  | (0x24U == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                 | (0x2cU == __Vfunc_tb_bmp__DOT__disk__0__i))) {
-                __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
-                    = ((0U == __Vfunc_tb_bmp__DOT__disk__0__i)
-                        ? 0xebU : ((0xbU == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                    ? 0U : ((0xcU == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                             ? 2U : 
-                                            ((0xdU 
-                                              == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                              ? 8U : 
-                                             ((0xeU 
-                                               == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                               ? 1U
-                                               : ((0x10U 
-                                                   == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                                   ? 1U
-                                                   : 
-                                                  ((0x24U 
-                                                    == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                                    ? 0x10U
-                                                    : 2U)))))));
+        __Vfunc_tb_bmp__DOT__disk__0__f16 = (1U & VL_TESTPLUSARGS_I(
+                                                                    std::string{"fat16"}));
+        __Vfunc_tb_bmp__DOT__disk__0__mbr = (1U & VL_TESTPLUSARGS_I(
+                                                                    std::string{"mbr"}));
+        __Vfunc_tb_bmp__DOT__disk__0__rgba = (1U & VL_TESTPLUSARGS_I(
+                                                                     std::string{"rgba"}));
+        __Vfunc_tb_bmp__DOT__disk__0__top = (1U & VL_TESTPLUSARGS_I(
+                                                                    std::string{"top"}));
+        if (__Vfunc_tb_bmp__DOT__disk__0__f16) {
+            __Vfunc_tb_bmp__DOT__disk__0__root_lba = 5U;
+            __Vfunc_tb_bmp__DOT__disk__0__file_lba = 0xeU;
+            __Vfunc_tb_bmp__DOT__disk__0__fat_end = 4U;
+        } else {
+            __Vfunc_tb_bmp__DOT__disk__0__root_lba = 0x11U;
+            __Vfunc_tb_bmp__DOT__disk__0__file_lba = 0x19U;
+            __Vfunc_tb_bmp__DOT__disk__0__fat_end = 0x10U;
+        }
+        __Vfunc_tb_bmp__DOT__disk__0__file_bytes = 
+            ((IData)(__Vfunc_tb_bmp__DOT__disk__0__rgba)
+              ? 0x12c036U : 0xe1036U);
+        if (((IData)(__Vfunc_tb_bmp__DOT__disk__0__mbr) 
+             & (0U == __Vfunc_tb_bmp__DOT__disk__0__l))) {
+            if ((0x1c2U == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0xcU;
+            } else if ((0x1c7U == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 8U;
             } else if ((0x1feU == __Vfunc_tb_bmp__DOT__disk__0__i)) {
                 __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x55U;
             } else if ((0x1ffU == __Vfunc_tb_bmp__DOT__disk__0__i)) {
                 __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0xaaU;
             }
-        } else if ((VL_LTES_III(32, 1U, __Vfunc_tb_bmp__DOT__disk__0__l) 
-                    & VL_GTES_III(32, 0x10U, __Vfunc_tb_bmp__DOT__disk__0__l))) {
-            __Vfunc_tb_bmp__DOT__disk__0__entry = (
-                                                   VL_MULS_III(32, (IData)(0x80U), 
-                                                               (__Vfunc_tb_bmp__DOT__disk__0__l 
-                                                                - (IData)(1U))) 
-                                                   + 
-                                                   VL_DIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__i, (IData)(4U)));
-            __Vfunc_tb_bmp__DOT__disk__0__value = (
-                                                   (2U 
-                                                    == __Vfunc_tb_bmp__DOT__disk__0__entry)
-                                                    ? 0xfffffffU
-                                                    : 
-                                                   ((VL_LTES_III(32, 3U, __Vfunc_tb_bmp__DOT__disk__0__entry) 
-                                                     & __Vfunc_tb_bmp__DOT__disk__0__entry)
-                                                     ? 
-                                                    (VL_LTES_III(32, 0x1c5U, __Vfunc_tb_bmp__DOT__disk__0__entry)
-                                                      ? 0xfffffffU
-                                                      : 
-                                                     ((IData)(2U) 
-                                                      + __Vfunc_tb_bmp__DOT__disk__0__entry))
-                                                     : 0U));
-            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
-                = (0xffU & (__Vfunc_tb_bmp__DOT__disk__0__value 
-                            >> (0x1fU & VL_MULS_III(32, (IData)(8U), 
-                                                    VL_MODDIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__i, (IData)(4U))))));
-        } else if ((0x11U == __Vfunc_tb_bmp__DOT__disk__0__l)) {
-            if ((0U == __Vfunc_tb_bmp__DOT__disk__0__i)) {
-                __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x41U;
+        } else {
+            if (__Vfunc_tb_bmp__DOT__disk__0__mbr) {
+                __Vfunc_tb_bmp__DOT__disk__0__l = (__Vfunc_tb_bmp__DOT__disk__0__l 
+                                                   - (IData)(0x800U));
             }
-            if ((0xbU == __Vfunc_tb_bmp__DOT__disk__0__i)) {
-                __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0xfU;
-            }
-            if ((VL_LTES_III(32, 0x20U, __Vfunc_tb_bmp__DOT__disk__0__i) 
-                 & VL_GTES_III(32, 0x27U, __Vfunc_tb_bmp__DOT__disk__0__i))) {
-                __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
-                    = (0xffU & (IData)(VL_SHIFTR_QQI(64,64,32, 0x50494344454d4f20ULL, 
-                                                     VL_MULS_III(32, (IData)(8U), 
-                                                                 (__Vfunc_tb_bmp__DOT__disk__0__i 
-                                                                  - (IData)(0x20U))))));
-            }
-            if (((((((((0x28U == __Vfunc_tb_bmp__DOT__disk__0__i) 
-                       | (0x29U == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                      | (0x2aU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                     | (0x2bU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                    | (0x3aU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                   | (0x3cU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                  | (0x3dU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
-                 | (0x3eU == __Vfunc_tb_bmp__DOT__disk__0__i))) {
-                __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
-                    = ((0x28U == __Vfunc_tb_bmp__DOT__disk__0__i)
-                        ? 0x42U : ((0x29U == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                    ? 0x4dU : ((0x2aU 
-                                                == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                                ? 0x50U
-                                                : (
-                                                   (0x2bU 
+            if ((0U == __Vfunc_tb_bmp__DOT__disk__0__l)) {
+                if (((((((((0U == __Vfunc_tb_bmp__DOT__disk__0__i) 
+                           | (0xbU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
+                          | (0xcU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
+                         | (0xdU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
+                        | (0xeU == __Vfunc_tb_bmp__DOT__disk__0__i)) 
+                       | (0x10U == __Vfunc_tb_bmp__DOT__disk__0__i)) 
+                      | (0x24U == __Vfunc_tb_bmp__DOT__disk__0__i)) 
+                     | (0x2cU == __Vfunc_tb_bmp__DOT__disk__0__i))) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                        = ((0U == __Vfunc_tb_bmp__DOT__disk__0__i)
+                            ? 0xebU : ((0xbU == __Vfunc_tb_bmp__DOT__disk__0__i)
+                                        ? 0U : ((0xcU 
+                                                 == __Vfunc_tb_bmp__DOT__disk__0__i)
+                                                 ? 2U
+                                                 : 
+                                                ((0xdU 
+                                                  == __Vfunc_tb_bmp__DOT__disk__0__i)
+                                                  ? 8U
+                                                  : 
+                                                 ((0xeU 
+                                                   == __Vfunc_tb_bmp__DOT__disk__0__i)
+                                                   ? 1U
+                                                   : 
+                                                  ((0x10U 
                                                     == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                                    ? 0x20U
+                                                    ? 1U
                                                     : 
-                                                   ((0x3aU 
+                                                   ((0x24U 
                                                      == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                                     ? 3U
-                                                     : 
-                                                    ((0x3cU 
-                                                      == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                                      ? 0x36U
-                                                      : 
-                                                     ((0x3dU 
-                                                       == __Vfunc_tb_bmp__DOT__disk__0__i)
-                                                       ? 0x10U
-                                                       : 0xeU)))))));
-            }
-        } else if (VL_LTES_III(32, 0x19U, __Vfunc_tb_bmp__DOT__disk__0__l)) {
-            __Vfunc_tb_bmp__DOT__disk__0__c = VL_DIVS_III(32, 
-                                                          (__Vfunc_tb_bmp__DOT__disk__0__l 
-                                                           - (IData)(0x19U)), (IData)(8U));
-            if ((0U == VL_MODDIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__c, (IData)(2U)))) {
-                __Vfunc_tb_bmp__DOT__disk__0__ofs = 
-                    ((VL_MULS_III(32, (IData)(0x1000U), 
-                                  VL_DIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__c, (IData)(2U))) 
-                      + VL_MULS_III(32, (IData)(0x200U), 
-                                    VL_MODDIVS_III(32, 
-                                                   (__Vfunc_tb_bmp__DOT__disk__0__l 
-                                                    - (IData)(0x19U)), (IData)(8U)))) 
-                     + __Vfunc_tb_bmp__DOT__disk__0__i);
-                if (VL_GTS_III(32, 0x36U, __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
-                    if (((((((((0U == __Vfunc_tb_bmp__DOT__disk__0__ofs) 
-                               | (1U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
-                              | (2U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
-                             | (3U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
-                            | (4U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
-                           | (0xaU == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
-                          | (0xeU == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
-                         | (0x12U == __Vfunc_tb_bmp__DOT__disk__0__ofs))) {
-                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
-                            = ((0U == __Vfunc_tb_bmp__DOT__disk__0__ofs)
-                                ? 0x42U : ((1U == __Vfunc_tb_bmp__DOT__disk__0__ofs)
-                                            ? 0x4dU
-                                            : ((2U 
+                                                     ? 0x10U
+                                                     : 2U)))))));
+                } else if ((0x1feU == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x55U;
+                } else if ((0x1ffU == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0xaaU;
+                }
+                if (__Vfunc_tb_bmp__DOT__disk__0__f16) {
+                    if ((0x11U == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x10U;
+                    } else if ((0x16U == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 4U;
+                    } else if ((0x24U == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0U;
+                    } else if ((0x2cU == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0U;
+                    }
+                }
+            } else if ((VL_LTES_III(32, 1U, __Vfunc_tb_bmp__DOT__disk__0__l) 
+                        & VL_LTES_III(32, __Vfunc_tb_bmp__DOT__disk__0__l, __Vfunc_tb_bmp__DOT__disk__0__fat_end))) {
+                __Vfunc_tb_bmp__DOT__disk__0__entry 
+                    = (VL_MULS_III(32, (__Vfunc_tb_bmp__DOT__disk__0__l 
+                                        - (IData)(1U)), 
+                                   ((IData)(__Vfunc_tb_bmp__DOT__disk__0__f16)
+                                     ? 0x100U : 0x80U)) 
+                       + VL_DIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__i, 
+                                     ((IData)(__Vfunc_tb_bmp__DOT__disk__0__f16)
+                                       ? 2U : 4U)));
+                __Vfunc_tb_bmp__DOT__disk__0__value 
+                    = ((2U == __Vfunc_tb_bmp__DOT__disk__0__entry)
+                        ? 0xfffffffU : ((VL_LTES_III(32, 3U, __Vfunc_tb_bmp__DOT__disk__0__entry) 
+                                         & __Vfunc_tb_bmp__DOT__disk__0__entry)
+                                         ? (VL_GTES_III(32, __Vfunc_tb_bmp__DOT__disk__0__entry, 
+                                                        ((IData)(__Vfunc_tb_bmp__DOT__disk__0__rgba)
+                                                          ? 0x25bU
+                                                          : 0x1c5U))
+                                             ? ((IData)(__Vfunc_tb_bmp__DOT__disk__0__f16)
+                                                 ? 0xffffU
+                                                 : 0xfffffffU)
+                                             : ((IData)(2U) 
+                                                + __Vfunc_tb_bmp__DOT__disk__0__entry))
+                                         : 0U));
+                __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                    = (0xffU & (__Vfunc_tb_bmp__DOT__disk__0__value 
+                                >> (0x1fU & VL_MULS_III(32, (IData)(8U), 
+                                                        VL_MODDIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__i, 
+                                                                       ((IData)(__Vfunc_tb_bmp__DOT__disk__0__f16)
+                                                                         ? 2U
+                                                                         : 4U))))));
+            } else if ((__Vfunc_tb_bmp__DOT__disk__0__l 
+                        == __Vfunc_tb_bmp__DOT__disk__0__root_lba)) {
+                if ((0U == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x41U;
+                }
+                if ((0xbU == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0xfU;
+                }
+                if ((VL_LTES_III(32, 0x20U, __Vfunc_tb_bmp__DOT__disk__0__i) 
+                     & VL_GTES_III(32, 0x27U, __Vfunc_tb_bmp__DOT__disk__0__i))) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                        = (0xffU & (IData)(VL_SHIFTR_QQI(64,64,32, 0x50494344454d4f20ULL, 
+                                                         VL_MULS_III(32, (IData)(8U), 
+                                                                     (__Vfunc_tb_bmp__DOT__disk__0__i 
+                                                                      - (IData)(0x20U))))));
+                }
+                if ((VL_LTES_III(32, 0x3cU, __Vfunc_tb_bmp__DOT__disk__0__i) 
+                     & VL_GTES_III(32, 0x3fU, __Vfunc_tb_bmp__DOT__disk__0__i))) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                        = (0xffU & VL_SHIFTR_III(8,32,32, __Vfunc_tb_bmp__DOT__disk__0__file_bytes, 
+                                                 VL_MULS_III(32, (IData)(8U), 
+                                                             (__Vfunc_tb_bmp__DOT__disk__0__i 
+                                                              - (IData)(0x3cU)))));
+                }
+                if ((0x28U == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x42U;
+                } else if ((0x29U == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x4dU;
+                } else if ((0x2aU == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x50U;
+                } else if ((0x2bU == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x20U;
+                } else if ((0x3aU == __Vfunc_tb_bmp__DOT__disk__0__i)) {
+                    __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 3U;
+                }
+            } else if (VL_GTES_III(32, __Vfunc_tb_bmp__DOT__disk__0__l, __Vfunc_tb_bmp__DOT__disk__0__file_lba)) {
+                __Vfunc_tb_bmp__DOT__disk__0__c = VL_DIVS_III(32, 
+                                                              (__Vfunc_tb_bmp__DOT__disk__0__l 
+                                                               - __Vfunc_tb_bmp__DOT__disk__0__file_lba), (IData)(8U));
+                if ((0U == VL_MODDIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__c, (IData)(2U)))) {
+                    __Vfunc_tb_bmp__DOT__disk__0__ofs 
+                        = ((VL_MULS_III(32, (IData)(0x1000U), 
+                                        VL_DIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__c, (IData)(2U))) 
+                            + VL_MULS_III(32, (IData)(0x200U), 
+                                          VL_MODDIVS_III(32, 
+                                                         (__Vfunc_tb_bmp__DOT__disk__0__l 
+                                                          - __Vfunc_tb_bmp__DOT__disk__0__file_lba), (IData)(8U)))) 
+                           + __Vfunc_tb_bmp__DOT__disk__0__i);
+                    if (VL_GTS_III(32, 0x36U, __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
+                        if (((((((((0U == __Vfunc_tb_bmp__DOT__disk__0__ofs) 
+                                   | (1U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
+                                  | (2U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
+                                 | (3U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
+                                | (4U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
+                               | (0xaU == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
+                              | (0xeU == __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
+                             | (0x12U == __Vfunc_tb_bmp__DOT__disk__0__ofs))) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                                = ((0U == __Vfunc_tb_bmp__DOT__disk__0__ofs)
+                                    ? 0x42U : ((1U 
                                                 == __Vfunc_tb_bmp__DOT__disk__0__ofs)
-                                                ? 0x36U
+                                                ? 0x4dU
                                                 : (
-                                                   (3U 
+                                                   (2U 
                                                     == __Vfunc_tb_bmp__DOT__disk__0__ofs)
-                                                    ? 0x10U
+                                                    ? 0x36U
                                                     : 
-                                                   ((4U 
+                                                   ((3U 
                                                      == __Vfunc_tb_bmp__DOT__disk__0__ofs)
-                                                     ? 0xeU
+                                                     ? 0x10U
                                                      : 
-                                                    ((0xaU 
+                                                    ((4U 
                                                       == __Vfunc_tb_bmp__DOT__disk__0__ofs)
-                                                      ? 0x36U
+                                                      ? 0xeU
                                                       : 
-                                                     ((0xeU 
+                                                     ((0xaU 
                                                        == __Vfunc_tb_bmp__DOT__disk__0__ofs)
-                                                       ? 0x28U
-                                                       : 0x80U)))))));
-                    } else if ((0x13U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
-                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 2U;
-                    } else if ((0x16U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
-                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0xe0U;
-                    } else if ((0x17U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
-                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 1U;
-                    } else if ((0x1aU == __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
-                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 1U;
-                    } else if ((0x1cU == __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
-                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x18U;
-                    }
-                    if ((VL_TESTPLUSARGS_I(std::string{"bad"}) 
-                         && (0x1eU == __Vfunc_tb_bmp__DOT__disk__0__ofs))) {
-                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 1U;
-                    }
-                } else {
-                    __Vfunc_tb_bmp__DOT__disk__0__pix 
-                        = VL_DIVS_III(32, (__Vfunc_tb_bmp__DOT__disk__0__ofs 
-                                           - (IData)(0x36U)), (IData)(3U));
-                    __Vfunc_tb_bmp__DOT__disk__0__x 
-                        = VL_MODDIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__pix, (IData)(0x280U));
-                    __Vfunc_tb_bmp__DOT__disk__0__y 
-                        = ((IData)(0x1dfU) - VL_DIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__pix, (IData)(0x280U)));
-                    __Vfunc_tb_bmp__DOT__disk__0__channel 
-                        = VL_MODDIVS_III(32, (__Vfunc_tb_bmp__DOT__disk__0__ofs 
-                                              - (IData)(0x36U)), (IData)(3U));
-                    if ((0U == __Vfunc_tb_bmp__DOT__disk__0__channel)) {
-                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
-                            = (0xffU & __Vfunc_tb_bmp__DOT__disk__0__x);
-                    } else if ((1U == __Vfunc_tb_bmp__DOT__disk__0__channel)) {
-                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
-                            = (0xffU & __Vfunc_tb_bmp__DOT__disk__0__y);
-                    } else if ((2U == __Vfunc_tb_bmp__DOT__disk__0__channel)) {
-                        __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
-                            = (0xffU & (__Vfunc_tb_bmp__DOT__disk__0__x 
-                                        ^ __Vfunc_tb_bmp__DOT__disk__0__y));
+                                                       ? 0x36U
+                                                       : 
+                                                      ((0xeU 
+                                                        == __Vfunc_tb_bmp__DOT__disk__0__ofs)
+                                                        ? 0x28U
+                                                        : 0x80U)))))));
+                        } else if ((0x13U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 2U;
+                        } else if ((0x16U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0xe0U;
+                        } else if ((0x17U == __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 1U;
+                        } else if ((0x1aU == __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 1U;
+                        } else if ((0x1cU == __Vfunc_tb_bmp__DOT__disk__0__ofs)) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x18U;
+                        }
+                        if ((VL_LTES_III(32, 2U, __Vfunc_tb_bmp__DOT__disk__0__ofs) 
+                             & VL_GTES_III(32, 5U, __Vfunc_tb_bmp__DOT__disk__0__ofs))) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                                = (0xffU & VL_SHIFTR_III(8,32,32, __Vfunc_tb_bmp__DOT__disk__0__file_bytes, 
+                                                         VL_MULS_III(32, (IData)(8U), 
+                                                                     (__Vfunc_tb_bmp__DOT__disk__0__ofs 
+                                                                      - (IData)(2U)))));
+                        }
+                        if (((0x1cU == __Vfunc_tb_bmp__DOT__disk__0__ofs) 
+                             & (IData)(__Vfunc_tb_bmp__DOT__disk__0__rgba))) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0x20U;
+                        }
+                        if ((((IData)(__Vfunc_tb_bmp__DOT__disk__0__top) 
+                              & VL_LTES_III(32, 0x16U, __Vfunc_tb_bmp__DOT__disk__0__ofs)) 
+                             & VL_GTES_III(32, 0x19U, __Vfunc_tb_bmp__DOT__disk__0__ofs))) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                                = (0xffU & VL_SHIFTR_III(8,32,32, 0xfffffe20U, 
+                                                         VL_MULS_III(32, (IData)(8U), 
+                                                                     (__Vfunc_tb_bmp__DOT__disk__0__ofs 
+                                                                      - (IData)(0x16U)))));
+                        }
+                        if ((VL_TESTPLUSARGS_I(std::string{"bad"}) 
+                             && (0x1eU == __Vfunc_tb_bmp__DOT__disk__0__ofs))) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 1U;
+                        }
+                    } else {
+                        __Vfunc_tb_bmp__DOT__disk__0__pix 
+                            = VL_DIVS_III(32, (__Vfunc_tb_bmp__DOT__disk__0__ofs 
+                                               - (IData)(0x36U)), 
+                                          ((IData)(__Vfunc_tb_bmp__DOT__disk__0__rgba)
+                                            ? 4U : 3U));
+                        __Vfunc_tb_bmp__DOT__disk__0__x 
+                            = VL_MODDIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__pix, (IData)(0x280U));
+                        __Vfunc_tb_bmp__DOT__disk__0__y 
+                            = ((IData)(__Vfunc_tb_bmp__DOT__disk__0__top)
+                                ? VL_DIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__pix, (IData)(0x280U))
+                                : ((IData)(0x1dfU) 
+                                   - VL_DIVS_III(32, __Vfunc_tb_bmp__DOT__disk__0__pix, (IData)(0x280U))));
+                        __Vfunc_tb_bmp__DOT__disk__0__channel 
+                            = VL_MODDIVS_III(32, (__Vfunc_tb_bmp__DOT__disk__0__ofs 
+                                                  - (IData)(0x36U)), 
+                                             ((IData)(__Vfunc_tb_bmp__DOT__disk__0__rgba)
+                                               ? 4U
+                                               : 3U));
+                        if ((0U == __Vfunc_tb_bmp__DOT__disk__0__channel)) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                                = (0xffU & __Vfunc_tb_bmp__DOT__disk__0__x);
+                        } else if ((1U == __Vfunc_tb_bmp__DOT__disk__0__channel)) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                                = (0xffU & __Vfunc_tb_bmp__DOT__disk__0__y);
+                        } else if ((2U == __Vfunc_tb_bmp__DOT__disk__0__channel)) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout 
+                                = (0xffU & (__Vfunc_tb_bmp__DOT__disk__0__x 
+                                            ^ __Vfunc_tb_bmp__DOT__disk__0__y));
+                        } else if ((3U == __Vfunc_tb_bmp__DOT__disk__0__channel)) {
+                            __Vfunc_tb_bmp__DOT__disk__0__Vfuncout = 0xffU;
+                        }
                     }
                 }
             }
