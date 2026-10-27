@@ -1,0 +1,13 @@
+# TD generated projects, results, logs, and simulation output
+/build/*
+!/build/.gitkeep
+/build_p1/*
+!/build_p1/.gitkeep
+/build_p2/*
+!/build_p2/.gitkeep
+td_*.log
+td_*.logw
+*.vcd
+*.wlf
+*.tmp
+*.bak

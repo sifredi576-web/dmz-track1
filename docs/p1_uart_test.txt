@@ -1,0 +1,1 @@
+PASS: COM3 115200 8N1, 256/256 bytes echoed

@@ -1,0 +1,252 @@
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\audio_clock_regeneration_packet.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module audio_clock_regeneration_packet
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\audio_info_frame.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module audio_info_frame
+      |        ^~~~~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\audio_sample_packet.sv:8:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    8 | module audio_sample_packet 
+      |        ^~~~~~~~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\auxiliary_video_information_info_frame.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module auxiliary_video_information_info_frame
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\hdmi.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module hdmi 
+      |        ^~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\packet_assembler.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module packet_assembler (
+      |        ^~~~~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\packet_picker.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module packet_picker
+      |        ^~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\source_product_description_info_frame.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module source_product_description_info_frame
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tmds_channel
+      |        ^~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1\serializer.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module serializer #(parameter integer NUM_CHANNELS=3, parameter real VIDEO_RATE=25000000.0)(
+      |        ^~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1\dmz_tone.sv:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    1 | module dmz_tone(input wire clk, input wire reset, input wire mute,
+      |        ^~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1\dmz_p1_top.sv:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    1 | module dmz_p1_top(
+      |        ^~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p1\phy_models.sv:3:8: ... Location of module with timescale
+    3 | module dmz_video_pll(input refclk,reset, output reg clk0_out=0,clk1_out=0, output reg locked=0);
+      |        ^~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\auxiliary_video_information_info_frame.sv:18:19: Operator VAR 'VIDEO_ID_CODE' expects 32 bits on the Initial value, but Initial value's CONST '7'h1' generates 7 bits.
+                                                                                                                                                               : ... note: In instance 'tb_p1.dut.tx.true_hdmi_output.packet_picker.auxiliary_video_information_info_frame'
+   18 |     parameter int VIDEO_ID_CODE = 4,  
+      |                   ^~~~~~~~~~~~~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\audio_sample_packet.sv:86:61: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'frame_counter' generates 8 bits.
+                                                                                                                                            : ... note: In instance 'tb_p1.dut.tx.true_hdmi_output.packet_picker.audio_sample_packet'
+   86 |                 aligned_frame_counter[i] = 8'(frame_counter + i - CHANNEL_STATUS_LENGTH);
+      |                                                             ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\audio_clock_regeneration_packet.sv:36:35: Operator EQ expects 32 or 20 bits on the LHS, but LHS's VARREF 'clk_audio_counter' generates 6 bits.
+                                                                                                                                                        : ... note: In instance 'tb_p1.dut.tx.true_hdmi_output.packet_picker.audio_clock_regeneration_packet'
+   36 |             if (clk_audio_counter == (N / 128 - 1)) begin
+      |                                   ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:34:25: Operator ADD expects 4 bits on the LHS, but LHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                         ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:34:25: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                         ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:34:41: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                         ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:34:57: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                                         ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:34:73: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                                                         ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:34:89: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                                                                         ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:34:105: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                      : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                                                                                         ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:34:121: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                      : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   34 |     N1D = video_data[0] + video_data[1] + video_data[2] + video_data[3] + video_data[4] + video_data[5] + video_data[6] + video_data[7];
+      |                                                                                                                         ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:35:17: Operator ADD expects 4 bits on the LHS, but LHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                 ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:35:17: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                 ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:35:26: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                          ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:35:35: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                                   ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:35:44: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                                            ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:35:53: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                                                     ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:35:62: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                                                              ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:35:71: Operator ADD expects 4 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                                     : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   35 |     case(q_m[0] + q_m[1] + q_m[2] + q_m[3] + q_m[4] + q_m[5] + q_m[6] + q_m[7])
+      |                                                                       ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\packet_assembler.sv:43:38: Operator XOR expects 8 bits on the LHS, but LHS's SEL generates 1 bits.
+                                                                                                                                         : ... note: In instance 'tb_p1.dut.tx.true_hdmi_output.packet_assembler'
+   43 |     next_ecc = (ecc >> 1) ^ ((ecc[0] ^ next_bch_bit) ? 8'b10000011 : 8'd0);
+      |                                      ^
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\packet_assembler.sv:43:54: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's XOR generates 8 bits.
+                                                                                                                                        : ... note: In instance 'tb_p1.dut.tx.true_hdmi_output.packet_assembler'
+   43 |     next_ecc = (ecc >> 1) ^ ((ecc[0] ^ next_bch_bit) ? 8'b10000011 : 8'd0);
+      |                                                      ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\packet_assembler.sv:61:37: Operator FUNCREF 'next_ecc' expects 8 bits on the Function Argument, but Function Argument's SEL generates 1 bits.
+                                                                                                                                         : ... note: In instance 'tb_p1.dut.tx.true_hdmi_output.packet_assembler'
+   61 |             assign parity_next[i] = next_ecc(parity[i], sub[i][counter_t2]);
+      |                                     ^~~~~~~~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\packet_assembler.sv:62:42: Operator FUNCREF 'next_ecc' expects 8 bits on the Function Argument, but Function Argument's SEL generates 1 bits.
+                                                                                                                                         : ... note: In instance 'tb_p1.dut.tx.true_hdmi_output.packet_assembler'
+   62 |             assign parity_next_next[i] = next_ecc(parity_next[i], sub[i][counter_t2_p1]);
+      |                                          ^~~~~~~~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\packet_assembler.sv:58:37: Operator FUNCREF 'next_ecc' expects 8 bits on the Function Argument, but Function Argument's SEL generates 1 bits.
+                                                                                                                                         : ... note: In instance 'tb_p1.dut.tx.true_hdmi_output.packet_assembler'
+   58 |             assign parity_next[i] = next_ecc(parity[i], header[counter]);
+      |                                     ^~~~~~~~
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\hdmi.sv:81:39: Operator ASSIGN expects 10 bits on the Assign RHS, but Assign RHS's VARREF 'START_X' generates 32 bits.
+                                                                                                                            : ... note: In instance 'tb_p1.dut.tx'
+   81 |     output logic [BIT_WIDTH-1:0] cx = START_X,
+      |                                       ^~~~~~~
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\hdmi.sv:82:40: Operator ASSIGN expects 10 bits on the Assign RHS, but Assign RHS's VARREF 'START_Y' generates 32 bits.
+                                                                                                                            : ... note: In instance 'tb_p1.dut.tx'
+   82 |     output logic [BIT_HEIGHT-1:0] cy = START_Y,
+      |                                        ^~~~~~~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\hdmi.sv:267:54: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'frame_width' generates 10 bits.
+                                                                                                                              : ... note: In instance 'tb_p1.dut.tx'
+  267 |             max_num_packets_alongside = (frame_width - screen_width    - 2   - 8   - 4   - 2   - 2   - 8   - 4  ) / 32;
+      |                                                      ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\hdmi.sv:267:54: Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'screen_width' generates 10 bits.
+                                                                                                                              : ... note: In instance 'tb_p1.dut.tx'
+  267 |             max_num_packets_alongside = (frame_width - screen_width    - 2   - 8   - 4   - 2   - 2   - 8   - 4  ) / 32;
+      |                                                      ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\hdmi.sv:277:74: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'cx' generates 10 bits.
+                                                                                                                              : ... note: In instance 'tb_p1.dut.tx'
+  277 |         assign packet_enable = data_island_period_instantaneous && 5'(cx + screen_width + 18) == 5'd0;
+      |                                                                          ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\hdmi.sv:277:74: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'screen_width' generates 10 bits.
+                                                                                                                              : ... note: In instance 'tb_p1.dut.tx'
+  277 |         assign packet_enable = data_island_period_instantaneous && 5'(cx + screen_width + 18) == 5'd0;
+      |                                                                          ^
+%Warning-ALWCOMBORDER: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:60:13: Always_comb variable driven after use: 'q_m'
+                                                                                                                                      : ... note: In instance 'tb_p1.dut.tx.tmds_gen[2].tmds_channel'
+   60 |             q_m[i + 1] = q_m[i] ~^ video_data[i + 1];
+      |             ^~~
+                       ... For warning description see https://verilator.org/warn/ALWCOMBORDER?v=5.036
+                       ... Use "/* verilator lint_off ALWCOMBORDER */" and lint_on around source to disable this message.
+%Warning-CASEINCOMPLETE: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:160:5: Case values incompletely covered (example pattern 0x5)
+  160 |     case (mode)
+      |     ^~~~
+                         ... For warning description see https://verilator.org/warn/CASEINCOMPLETE?v=5.036
+                         ... Use "/* verilator lint_off CASEINCOMPLETE */" and lint_on around source to disable this message.
+%Warning-COMBDLY: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\hdmi.sv:192:11: Non-blocking assignment '<=' in combinational logic process
+                                                                                                                          : ... This will be executed as a blocking assignment '='!
+  192 |     hsync <= invert ^ (cx >= screen_width + hsync_pulse_start && cx < screen_width + hsync_pulse_start + hsync_pulse_size);
+      |           ^~
+                  ... For warning description see https://verilator.org/warn/COMBDLY?v=5.036
+                  ... Use "/* verilator lint_off COMBDLY */" and lint_on around source to disable this message.
+                  *** See https://verilator.org/warn/COMBDLY?v=5.036 before disabling this,
+                  else you may end up with different sim results.
+%Warning-COMBDLY: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\hdmi.sv:196:15: Non-blocking assignment '<=' in combinational logic process
+                                                                                                                          : ... This will be executed as a blocking assignment '='!
+  196 |         vsync <= invert ^ (cx >= screen_width + hsync_pulse_start);
+      |               ^~
+%Warning-UNOPTFLAT: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:24:13: Signal unoptimizable: Circular combinational logic: 'tb_p1.dut.tx.tmds_gen[0].tmds_channel.q_m'
+   24 | logic [8:0] q_m;
+      |             ^~~
+                    ... For warning description see https://verilator.org/warn/UNOPTFLAT?v=5.036
+                    ... Use "/* verilator lint_off UNOPTFLAT */" and lint_on around source to disable this message.
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:24:13:      Example path: tb_p1.dut.tx.tmds_gen[0].tmds_channel.q_m
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:32:1:      Example path: ALWAYS
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:30:20:      Example path: tb_p1.dut.tx.tmds_gen[0].tmds_channel.N1q_m07
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:54:1:      Example path: ALWAYS
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\tmds_channel.sv:24:13:      Example path: tb_p1.dut.tx.tmds_gen[0].tmds_channel.q_m
+%Warning-UNOPTFLAT: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\auxiliary_video_information_info_frame.sv:39:13: Signal unoptimizable: Circular combinational logic: 'tb_p1.dut.tx.true_hdmi_output.packet_picker.auxiliary_video_information_info_frame.packet_bytes'
+   39 | logic [7:0] packet_bytes [27:0];
+      |             ^~~~~~~~~~~~
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\auxiliary_video_information_info_frame.sv:39:13:      Example path: tb_p1.dut.tx.true_hdmi_output.packet_picker.auxiliary_video_information_info_frame.packet_bytes
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\auxiliary_video_information_info_frame.sv:41:24:      Example path: ASSIGNW
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\auxiliary_video_information_info_frame.sv:39:13:      Example path: tb_p1.dut.tx.true_hdmi_output.packet_picker.auxiliary_video_information_info_frame.packet_bytes
+%Warning-UNOPTFLAT: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\source_product_description_info_frame.sv:26:13: Signal unoptimizable: Circular combinational logic: 'tb_p1.dut.tx.true_hdmi_output.packet_picker.source_product_description_info_frame.packet_bytes'
+   26 | logic [7:0] packet_bytes [27:0];
+      |             ^~~~~~~~~~~~
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\source_product_description_info_frame.sv:26:13:      Example path: tb_p1.dut.tx.true_hdmi_output.packet_picker.source_product_description_info_frame.packet_bytes
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\source_product_description_info_frame.sv:28:24:      Example path: ASSIGNW
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\source_product_description_info_frame.sv:26:13:      Example path: tb_p1.dut.tx.true_hdmi_output.packet_picker.source_product_description_info_frame.packet_bytes
+%Warning-UNOPTFLAT: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\audio_info_frame.sv:33:13: Signal unoptimizable: Circular combinational logic: 'tb_p1.dut.tx.true_hdmi_output.packet_picker.audio_info_frame.packet_bytes'
+   33 | logic [7:0] packet_bytes [27:0];
+      |             ^~~~~~~~~~~~
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\audio_info_frame.sv:33:13:      Example path: tb_p1.dut.tx.true_hdmi_output.packet_picker.audio_info_frame.packet_bytes
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\audio_info_frame.sv:35:24:      Example path: ASSIGNW
+                    D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p1\hdmi_core\audio_info_frame.sv:33:13:      Example path: tb_p1.dut.tx.true_hdmi_output.packet_picker.audio_info_frame.packet_bytes
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.708 MB sources in 16 modules, into 0.892 MB in 10 C++ files needing 0.002 MB
+- Verilator: Walltime 0.175 s (elab=0.025, cvt=0.081, bld=0.000); cpu 0.000 s on 1 threads; alloced 23.234 MB

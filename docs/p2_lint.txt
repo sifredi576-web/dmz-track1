@@ -1,0 +1,87 @@
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_framebuffer.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_framebuffer #(parameter integer SWAP_FRAMES=60)(
+      |        ^~~~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p2\sdram_model.sv:5:8: ... Location of module with timescale
+    5 | module sdram_model(input clk,reset,input ras_n,cas_n,we_n,input [10:0] addr,input [1:0] ba,
+      |        ^~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_pixel_fifo.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_pixel_fifo #(parameter AW=11)(
+      |        ^~~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p2\sdram_model.sv:5:8: ... Location of module with timescale
+    5 | module sdram_model(input clk,reset,input ras_n,cas_n,we_n,input [10:0] addr,input [1:0] ba,
+      |        ^~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_sdram_bist.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_sdram_bist #(parameter integer WORD_COUNT=2097152,HOLD_CYCLES=5000000)(
+      |        ^~~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p2\sdram_model.sv:5:8: ... Location of module with timescale
+    5 | module sdram_model(input clk,reset,input ras_n,cas_n,we_n,input [10:0] addr,input [1:0] ba,
+      |        ^~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_sdram_ctrl.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_sdram_ctrl #(parameter integer INIT_CYCLES=10000,REFRESH_CYCLES=390)(
+      |        ^~~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p2\sdram_model.sv:5:8: ... Location of module with timescale
+    5 | module sdram_model(input clk,reset,input ras_n,cas_n,we_n,input [10:0] addr,input [1:0] ba,
+      |        ^~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_status_uart.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_status_uart #(parameter integer PERIOD=25000000,DIVISOR=434)(
+      |        ^~~~~~~~~~~~~~~
+                       D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p2\sdram_model.sv:5:8: ... Location of module with timescale
+    5 | module sdram_model(input clk,reset,input ras_n,cas_n,we_n,input [10:0] addr,input [1:0] ba,
+      |        ^~~~~~~~~~~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_framebuffer.sv:61:18: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'swap_timer' generates 8 bits.
+                                                                                                                              : ... note: In instance 'tb_p2.fb'
+   61 |     if(swap_timer<SWAP_FRAMES-1) swap_timer<=swap_timer+1'b1;
+      |                  ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_framebuffer.sv:62:51: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'swap_timer' generates 8 bits.
+                                                                                                                              : ... note: In instance 'tb_p2.fb'
+   62 |     if(back_ready && (!display_valid || swap_timer>=SWAP_FRAMES-1)) begin
+      |                                                   ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_sdram_bist.sv:41:18: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'address' generates 21 bits.
+                                                                                                                             : ... note: In instance 'tb_p2.bist'
+   41 |   else if(address==WORD_COUNT-8) begin address<=0;hold_count<=HOLD_CYCLES-1;state<=HOLD;end
+      |                  ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_sdram_bist.sv:51:14: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'address' generates 21 bits.
+                                                                                                                             : ... note: In instance 'tb_p2.bist'
+   51 |    if(address==WORD_COUNT-8) begin
+      |              ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p2\sdram_model.sv:52:15: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's VARREF 'ba' generates 2 bits.
+                                                                                                                          : ... note: In instance 'tb_p2.mem'
+   52 |    bank_active=ba;
+      |               ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p2\sdram_model.sv:53:29: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 21 bits.
+                                                                                                                          : ... note: In instance 'tb_p2.mem'
+   53 |    if(we_n) begin rd_address={ba,rows[ba],addr[7:0]};delay_read=3;end
+      |                             ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\sim\p2\sdram_model.sv:56:15: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 21 bits.
+                                                                                                                          : ... note: In instance 'tb_p2.mem'
+   56 |     wr_address={ba,rows[ba],addr[7:0]};mem[wr_address]=dq_out;wr_address=wr_address+1;wr_left=7;
+      |               ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_sdram_ctrl.sv:23:45: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'refresh_age' generates 16 bits.
+                                                                                                                             : ... note: In instance 'tb_p2.ctrl'
+   23 | assign req_ready=(state==IDLE && refresh_age<REFRESH_CYCLES);
+      |                                             ^
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_sdram_ctrl.sv:40:26: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's SUB generates 32 bits.
+                                                                                                                            : ... note: In instance 'tb_p2.ctrl'
+   40 |   state<=POWER;wait_count<=INIT_CYCLES-1;refresh_age<=0;init_refresh<=0;
+      |                          ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_sdram_ctrl.sv:55:18: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'refresh_age' generates 16 bits.
+                                                                                                                             : ... note: In instance 'tb_p2.ctrl'
+   55 |    if(refresh_age>=REFRESH_CYCLES) state<=REFRESH;
+      |                  ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_pixel_fifo.sv:10:18: Operator ADD expects 12 bits on the RHS, but RHS's VARREF 'pop' generates 1 bits.
+                                                                                                                             : ... note: In instance 'tb_p2.fifo'
+   10 | wire [AW:0] rn=rp+pop,wn=wp+push;
+      |                  ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\p2\dmz_pixel_fifo.sv:10:28: Operator ADD expects 12 bits on the RHS, but RHS's VARREF 'push' generates 1 bits.
+                                                                                                                             : ... note: In instance 'tb_p2.fifo'
+   10 | wire [AW:0] rn=rp+pop,wn=wp+push;
+      |                            ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.162 MB sources in 8 modules, into 0.338 MB in 9 C++ files needing 0.000 MB
+- Verilator: Walltime 0.149 s (elab=0.008, cvt=0.058, bld=0.000); cpu 0.109 s on 1 threads; alloced 17.176 MB

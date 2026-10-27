@@ -1,0 +1,3 @@
+[submodule "vendor/hdl-util-hdmi"]
+	path = vendor/hdl-util-hdmi
+	url = https://github.com/hdl-util/hdmi.git

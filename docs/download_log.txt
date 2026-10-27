@@ -1,0 +1,15 @@
+>>
+RUN-1002 : start command "download -bit D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\build\dmz_p0_Runs\phy_1\dmz_p0.bit -mode jtag -spd 7 -cable 0"
+PRG-2014 : Chip validation success: EG4S20BG256
+RUN-1002 : start command "bit_to_vec -chip EG4S20BG256 -m jtag_burst -freq 5.000000 -bit D:/QQdownload/HX4S20_Contest_202606.zip/HX4S20_Contest_202606/dmz_track1/build/dmz_p0_Runs/phy_1/dmz_p0.bit"
+RUN-1003 : finish command "bit_to_vec -chip EG4S20BG256 -m jtag_burst -freq 5.000000 -bit D:/QQdownload/HX4S20_Contest_202606.zip/HX4S20_Contest_202606/dmz_track1/build/dmz_p0_Runs/phy_1/dmz_p0.bit" in  0.183773s wall, 0.218750s user + 0.109375s system = 0.328125s CPU (178.5%)
+
+RUN-1004 : used memory is 161 MB, reserved memory is 93 MB, peak memory is 176 MB
+RUN-1002 : start command "program -cable 0 -mode svf -spd 7 -p"
+RUN-1003 : finish command "program -cable 0 -mode svf -spd 7 -p" in  7.076976s wall, 0.812500s user + 0.578125s system = 1.390625s CPU (19.6%)
+
+RUN-1004 : used memory is 147 MB, reserved memory is 80 MB, peak memory is 176 MB
+RUN-1003 : finish command "download -bit D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\build\dmz_p0_Runs\phy_1\dmz_p0.bit -mode jtag -spd 7 -cable 0" in  7.364816s wall, 1.046875s user + 0.781250s system = 1.828125s CPU (24.8%)
+
+RUN-1004 : used memory is 148 MB, reserved memory is 80 MB, peak memory is 176 MB
+GUI-1001 : Downloading succeeded!
