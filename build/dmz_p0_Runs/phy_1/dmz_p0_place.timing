@@ -1,0 +1,1149 @@
+Created by          : Tang Dynasty v6.2.168116
+                    : Copyright (c) 2012-2025 Anlogic Inc.
+Generated           : Sun Oct 25 14:10:41 2026
+
+Top Model           : dmz_p0_top
+Device              : EG4S20BG256
+Speed               : NA
+STA coverage        : 100.00%
+Constraint File     : D:/QQdownload/HX4S20_Contest_202606.zip/HX4S20_Contest_202606/dmz_track1/constraints/dmz_p0.sdc;
+Confidence          : Placed
+Check Corner        : Both (Slow and Fast)
+CRPR Enabled        : Yes
+Report Scheme       : 10 end point(s) per path group, 1 path(s) per end point
+
+
+Check Status
+-------------
+
+Corner   | Max      Min     
+------------------------------------
+Slow     | yes      yes     
+Fast     | yes      yes     
+
+
+Timing Status
+--------------------
+	SWNS: 17.200ns, STNS: 0.000ns
+	HWNS: 0.036ns, HTNS: 0.000ns
+	Period Check WNS: 0.000ns
+
+
+Clock Summary
+--------------------
+
+       Clock-Id:       C-Freq       Fanout   Clock-Name
+--------------------------------------------------------------------------------
+           clk0:       50.000           34   clk_50m
+--------------------------------------------------------------------------------
+
+       Name            Type         Rise(ns)   Fall(ns)          C-Period(ns)     C-Freq(MHz)          R-Period(ns)     R-Freq(MHz)         SWNS(ns)   STNS(ns)         HWNS(ns)   HTNS(ns)         Skew(ns)           Fanout        Max-Level        CC-From    CC-To
+       clk0           local            0.000     10.000                20.000          50.000                 2.800         357.143           17.200      0.000            0.036      0.000            0.000               34                4             no       no
+
+Notes
+----------
+C-Period  :  constraint period
+C-Freq    :  constraint freq
+R-Period  :  report min period
+R-Freq    :  report fmax
+CC-From   :  has path(s) from cross-domain clock
+CC-To     :  has path(s) to cross-domain clock
+
+
+*   Clock R-Period data only takes intra-clock timing. SWNS/STNS/HWNS/HTNS take both intra-clock and inter-clock timing.
+*   If there is mismatch between R-Period and SWNS, check inter-clock timing of this clock as capture clock.
+*   SWNS/STNS/HWNS/HTNS of timing exception (SMCP/SMD) only counted in global Timing Status, not counted in Clock Summary.
+
+Intra clock domain timing
+--------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+Path Group     :     clk_50m -> clk_50m
+Type           :     Self
+From Clock     :     clk_50m
+To Clock       :     clk_50m
+Min Period     :     2.800ns
+Fmax           :     357.143MHz
+
+Statistics:
+Max            : SWNS     17.200ns, STNS      0.000ns,         0 Viol Endpoints,        70 Total Endpoints,       161 Paths Analyzed
+Min            : HWNS      0.036ns, HTNS      0.000ns,         0 Viol Endpoints,        70 Total Endpoints,       161 Paths Analyzed
+----------------------------------------------------------------------------------------------------
+
+Max Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 17.200ns
+Begin Point         : counter_reg[1]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[21]_syn_4.c[0] (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_50m rising@20.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 2.684ns (cell 2.434ns (90%), net 0.250ns (10%))
+Clock Skew          : 0.000ns
+Logic Level         : 3 ( ADDER=2  LUT2=1 )
+Max Fanout          : 2
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[1]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x021y001z3          0.146    r     0.146          pin: counter_reg[1]_syn_3.q[0]
+net (fo=2)                              0.150          0.296          net: counter[1],  ../../../rtl/dmz_p0_top.v(17)
+                                                                      pin: add0_syn_152.a[1]
+ADDER               x020y001z2          0.881    r     1.177       1  pin: add0_syn_152.fco
+net (fo=1)                              0.000          1.177          net: add0_syn_129,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_153.fci
+ADDER               x020y001z3          0.132    f     1.309          pin: add0_syn_153.fco
+net (fo=1)                              0.000          1.309          net: add0_syn_133,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_154.fci
+ADDER               x020y002z2          0.132    f     1.441          pin: add0_syn_154.fco
+net (fo=1)                              0.000          1.441          net: add0_syn_137,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_155.fci
+ADDER               x020y002z3          0.132    f     1.573          pin: add0_syn_155.fco
+net (fo=1)                              0.000          1.573          net: add0_syn_141,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_156.fci
+ADDER               x020y003z2          0.132    f     1.705          pin: add0_syn_156.fco
+net (fo=1)                              0.000          1.705          net: add0_syn_145,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_157.fci
+ADDER               x020y003z3          0.132    f     1.837          pin: add0_syn_157.fco
+net (fo=1)                              0.000          1.837          net: add0_syn_149,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_158.fci
+ADDER               x020y004z2          0.387    f     2.224       2  pin: add0_syn_158.fx[0]
+net (fo=1)                              0.100          2.324          net: counter_b1[24],  NOFILE(0)
+                                                                      pin: counter_reg[21]_syn_4.c[0]
+LUT2 (reg)          x020y004z0          0.360    r     2.684       3  net: counter[24],  ../../../rtl/dmz_p0_top.v(17)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.684               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[21]_syn_4.clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.200               
+
+Slack               : 17.266ns
+Begin Point         : counter_reg[1]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[16]_syn_4.c[0] (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_50m rising@20.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 2.618ns (cell 2.368ns (90%), net 0.250ns (10%))
+Clock Skew          : 0.000ns
+Logic Level         : 3 ( ADDER=2  LUT2=1 )
+Max Fanout          : 2
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[1]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x021y001z3          0.146    r     0.146          pin: counter_reg[1]_syn_3.q[0]
+net (fo=2)                              0.150          0.296          net: counter[1],  ../../../rtl/dmz_p0_top.v(17)
+                                                                      pin: add0_syn_152.a[1]
+ADDER               x020y001z2          0.881    r     1.177       1  pin: add0_syn_152.fco
+net (fo=1)                              0.000          1.177          net: add0_syn_129,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_153.fci
+ADDER               x020y001z3          0.132    f     1.309          pin: add0_syn_153.fco
+net (fo=1)                              0.000          1.309          net: add0_syn_133,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_154.fci
+ADDER               x020y002z2          0.132    f     1.441          pin: add0_syn_154.fco
+net (fo=1)                              0.000          1.441          net: add0_syn_137,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_155.fci
+ADDER               x020y002z3          0.132    f     1.573          pin: add0_syn_155.fco
+net (fo=1)                              0.000          1.573          net: add0_syn_141,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_156.fci
+ADDER               x020y003z2          0.132    f     1.705          pin: add0_syn_156.fco
+net (fo=1)                              0.000          1.705          net: add0_syn_145,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_157.fci
+ADDER               x020y003z3          0.453    f     2.158       2  pin: add0_syn_157.fx[1]
+net (fo=1)                              0.100          2.258          net: counter_b1[22],  NOFILE(0)
+                                                                      pin: counter_reg[16]_syn_4.c[0]
+LUT2 (reg)          x020y003z1          0.360    r     2.618       3  net: counter[22],  ../../../rtl/dmz_p0_top.v(17)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.618               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[16]_syn_4.clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.266               
+
+Slack               : 17.282ns
+Begin Point         : counter_reg[1]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[19]_syn_4.c[0] (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_50m rising@20.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 2.602ns (cell 2.302ns (88%), net 0.300ns (12%))
+Clock Skew          : 0.000ns
+Logic Level         : 3 ( ADDER=2  LUT2=1 )
+Max Fanout          : 2
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[1]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x021y001z3          0.146    r     0.146          pin: counter_reg[1]_syn_3.q[0]
+net (fo=2)                              0.150          0.296          net: counter[1],  ../../../rtl/dmz_p0_top.v(17)
+                                                                      pin: add0_syn_152.a[1]
+ADDER               x020y001z2          0.881    r     1.177       1  pin: add0_syn_152.fco
+net (fo=1)                              0.000          1.177          net: add0_syn_129,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_153.fci
+ADDER               x020y001z3          0.132    f     1.309          pin: add0_syn_153.fco
+net (fo=1)                              0.000          1.309          net: add0_syn_133,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_154.fci
+ADDER               x020y002z2          0.132    f     1.441          pin: add0_syn_154.fco
+net (fo=1)                              0.000          1.441          net: add0_syn_137,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_155.fci
+ADDER               x020y002z3          0.132    f     1.573          pin: add0_syn_155.fco
+net (fo=1)                              0.000          1.573          net: add0_syn_141,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_156.fci
+ADDER               x020y003z2          0.132    f     1.705          pin: add0_syn_156.fco
+net (fo=1)                              0.000          1.705          net: add0_syn_145,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_157.fci
+ADDER               x020y003z3          0.387    f     2.092       2  pin: add0_syn_157.fx[0]
+net (fo=1)                              0.150          2.242          net: counter_b1[20],  NOFILE(0)
+                                                                      pin: counter_reg[19]_syn_4.c[0]
+LUT2 (reg)          x021y003z1          0.360    r     2.602       3  net: counter[20],  ../../../rtl/dmz_p0_top.v(17)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.602               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[19]_syn_4.clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.282               
+
+Slack               : 17.398ns
+Begin Point         : counter_reg[1]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[14]_syn_4.c[0] (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_50m rising@20.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 2.486ns (cell 2.236ns (89%), net 0.250ns (11%))
+Clock Skew          : 0.000ns
+Logic Level         : 3 ( ADDER=2  LUT2=1 )
+Max Fanout          : 2
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[1]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x021y001z3          0.146    r     0.146          pin: counter_reg[1]_syn_3.q[0]
+net (fo=2)                              0.150          0.296          net: counter[1],  ../../../rtl/dmz_p0_top.v(17)
+                                                                      pin: add0_syn_152.a[1]
+ADDER               x020y001z2          0.881    r     1.177       1  pin: add0_syn_152.fco
+net (fo=1)                              0.000          1.177          net: add0_syn_129,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_153.fci
+ADDER               x020y001z3          0.132    f     1.309          pin: add0_syn_153.fco
+net (fo=1)                              0.000          1.309          net: add0_syn_133,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_154.fci
+ADDER               x020y002z2          0.132    f     1.441          pin: add0_syn_154.fco
+net (fo=1)                              0.000          1.441          net: add0_syn_137,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_155.fci
+ADDER               x020y002z3          0.132    f     1.573          pin: add0_syn_155.fco
+net (fo=1)                              0.000          1.573          net: add0_syn_141,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_156.fci
+ADDER               x020y003z2          0.453    f     2.026       2  pin: add0_syn_156.fx[1]
+net (fo=1)                              0.100          2.126          net: counter_b1[18],  NOFILE(0)
+                                                                      pin: counter_reg[14]_syn_4.c[0]
+LUT2 (reg)          x020y003z0          0.360    r     2.486       3  net: counter[18],  ../../../rtl/dmz_p0_top.v(17)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.486               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[14]_syn_4.clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.398               
+
+Slack               : 17.405ns
+Begin Point         : counter_reg[1]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[21]_syn_4.c[1] (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_50m rising@20.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 2.479ns (cell 2.179ns (87%), net 0.300ns (13%))
+Clock Skew          : 0.000ns
+Logic Level         : 3 ( ADDER=2  LUT2=1 )
+Max Fanout          : 2
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[1]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x021y001z3          0.146    r     0.146          pin: counter_reg[1]_syn_3.q[0]
+net (fo=2)                              0.150          0.296          net: counter[1],  ../../../rtl/dmz_p0_top.v(17)
+                                                                      pin: add0_syn_152.a[1]
+ADDER               x020y001z2          0.881    r     1.177       1  pin: add0_syn_152.fco
+net (fo=1)                              0.000          1.177          net: add0_syn_129,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_153.fci
+ADDER               x020y001z3          0.132    f     1.309          pin: add0_syn_153.fco
+net (fo=1)                              0.000          1.309          net: add0_syn_133,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_154.fci
+ADDER               x020y002z2          0.132    f     1.441          pin: add0_syn_154.fco
+net (fo=1)                              0.000          1.441          net: add0_syn_137,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_155.fci
+ADDER               x020y002z3          0.132    f     1.573          pin: add0_syn_155.fco
+net (fo=1)                              0.000          1.573          net: add0_syn_141,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_156.fci
+ADDER               x020y003z2          0.132    f     1.705          pin: add0_syn_156.fco
+net (fo=1)                              0.000          1.705          net: add0_syn_145,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_157.fci
+ADDER               x020y003z3          0.264    r     1.969       2  pin: add0_syn_157.f[1]
+net (fo=1)                              0.150          2.119          net: counter_b1[21],  NOFILE(0)
+                                                                      pin: counter_reg[21]_syn_4.c[1]
+LUT2 (reg)          x020y004z0          0.360    r     2.479       3  net: counter[21],  ../../../rtl/dmz_p0_top.v(17)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.479               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[21]_syn_4.clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.405               
+
+Slack               : 17.464ns
+Begin Point         : counter_reg[1]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[16]_syn_4.c[1] (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_50m rising@20.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 2.420ns (cell 2.170ns (89%), net 0.250ns (11%))
+Clock Skew          : 0.000ns
+Logic Level         : 3 ( ADDER=2  LUT2=1 )
+Max Fanout          : 2
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[1]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x021y001z3          0.146    r     0.146          pin: counter_reg[1]_syn_3.q[0]
+net (fo=2)                              0.150          0.296          net: counter[1],  ../../../rtl/dmz_p0_top.v(17)
+                                                                      pin: add0_syn_152.a[1]
+ADDER               x020y001z2          0.881    r     1.177       1  pin: add0_syn_152.fco
+net (fo=1)                              0.000          1.177          net: add0_syn_129,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_153.fci
+ADDER               x020y001z3          0.132    f     1.309          pin: add0_syn_153.fco
+net (fo=1)                              0.000          1.309          net: add0_syn_133,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_154.fci
+ADDER               x020y002z2          0.132    f     1.441          pin: add0_syn_154.fco
+net (fo=1)                              0.000          1.441          net: add0_syn_137,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_155.fci
+ADDER               x020y002z3          0.132    f     1.573          pin: add0_syn_155.fco
+net (fo=1)                              0.000          1.573          net: add0_syn_141,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_156.fci
+ADDER               x020y003z2          0.387    f     1.960       2  pin: add0_syn_156.fx[0]
+net (fo=1)                              0.100          2.060          net: counter_b1[16],  NOFILE(0)
+                                                                      pin: counter_reg[16]_syn_4.c[1]
+LUT2 (reg)          x020y003z1          0.360    r     2.420       3  net: counter[16],  ../../../rtl/dmz_p0_top.v(17)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.420               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[16]_syn_4.clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.464               
+
+Slack               : 17.471ns
+Begin Point         : counter_reg[1]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[19]_syn_4.c[1] (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_50m rising@20.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 2.413ns (cell 2.113ns (87%), net 0.300ns (13%))
+Clock Skew          : 0.000ns
+Logic Level         : 3 ( ADDER=2  LUT2=1 )
+Max Fanout          : 2
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[1]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x021y001z3          0.146    r     0.146          pin: counter_reg[1]_syn_3.q[0]
+net (fo=2)                              0.150          0.296          net: counter[1],  ../../../rtl/dmz_p0_top.v(17)
+                                                                      pin: add0_syn_152.a[1]
+ADDER               x020y001z2          0.881    r     1.177       1  pin: add0_syn_152.fco
+net (fo=1)                              0.000          1.177          net: add0_syn_129,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_153.fci
+ADDER               x020y001z3          0.132    f     1.309          pin: add0_syn_153.fco
+net (fo=1)                              0.000          1.309          net: add0_syn_133,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_154.fci
+ADDER               x020y002z2          0.132    f     1.441          pin: add0_syn_154.fco
+net (fo=1)                              0.000          1.441          net: add0_syn_137,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_155.fci
+ADDER               x020y002z3          0.132    f     1.573          pin: add0_syn_155.fco
+net (fo=1)                              0.000          1.573          net: add0_syn_141,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_156.fci
+ADDER               x020y003z2          0.132    f     1.705          pin: add0_syn_156.fco
+net (fo=1)                              0.000          1.705          net: add0_syn_145,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_157.fci
+ADDER               x020y003z3          0.198    r     1.903       2  pin: add0_syn_157.f[0]
+net (fo=1)                              0.150          2.053          net: counter_b1[19],  NOFILE(0)
+                                                                      pin: counter_reg[19]_syn_4.c[1]
+LUT2 (reg)          x021y003z1          0.360    r     2.413       3  net: counter[19],  ../../../rtl/dmz_p0_top.v(17)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.413               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[19]_syn_4.clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.471               
+
+Slack               : 17.480ns
+Begin Point         : counter_reg[1]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[14]_syn_4.c[1] (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_50m rising@20.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 2.404ns (cell 2.104ns (87%), net 0.300ns (13%))
+Clock Skew          : 0.000ns
+Logic Level         : 3 ( ADDER=2  LUT2=1 )
+Max Fanout          : 2
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[1]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x021y001z3          0.146    r     0.146          pin: counter_reg[1]_syn_3.q[0]
+net (fo=2)                              0.150          0.296          net: counter[1],  ../../../rtl/dmz_p0_top.v(17)
+                                                                      pin: add0_syn_152.a[1]
+ADDER               x020y001z2          0.881    r     1.177       1  pin: add0_syn_152.fco
+net (fo=1)                              0.000          1.177          net: add0_syn_129,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_153.fci
+ADDER               x020y001z3          0.132    f     1.309          pin: add0_syn_153.fco
+net (fo=1)                              0.000          1.309          net: add0_syn_133,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_154.fci
+ADDER               x020y002z2          0.132    f     1.441          pin: add0_syn_154.fco
+net (fo=1)                              0.000          1.441          net: add0_syn_137,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_155.fci
+ADDER               x020y002z3          0.453    f     1.894       2  pin: add0_syn_155.fx[1]
+net (fo=1)                              0.150          2.044          net: counter_b1[14],  NOFILE(0)
+                                                                      pin: counter_reg[14]_syn_4.c[1]
+LUT2 (reg)          x020y003z0          0.360    r     2.404       3  net: counter[14],  ../../../rtl/dmz_p0_top.v(17)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.404               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[14]_syn_4.clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.480               
+
+Slack               : 17.506ns
+Begin Point         : counter_reg[1]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[23]_syn_4.mi[1] (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_50m rising@20.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 2.378ns (cell 2.028ns (85%), net 0.350ns (15%))
+Clock Skew          : 0.000ns
+Logic Level         : 2 ( ADDER=2 )
+Max Fanout          : 2
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[1]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x021y001z3          0.146    r     0.146          pin: counter_reg[1]_syn_3.q[0]
+net (fo=2)                              0.150          0.296          net: counter[1],  ../../../rtl/dmz_p0_top.v(17)
+                                                                      pin: add0_syn_152.a[1]
+ADDER               x020y001z2          0.881    r     1.177       1  pin: add0_syn_152.fco
+net (fo=1)                              0.000          1.177          net: add0_syn_129,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_153.fci
+ADDER               x020y001z3          0.132    f     1.309          pin: add0_syn_153.fco
+net (fo=1)                              0.000          1.309          net: add0_syn_133,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_154.fci
+ADDER               x020y002z2          0.132    f     1.441          pin: add0_syn_154.fco
+net (fo=1)                              0.000          1.441          net: add0_syn_137,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_155.fci
+ADDER               x020y002z3          0.132    f     1.573          pin: add0_syn_155.fco
+net (fo=1)                              0.000          1.573          net: add0_syn_141,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_156.fci
+ADDER               x020y003z2          0.132    f     1.705          pin: add0_syn_156.fco
+net (fo=1)                              0.000          1.705          net: add0_syn_145,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_157.fci
+ADDER               x020y003z3          0.132    f     1.837          pin: add0_syn_157.fco
+net (fo=1)                              0.000          1.837          net: add0_syn_149,  ../../../rtl/dmz_p0_top.v(37)
+                                                                      pin: add0_syn_158.fci
+ADDER               x020y004z2          0.198    r     2.035       2  pin: add0_syn_158.f[0]
+net (fo=1)                              0.200          2.235          net: counter_b1[23],  NOFILE(0)
+                                                                      pin: counter_reg[23]_syn_4.mi[1]
+reg                 x021y003z3          0.143    r     2.378          net: counter[23],  ../../../rtl/dmz_p0_top.v(17)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.378               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[23]_syn_4.clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.506               
+
+Slack               : 17.568ns
+Begin Point         : counter_reg[2]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : heartbeat_reg_syn_8.d[0] (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : setup
+Process             : slow
+Budget              : 20.000ns { clk_50m rising@20.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 2.316ns (cell 1.716ns (74%), net 0.600ns (26%))
+Clock Skew          : 0.000ns
+Logic Level         : 4 ( LUT5=2  LUT4=1  LUT2=1 )
+Max Fanout          : 14
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[2]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x021y001z2          0.146    r     0.146          pin: counter_reg[2]_syn_3.q[0]
+net (fo=2)                              0.150          0.296          net: counter[2],  ../../../rtl/dmz_p0_top.v(17)
+                                                                      pin: counter_reg[7]_syn_4.a[0]
+LUT4                x020y001z0          0.408    f     0.704       1  pin: counter_reg[7]_syn_4.f[0]
+net (fo=1)                              0.200          0.904          net: counter_b[21]_syn_6,  NOFILE(0)
+                                                                      pin: counter_reg[8]_syn_4.a[0]
+LUT5                x021y002z2          0.424    f     1.328       2  pin: counter_reg[8]_syn_4.f[0]
+net (fo=1)                              0.100          1.428          net: counter_b[21]_syn_12,  NOFILE(0)
+                                                                      pin: counter_reg[10]_syn_4.a[0]
+LUT5                x021y002z3          0.424    f     1.852       3  pin: counter_reg[10]_syn_4.f[0]
+net (fo=14)                             0.150          2.002          net: counter_b_n,  NOFILE(0)
+                                                                      pin: heartbeat_reg_syn_8.d[0]
+LUT2 (reg)          x020y002z0          0.314    r     2.316       4  net: counter[6],  ../../../rtl/dmz_p0_top.v(17)
+--------------------------------------------------------------------  ---------------
+Arrival                                                2.316               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: heartbeat_reg_syn_8.clk
+capture edge                           20.000    r    20.000               
+--------------------------------------------------------------------  ---------------
+setup                                  -0.116         19.884               
+clock uncertainty                       0.000         19.884               
+clock pessimism                         0.000         19.884               
+--------------------------------------------------------------------  ---------------
+Required                                              19.884               
+--------------------------------------------------------------------  ---------------
+Slack                                                 17.568               
+
+
+
+Min Paths
+----------------------------------------------------------------------------------------------------
+Slack               : 0.036ns
+Begin Point         : reset_sync_reg[0]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : switches[0]_syn_4.rst (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { clk_50m rising@0.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 0.328ns (cell 0.128ns (39%), net 0.200ns (61%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: reset_sync_reg[0]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x018y001z0          0.128    f     0.128          pin: reset_sync_reg[0]_syn_3.q[0]
+net (fo=33)                             0.200          0.328          net: reset_n,  ../../../rtl/dmz_p0_top.v(16)
+                                                                      pin: switches[0]_syn_4.rst
+PAD (reg)           x017y000            0.000    f     0.328               
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.328               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: switches[0]_syn_4.ipclk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.036               
+
+Slack               : 0.086ns
+Begin Point         : reset_sync_reg[0]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : leds[4]_syn_4.rst (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { clk_50m rising@0.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 0.378ns (cell 0.128ns (33%), net 0.250ns (67%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: reset_sync_reg[0]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x018y001z0          0.128    f     0.128          pin: reset_sync_reg[0]_syn_3.q[0]
+net (fo=33)                             0.250          0.378          net: reset_n,  ../../../rtl/dmz_p0_top.v(16)
+                                                                      pin: leds[4]_syn_4.rst
+PAD (reg)           x020y000            0.000    f     0.378               
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.378               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: leds[4]_syn_4.osclk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.086               
+
+Slack               : 0.086ns
+Begin Point         : reset_sync_reg[0]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : leds[3]_syn_4.rst (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { clk_50m rising@0.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 0.378ns (cell 0.128ns (33%), net 0.250ns (67%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: reset_sync_reg[0]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x018y001z0          0.128    f     0.128          pin: reset_sync_reg[0]_syn_3.q[0]
+net (fo=33)                             0.250          0.378          net: reset_n,  ../../../rtl/dmz_p0_top.v(16)
+                                                                      pin: leds[3]_syn_4.rst
+PAD (reg)           x020y000            0.000    f     0.378               
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.378               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: leds[3]_syn_4.osclk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.292          0.292               
+clock uncertainty                       0.000          0.292               
+clock pessimism                         0.000          0.292               
+--------------------------------------------------------------------  ---------------
+Required                                               0.292               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.086               
+
+Slack               : 0.130ns
+Begin Point         : reset_sync_reg[0]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : add0_syn_152.sr (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { clk_50m rising@0.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 0.430ns (cell 0.230ns (53%), net 0.200ns (47%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: reset_sync_reg[0]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x018y001z0          0.128    f     0.128          pin: reset_sync_reg[0]_syn_3.q[0]
+net (fo=33)                             0.200          0.328          net: reset_n,  ../../../rtl/dmz_p0_top.v(16)
+                                                                      pin: add0_syn_152.sr
+ADDER (reg)         x020y001z2          0.102    r     0.430               
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.430               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: add0_syn_152.clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.300          0.300               
+clock uncertainty                       0.000          0.300               
+clock pessimism                         0.000          0.300               
+--------------------------------------------------------------------  ---------------
+Required                                               0.300               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.130               
+
+Slack               : 0.130ns
+Begin Point         : reset_sync_reg[0]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[0]_syn_4.sr (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { clk_50m rising@0.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 0.430ns (cell 0.230ns (53%), net 0.200ns (47%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: reset_sync_reg[0]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x018y001z0          0.128    f     0.128          pin: reset_sync_reg[0]_syn_3.q[0]
+net (fo=33)                             0.200          0.328          net: reset_n,  ../../../rtl/dmz_p0_top.v(16)
+                                                                      pin: counter_reg[0]_syn_4.sr
+reg                 x020y001z1          0.102    r     0.430               
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.430               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[0]_syn_4.clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.300          0.300               
+clock uncertainty                       0.000          0.300               
+clock pessimism                         0.000          0.300               
+--------------------------------------------------------------------  ---------------
+Required                                               0.300               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.130               
+
+Slack               : 0.130ns
+Begin Point         : reset_sync_reg[0]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[7]_syn_4.sr (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { clk_50m rising@0.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 0.430ns (cell 0.230ns (53%), net 0.200ns (47%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: reset_sync_reg[0]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x018y001z0          0.128    f     0.128          pin: reset_sync_reg[0]_syn_3.q[0]
+net (fo=33)                             0.200          0.328          net: reset_n,  ../../../rtl/dmz_p0_top.v(16)
+                                                                      pin: counter_reg[7]_syn_4.sr
+reg                 x020y001z0          0.102    r     0.430               
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.430               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[7]_syn_4.clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.300          0.300               
+clock uncertainty                       0.000          0.300               
+clock pessimism                         0.000          0.300               
+--------------------------------------------------------------------  ---------------
+Required                                               0.300               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.130               
+
+Slack               : 0.180ns
+Begin Point         : reset_sync_reg[0]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : heartbeat_reg_syn_8.sr (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { clk_50m rising@0.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 0.480ns (cell 0.230ns (47%), net 0.250ns (53%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: reset_sync_reg[0]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x018y001z0          0.128    f     0.128          pin: reset_sync_reg[0]_syn_3.q[0]
+net (fo=33)                             0.250          0.378          net: reset_n,  ../../../rtl/dmz_p0_top.v(16)
+                                                                      pin: heartbeat_reg_syn_8.sr
+reg                 x020y002z0          0.102    r     0.480               
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.480               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: heartbeat_reg_syn_8.clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.300          0.300               
+clock uncertainty                       0.000          0.300               
+clock pessimism                         0.000          0.300               
+--------------------------------------------------------------------  ---------------
+Required                                               0.300               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.180               
+
+Slack               : 0.180ns
+Begin Point         : reset_sync_reg[0]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[1]_syn_3.sr (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { clk_50m rising@0.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 0.480ns (cell 0.230ns (47%), net 0.250ns (53%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: reset_sync_reg[0]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x018y001z0          0.128    f     0.128          pin: reset_sync_reg[0]_syn_3.q[0]
+net (fo=33)                             0.250          0.378          net: reset_n,  ../../../rtl/dmz_p0_top.v(16)
+                                                                      pin: counter_reg[1]_syn_3.sr
+reg                 x021y001z3          0.102    r     0.480               
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.480               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[1]_syn_3.clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.300          0.300               
+clock uncertainty                       0.000          0.300               
+clock pessimism                         0.000          0.300               
+--------------------------------------------------------------------  ---------------
+Required                                               0.300               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.180               
+
+Slack               : 0.180ns
+Begin Point         : reset_sync_reg[0]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[2]_syn_3.sr (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { clk_50m rising@0.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 0.480ns (cell 0.230ns (47%), net 0.250ns (53%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: reset_sync_reg[0]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x018y001z0          0.128    f     0.128          pin: reset_sync_reg[0]_syn_3.q[0]
+net (fo=33)                             0.250          0.378          net: reset_n,  ../../../rtl/dmz_p0_top.v(16)
+                                                                      pin: counter_reg[2]_syn_3.sr
+reg                 x021y001z2          0.102    r     0.480               
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.480               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[2]_syn_3.clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.300          0.300               
+clock uncertainty                       0.000          0.300               
+clock pessimism                         0.000          0.300               
+--------------------------------------------------------------------  ---------------
+Required                                               0.300               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.180               
+
+Slack               : 0.180ns
+Begin Point         : reset_sync_reg[0]_syn_3.clk (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+End Point           : counter_reg[3]_syn_4.sr (rising edge triggered by clock clk_50m  { rise@0.000000ns  fall@10.000000ns  period=20.000000 })
+Check Type          : removal
+Process             : slow
+Budget              : 0.000ns { clk_50m rising@0.000ns - clk_50m rising@0.000ns }
+Data Path Delay     : 0.480ns (cell 0.230ns (47%), net 0.250ns (53%))
+Clock Skew          : 0.000ns
+Logic Level         : 0
+Max Fanout          : 33
+Clock Uncertainty   : 0.000ns (sdc uncertainty: 0.000ns, default uncertainty: 0.000ns)
+
+Delay Type          Location             Incr           Path   Level  Netlist Info
+--------------------------------------------------------------------  ---------------
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: reset_sync_reg[0]_syn_3.clk
+launch edge                             0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+clk2q               x018y001z0          0.128    f     0.128          pin: reset_sync_reg[0]_syn_3.q[0]
+net (fo=33)                             0.250          0.378          net: reset_n,  ../../../rtl/dmz_p0_top.v(16)
+                                                                      pin: counter_reg[3]_syn_4.sr
+reg                 x021y001z1          0.102    r     0.480               
+--------------------------------------------------------------------  ---------------
+Arrival                                                0.480               
+
+source latency                          0.000          0.000               
+port                R7                  0.000          0.000          pin: clk_50m
+hierarchy                               0.000          0.000          pin: clk_50m_syn_2.ipad
+PAD                 x020y071            0.000          0.000          pin: clk_50m_syn_2.di
+net (fo=34)                             0.000          0.000          net: clk_50m_dup_1,  ../../../rtl/dmz_p0_top.v(4)
+                                                                      pin: counter_reg[3]_syn_4.clk
+capture edge                            0.000    r     0.000               
+--------------------------------------------------------------------  ---------------
+removal                                 0.300          0.300               
+clock uncertainty                       0.000          0.300               
+clock pessimism                         0.000          0.300               
+--------------------------------------------------------------------  ---------------
+Required                                               0.300               
+--------------------------------------------------------------------  ---------------
+Slack                                                  0.180               
+
+
+Inter clock domain timing
+--------------------------------------------------
+
+IP timing
+--------------------------------------------------

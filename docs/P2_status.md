@@ -63,4 +63,10 @@
 - HDMI 协议复用与 PLL 来源沿用 `THIRD_PARTY.md`。
 
 ## 验证结果
-最终构建、下载和实机状态记录将在完成后填写。本文件不把仿真通过等同于上板通过。
+2026-10-27：已将校准后的 P2 位流 SRAM 下载。CH340 重新枚举为 COM8。
+- 实板全容量 BIST：checked_words=8388608，errors=0，bist_passed=true。
+- 连续串口快照：swaps 从 18 增长到 22，underflow_pixels=0，显示已启用，刷新持续运行。
+- 布线后建立裕量 +0.371 ns、保持裕量 +0.004 ns，STA coverage=99.98%。
+- 证据：p2_hardware_status.json、p2_download_log.txt、build_p2/dmz_p2_Runs/phy_1/dmz_p2_pr.timing。
+- 此前的错位故障记录保存在 p2_hardware_first_failure.json，已修正读取等待节拍；先前理想引脚模型未覆盖硬宏集成延迟差异。当前实板配置的读等待为 1，旧仿真记录使用 2，不能把旧仿真记录冒充当前逐周期模型验证。
+- 用户尚未对 P2 画面作单独视觉反馈，持续稳定性长测也未完成。

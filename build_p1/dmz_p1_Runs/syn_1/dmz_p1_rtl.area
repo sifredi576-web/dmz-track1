@@ -1,0 +1,47 @@
+standard
+***Report Model: dmz_p1_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        14
+  #input                    5
+  #output                   9
+  #inout                    0
+
+Gate Statistics
+#Basic gates             1461
+  #and                     48
+  #nand                     0
+  #or                      15
+  #nor                      0
+  #xor                    245
+  #xnor                    18
+  #buf                      0
+  #not                     94
+  #bufif1                   0
+  #MX21                   679
+  #FADD                     0
+  #DFF                    362
+  #LATCH                    0
+#MACRO_ADD                106
+#MACRO_EQ                  27
+#MACRO_MULT                 1
+#MACRO_MUX                292
+#MACRO_OTHERS               7
+
+Report Hierarchy Area:
++-----------------------------------------------------------------------------------------------+
+|Instance                              |Module                          |gates  |seq    |macros |
++-----------------------------------------------------------------------------------------------+
+|top                                   |dmz_p1_top                      |1099   |362    |141    |
+|  pll                                 |dmz_video_pll                   |0      |0      |1      |
+|  tone                                |dmz_tone                        |2      |38     |5      |
+|  tx                                  |hdmi                            |1078   |271    |124    |
+|    serializer                        |serializer                      |2      |36     |4      |
+|    tmds_gen[0]$tmds_channel          |tmds_channel                    |101    |14     |29     |
+|    tmds_gen[1]$tmds_channel          |tmds_channel                    |96     |14     |25     |
+|    tmds_gen[2]$tmds_channel          |tmds_channel                    |95     |14     |25     |
+|    true_hdmi_output$packet_assembler |packet_assembler                |30     |45     |4      |
+|    true_hdmi_output$packet_picker    |packet_picker                   |723    |81     |11     |
+|      audio_clock_regeneration_packet |audio_clock_regeneration_packet |2      |46     |3      |
+|      audio_sample_packet             |audio_sample_packet             |196    |0      |1      |
++-----------------------------------------------------------------------------------------------+

@@ -1,0 +1,51 @@
+standard
+***Report Model: dmz_p2_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        15
+  #input                    2
+  #output                  13
+  #inout                    0
+
+Gate Statistics
+#Basic gates            11099
+  #and                   3422
+  #nand                     0
+  #or                    3201
+  #nor                      0
+  #xor                    666
+  #xnor                    18
+  #buf                      0
+  #not                    207
+  #bufif1                  32
+  #MX21                  1180
+  #FADD                     0
+  #DFF                   2373
+  #LATCH                    0
+#MACRO_ADD                147
+#MACRO_EQ                  51
+#MACRO_MUX                609
+#MACRO_OTHERS               8
+
+Report Hierarchy Area:
++-----------------------------------------------------------------------------------------------+
+|Instance                              |Module                          |gates  |seq    |macros |
++-----------------------------------------------------------------------------------------------+
+|top                                   |dmz_p2_top                      |8726   |2373   |206    |
+|  bist                                |dmz_sdram_bist                  |92     |448    |14     |
+|  ctrl                                |dmz_sdram_ctrl                  |6504   |504    |9      |
+|  fb                                  |dmz_framebuffer                 |495    |418    |33     |
+|  fifo                                |dmz_pixel_fifo                  |39     |94     |6      |
+|  pll                                 |dmz_p2_pll                      |0      |0      |1      |
+|  telemetry                           |dmz_status_uart                 |21     |446    |8      |
+|  tone                                |dmz_tone                        |2      |20     |3      |
+|  tx                                  |hdmi                            |1077   |251    |124    |
+|    serializer                        |serializer                      |3      |36     |4      |
+|    tmds_gen[0]$tmds_channel          |tmds_channel                    |100    |14     |29     |
+|    tmds_gen[1]$tmds_channel          |tmds_channel                    |96     |14     |25     |
+|    tmds_gen[2]$tmds_channel          |tmds_channel                    |94     |14     |25     |
+|    true_hdmi_output$packet_assembler |packet_assembler                |30     |45     |4      |
+|    true_hdmi_output$packet_picker    |packet_picker                   |723    |68     |13     |
+|      audio_clock_regeneration_packet |audio_clock_regeneration_packet |2      |46     |3      |
+|      audio_sample_packet             |audio_sample_packet             |197    |0      |3      |
++-----------------------------------------------------------------------------------------------+

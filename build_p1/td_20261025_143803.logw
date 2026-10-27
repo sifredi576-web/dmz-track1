@@ -1,0 +1,30 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = D:/ANLU/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     fushenghe
+   Run Date =   Sun Oct 25 14:38:03 2026
+
+   Run on =     LAPTOP-6RN9ARE0
+============================================================
+HDL-5341 WARNING: non-net output port 'clk_audio_counter_wrap' cannot be initialized at declaration in SystemVerilog mode in ../rtl/p1/hdmi_core/audio_clock_regeneration_packet.sv(13)
+HDL-5341 WARNING: non-net output port 'cx' cannot be initialized at declaration in SystemVerilog mode in ../rtl/p1/hdmi_core/hdmi.sv(81)
+HDL-5341 WARNING: non-net output port 'cy' cannot be initialized at declaration in SystemVerilog mode in ../rtl/p1/hdmi_core/hdmi.sv(82)
+HDL-5341 WARNING: non-net output port 'counter' cannot be initialized at declaration in SystemVerilog mode in ../rtl/p1/hdmi_core/packet_assembler.sv(11)
+HDL-5341 WARNING: non-net output port 'tmds' cannot be initialized at declaration in SystemVerilog mode in ../rtl/p1/hdmi_core/tmds_channel.sv(16)
+PRJ-6603 WARNING: File ../rtl/p1/dmz_p1_top.sv already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/dmz_tone.sv already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/dmz_video_pll.v already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/audio_clock_regeneration_packet.sv already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/audio_info_frame.sv already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/audio_sample_packet.sv already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/auxiliary_video_information_info_frame.sv already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/hdmi.sv already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/packet_assembler.sv already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/packet_picker.sv already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/source_product_description_info_frame.sv already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/tmds_channel.sv already exists. It will be ignored.
+PRJ-6603 WARNING: File ../rtl/p1/serializer.sv already exists. It will be ignored.
+PRJ-6604 WARNING: File ../constraints/dmz_p1.adc already exists in file set constraint_1. It will be ignored.
+PRJ-6604 WARNING: File ../constraints/dmz_p1.sdc already exists in file set constraint_1. It will be ignored.
