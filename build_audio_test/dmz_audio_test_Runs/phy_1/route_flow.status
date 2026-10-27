@@ -1,0 +1,22 @@
+Location         : D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\build_audio_test\dmz_audio_test_Runs\phy_1
+Running with     : Tang Dynasty v6.2.168116
+                   Copyright (c) 2012-2025 Anlogic Inc.
+Top Model        : dmz_av_test_top
+Device           : EG4S20BG256
+Speed            : NA
+
+Timing Mode      : final
+Setup            : WNS   261ps  TNS        0ps  NUM_FEPS     0
+Hold             : WNS    33ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+--------------------------------------------------------------------------------------------------
+     command     |  #calls  |  wall time  |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+--------------------------------------------------------------------------------------------------
+      route      |    1     |  38s(63%)   |    49(59%)    |        780        |        795        
+      place      |    1     |  22s(36%)   |    34(40%)    |        403        |        403        
+    import_db    |    1     |   0s(0%)    |     0(0%)     |        210        |        210        
+  import_device  |    1     |   0s(0%)    |     0(0%)     |        83         |        83         
+--------------------------------------------------------------------------------------------------
+      total      |    4     |    1m0s     |      83       |        780        |        795        
+--------------------------------------------------------------------------------------------------

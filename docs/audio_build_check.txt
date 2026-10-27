@@ -1,0 +1,1 @@
+PASS: fresh P3 bitstream and routed timing including SDRAM hard macro

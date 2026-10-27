@@ -74,6 +74,10 @@ module hdmi
     // These outputs go to your HDMI port
     output logic [2:0] tmds,
     output logic tmds_clock,
+    // Optional diagnostic counters, in the pixel clock domain.
+    output logic [31:0] dbg_samples,dbg_pcm_packets,dbg_nonzero_packets,dbg_acr_packets,
+    output logic [19:0] dbg_cts,
+    output logic [31:0] dbg_pcm_pair,
     
     // All outputs below this line stay inside the FPGA
     // They are used (by you) to pick the color each pixel should have
@@ -316,6 +320,25 @@ generate
         ) packet_picker (.clk_pixel(clk_pixel), .clk_audio(clk_audio), .reset(reset), .video_field_end(video_field_end), .packet_enable(packet_enable), .packet_pixel_counter(packet_pixel_counter), .audio_sample_word(audio_sample_word), .header(header), .sub(sub));
         logic [8:0] packet_data;
         packet_assembler packet_assembler (.clk_pixel(clk_pixel), .reset(reset), .data_island_period(data_island_period), .header(header), .sub(sub), .packet_data(packet_data), .counter(packet_pixel_counter));
+        always_ff @(posedge clk_pixel) begin
+            if(reset) begin
+                dbg_samples<=0;dbg_pcm_packets<=0;dbg_nonzero_packets<=0;dbg_acr_packets<=0;dbg_cts<=0;dbg_pcm_pair<=0;
+            end else begin
+                if(clk_audio) dbg_samples<=dbg_samples+1'b1;
+                if(data_island_period && packet_pixel_counter==0) begin
+                    if(header[7:0]==8'd2) begin
+                        dbg_pcm_packets<=dbg_pcm_packets+1'b1;
+                        if(sub[0][47:0]!=0) dbg_nonzero_packets<=dbg_nonzero_packets+1'b1;
+                        dbg_pcm_pair<={sub[0][47:32],sub[0][23:8]};
+                    end
+                    if(header[7:0]==8'd1) begin
+                        dbg_acr_packets<=dbg_acr_packets+1'b1;
+                        dbg_cts<={sub[0][11:8],sub[0][23:16],sub[0][31:24]};
+                    end
+                end
+            end
+        end
+
 
 
         always_ff @(posedge clk_pixel)
@@ -341,6 +364,9 @@ generate
     end
     else // DVI_OUTPUT = 1
     begin
+        always_comb begin
+            dbg_samples=0;dbg_pcm_packets=0;dbg_nonzero_packets=0;dbg_acr_packets=0;dbg_cts=0;dbg_pcm_pair=0;
+        end
         always_ff @(posedge clk_pixel)
         begin
             if (reset)
