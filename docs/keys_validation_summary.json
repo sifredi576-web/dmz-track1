@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-28T15:54:37.4842180+08:00",
+  "simulation_passed": true,
+  "build_passed": true,
+  "sram_download_passed": true,
+  "passed": true,
+  "physical_keys_confirmed": [
+    "KEY0 next image",
+    "KEY2 pause and resume"
+  ],
+  "additional_observed_command": "P previous image",
+  "user_confirmation": "切图、暂停和恢复均正常",
+  "other_physical_keys": "simulated; not explicitly physically confirmed",
+  "audio_underflows": 0,
+  "video_underflows": 0,
+  "wav_error": 0,
+  "sd_error": 0,
+  "setup_ns": 1.422,
+  "hold_ns": 0.076,
+  "final_state": "WAV enabled + automatic slides",
+  "evidence": [
+    "board_keys_sim_result.txt",
+    "keys_initial_status.json",
+    "keys_physical_observation.json"
+  ]
+}

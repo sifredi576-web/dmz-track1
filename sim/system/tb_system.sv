@@ -31,16 +31,16 @@ initial begin
  #200;run_n=1;
  wait(dut.display_valid||dut.image_error!=0||dut.sd_error!=0);
  if(dut.image_error||dut.sd_error||!dut.bist_passed||dut.errors) $fatal(1,"integrated boot/CRC/file error");
- if(!dut.tone_muted||dut.audio_mode!=2) $fatal(1,"integrated boot must be silent");
+ if(dut.tone_muted||dut.audio_mode!=1) $fatal(1,"integrated v4 boot must enable WAV (no-WAV fixture stays silent)");
  wait(frames==2);
  if(pixels!=614400||dut.underflow||dut.fb_fault) $fatal(1,"integrated frame count/underflow");
- command("U");before_nonzero=dut.dbg_nonzero_packets;
+ command("T");before_nonzero=dut.dbg_nonzero_packets;
  repeat(500000) @(posedge dut.pixel_clk);
  if(dut.tone_muted||dut.dbg_nonzero_packets<=before_nonzero||dut.command_count!=1) $fatal(1,"integrated unmute");
  command("M");repeat(3000) @(posedge dut.pixel_clk);before_nonzero=dut.dbg_nonzero_packets;
  repeat(100000) @(posedge dut.pixel_clk);
  if(!dut.tone_muted||dut.dbg_nonzero_packets!=before_nonzero||dut.command_count!=2||dut.underflow) $fatal(1,"integrated mute");
- $display("PASS integrated SPI+CRC+FAT+BMP+SDRAM+FIFO+HDMI/control: two frames/614400 pixels, muted boot, unmute/mute; model wait2/BIST4096");$finish;
+ $display("PASS integrated SPI+CRC+FAT+BMP+SDRAM+FIFO+HDMI/control: two frames/614400 pixels, WAV-enabled boot, tone/mute; model wait2/BIST4096");$finish;
 end
 initial begin #3000000000;$fatal(1,"integrated timeout SD=%0d BMP=%0d",dut.sd_status,dut.image_status);end
 endmodule

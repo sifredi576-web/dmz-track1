@@ -1,0 +1,31 @@
+%Warning-TIMESCALEMOD: rtl/system\dmz_display_control.sv:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    1 | module dmz_display_control #(parameter integer SECOND_CYCLES=25000000)(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       sim/system\tb_display.sv:2:8: ... Location of module with timescale
+    2 | module tb_display;
+      |        ^~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: rtl/system\dmz_picture_adjust.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_picture_adjust(input [23:0] rgb,input [3:0] brightness,contrast,output wire [23:0] adjusted);
+      |        ^~~~~~~~~~~~~~~~~~
+                       sim/system\tb_display.sv:2:8: ... Location of module with timescale
+    2 | module tb_display;
+      |        ^~~~~~~~~~
+%Warning-WIDTHEXPAND: rtl/system\dmz_display_control.sv:16:11: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'ticks' generates 25 bits.
+                                                             : ... note: In instance 'tb_display.ctrl'
+   16 |   if(ticks==SECOND_CYCLES-1) begin
+      |           ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: rtl/system\dmz_picture_adjust.sv:5:34: Operator SUB expects 12 bits on the LHS, but LHS's SIGNED generates 9 bits.
+                                                           : ... note: In instance 'tb_display.dut'
+    5 |  begin centered=$signed({1'b0,p})-12'sd128;
+      |                                  ^
+%Warning-WIDTHEXPAND: rtl/system\dmz_picture_adjust.sv:7:50: Operator SUB expects 12 bits on the LHS, but LHS's SIGNED generates 5 bits.
+                                                           : ... note: In instance 'tb_display.dut'
+    7 |  value=(product>>>2)+12'sd128+(($signed({1'b0,b})-12'sd4)<<<4);
+      |                                                  ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.053 MB sources in 4 modules, into 0.290 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.057 s (elab=0.001, cvt=0.033, bld=0.000); cpu 0.000 s on 1 threads; alloced 17.168 MB

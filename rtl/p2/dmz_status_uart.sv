@@ -1,9 +1,9 @@
 // Periodic 64-byte little-endian diagnostic snapshot, 115200 8N1.
-module dmz_status_uart #(parameter integer PERIOD=25000000,DIVISOR=434)(
- input wire clk,reset,input wire [511:0] status,output reg tx);
+module dmz_status_uart #(parameter integer PERIOD=25000000,DIVISOR=434,BYTES=64)(
+ input wire clk,reset,input wire [BYTES*8-1:0] status,output reg tx);
 reg [31:0] interval;
-reg [511:0] snapshot;
-reg [5:0] index;
+reg [BYTES*8-1:0] snapshot;
+reg [$clog2(BYTES)-1:0] index;
 reg [3:0] bitnum;
 reg [15:0] baud;
 reg [9:0] shift;
@@ -19,8 +19,8 @@ always @(posedge clk) begin
   tx<=shift[0];shift<={1'b1,shift[9:1]};
   if(bitnum==9) begin
    bitnum<=0;
-   if(index==63) begin busy<=0;end
-   else begin index<=index+1'b1;shift<={1'b1,snapshot[(index+1'b1)*8+:8],1'b0};end
+   if(index==BYTES-1) begin busy<=0;end
+   else begin index<=index+1'b1;snapshot<=snapshot>>8;shift<={1'b1,snapshot[15:8],1'b0};end
   end else bitnum<=bitnum+1'b1;
  end else baud<=baud-1'b1;
 end

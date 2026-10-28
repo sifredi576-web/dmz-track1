@@ -1,0 +1,86 @@
+// Verilated -*- C++ -*-
+// DESCRIPTION: Verilator output: Design internal header
+// See Vtb_scene_visual.h for the primary calling header
+
+#ifndef VERILATED_VTB_SCENE_VISUAL___024ROOT_H_
+#define VERILATED_VTB_SCENE_VISUAL___024ROOT_H_  // guard
+
+#include "verilated.h"
+#include "verilated_timing.h"
+
+
+class Vtb_scene_visual__Syms;
+
+class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_visual___024root final : public VerilatedModule {
+  public:
+
+    // DESIGN SPECIFIC STATE
+    CData/*0:0*/ tb_scene_visual__DOT__clk;
+    CData/*0:0*/ tb_scene_visual__DOT__reset;
+    CData/*0:0*/ tb_scene_visual__DOT__frame;
+    CData/*0:0*/ tb_scene_visual__DOT__es;
+    CData/*0:0*/ tb_scene_visual__DOT__hide;
+    CData/*0:0*/ tb_scene_visual__DOT__cv;
+    CData/*0:0*/ tb_scene_visual__DOT__ce;
+    CData/*0:0*/ tb_scene_visual__DOT__en;
+    CData/*7:0*/ tb_scene_visual__DOT__cmd;
+    CData/*0:0*/ tb_scene_visual__DOT__emergency;
+    CData/*0:0*/ tb_scene_visual__DOT__visible;
+    CData/*0:0*/ tb_scene_visual__DOT__ink;
+    CData/*0:0*/ tb_scene_visual__DOT__shade;
+    CData/*4:0*/ tb_scene_visual__DOT__ll;
+    CData/*4:0*/ tb_scene_visual__DOT__rr;
+    CData/*4:0*/ tb_scene_visual__DOT__pl;
+    CData/*4:0*/ tb_scene_visual__DOT__pr;
+    CData/*1:0*/ tb_scene_visual__DOT__scene__DOT__es;
+    CData/*1:0*/ tb_scene_visual__DOT__scene__DOT__vs;
+    CData/*0:0*/ tb_scene_visual__DOT__scene__DOT__soft_alert;
+    CData/*0:0*/ tb_scene_visual__DOT__scene__DOT__soft_visual;
+    CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__front;
+    CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__page_ready;
+    CData/*6:0*/ tb_scene_visual__DOT__visual__DOT__wp;
+    CData/*3:0*/ tb_scene_visual__DOT__visual__DOT__decimate;
+    CData/*7:0*/ tb_scene_visual__DOT__visual__DOT__wave_q;
+    CData/*4:0*/ tb_scene_visual__DOT__visual__DOT__live_l;
+    CData/*4:0*/ tb_scene_visual__DOT__visual__DOT__live_r;
+    CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__en;
+    CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__valid_page;
+    CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__has_page;
+    CData/*0:0*/ __VstlFirstIteration;
+    CData/*0:0*/ __Vtrigprevexpr___TOP__tb_scene_visual__DOT__clk__0;
+    CData/*0:0*/ __VactContinue;
+    SData/*15:0*/ tb_scene_visual__DOT__left;
+    SData/*15:0*/ tb_scene_visual__DOT__right;
+    SData/*15:0*/ tb_scene_visual__DOT__visual__DOT__maximum_l;
+    SData/*15:0*/ tb_scene_visual__DOT__visual__DOT__maximum_r;
+    SData/*15:0*/ tb_scene_visual__DOT__visual__DOT__mag_l;
+    SData/*15:0*/ tb_scene_visual__DOT__visual__DOT__mag_r;
+    SData/*9:0*/ tb_scene_visual__DOT__visual__DOT__px;
+    SData/*9:0*/ tb_scene_visual__DOT__visual__DOT__py;
+    SData/*10:0*/ tb_scene_visual__DOT__visual__DOT__wave_y;
+    IData/*23:0*/ tb_scene_visual__DOT__color;
+    IData/*31:0*/ tb_scene_visual__DOT__highs;
+    IData/*31:0*/ tb_scene_visual__DOT__lows;
+    IData/*24:0*/ tb_scene_visual__DOT__scene__DOT__tick;
+    IData/*31:0*/ __VactIterCount;
+    VlUnpacked<CData/*7:0*/, 256> tb_scene_visual__DOT__visual__DOT__wave;
+    VlDelayScheduler __VdlySched;
+    VlTriggerScheduler __VtrigSched_hb567af9f__0;
+    VlTriggerVec<1> __VstlTriggered;
+    VlTriggerVec<3> __VactTriggered;
+    VlTriggerVec<3> __VnbaTriggered;
+
+    // INTERNAL VARIABLES
+    Vtb_scene_visual__Syms* const vlSymsp;
+
+    // CONSTRUCTORS
+    Vtb_scene_visual___024root(Vtb_scene_visual__Syms* symsp, const char* v__name);
+    ~Vtb_scene_visual___024root();
+    VL_UNCOPYABLE(Vtb_scene_visual___024root);
+
+    // INTERNAL METHODS
+    void __Vconfigure(bool first);
+};
+
+
+#endif  // guard

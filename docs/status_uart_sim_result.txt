@@ -1,0 +1,2 @@
+PASS 64/96-byte diagnostic UART, exact bytes and coherent snapshots while live status changes
+- sim/media\tb_status_uart.sv:28: Verilog $finish

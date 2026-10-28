@@ -4,6 +4,14 @@ set_pin_assignment { mute_switch } { LOCATION = A10; IOSTANDARD = LVCMOS33; }
 set_pin_assignment { pattern_switch } { LOCATION = B10; IOSTANDARD = LVCMOS33; }
 set_pin_assignment { uart_rx } { LOCATION = F12; IOSTANDARD = LVCMOS33; }
 set_pin_assignment { uart_tx } { LOCATION = D12; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_col[0] } { LOCATION = E11; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_col[1] } { LOCATION = D11; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_col[2] } { LOCATION = C11; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_col[3] } { LOCATION = F10; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_row[0] } { LOCATION = E10; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_row[1] } { LOCATION = C10; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_row[2] } { LOCATION = F9; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_row[3] } { LOCATION = D9; IOSTANDARD = LVCMOS33; }
 set_pin_assignment { leds[0] } { LOCATION = B14; IOSTANDARD = LVCMOS33; }
 set_pin_assignment { leds[1] } { LOCATION = B15; IOSTANDARD = LVCMOS33; }
 set_pin_assignment { leds[2] } { LOCATION = B16; IOSTANDARD = LVCMOS33; }
@@ -20,3 +28,6 @@ set_pin_assignment { SD_CS } { LOCATION = F13; IOSTANDARD = LVCMOS33; }
 set_pin_assignment { SD_SCK } { LOCATION = F15; IOSTANDARD = LVCMOS33; }
 set_pin_assignment { SD_MOSI } { LOCATION = F14; IOSTANDARD = LVCMOS33; }
 set_pin_assignment { SD_MISO } { LOCATION = D14; IOSTANDARD = LVCMOS33; }
+
+set_pin_assignment { emergency_switch } { LOCATION = A11; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { visual_hide_switch } { LOCATION = A12; IOSTANDARD = LVCMOS33; }

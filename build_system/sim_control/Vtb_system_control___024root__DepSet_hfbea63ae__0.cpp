@@ -96,12 +96,14 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
     __Vdly__tb_system_control__DOT__uart__DOT__shift = 0;
     SData/*15:0*/ __Vdly__tb_system_control__DOT__control__DOT__restart_count;
     __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0;
+    CData/*3:0*/ __Vdly__tb_system_control__DOT__volume;
+    __Vdly__tb_system_control__DOT__volume = 0;
+    SData/*15:0*/ __Vdly__tb_system_control__DOT__count;
+    __Vdly__tb_system_control__DOT__count = 0;
     IData/*24:0*/ __Vdly__tb_system_control__DOT__control__DOT__second_count;
     __Vdly__tb_system_control__DOT__control__DOT__second_count = 0;
     CData/*0:0*/ __Vdly__tb_system_control__DOT__phase;
     __Vdly__tb_system_control__DOT__phase = 0;
-    SData/*15:0*/ __Vdly__tb_system_control__DOT__count;
-    __Vdly__tb_system_control__DOT__count = 0;
     CData/*1:0*/ __Vdly__tb_system_control__DOT__cdc__DOT__ack_sync;
     __Vdly__tb_system_control__DOT__cdc__DOT__ack_sync = 0;
     SData/*15:0*/ __Vdly__tb_system_control__DOT__cdc__DOT__interval_count;
@@ -111,14 +113,6 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
     CData/*0:0*/ __Vdly__tb_system_control__DOT__cdc__DOT__waiting;
     __Vdly__tb_system_control__DOT__cdc__DOT__waiting = 0;
     // Body
-    __Vdly__tb_system_control__DOT__uart__DOT__state 
-        = vlSelfRef.tb_system_control__DOT__uart__DOT__state;
-    __Vdly__tb_system_control__DOT__uart__DOT__count 
-        = vlSelfRef.tb_system_control__DOT__uart__DOT__count;
-    __Vdly__tb_system_control__DOT__uart__DOT__bitno 
-        = vlSelfRef.tb_system_control__DOT__uart__DOT__bitno;
-    __Vdly__tb_system_control__DOT__uart__DOT__shift 
-        = vlSelfRef.tb_system_control__DOT__uart__DOT__shift;
     vlSelfRef.__Vdly__tb_system_control__DOT__cdc__DOT__request 
         = vlSelfRef.tb_system_control__DOT__cdc__DOT__request;
     __Vdly__tb_system_control__DOT__cdc__DOT__ack_sync 
@@ -129,21 +123,34 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
         = vlSelfRef.tb_system_control__DOT__cdc__DOT__settle;
     __Vdly__tb_system_control__DOT__cdc__DOT__waiting 
         = vlSelfRef.tb_system_control__DOT__cdc__DOT__waiting;
+    __Vdly__tb_system_control__DOT__uart__DOT__state 
+        = vlSelfRef.tb_system_control__DOT__uart__DOT__state;
+    __Vdly__tb_system_control__DOT__uart__DOT__count 
+        = vlSelfRef.tb_system_control__DOT__uart__DOT__count;
+    __Vdly__tb_system_control__DOT__uart__DOT__bitno 
+        = vlSelfRef.tb_system_control__DOT__uart__DOT__bitno;
+    __Vdly__tb_system_control__DOT__uart__DOT__shift 
+        = vlSelfRef.tb_system_control__DOT__uart__DOT__shift;
+    __Vdly__tb_system_control__DOT__volume = vlSelfRef.tb_system_control__DOT__volume;
+    __Vdly__tb_system_control__DOT__count = vlSelfRef.tb_system_control__DOT__count;
     __Vdly__tb_system_control__DOT__control__DOT__restart_count 
         = vlSelfRef.tb_system_control__DOT__control__DOT__restart_count;
-    __Vdly__tb_system_control__DOT__count = vlSelfRef.tb_system_control__DOT__count;
     __Vdly__tb_system_control__DOT__control__DOT__second_count 
         = vlSelfRef.tb_system_control__DOT__control__DOT__second_count;
     __Vdly__tb_system_control__DOT__phase = vlSelfRef.tb_system_control__DOT__phase;
     if (vlSelfRef.tb_system_control__DOT__reset) {
         vlSelfRef.tb_system_control__DOT__control__DOT__cs = 0U;
         vlSelfRef.tb_system_control__DOT__control__DOT__ms = 3U;
-        __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0U;
+        __Vdly__tb_system_control__DOT__volume = 8U;
         __Vdly__tb_system_control__DOT__count = 0U;
         __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
         __Vdly__tb_system_control__DOT__phase = 1U;
-        vlSelfRef.tb_system_control__DOT__last = 0U;
+        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
         vlSelfRef.tb_system_control__DOT__mode = 2U;
+        vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+        vlSelfRef.tb_system_control__DOT__last = 0U;
+        __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0U;
+        vlSelfRef.tb_system_control__DOT__restart = 0U;
         vlSelfRef.__Vdly__tb_system_control__DOT__cdc__DOT__request = 0U;
         __Vdly__tb_system_control__DOT__cdc__DOT__ack_sync = 0U;
         vlSelfRef.tb_system_control__DOT__captured[0U] = 0U;
@@ -166,11 +173,6 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
         vlSelfRef.tb_system_control__DOT__control__DOT__ms 
             = ((2U & ((IData)(vlSelfRef.tb_system_control__DOT__control__DOT__ms) 
                       << 1U)) | (IData)(vlSelfRef.tb_system_control__DOT__ms));
-        if ((0U != (IData)(vlSelfRef.tb_system_control__DOT__control__DOT__restart_count))) {
-            __Vdly__tb_system_control__DOT__control__DOT__restart_count 
-                = (0xffffU & ((IData)(vlSelfRef.tb_system_control__DOT__control__DOT__restart_count) 
-                              - (IData)(1U)));
-        }
         if ((0x176fU == vlSelfRef.tb_system_control__DOT__control__DOT__second_count)) {
             __Vdly__tb_system_control__DOT__phase = 
                 (1U & (~ (IData)(vlSelfRef.tb_system_control__DOT__phase)));
@@ -178,6 +180,14 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
         } else {
             __Vdly__tb_system_control__DOT__control__DOT__second_count 
                 = (0x1ffffffU & ((IData)(1U) + vlSelfRef.tb_system_control__DOT__control__DOT__second_count));
+        }
+        if ((0U != (IData)(vlSelfRef.tb_system_control__DOT__control__DOT__restart_count))) {
+            __Vdly__tb_system_control__DOT__control__DOT__restart_count 
+                = (0xffffU & ((IData)(vlSelfRef.tb_system_control__DOT__control__DOT__restart_count) 
+                              - (IData)(1U)));
+            if ((1U == (IData)(vlSelfRef.tb_system_control__DOT__control__DOT__restart_count))) {
+                vlSelfRef.tb_system_control__DOT__restart = 0U;
+            }
         }
         if (vlSelfRef.tb_system_control__DOT__valid) {
             if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
@@ -187,95 +197,71 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
                         if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
                                       >> 3U)))) {
                             if ((4U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                              >> 1U)))) {
+                                if ((2U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                     if ((1U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                         if ((1U & (~ 
                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
                                                     >> 7U)))) {
-                                            if ((0x40U 
-                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 6U)))) {
                                                 if (
-                                                    (0x10U 
+                                                    (0x20U 
                                                      & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                     if (
                                                         (1U 
                                                          & (~ 
                                                             ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                             >> 3U)))) {
+                                                             >> 4U)))) {
                                                         if (
-                                                            (1U 
-                                                             & (~ 
-                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                                 >> 2U)))) {
+                                                            (8U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                             if (
-                                                                (2U 
+                                                                (4U 
                                                                  & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                                 if (
                                                                     (1U 
-                                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
-                                                                    __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                                     & (~ 
+                                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                         >> 1U)))) {
+                                                                    if (
+                                                                        (1U 
+                                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                        if (
+                                                                            (0U 
+                                                                             != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                            __Vdly__tb_system_control__DOT__volume 
+                                                                                = 
+                                                                                (0xfU 
+                                                                                & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                                - (IData)(1U)));
+                                                                        }
+                                                                    }
                                                                 }
-                                                            }
-                                                        }
-                                                        if (
-                                                            (4U 
-                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                            if (
-                                                                (1U 
-                                                                 & (~ 
-                                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                                     >> 1U)))) {
+                                                            } else if (
+                                                                       (2U 
+                                                                        & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                                 if (
                                                                     (1U 
                                                                      & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                                    vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                                    if (
+                                                                        (8U 
+                                                                         > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                        __Vdly__tb_system_control__DOT__volume 
+                                                                            = 
+                                                                            (0xfU 
+                                                                             & ((IData)(1U) 
+                                                                                + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                                    }
                                                                 }
                                                             }
-                                                        } else if (
-                                                                   (2U 
-                                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                            vlSelfRef.tb_system_control__DOT__mode 
-                                                                = 
-                                                                ((1U 
-                                                                  & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
-                                                                  ? 0U
-                                                                  : 2U);
-                                                        }
-                                                    }
-                                                } else if (
-                                                           (8U 
-                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                    if (
-                                                        (4U 
-                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                        if (
-                                                            (1U 
-                                                             & (~ 
-                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                                 >> 1U)))) {
-                                                            if (
-                                                                (1U 
-                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                                vlSelfRef.tb_system_control__DOT__mode = 2U;
-                                                            }
-                                                        }
-                                                    }
-                                                } else if (
-                                                           (1U 
-                                                            & (~ 
-                                                               ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                                >> 2U)))) {
-                                                    if (
-                                                        (2U 
-                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                        if (
-                                                            (1U 
-                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
-                                                            vlSelfRef.tb_system_control__DOT__mode = 3U;
                                                         }
                                                     }
                                                 }
+                                            }
+                                            if ((0x40U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                 if (
                                                     (1U 
                                                      & (~ 
@@ -304,6 +290,147 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
                                                         }
                                                     }
                                                 }
+                                                if (
+                                                    (0x10U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 3U)))) {
+                                                        if (
+                                                            (4U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (2U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                    vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                                    vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                                }
+                                                            } else {
+                                                                if (
+                                                                    (1U 
+                                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                    vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                                }
+                                                                vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                            }
+                                                        } else if (
+                                                                   (2U 
+                                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                            }
+                                                            vlSelfRef.tb_system_control__DOT__mode 
+                                                                = 
+                                                                ((1U 
+                                                                  & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                                  ? 0U
+                                                                  : 2U);
+                                                        }
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 2U)))) {
+                                                            if (
+                                                                (2U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                    __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                                    vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                } else {
+                                                    if (
+                                                        (8U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (4U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ 
+                                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                     >> 1U)))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                }
+                                                                if (
+                                                                    (1U 
+                                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                    vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                                }
+                                                            }
+                                                        } else if (
+                                                                   (2U 
+                                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                            }
+                                                        } else if (
+                                                                   (1U 
+                                                                    & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                        }
+                                                    } else if (
+                                                               (1U 
+                                                                & (~ 
+                                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                    >> 2U)))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                            }
+                                                        } else if (
+                                                                   (1U 
+                                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        }
+                                                    }
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 3U)))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 2U)))) {
+                                                            if (
+                                                                (2U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                    vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                         __Vdly__tb_system_control__DOT__count 
@@ -313,211 +440,67 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
                                         vlSelfRef.tb_system_control__DOT__last 
                                             = vlSelfRef.tb_system_control__DOT__byte_rx;
                                     }
-                                }
-                            } else if ((2U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                              >> 7U)))) {
-                                    if ((0x40U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                        if ((0x10U 
-                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                            if ((1U 
-                                                 & (~ 
-                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                     >> 3U)))) {
-                                                if (
-                                                    (1U 
-                                                     & (~ 
-                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                         >> 2U)))) {
-                                                    if (
-                                                        (2U 
-                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                        if (
-                                                            (1U 
-                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
-                                                            __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
-                                                        }
-                                                    }
-                                                }
-                                                if (
-                                                    (4U 
-                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                    if (
-                                                        (1U 
-                                                         & (~ 
-                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                             >> 1U)))) {
-                                                        if (
-                                                            (1U 
-                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                            vlSelfRef.tb_system_control__DOT__mode = 1U;
-                                                        }
-                                                    }
-                                                } else if (
-                                                           (2U 
-                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                    vlSelfRef.tb_system_control__DOT__mode 
-                                                        = 
-                                                        ((1U 
-                                                          & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
-                                                          ? 0U
-                                                          : 2U);
-                                                }
-                                            }
-                                        } else if (
-                                                   (8U 
-                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                            if ((4U 
-                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                if (
-                                                    (1U 
-                                                     & (~ 
-                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                         >> 1U)))) {
-                                                    if (
-                                                        (1U 
-                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                        vlSelfRef.tb_system_control__DOT__mode = 2U;
-                                                    }
-                                                }
-                                            }
-                                        } else if (
-                                                   (1U 
-                                                    & (~ 
-                                                       ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                        >> 2U)))) {
-                                            if ((2U 
-                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                if (
-                                                    (1U 
-                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
-                                                    vlSelfRef.tb_system_control__DOT__mode = 3U;
-                                                }
-                                            }
-                                        }
-                                        if ((1U & (~ 
-                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                    >> 4U)))) {
-                                            if ((1U 
-                                                 & (~ 
-                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                     >> 3U)))) {
-                                                if (
-                                                    (1U 
-                                                     & (~ 
-                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                         >> 2U)))) {
-                                                    if (
-                                                        (2U 
-                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                        if (
-                                                            (1U 
-                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
-                                                            __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
-                                                            __Vdly__tb_system_control__DOT__phase = 1U;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                __Vdly__tb_system_control__DOT__count 
-                                    = (0xffffU & ((IData)(1U) 
-                                                  + (IData)(vlSelfRef.tb_system_control__DOT__count)));
-                                vlSelfRef.tb_system_control__DOT__last 
-                                    = vlSelfRef.tb_system_control__DOT__byte_rx;
-                            }
-                        }
-                    } else if ((8U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                        if ((4U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                            if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                          >> 1U)))) {
-                                if ((1U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                } else {
                                     if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
                                                   >> 7U)))) {
-                                        if ((0x40U 
-                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                            if ((0x10U 
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 6U)))) {
+                                            if ((0x20U 
                                                  & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                 if (
                                                     (1U 
                                                      & (~ 
                                                         ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                         >> 3U)))) {
+                                                         >> 4U)))) {
                                                     if (
-                                                        (1U 
-                                                         & (~ 
-                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                             >> 2U)))) {
+                                                        (8U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                         if (
-                                                            (2U 
+                                                            (4U 
                                                              & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                             if (
                                                                 (1U 
-                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
-                                                                __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                                 & (~ 
+                                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                     >> 1U)))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                    if (
+                                                                        (0U 
+                                                                         != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                        __Vdly__tb_system_control__DOT__volume 
+                                                                            = 
+                                                                            (0xfU 
+                                                                             & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                                - (IData)(1U)));
+                                                                    }
+                                                                }
                                                             }
-                                                        }
-                                                    }
-                                                    if (
-                                                        (4U 
-                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                        if (
-                                                            (1U 
-                                                             & (~ 
-                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                                 >> 1U)))) {
+                                                        } else if (
+                                                                   (2U 
+                                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                             if (
                                                                 (1U 
                                                                  & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                                vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                                if (
+                                                                    (8U 
+                                                                     > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                    __Vdly__tb_system_control__DOT__volume 
+                                                                        = 
+                                                                        (0xfU 
+                                                                         & ((IData)(1U) 
+                                                                            + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                                }
                                                             }
                                                         }
-                                                    } else if (
-                                                               (2U 
-                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                        vlSelfRef.tb_system_control__DOT__mode 
-                                                            = 
-                                                            ((1U 
-                                                              & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
-                                                              ? 0U
-                                                              : 2U);
-                                                    }
-                                                }
-                                            } else if (
-                                                       (8U 
-                                                        & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                if (
-                                                    (4U 
-                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                    if (
-                                                        (1U 
-                                                         & (~ 
-                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                             >> 1U)))) {
-                                                        if (
-                                                            (1U 
-                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                            vlSelfRef.tb_system_control__DOT__mode = 2U;
-                                                        }
-                                                    }
-                                                }
-                                            } else if (
-                                                       (1U 
-                                                        & (~ 
-                                                           ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                            >> 2U)))) {
-                                                if (
-                                                    (2U 
-                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                    if (
-                                                        (1U 
-                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
-                                                        vlSelfRef.tb_system_control__DOT__mode = 3U;
                                                     }
                                                 }
                                             }
+                                        }
+                                        if ((0x40U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                             if ((1U 
                                                  & (~ 
                                                     ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
@@ -545,6 +528,146 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
                                                     }
                                                 }
                                             }
+                                            if ((0x10U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 3U)))) {
+                                                    if (
+                                                        (4U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                                vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                            }
+                                                        } else {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                            }
+                                                            vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                        }
+                                                    } else if (
+                                                               (2U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                        vlSelfRef.tb_system_control__DOT__mode 
+                                                            = 
+                                                            ((1U 
+                                                              & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                              ? 0U
+                                                              : 2U);
+                                                    }
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 2U)))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                                vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } else {
+                                                if (
+                                                    (8U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (4U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 1U)))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            }
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                            }
+                                                        }
+                                                    } else if (
+                                                               (2U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                        }
+                                                    } else if (
+                                                               (1U 
+                                                                & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (~ 
+                                                               ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                        }
+                                                    } else if (
+                                                               (1U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                    }
+                                                }
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 3U)))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 2U)))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                     __Vdly__tb_system_control__DOT__count 
@@ -554,92 +677,64 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
                                     vlSelfRef.tb_system_control__DOT__last 
                                         = vlSelfRef.tb_system_control__DOT__byte_rx;
                                 }
-                            }
-                        }
-                    } else if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                         >> 2U)))) {
-                        if ((2U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                            if ((1U & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                            } else if ((2U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                 if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
                                               >> 7U)))) {
-                                    if ((0x40U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                        if ((0x10U 
+                                    if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                  >> 6U)))) {
+                                        if ((0x20U 
                                              & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                             if ((1U 
                                                  & (~ 
                                                     ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                     >> 3U)))) {
+                                                     >> 4U)))) {
                                                 if (
-                                                    (1U 
-                                                     & (~ 
-                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                         >> 2U)))) {
+                                                    (8U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                     if (
-                                                        (2U 
+                                                        (4U 
                                                          & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                         if (
                                                             (1U 
-                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
-                                                            __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 1U)))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (0U 
+                                                                     != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                    __Vdly__tb_system_control__DOT__volume 
+                                                                        = 
+                                                                        (0xfU 
+                                                                         & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                            - (IData)(1U)));
+                                                                }
+                                                            }
                                                         }
-                                                    }
-                                                }
-                                                if (
-                                                    (4U 
-                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                    if (
-                                                        (1U 
-                                                         & (~ 
-                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                             >> 1U)))) {
+                                                    } else if (
+                                                               (2U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                                         if (
                                                             (1U 
                                                              & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                            vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                            if (
+                                                                (8U 
+                                                                 > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                __Vdly__tb_system_control__DOT__volume 
+                                                                    = 
+                                                                    (0xfU 
+                                                                     & ((IData)(1U) 
+                                                                        + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                            }
                                                         }
                                                     }
-                                                } else if (
-                                                           (2U 
-                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                    vlSelfRef.tb_system_control__DOT__mode 
-                                                        = 
-                                                        ((1U 
-                                                          & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
-                                                          ? 0U
-                                                          : 2U);
-                                                }
-                                            }
-                                        } else if (
-                                                   (8U 
-                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                            if ((4U 
-                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                if (
-                                                    (1U 
-                                                     & (~ 
-                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                         >> 1U)))) {
-                                                    if (
-                                                        (1U 
-                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                        vlSelfRef.tb_system_control__DOT__mode = 2U;
-                                                    }
-                                                }
-                                            }
-                                        } else if (
-                                                   (1U 
-                                                    & (~ 
-                                                       ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
-                                                        >> 2U)))) {
-                                            if ((2U 
-                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
-                                                if (
-                                                    (1U 
-                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
-                                                    vlSelfRef.tb_system_control__DOT__mode = 3U;
                                                 }
                                             }
                                         }
+                                    }
+                                    if ((0x40U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
                                         if ((1U & (~ 
                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
                                                     >> 4U)))) {
@@ -665,6 +760,143 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
                                                 }
                                             }
                                         }
+                                        if ((0x10U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                        }
+                                                    } else {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                        vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                    }
+                                                    vlSelfRef.tb_system_control__DOT__mode 
+                                                        = 
+                                                        ((1U 
+                                                          & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                          ? 0U
+                                                          : 2U);
+                                                }
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                            vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            if ((8U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 1U)))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        }
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                        }
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                }
+                                            } else if (
+                                                       (1U 
+                                                        & (~ 
+                                                           ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                            >> 2U)))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                }
+                                            }
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                                 __Vdly__tb_system_control__DOT__count 
@@ -672,6 +904,2078 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
                                                   + (IData)(vlSelfRef.tb_system_control__DOT__count)));
                                 vlSelfRef.tb_system_control__DOT__last 
                                     = vlSelfRef.tb_system_control__DOT__byte_rx;
+                            } else if ((1U & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                              >> 7U)))) {
+                                    if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                  >> 6U)))) {
+                                        if ((0x20U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 4U)))) {
+                                                if (
+                                                    (8U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (4U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 1U)))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (0U 
+                                                                     != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                    __Vdly__tb_system_control__DOT__volume 
+                                                                        = 
+                                                                        (0xfU 
+                                                                         & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                            - (IData)(1U)));
+                                                                }
+                                                            }
+                                                        }
+                                                    } else if (
+                                                               (2U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (8U 
+                                                                 > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                __Vdly__tb_system_control__DOT__volume 
+                                                                    = 
+                                                                    (0xfU 
+                                                                     & ((IData)(1U) 
+                                                                        + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if ((0x40U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 4U)))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
+                                                            __Vdly__tb_system_control__DOT__phase = 1U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if ((0x10U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                        }
+                                                    } else {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                        vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                    }
+                                                    vlSelfRef.tb_system_control__DOT__mode 
+                                                        = 
+                                                        ((1U 
+                                                          & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                          ? 0U
+                                                          : 2U);
+                                                }
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                            vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            if ((8U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 1U)))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        }
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                        }
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                }
+                                            } else if (
+                                                       (1U 
+                                                        & (~ 
+                                                           ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                            >> 2U)))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                }
+                                            }
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                __Vdly__tb_system_control__DOT__count 
+                                    = (0xffffU & ((IData)(1U) 
+                                                  + (IData)(vlSelfRef.tb_system_control__DOT__count)));
+                                vlSelfRef.tb_system_control__DOT__last 
+                                    = vlSelfRef.tb_system_control__DOT__byte_rx;
+                            }
+                        }
+                    } else if ((8U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                        if ((4U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                            if ((2U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                if ((1U & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                    if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                  >> 7U)))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 6U)))) {
+                                            if ((0x20U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 4U)))) {
+                                                    if (
+                                                        (8U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (4U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ 
+                                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                     >> 1U)))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                    if (
+                                                                        (0U 
+                                                                         != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                        __Vdly__tb_system_control__DOT__volume 
+                                                                            = 
+                                                                            (0xfU 
+                                                                             & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                                - (IData)(1U)));
+                                                                    }
+                                                                }
+                                                            }
+                                                        } else if (
+                                                                   (2U 
+                                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (8U 
+                                                                     > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                    __Vdly__tb_system_control__DOT__volume 
+                                                                        = 
+                                                                        (0xfU 
+                                                                         & ((IData)(1U) 
+                                                                            + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if ((0x40U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 4U)))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 3U)))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 2U)))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
+                                                                __Vdly__tb_system_control__DOT__phase = 1U;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            if ((0x10U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 3U)))) {
+                                                    if (
+                                                        (4U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                                vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                            }
+                                                        } else {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                            }
+                                                            vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                        }
+                                                    } else if (
+                                                               (2U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                        vlSelfRef.tb_system_control__DOT__mode 
+                                                            = 
+                                                            ((1U 
+                                                              & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                              ? 0U
+                                                              : 2U);
+                                                    }
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 2U)))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                                vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } else {
+                                                if (
+                                                    (8U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (4U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 1U)))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            }
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                            }
+                                                        }
+                                                    } else if (
+                                                               (2U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                        }
+                                                    } else if (
+                                                               (1U 
+                                                                & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (~ 
+                                                               ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                        }
+                                                    } else if (
+                                                               (1U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                    }
+                                                }
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 3U)))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 2U)))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    __Vdly__tb_system_control__DOT__count 
+                                        = (0xffffU 
+                                           & ((IData)(1U) 
+                                              + (IData)(vlSelfRef.tb_system_control__DOT__count)));
+                                    vlSelfRef.tb_system_control__DOT__last 
+                                        = vlSelfRef.tb_system_control__DOT__byte_rx;
+                                }
+                            } else {
+                                if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                              >> 7U)))) {
+                                    if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                  >> 6U)))) {
+                                        if ((0x20U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 4U)))) {
+                                                if (
+                                                    (8U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (4U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 1U)))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (0U 
+                                                                     != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                    __Vdly__tb_system_control__DOT__volume 
+                                                                        = 
+                                                                        (0xfU 
+                                                                         & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                            - (IData)(1U)));
+                                                                }
+                                                            }
+                                                        }
+                                                    } else if (
+                                                               (2U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (8U 
+                                                                 > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                __Vdly__tb_system_control__DOT__volume 
+                                                                    = 
+                                                                    (0xfU 
+                                                                     & ((IData)(1U) 
+                                                                        + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if ((0x40U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 4U)))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
+                                                            __Vdly__tb_system_control__DOT__phase = 1U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if ((0x10U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                        }
+                                                    } else {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                        vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                    }
+                                                    vlSelfRef.tb_system_control__DOT__mode 
+                                                        = 
+                                                        ((1U 
+                                                          & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                          ? 0U
+                                                          : 2U);
+                                                }
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                            vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            if ((8U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 1U)))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        }
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                        }
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                }
+                                            } else if (
+                                                       (1U 
+                                                        & (~ 
+                                                           ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                            >> 2U)))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                }
+                                            }
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                __Vdly__tb_system_control__DOT__count 
+                                    = (0xffffU & ((IData)(1U) 
+                                                  + (IData)(vlSelfRef.tb_system_control__DOT__count)));
+                                vlSelfRef.tb_system_control__DOT__last 
+                                    = vlSelfRef.tb_system_control__DOT__byte_rx;
+                            }
+                        } else if ((2U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                            if ((1U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                              >> 7U)))) {
+                                    if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                  >> 6U)))) {
+                                        if ((0x20U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 4U)))) {
+                                                if (
+                                                    (8U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (4U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 1U)))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (0U 
+                                                                     != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                    __Vdly__tb_system_control__DOT__volume 
+                                                                        = 
+                                                                        (0xfU 
+                                                                         & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                            - (IData)(1U)));
+                                                                }
+                                                            }
+                                                        }
+                                                    } else if (
+                                                               (2U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (8U 
+                                                                 > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                __Vdly__tb_system_control__DOT__volume 
+                                                                    = 
+                                                                    (0xfU 
+                                                                     & ((IData)(1U) 
+                                                                        + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if ((0x40U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 4U)))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
+                                                            __Vdly__tb_system_control__DOT__phase = 1U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if ((0x10U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                        }
+                                                    } else {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                        vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                    }
+                                                    vlSelfRef.tb_system_control__DOT__mode 
+                                                        = 
+                                                        ((1U 
+                                                          & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                          ? 0U
+                                                          : 2U);
+                                                }
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                            vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            if ((8U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 1U)))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        }
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                        }
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                }
+                                            } else if (
+                                                       (1U 
+                                                        & (~ 
+                                                           ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                            >> 2U)))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                }
+                                            }
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                __Vdly__tb_system_control__DOT__count 
+                                    = (0xffffU & ((IData)(1U) 
+                                                  + (IData)(vlSelfRef.tb_system_control__DOT__count)));
+                                vlSelfRef.tb_system_control__DOT__last 
+                                    = vlSelfRef.tb_system_control__DOT__byte_rx;
+                            }
+                        } else if ((1U & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                            if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                          >> 7U)))) {
+                                if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                              >> 6U)))) {
+                                    if ((0x20U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 4U)))) {
+                                            if ((8U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 1U)))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (0U 
+                                                                 != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                __Vdly__tb_system_control__DOT__volume 
+                                                                    = 
+                                                                    (0xfU 
+                                                                     & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                        - (IData)(1U)));
+                                                            }
+                                                        }
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (8U 
+                                                             > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                            __Vdly__tb_system_control__DOT__volume 
+                                                                = 
+                                                                (0xfU 
+                                                                 & ((IData)(1U) 
+                                                                    + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if ((0x40U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                    if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                  >> 4U)))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 3U)))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 2U)))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
+                                                        __Vdly__tb_system_control__DOT__phase = 1U;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if ((0x10U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 3U)))) {
+                                            if ((4U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                        vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                    }
+                                                } else {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                    }
+                                                    vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                }
+                                            } else if (
+                                                       (2U 
+                                                        & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                    vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                }
+                                                vlSelfRef.tb_system_control__DOT__mode 
+                                                    = 
+                                                    ((1U 
+                                                      & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                      ? 0U
+                                                      : 2U);
+                                            }
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 2U)))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                        vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        if ((8U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((4U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 1U)))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                    }
+                                                    if (
+                                                        (1U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                    }
+                                                }
+                                            } else if (
+                                                       (2U 
+                                                        & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                }
+                                            } else if (
+                                                       (1U 
+                                                        & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                            }
+                                        } else if (
+                                                   (1U 
+                                                    & (~ 
+                                                       ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                        >> 2U)))) {
+                                            if ((2U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                    vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                }
+                                            } else if (
+                                                       (1U 
+                                                        & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                            }
+                                        }
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 3U)))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 2U)))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            __Vdly__tb_system_control__DOT__count 
+                                = (0xffffU & ((IData)(1U) 
+                                              + (IData)(vlSelfRef.tb_system_control__DOT__count)));
+                            vlSelfRef.tb_system_control__DOT__last 
+                                = vlSelfRef.tb_system_control__DOT__byte_rx;
+                        }
+                    } else if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                         >> 2U)))) {
+                        if ((2U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                            if ((1U & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                              >> 7U)))) {
+                                    if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                  >> 6U)))) {
+                                        if ((0x20U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 4U)))) {
+                                                if (
+                                                    (8U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (4U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 1U)))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (0U 
+                                                                     != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                    __Vdly__tb_system_control__DOT__volume 
+                                                                        = 
+                                                                        (0xfU 
+                                                                         & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                            - (IData)(1U)));
+                                                                }
+                                                            }
+                                                        }
+                                                    } else if (
+                                                               (2U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (8U 
+                                                                 > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                __Vdly__tb_system_control__DOT__volume 
+                                                                    = 
+                                                                    (0xfU 
+                                                                     & ((IData)(1U) 
+                                                                        + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if ((0x40U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 4U)))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
+                                                            __Vdly__tb_system_control__DOT__phase = 1U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if ((0x10U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                        }
+                                                    } else {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                        vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                    }
+                                                    vlSelfRef.tb_system_control__DOT__mode 
+                                                        = 
+                                                        ((1U 
+                                                          & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                          ? 0U
+                                                          : 2U);
+                                                }
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                            vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            if ((8U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 1U)))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        }
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                        }
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                }
+                                            } else if (
+                                                       (1U 
+                                                        & (~ 
+                                                           ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                            >> 2U)))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                }
+                                            }
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 3U)))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                __Vdly__tb_system_control__DOT__count 
+                                    = (0xffffU & ((IData)(1U) 
+                                                  + (IData)(vlSelfRef.tb_system_control__DOT__count)));
+                                vlSelfRef.tb_system_control__DOT__last 
+                                    = vlSelfRef.tb_system_control__DOT__byte_rx;
+                            }
+                        } else if ((1U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                            if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                          >> 7U)))) {
+                                if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                              >> 6U)))) {
+                                    if ((0x20U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 4U)))) {
+                                            if ((8U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (4U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 1U)))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (0U 
+                                                                 != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                __Vdly__tb_system_control__DOT__volume 
+                                                                    = 
+                                                                    (0xfU 
+                                                                     & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                        - (IData)(1U)));
+                                                            }
+                                                        }
+                                                    }
+                                                } else if (
+                                                           (2U 
+                                                            & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (8U 
+                                                             > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                            __Vdly__tb_system_control__DOT__volume 
+                                                                = 
+                                                                (0xfU 
+                                                                 & ((IData)(1U) 
+                                                                    + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if ((0x40U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                    if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                  >> 4U)))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 3U)))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 2U)))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
+                                                        __Vdly__tb_system_control__DOT__phase = 1U;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if ((0x10U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 3U)))) {
+                                            if ((4U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                        vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                    }
+                                                } else {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                    }
+                                                    vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                }
+                                            } else if (
+                                                       (2U 
+                                                        & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                    vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                }
+                                                vlSelfRef.tb_system_control__DOT__mode 
+                                                    = 
+                                                    ((1U 
+                                                      & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                      ? 0U
+                                                      : 2U);
+                                            }
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 2U)))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                        vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        if ((8U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((4U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 1U)))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                    }
+                                                    if (
+                                                        (1U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                    }
+                                                }
+                                            } else if (
+                                                       (2U 
+                                                        & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                }
+                                            } else if (
+                                                       (1U 
+                                                        & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                            }
+                                        } else if (
+                                                   (1U 
+                                                    & (~ 
+                                                       ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                        >> 2U)))) {
+                                            if ((2U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                    vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                }
+                                            } else if (
+                                                       (1U 
+                                                        & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                            }
+                                        }
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 3U)))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 2U)))) {
+                                                if (
+                                                    (2U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            __Vdly__tb_system_control__DOT__count 
+                                = (0xffffU & ((IData)(1U) 
+                                              + (IData)(vlSelfRef.tb_system_control__DOT__count)));
+                            vlSelfRef.tb_system_control__DOT__last 
+                                = vlSelfRef.tb_system_control__DOT__byte_rx;
+                        }
+                    }
+                } else if ((0x20U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                    if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                  >> 4U)))) {
+                        if ((8U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                            if ((4U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                              >> 1U)))) {
+                                    if ((1U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 7U)))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 6U)))) {
+                                                if (
+                                                    (0x20U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 4U)))) {
+                                                        if (
+                                                            (8U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (4U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (~ 
+                                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                         >> 1U)))) {
+                                                                    if (
+                                                                        (1U 
+                                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                        if (
+                                                                            (0U 
+                                                                             != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                            __Vdly__tb_system_control__DOT__volume 
+                                                                                = 
+                                                                                (0xfU 
+                                                                                & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                                - (IData)(1U)));
+                                                                        }
+                                                                    }
+                                                                }
+                                                            } else if (
+                                                                       (2U 
+                                                                        & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                    if (
+                                                                        (8U 
+                                                                         > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                        __Vdly__tb_system_control__DOT__volume 
+                                                                            = 
+                                                                            (0xfU 
+                                                                             & ((IData)(1U) 
+                                                                                + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            if ((0x40U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 4U)))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 3U)))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 2U)))) {
+                                                            if (
+                                                                (2U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                    __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
+                                                                    __Vdly__tb_system_control__DOT__phase = 1U;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                if (
+                                                    (0x10U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 3U)))) {
+                                                        if (
+                                                            (4U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (2U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                    vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                                    vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                                }
+                                                            } else {
+                                                                if (
+                                                                    (1U 
+                                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                    vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                                }
+                                                                vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                            }
+                                                        } else if (
+                                                                   (2U 
+                                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                            }
+                                                            vlSelfRef.tb_system_control__DOT__mode 
+                                                                = 
+                                                                ((1U 
+                                                                  & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                                  ? 0U
+                                                                  : 2U);
+                                                        }
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 2U)))) {
+                                                            if (
+                                                                (2U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                    __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                                    vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                } else {
+                                                    if (
+                                                        (8U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (4U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ 
+                                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                     >> 1U)))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                    vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                }
+                                                                if (
+                                                                    (1U 
+                                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                    vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                                }
+                                                            }
+                                                        } else if (
+                                                                   (2U 
+                                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                            }
+                                                        } else if (
+                                                                   (1U 
+                                                                    & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                        }
+                                                    } else if (
+                                                               (1U 
+                                                                & (~ 
+                                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                    >> 2U)))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                            }
+                                                        } else if (
+                                                                   (1U 
+                                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                        }
+                                                    }
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 3U)))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 2U)))) {
+                                                            if (
+                                                                (2U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                    vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        __Vdly__tb_system_control__DOT__count 
+                                            = (0xffffU 
+                                               & ((IData)(1U) 
+                                                  + (IData)(vlSelfRef.tb_system_control__DOT__count)));
+                                        vlSelfRef.tb_system_control__DOT__last 
+                                            = vlSelfRef.tb_system_control__DOT__byte_rx;
+                                    }
+                                }
+                            } else if ((2U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                if ((1U & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                    if ((1U & (~ ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                  >> 7U)))) {
+                                        if ((1U & (~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                    >> 6U)))) {
+                                            if ((0x20U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 4U)))) {
+                                                    if (
+                                                        (8U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (4U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ 
+                                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                     >> 1U)))) {
+                                                                if (
+                                                                    (1U 
+                                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                    if (
+                                                                        (0U 
+                                                                         != (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                        __Vdly__tb_system_control__DOT__volume 
+                                                                            = 
+                                                                            (0xfU 
+                                                                             & ((IData)(vlSelfRef.tb_system_control__DOT__volume) 
+                                                                                - (IData)(1U)));
+                                                                    }
+                                                                }
+                                                            }
+                                                        } else if (
+                                                                   (2U 
+                                                                    & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                if (
+                                                                    (8U 
+                                                                     > (IData)(vlSelfRef.tb_system_control__DOT__volume))) {
+                                                                    __Vdly__tb_system_control__DOT__volume 
+                                                                        = 
+                                                                        (0xfU 
+                                                                         & ((IData)(1U) 
+                                                                            + (IData)(vlSelfRef.tb_system_control__DOT__volume)));
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if ((0x40U 
+                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                            if ((1U 
+                                                 & (~ 
+                                                    ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                     >> 4U)))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 3U)))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 2U)))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
+                                                                __Vdly__tb_system_control__DOT__phase = 1U;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            if ((0x10U 
+                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 3U)))) {
+                                                    if (
+                                                        (4U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                                vlSelfRef.tb_system_control__DOT__wav_source = 1U;
+                                                            }
+                                                        } else {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                                vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                            }
+                                                            vlSelfRef.tb_system_control__DOT__mode = 1U;
+                                                        }
+                                                    } else if (
+                                                               (2U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                        }
+                                                        vlSelfRef.tb_system_control__DOT__mode 
+                                                            = 
+                                                            ((1U 
+                                                              & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))
+                                                              ? 0U
+                                                              : 2U);
+                                                    }
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 2U)))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0x3e8U;
+                                                                vlSelfRef.tb_system_control__DOT__restart = 1U;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } else {
+                                                if (
+                                                    (8U 
+                                                     & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                    if (
+                                                        (4U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ 
+                                                                ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                 >> 1U)))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            }
+                                                            if (
+                                                                (1U 
+                                                                 & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                                vlSelfRef.tb_system_control__DOT__mode = 2U;
+                                                            }
+                                                        }
+                                                    } else if (
+                                                               (2U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                        }
+                                                    } else if (
+                                                               (1U 
+                                                                & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 1U;
+                                                    }
+                                                } else if (
+                                                           (1U 
+                                                            & (~ 
+                                                               ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                                >> 2U)))) {
+                                                    if (
+                                                        (2U 
+                                                         & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        if (
+                                                            (1U 
+                                                             & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                            vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                            vlSelfRef.tb_system_control__DOT__mode = 3U;
+                                                        }
+                                                    } else if (
+                                                               (1U 
+                                                                & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                        vlSelfRef.tb_system_control__DOT__audio_paused = 0U;
+                                                    }
+                                                }
+                                                if (
+                                                    (1U 
+                                                     & (~ 
+                                                        ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                         >> 3U)))) {
+                                                    if (
+                                                        (1U 
+                                                         & (~ 
+                                                            ((IData)(vlSelfRef.tb_system_control__DOT__byte_rx) 
+                                                             >> 2U)))) {
+                                                        if (
+                                                            (2U 
+                                                             & (IData)(vlSelfRef.tb_system_control__DOT__byte_rx))) {
+                                                            if (
+                                                                (1U 
+                                                                 & (~ (IData)(vlSelfRef.tb_system_control__DOT__byte_rx)))) {
+                                                                vlSelfRef.tb_system_control__DOT__wav_source = 0U;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    __Vdly__tb_system_control__DOT__count 
+                                        = (0xffffU 
+                                           & ((IData)(1U) 
+                                              + (IData)(vlSelfRef.tb_system_control__DOT__count)));
+                                    vlSelfRef.tb_system_control__DOT__last 
+                                        = vlSelfRef.tb_system_control__DOT__byte_rx;
+                                }
                             }
                         }
                     }
@@ -762,12 +3066,13 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
             }
         }
     }
-    vlSelfRef.tb_system_control__DOT__control__DOT__restart_count 
-        = __Vdly__tb_system_control__DOT__control__DOT__restart_count;
+    vlSelfRef.tb_system_control__DOT__volume = __Vdly__tb_system_control__DOT__volume;
     vlSelfRef.tb_system_control__DOT__count = __Vdly__tb_system_control__DOT__count;
     vlSelfRef.tb_system_control__DOT__control__DOT__second_count 
         = __Vdly__tb_system_control__DOT__control__DOT__second_count;
     vlSelfRef.tb_system_control__DOT__phase = __Vdly__tb_system_control__DOT__phase;
+    vlSelfRef.tb_system_control__DOT__control__DOT__restart_count 
+        = __Vdly__tb_system_control__DOT__control__DOT__restart_count;
     vlSelfRef.tb_system_control__DOT__cdc__DOT__ack_sync 
         = __Vdly__tb_system_control__DOT__cdc__DOT__ack_sync;
     vlSelfRef.tb_system_control__DOT__cdc__DOT__interval_count 
@@ -874,12 +3179,12 @@ void Vtb_system_control___024root___timing_resume(Vtb_system_control___024root* 
                                                    "@( (~ tb_system_control.phase))");
     }
     if ((0x20ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        vlSelfRef.__VtrigSched_hd9371092__0.resume(
-                                                   "@( (16'h0 != tb_system_control.control.restart_count))");
+        vlSelfRef.__VtrigSched_h8d51ef31__0.resume(
+                                                   "@( tb_system_control.restart)");
     }
     if ((0x40ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        vlSelfRef.__VtrigSched_hd940ec37__0.resume(
-                                                   "@( (16'h0 == tb_system_control.control.restart_count))");
+        vlSelfRef.__VtrigSched_h98683729__0.resume(
+                                                   "@( (~ tb_system_control.restart))");
     }
     if ((8ULL & vlSelfRef.__VactTriggered.word(0U))) {
         vlSelfRef.__VdlySched.resume();
@@ -900,12 +3205,12 @@ void Vtb_system_control___024root___timing_commit(Vtb_system_control___024root* 
                                                    "@( (~ tb_system_control.phase))");
     }
     if ((! (0x20ULL & vlSelfRef.__VactTriggered.word(0U)))) {
-        vlSelfRef.__VtrigSched_hd9371092__0.commit(
-                                                   "@( (16'h0 != tb_system_control.control.restart_count))");
+        vlSelfRef.__VtrigSched_h8d51ef31__0.commit(
+                                                   "@( tb_system_control.restart)");
     }
     if ((! (0x40ULL & vlSelfRef.__VactTriggered.word(0U)))) {
-        vlSelfRef.__VtrigSched_hd940ec37__0.commit(
-                                                   "@( (16'h0 == tb_system_control.control.restart_count))");
+        vlSelfRef.__VtrigSched_h98683729__0.commit(
+                                                   "@( (~ tb_system_control.restart))");
     }
 }
 

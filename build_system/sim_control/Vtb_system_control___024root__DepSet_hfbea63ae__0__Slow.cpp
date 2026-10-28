@@ -17,8 +17,10 @@ VL_ATTR_COLD void Vtb_system_control___024root___eval_static(Vtb_system_control_
     vlSelfRef.__Vtrigprevexpr___TOP__tb_system_control__DOT__clk__0 = 0U;
     vlSelfRef.__Vtrigprevexpr_h6cf76a58__1 = (1U & 
                                               (~ (IData)(vlSelfRef.tb_system_control__DOT__phase)));
-    vlSelfRef.__Vtrigprevexpr_h4d90c662__1 = (0U != (IData)(vlSelfRef.tb_system_control__DOT__control__DOT__restart_count));
-    vlSelfRef.__Vtrigprevexpr_h4d77a30d__1 = (0U == (IData)(vlSelfRef.tb_system_control__DOT__control__DOT__restart_count));
+    vlSelfRef.__Vtrigprevexpr___TOP__tb_system_control__DOT__restart__0 
+        = vlSelfRef.tb_system_control__DOT__restart;
+    vlSelfRef.__Vtrigprevexpr_h105ff007__1 = (1U & 
+                                              (~ (IData)(vlSelfRef.tb_system_control__DOT__restart)));
 }
 
 VL_ATTR_COLD void Vtb_system_control___024root___eval_static__TOP(Vtb_system_control___024root* vlSelf) {
@@ -72,10 +74,10 @@ VL_ATTR_COLD void Vtb_system_control___024root___dump_triggers__act(Vtb_system_c
         VL_DBG_MSGF("         'act' region trigger index 4 is active: @( (~ tb_system_control.phase))\n");
     }
     if ((0x20ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        VL_DBG_MSGF("         'act' region trigger index 5 is active: @( (16'h0 != tb_system_control.control.restart_count))\n");
+        VL_DBG_MSGF("         'act' region trigger index 5 is active: @( tb_system_control.restart)\n");
     }
     if ((0x40ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        VL_DBG_MSGF("         'act' region trigger index 6 is active: @( (16'h0 == tb_system_control.control.restart_count))\n");
+        VL_DBG_MSGF("         'act' region trigger index 6 is active: @( (~ tb_system_control.restart))\n");
     }
 }
 #endif  // VL_DEBUG
@@ -105,10 +107,10 @@ VL_ATTR_COLD void Vtb_system_control___024root___dump_triggers__nba(Vtb_system_c
         VL_DBG_MSGF("         'nba' region trigger index 4 is active: @( (~ tb_system_control.phase))\n");
     }
     if ((0x20ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        VL_DBG_MSGF("         'nba' region trigger index 5 is active: @( (16'h0 != tb_system_control.control.restart_count))\n");
+        VL_DBG_MSGF("         'nba' region trigger index 5 is active: @( tb_system_control.restart)\n");
     }
     if ((0x40ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        VL_DBG_MSGF("         'nba' region trigger index 6 is active: @( (16'h0 == tb_system_control.control.restart_count))\n");
+        VL_DBG_MSGF("         'nba' region trigger index 6 is active: @( (~ tb_system_control.restart))\n");
     }
 }
 #endif  // VL_DEBUG
@@ -123,7 +125,11 @@ VL_ATTR_COLD void Vtb_system_control___024root___ctor_var_reset(Vtb_system_contr
     vlSelf->tb_system_control__DOT__reset = VL_RAND_RESET_I(1);
     vlSelf->tb_system_control__DOT__rx = VL_RAND_RESET_I(1);
     vlSelf->tb_system_control__DOT__ms = VL_RAND_RESET_I(1);
+    vlSelf->tb_system_control__DOT__wav_source = VL_RAND_RESET_I(1);
+    vlSelf->tb_system_control__DOT__audio_paused = VL_RAND_RESET_I(1);
+    vlSelf->tb_system_control__DOT__volume = VL_RAND_RESET_I(4);
     vlSelf->tb_system_control__DOT__valid = VL_RAND_RESET_I(1);
+    vlSelf->tb_system_control__DOT__restart = VL_RAND_RESET_I(1);
     vlSelf->tb_system_control__DOT__phase = VL_RAND_RESET_I(1);
     vlSelf->tb_system_control__DOT__byte_rx = VL_RAND_RESET_I(8);
     vlSelf->tb_system_control__DOT__last = VL_RAND_RESET_I(8);
@@ -154,7 +160,7 @@ VL_ATTR_COLD void Vtb_system_control___024root___ctor_var_reset(Vtb_system_contr
     vlSelf->__Vtrigprevexpr___TOP__tb_system_control__DOT__memclk__0 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr___TOP__tb_system_control__DOT__clk__0 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr_h6cf76a58__1 = VL_RAND_RESET_I(1);
-    vlSelf->__Vtrigprevexpr_h4d90c662__1 = VL_RAND_RESET_I(1);
-    vlSelf->__Vtrigprevexpr_h4d77a30d__1 = VL_RAND_RESET_I(1);
+    vlSelf->__Vtrigprevexpr___TOP__tb_system_control__DOT__restart__0 = VL_RAND_RESET_I(1);
+    vlSelf->__Vtrigprevexpr_h105ff007__1 = VL_RAND_RESET_I(1);
     vlSelf->__VactDidInit = 0;
 }

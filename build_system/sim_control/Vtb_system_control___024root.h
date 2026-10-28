@@ -20,7 +20,11 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_system_control___024root final : public V
     CData/*0:0*/ tb_system_control__DOT__reset;
     CData/*0:0*/ tb_system_control__DOT__rx;
     CData/*0:0*/ tb_system_control__DOT__ms;
+    CData/*0:0*/ tb_system_control__DOT__wav_source;
+    CData/*0:0*/ tb_system_control__DOT__audio_paused;
+    CData/*3:0*/ tb_system_control__DOT__volume;
     CData/*0:0*/ tb_system_control__DOT__valid;
+    CData/*0:0*/ tb_system_control__DOT__restart;
     CData/*0:0*/ tb_system_control__DOT__phase;
     CData/*7:0*/ tb_system_control__DOT__byte_rx;
     CData/*7:0*/ tb_system_control__DOT__last;
@@ -42,8 +46,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_system_control___024root final : public V
     CData/*0:0*/ __Vtrigprevexpr___TOP__tb_system_control__DOT__memclk__0;
     CData/*0:0*/ __Vtrigprevexpr___TOP__tb_system_control__DOT__clk__0;
     CData/*0:0*/ __Vtrigprevexpr_h6cf76a58__1;
-    CData/*0:0*/ __Vtrigprevexpr_h4d90c662__1;
-    CData/*0:0*/ __Vtrigprevexpr_h4d77a30d__1;
+    CData/*0:0*/ __Vtrigprevexpr___TOP__tb_system_control__DOT__restart__0;
+    CData/*0:0*/ __Vtrigprevexpr_h105ff007__1;
     CData/*0:0*/ __VactDidInit;
     CData/*0:0*/ __VactContinue;
     SData/*15:0*/ tb_system_control__DOT__count;
@@ -59,8 +63,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_system_control___024root final : public V
     VlDelayScheduler __VdlySched;
     VlTriggerScheduler __VtrigSched_h623af98b__0;
     VlTriggerScheduler __VtrigSched_hf8c0b488__0;
-    VlTriggerScheduler __VtrigSched_hd9371092__0;
-    VlTriggerScheduler __VtrigSched_hd940ec37__0;
+    VlTriggerScheduler __VtrigSched_h8d51ef31__0;
+    VlTriggerScheduler __VtrigSched_h98683729__0;
     VlTriggerVec<7> __VactTriggered;
     VlTriggerVec<7> __VnbaTriggered;
 

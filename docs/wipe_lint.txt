@@ -1,0 +1,17 @@
+%Warning-TIMESCALEMOD: rtl/p3\dmz_image_framebuffer.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_image_framebuffer(
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       sim/system\tb_wipe.sv:2:8: ... Location of module with timescale
+    2 | module tb_wipe;
+      |        ^~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: sim/system\tb_wipe.sv:14:49: Operator MODDIV expects 32 bits on the LHS, but LHS's SEL generates 18 bits.
+                                                 : ... note: In instance 'tb_wipe'
+   14 |   expected_bank=step==21?0:((step>0&&(addr[17:0]%320)<step*16)?0:1);
+      |                                                 ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.044 MB sources in 3 modules, into 0.071 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.024 s (elab=0.001, cvt=0.008, bld=0.000); cpu 0.000 s on 1 threads; alloced 13.504 MB

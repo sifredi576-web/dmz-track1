@@ -1,0 +1,2 @@
+[86370000] %Fatal: tb_media.sv:49: Assertion failed in tb_media: media error BMP=8 WAV=3
+%Error: sim/media\tb_media.sv:49: Verilog $stop

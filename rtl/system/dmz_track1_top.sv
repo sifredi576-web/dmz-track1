@@ -1,8 +1,14 @@
 module dmz_track1_top(
- input wire clk_50m,run_n,mute_switch,pattern_switch,uart_rx,
+ input wire clk_50m,run_n,mute_switch,pattern_switch,uart_rx,emergency_switch,visual_hide_switch,
+ input wire [3:0] key_col,inout wire [3:0] key_row,
  output wire SD_CS,SD_SCK,SD_MOSI,input wire SD_MISO,
  output wire uart_tx,output wire [7:0] leds,
  output wire HDMI_CLK_P,HDMI_D0_P,HDMI_D1_P,HDMI_D2_P);
+wire tone_muted,beep_phase,switch_mute,switch_continuous,wav_source,audio_paused;wire [3:0] volume;
+wire [447:0] mem_status,mem_snapshot;
+wire emergency,visual_enabled,alert_on;wire visual_ink,visual_shade;wire [23:0] visual_color;
+wire [4:0] level_l,level_r,peak_l,peak_r;
+wire command_valid;wire [7:0] command_byte;
 wire pixel_clk,serial_clk,mem_clk,sdram_clk,locked;
 dmz_p2_pll pll(.refclk(clk_50m),.reset(~run_n),.clk0_out(pixel_clk),.clk1_out(serial_clk),.mem_clk(mem_clk),.sdram_clk(sdram_clk),.locked(locked));
 wire ar=~run_n|~locked;
@@ -34,21 +40,47 @@ wire load_valid,load_last,load_ready,load_ack,image_done;wire [17:0] load_addr;w
 wire [7:0] image_error,image_status;wire [31:0] image_pixels;wire [63:0] image_name;
 wire catalog_ready,loader_busy,gallery_request,autoplay,gallery_loading;
 wire [5:0] image_count;wire [4:0] selected_image,requested_image,displayed_image;
-// UART holds a byte for >80us; toggle synchronization gives the bus >2 mem cycles to settle.
-reg command_toggle;reg [7:0] command_hold;
-always @(posedge pixel_clk) if(base_pixel_reset) begin command_toggle<=0;command_hold<=0;end
- else if(command_valid) begin command_hold<=command_byte;command_toggle<=~command_toggle;end
-(* ASYNC_REG="TRUE" *) reg [1:0] command_sync;
-reg command_seen,mem_command_valid;reg [7:0] mem_command;
-always @(posedge mem_clk) if(base_mem_reset) begin command_sync<=0;command_seen<=0;mem_command_valid<=0;mem_command<=0;end
- else begin command_sync<={command_sync[0],command_toggle};mem_command_valid<=0;
-  if(command_sync[1]!=command_seen) begin command_seen<=command_sync[1];mem_command<=command_hold;mem_command_valid<=1;end
- end
+wire menu_open;wire [5:0] menu_query,query_mem,browse_tag;
+wire [63:0] browse_name;wire browse_valid;
+wire [4:0] wav_count;wire [3:0] audio_selected_index;wire audio_flushing;
+// Dedicated coherent query/response, independent of the player metadata port.
+dmz_status_cdc #(.WIDTH(6)) menu_request_cdc(.src_clk(pixel_clk),.src_reset(base_pixel_reset),.src_data(menu_query),
+ .dst_clk(mem_clk),.dst_reset(base_mem_reset),.dst_data(query_mem));
+wire [115:0] menu_status,menu_snapshot;
+assign menu_status={sd_error,image_error,wav_error,audio_selected_index,wav_count,displayed_image,image_count,catalog_ready,browse_valid,browse_tag,browse_name};
+dmz_status_cdc #(.WIDTH(116)) menu_reply_cdc(.src_clk(mem_clk),.src_reset(base_mem_reset),.src_data(menu_status),
+ .dst_clk(pixel_clk),.dst_reset(base_pixel_reset),.dst_data(menu_snapshot));
+wire [63:0] menu_name=menu_snapshot[63:0];wire [5:0] menu_tag=menu_snapshot[69:64];
+wire menu_valid=menu_snapshot[70],menu_ready=menu_snapshot[71];
+wire [5:0] menu_images=menu_snapshot[77:72];wire [4:0] menu_displayed=menu_snapshot[82:78];
+wire [4:0] menu_wavs=menu_snapshot[87:83];wire [3:0] menu_wav_index=menu_snapshot[91:88];
+wire [7:0] menu_wav_error=menu_snapshot[99:92],menu_image_error=menu_snapshot[107:100],menu_sd_error=menu_snapshot[115:108];
+// Four queued command bytes, preserving order across pixel/memory clocks.
+// Physical keys and 115200-baud UART produce at most a two-command burst.
+wire command_fifo_empty,command_fifo_full;wire [31:0] command_fifo_data;
+wire mem_command_valid=!command_fifo_empty;
+wire [7:0] mem_command=command_fifo_data[7:0];
+dmz_pixel_fifo #(.AW(2)) command_fifo(.wclk(pixel_clk),.wreset(base_pixel_reset),
+ .wpush(command_valid),.wdata({24'd0,command_byte}),.full(command_fifo_full),.used(),
+ .rclk(mem_clk),.rreset(base_mem_reset),.rpop(!command_fifo_empty),.rdata(command_fifo_data),.empty(command_fifo_empty));
+
 dmz_gallery_control gallery(.clk(mem_clk),.reset(reset),.command_valid(mem_command_valid),.command_byte(mem_command),
  .catalog_ready(catalog_ready),.file_count(image_count),.selected_index(selected_image),.loader_busy(loader_busy),.loader_error(image_error),.swaps(swaps),
  .select_request(gallery_request),.requested_index(requested_image),.autoplay(autoplay),.loading(gallery_loading),.displayed_index(displayed_image));
-dmz_bmp_loader #(.GALLERY(1)) loader(.select_request(gallery_request),.requested_index(requested_image),
- .catalog_ready(catalog_ready),.file_count(image_count),.selected_index(selected_image),.busy(loader_busy),.clk(mem_clk),.reset(reset),.enable(bist_passed),.sd_start(sd_start),.sd_lba(sd_lba),.sd_ready(sd_ready),.sd_done(sd_done),.sd_byte_valid(sd_byte_valid),.sd_byte_index(sd_index),.sd_byte_data(sd_byte),.sd_error(sd_error),.load_valid(load_valid),.load_addr(load_addr),.load_data(load_data),.load_last(load_last),.load_ready(load_ready),.load_ack(load_ack),.done(image_done),.error(image_error),.status(image_status),.pixels_loaded(image_pixels),.filename(image_name));
+wire wav_found,wav_done,pcm_valid,pcm_ready;wire [31:0] wav_bytes,decoded_pairs,wav_loops,declared_pairs,pcm_pair;
+wire [7:0] wav_error,wav_status;wire [31:0] image_reads,audio_reads;
+wire [12:0] audio_fifo_used;
+dmz_media_storage storage(.clk(mem_clk),.reset(reset),.enable(bist_passed),.audio_urgent(audio_fifo_used<2048),
+ .audio_select_request(mem_command_valid&&mem_command[7:4]==4'hc),.audio_requested_index(mem_command[3:0]),.audio_selected_index(audio_selected_index),
+ .audio_flushing(audio_flushing),.wav_count(wav_count),.browse_query(query_mem),.browse_tag(browse_tag),.browse_name(browse_name),.browse_valid(browse_valid),
+ .select_request(gallery_request),.requested_index(requested_image),.selected_index(selected_image),
+ .catalog_ready(catalog_ready),.image_count(image_count),.image_name(image_name),.image_busy(loader_busy),.image_done(image_done),.image_error(image_error),.image_status(image_status),.image_pixels(image_pixels),
+ .load_valid(load_valid),.load_addr(load_addr),.load_data(load_data),.load_last(load_last),.load_ready(load_ready),.load_ack(load_ack),
+ .wav_found(wav_found),.wav_bytes(wav_bytes),.decoded_pairs(decoded_pairs),.loop_count(wav_loops),.declared_pairs(declared_pairs),.wav_error(wav_error),.wav_status(wav_status),.wav_done(wav_done),
+ .pcm_valid(pcm_valid),.pcm_ready(pcm_ready),.pcm_pair(pcm_pair),
+ .sd_start(sd_start),.sd_lba(sd_lba),.sd_ready(sd_ready),.sd_done(sd_done),.sd_byte_valid(sd_byte_valid),.sd_byte_index(sd_index),.sd_byte_data(sd_byte),.sd_error(sd_error),
+ .image_reads(image_reads),.audio_reads(audio_reads));
+
 dmz_image_framebuffer fb(.load_valid(load_valid),.load_addr(load_addr),.load_data(load_data),.load_last(load_last),.load_ready(load_ready),.load_ack(load_ack),.clk(mem_clk),.reset(reset),.bist_done(bist_done),.bist_passed(bist_passed),.frame_toggle(frame_toggle),.req_valid(fvalid),.req_write(fwrite),.req_addr(faddr),.req_wdata(fwdata),.req_ready(req_ready&&bist_done),.rsp_valid(rsp_valid&&bist_done),.rsp_rdata(rdata),.fifo_used(fifo_used),.fifo_full(fifo_full),.fifo_push(fifo_push),.fifo_data(fifo_in),.fifo_reset(fifo_reset),.display_valid(display_valid),.front_bank(front_bank),.swaps(swaps),.frames_written(frames_written),.dma_reads(dma_reads),.fault(fb_fault));
 reg [2:0] fr;
 always @(posedge pixel_clk or posedge fifo_reset) if(fifo_reset) fr<=7;else fr<={fr[1:0],1'b0};
@@ -68,50 +100,117 @@ function automatic [31:0] fromgray(input [31:0] g);integer k;begin fromgray[31]=
 wire [31:0] underflow_mem=fromgray(uf2);
 wire [15:0] p565=x[0]?fifo_out[31:16]:fifo_out[15:0];
 reg [23:0] rgb;
+wire [23:0] base_rgb=fail[1]?24'hff0000:!dv[1]?(image_error!=0?24'hff8000:24'h000040):
+ (fifo_empty||fr[2])?24'hff00ff:{p565[15:11],p565[15:13],p565[10:5],p565[10:9],p565[4:0],p565[4:2]};
+wire [3:0] brightness,contrast;wire [23:0] display_time,adjusted_rgb;
+dmz_display_control display_controls(.clk(pixel_clk),.reset(base_pixel_reset),.frame_tick(x==0&&y==480),
+ .command_valid(command_valid),.command_byte(command_byte),.brightness(brightness),.contrast(contrast),.time_bcd(display_time));
+dmz_picture_adjust adjust_picture(.rgb(base_rgb),.brightness(brightness),.contrast(contrast),.adjusted(adjusted_rgb));
+wire osd_text,osd_shade;wire [23:0] osd_color;
+dmz_osd osd(.emergency(emergency),.visual_enabled(visual_enabled),.clk(pixel_clk),.reset(base_pixel_reset),.time_bcd(display_time),.brightness(brightness),.contrast(contrast),.x(x),.y(y),.menu_open(menu_open),.query(menu_query),
+ .browse_tag(menu_tag),.browse_name(menu_name),.browse_valid(menu_valid),.catalog_ready(menu_ready),
+ .image_count(menu_images),.displayed_image(menu_displayed),.wav_count(menu_wavs),.wav_index(menu_wav_index),.volume(volume),
+ .audio_paused(audio_paused),.tone_muted(tone_muted),.wav_source(wav_source),.autoplay(mem_snapshot[272]),
+ .sd_error(menu_sd_error),.image_error(menu_image_error),.wav_error(menu_wav_error),.text_on(osd_text),.shade_on(osd_shade),.color(osd_color));
 always @(posedge pixel_clk) begin
  if(pixel_reset) rgb<=0;
- else if(fail[1]) rgb<=24'hff0000;
- else if(!dv[1]) rgb<=image_error!=0?24'hff8000:24'h000040;
- else if(fifo_empty||fr[2]) rgb<=24'hff00ff;
- else rgb<={p565[15:11],p565[15:13],p565[10:5],p565[10:9],p565[4:0],p565[4:2]};
+ else if(osd_text) rgb<=osd_color;
+ else if(visual_ink) rgb<=visual_color;
+ else if(emergency) rgb<=alert_on?24'h600808:24'h380808;
+ else if(osd_shade||visual_shade) rgb<={1'b0,adjusted_rgb[23:17],1'b0,adjusted_rgb[15:9],1'b0,adjusted_rgb[7:1]};
+ else rgb<=adjusted_rgb;
 end
-// One control path for the unified project. Start muted; no board switch action required.
-wire tone_muted,beep_phase,switch_mute,switch_continuous;
+// Physical keys and development UART share one command path; WAV starts enabled.
+
 wire [1:0] audio_mode;wire [15:0] command_count;wire [7:0] last_command;
-wire command_valid;wire [7:0] command_byte;
-dmz_uart_rx command_rx(.clk(pixel_clk),.reset(base_pixel_reset),.rx(uart_rx),.valid(command_valid),.data(command_byte));
-dmz_media_control controls(.clk(pixel_clk),.reset(base_pixel_reset),.command_valid(command_valid),.command_byte(command_byte),
+
+wire raw_command_valid;wire [7:0] raw_command_byte;
+wire uart_command_valid,key_valid;wire [7:0] uart_command_byte;
+wire [3:0] key_code,key_row_low;
+genvar kr;generate for(kr=0;kr<4;kr=kr+1) begin
+ assign key_row[kr]=key_row_low[kr]?1'b0:1'bz;
+end endgenerate
+dmz_matrix_keys keys(.clk(pixel_clk),.reset(base_pixel_reset),.col_in(key_col),
+ .row_low(key_row_low),.key_valid(key_valid),.key_code(key_code));
+dmz_uart_rx command_rx(.clk(pixel_clk),.reset(base_pixel_reset),.rx(uart_rx),.valid(uart_command_valid),.data(uart_command_byte));
+dmz_board_commands board_commands(.clk(pixel_clk),.reset(base_pixel_reset),.key_valid(key_valid),.key_code(key_code),
+ .audio_paused(audio_paused),.tone_muted(tone_muted),.uart_valid(uart_command_valid),.uart_byte(uart_command_byte),
+ .command_valid(raw_command_valid),.command_byte(raw_command_byte));
+dmz_file_menu file_menu(.clk(pixel_clk),.reset(base_pixel_reset),.raw_valid(raw_command_valid),.raw_byte(raw_command_byte),
+ .catalog_ready(menu_ready),.image_count(menu_images),.wav_count(menu_wavs),.browse_valid(menu_valid),.browse_tag(menu_tag),
+ .menu_open(menu_open),.query(menu_query),.command_valid(command_valid),.command_byte(command_byte));
+dmz_media_control #(.DEFAULT_MODE(1),.DEFAULT_WAV(1)) controls(.clk(pixel_clk),.reset(base_pixel_reset),.command_valid(command_valid),.command_byte(command_byte),
  .mute_switch(mute_switch),.continuous_switch(pattern_switch),.tone_muted(tone_muted),.mode(audio_mode),
  .command_count(command_count),.last_command(last_command),.restart(restart),.beep_phase(beep_phase),
- .switch_mute(switch_mute),.switch_continuous(switch_continuous));
+ .switch_mute(switch_mute),.switch_continuous(switch_continuous),.wav_source(wav_source),.audio_paused(audio_paused),.volume(volume));
 wire [31:0] dbg_samples,dbg_pcm_packets,dbg_nonzero_packets,dbg_acr_packets,dbg_pcm_pair;
 wire [19:0] dbg_cts;
 
-wire sample_ce;wire signed [15:0] sample;wire [15:0] aw[1:0];assign aw[0]=sample <<< 1;assign aw[1]=sample <<< 1;
-dmz_tone tone(.clk(pixel_clk),.reset(pixel_reset),.mute(tone_muted),.sample_ce(sample_ce),.sample(sample));
+dmz_scene_control scene(.clk(pixel_clk),.reset(base_pixel_reset),.frame_tick(x==0&&y==480),
+ .emergency_switch(emergency_switch),.visual_hide_switch(visual_hide_switch),.command_valid(command_valid),.command_byte(command_byte),
+ .emergency(emergency),.visual_enabled(visual_enabled),.alert_on(alert_on));
+wire sample_ce;wire signed [15:0] sample;wire [15:0] aw[1:0];
+dmz_tone tone(.clk(pixel_clk),.reset(pixel_reset),.mute(1'b0),.sample_ce(sample_ce),.sample(sample));
+wire audio_fifo_full,audio_fifo_empty;wire [31:0] audio_fifo_data;
+assign pcm_ready=!audio_fifo_full;
+wire audio_pop=sample_ce&&wav_source&&!audio_paused&&!emergency&&audio_active&&!audio_fifo_empty;
+(* ASYNC_REG="TRUE" *) reg [1:0] audio_flush_sync;
+always @(posedge pixel_clk) if(base_pixel_reset) audio_flush_sync<=3;else audio_flush_sync<={audio_flush_sync[0],audio_flushing};
+wire audio_pixel_reset=pixel_reset||audio_flush_sync[1];
+dmz_pixel_fifo #(.AW(12)) audio_fifo(.wclk(mem_clk),.wreset(reset||audio_flushing),.wpush(pcm_valid&&pcm_ready),.wdata(pcm_pair),.full(audio_fifo_full),.used(audio_fifo_used),
+ .rclk(pixel_clk),.rreset(audio_pixel_reset),.rpop(audio_pop),.rdata(audio_fifo_data),.empty(audio_fifo_empty));
+wire prefilled=(audio_fifo_used>=512)||(wav_done&&audio_fifo_used!=0);
+(* ASYNC_REG="TRUE" *) reg [1:0] prefill_sync,wav_sync,error_sync;
+reg audio_active;reg [31:0] audio_underflows,played_pairs;
+always @(posedge pixel_clk) begin
+ if(audio_pixel_reset) begin prefill_sync<=0;wav_sync<=0;error_sync<=0;audio_active<=0;audio_underflows<=0;played_pairs<=0;end
+ else begin
+  prefill_sync<={prefill_sync[0],prefilled};wav_sync<={wav_sync[0],wav_found};error_sync<={error_sync[0],(wav_error!=0)};
+  if(!audio_active&&prefill_sync[1]&&wav_sync[1]&&!error_sync[1]) audio_active<=1;
+  if(audio_pop) played_pairs<=played_pairs+1'b1;
+  if(sample_ce&&audio_active&&wav_source&&!audio_paused&&!emergency&&audio_fifo_empty&&!error_sync[1]) begin audio_underflows<=audio_underflows+1'b1;audio_active<=0;end
+ end
+end
+wire signed [15:0] selected_left=emergency?(alert_on?sample:16'sd0):wav_source?((audio_active&&!audio_fifo_empty&&!error_sync[1])?$signed(audio_fifo_data[15:0]):16'sd0):(sample <<< 1);
+wire signed [15:0] selected_right=emergency?(alert_on?sample:16'sd0):wav_source?((audio_active&&!audio_fifo_empty&&!error_sync[1])?$signed(audio_fifo_data[31:16]):16'sd0):(sample <<< 1);
+wire signed [20:0] scaled_left=selected_left*$signed({1'b0,volume});
+wire signed [20:0] scaled_right=selected_right*$signed({1'b0,volume});
+assign aw[0]=(tone_muted||(audio_paused&&!emergency))?16'd0:16'(scaled_left >>> 3);
+assign aw[1]=(tone_muted||(audio_paused&&!emergency))?16'd0:16'(scaled_right >>> 3);
+dmz_audio_visual visualizer(.clk(pixel_clk),.reset(pixel_reset),.sample_ce(sample_ce),.frame_tick(x==0&&y==480),
+ .enabled(visual_enabled),.left(aw[0]),.right(aw[1]),.x(x),.y(y),.ink(visual_ink),.shade(visual_shade),.color(visual_color),
+ .level_l(level_l),.level_r(level_r),.peak_l(peak_l),.peak_r(peak_r));
 wire [2:0] tmds;
 hdmi #(.VIDEO_ID_CODE(1),.VIDEO_REFRESH_RATE(59.5238095238),.AUDIO_RATE(48000),.AUDIO_BIT_WIDTH(16),.VENDOR_NAME("DMZ     "),.PRODUCT_DESCRIPTION("DMZ Track1      ")) tx(.clk_pixel_x5(serial_clk),.clk_pixel(pixel_clk),.clk_audio(sample_ce),.reset(pixel_reset),.rgb(rgb),.audio_sample_word(aw),.tmds(tmds),.tmds_clock(HDMI_CLK_P),.dbg_samples(dbg_samples),.dbg_pcm_packets(dbg_pcm_packets),.dbg_nonzero_packets(dbg_nonzero_packets),.dbg_acr_packets(dbg_acr_packets),.dbg_cts(dbg_cts),.dbg_pcm_pair(dbg_pcm_pair),.cx(x),.cy(y),.frame_width(),.frame_height(),.screen_width(),.screen_height());
 assign {HDMI_D2_P,HDMI_D1_P,HDMI_D0_P}=tmds;
 reg [31:0] uptime;always @(posedge mem_clk) if(reset) uptime<=0;else uptime<=uptime+1'b1;
 // Coherent memory-domain diagnostics cross via held-data request/acknowledge.
-wire [287:0] mem_status,mem_snapshot;
-assign mem_status={swaps[12:0],catalog_ready,gallery_loading,autoplay,displayed_image,selected_image,image_count,refreshes,sd_sectors,swaps,checked,{sd_error,image_error,sd_status,image_status},(display_valid?32'd307200:image_pixels),errors,
+
+assign mem_status={wav_bytes,audio_reads,image_reads,wav_loops,decoded_pairs,swaps[12:0],catalog_ready,gallery_loading,autoplay,displayed_image,selected_image,image_count,refreshes,sd_sectors,swaps,checked,{sd_error,image_error,sd_status,image_status},(display_valid?32'd307200:image_pixels),errors,
  24'd0,fb_fault,(underflow_mem!=0),front_bank,display_valid,bist_passed,bist_done,init_done,sd_initialized};
-dmz_status_cdc #(.WIDTH(288)) snapshot(.src_clk(mem_clk),.src_reset(base_mem_reset),.src_data(mem_status),
+dmz_status_cdc #(.WIDTH(448)) snapshot(.src_clk(mem_clk),.src_reset(base_mem_reset),.src_data(mem_status),
  .dst_clk(pixel_clk),.dst_reset(base_pixel_reset),.dst_data(mem_snapshot));
+wire [63:0] audio_status,audio_snapshot;
+assign audio_status={declared_pairs,2'd0,wav_found,wav_error,wav_status,audio_fifo_used};
+dmz_status_cdc #(.WIDTH(64)) audio_diag(.src_clk(mem_clk),.src_reset(base_mem_reset),.src_data(audio_status),.dst_clk(pixel_clk),.dst_reset(base_pixel_reset),.dst_data(audio_snapshot));
 wire [7:0] flags=mem_snapshot[7:0];
-wire [31:0] words[15:0];
-assign words[0]=32'h54533154; // "T1ST", telemetry version 3
+wire [31:0] words[23:0];
+assign words[0]=32'h54533154; // "T1ST", telemetry version 4
 assign words[1]={10'd0,audio_mode,switch_continuous,beep_phase,switch_mute,tone_muted,
- locked,flags[7],(underflow!=0),flags[5],flags[4],flags[3],flags[2],flags[1],8'd3};
+ locked,flags[7],(underflow!=0),flags[5],flags[4],flags[3],flags[2],flags[1],8'd4};
 assign words[2]=dbg_samples;assign words[3]=dbg_pcm_packets;assign words[4]=dbg_nonzero_packets;
 assign words[5]=dbg_acr_packets;assign words[6]={12'd0,dbg_cts};assign words[7]={16'd6144,16'd48000};
 assign words[8]=mem_snapshot[63:32];assign words[9]=mem_snapshot[95:64];assign words[10]=underflow;
 assign words[11]=mem_snapshot[127:96];assign words[12]=mem_snapshot[159:128];
-assign words[13]=mem_snapshot[287:256];assign words[14]={command_count,last_command,8'd0};
-reg [31:0] checksum;integer n;always @* begin checksum=0;for(n=0;n<15;n=n+1) checksum=checksum^words[n];end
-assign words[15]=checksum;
-wire [511:0] status;genvar i;generate for(i=0;i<16;i=i+1) begin assign status[32*i+:32]=words[i];end endgenerate
-dmz_status_uart #(.DIVISOR(217),.PERIOD(12500000)) telemetry(.clk(pixel_clk),.reset(base_pixel_reset),.status(status),.tx(uart_tx));
+assign words[13]=mem_snapshot[287:256];assign words[14]={command_count,last_command,level_l[4:1],level_r[4:1]};
+assign words[15]=audio_underflows;assign words[16]=played_pairs;assign words[17]=mem_snapshot[319:288];
+assign words[18]=mem_snapshot[351:320];assign words[19]=audio_snapshot[31:0];
+assign words[20]=mem_snapshot[415:384];assign words[21]=mem_snapshot[447:416];
+assign words[22]={menu_wav_index,emergency,visual_enabled,2'd0,menu_ready,menu_open,menu_query,menu_wavs,3'd0,volume,audio_paused,wav_source,audio_active,1'b0};
+reg [31:0] checksum;integer n;always @* begin checksum=0;for(n=0;n<23;n=n+1) checksum=checksum^words[n];end
+assign words[23]=checksum;
+wire [767:0] status;genvar i;generate for(i=0;i<24;i=i+1) begin assign status[32*i+:32]=words[i];end endgenerate
+dmz_status_uart #(.DIVISOR(217),.PERIOD(12500000),.BYTES(96)) telemetry(.clk(pixel_clk),.reset(base_pixel_reset),.status(status),.tx(uart_tx));
 assign leds={fb_fault,(underflow_mem!=0),~tone_muted,display_valid,tone_muted,bist_passed,init_done,uptime[24]};
 endmodule
+

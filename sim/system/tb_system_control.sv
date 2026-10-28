@@ -2,11 +2,12 @@
 module tb_system_control;
 reg clk=0,memclk=0,reset=1,rx=1,ms=1,cs=1;
 always #20 clk=~clk;always #7 memclk=~memclk;
+wire wav_source,audio_paused;wire [3:0] volume;
 wire valid,muted,restart,phase,sm,sc;wire [7:0] byte_rx,last;wire [1:0] mode;wire [15:0] count;
 dmz_uart_rx uart(.clk(clk),.reset(reset),.rx(rx),.valid(valid),.data(byte_rx));
 dmz_media_control #(.SECOND_CYCLES(6000),.RESTART_CYCLES(1000)) control(
  .clk(clk),.reset(reset),.command_valid(valid),.command_byte(byte_rx),.mute_switch(ms),.continuous_switch(cs),
- .tone_muted(muted),.mode(mode),.command_count(count),.last_command(last),.restart(restart),.beep_phase(phase),.switch_mute(sm),.switch_continuous(sc));
+ .tone_muted(muted),.mode(mode),.command_count(count),.last_command(last),.restart(restart),.beep_phase(phase),.switch_mute(sm),.switch_continuous(sc),.wav_source(wav_source),.audio_paused(audio_paused),.volume(volume));
 reg [31:0] seq=0;wire [127:0] captured;
 always @(posedge memclk) if(reset) seq<=0;else seq<=seq+1;
 dmz_status_cdc #(.WIDTH(128),.INTERVAL(5)) cdc(.src_clk(memclk),.src_reset(reset),.src_data({seq,~seq,seq^32'h55aa55aa,seq+32'd1}),.dst_clk(clk),.dst_reset(reset),.dst_data(captured));
@@ -28,7 +29,12 @@ initial begin
  send("S");if(mode!=0||!muted) $fatal(1,"switch mute");ms=0;repeat(5) @(negedge clk);if(muted) $fatal(1,"switch unmute");
  send("R");wait(restart);if(!muted||mode!=2) $fatal(1,"restart must mute");wait(!restart);repeat(5) @(negedge clk);
  if(count!=5||last!="R"||!muted||snapshots<100) $fatal(1,"restart acknowledgement/CDC count");
- $display("PASS serial commands through RX, silent boot, mute/unmute, switch mode, restart, coherent asynchronous diagnostics");$finish;
+ send("W");if(!wav_source||muted||audio_paused) $fatal(1,"WAV source/play command");
+ send("K");if(!audio_paused) $fatal(1,"audio pause");send("L");if(audio_paused) $fatal(1,"audio resume");
+ send("-");if(volume!=7) $fatal(1,"volume decrease");send("+");if(volume!=8) $fatal(1,"volume increase");
+ send("H");if(!audio_paused) $fatal(1,"linked pause");send("A");if(audio_paused) $fatal(1,"linked resume");
+ send("T");if(wav_source||muted||count!=13) $fatal(1,"tone selection/ack count");
+ $display("PASS serial control/CDC, WAV/tone selection, volume, independent and linked pause/resume, registered restart");$finish;
 end
 initial begin #5000000;$fatal(1,"control test timeout");end
 endmodule

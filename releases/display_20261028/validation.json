@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-28T16:57:53.5037843+08:00",
+  "simulation_passed": true,
+  "pixel_cases": 20736,
+  "build_passed": true,
+  "sram_download_passed": true,
+  "board_pipeline_passed": true,
+  "parameter_commands_acknowledged": true,
+  "physical_visual_confirmation": "计时、字幕、调节和数值均正常，音频连续",
+  "passed": true,
+  "setup_ns": 0.964,
+  "hold_ns": 0.014,
+  "lut": 14045,
+  "registers": 7156,
+  "bram9k": 32,
+  "dsp": 12,
+  "pll": 1,
+  "audio_gain_changed": false,
+  "default_brightness": 4,
+  "default_contrast": 4,
+  "final_state": "automatic slides + WAV enabled, parameters restored to 4/4",
+  "evidence": [
+    "display_sim_result.txt",
+    "osd_menu_sim_result.txt",
+    "display_initial_status.json",
+    "display_brightness_command.json",
+    "display_contrast_command.json",
+    "display_default_command.json"
+  ]
+}

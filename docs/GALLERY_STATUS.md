@@ -1,5 +1,7 @@
 # 图片切换与自动轮播
 
+2026-10-28更新：本文保存v3图库阶段记录；当前已升级v4图片+WAV主工程，共享文件流已抽取，默认有声。详见 `AV_INTEGRATION_STATUS.md`。
+
 2026-10-27，当前统一工程 `build_system/dmz_track1.al`，顶层 `dmz_track1_top`，T1ST诊断版本3。
 
 ## 已实现

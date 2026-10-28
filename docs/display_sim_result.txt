@@ -1,0 +1,2 @@
+PASS all 20736 pixel/parameter combinations, identity/clamp, BCD hour carry and parameter controls
+- sim/system\tb_display.sv:24: Verilog $finish

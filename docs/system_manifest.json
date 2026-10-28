@@ -1,15 +1,24 @@
 {
-  "generated": "2026-10-27T21:45:53.5370492+08:00",
+  "generated": "2026-10-28T17:55:29.9885569+08:00",
   "hardware": "DMZ_EG4S20 / EG4S20BG256",
   "top": "dmz_track1_top",
   "project": "build_system/dmz_track1.al",
   "configuration": "SRAM",
-  "default_audio": "muted",
+  "default_audio": "WAV enabled, volume 8/8",
   "source_and_bitstream_sha256": {
-    "build_system/dmz_track1_Runs/phy_1/dmz_track1.bit": "65215922fd17f8778016b515b74a692f6fc40af85887dda445b63e59da6ec459",
-    "constraints/dmz_p3.adc": "831ffe57c0b1b6ec0d68a3521374e9351ffe277fedea87ff635a1d4623a22937",
-    "constraints/dmz_p3.sdc": "ad85876ec15b781b944c7d238231acb536c1c73d3b0f65031f06a0c101d74c11",
+    "build_system/dmz_track1_Runs/phy_1/dmz_track1.bit": "de9c763df988a74fd818ae8c8a7633789b504161102d898c511dc218eb39495c",
+    "constraints/dmz_p3.adc": "dd7fd0e769b699bb15244e8bf2ac0c9158fe027080512e4f264ac5f525a330ae",
+    "constraints/dmz_p3.sdc": "47826c6f0cbcce9583f47762e3abb2670f9aa0e3143b1f5557e6c5f655a569f5",
     "rtl/audio_test/dmz_uart_rx.sv": "28fc18c44e2f0ae353c1029c5678a09672ea7b0600c8536c9d172c02df150df4",
+    "rtl/media/dmz_bmp_decoder.sv": "2a7ee694b04fb873b64f840b52ab93b556a6c5159e32978c1878f62b06633408",
+    "rtl/media/dmz_fat_catalog.sv": "1077bbdaaf1cd5476118f41be8aa89da5416212ea3e38d508664f90141739913",
+    "rtl/media/dmz_fat_stream.sv": "844250b732a17561f29fe87556e47c28c08ca67dc3a6e97a7b152152e595b67d",
+    "rtl/media/dmz_image_player.sv": "8e8698fb7b4667c24c4b2af118c120780b6ea385b4e8cf87f1e091e124b7a2d2",
+    "rtl/media/dmz_media_storage.sv": "33631e45a4579d779fa0bf73129b9504010ec1789e55a5e6afc3b5a0105bf22a",
+    "rtl/media/dmz_sd_arbiter.sv": "8f4df88dc31cfc284141d057e31620162cd9f88b5e056c5bdc839b1671216a95",
+    "rtl/media/dmz_udiv32.sv": "4c203be0989a3d4ba8ea608c181124fad650eb9cc9f4440e5e31028715c016fa",
+    "rtl/media/dmz_wav_decoder.sv": "2804ad1cd4481ccf90af568b4c0e59ff0b8e51bb4477bb25dcf10418b2fe7100",
+    "rtl/media/dmz_wav_player.sv": "45df5d82778e0e783608e046c918a086ebaba40c4af1a96435bffd20a875bd34",
     "rtl/p1/dmz_tone.sv": "a67917a4f171074bd1be9ebaa6db0fd9788044313bc31606fa4ae0433ad21e30",
     "rtl/p1/hdmi_core/audio_clock_regeneration_packet.sv": "f8fbd93e203dbeaeaa93a30d30a2ba5fb2cc6809692560546fb06acc8e9abc7d",
     "rtl/p1/hdmi_core/audio_info_frame.sv": "4766ead71005d4659180f23ff810c6545a56f342bf0703b84a5f146591f7f300",
@@ -25,76 +34,197 @@
     "rtl/p2/dmz_pixel_fifo.sv": "d55ce31fce935780cd51aba96a7d2110ed13a22831ec37b7849fdcfe13c5264e",
     "rtl/p2/dmz_sdram_bist.sv": "0414b6014cd42c7855fd7011a4bd2bed6a8dfd64caaa0b294f0103a2ca8cd0f6",
     "rtl/p2/dmz_sdram_ctrl.sv": "0fd7fbef1f42adca0dd33ff886171bd6c3ecb1221eccfea7530156ad3f8c0178",
-    "rtl/p2/dmz_status_uart.sv": "08378dfe488aa447938d16e1295fbf039dd6eaefbc7d784f17a2c185f74d373e",
-    "rtl/p3/dmz_bmp_loader.sv": "a314c374236aa80ebd7919260224a8590bc2f08a056e557b83f505777809ad5b",
-    "rtl/p3/dmz_image_framebuffer.sv": "f79c19bee964a1e74c474683300ca8cd9d225c20771911f15240e710527e4ff7",
+    "rtl/p2/dmz_status_uart.sv": "23cc453916e753ce52901dd9b4642c7b815ae48d25bbe3d515a4f6a5b5609693",
+    "rtl/p3/dmz_image_framebuffer.sv": "18185c10f448abebbe7bd8b5f3b4c76fd1e1c06b3902b18f6ab915ead3abbd46",
     "rtl/p3/dmz_sd_reader.sv": "bd5fc4b7e936019dae2a7c86d08cef45d568b0b75e9bbcf4107d8c76d0af587c",
     "rtl/p3/dmz_spi_byte.sv": "863a302a5f119ca9b0dec813b0c5aa17e6ec13e037f781bfa27fd68f95638565",
-    "rtl/system/dmz_gallery_control.sv": "f1ef54ad580bbadb0ecd6a072e96dc4a6d6142a9350646612682e61a6dbb3557",
-    "rtl/system/dmz_media_control.sv": "5cd66abeee88c7fcf9a4c977101ff153f94b783d705394833cd42ad0e8144f66",
+    "rtl/system/dmz_audio_visual.sv": "0629a638668ed77b934945142d0a1f1519bf777b5deefaa22cb8d8a8c69c8115",
+    "rtl/system/dmz_board_commands.sv": "d3cb2eb8dd6af59710c22250c7b7029cd7645742cc4133e4b1cf64effe0c310a",
+    "rtl/system/dmz_display_control.sv": "13b1fcc8df2cd5ce6720dc70b7cbb5949b1519b671fe57de22aeef0932b6a388",
+    "rtl/system/dmz_file_menu.sv": "dcb4597f0c231c78cd5a9da0313ddab749d179aa8763872b04c7246b16b1a6e9",
+    "rtl/system/dmz_gallery_control.sv": "417d1cf305bdd85065fbfcb16394e439dd0b90e6e9aed2460de76f2f043e2616",
+    "rtl/system/dmz_matrix_keys.sv": "2c0d85a40770d567c4f3963fccfcdd19218b537133598637447b9cb0a2a805cf",
+    "rtl/system/dmz_media_control.sv": "84997c5b9684a7d654b9c160e2725b48dcddfd356465a7b6108b57093dfd4592",
+    "rtl/system/dmz_osd.sv": "52394ffebbfb6b9fc06a85d918f81b9765efdbc72a32044b58c74ab2f7c25bf3",
+    "rtl/system/dmz_picture_adjust.sv": "7f551346daccdfe8f22d4a9e44202524e1868a86cc561475de4cd2a82017ba80",
+    "rtl/system/dmz_scene_control.sv": "b69abd7db20063e5523138030ba63bbc99cd22509242310e18e7dd95d9dff7bf",
     "rtl/system/dmz_status_cdc.sv": "189a004ad4fdd0c62e669c77105840dd2411f4077263f21f5429a1c474aba2e1",
-    "rtl/system/dmz_track1_top.sv": "e95ecefbf665dd40fe5ff271f72b3c98b0b1367c1ab6e65879a6459a9be757b8",
+    "rtl/system/dmz_track1_top.sv": "1795c373410b3140176cf81b8db3ca0f41b6c188cce3011eca289b15e1901b46",
     "scripts/build_system.ps1": "075cb1199719e2cf7ce821c22c95f1d6b0056ec05fa600fe65d4a2cf12dc0a1a",
-    "scripts/build_system.tcl": "ea06de9ea6b8c0e7ae53082981af23e4d0dd39707f9263f4c025d03a1d8496c5",
-    "scripts/download_system.ps1": "43d349fc9a77b5ee2b2a0ddfde4473f1965933986ca5abdddf1baea9f7d0781b",
+    "scripts/build_system.tcl": "aafc9a7e3c0bf7caf929a250c98ed6c8e643d36395f5fc09f4c6fe312ba0722c",
+    "scripts/download_system.ps1": "30c5ccd4f749ff95af83dd40e5ef7905f0ae67908c11cf510a9c0d3617c4fff1",
     "scripts/download_system.tcl": "356ee73e41944c8b28d45c75d316ed854262d3999f6c1399d64a263d8d8fe743",
-    "scripts/project.ps1": "007a10c7dd865d18e58ef2d6f0215b702e102a611a623209faa45e408d7c346f",
-    "scripts/system_console.ps1": "415a4a255429069cd0e0e80e1dad1b3945bd133b32ded0295acea0bf6341a810"
+    "scripts/project.ps1": "731a542dd808a35dce6a667a857806bd8b122d1c6c2de2ed5e9ce39bf956f805",
+    "scripts/system_console.ps1": "9d04bc1cd8278afe2035536275b09e2d70427a315fd1a6468d6f0dc2fd629756",
+    "scripts/test_command_fifo.ps1": "7c8a95f3adb9bd4de9fa361a9d0ce490906806f46323d8ae04996300ddd281aa",
+    "scripts/test_display.ps1": "1c9d8e05a64d596fee55b5b2e7d579063cbaca5a0af7d60f127c2a8bce621237",
+    "scripts/test_osd_board.ps1": "d3d010ada248795c81c3a23b3e34e5e366b2aad8ca887d6a5b701fc49a8d023e",
+    "scripts/test_osd_menu.ps1": "75e775c0b932cac0945508bcf3e5e02108b6348541aa2781d7eb2899cebdb40d",
+    "scripts/test_p7_board.ps1": "f0ab26c6aa0263a2a8eec65f78c67f6141cd89163fd22ab919c3e0842a262909",
+    "scripts/test_scaler.ps1": "a1f155c4ce768e6722975905523f5cb3c1d51aa48dd6173aebd5d162b25b59fa",
+    "scripts/test_scene_visual.ps1": "1b7f59d10df5de480eb0130b32a17c3019bfe52a4e59ad317602c4634eee7c2f",
+    "scripts/test_wipe.ps1": "fff611a6d0b69d5c63202676052b3ffab6d053941c803b4b3923d03d65adf92d",
+    "sim/media/tb_scaler.sv": "a1f93f03268e5581a24fccc4aef6e7e71d5f486875339c3a5ddcd62795ed7fd2",
+    "sim/system/scene_main.cpp": "f542bf33b977d0f4d654f0c973cbe965c314845468b8dd48412adc630be9ed4d",
+    "sim/system/tb_command_fifo.sv": "74b29e810968af64ca25557f9404032afd4360bf438afa4e287582687e0e97c6",
+    "sim/system/tb_display.sv": "b8f6f24db30738e955d35893b3a31b4ebace5ffd40d92a199284b462db8a0f14",
+    "sim/system/tb_osd_menu.sv": "4ef66af6d0b76d485df4bb09f01dd72b78d719cc29fe127d75330e69e984c14a",
+    "sim/system/tb_scene_visual.sv": "eb6e41516f5273e9b222e73e5b9c04709d4b581b1c7d6f1a2af5d3ebfa4e2beb",
+    "sim/system/tb_wipe.sv": "ae9dedb83702534c21887ac4afb37cbe5214aedeeae73ec87c140a65fe0d17c5"
   },
-  "setup_slack_ns": 0.988,
-  "hold_slack_ns": 0.032,
+  "setup_slack_ns": 1.896,
+  "hold_slack_ns": 0.004,
   "hardware_evidence": {
     "docs/system_smoke_status.json": {
-      "scope": "historical v2 baseline, not the gallery bitstream",
+      "scope": "historical v2 baseline",
       "passed": true,
       "elapsed_seconds": 15.3844975,
       "sha256": "2aa9253b830d99cbd355522ddb755b65da13cd7ac775cb1cd6ba65d6ed936bcc"
     },
     "docs/system_soak_30min.json": {
-      "scope": "historical v2 baseline, not the gallery bitstream",
+      "scope": "historical v2 baseline",
       "passed": true,
       "elapsed_seconds": 1802.7401178,
       "sha256": "dc36ccb85df79dbae407777507dbc70e966cba0e17f5940fe4c35c1bf53bad33"
     },
     "docs/gallery_initial_status.json": {
-      "scope": "gallery v3 verification",
+      "scope": "historical v3 gallery",
       "passed": true,
       "elapsed_seconds": 8.8514577,
       "sha256": "43539f83c38b1e983c0061d7258890a2f22921fe27d643d39fa3ebe0d5564d59"
     },
     "docs/gallery_after_next.json": {
-      "scope": "gallery v3 verification",
+      "scope": "historical v3 gallery",
       "passed": true,
       "elapsed_seconds": 3.9105376,
       "sha256": "ee2ab30aeb6d46b4f2f83caf91d7d83d1b75e19f69f645939c9cace46b750bdf"
     },
     "docs/gallery_after_previous.json": {
-      "scope": "gallery v3 verification",
+      "scope": "historical v3 gallery",
       "passed": true,
       "elapsed_seconds": 3.7290671,
       "sha256": "acb24bc0b080636334e3e6d79001d3ffad88096a6a63645c5c6275c5aff95c32"
     },
     "docs/gallery_auto_cycle.json": {
-      "scope": "gallery v3 verification",
+      "scope": "historical v3 gallery",
       "passed": true,
       "elapsed_seconds": 28.9502419,
       "sha256": "fe26139c5604f6235a3cd7204fcb8f9ccec98df9b2c7aa809d01bdba3b83e486"
+    },
+    "docs/av_initial_status.json": {
+      "scope": "historical v4 before keys; accepted WAV integration",
+      "passed": true,
+      "elapsed_seconds": 9.1469797,
+      "sha256": "9c79a5d4ee81f84a06eb55aa65e919234344c6a2da96e268e71e7af0e2b18d78"
+    },
+    "docs/av_playback_status.json": {
+      "scope": "historical v4 before keys; accepted WAV integration",
+      "passed": true,
+      "elapsed_seconds": 12.789419,
+      "sha256": "5e6858367ec9be5cfe8b547b9ebdf79b95fd39d84fafe75febb06dabd713def7"
+    },
+    "docs/av_final_status.json": {
+      "scope": "historical v4 before keys; accepted WAV integration",
+      "passed": true,
+      "elapsed_seconds": 4.014508,
+      "sha256": "f2aa61adf0692b1a0a3c503c85bf4eae2a123122d1d3f9c2e546561a22e61a1b"
+    },
+    "docs/av_corrected_validation.json": {
+      "scope": "historical v4 before keys; accepted WAV integration",
+      "passed": true,
+      "elapsed_seconds": null,
+      "sha256": "1d04b0a444020595e0ed6031fb23c600b1e53f25d4ad3ea9f9f0e587b7b3c482"
+    },
+    "docs/keys_initial_status.json": {
+      "scope": "historical keys-only build",
+      "passed": true,
+      "elapsed_seconds": 11.5410758,
+      "sha256": "9ca109334acee1e80af98b68ee942417991c92e145db30c9e693eca2b91a33bd"
+    },
+    "docs/keys_physical_observation.json": {
+      "scope": "historical keys-only build",
+      "passed": true,
+      "elapsed_seconds": 36.0439825,
+      "sha256": "5e6517f742de8bee08d411acb69811fddb7ce313a0743ebfddb6310cafa69725"
+    },
+    "docs/p7_validation.json": {
+      "scope": "current P7 actual PCM visualization/emergency",
+      "passed": true,
+      "elapsed_seconds": null,
+      "sha256": "edce2222ae483b63bfc47b7ffa322717ee419796efdfce9d5314184f1fbabab2"
+    },
+    "docs/p7_board_validation.json": {
+      "scope": "current P7 actual PCM visualization/emergency",
+      "passed": true,
+      "elapsed_seconds": null,
+      "sha256": "b91be8e7149d5c785f907d6be8e9b0566b2b31c3ec6b993930615346d2f2e25b"
+    },
+    "docs/p7_final.json": {
+      "scope": "current P7 actual PCM visualization/emergency",
+      "passed": true,
+      "elapsed_seconds": 4.0488782,
+      "sha256": "d107a6ff6fbc47aac1722bed7b55457a83b9fce18db11c14f365516c1e3d4950"
+    },
+    "docs/p6_validation.json": {
+      "scope": "historical v2 baseline",
+      "passed": true,
+      "elapsed_seconds": null,
+      "sha256": "6277349836b6e2d9fdf6770724d6fdb37f470da476c1d416f5274d6ae9e99c82"
+    },
+    "docs/p6_initial_status.json": {
+      "scope": "historical v2 baseline",
+      "passed": true,
+      "elapsed_seconds": 13.6121007,
+      "sha256": "26856aff8e773cd166e269405a9abac3f23f8231a12cd1e051e112b94af893c2"
+    },
+    "docs/p6_gallery_cycle.json": {
+      "scope": "historical v3 gallery",
+      "passed": true,
+      "elapsed_seconds": 48.973485,
+      "sha256": "f787c9c82abf032b006b3696bcd7eea0ffb41a3430507c38e164303e4c5bc8a6"
+    },
+    "docs/display_validation.json": {
+      "scope": "historical v2 baseline",
+      "passed": true,
+      "elapsed_seconds": null,
+      "sha256": "5c8d791098a215f7c57e0869391fcc26cfa772b250f513173846b6056c351756"
+    },
+    "docs/display_initial_status.json": {
+      "scope": "historical v2 baseline",
+      "passed": true,
+      "elapsed_seconds": 8.4886789,
+      "sha256": "d0c3140c11af3de480c11036517008bf2019627c4cb1142add7dbf1997198489"
+    },
+    "docs/osd_board_validation.json": {
+      "scope": "current OSD/menu build; actual verification scope in report",
+      "passed": true,
+      "elapsed_seconds": null,
+      "sha256": "018e4c4d3e2df5e957c8f47bf0cadf0e2632871750d9e4e7e97a42132e00ff4a"
+    },
+    "docs/osd_menu_validation.json": {
+      "scope": "current OSD/menu build; actual verification scope in report",
+      "passed": null,
+      "elapsed_seconds": null,
+      "sha256": "49f57c694111e7a740268b5e61ffba5979d1b2dcdba3925712934027d3fb3ebc"
+    },
+    "docs/osd_physical_observation.json": {
+      "scope": "current OSD/menu build; actual verification scope in report",
+      "passed": true,
+      "elapsed_seconds": 35.8995786,
+      "sha256": "c8da6ad73fd8a1410322d10a2dfa8a05baf27c0b57790753a325b286cb03c6df"
     }
   },
-  "prepared_wav_component": {
-    "included_in_bitstream": false,
+  "wav_component": {
+    "included_in_bitstream": true,
     "source_sha256": "2804ad1cd4481ccf90af568b4c0e59ff0b8e51bb4477bb25dcf10418b2fe7100",
     "test_result_sha256": "02e82316cceaaf082dbccc3cd241bcc2e27ff21061e51e92942839d1a16e480e",
     "tested_cases": 21,
-    "scope": "standalone RTL simulation only; not TF/WAV playback"
+    "scope": "shared FAT stream, audio-priority SD, FIFO and HDMI integrated; physical listening confirmed 2026-10-28"
   },
   "physical_picture_confirmation": "2026-10-27: user confirmed unified image normal, correct orientation",
   "physical_hdmi_reconnect_confirmation": "2026-10-27: user confirmed unplug/replug at display restores normal image automatically",
-  "audio_confirmation": "2026-10-27: user heard same HDMI/tone chain in audio_test; unified mute/unmute validated by packet counters",
+  "audio_confirmation": "2026-10-28: user confirmed continuous WAV sound and normal picture switching",
   "pending": [
-    "Power-cycle / physical SW0 checks",
-    "More real TF cards and file compatibility",
-    "Long audible listening and later two-hour full-feature soak",
-    "Shared FAT streams, WAV playback, physical controls and five extensions"
+    "Nonvolatile startup and final standalone scenario verification"
   ]
 }

@@ -7,7 +7,7 @@
                        ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
                        ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
 %Warning-TIMESCALEMOD: rtl/system\dmz_media_control.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
-    2 | module dmz_media_control #(parameter integer SECOND_CYCLES=25000000,
+    2 | module dmz_media_control #(parameter integer DEFAULT_MODE=2,DEFAULT_WAV=0,SECOND_CYCLES=25000000,
       |        ^~~~~~~~~~~~~~~~~
                        sim/system\tb_system_control.sv:2:8: ... Location of module with timescale
     2 | module tb_system_control;
@@ -24,16 +24,16 @@
       |                                                                ^~
                      ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
                      ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
-%Warning-WIDTHEXPAND: rtl/system\dmz_media_control.sv:23:18: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'second_count' generates 25 bits.
+%Warning-WIDTHEXPAND: rtl/system\dmz_media_control.sv:24:18: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'second_count' generates 25 bits.
                                                            : ... note: In instance 'tb_system_control.control'
-   23 |   if(second_count==SECOND_CYCLES-1) begin second_count<=0;beep_phase<=~beep_phase;end
+   24 |   if(second_count==SECOND_CYCLES-1) begin second_count<=0;beep_phase<=~beep_phase;end
       |                  ^~
                       ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
                       ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
-%Warning-WIDTHTRUNC: rtl/system\dmz_media_control.sv:34:41: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'RESTART_CYCLES' generates 32 bits.
-                                                          : ... note: In instance 'tb_system_control.control'
-   34 |      "R","r":begin mode<=2;restart_count<=RESTART_CYCLES;end
-      |                                         ^~
+%Warning-WIDTHTRUNC: rtl/system\dmz_media_control.sv:35:100: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'RESTART_CYCLES' generates 32 bits.
+                                                           : ... note: In instance 'tb_system_control.control'
+   35 |      "R","r":begin mode<=2'(DEFAULT_MODE);wav_source<=1'(DEFAULT_WAV);audio_paused<=0;restart_count<=RESTART_CYCLES;restart<=1;end
+      |                                                                                                    ^~
 - V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
-- Verilator: Built from 0.070 MB sources in 5 modules, into 0.187 MB in 7 C++ files needing 0.000 MB
-- Verilator: Walltime 0.056 s (elab=0.001, cvt=0.031, bld=0.000); cpu 0.000 s on 1 threads; alloced 17.688 MB
+- Verilator: Built from 0.072 MB sources in 5 modules, into 0.465 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.105 s (elab=0.001, cvt=0.063, bld=0.000); cpu 0.078 s on 1 threads; alloced 25.293 MB

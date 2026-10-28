@@ -10,5 +10,5 @@ try {
  if($log -match 'ERROR:' -or $log -notmatch 'Chip validation success: EG4S20BG256' -or $log -notmatch 'finish command "program'){
   throw 'Download log does not confirm successful device validation and programming'
  }
- Write-Output 'PASS: unified system downloaded to EG4S20BG256 SRAM (default muted)'
+ Write-Output 'PASS: unified system downloaded to EG4S20BG256 SRAM (default WAV playback enabled)'
 }finally{Pop-Location}
