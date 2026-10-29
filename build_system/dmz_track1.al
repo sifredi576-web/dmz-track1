@@ -54,6 +54,7 @@
             </File>
             <File Path="../rtl/p3/dmz_bmp_loader.sv">
                 <FileInfo>
+                    <Attr Name="AutoExcluded" Val="true"/>
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
@@ -377,7 +378,7 @@
         </FileSet>
     </FileSets>
     <TOP_MODULE>
-        <LABEL></LABEL>
+        <LABEL>dmz_track1_top</LABEL>
         <MODULE>dmz_track1_top</MODULE>
         <CREATEINDEX>user</CREATEINDEX>
     </TOP_MODULE>
