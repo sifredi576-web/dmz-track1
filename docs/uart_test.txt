@@ -1,1 +1,0 @@
-2026-10-25 PASS: COM3 115200 8N1, 256/256 bytes echoed after PROGRAM_SRAM.

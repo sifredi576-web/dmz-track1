@@ -1,1 +1,0 @@
-PASS: fresh P2 bitstream and routed timing including SDRAM hard macro

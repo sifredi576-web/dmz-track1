@@ -1,3 +1,0 @@
-0.2s ready=True muted=True PCM=22537150 nonzero=0 refresh=235241866 errors=0/0/0 underrun=0
-1.2s ready=True muted=True PCM=22549282 nonzero=0 refresh=235368402 errors=0/0/0 underrun=0
-PASS SDRAM BIST, TF/BMP image and HDMI clock ready; Status observed for 3 seconds: no hardware error, live sample/packet/refresh counters

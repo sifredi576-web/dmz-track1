@@ -1,5 +1,0 @@
-PASS integrated SPI+CRC+FAT+BMP+SDRAM+FIFO+HDMI/control: two frames/614400 pixels, muted boot, unmute/mute; model wait2/BIST4096
-- sim/system\tb_system.sv:43: Verilog $finish
-- S i m u l a t i o n   R e p o r t: Verilator 5.036 2025-04-27
-- Verilator: $finish at 812ms; walltime 90.564 s; speed 9.848 ms/s
-- Verilator: cpu 82.500 s on 1 threads; alloced 14 MB

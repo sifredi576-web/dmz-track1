@@ -1,2 +1,0 @@
-PASS gallery catalog=3, full pixel comparison for two distinct images, malformed image rejected without writes, selectable reload
-- sim/system\tb_gallery.sv:64: Verilog $finish

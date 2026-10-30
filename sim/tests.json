@@ -1,0 +1,413 @@
+{
+  "display": {
+    "top": "tb_display",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/video/dmz_display_control.sv",
+      "rtl/video/dmz_picture_adjust.sv",
+      "sim/unit/video/tb_display.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "keys": {
+    "top": "tb_board_keys",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/control/dmz_matrix_keys.sv",
+      "rtl/control/dmz_board_commands.sv",
+      "rtl/control/dmz_media_control.sv",
+      "sim/unit/control/tb_board_keys.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "commands": {
+    "top": "tb_command_fifo",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/common/dmz_pixel_fifo.sv",
+      "sim/unit/common/tb_command_fifo.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "control": {
+    "top": "tb_system_control",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/common/dmz_uart_rx.sv",
+      "rtl/control/dmz_media_control.sv",
+      "rtl/common/dmz_status_cdc.sv",
+      "sim/unit/control/tb_system_control.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "scene": {
+    "top": "tb_scene_visual",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/control/dmz_scene_control.sv",
+      "rtl/audio/dmz_audio_visual.sv",
+      "sim/unit/audio/tb_scene_visual.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "status": {
+    "top": "tb_status_uart",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/common/dmz_status_uart.sv",
+      "rtl/common/dmz_uart_rx.sv",
+      "sim/unit/common/tb_status_uart.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "wav": {
+    "top": "tb_wav",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/audio/dmz_wav_decoder.sv",
+      "sim/unit/audio/tb_wav.sv"
+    ],
+    "cases": [
+      [],
+      [
+        "+case=junkodd"
+      ],
+      [
+        "+case=fmt18"
+      ],
+      [
+        "+case=trailing"
+      ],
+      [
+        "+case=restart"
+      ],
+      [
+        "+case=magic"
+      ],
+      [
+        "+case=short"
+      ],
+      [
+        "+case=headershort"
+      ],
+      [
+        "+case=overflow"
+      ],
+      [
+        "+case=chunkoverflow"
+      ],
+      [
+        "+case=shortfmt"
+      ],
+      [
+        "+case=float"
+      ],
+      [
+        "+case=mono"
+      ],
+      [
+        "+case=rate"
+      ],
+      [
+        "+case=align"
+      ],
+      [
+        "+case=bits"
+      ],
+      [
+        "+case=missingdata"
+      ],
+      [
+        "+case=nofmt"
+      ],
+      [
+        "+case=zerodata"
+      ],
+      [
+        "+case=unaligned"
+      ],
+      [
+        "+case=readerror"
+      ]
+    ]
+  },
+  "scaler": {
+    "top": "tb_scaler",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/common/dmz_udiv32.sv",
+      "rtl/video/dmz_bmp_decoder.sv",
+      "sim/unit/video/tb_scaler.sv"
+    ],
+    "cases": [
+      [],
+      [
+        "+w=1",
+        "+h=1"
+      ],
+      [
+        "+w=479",
+        "+h=640",
+        "+top"
+      ],
+      [
+        "+w=1920",
+        "+h=1080"
+      ],
+      [
+        "+w=637",
+        "+h=479",
+        "+rgba",
+        "+top"
+      ],
+      [
+        "+w=640",
+        "+h=479",
+        "+top"
+      ],
+      [
+        "+short"
+      ],
+      [
+        "+bad=signature"
+      ],
+      [
+        "+bad=dib"
+      ],
+      [
+        "+bad=planes"
+      ],
+      [
+        "+bad=compression"
+      ],
+      [
+        "+bad=dimensions"
+      ],
+      [
+        "+bad=bits"
+      ],
+      [
+        "+bad=offset"
+      ],
+      [
+        "+bad=shortheader"
+      ]
+    ]
+  },
+  "wipe": {
+    "top": "tb_wipe",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/video/dmz_image_framebuffer.sv",
+      "sim/unit/video/tb_wipe.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "media": {
+    "top": "tb_media",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/storage/dmz_fat_catalog.sv",
+      "rtl/storage/dmz_fat_stream.sv",
+      "rtl/storage/dmz_sd_arbiter.sv",
+      "rtl/common/dmz_udiv32.sv",
+      "rtl/video/dmz_bmp_decoder.sv",
+      "rtl/video/dmz_image_player.sv",
+      "rtl/audio/dmz_wav_decoder.sv",
+      "rtl/audio/dmz_wav_player.sv",
+      "rtl/control/dmz_media_pipeline.sv",
+      "sim/integration/media/tb_media.sv"
+    ],
+    "cases": [
+      [],
+      [
+        "+fat16",
+        "+mbr"
+      ],
+      [
+        "+rgba",
+        "+top"
+      ],
+      [
+        "+wavinvalid"
+      ],
+      [
+        "+shortchain"
+      ],
+      [
+        "+nowav"
+      ],
+      [
+        "+multiwav"
+      ],
+      [
+        "+bpb"
+      ],
+      [
+        "+signature"
+      ],
+      [
+        "+nobmp"
+      ]
+    ]
+  },
+  "osd": {
+    "top": "tb_osd_menu",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/control/dmz_file_menu.sv",
+      "rtl/control/dmz_gallery_control.sv",
+      "rtl/video/dmz_osd.sv",
+      "sim/integration/osd/tb_osd_menu.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "sd": {
+    "top": "tb_sd",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/storage/dmz_spi_byte.sv",
+      "rtl/storage/dmz_sd_reader.sv",
+      "sim/unit/storage/tb_sd.sv"
+    ],
+    "cases": [
+      [],
+      [
+        "+sdsc"
+      ],
+      [
+        "+v1"
+      ],
+      [
+        "+noresponse"
+      ],
+      [
+        "+readerror"
+      ],
+      [
+        "+badtoken"
+      ],
+      [
+        "+badcrc"
+      ]
+    ]
+  },
+  "hdmi": {
+    "top": "tb_hdmi",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/hdmi/serializer.sv",
+      "rtl/hdmi/audio_clock_regeneration_packet.sv",
+      "rtl/hdmi/audio_info_frame.sv",
+      "rtl/hdmi/audio_sample_packet.sv",
+      "rtl/hdmi/auxiliary_video_information_info_frame.sv",
+      "rtl/hdmi/hdmi.sv",
+      "rtl/hdmi/packet_assembler.sv",
+      "rtl/hdmi/packet_picker.sv",
+      "rtl/hdmi/source_product_description_info_frame.sv",
+      "rtl/hdmi/tmds_channel.sv",
+      "rtl/audio/dmz_tone.sv",
+      "sim/models/oddr_model.sv",
+      "sim/unit/hdmi/tb_hdmi.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "sdram": {
+    "top": "tb_sdram",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/storage/dmz_sdram_ctrl.sv",
+      "rtl/storage/dmz_sdram_bist.sv",
+      "rtl/common/dmz_pixel_fifo.sv",
+      "rtl/video/dmz_image_framebuffer.sv",
+      "sim/models/sdram_model.sv",
+      "sim/integration/storage/tb_sdram.sv"
+    ],
+    "cases": [
+      [],
+      [
+        "+fault"
+      ]
+    ]
+  },
+  "architecture": {
+    "top": "tb_architecture",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/storage/dmz_fat_catalog.sv",
+      "rtl/storage/dmz_fat_stream.sv",
+      "rtl/storage/dmz_sd_arbiter.sv",
+      "rtl/common/dmz_udiv32.sv",
+      "rtl/video/dmz_bmp_decoder.sv",
+      "rtl/video/dmz_image_player.sv",
+      "rtl/audio/dmz_wav_decoder.sv",
+      "rtl/audio/dmz_wav_player.sv",
+      "rtl/control/dmz_media_pipeline.sv",
+      "rtl/storage/dmz_sdram_ctrl.sv",
+      "rtl/storage/dmz_sdram_bist.sv",
+      "rtl/common/dmz_pixel_fifo.sv",
+      "rtl/common/dmz_status_uart.sv",
+      "rtl/video/dmz_image_framebuffer.sv",
+      "rtl/top/dmz_track1_top.sv",
+      "rtl/control/dmz_matrix_keys.sv",
+      "rtl/control/dmz_board_commands.sv",
+      "rtl/control/dmz_file_menu.sv",
+      "rtl/video/dmz_osd.sv",
+      "rtl/control/dmz_scene_control.sv",
+      "rtl/audio/dmz_audio_visual.sv",
+      "rtl/video/dmz_display_control.sv",
+      "rtl/video/dmz_picture_adjust.sv",
+      "rtl/common/dmz_uart_rx.sv",
+      "rtl/control/dmz_media_control.sv",
+      "rtl/control/dmz_gallery_control.sv",
+      "rtl/common/dmz_status_cdc.sv",
+      "rtl/storage/dmz_sd_reader.sv",
+      "rtl/storage/dmz_spi_byte.sv",
+      "rtl/hdmi/serializer.sv",
+      "rtl/audio/dmz_tone.sv",
+      "rtl/hdmi/audio_clock_regeneration_packet.sv",
+      "rtl/hdmi/audio_info_frame.sv",
+      "rtl/hdmi/audio_sample_packet.sv",
+      "rtl/hdmi/auxiliary_video_information_info_frame.sv",
+      "rtl/hdmi/hdmi.sv",
+      "rtl/hdmi/packet_assembler.sv",
+      "rtl/hdmi/packet_picker.sv",
+      "rtl/hdmi/source_product_description_info_frame.sv",
+      "rtl/hdmi/tmds_channel.sv",
+      "rtl/audio/dmz_audio_output.sv",
+      "rtl/video/dmz_video_output.sv",
+      "rtl/control/dmz_control_subsystem.sv",
+      "rtl/common/dmz_telemetry.sv",
+      "sim/models/oddr_model.sv",
+      "sim/models/board_resources.sv",
+      "build/architecture/reference_top.sv",
+      "sim/integration/tb_architecture.sv"
+    ],
+    "cases": [
+      []
+    ],
+    "manual": true,
+    "simulator": "ModelSim",
+    "generated_sources": [
+      "build/architecture/reference_top.sv"
+    ]
+  }
+}

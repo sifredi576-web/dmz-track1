@@ -1,7 +1,0 @@
-gallery: image=2/4 target=2 auto=True loading=False swaps=2
-audio: WAV=True active=True paused=False fifo=4096 played=520512 loops=1 error=0 underflow=0 volume=8/8
-0.5s ready=True muted=False PCM=146397 nonzero=130126 refresh=n/a errors=0/0/0 underrun=0
-gallery: image=2/4 target=2 auto=True loading=False swaps=2
-audio: WAV=True active=True paused=False fifo=4096 played=569311 loops=1 error=0 underflow=0 volume=8/8
-1.5s ready=True muted=False PCM=158596 nonzero=142325 refresh=n/a errors=0/0/0 underrun=0
-PASS SDRAM BIST, TF/BMP image and HDMI clock ready; Status observed for 8 seconds: no hardware error, live audio counters (v2 also checks refresh)

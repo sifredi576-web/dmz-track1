@@ -1,6 +1,6 @@
 # 用户使用说明（含安路TD软件）
 
-更新：2026-10-29。适用于当前DMZ_EG4S20统一主工程及P7已验证版本。
+更新：2026-10-30。适用于当前DMZ_EG4S20统一主工程；P7为重构前已验证版本。
 
 ## 1. 使用方式与准备
 
@@ -20,12 +20,12 @@
 
 ### 2.1 打开已有工程
 
-本机启动程序：`D:\ANLU\bin\td.exe`。当前软件为TD 6.2系列。
+本机启动程序：`D:\Downloads\Anlogic\TD_6.2.1_Engineer_6.2.168.116\bin\td.exe`。当前软件为TD 6.2系列。
 
 选择File → Open Project，打开：
 
 ```text
-D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\build_system\dmz_track1.al
+D:\learning\FPGA\dmz-track1\project\td\dmz_track1.al
 ```
 
 不要新建工程。检查工程名dmz_track1、系列EG4、器件EG4S20BG256、顶层dmz_track1_top。如果出现Flow Step Recovery提示，可点OK恢复已有编译流程记录，等待结束；它本身不是报错。
@@ -36,8 +36,8 @@ D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\build_s
 |---|---|
 | 左上Hierarchy Navigation | 查看器件、模块层级、源代码和约束 |
 | Hierarchy / dmz_track1_top | 展开看内部模块，双击查看代码 |
-| Constraints / dmz_p3.adc | 引脚与电气约束，已验证，普通使用无需修改 |
-| Constraints / dmz_p3.sdc | 时钟与时序约束，普通使用无需修改 |
+| Constraints / dmz_track1.adc | 引脚与电气约束，已验证，普通使用无需修改 |
+| Constraints / dmz_track1.sdc | 时钟与时序约束，普通使用无需修改 |
 | 中间编辑区 | 显示代码或报告；未打开文件时为灰色背景 |
 | 左下FPGA Flow | 编译流程及报告入口 |
 | Flow Runs | 编译任务状态、资源、时序和进度 |
@@ -47,7 +47,7 @@ D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\build_s
 
 顶部File/Edit/View/Project/Source/Process/Tools/Window/Help分别为文件、编辑、视图、工程、源文件、流程、工具、窗口、帮助。ChipWatcher/ChipProbe是调试工具，普通播放无需使用。
 
-本机未确认存在TD中文界面切换或官方汉化包，不将更换软件作为使用前提。配套手册：`D:\ANLU\doc\TD_User_Guide_V6.2.pdf`。
+本机未确认存在TD中文界面切换或官方汉化包，不将更换软件作为使用前提。配套手册位于TD安装目录的doc文件夹。
 
 ### 2.3 查看与修改代码
 
@@ -55,14 +55,20 @@ D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\build_s
 
 | 文件 | 用途 |
 |---|---|
-| rtl/system/dmz_track1_top.sv | 唯一整机顶层 |
-| rtl/system/dmz_osd.sv | 字幕、菜单、状态文字绘制 |
-| rtl/system/dmz_media_control.sv | 播放、音量、静音控制 |
-| rtl/system/dmz_scene_control.sv | 应急与可视化模式控制 |
-| rtl/media/dmz_bmp_decoder.sv | 图片解析、缩放 |
-| rtl/media/dmz_wav_player.sv | WAV播放 |
+| rtl/top/dmz_track1_top.sv | 唯一整机顶层 |
+| rtl/control/dmz_control_subsystem.sv | 按键、菜单与播放控制的连接入口 |
+| rtl/control/dmz_media_pipeline.sv | 共享读卡、图片和WAV播放链路 |
+| rtl/video/dmz_video_output.sv | 像素输出、画面参数和OSD叠加 |
+| rtl/audio/dmz_audio_output.sv | 音频缓冲、音源、音量与静音 |
+| rtl/common/dmz_contract_pkg.sv | 共享命令值和状态字段定义 |
+| rtl/common/dmz_telemetry.sv | 串口状态帧打包 |
+| rtl/video/dmz_osd.sv | 字幕、菜单、状态文字绘制 |
+| rtl/control/dmz_media_control.sv | 播放、音量、静音控制 |
+| rtl/control/dmz_scene_control.sv | 应急与可视化模式控制 |
+| rtl/video/dmz_bmp_decoder.sv | 图片解析、缩放 |
+| rtl/audio/dmz_wav_player.sv | WAV播放 |
 
-新增源文件时，还需同步主工程及scripts/build_system.tcl中的文件列表，保持界面与脚本构建一致。仅日常演示不需要改代码或重新编译。
+新增源文件时，修改project/td/sources.f，再运行scripts/build/prepare.ps1同步TD工程。仅日常演示不需要改代码或重新编译。
 
 ### 2.4 编译与检查
 
@@ -80,13 +86,13 @@ D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\build_s
 可在流程窗口运行对应步骤。为复用当前工程严格检查，推荐在项目根目录打开PowerShell执行：
 
 ```powershell
-.\scripts\project.ps1 -Action Build
+.\scripts\project.ps1 -Action Build -TdRoot "D:\Downloads\Anlogic\TD_6.2.1_Engineer_6.2.168.116"
 ```
 
 项目根目录为：
 
 ```text
-D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1
+D:\learning\FPGA\dmz-track1
 ```
 
 检查是否存在错误、关键警告、时序是否通过以及位流是否更新。不能只凭100%或生成bit文件判断修改正确。已验证P7参考：15735 LUT、7530寄存器、37 BRAM9K、17 DSP、1 PLL，建立裕量1.896ns、保持裕量0.004ns。修改后结果可能变化，须以本次报告为准。
@@ -96,13 +102,13 @@ D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1
 保持供电，连接板卡右上JTAG USB。准备TF卡和HDMI显示屏。在工程根目录运行：
 
 ```powershell
-.\scripts\project.ps1 -Action Download
+.\scripts\project.ps1 -Action Download -TdRoot "D:\Downloads\Anlogic\TD_6.2.1_Engineer_6.2.168.116"
 ```
 
 也可在TD底部Tcl Console输入下面一条命令，再回车：
 
 ```tcl
-download -bit {D:/QQdownload/HX4S20_Contest_202606.zip/HX4S20_Contest_202606/dmz_track1/build_system/dmz_track1_Runs/phy_1/dmz_track1.bit} -mode jtag -spd 7 -cable 0
+download -bit {D:/learning/FPGA/dmz-track1/project/td/dmz_track1_Runs/phy_1/dmz_track1.bit} -mode jtag -spd 7 -cable 0
 ```
 
 路径移动后要相应修改。两种方式任选一种，不要同时下载或在下载未结束时重复执行。
@@ -208,8 +214,8 @@ A11向板内进入红色应急页面和间歇提示音，正常WAV消费暂停�
 
 ## 8. 工程与资料入口
 
-- 主工程：build_system/dmz_track1.al；唯一顶层：rtl/system/dmz_track1_top.sv。
-- 当前位流：build_system/dmz_track1_Runs/phy_1/dmz_track1.bit。
-- 已验证归档：releases/p7_20261028；证据：docs/p7_validation.json。
-- 项目总览：[README](../README.md)；交接：[README_AI_HANDOFF](../README_AI_HANDOFF.md)。
+- 主工程：project/td/dmz_track1.al；唯一顶层：rtl/top/dmz_track1_top.sv。
+- 当前位流：project/td/dmz_track1_Runs/phy_1/dmz_track1.bit。
+- 已验证归档：releases/p7_20261028；证据：docs/verification/history/p7_validation.json。
+- 项目总览：[README](README.md)；交接：[架构说明](docs/ARCHITECTURE.md)。
 - 当前范围以README顶部最新裁定为准：满足所提供赛题明确要求，不自动追加Flash固化或无关测试。

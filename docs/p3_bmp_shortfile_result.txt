@@ -1,5 +1,0 @@
-PASS malformed media rejected before framebuffer write; code=10
-- sim/p3\tb_bmp.sv:101: Verilog $finish
-- S i m u l a t i o n   R e p o r t: Verilator 5.036 2025-04-27
-- Verilator: $finish at 32us; walltime 0.002 s; speed 0.000 s/s
-- Verilator: cpu 0.000 s on 1 threads; alloced 5 MB

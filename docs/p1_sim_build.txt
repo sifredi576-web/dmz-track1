@@ -1,1 +1,0 @@
-g++    verilated.o verilated_dpi.o verilated_timing.o verilated_threads.o Vtb_p1__ALL.a    -pthread -lpthread -latomic   -o Vtb_p1

@@ -1,5 +1,0 @@
-0.2s ready=True muted=True PCM=436791 nonzero=0 refresh=4563833 errors=0/0/0 underrun=0
-9.3s ready=True muted=True PCM=30217 nonzero=0 refresh=320153 errors=0/0/0 underrun=0
-12.3s ready=True muted=True PCM=30220 nonzero=0 refresh=320110 errors=0/0/0 underrun=0
-15.4s ready=True muted=True PCM=30216 nonzero=0 refresh=320134 errors=0/0/0 underrun=0
-PASS SDRAM BIST, TF/BMP image and HDMI clock ready; command M acknowledged (1); mute stops nonzero PCM while HDMI packets continue; command U acknowledged (2); unmute resumes nonzero HDMI audio without image fault; command M acknowledged (3); command R acknowledged (4); media restart 1: BIST 8388608 words, BMP 307200 pixels, zero errors; command R acknowledged (5); media restart 2: BIST 8388608 words, BMP 307200 pixels, zero errors; command R acknowledged (6); media restart 3: BIST 8388608 words, BMP 307200 pixels, zero errors
