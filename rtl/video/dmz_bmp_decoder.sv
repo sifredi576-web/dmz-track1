@@ -14,7 +14,11 @@ reg [9:0] draw_w,draw_h,left_pad,first_pad,out_x,dest_row,drawn_rows;
 reg [11:0] x_error,y_error;
 reg [1:0] channel,padding,pad_left;reg [7:0] blue,green;
 reg rgba,top_down,width_limited,blank_row,input_finished;
-reg [3:0] burst_pixel;reg [15:0] low_pixel;reg [15:0] row_q;wire [15:0] sample565=inside_x?row_q:16'd0;
+reg [3:0] burst_pixel;reg [15:0] low_pixel;reg [15:0] row_q;
+// Declare both nets before use; retain the predicate at its original location.
+wire [15:0] sample565;
+wire inside_x;
+assign sample565=inside_x?row_q:16'd0;
 reg [15:0] row_cache[0:2047]; /* fehdl force_ram=1, ram_style="bram" */
 function automatic [15:0] h16(input integer i);h16={header[i+1],header[i]};endfunction
 function automatic [31:0] h32(input integer i);h32={header[i+3],header[i+2],header[i+1],header[i]};endfunction
@@ -30,7 +34,7 @@ dmz_udiv32 divider(.clk(clk),.reset(reset),.start(state==DIV_START),
  .numerator(width_limited?({21'd0,height}*32'd640):({21'd0,width}*32'd480)),
  .denominator(width_limited?{21'd0,width}:{21'd0,height}),.busy(),.done(divider_done),.quotient(scaled));
 wire [9:0] actual_y=top_down?dest_row:10'd479-dest_row;
-wire inside_x=!blank_row&&out_x>=left_pad&&out_x<left_pad+draw_w;
+assign inside_x=!blank_row&&out_x>=left_pad&&out_x<left_pad+draw_w;
 wire [15:0] incoming={byte_data[7:3],green[7:2],blue[7:3]};
 assign byte_ready=(state==HEADER||state==PARSE)&&!start;
 assign load_valid=state==EMIT;assign status={3'd0,state};

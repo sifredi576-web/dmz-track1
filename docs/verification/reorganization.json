@@ -618,5 +618,91 @@
     "board_downloaded": false,
     "board_tested": false,
     "merged": false
+  },
+  "refinement": {
+    "base_commit": "92918f06307c400b8928af6236a7ae7c1b801778",
+    "committed": false,
+    "formal_inputs": 48,
+    "formal_inputs_match_fresh_build": true,
+    "build_generated": "2026-10-30T11:04:11.4076043+08:00",
+    "setup_wns_ns": 0.853,
+    "hold_wns_ns": 0.021,
+    "sta_coverage_percent": 100,
+    "lut": 15586,
+    "registers": 7573,
+    "bram9k": 37,
+    "dsp": 17,
+    "pll": 1,
+    "targeted_tests_passed": [
+      "telemetry",
+      "architecture",
+      "scaler",
+      "status"
+    ],
+    "telemetry_vectors": 128,
+    "protocol_version": 4,
+    "architecture_comparison_pixel_cycles": 77861,
+    "architecture_comparison_tmds_samples": 263665,
+    "warning_fixed": "BMP inside_x declaration order; removed simulator relocation workaround",
+    "board_downloaded": false,
+    "board_tested": false,
+    "merged": false,
+    "status": "superseded_regressed_trial"
+  },
+  "performance_correction": {
+    "baseline_commit": "92918f0",
+    "baseline": {
+      "lut": 15503,
+      "reg": 7561,
+      "bram9k": 37,
+      "dsp": 17,
+      "pll": 1,
+      "setup": 1.95,
+      "hold": 0.021
+    },
+    "regressed": {
+      "lut": 15586,
+      "reg": 7573,
+      "bram9k": 37,
+      "dsp": 17,
+      "pll": 1,
+      "setup": 0.853,
+      "hold": 0.021
+    },
+    "corrected": {
+      "lut": 15503,
+      "reg": 7561,
+      "bram9k": 37,
+      "dsp": 17,
+      "pll": 1,
+      "setup": 1.95,
+      "hold": 0.021
+    },
+    "no_regression": true,
+    "same_project_paths": true,
+    "same_tool_and_constraints": true,
+    "board_tested": false,
+    "committed": false,
+    "comparison": "Exact baseline RTL rebuilt at same canonical paths; restoring original top port order alone reproduces regressed result; restoring original BMP predicate declaration yields baseline synthesis counts; explicit declarations and separate assignments remove forward-reference warning and restore routed baseline metrics.",
+    "synthesis_lut": {
+      "baseline": 14879,
+      "regressed": 14905,
+      "port_order_restored": 14905,
+      "bmp_original_declaration": 14879,
+      "bmp_explicit_nets": 14879
+    },
+    "synthesis_registers_all_variants": 7349,
+    "targeted_tests_passed": [
+      "telemetry",
+      "architecture",
+      "scaler",
+      "status"
+    ],
+    "formal_inputs_match_fresh_build": true,
+    "build_generated": "2026-10-30T13:54:04.8127771+08:00",
+    "build_bit_sha256": "5DB7A3BD46A89523783A2562A2DC8BE4048DF49CD81147E06DEC63A5887F0390",
+    "source_manifest": "build/reports/build_manifest.json",
+    "raw_comparison_reports": "build/performance_compare",
+    "merged": false
   }
 }

@@ -409,5 +409,17 @@
     "generated_sources": [
       "build/architecture/reference_top.sv"
     ]
+  },
+  "telemetry": {
+    "top": "tb_telemetry",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/common/dmz_status_uart.sv",
+      "rtl/common/dmz_telemetry.sv",
+      "sim/unit/common/tb_telemetry.sv"
+    ],
+    "cases": [
+      []
+    ]
   }
 }

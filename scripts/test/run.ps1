@@ -16,7 +16,7 @@ $results=[Collections.Generic.List[object]]::new()
 
 function SimulationCopy([string]$path,[string]$dir){
  # Compatibility for ModelSim ASE 10.3c only. Pure fixed-index array reads
- # are expanded in build/, and a forward declaration is moved. RTL is unchanged.
+ # are expanded in build/. Formal RTL is not rewritten by this runner.
  $original=Get-Content -LiteralPath $path -Raw;$text=$original
  foreach($f in @([regex]::Matches($original,'function automatic \[(15|31):0\] (h16|h32|e16|e32|le16|le32)\('))){
   $name=$f.Groups[2].Value;$count=if($f.Groups[1].Value -eq '15'){2}else{4}
@@ -25,11 +25,6 @@ function SimulationCopy([string]$path,[string]$dir){
    $offset=[int]$m.Groups[1].Value
    '{'+((($count-1)..0|ForEach-Object {$array+'['+($offset+$_)+']'}) -join ',')+'}'
   })
- }
- if([IO.Path]::GetFileName($path) -eq 'dmz_bmp_decoder.sv'){
-  $decl=[regex]::Match($text,'wire inside_x=[^;]+;').Value
-  if(!$decl){throw 'BMP compatibility rule no longer matches'}
-  $text=$text.Replace($decl,'').Replace('wire [15:0] sample565=',"$decl`nwire [15:0] sample565=")
  }
  if($text -eq $original){return $path}
  $copy=Join-Path $dir ([IO.Path]::GetFileName($path))

@@ -1,5 +1,5 @@
 `default_nettype none
-// dmz_audio_output owns this data/control path; clock/reset inputs are explicit.
+// Memory-domain PCM buffering, pixel-domain playback and final volume/mute.
 module dmz_audio_output(
     input wire pixel_clk,
     input wire mem_clk,
@@ -28,7 +28,13 @@ module dmz_audio_output(
 );
 import dmz_contract_pkg::*;
 wire signed [15:0] sample;wire [15:0] aw[1:0];
-dmz_tone tone(.clk(pixel_clk),.reset(pixel_reset),.mute(1'b0),.sample_ce(sample_ce),.sample(sample));
+dmz_tone tone(
+    .clk(pixel_clk),
+    .reset(pixel_reset),
+    .mute(1'b0),
+    .sample_ce(sample_ce),
+    .sample(sample)
+);
 wire audio_fifo_full,audio_fifo_empty;wire [31:0] audio_fifo_data;
 assign pcm_ready=!audio_fifo_full;
 
@@ -36,8 +42,19 @@ wire audio_pop=sample_ce&&wav_source&&!audio_paused&&!emergency&&audio_active&&!
 (* ASYNC_REG="TRUE" *) reg [1:0] audio_flush_sync;
 always @(posedge pixel_clk) if(base_pixel_reset) audio_flush_sync<=3;else audio_flush_sync<={audio_flush_sync[0],audio_flushing};
 wire audio_pixel_reset=pixel_reset||audio_flush_sync[1];
-dmz_pixel_fifo #(.AW(12)) audio_fifo(.wclk(mem_clk),.wreset(reset||audio_flushing),.wpush(pcm_valid&&pcm_ready),.wdata(pcm_pair),.full(audio_fifo_full),.used(audio_fifo_used),
- .rclk(pixel_clk),.rreset(audio_pixel_reset),.rpop(audio_pop),.rdata(audio_fifo_data),.empty(audio_fifo_empty));
+dmz_pixel_fifo #(.AW(12)) audio_fifo(
+    .wclk(mem_clk),
+    .wreset(reset||audio_flushing),
+    .wpush(pcm_valid&&pcm_ready),
+    .wdata(pcm_pair),
+    .full(audio_fifo_full),
+    .used(audio_fifo_used),
+    .rclk(pixel_clk),
+    .rreset(audio_pixel_reset),
+    .rpop(audio_pop),
+    .rdata(audio_fifo_data),
+    .empty(audio_fifo_empty)
+);
 wire prefilled=(audio_fifo_used>=AUDIO_PREFILL_WORDS)||(wav_done&&audio_fifo_used!=0);
 (* ASYNC_REG="TRUE" *) reg [1:0] prefill_sync,wav_sync,error_sync;
 

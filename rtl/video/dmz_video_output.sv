@@ -1,5 +1,5 @@
 `default_nettype none
-// dmz_video_output owns this data/control path; clock/reset inputs are explicit.
+// Pixel FIFO readout, picture adjustment, OSD and actual-output PCM visualization.
 module dmz_video_output(
     input wire pixel_clk,
     input wire mem_clk,
@@ -29,7 +29,7 @@ module dmz_video_output(
     input wire [9:0] y,
     input wire [3:0] volume,
     input wire [5:0] menu_query,
-    input wire [115:0] menu_snapshot,
+    input wire [dmz_contract_pkg::MENU_BITS-1:0] menu_snapshot,
     output wire fifo_full,
     output wire [11:0] fifo_used,
     output reg [23:0] rgb,
@@ -56,7 +56,19 @@ reg [1:0] dv,fail;
 always @(posedge pixel_clk) if(pixel_reset) begin dv<=0;fail<=0;end else begin dv<={dv[0],display_valid};fail<={fail[0],bist_done&&!bist_passed};end
 wire active=x<VIDEO_WIDTH&&y<VIDEO_HEIGHT;
 wire pop=active&&x[0]&&dv[1]&&!fr[2];
-dmz_pixel_fifo fifo(.wclk(mem_clk),.wreset(fifo_reset),.wpush(fifo_push),.wdata(fifo_in),.full(fifo_full),.used(fifo_used),.rclk(pixel_clk),.rreset(fr[2]),.rpop(pop),.rdata(fifo_out),.empty(fifo_empty));
+dmz_pixel_fifo fifo(
+    .wclk(mem_clk),
+    .wreset(fifo_reset),
+    .wpush(fifo_push),
+    .wdata(fifo_in),
+    .full(fifo_full),
+    .used(fifo_used),
+    .rclk(pixel_clk),
+    .rreset(fr[2]),
+    .rpop(pop),
+    .rdata(fifo_out),
+    .empty(fifo_empty)
+);
 reg [31:0] uf_gray;
 always @(posedge pixel_clk) begin
  if(pixel_reset) begin underflow<=0;uf_gray<=0;end
@@ -71,15 +83,55 @@ wire [15:0] p565=x[0]?fifo_out[31:16]:fifo_out[15:0];
 wire [23:0] base_rgb=fail[1]?24'hff0000:!dv[1]?(image_error!=0?24'hff8000:24'h000040):
  (fifo_empty||fr[2])?24'hff00ff:{p565[15:11],p565[15:13],p565[10:5],p565[10:9],p565[4:0],p565[4:2]};
 wire [3:0] brightness,contrast;wire [23:0] display_time,adjusted_rgb;
-dmz_display_control display_controls(.clk(pixel_clk),.reset(base_pixel_reset),.frame_tick(x==0&&y==VIDEO_HEIGHT),
- .command_valid(command_valid),.command_byte(command_byte),.brightness(brightness),.contrast(contrast),.time_bcd(display_time));
-dmz_picture_adjust adjust_picture(.rgb(base_rgb),.brightness(brightness),.contrast(contrast),.adjusted(adjusted_rgb));
+dmz_display_control display_controls(
+    .clk(pixel_clk),
+    .reset(base_pixel_reset),
+    .frame_tick(x==0&&y==VIDEO_HEIGHT),
+    .command_valid(command_valid),
+    .command_byte(command_byte),
+    .brightness(brightness),
+    .contrast(contrast),
+    .time_bcd(display_time)
+);
+dmz_picture_adjust adjust_picture(
+    .rgb(base_rgb),
+    .brightness(brightness),
+    .contrast(contrast),
+    .adjusted(adjusted_rgb)
+);
 wire osd_text,osd_shade;wire [23:0] osd_color;
-dmz_osd osd(.emergency(emergency),.visual_enabled(visual_enabled),.clk(pixel_clk),.reset(base_pixel_reset),.time_bcd(display_time),.brightness(brightness),.contrast(contrast),.x(x),.y(y),.menu_open(menu_open),.query(menu_query),
- .browse_tag(menu_tag),.browse_name(menu_name),.browse_valid(menu_valid),.catalog_ready(menu_ready),
- .image_count(menu_images),.displayed_image(menu_displayed),.wav_count(menu_wavs),.wav_index(menu_wav_index),.volume(volume),
- .audio_paused(audio_paused),.tone_muted(tone_muted),.wav_source(wav_source),.autoplay(autoplay),
- .sd_error(menu_sd_error),.image_error(menu_image_error),.wav_error(menu_wav_error),.text_on(osd_text),.shade_on(osd_shade),.color(osd_color));
+dmz_osd osd(
+    .emergency(emergency),
+    .visual_enabled(visual_enabled),
+    .clk(pixel_clk),
+    .reset(base_pixel_reset),
+    .time_bcd(display_time),
+    .brightness(brightness),
+    .contrast(contrast),
+    .x(x),
+    .y(y),
+    .menu_open(menu_open),
+    .query(menu_query),
+    .browse_tag(menu_tag),
+    .browse_name(menu_name),
+    .browse_valid(menu_valid),
+    .catalog_ready(menu_ready),
+    .image_count(menu_images),
+    .displayed_image(menu_displayed),
+    .wav_count(menu_wavs),
+    .wav_index(menu_wav_index),
+    .volume(volume),
+    .audio_paused(audio_paused),
+    .tone_muted(tone_muted),
+    .wav_source(wav_source),
+    .autoplay(autoplay),
+    .sd_error(menu_sd_error),
+    .image_error(menu_image_error),
+    .wav_error(menu_wav_error),
+    .text_on(osd_text),
+    .shade_on(osd_shade),
+    .color(osd_color)
+);
 always @(posedge pixel_clk) begin
  if(pixel_reset) rgb<=0;
  else if(osd_text) rgb<=osd_color;
@@ -88,9 +140,24 @@ always @(posedge pixel_clk) begin
  else if(osd_shade||visual_shade) rgb<={1'b0,adjusted_rgb[23:17],1'b0,adjusted_rgb[15:9],1'b0,adjusted_rgb[7:1]};
  else rgb<=adjusted_rgb;
 end
-dmz_audio_visual visualizer(.clk(pixel_clk),.reset(pixel_reset),.sample_ce(sample_ce),.frame_tick(x==0&&y==VIDEO_HEIGHT),
- .enabled(visual_enabled),.left(aw[0]),.right(aw[1]),.x(x),.y(y),.ink(visual_ink),.shade(visual_shade),.color(visual_color),
- .level_l(level_l),.level_r(level_r),.peak_l(peak_l),.peak_r(peak_r));
+dmz_audio_visual visualizer(
+    .clk(pixel_clk),
+    .reset(pixel_reset),
+    .sample_ce(sample_ce),
+    .frame_tick(x==0&&y==VIDEO_HEIGHT),
+    .enabled(visual_enabled),
+    .left(aw[0]),
+    .right(aw[1]),
+    .x(x),
+    .y(y),
+    .ink(visual_ink),
+    .shade(visual_shade),
+    .color(visual_color),
+    .level_l(level_l),
+    .level_r(level_r),
+    .peak_l(peak_l),
+    .peak_r(peak_r)
+);
 assign underflow_mem=fromgray(uf2);
 endmodule
 
