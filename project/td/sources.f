@@ -1,4 +1,15 @@
 rtl/common/dmz_contract_pkg.sv
+rtl/storage/dmz_mem_mux.sv
+rtl/storage/dmz_cfg_writer.sv
+rtl/control/dmz_scene_runtime.sv
+rtl/video/dmz_page_compositor.sv
+rtl/video/dmz_ui_overlay.sv
+rtl/audio/dmz_audio_completion.sv
+rtl/control/dmz_ui_keys.sv
+rtl/control/dmz_ui_controller.sv
+rtl/storage/dmz_scene_loader.sv
+rtl/storage/dmz_platform_boot.sv
+rtl/control/dmz_pair_control.sv
 rtl/storage/dmz_fat_catalog.sv
 rtl/storage/dmz_fat_stream.sv
 rtl/storage/dmz_sd_arbiter.sv
@@ -40,9 +51,5 @@ rtl/hdmi/packet_assembler.sv
 rtl/hdmi/packet_picker.sv
 rtl/hdmi/source_product_description_info_frame.sv
 rtl/hdmi/tmds_channel.sv
-rtl/audio/dmz_audio_output.sv
-rtl/video/dmz_video_output.sv
-rtl/control/dmz_control_subsystem.sv
-rtl/common/dmz_telemetry.sv
 constraints/dmz_track1.adc
 constraints/dmz_track1.sdc

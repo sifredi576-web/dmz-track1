@@ -1,5 +1,5 @@
 param(
- [ValidateSet('Status','M','U','B','S','R','Smoke','Soak','N','P','A','H','W','T','K','L','+','-','F','E','V','I','O','C','D','[',']','Q','X','Z')][string]$Command='Status',
+ [ValidateSet('Status','M','U','B','S','R','Smoke','Soak','N','P','A','H','W','J','T','K','L','+','-','F','E','V','I','O','C','D','[',']','Q','X','Z')][string]$Command='Status',
  [string]$Port='', [int]$Seconds=10, [int]$RestartCycles=3,
  [string]$Output='build/reports/system_hardware_status.json')
 $ErrorActionPreference='Stop'
@@ -28,14 +28,31 @@ function Read-Frame([int]$TimeoutSeconds=4){
  $deadline=$watch.Elapsed.TotalSeconds+$TimeoutSeconds
  while($watch.Elapsed.TotalSeconds -lt $deadline){
   try{$v=$serial.ReadByte();$bytes.Add([byte]$v)}catch [System.TimeoutException]{continue}
-  while($bytes.Count -ge 64){
+  while($bytes.Count -ge 32){
    if($bytes[0] -ne 0x54 -or $bytes[1] -ne 0x31 -or $bytes[2] -ne 0x53 -or $bytes[3] -ne 0x54){$bytes.RemoveAt(0);continue}
-   $version=$bytes[4];$frameBytes=if($version -eq 4){96}else{64}
+   $version=$bytes[4];$frameBytes=if($version -eq 5){32}elseif($version -eq 4){96}else{64}
    if($bytes.Count -lt $frameBytes){break}
    $a=$bytes.GetRange(0,$frameBytes).ToArray();[uint32[]]$w=0..($frameBytes/4-1) | ForEach-Object {[BitConverter]::ToUInt32($a,$_ * 4)}
    [uint32]$xor=0;foreach($word in $w){$xor=$xor -bxor $word}
    if($xor -ne 0){$bytes.RemoveAt(0);continue}
    $bytes.RemoveRange(0,$frameBytes)
+   if($version -eq 5){
+    $r=[pscustomobject][ordered]@{
+     time=(Get-Date).ToString('o');elapsed=$watch.Elapsed.TotalSeconds;version=5;compact=$true
+     init=[bool]($w[1]-band 256);bist_done=[bool]($w[1]-band 512);bist_passed=[bool]($w[1]-band 1024)
+     display_valid=[bool]($w[1]-band 2048);fifo_fault=[bool]($w[1]-band 8192);fb_fault=[bool]($w[1]-band 16384);pll_locked=[bool]($w[1]-band 32768)
+     audio_mode=($w[1]-shr 20)-band 3;tone_muted=[bool]($w[5]-band 4);audio_paused=[bool]($w[5]-band 8);volume=($w[5]-shr 4)-band 15
+     emergency=[bool]($w[5]-band 2);visual_enabled=[bool]($w[5]-band 1)
+     choice_valid=[bool]($w[2]-band 16);quiz=[bool]($w[2]-band 32);answered=[bool]($w[2]-band 64);correct=[bool]($w[2]-band 128);platform_active=[bool]($w[2]-band 1);page_loading=[bool]($w[2]-band 2);focus=($w[2]-shr 8)-band 7;current_page=($w[2]-shr 11)-band 31
+     page_count=($w[2]-shr 16)-band 63;score=($w[2]-shr 22)-band 15;total=($w[2]-shr 26)-band 15
+     platform_config_error=($w[3]-shr 8)-band 255;notice_priority=($w[3]-shr 16)-band 3
+     sd_error=($w[4]-shr 24)-band 255;image_error=($w[4]-shr 16)-band 255;wav_error=($w[4]-shr 8)-band 255
+     command_count=($w[5]-shr 16);last_command=($w[5]-shr 8)-band 255;menu_open=[bool]($w[6]-band 1)
+     image_count=($w[6]-shr 17)-band 63;displayed_image=($w[6]-shr 12)-band 31;wav_count=($w[6]-shr 27)-band 31;selected_wav=($w[6]-shr 23)-band 15
+     unavailable_counters=@('HDMI packet counters','FIFO occupancy','exact sample and sector counters')
+    }
+    $records.Add($r);return $r
+   }
    $r=[pscustomobject][ordered]@{
     time=(Get-Date).ToString('o');elapsed=$watch.Elapsed.TotalSeconds;version=($w[1]-band 255)
     init=[bool]($w[1]-band 256);bist_done=[bool]($w[1]-band 512);bist_passed=[bool]($w[1]-band 1024)
@@ -52,6 +69,7 @@ function Read-Frame([int]$TimeoutSeconds=4){
     audio_reads=$(if($version -eq 4){$w[20]}else{0});wav_bytes=$(if($version -eq 4){$w[21]}else{0})
     volume=$(if($version -eq 4){($w[22]-shr 4)-band 15}else{8});audio_paused=$(if($version -eq 4){[bool]($w[22]-band 8)}else{$false})
     emergency=$(if($version -eq 4){[bool]($w[22]-band 134217728)}else{$false});visual_enabled=$(if($version -eq 4){[bool]($w[22]-band 67108864)}else{$false});level_l=($w[14]-shr 4)-band 15;level_r=$w[14]-band 15
+    platform_config_found=$(if($version -eq 4){[bool]($w[22]-band 33554432)}else{$false});platform_config_valid=$(if($version -eq 4){[bool]($w[22]-band 16777216)}else{$false});platform_config_error=$(if($version -eq 4){($w[22]-shr 8)-band 7}else{0})
     menu_open=$(if($version -eq 4){[bool]($w[22]-band 4194304)}else{$false});menu_query=$(if($version -eq 4){($w[22]-shr 16)-band 63}else{0});wav_count=$(if($version -eq 4){($w[22]-shr 11)-band 31}else{0});selected_wav=$(if($version -eq 4){($w[22]-shr 28)-band 15}else{0})
     wav_source=$(if($version -eq 4){[bool]($w[22]-band 4)}else{$false});audio_active=$(if($version -eq 4){[bool]($w[22]-band 2)}else{$false})
    }
@@ -62,6 +80,11 @@ function Read-Frame([int]$TimeoutSeconds=4){
  throw "No valid T1ST diagnostic frame on $Port within $TimeoutSeconds seconds"
 }
 function Assert-Healthy($r,[bool]$Ready=$true){
+ if($r.version -eq 5){
+  if(!$r.pll_locked -or $r.fb_fault -or $r.fifo_fault -or $r.sd_error -or $r.image_error -or $r.wav_error -or $r.platform_config_error){throw 'Compact platform status reports an error'}
+  if($Ready -and (!$r.bist_passed -or !$r.display_valid)){throw 'Display is not ready'}
+  return
+ }
  if(!$r.pll_locked -or $r.bist_errors -or $r.underflow_pixels -or $r.fifo_fault -or $r.fb_fault -or $r.sd_error -or ($r.image_error -and !($r.version -ge 3 -and $r.display_valid))){throw ('Hardware fault: '+($r | ConvertTo-Json -Compress))}
  if($Ready -and (!$r.init -or !$r.bist_done -or !$r.bist_passed -or !$r.display_valid -or $r.checked_words -ne 8388608 -or $r.pixels -ne 307200)){throw 'Media pipeline not ready'}
  if($r.version -eq 4 -and $r.wav_source -and !$r.tone_muted -and !$r.audio_paused -and ($r.wav_error -or $r.audio_underflows)){throw ('WAV playback fault: '+($r | ConvertTo-Json -Compress))}
@@ -80,8 +103,8 @@ function Send-Mode([string]$Mode){
  $until=$watch.Elapsed.TotalSeconds+4
  do{
   $r=Read-Frame
-  if((($r.last_command -eq $payload[0]) -or ($Mode -eq 'E' -and ($r.last_command -ge 128 -or $r.last_command -eq 68)) -or ($Mode -eq 'I' -and $r.last_command -eq 91) -or ($Mode -eq 'O' -and $r.last_command -eq 93) -or ($Mode -eq 'V' -and $r.last_command -eq 67)) -and $r.command_count -ne $before.command_count){
-   $expected=@{M=2;U=1;B=3;S=0;R=$(if($before.version -eq 4){1}else{2});T=1;W=1}[$Mode]
+  if((($r.last_command -eq $payload[0]) -or ($Mode -eq 'E' -and ($r.last_command -ge 128 -or $r.last_command -in @(68,93,67,87,82,65))) -or ($Mode -eq 'I' -and $r.last_command -eq 91) -or ($Mode -eq 'O' -and $r.last_command -eq 93) -or ($Mode -eq 'V' -and $r.last_command -eq 67)) -and $r.command_count -ne $before.command_count){
+   $expected=@{M=2;U=1;B=3;S=0;R=$(if($before.version -ge 4){1}else{2});T=1;W=1}[$Mode]
    if($Mode -in @('M','U','B','S','R','T','W') -and $r.audio_mode -ne $expected){throw "Wrong mode acknowledgement for $Mode"}
    $checks.Add("command $Mode acknowledged ($($r.command_count))")
    return $r
@@ -90,22 +113,26 @@ function Send-Mode([string]$Mode){
  throw "No FPGA acknowledgement for command $Mode"
 }
 function Show-Frame($r){
+ if($r.version -eq 5){
+  Write-Host ('platform: page={0}/{1} focus={2} score={3}/{4} loading={5} volume={6}/8 paused={7} errors CFG/SD/BMP/WAV={8}/{9}/{10}/{11}' -f $r.current_page,$r.page_count,$r.focus,$r.score,$r.total,$r.page_loading,$r.volume,$r.audio_paused,$r.platform_config_error,$r.sd_error,$r.image_error,$r.wav_error)
+  return
+ }
  if($r.version -ge 3){Write-Host ('gallery: image={0}/{1} target={2} auto={3} loading={4} swaps={5}' -f ($r.displayed_image+1),$r.image_count,($r.selected_image+1),$r.autoplay,$r.gallery_loading,$r.swaps)}
  if($r.version -eq 4){Write-Host ('audio: WAV={0} active={1} paused={2} fifo={3} played={4} loops={5} error={6} underflow={7} volume={8}/8' -f $r.wav_found,$r.audio_active,$r.audio_paused,$r.audio_fifo_used,$r.played_pairs,$r.wav_loops,$r.wav_error,$r.audio_underflows,$r.volume)}
  $refresh=if($r.version -ge 3){'n/a'}else{$r.refresh_count}
  Write-Host ('{0:N1}s ready={1} muted={2} PCM={3} nonzero={4} refresh={5} errors={6}/{7}/{8} underrun={9}' -f $r.elapsed,$r.display_valid,$r.tone_muted,$r.pcm_packets,$r.nonzero_pcm_packets,$refresh,$r.bist_errors,$r.sd_error,$r.image_error,$r.underflow_pixels)
 }
-New-Item -ItemType Directory -Force (Join-Path $root "build/reports") | Out-Null
 Push-Location $root
 try {
  $serial.Open();$serial.DiscardInBuffer()
- $manual=$Command -in @('M','U','B','S','R','N','P','A','H','W','T','K','L','+','-','F','E','V','I','O','C','D','[',']','Q','X','Z')
+ $manual=$Command -in @('M','U','B','S','R','N','P','A','H','W','J','T','K','L','+','-','F','E','V','I','O','C','D','[',']','Q','X','Z')
  $first=if($manual){Read-Frame}else{Wait-Ready};Show-Frame $first
+ if($first.version -eq 5 -and $Command -eq 'Smoke'){throw 'Smoke requires FULL_TELEMETRY=1; production v5 exposes state/errors but not HDMI packet counters'}
  $checks.Add($(if($manual){'diagnostic link active; control is allowed even if the previous media has failed'}else{'SDRAM BIST, TF/BMP image and HDMI clock ready'}))
- if($Command -in @('M','U','B','S','R','N','P','A','H','W','T','K','L','+','-','F','E','V','I','O','C','D','[',']','Q','X','Z')){
+ if($Command -in @('M','U','B','S','R','N','P','A','H','W','J','T','K','L','+','-','F','E','V','I','O','C','D','[',']','Q','X','Z')){
   $r=Send-Mode $Command
   if($Command -eq 'R'){$r=Wait-Ready}
-  if($Command -in @('R','W','U','T','A','L')){Assert-Healthy $r};Show-Frame $r
+  if($Command -in @('R','W','J','U','T','A','L')){Assert-Healthy $r};Show-Frame $r
  }elseif($Command -eq 'Smoke'){
   $r=Send-Mode 'M';$null=Read-Frame;$a=Read-Frame;$b=Read-Frame
   if(!$a.tone_muted -or !$b.tone_muted -or $a.nonzero_pcm_packets -ne $b.nonzero_pcm_packets){throw 'Mute did not stop nonzero audio packets'}
@@ -129,8 +156,9 @@ try {
    if($Command -eq 'Soak' -and $r.version -lt 4 -and !$r.tone_muted){throw 'Soak must remain muted'}
    if($watch.Elapsed.TotalSeconds -ge $nextPrint){Show-Frame $r;$nextPrint=$watch.Elapsed.TotalSeconds+30}
   }while($watch.Elapsed.TotalSeconds -lt $until)
-  if($r.samples -le $start.samples -or $r.pcm_packets -le $start.pcm_packets -or ($r.version -eq 2 -and $r.refresh_count -le $start.refresh_count)){throw 'Live audio/SDRAM counters stopped'}
-  $checks.Add("$Command observed for $Seconds seconds: no hardware error, live audio counters (v2 also checks refresh)")
+  if($r.version -ne 5 -and ($r.samples -le $start.samples -or $r.pcm_packets -le $start.pcm_packets -or ($r.version -eq 2 -and $r.refresh_count -le $start.refresh_count))){throw 'Live audio/SDRAM counters stopped'}
+  if($r.version -eq 5){$checks.Add("$Command observed for $Seconds seconds: production state/error checks; packet/sample counters unavailable")}
+  else{$checks.Add("$Command observed for $Seconds seconds: no hardware error, live audio counters (v2 also checks refresh)")}
  }
  $report.passed=$true
  Write-Host ('PASS '+($checks -join '; '))

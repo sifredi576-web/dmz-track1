@@ -20,22 +20,21 @@
 | docs/verification/history | 筛选保留的39份原始证据，不作日常操作入口 |
 | releases/p7_20261028 | 唯一保留的已验证发布包，5个文件保持原内容 |
 
+新增平台细节见[迁移记录](MAIN_MIGRATION.md)与[平台协议](PLATFORM_RUNTIME.md)。运行时/UI调度位于control，配置解析/写入/仲裁位于storage，页面静态合成与动态叠加位于video，实际播放完成位于audio；rtl/platform继续保留器件资源封装。
+
 数据链路：TF→SD读卡/仲裁→FAT目录与文件流；图片→BMP缩放→SDRAM双帧→擦除/参数/OSD→HDMI；WAV→音频FIFO/音量→HDMI与PCM可视化。板载控制和UART共用命令入口。
 
 ## 当前模块边界
 
 | 模块 | 职责 |
 |---|---|
-| dmz_track1_top | 板级连接、时钟/复位、SDRAM与帧缓存连接、共享状态CDC、HDMI连接 |
-| dmz_control_subsystem | 按键/UART仲裁、文件菜单、播放与应急控制 |
-| dmz_media_pipeline | FAT目录、文件流、图片/WAV播放与读卡仲裁；原dmz_media_storage从storage迁至control并更名 |
-| dmz_audio_output | 音频FIFO、预填充/欠载处理、音源选择、音量/静音，输出最终双声道PCM |
-| dmz_video_output | 像素FIFO、RGB转换、画面参数、OSD与PCM可视化叠加 |
-| dmz_telemetry | 内存/音频状态打包、96字节v4串口状态帧与校验 |
+| dmz_track1_top | 上游整机连接、时钟/复位、输出组合、共享CDC和v4/v5状态打包 |
+| dmz_media_pipeline | FAT目录、图片/WAV播放、配置运行时及读卡仲裁；原dmz_media_storage更名 |
+| video下各模块 | BMP解码/缩放、帧缓存、显示参数、OSD、页面合成与动态控件 |
+| audio下各模块 | WAV解析/播放、播放完成、提示音与PCM可视化 |
+| control下各模块 | 按键/UART命令、文件菜单、播放/应急控制及课程运行时 |
 
-命令字节、菜单/状态位偏移及固定媒体参数统一在`rtl/common/dmz_contract_pkg.sv`；菜单、内存和音频快照的生产端与使用端按同一组字段名定位。总线宽度和状态帧长度由包中的定义引用。包排在sources.f首项；修改命令或字段先改这里，再核对生产端和使用端；改变显示规格还需要调整解码、帧缓存和HDMI时序，不能只改常量。最终PCM同时送HDMI和可视化。共享状态CDC留在顶层，因为控制、显示和诊断都要使用；诊断模块不拥有跨时钟桥。
-
-本次保留原算法、复位条件和流水周期；实例路径因模块拆分而变化。引脚/时钟约束未改，未引入新时钟域或新协议版本。
+2026-11-02撤回额外的音频、视频、控制和诊断四层封装，避免本版TD综合面积增加。功能模块和目录分类保留；顶层采用main 28298f7的原始连接与逻辑，仅将dmz_media_storage更名为dmz_media_pipeline。最终PCM仍同时送HDMI与可视化，跨时钟与诊断模式保持上游实现。dmz_contract_pkg保留为旧共享定义，当前上游迁入代码并未全面引用它，修改其中常量不会自动修改整机行为。
 
 保持25MHz像素、125MHz串行、50MHz内存域；两帧RGB565字节基址为0和0x100000。完整后台帧才允许提交/转场，音频低水位优先读卡。硬件SDRAM读等待为1，理想引脚模型使用2，两者不能混用。
 

@@ -1,5 +1,12 @@
 # DMZ FPGA 多媒体展示系统
 
+当前zyr已迁入main 28298f7的可配置交互平台及优化，保留目录和单工程整理，顶层已恢复上游连接方式。课程、控件、计分与通知由TF配置驱动；本轮尚未上板。
+
+- [本轮迁移与验证边界](docs/MAIN_MIGRATION.md)
+- [平台使用与协议](docs/PLATFORM_RUNTIME.md)
+- [当前平台键位](docs/PLATFORM_KEYS.md)
+
+
 硬件：DMZ_EG4S20 / EG4S20BG256。当前已集成TF图片/WAV、板载菜单、字幕、图像参数、等比缩放、擦除转场、实际PCM可视化及应急模式。
 
 - **TD唯一正式工程**：[project/td/dmz_track1.al](project/td/dmz_track1.al)

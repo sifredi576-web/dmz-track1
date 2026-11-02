@@ -6,7 +6,6 @@ module dmz_gallery_control #(parameter integer HOLD_CYCLES=250000000)(
  input loader_busy,input [7:0] loader_error,input [31:0] swaps,
  output reg select_request,output reg [4:0] requested_index,
  output reg autoplay,loading,output reg [4:0] displayed_index);
-import dmz_contract_pkg::*;
 reg [31:0] last_swaps,timer;
 reg [1:0] pending;
 reg [4:0] direct_index;
@@ -25,11 +24,11 @@ always @(posedge clk) begin
    select_request<=1;loading<=1;pending<=0;timer<=0;
   end
   if(command_valid) case(command_byte)
-   CMD_NEXT,CMD_NEXT_LOWER:begin pending<=1;autoplay<=0;end
-   CMD_PREVIOUS,CMD_PREVIOUS_LOWER:begin pending<=2;autoplay<=0;end
-   CMD_AUTO,CMD_AUTO_LOWER:begin autoplay<=1;timer<=0;end
-   CMD_PAUSE,CMD_PAUSE_LOWER,CMD_MENU,CMD_MENU_LOWER:begin autoplay<=0;pending<=0;timer<=0;end
-   default:if(command_byte[7:5]==IMAGE_COMMAND_PREFIX&&{1'b0,command_byte[4:0]}<file_count) begin
+   "N","n":begin pending<=1;autoplay<=0;end
+   "P","p":begin pending<=2;autoplay<=0;end
+   "A","a":begin autoplay<=1;timer<=0;end
+   "H","h","F","f":begin autoplay<=0;pending<=0;timer<=0;end
+   default:if(command_byte[7:5]==3'b100&&{1'b0,command_byte[4:0]}<file_count) begin
     pending<=3;direct_index<=command_byte[4:0];autoplay<=0;
    end
   endcase

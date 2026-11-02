@@ -1,17 +1,17 @@
 module dmz_display_control #(parameter integer SECOND_CYCLES=25000000)(
  input clk,reset,frame_tick,command_valid,input [7:0] command_byte,
  output reg [3:0] brightness,contrast,output reg [23:0] time_bcd);
-import dmz_contract_pkg::*;
 reg [24:0] ticks;reg [3:0] wanted_b,wanted_c;
 always @(posedge clk) begin
  if(reset) begin ticks<=0;time_bcd<=0;wanted_b<=4;wanted_c<=4;brightness<=4;contrast<=4;end
  else begin
   if(frame_tick) begin brightness<=wanted_b;contrast<=wanted_c;end
   if(command_valid) case(command_byte)
-   CMD_BRIGHTNESS_DOWN:if(wanted_b!=0) wanted_b<=wanted_b-1'b1;
-   CMD_BRIGHTNESS_UP:if(wanted_b<8) wanted_b<=wanted_b+1'b1;
-   CMD_CONTRAST:wanted_c<=wanted_c==8?0:wanted_c+1'b1;
-   CMD_PICTURE_DEFAULT:begin wanted_b<=4;wanted_c<=4;end
+   "[":if(wanted_b!=0) wanted_b<=wanted_b-1'b1;
+   "]":if(wanted_b<8) wanted_b<=wanted_b+1'b1;
+   "c":wanted_c<=wanted_c==0?8:wanted_c-1'b1;
+   "C":wanted_c<=wanted_c==8?0:wanted_c+1'b1;
+   "D":begin wanted_b<=4;wanted_c<=4;end
    default:begin end
   endcase
   if(ticks==SECOND_CYCLES-1) begin

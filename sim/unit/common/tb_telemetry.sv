@@ -1,286 +1,403 @@
 `timescale 1ns/1ps
-`default_nettype none
 module tb_telemetry;
-reg catalog_ready;
-reg gallery_loading;
+reg audio_active;
+reg [12:0] audio_fifo_used;
+reg [1:0] audio_mode;
+reg audio_paused;
+reg [31:0] audio_reads;
+reg [63:0] audio_snapshot;
+reg [31:0] audio_underflows;
 reg autoplay;
+reg base_pixel_reset;
+reg beep_phase;
+reg bist_done;
+reg bist_passed;
+reg catalog_ready;
+reg [31:0] checked;
+reg [15:0] command_count;
+reg [7:0] compact_flags2;
+reg [31:0] dbg_acr_packets;
+reg [19:0] dbg_cts;
+reg [31:0] dbg_nonzero_packets;
+reg [31:0] dbg_pcm_packets;
+reg [31:0] dbg_samples;
+reg [31:0] declared_pairs;
+reg [31:0] decoded_pairs;
 reg display_valid;
+reg [4:0] displayed_image;
+reg emergency;
+reg emergency_audio;
+reg [31:0] errors;
 reg fb_fault;
 reg front_bank;
-reg bist_passed;
-reg bist_done;
-reg init_done;
-reg sd_initialized;
-reg wav_found;
-reg pixel_clk;
-reg base_pixel_reset;
-reg switch_continuous;
-reg beep_phase;
-reg switch_mute;
-reg tone_muted;
-reg locked;
-reg emergency;
-reg visual_enabled;
-reg menu_ready;
-reg menu_open;
-reg audio_paused;
-reg wav_source;
-reg audio_active;
-reg [31:0] wav_bytes;
-reg [31:0] audio_reads;
-reg [31:0] image_reads;
-reg [31:0] wav_loops;
-reg [31:0] decoded_pairs;
-reg [31:0] swaps;
-reg [31:0] checked;
-reg [31:0] image_pixels;
-reg [31:0] errors;
-reg [31:0] refreshes;
-reg [31:0] sd_sectors;
-reg [31:0] underflow_mem;
-reg [31:0] declared_pairs;
-reg [31:0] dbg_samples;
-reg [31:0] dbg_pcm_packets;
-reg [31:0] dbg_nonzero_packets;
-reg [31:0] dbg_acr_packets;
-reg [31:0] underflow;
-reg [31:0] audio_underflows;
-reg [31:0] played_pairs;
-reg [7:0] sd_error;
+reg gallery_loading;
+reg [5:0] image_count;
 reg [7:0] image_error;
-reg [7:0] sd_status;
+reg [31:0] image_pixels;
+reg [31:0] image_reads;
 reg [7:0] image_status;
-reg [7:0] wav_error;
-reg [7:0] wav_status;
+reg init_done;
 reg [7:0] last_command;
-reg [4:0] displayed_image;
-reg [4:0] selected_image;
-reg [4:0] menu_wavs;
 reg [4:0] level_l;
 reg [4:0] level_r;
-reg [5:0] image_count;
+reg locked;
+reg [447:0] mem_snapshot;
+reg [4:0] menu_displayed;
+reg [7:0] menu_image_error;
+reg [5:0] menu_images;
+reg menu_open;
 reg [5:0] menu_query;
-reg [3:0] volume;
+reg menu_ready;
+reg [7:0] menu_sd_error;
+reg [7:0] menu_wav_error;
 reg [3:0] menu_wav_index;
-reg [12:0] audio_fifo_used;
-reg [19:0] dbg_cts;
-reg [15:0] command_count;
-reg [1:0] audio_mode;
-reg [dmz_contract_pkg::MEM_BITS-1:0] mem_snapshot;
-reg [dmz_contract_pkg::AUDIO_BITS-1:0] audio_snapshot;
-wire [447:0] mem_status;
-wire [63:0] audio_status;
-wire uart_tx;
-dmz_telemetry dut(
-    .catalog_ready(catalog_ready),
-    .gallery_loading(gallery_loading),
-    .autoplay(autoplay),
-    .display_valid(display_valid),
-    .fb_fault(fb_fault),
-    .front_bank(front_bank),
-    .bist_passed(bist_passed),
-    .bist_done(bist_done),
-    .init_done(init_done),
-    .sd_initialized(sd_initialized),
-    .wav_found(wav_found),
-    .pixel_clk(pixel_clk),
-    .base_pixel_reset(base_pixel_reset),
-    .switch_continuous(switch_continuous),
-    .beep_phase(beep_phase),
-    .switch_mute(switch_mute),
-    .tone_muted(tone_muted),
-    .locked(locked),
-    .emergency(emergency),
-    .visual_enabled(visual_enabled),
-    .menu_ready(menu_ready),
-    .menu_open(menu_open),
-    .audio_paused(audio_paused),
-    .wav_source(wav_source),
-    .audio_active(audio_active),
-    .wav_bytes(wav_bytes),
-    .audio_reads(audio_reads),
-    .image_reads(image_reads),
-    .wav_loops(wav_loops),
-    .decoded_pairs(decoded_pairs),
-    .swaps(swaps),
-    .checked(checked),
-    .image_pixels(image_pixels),
-    .errors(errors),
-    .refreshes(refreshes),
-    .sd_sectors(sd_sectors),
-    .underflow_mem(underflow_mem),
-    .declared_pairs(declared_pairs),
-    .dbg_samples(dbg_samples),
-    .dbg_pcm_packets(dbg_pcm_packets),
-    .dbg_nonzero_packets(dbg_nonzero_packets),
-    .dbg_acr_packets(dbg_acr_packets),
-    .underflow(underflow),
-    .audio_underflows(audio_underflows),
-    .played_pairs(played_pairs),
-    .sd_error(sd_error),
-    .image_error(image_error),
-    .sd_status(sd_status),
-    .image_status(image_status),
-    .wav_error(wav_error),
-    .wav_status(wav_status),
-    .last_command(last_command),
-    .displayed_image(displayed_image),
-    .selected_image(selected_image),
-    .menu_wavs(menu_wavs),
-    .level_l(level_l),
-    .level_r(level_r),
-    .image_count(image_count),
-    .menu_query(menu_query),
-    .volume(volume),
-    .menu_wav_index(menu_wav_index),
-    .audio_fifo_used(audio_fifo_used),
-    .dbg_cts(dbg_cts),
-    .command_count(command_count),
-    .audio_mode(audio_mode),
-    .mem_snapshot(mem_snapshot),
-    .audio_snapshot(audio_snapshot),
-    .mem_status(mem_status), .audio_status(audio_status), .uart_tx(uart_tx)
-);
-reg [447:0] expected_mem;
-reg [63:0] expected_audio;
-reg [31:0] expected[0:23];
-reg [7:0] flags;
-integer trial, k;
-integer seed=32'h45ab67cd;
+reg [4:0] menu_wavs;
+reg pixel_clk;
+reg [7:0] platform_error;
+reg platform_found;
+reg platform_ready;
+reg [31:0] played_pairs;
+reg [31:0] refreshes;
+reg [7:0] sd_error;
+reg sd_initialized;
+reg [31:0] sd_sectors;
+reg [7:0] sd_status;
+reg [4:0] selected_image;
+reg [31:0] swaps;
+reg switch_continuous;
+reg switch_mute;
+reg tone_muted;
+reg [159:0] ui_pixel;
+reg [31:0] underflow;
+reg [31:0] underflow_mem;
+reg visual_enabled;
+reg [3:0] volume;
+reg [31:0] wav_bytes;
+reg [7:0] wav_error;
+reg wav_found;
+reg [31:0] wav_loops;
+reg wav_source;
+reg [7:0] wav_status;
+wire [447:0] mem_status;wire [63:0] audio_status;wire uart_tx;
+// Exercise packet fields in the actual production top, in both protocol modes.
+dmz_track1_top #(.FULL_TELEMETRY(1)) dut(.clk_50m(1'b0),.run_n(1'b0),.mute_switch(1'b0),.pattern_switch(1'b0),.uart_rx(1'b1),.emergency_switch(1'b0),.visual_hide_switch(1'b0),.key_col(4'hf));
+dmz_track1_top #(.FULL_TELEMETRY(0)) production(.clk_50m(1'b0),.run_n(1'b0),.mute_switch(1'b0),.pattern_switch(1'b0),.uart_rx(1'b1),.emergency_switch(1'b0),.visual_hide_switch(1'b0),.key_col(4'hf));
+assign mem_status=dut.mem_status;assign audio_status=dut.audio_status;assign uart_tx=dut.uart_tx;
 initial begin
-    catalog_ready=0;
-    gallery_loading=0;
-    autoplay=0;
-    display_valid=0;
-    fb_fault=0;
-    front_bank=0;
-    bist_passed=0;
-    bist_done=0;
-    init_done=0;
-    sd_initialized=0;
-    wav_found=0;
-    pixel_clk=0;
-    base_pixel_reset=0;
-    switch_continuous=0;
-    beep_phase=0;
-    switch_mute=0;
-    tone_muted=0;
-    locked=0;
-    emergency=0;
-    visual_enabled=0;
-    menu_ready=0;
-    menu_open=0;
-    audio_paused=0;
-    wav_source=0;
-    audio_active=0;
-    wav_bytes=0;
-    audio_reads=0;
-    image_reads=0;
-    wav_loops=0;
-    decoded_pairs=0;
-    swaps=0;
-    checked=0;
-    image_pixels=0;
-    errors=0;
-    refreshes=0;
-    sd_sectors=0;
-    underflow_mem=0;
-    declared_pairs=0;
-    dbg_samples=0;
-    dbg_pcm_packets=0;
-    dbg_nonzero_packets=0;
-    dbg_acr_packets=0;
-    underflow=0;
-    audio_underflows=0;
-    played_pairs=0;
-    sd_error=0;
-    image_error=0;
-    sd_status=0;
-    image_status=0;
-    wav_error=0;
-    wav_status=0;
-    last_command=0;
-    displayed_image=0;
-    selected_image=0;
-    menu_wavs=0;
-    level_l=0;
-    level_r=0;
-    image_count=0;
-    menu_query=0;
-    volume=0;
-    menu_wav_index=0;
-    audio_fifo_used=0;
-    dbg_cts=0;
-    command_count=0;
-    audio_mode=0;
-    mem_snapshot=0;
-    audio_snapshot=0;
-    for(trial=0; trial<128; trial=trial+1) begin
-        catalog_ready=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        gallery_loading=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        autoplay=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        display_valid=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        fb_fault=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        front_bank=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        bist_passed=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        bist_done=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        init_done=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        sd_initialized=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        wav_found=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        switch_continuous=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        beep_phase=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        switch_mute=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        tone_muted=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        locked=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        emergency=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        visual_enabled=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        menu_ready=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        menu_open=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        audio_paused=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        wav_source=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        audio_active=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        wav_bytes=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        audio_reads=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        image_reads=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        wav_loops=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        decoded_pairs=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        swaps=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        checked=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        image_pixels=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        errors=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        refreshes=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        sd_sectors=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        underflow_mem=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        declared_pairs=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        dbg_samples=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        dbg_pcm_packets=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        dbg_nonzero_packets=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        dbg_acr_packets=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        underflow=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        audio_underflows=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        played_pairs=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        sd_error=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        image_error=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        sd_status=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        image_status=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        wav_error=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        wav_status=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        last_command=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        displayed_image=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        selected_image=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        menu_wavs=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        level_l=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        level_r=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        image_count=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        menu_query=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        volume=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        menu_wav_index=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        audio_fifo_used=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        dbg_cts=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        command_count=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        audio_mode=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        for(k=0;k<14;k=k+1) mem_snapshot[32*k+:32]=trial==0 ? 0 : trial==1 ? '1 : $random(seed);
-        audio_snapshot=trial==0 ? 0 : trial==1 ? '1 : {$random(seed),$random(seed)};
+ force dut.audio_active=audio_active;
+ force dut.audio_fifo_used=audio_fifo_used;
+ force dut.audio_mode=audio_mode;
+ force dut.audio_paused=audio_paused;
+ force dut.audio_reads=audio_reads;
+ force dut.audio_snapshot=audio_snapshot;
+ force dut.audio_underflows=audio_underflows;
+ force dut.autoplay=autoplay;
+ force dut.base_pixel_reset=base_pixel_reset;
+ force dut.beep_phase=beep_phase;
+ force dut.bist_done=bist_done;
+ force dut.bist_passed=bist_passed;
+ force dut.catalog_ready=catalog_ready;
+ force dut.checked=checked;
+ force dut.command_count=command_count;
+ force dut.compact_flags2=compact_flags2;
+ force dut.dbg_acr_packets=dbg_acr_packets;
+ force dut.dbg_cts=dbg_cts;
+ force dut.dbg_nonzero_packets=dbg_nonzero_packets;
+ force dut.dbg_pcm_packets=dbg_pcm_packets;
+ force dut.dbg_samples=dbg_samples;
+ force dut.declared_pairs=declared_pairs;
+ force dut.decoded_pairs=decoded_pairs;
+ force dut.display_valid=display_valid;
+ force dut.displayed_image=displayed_image;
+ force dut.emergency=emergency;
+ force dut.emergency_audio=emergency_audio;
+ force dut.errors=errors;
+ force dut.fb_fault=fb_fault;
+ force dut.front_bank=front_bank;
+ force dut.gallery_loading=gallery_loading;
+ force dut.image_count=image_count;
+ force dut.image_error=image_error;
+ force dut.image_pixels=image_pixels;
+ force dut.image_reads=image_reads;
+ force dut.image_status=image_status;
+ force dut.init_done=init_done;
+ force dut.last_command=last_command;
+ force dut.level_l=level_l;
+ force dut.level_r=level_r;
+ force dut.locked=locked;
+ force dut.mem_snapshot=mem_snapshot;
+ force dut.menu_displayed=menu_displayed;
+ force dut.menu_image_error=menu_image_error;
+ force dut.menu_images=menu_images;
+ force dut.menu_open=menu_open;
+ force dut.menu_query=menu_query;
+ force dut.menu_ready=menu_ready;
+ force dut.menu_sd_error=menu_sd_error;
+ force dut.menu_wav_error=menu_wav_error;
+ force dut.menu_wav_index=menu_wav_index;
+ force dut.menu_wavs=menu_wavs;
+ force dut.pixel_clk=pixel_clk;
+ force dut.platform_error=platform_error;
+ force dut.platform_found=platform_found;
+ force dut.platform_ready=platform_ready;
+ force dut.played_pairs=played_pairs;
+ force dut.refreshes=refreshes;
+ force dut.sd_error=sd_error;
+ force dut.sd_initialized=sd_initialized;
+ force dut.sd_sectors=sd_sectors;
+ force dut.sd_status=sd_status;
+ force dut.selected_image=selected_image;
+ force dut.swaps=swaps;
+ force dut.switch_continuous=switch_continuous;
+ force dut.switch_mute=switch_mute;
+ force dut.tone_muted=tone_muted;
+ force dut.ui_pixel=ui_pixel;
+ force dut.underflow=underflow;
+ force dut.underflow_mem=underflow_mem;
+ force dut.visual_enabled=visual_enabled;
+ force dut.volume=volume;
+ force dut.wav_bytes=wav_bytes;
+ force dut.wav_error=wav_error;
+ force dut.wav_found=wav_found;
+ force dut.wav_loops=wav_loops;
+ force dut.wav_source=wav_source;
+ force dut.wav_status=wav_status;
+ force production.audio_active=audio_active;
+ force production.audio_fifo_used=audio_fifo_used;
+ force production.audio_mode=audio_mode;
+ force production.audio_paused=audio_paused;
+ force production.audio_reads=audio_reads;
+ force production.audio_snapshot=audio_snapshot;
+ force production.audio_underflows=audio_underflows;
+ force production.autoplay=autoplay;
+ force production.base_pixel_reset=base_pixel_reset;
+ force production.beep_phase=beep_phase;
+ force production.bist_done=bist_done;
+ force production.bist_passed=bist_passed;
+ force production.catalog_ready=catalog_ready;
+ force production.checked=checked;
+ force production.command_count=command_count;
+ force production.compact_flags2=compact_flags2;
+ force production.dbg_acr_packets=dbg_acr_packets;
+ force production.dbg_cts=dbg_cts;
+ force production.dbg_nonzero_packets=dbg_nonzero_packets;
+ force production.dbg_pcm_packets=dbg_pcm_packets;
+ force production.dbg_samples=dbg_samples;
+ force production.declared_pairs=declared_pairs;
+ force production.decoded_pairs=decoded_pairs;
+ force production.display_valid=display_valid;
+ force production.displayed_image=displayed_image;
+ force production.emergency=emergency;
+ force production.emergency_audio=emergency_audio;
+ force production.errors=errors;
+ force production.fb_fault=fb_fault;
+ force production.front_bank=front_bank;
+ force production.gallery_loading=gallery_loading;
+ force production.image_count=image_count;
+ force production.image_error=image_error;
+ force production.image_pixels=image_pixels;
+ force production.image_reads=image_reads;
+ force production.image_status=image_status;
+ force production.init_done=init_done;
+ force production.last_command=last_command;
+ force production.level_l=level_l;
+ force production.level_r=level_r;
+ force production.locked=locked;
+ force production.mem_snapshot=mem_snapshot;
+ force production.menu_displayed=menu_displayed;
+ force production.menu_image_error=menu_image_error;
+ force production.menu_images=menu_images;
+ force production.menu_open=menu_open;
+ force production.menu_query=menu_query;
+ force production.menu_ready=menu_ready;
+ force production.menu_sd_error=menu_sd_error;
+ force production.menu_wav_error=menu_wav_error;
+ force production.menu_wav_index=menu_wav_index;
+ force production.menu_wavs=menu_wavs;
+ force production.pixel_clk=pixel_clk;
+ force production.platform_error=platform_error;
+ force production.platform_found=platform_found;
+ force production.platform_ready=platform_ready;
+ force production.played_pairs=played_pairs;
+ force production.refreshes=refreshes;
+ force production.sd_error=sd_error;
+ force production.sd_initialized=sd_initialized;
+ force production.sd_sectors=sd_sectors;
+ force production.sd_status=sd_status;
+ force production.selected_image=selected_image;
+ force production.swaps=swaps;
+ force production.switch_continuous=switch_continuous;
+ force production.switch_mute=switch_mute;
+ force production.tone_muted=tone_muted;
+ force production.ui_pixel=ui_pixel;
+ force production.underflow=underflow;
+ force production.underflow_mem=underflow_mem;
+ force production.visual_enabled=visual_enabled;
+ force production.volume=volume;
+ force production.wav_bytes=wav_bytes;
+ force production.wav_error=wav_error;
+ force production.wav_found=wav_found;
+ force production.wav_loops=wav_loops;
+ force production.wav_source=wav_source;
+ force production.wav_status=wav_status;
+end
+reg [447:0] expected_mem;reg [63:0] expected_audio;reg [31:0] expected[0:23],compact[0:7];reg [7:0] flags;integer trial,k;integer seed=32'h45ab67cd;
+initial begin
+audio_active=0;
+audio_fifo_used=0;
+audio_mode=0;
+audio_paused=0;
+audio_reads=0;
+audio_snapshot=0;
+audio_underflows=0;
+autoplay=0;
+base_pixel_reset=0;
+beep_phase=0;
+bist_done=0;
+bist_passed=0;
+catalog_ready=0;
+checked=0;
+command_count=0;
+compact_flags2=0;
+dbg_acr_packets=0;
+dbg_cts=0;
+dbg_nonzero_packets=0;
+dbg_pcm_packets=0;
+dbg_samples=0;
+declared_pairs=0;
+decoded_pairs=0;
+display_valid=0;
+displayed_image=0;
+emergency=0;
+emergency_audio=0;
+errors=0;
+fb_fault=0;
+front_bank=0;
+gallery_loading=0;
+image_count=0;
+image_error=0;
+image_pixels=0;
+image_reads=0;
+image_status=0;
+init_done=0;
+last_command=0;
+level_l=0;
+level_r=0;
+locked=0;
+mem_snapshot=0;
+menu_displayed=0;
+menu_image_error=0;
+menu_images=0;
+menu_open=0;
+menu_query=0;
+menu_ready=0;
+menu_sd_error=0;
+menu_wav_error=0;
+menu_wav_index=0;
+menu_wavs=0;
+pixel_clk=0;
+platform_error=0;
+platform_found=0;
+platform_ready=0;
+played_pairs=0;
+refreshes=0;
+sd_error=0;
+sd_initialized=0;
+sd_sectors=0;
+sd_status=0;
+selected_image=0;
+swaps=0;
+switch_continuous=0;
+switch_mute=0;
+tone_muted=0;
+ui_pixel=0;
+underflow=0;
+underflow_mem=0;
+visual_enabled=0;
+volume=0;
+wav_bytes=0;
+wav_error=0;
+wav_found=0;
+wav_loops=0;
+wav_source=0;
+wav_status=0;
+for(trial=0;trial<128;trial=trial+1)begin
+audio_active=trial==0?0:trial==1?'1:$random(seed);
+audio_fifo_used=trial==0?0:trial==1?'1:$random(seed);
+audio_mode=trial==0?0:trial==1?'1:$random(seed);
+audio_paused=trial==0?0:trial==1?'1:$random(seed);
+audio_reads=trial==0?0:trial==1?'1:$random(seed);
+for(k=0;k<2;k=k+1) audio_snapshot[32*k+:32]=trial==0?0:trial==1?'1:$random(seed);
+audio_underflows=trial==0?0:trial==1?'1:$random(seed);
+autoplay=trial==0?0:trial==1?'1:$random(seed);
+beep_phase=trial==0?0:trial==1?'1:$random(seed);
+bist_done=trial==0?0:trial==1?'1:$random(seed);
+bist_passed=trial==0?0:trial==1?'1:$random(seed);
+catalog_ready=trial==0?0:trial==1?'1:$random(seed);
+checked=trial==0?0:trial==1?'1:$random(seed);
+command_count=trial==0?0:trial==1?'1:$random(seed);
+compact_flags2=trial==0?0:trial==1?'1:$random(seed);
+dbg_acr_packets=trial==0?0:trial==1?'1:$random(seed);
+dbg_cts=trial==0?0:trial==1?'1:$random(seed);
+dbg_nonzero_packets=trial==0?0:trial==1?'1:$random(seed);
+dbg_pcm_packets=trial==0?0:trial==1?'1:$random(seed);
+dbg_samples=trial==0?0:trial==1?'1:$random(seed);
+declared_pairs=trial==0?0:trial==1?'1:$random(seed);
+decoded_pairs=trial==0?0:trial==1?'1:$random(seed);
+display_valid=trial==0?0:trial==1?'1:$random(seed);
+displayed_image=trial==0?0:trial==1?'1:$random(seed);
+emergency=trial==0?0:trial==1?'1:$random(seed);
+emergency_audio=trial==0?0:trial==1?'1:$random(seed);
+errors=trial==0?0:trial==1?'1:$random(seed);
+fb_fault=trial==0?0:trial==1?'1:$random(seed);
+front_bank=trial==0?0:trial==1?'1:$random(seed);
+gallery_loading=trial==0?0:trial==1?'1:$random(seed);
+image_count=trial==0?0:trial==1?'1:$random(seed);
+image_error=trial==0?0:trial==1?'1:$random(seed);
+image_pixels=trial==0?0:trial==1?'1:$random(seed);
+image_reads=trial==0?0:trial==1?'1:$random(seed);
+image_status=trial==0?0:trial==1?'1:$random(seed);
+init_done=trial==0?0:trial==1?'1:$random(seed);
+last_command=trial==0?0:trial==1?'1:$random(seed);
+level_l=trial==0?0:trial==1?'1:$random(seed);
+level_r=trial==0?0:trial==1?'1:$random(seed);
+locked=trial==0?0:trial==1?'1:$random(seed);
+for(k=0;k<14;k=k+1) mem_snapshot[32*k+:32]=trial==0?0:trial==1?'1:$random(seed);
+menu_displayed=trial==0?0:trial==1?'1:$random(seed);
+menu_image_error=trial==0?0:trial==1?'1:$random(seed);
+menu_images=trial==0?0:trial==1?'1:$random(seed);
+menu_open=trial==0?0:trial==1?'1:$random(seed);
+menu_query=trial==0?0:trial==1?'1:$random(seed);
+menu_ready=trial==0?0:trial==1?'1:$random(seed);
+menu_sd_error=trial==0?0:trial==1?'1:$random(seed);
+menu_wav_error=trial==0?0:trial==1?'1:$random(seed);
+menu_wav_index=trial==0?0:trial==1?'1:$random(seed);
+menu_wavs=trial==0?0:trial==1?'1:$random(seed);
+platform_error=trial==0?0:trial==1?'1:$random(seed);
+platform_found=trial==0?0:trial==1?'1:$random(seed);
+platform_ready=trial==0?0:trial==1?'1:$random(seed);
+played_pairs=trial==0?0:trial==1?'1:$random(seed);
+refreshes=trial==0?0:trial==1?'1:$random(seed);
+sd_error=trial==0?0:trial==1?'1:$random(seed);
+sd_initialized=trial==0?0:trial==1?'1:$random(seed);
+sd_sectors=trial==0?0:trial==1?'1:$random(seed);
+sd_status=trial==0?0:trial==1?'1:$random(seed);
+selected_image=trial==0?0:trial==1?'1:$random(seed);
+swaps=trial==0?0:trial==1?'1:$random(seed);
+switch_continuous=trial==0?0:trial==1?'1:$random(seed);
+switch_mute=trial==0?0:trial==1?'1:$random(seed);
+tone_muted=trial==0?0:trial==1?'1:$random(seed);
+for(k=0;k<5;k=k+1) ui_pixel[32*k+:32]=trial==0?0:trial==1?'1:$random(seed);
+underflow=trial==0?0:trial==1?'1:$random(seed);
+underflow_mem=trial==0?0:trial==1?'1:$random(seed);
+visual_enabled=trial==0?0:trial==1?'1:$random(seed);
+volume=trial==0?0:trial==1?'1:$random(seed);
+wav_bytes=trial==0?0:trial==1?'1:$random(seed);
+wav_error=trial==0?0:trial==1?'1:$random(seed);
+wav_found=trial==0?0:trial==1?'1:$random(seed);
+wav_loops=trial==0?0:trial==1?'1:$random(seed);
+wav_source=trial==0?0:trial==1?'1:$random(seed);
+wav_status=trial==0?0:trial==1?'1:$random(seed);
         #1;
         expected_mem={wav_bytes,audio_reads,image_reads,wav_loops,decoded_pairs,
             swaps[12:0],catalog_ready,gallery_loading,autoplay,displayed_image,selected_image,image_count,
@@ -302,15 +419,21 @@ initial begin
         expected[15]=audio_underflows; expected[16]=played_pairs; expected[17]=mem_snapshot[319:288];
         expected[18]=mem_snapshot[351:320]; expected[19]=audio_snapshot[31:0];
         expected[20]=mem_snapshot[415:384]; expected[21]=mem_snapshot[447:416];
-        expected[22]={menu_wav_index,emergency,visual_enabled,2'd0,menu_ready,menu_open,
-            menu_query,menu_wavs,3'd0,volume,audio_paused,wav_source,audio_active,1'b0};
+        expected[22]={menu_wav_index,emergency,visual_enabled,platform_found,platform_ready,menu_ready,menu_open,
+            menu_query,menu_wavs,platform_error[2:0],volume,audio_paused,wav_source,audio_active,1'b0};
         expected[23]=0;
         for(k=0;k<23;k=k+1) expected[23]=expected[23]^expected[k];
         for(k=0;k<24;k=k+1)
             if(dut.status[32*k+:32]!==expected[k]) $fatal(1,"v4 packet trial %0d word %0d",trial,k);
+        compact[0]=32'h54533154;
+        compact[1]={10'd0,audio_mode,switch_continuous,beep_phase,switch_mute,tone_muted,
+            locked,compact_flags2[7],(underflow!=0),compact_flags2[5],compact_flags2[4],compact_flags2[3],compact_flags2[2],compact_flags2[1],8'd5};
+        compact[2]=ui_pixel[31:0];compact[3]=ui_pixel[159:128];
+        compact[4]={menu_sd_error,menu_image_error,menu_wav_error,8'd0};
+        compact[5]={command_count,last_command,volume,audio_paused,tone_muted,emergency_audio,visual_enabled};
+        compact[6]={menu_wavs,menu_wav_index,menu_images,menu_displayed,ui_pixel[21:16],ui_pixel[15:11],menu_open};
+        compact[7]=0;for(k=0;k<7;k=k+1)compact[7]=compact[7]^compact[k];
+        for(k=0;k<8;k=k+1)if(production.compact_status[32*k+:32]!==compact[k])$fatal(1,"v5 packet mismatch trial %0d word %0d",trial,k);
     end
-    $display("PASS telemetry: 128 seeded vectors, complete memory/audio snapshots and all 24 v4 packet words");
-    $finish;
-end
-endmodule
-`default_nettype wire
+
+$display("PASS v4/v5 telemetry: 128 vectors, all snapshot and packet fields/checksums");$finish;end endmodule

@@ -36,11 +36,18 @@ always @* begin
  default:begin end
  endcase
 end
+always @(posedge clk)begin
+ if(!reset)begin
+  if(state==IDLE&&req_ready&&req_valid)write_data<=req_wdata;
+  else if(state==WRITE||state==WDATA)write_data<={32'd0,write_data[255:32]};
+  if(state==RDATA)rsp_rdata<={dq_capture,rsp_rdata[255:32]};
+ end
+end
 always @(posedge clk) begin
  if(reset) begin
   state<=POWER;wait_count<=INIT_CYCLES-1;refresh_age<=0;init_refresh<=0;
-  init_done<=0;refresh_count<=0;rsp_valid<=0;rsp_rdata<=0;beat<=0;
-  transaction_addr<=0;transaction_write<=0;write_data<=0;
+  init_done<=0;refresh_count<=0;rsp_valid<=0;beat<=0;
+  transaction_addr<=0;transaction_write<=0;
  end else begin
   rsp_valid<=0;
   if(init_done && refresh_age!=65535) refresh_age<=refresh_age+1'b1;
@@ -54,18 +61,18 @@ always @(posedge clk) begin
   MRWAIT:if(wait_count==0) begin state<=IDLE;init_done<=1;refresh_age<=0;end else wait_count<=wait_count-1'b1;
   IDLE:begin
    if(refresh_age>=REFRESH_CYCLES) state<=REFRESH;
-   else if(req_valid) begin transaction_addr<=req_addr;transaction_write<=req_write;write_data<=req_wdata;state<=ACT;end
+   else if(req_valid) begin transaction_addr<=req_addr;transaction_write<=req_write;state<=ACT;end
   end
   ACT:begin state<=RCD;wait_count<=1;end
   RCD:if(wait_count==0) begin beat<=0;if(transaction_write) state<=WRITE;else state<=READ;end else wait_count<=wait_count-1'b1;
   READ:begin state<=RWAIT;wait_count<=READ_WAIT_CYCLES;end
   RWAIT:if(wait_count==0) state<=RDATA;else wait_count<=wait_count-1'b1;
   RDATA:begin
-   rsp_rdata[beat*32+:32]<=dq_capture;
+
    if(beat==7) begin state<=RECOVER;wait_count<=3;end else beat<=beat+1'b1;
   end
-  WRITE:begin state<=WDATA;beat<=1;write_data<={32'd0,write_data[255:32]};end
-  WDATA:begin write_data<={32'd0,write_data[255:32]};if(beat==7) begin state<=RECOVER;wait_count<=3;end else beat<=beat+1'b1;end
+  WRITE:begin state<=WDATA;beat<=1;end
+  WDATA:begin if(beat==7) begin state<=RECOVER;wait_count<=3;end else beat<=beat+1'b1;end
   RECOVER:if(wait_count==0) begin state<=IDLE;rsp_valid<=1;end else wait_count<=wait_count-1'b1;
   REFRESH:begin state<=RFWAIT;wait_count<=3;refresh_age<=0;refresh_count<=refresh_count+1'b1;end
   RFWAIT:if(wait_count==0) state<=IDLE;else wait_count<=wait_count-1'b1;

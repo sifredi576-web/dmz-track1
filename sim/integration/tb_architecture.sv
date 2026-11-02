@@ -1,20 +1,19 @@
 `timescale 1ns/1ps
-module tb_architecture;
+module tb_architecture #(parameter FULL_TELEMETRY=0);
 reg refclk=0,run_n=0,rx=1,em=0,hide=0,ms=0,ps=0;
 always #10 refclk=~refclk;
 wire [3:0] row_a,row_b;wire [7:0] leds_a,leds_b;
 wire clk_a,a0,a1,a2,tx_a,cs_a,sck_a,mosi_a;
 wire clk_b,b0,b1,b2,tx_b,cs_b,sck_b,mosi_b;
-dmz_reference_top golden(.clk_50m(refclk),.run_n(run_n),.mute_switch(ms),.pattern_switch(ps),.uart_rx(rx),
+dmz_reference_top #(.FULL_TELEMETRY(FULL_TELEMETRY)) golden(.clk_50m(refclk),.run_n(run_n),.mute_switch(ms),.pattern_switch(ps),.uart_rx(rx),
  .emergency_switch(em),.visual_hide_switch(hide),.key_col(4'hf),.key_row(row_a),.SD_CS(cs_a),.SD_SCK(sck_a),.SD_MOSI(mosi_a),.SD_MISO(1'b1),
  .uart_tx(tx_a),.leds(leds_a),.HDMI_CLK_P(clk_a),.HDMI_D0_P(a0),.HDMI_D1_P(a1),.HDMI_D2_P(a2));
-dmz_track1_top dut(.clk_50m(refclk),.run_n(run_n),.mute_switch(ms),.pattern_switch(ps),.uart_rx(rx),
+dmz_track1_top #(.FULL_TELEMETRY(FULL_TELEMETRY)) dut(.clk_50m(refclk),.run_n(run_n),.mute_switch(ms),.pattern_switch(ps),.uart_rx(rx),
  .emergency_switch(em),.visual_hide_switch(hide),.key_col(4'hf),.key_row(row_b),.SD_CS(cs_b),.SD_SCK(sck_b),.SD_MOSI(mosi_b),.SD_MISO(1'b1),
  .uart_tx(tx_b),.leds(leds_b),.HDMI_CLK_P(clk_b),.HDMI_D0_P(b0),.HDMI_D1_P(b1),.HDMI_D2_P(b2));
 // Speed up only telemetry capture, identically in both designs.
-defparam golden.telemetry.PERIOD=128;
-defparam dut.diagnostics.telemetry.PERIOD=128;
-reg [9:0] sx=0,sy=0;reg push=0,flush=0;reg [31:0] data=0;
+// Telemetry period is shortened equally in both simulation copies by the runner.
+reg [9:0] sx=0,sy=0;reg push=0,flush=0;reg [31:0] data=0;reg [159:0] ui_model=0;reg [41:0] params_model=0;
 integer memory_cycles=0,pixels=0,bits=0;
 always @(negedge refclk) begin
  memory_cycles=memory_cycles+1;push=memory_cycles%4==0;
@@ -25,12 +24,12 @@ always @(negedge dut.pixel_clk) begin
  else begin sx=10'((pixels*13)%640);sy=10'((pixels*17)%480);end
  #1;
  if(run_n&&!dut.base_pixel_reset&&pixels>128) begin
-  if((^dut.rgb===1'bx)||(^dut.pcm_output===1'bx)) $fatal(1,"Unknown output after initialization");
+  if((^dut.rgb===1'bx)||(^{dut.aw[1],dut.aw[0]}===1'bx)) $fatal(1,"Unknown output after initialization");
   if(dut.rgb!==golden.rgb) $fatal(1,"RGB mismatch at %0d new=%h old=%h",pixels,dut.rgb,golden.rgb);
   if({dut.aw[1],dut.aw[0]}!=={golden.aw[1],golden.aw[0]}) $fatal(1,"PCM mismatch at %0d",pixels);
   if({dut.command_valid,dut.command_byte,dut.restart,dut.volume,dut.menu_open,dut.menu_query,dut.emergency,dut.visual_enabled}!==
      {golden.command_valid,golden.command_byte,golden.restart,golden.volume,golden.menu_open,golden.menu_query,golden.emergency,golden.visual_enabled}) $fatal(1,"Control mismatch");
-  if(dut.diagnostics.status!==golden.status) $fatal(1,"Telemetry word mismatch at %0d",pixels);
+  if(dut.status!==golden.status||dut.compact_status!==golden.compact_status) $fatal(1,"Telemetry word mismatch at %0d",pixels);
   if({tx_a,row_a,leds_a}!=={tx_b,row_b,leds_b}) $fatal(1,"Board output mismatch");
  end
  pixels=pixels+1;
@@ -48,6 +47,8 @@ task send(input [7:0] ch);
  end
 endtask
 initial begin
+ force golden.ui_status=ui_model;force dut.ui_status=ui_model;
+ force golden.audio_params=params_model;force dut.audio_params=params_model;
  force golden.x=sx;force dut.x=sx;force golden.y=sy;force dut.y=sy;
  force golden.fifo_push=push;force dut.fifo_push=push;
  force golden.fifo_in=data;force dut.fifo_in=data;
@@ -66,10 +67,11 @@ initial begin
  em=1;repeat(300) @(negedge dut.pixel_clk);send("M");send("U");em=0;
  send("T");send("W");send("F");send("O");send("V");send("E");send("F");
  send("]");send("C");send("D");hide=1;repeat(300) @(negedge dut.pixel_clk);hide=0;
+ ui_model[0]=1;ui_model[2]=1;params_model={8'd1,1'b1,1'b0,32'd32};
  flush=1;repeat(20) @(negedge dut.pixel_clk);flush=0;send("Q");send("X");send("Z");send("Z");send("R");
  repeat(27000) @(negedge dut.pixel_clk);
  if(bits<100000||dut.command_count<15) $fatal(1,"Insufficient stimulus");
- $display("PASS architecture comparison: %0d pixel cycles, %0d TMDS symbols, RGB/PCM/control/96-byte telemetry unchanged",pixels,bits);$finish;
+ $display("PASS architecture comparison: %0d pixel cycles, %0d TMDS symbols, RGB/PCM/control/v4/v5 telemetry unchanged",pixels,bits);$finish;
 end
 initial begin #10000000;$fatal(1,"Architecture timeout");end
 endmodule

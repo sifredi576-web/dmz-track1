@@ -28,19 +28,26 @@ function automatic [7:0] disk(input integer l,input integer i);
   disk=0;slot=i/32;j=i%32;
   if(slot<3) begin
    if(j<8) disk=(slot==0?64'h2020202020414349:slot==1?64'h2020202020444142:64'h2020202020424349)>>(j*8);
+   if($test$plusargs("paired")&&slot==1&&j<8) disk=64'h2020202020414349>>(j*8);
    if(j==8) disk=slot==1?"W":"B";if(j==9) disk=slot==1?"A":"M";if(j==10) disk=slot==1?"V":"P";if(j==11) disk=32;
    if(slot==1&&j==8&&$test$plusargs("nowav")) disk="T";
-   if(slot!=1&&j==8&&$test$plusargs("nobmp")) disk="T";
    if(j==26) disk=8'(slot==0?3:slot==1?wav_start:second_start);
    if(j==27) disk=8'((slot==0?3:slot==1?wav_start:second_start)>>8);
    if(j>=28) disk=(slot==1?32'd16428:32'(bmp_bytes))>>((j-28)*8);
   end
   if(slot==3&&$test$plusargs("multiwav")) begin
-   if(j<8) disk=64'h202020324f4d4544>>(j*8);
+   if(j<8) disk=($test$plusargs("paired")?64'h2020202020424349:64'h202020324f4d4544)>>(j*8);
    if(j==8) disk="W";if(j==9) disk="A";if(j==10) disk="V";if(j==11) disk=32;
    if(j==26) disk=8'(wav_start+16);if(j==27) disk=8'((wav_start+16)>>8);
    if(j>=28) disk=32'd16428>>((j-28)*8);
   end
+ end
+ if($test$plusargs("platform")&&l==root_lba&&i/32==3) begin
+  j=i%32;disk=0;
+  if(j<11)disk=88'h4e4942202020454e454353>>(j*8);
+  if(j==11)disk=32;
+  if(j==26)disk=8'(2003);if(j==27)disk=8'(2003>>8);
+  if(j>=28)disk=32'd3424>>((j-28)*8);
  end
  if(l>=base_lba+second_delta&&l<base_lba+wav_delta) begin
   shifted=l-second_delta;disk=basic_disk(shifted+part,i);c=(shifted-base_lba)/8;ofs=(c/2)*4096+((shifted-base_lba)%8)*512+i;
@@ -67,6 +74,11 @@ function automatic [7:0] disk(input integer l,input integer i);
    if(ofs>=44) begin value=audio_expected((ofs-44)/4);if(c>=wav_start+16) value=value^32'h00ff00ff;disk=value[((ofs-44)%4)*8+:8];end
   end
  end
+ end
+ if($test$plusargs("platform")&&l>=base_lba+(2003-3)*8&&l<base_lba+(2003-3)*8+7) begin
+  ofs=(l-base_lba-(2003-3)*8)*512+i;
+  disk=ofs<3424?config_image[ofs]:0;
+  if($test$plusargs("configcrcerror")&&ofs==100) disk=disk^1;
  end
  end
 endfunction

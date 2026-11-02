@@ -34,7 +34,8 @@ initial begin
  send("-");if(volume!=7) $fatal(1,"volume decrease");send("+");if(volume!=8) $fatal(1,"volume increase");
  send("H");if(!audio_paused) $fatal(1,"linked pause");send("A");if(audio_paused) $fatal(1,"linked resume");
  send("T");if(wav_source||muted||count!=13) $fatal(1,"tone selection/ack count");
- $display("PASS serial control/CDC, WAV/tone selection, volume, independent and linked pause/resume, registered restart");$finish;
+ send("M");send("K");send("J");if(!muted||audio_paused||!wav_source||last!="J"||count!=16)$fatal(1,"Replay must resume without unmuting");
+ $display("PASS replay preserves mute; serial control/CDC, WAV/tone selection, volume, independent and linked pause/resume, registered restart");$finish;
 end
 initial begin #5000000;$fatal(1,"control test timeout");end
 endmodule

@@ -221,6 +221,17 @@
     "top": "tb_media",
     "sources": [
       "rtl/common/dmz_contract_pkg.sv",
+      "rtl/storage/dmz_mem_mux.sv",
+      "rtl/storage/dmz_cfg_writer.sv",
+      "rtl/control/dmz_scene_runtime.sv",
+      "rtl/video/dmz_page_compositor.sv",
+      "rtl/video/dmz_ui_overlay.sv",
+      "rtl/audio/dmz_audio_completion.sv",
+      "rtl/control/dmz_ui_keys.sv",
+      "rtl/control/dmz_ui_controller.sv",
+      "rtl/storage/dmz_scene_loader.sv",
+      "rtl/storage/dmz_platform_boot.sv",
+      "rtl/control/dmz_pair_control.sv",
       "rtl/storage/dmz_fat_catalog.sv",
       "rtl/storage/dmz_fat_stream.sv",
       "rtl/storage/dmz_sd_arbiter.sv",
@@ -230,6 +241,36 @@
       "rtl/audio/dmz_wav_decoder.sv",
       "rtl/audio/dmz_wav_player.sv",
       "rtl/control/dmz_media_pipeline.sv",
+      "rtl/storage/dmz_sdram_ctrl.sv",
+      "rtl/storage/dmz_sdram_bist.sv",
+      "rtl/common/dmz_pixel_fifo.sv",
+      "rtl/common/dmz_status_uart.sv",
+      "rtl/video/dmz_image_framebuffer.sv",
+      "rtl/control/dmz_matrix_keys.sv",
+      "rtl/control/dmz_board_commands.sv",
+      "rtl/control/dmz_file_menu.sv",
+      "rtl/video/dmz_osd.sv",
+      "rtl/control/dmz_scene_control.sv",
+      "rtl/audio/dmz_audio_visual.sv",
+      "rtl/video/dmz_display_control.sv",
+      "rtl/video/dmz_picture_adjust.sv",
+      "rtl/common/dmz_uart_rx.sv",
+      "rtl/control/dmz_media_control.sv",
+      "rtl/control/dmz_gallery_control.sv",
+      "rtl/common/dmz_status_cdc.sv",
+      "rtl/storage/dmz_sd_reader.sv",
+      "rtl/storage/dmz_spi_byte.sv",
+      "rtl/hdmi/serializer.sv",
+      "rtl/audio/dmz_tone.sv",
+      "rtl/hdmi/audio_clock_regeneration_packet.sv",
+      "rtl/hdmi/audio_info_frame.sv",
+      "rtl/hdmi/audio_sample_packet.sv",
+      "rtl/hdmi/auxiliary_video_information_info_frame.sv",
+      "rtl/hdmi/hdmi.sv",
+      "rtl/hdmi/packet_assembler.sv",
+      "rtl/hdmi/packet_picker.sv",
+      "rtl/hdmi/source_product_description_info_frame.sv",
+      "rtl/hdmi/tmds_channel.sv",
       "sim/integration/media/tb_media.sv"
     ],
     "cases": [
@@ -352,6 +393,17 @@
     "top": "tb_architecture",
     "sources": [
       "rtl/common/dmz_contract_pkg.sv",
+      "rtl/storage/dmz_mem_mux.sv",
+      "rtl/storage/dmz_cfg_writer.sv",
+      "rtl/control/dmz_scene_runtime.sv",
+      "rtl/video/dmz_page_compositor.sv",
+      "rtl/video/dmz_ui_overlay.sv",
+      "rtl/audio/dmz_audio_completion.sv",
+      "rtl/control/dmz_ui_keys.sv",
+      "rtl/control/dmz_ui_controller.sv",
+      "rtl/storage/dmz_scene_loader.sv",
+      "rtl/storage/dmz_platform_boot.sv",
+      "rtl/control/dmz_pair_control.sv",
       "rtl/storage/dmz_fat_catalog.sv",
       "rtl/storage/dmz_fat_stream.sv",
       "rtl/storage/dmz_sd_arbiter.sv",
@@ -392,10 +444,6 @@
       "rtl/hdmi/packet_picker.sv",
       "rtl/hdmi/source_product_description_info_frame.sv",
       "rtl/hdmi/tmds_channel.sv",
-      "rtl/audio/dmz_audio_output.sv",
-      "rtl/video/dmz_video_output.sv",
-      "rtl/control/dmz_control_subsystem.sv",
-      "rtl/common/dmz_telemetry.sv",
       "sim/models/oddr_model.sv",
       "sim/models/board_resources.sv",
       "build/architecture/reference_top.sv",
@@ -414,9 +462,296 @@
     "top": "tb_telemetry",
     "sources": [
       "rtl/common/dmz_contract_pkg.sv",
+      "rtl/storage/dmz_mem_mux.sv",
+      "rtl/storage/dmz_cfg_writer.sv",
+      "rtl/control/dmz_scene_runtime.sv",
+      "rtl/video/dmz_page_compositor.sv",
+      "rtl/video/dmz_ui_overlay.sv",
+      "rtl/audio/dmz_audio_completion.sv",
+      "rtl/control/dmz_ui_keys.sv",
+      "rtl/control/dmz_ui_controller.sv",
+      "rtl/storage/dmz_scene_loader.sv",
+      "rtl/storage/dmz_platform_boot.sv",
+      "rtl/control/dmz_pair_control.sv",
+      "rtl/storage/dmz_fat_catalog.sv",
+      "rtl/storage/dmz_fat_stream.sv",
+      "rtl/storage/dmz_sd_arbiter.sv",
+      "rtl/common/dmz_udiv32.sv",
+      "rtl/video/dmz_bmp_decoder.sv",
+      "rtl/video/dmz_image_player.sv",
+      "rtl/audio/dmz_wav_decoder.sv",
+      "rtl/audio/dmz_wav_player.sv",
+      "rtl/control/dmz_media_pipeline.sv",
+      "rtl/storage/dmz_sdram_ctrl.sv",
+      "rtl/storage/dmz_sdram_bist.sv",
+      "rtl/common/dmz_pixel_fifo.sv",
       "rtl/common/dmz_status_uart.sv",
-      "rtl/common/dmz_telemetry.sv",
+      "rtl/video/dmz_image_framebuffer.sv",
+      "rtl/top/dmz_track1_top.sv",
+      "rtl/control/dmz_matrix_keys.sv",
+      "rtl/control/dmz_board_commands.sv",
+      "rtl/control/dmz_file_menu.sv",
+      "rtl/video/dmz_osd.sv",
+      "rtl/control/dmz_scene_control.sv",
+      "rtl/audio/dmz_audio_visual.sv",
+      "rtl/video/dmz_display_control.sv",
+      "rtl/video/dmz_picture_adjust.sv",
+      "rtl/common/dmz_uart_rx.sv",
+      "rtl/control/dmz_media_control.sv",
+      "rtl/control/dmz_gallery_control.sv",
+      "rtl/common/dmz_status_cdc.sv",
+      "rtl/storage/dmz_sd_reader.sv",
+      "rtl/storage/dmz_spi_byte.sv",
+      "rtl/hdmi/serializer.sv",
+      "rtl/audio/dmz_tone.sv",
+      "rtl/hdmi/audio_clock_regeneration_packet.sv",
+      "rtl/hdmi/audio_info_frame.sv",
+      "rtl/hdmi/audio_sample_packet.sv",
+      "rtl/hdmi/auxiliary_video_information_info_frame.sv",
+      "rtl/hdmi/hdmi.sv",
+      "rtl/hdmi/packet_assembler.sv",
+      "rtl/hdmi/packet_picker.sv",
+      "rtl/hdmi/source_product_description_info_frame.sv",
+      "rtl/hdmi/tmds_channel.sv",
+      "sim/models/oddr_model.sv",
+      "sim/models/board_resources.sv",
       "sim/unit/common/tb_telemetry.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "scene_loader": {
+    "top": "tb_scene_loader",
+    "sources": [
+      "rtl/storage/dmz_scene_loader.sv",
+      "sim/integration/platform/tb_scene_loader.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "scene_runtime": {
+    "top": "tb_scene_runtime",
+    "sources": [
+      "rtl/storage/dmz_scene_loader.sv",
+      "rtl/storage/dmz_cfg_writer.sv",
+      "rtl/storage/dmz_mem_mux.sv",
+      "rtl/control/dmz_ui_controller.sv",
+      "rtl/control/dmz_scene_runtime.sv",
+      "sim/integration/platform/tb_scene_runtime.sv"
+    ],
+    "cases": [
+      [],
+      [
+        "+notice"
+      ],
+      [
+        "+badmeta"
+      ],
+      [
+        "+badwidget"
+      ],
+      [
+        "+badcrc"
+      ]
+    ]
+  },
+  "page_compositor": {
+    "top": "tb_page_compositor",
+    "sources": [
+      "rtl/video/dmz_page_compositor.sv",
+      "sim/integration/platform/tb_page_compositor.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "audio_completion": {
+    "top": "tb_audio_completion",
+    "sources": [
+      "rtl/audio/dmz_audio_completion.sv",
+      "sim/integration/platform/tb_audio_completion.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "fifo_recode": {
+    "top": "tb_fifo_recode",
+    "sources": [
+      "rtl/common/dmz_pixel_fifo.sv",
+      "sim/integration/platform/tb_fifo_recode.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "ui_controller": {
+    "top": "tb_ui_controller",
+    "sources": [
+      "rtl/control/dmz_ui_controller.sv",
+      "sim/integration/platform/tb_ui_controller.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "ui_keys": {
+    "top": "tb_ui_keys",
+    "sources": [
+      "rtl/control/dmz_ui_keys.sv",
+      "sim/integration/platform/tb_ui_keys.sv"
+    ],
+    "cases": [
+      []
+    ]
+  },
+  "architecture_full": {
+    "top": "tb_architecture",
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/storage/dmz_mem_mux.sv",
+      "rtl/storage/dmz_cfg_writer.sv",
+      "rtl/control/dmz_scene_runtime.sv",
+      "rtl/video/dmz_page_compositor.sv",
+      "rtl/video/dmz_ui_overlay.sv",
+      "rtl/audio/dmz_audio_completion.sv",
+      "rtl/control/dmz_ui_keys.sv",
+      "rtl/control/dmz_ui_controller.sv",
+      "rtl/storage/dmz_scene_loader.sv",
+      "rtl/storage/dmz_platform_boot.sv",
+      "rtl/control/dmz_pair_control.sv",
+      "rtl/storage/dmz_fat_catalog.sv",
+      "rtl/storage/dmz_fat_stream.sv",
+      "rtl/storage/dmz_sd_arbiter.sv",
+      "rtl/common/dmz_udiv32.sv",
+      "rtl/video/dmz_bmp_decoder.sv",
+      "rtl/video/dmz_image_player.sv",
+      "rtl/audio/dmz_wav_decoder.sv",
+      "rtl/audio/dmz_wav_player.sv",
+      "rtl/control/dmz_media_pipeline.sv",
+      "rtl/storage/dmz_sdram_ctrl.sv",
+      "rtl/storage/dmz_sdram_bist.sv",
+      "rtl/common/dmz_pixel_fifo.sv",
+      "rtl/common/dmz_status_uart.sv",
+      "rtl/video/dmz_image_framebuffer.sv",
+      "rtl/top/dmz_track1_top.sv",
+      "rtl/control/dmz_matrix_keys.sv",
+      "rtl/control/dmz_board_commands.sv",
+      "rtl/control/dmz_file_menu.sv",
+      "rtl/video/dmz_osd.sv",
+      "rtl/control/dmz_scene_control.sv",
+      "rtl/audio/dmz_audio_visual.sv",
+      "rtl/video/dmz_display_control.sv",
+      "rtl/video/dmz_picture_adjust.sv",
+      "rtl/common/dmz_uart_rx.sv",
+      "rtl/control/dmz_media_control.sv",
+      "rtl/control/dmz_gallery_control.sv",
+      "rtl/common/dmz_status_cdc.sv",
+      "rtl/storage/dmz_sd_reader.sv",
+      "rtl/storage/dmz_spi_byte.sv",
+      "rtl/hdmi/serializer.sv",
+      "rtl/audio/dmz_tone.sv",
+      "rtl/hdmi/audio_clock_regeneration_packet.sv",
+      "rtl/hdmi/audio_info_frame.sv",
+      "rtl/hdmi/audio_sample_packet.sv",
+      "rtl/hdmi/auxiliary_video_information_info_frame.sv",
+      "rtl/hdmi/hdmi.sv",
+      "rtl/hdmi/packet_assembler.sv",
+      "rtl/hdmi/packet_picker.sv",
+      "rtl/hdmi/source_product_description_info_frame.sv",
+      "rtl/hdmi/tmds_channel.sv",
+      "sim/models/oddr_model.sv",
+      "sim/models/board_resources.sv",
+      "build/architecture/reference_top.sv",
+      "sim/integration/tb_architecture.sv"
+    ],
+    "cases": [
+      []
+    ],
+    "manual": true,
+    "simulator": "ModelSim",
+    "generated_sources": [
+      "build/architecture/reference_top.sv"
+    ],
+    "parameters": "-gFULL_TELEMETRY=1"
+  },
+  "platform_media": {
+    "top": "tb_platform_media",
+    "simulator": "ModelSim",
+    "dpi": true,
+    "sources": [
+      "rtl/common/dmz_contract_pkg.sv",
+      "rtl/storage/dmz_mem_mux.sv",
+      "rtl/storage/dmz_cfg_writer.sv",
+      "rtl/control/dmz_scene_runtime.sv",
+      "rtl/video/dmz_page_compositor.sv",
+      "rtl/video/dmz_ui_overlay.sv",
+      "rtl/audio/dmz_audio_completion.sv",
+      "rtl/control/dmz_ui_keys.sv",
+      "rtl/control/dmz_ui_controller.sv",
+      "rtl/storage/dmz_scene_loader.sv",
+      "rtl/storage/dmz_platform_boot.sv",
+      "rtl/control/dmz_pair_control.sv",
+      "rtl/storage/dmz_fat_catalog.sv",
+      "rtl/storage/dmz_fat_stream.sv",
+      "rtl/storage/dmz_sd_arbiter.sv",
+      "rtl/common/dmz_udiv32.sv",
+      "rtl/video/dmz_bmp_decoder.sv",
+      "rtl/video/dmz_image_player.sv",
+      "rtl/audio/dmz_wav_decoder.sv",
+      "rtl/audio/dmz_wav_player.sv",
+      "rtl/control/dmz_media_pipeline.sv",
+      "rtl/storage/dmz_sdram_ctrl.sv",
+      "rtl/storage/dmz_sdram_bist.sv",
+      "rtl/common/dmz_pixel_fifo.sv",
+      "rtl/common/dmz_status_uart.sv",
+      "rtl/video/dmz_image_framebuffer.sv",
+      "rtl/control/dmz_matrix_keys.sv",
+      "rtl/control/dmz_board_commands.sv",
+      "rtl/control/dmz_file_menu.sv",
+      "rtl/video/dmz_osd.sv",
+      "rtl/control/dmz_scene_control.sv",
+      "rtl/audio/dmz_audio_visual.sv",
+      "rtl/video/dmz_display_control.sv",
+      "rtl/video/dmz_picture_adjust.sv",
+      "rtl/common/dmz_uart_rx.sv",
+      "rtl/control/dmz_media_control.sv",
+      "rtl/control/dmz_gallery_control.sv",
+      "rtl/common/dmz_status_cdc.sv",
+      "rtl/storage/dmz_sd_reader.sv",
+      "rtl/storage/dmz_spi_byte.sv",
+      "rtl/hdmi/serializer.sv",
+      "rtl/audio/dmz_tone.sv",
+      "rtl/hdmi/audio_clock_regeneration_packet.sv",
+      "rtl/hdmi/audio_info_frame.sv",
+      "rtl/hdmi/audio_sample_packet.sv",
+      "rtl/hdmi/auxiliary_video_information_info_frame.sv",
+      "rtl/hdmi/hdmi.sv",
+      "rtl/hdmi/packet_assembler.sv",
+      "rtl/hdmi/packet_picker.sv",
+      "rtl/hdmi/source_product_description_info_frame.sv",
+      "rtl/hdmi/tmds_channel.sv",
+      "sim/integration/platform/tb_platform_media.sv"
+    ],
+    "cases": [
+      [],
+      [
+        "+notice"
+      ],
+      [
+        "+timed"
+      ]
+    ],
+    "manual": true,
+    "note": "Long real-package DPI test; latest run intentionally stopped, not a pass."
+  },
+  "pair": {
+    "top": "tb_pair",
+    "sources": [
+      "rtl/control/dmz_pair_control.sv",
+      "sim/unit/control/tb_pair.sv"
     ],
     "cases": [
       []

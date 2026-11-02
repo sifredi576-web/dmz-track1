@@ -169,6 +169,9 @@ proc opt_place_fun {} {
   }
 
 ### Editable zone for opt_place ###
+  set_param place opt_timing high
+  set_param place post_place_opt high
+  set_param place seed 3
   place
   update_timing -mode manhattan
   report_timing_summary -file ${prj_name}_place.timing
@@ -201,6 +204,8 @@ proc opt_route_fun {} {
     set_param flow qor_monitor on
     report_qor -step route -file route.qor
   }
+  # Resolve short BRAM input paths after routing, without relaxing constraints.
+  fix_hold
   report_area -io_info -file ${prj_name}_phy.area
   update_timing -mode final
   report_timing_status -file ${prj_name}_phy.ts

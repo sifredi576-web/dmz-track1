@@ -1,5 +1,7 @@
 # 用户使用说明（含安路TD软件）
 
+2026-11-02已迁入配置化平台。有效SCENE.BIN时使用[平台键位](docs/PLATFORM_KEYS.md)和[平台说明](docs/PLATFORM_RUNTIME.md)，以下旧媒体按键仅用于兼容图库。主工程路径仍为project/td/dmz_track1.al；本轮验收状态见[迁移记录](docs/MAIN_MIGRATION.md)。
+
 更新：2026-10-30。适用于当前DMZ_EG4S20统一主工程；P7为重构前已验证版本。
 
 ## 1. 使用方式与准备
@@ -55,13 +57,9 @@ D:\learning\FPGA\dmz-track1\project\td\dmz_track1.al
 
 | 文件 | 用途 |
 |---|---|
-| rtl/top/dmz_track1_top.sv | 唯一整机顶层 |
-| rtl/control/dmz_control_subsystem.sv | 按键、菜单与播放控制的连接入口 |
+| rtl/top/dmz_track1_top.sv | 整机连接、音视频输出组合与串口状态帧打包 |
 | rtl/control/dmz_media_pipeline.sv | 共享读卡、图片和WAV播放链路 |
-| rtl/video/dmz_video_output.sv | 像素输出、画面参数和OSD叠加 |
-| rtl/audio/dmz_audio_output.sv | 音频缓冲、音源、音量与静音 |
 | rtl/common/dmz_contract_pkg.sv | 共享命令值和状态字段定义 |
-| rtl/common/dmz_telemetry.sv | 串口状态帧打包 |
 | rtl/video/dmz_osd.sv | 字幕、菜单、状态文字绘制 |
 | rtl/control/dmz_media_control.sv | 播放、音量、静音控制 |
 | rtl/control/dmz_scene_control.sv | 应急与可视化模式控制 |
