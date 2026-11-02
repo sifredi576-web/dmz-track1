@@ -1,0 +1,27 @@
+%Warning-TIMESCALEMOD: rtl/platform\dmz_scene_loader.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_scene_loader(
+      |        ^~~~~~~~~~~~~~~~
+                       sim/platform\tb_scene_loader.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_loader;
+      |        ^~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: rtl/platform\dmz_scene_loader.sv:26:20: Operator ASSIGNW expects 20 bits on the Assign RHS, but Assign RHS's SUB generates 21 bits.
+                                                           : ... note: In instance 'tb_scene_loader.dut'
+   26 | assign staging_addr=position-21'd32;
+      |                    ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: sim/platform\tb_scene_loader.sv:16:11: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'addr' generates 20 bits.
+                                                           : ... note: In instance 'tb_scene_loader'
+   16 |    if(addr!=writes) $fatal(1,"nonsequential staging address");
+      |           ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: sim/platform\tb_scene_loader.sv:48:11: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'error' generates 8 bits.
+                                                           : ... note: In instance 'tb_scene_loader'
+   48 |   if(error!=expected_error||ready!=(expected_error==0)||commits!=(expected_error==0?1:0))
+      |           ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.045 MB sources in 3 modules, into 0.182 MB in 8 C++ files needing 0.000 MB
+- Verilator: Walltime 0.030 s (elab=0.002, cvt=0.011, bld=0.000); cpu 0.000 s on 1 threads; alloced 14.539 MB

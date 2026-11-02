@@ -9,6 +9,7 @@ always @(posedge clk) begin
   if(command_valid) case(command_byte)
    "[":if(wanted_b!=0) wanted_b<=wanted_b-1'b1;
    "]":if(wanted_b<8) wanted_b<=wanted_b+1'b1;
+   "c":wanted_c<=wanted_c==0?8:wanted_c-1'b1;
    "C":wanted_c<=wanted_c==8?0:wanted_c+1'b1;
    "D":begin wanted_b<=4;wanted_c<=4;end
    default:begin end

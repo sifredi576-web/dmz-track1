@@ -6,9 +6,10 @@ try {
  $env:VERILATOR_ROOT='C:/msys64/mingw64/share/verilator'
  $env:PATH='C:/msys64/mingw64/bin;C:/msys64/usr/bin;'+$env:PATH
  $src=@(Get-ChildItem rtl/p2/*.sv | Where-Object Name -ne dmz_p2_top.sv | ForEach-Object FullName)+@(Get-ChildItem sim/p2/*.sv | ForEach-Object FullName)
- & C:/msys64/mingw64/bin/verilator_bin.exe --cc --exe --main --timing -Wno-fatal --top-module tb_p2 "-GBIST_WORDS=$Words" --Mdir build_p2/sim @src *> docs/p2_lint.txt
+ New-Item -ItemType Directory -Force build_system/sim_p2 | Out-Null
+ & C:/msys64/mingw64/bin/verilator_bin.exe --no-skip-identical --cc --exe --main --timing -Wno-fatal --top-module tb_p2 "-GBIST_WORDS=$Words" --Mdir build_system/sim_p2 @src *> docs/p2_lint.txt
  if($LASTEXITCODE -ne 0){throw 'Verilator failed'}
- Push-Location build_p2/sim
+ Push-Location build_system/sim_p2
  try {
   & C:/msys64/mingw64/bin/mingw32-make.exe -f Vtb_p2.mk -j4 PYTHON3=C:/Users/fushenghe/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe *> ../../docs/p2_sim_build.txt
   if($LASTEXITCODE -ne 0){throw 'Simulation compile failed'}

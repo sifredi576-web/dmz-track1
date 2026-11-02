@@ -22,22 +22,22 @@
                                                            : ... note: In instance 'tb_scene_visual.scene'
    12 |   if(!emergency) tick<=0;else if(tick==HALF_SECOND*2-1) tick<=0;else tick<=tick+1'b1;
       |                                      ^~
-%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:52:29: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
+%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:55:29: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
                                                           : ... note: In instance 'tb_scene_visual.visual'
-   52 |     if(px>=64&&px<312&&px<64+{level_l,3'b000}) begin ink<=1;color<=24'h40df70;end
+   55 |     if(px>=64&&px<312&&px<64+{level_l,3'b000}) begin ink<=1;color<=24'h40df70;end
       |                             ^
-%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:53:31: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
+%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:56:31: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
                                                           : ... note: In instance 'tb_scene_visual.visual'
-   53 |     if(px>=328&&px<576&&px<328+{level_r,3'b000}) begin ink<=1;color<=24'hffb050;end
+   56 |     if(px>=328&&px<576&&px<328+{level_r,3'b000}) begin ink<=1;color<=24'hffb050;end
       |                               ^
-%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:54:31: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
+%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:57:31: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
                                                           : ... note: In instance 'tb_scene_visual.visual'
-   54 |     if((px>=64&&px<312&&px==63+{peak_l,3'b000})||(px>=328&&px<576&&px==327+{peak_r,3'b000})) begin ink<=1;color<=24'hffffff;end
+   57 |     if((px>=64&&px<312&&px==63+{peak_l,3'b000})||(px>=328&&px<576&&px==327+{peak_r,3'b000})) begin ink<=1;color<=24'hffffff;end
       |                               ^
-%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:54:75: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
+%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:57:75: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
                                                           : ... note: In instance 'tb_scene_visual.visual'
-   54 |     if((px>=64&&px<312&&px==63+{peak_l,3'b000})||(px>=328&&px<576&&px==327+{peak_r,3'b000})) begin ink<=1;color<=24'hffffff;end
+   57 |     if((px>=64&&px<312&&px==63+{peak_l,3'b000})||(px>=328&&px<576&&px==327+{peak_r,3'b000})) begin ink<=1;color<=24'hffffff;end
       |                                                                           ^
 - V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
-- Verilator: Built from 0.057 MB sources in 4 modules, into 0.215 MB in 7 C++ files needing 0.000 MB
-- Verilator: Walltime 0.050 s (elab=0.001, cvt=0.012, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.039 MB
+- Verilator: Built from 0.057 MB sources in 4 modules, into 0.217 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.036 s (elab=0.001, cvt=0.013, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.066 MB

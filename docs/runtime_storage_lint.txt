@@ -1,0 +1,115 @@
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_media_storage.sv:41:10: Logical operator GENIF expects 1 bit on the If, but If's VARREF 'RT_PLATFORM' generates 32 bits.
+                                                                                                                                  : ... note: In instance 'dmz_media_storage'
+   41 | generate if(RT_PLATFORM)begin
+      |          ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_platform_boot.sv:15:10: Logical operator GENIF expects 1 bit on the If, but If's VARREF 'STORE_CONFIG' generates 32 bits.
+                                                                                                                                     : ... note: In instance 'dmz_media_storage.platform_boot'
+   15 | generate if(STORE_CONFIG)begin
+      |          ^~
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_loader.sv:26:20: Operator ASSIGNW expects 20 bits on the Assign RHS, but Assign RHS's SUB generates 21 bits.
+                                                                                                                                    : ... note: In instance 'dmz_media_storage.platform_boot.parser'
+   26 | assign staging_addr=position-21'd32;
+      |                    ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_fat_stream.sv:47:48: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'sector_index' generates 8 bits.
+                                                                                                                                : ... note: In instance 'dmz_media_storage.audio.file_stream'
+   47 |    ISSUE:if(sd_ready) begin sd_lba<=cluster_lba+sector_index;sd_start<=1;state<=WAIT_DATA;end
+      |                                                ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_bmp_decoder.sv:106:52: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'draw_w' generates 10 bits.
+                                                                                                                                  : ... note: In instance 'dmz_media_storage.images.decoder'
+  106 |   X_STEP:if(x_error>=draw_w) begin x_error<=x_error-draw_w;sample_x<=sample_x+1'b1;end else state<=FETCH;
+      |                                                    ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_bmp_decoder.sv:106:20: Operator GTE expects 12 bits on the RHS, but RHS's VARREF 'draw_w' generates 10 bits.
+                                                                                                                                  : ... note: In instance 'dmz_media_storage.images.decoder'
+  106 |   X_STEP:if(x_error>=draw_w) begin x_error<=x_error-draw_w;sample_x<=sample_x+1'b1;end else state<=FETCH;
+      |                    ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_bmp_decoder.sv:123:52: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                                                                                                  : ... note: In instance 'dmz_media_storage.images.decoder'
+  123 |   Y_STEP:if(y_error>=draw_h) begin y_error<=y_error-draw_h;wanted_y<=wanted_y+1'b1;end
+      |                                                    ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_bmp_decoder.sv:123:20: Operator GTE expects 12 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                                                                                                  : ... note: In instance 'dmz_media_storage.images.decoder'
+  123 |   Y_STEP:if(y_error>=draw_h) begin y_error<=y_error-draw_h;wanted_y<=wanted_y+1'b1;end
+      |                    ^~
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_wav_player.sv:15:46: Logical operator LOGAND expects 1 bit on the LHS, but LHS's VARREF 'MANUAL_START' generates 32 bits.
+                                                                                                                               : ... note: In instance 'dmz_media_storage.audio'
+   15 | assign flushing=select_restart||(MANUAL_START&&stop)||state==5||state==6;
+      |                                              ^~
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_wav_player.sv:31:36: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'MANUAL_START' generates 32 bits.
+                                                                                                                               : ... note: In instance 'dmz_media_storage.audio'
+   31 |    0:if(catalog_ready&&wav_found&&(!MANUAL_START||!manual_mode||armed))state<=1;
+      |                                    ^
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_wav_player.sv:34:28: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'MANUAL_START' generates 32 bits.
+                                                                                                                               : ... note: In instance 'dmz_media_storage.audio'
+   34 |    3:if(!file_busy)state<=(!MANUAL_START||!manual_mode||loop_enable)?1:4;
+      |                            ^
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_wav_player.sv:27:39: Logical operator LOGAND expects 1 bit on the LHS, but LHS's VARREF 'MANUAL_START' generates 32 bits.
+                                                                                                                               : ... note: In instance 'dmz_media_storage.audio'
+   27 |  else if(select_restart||(MANUAL_START&&stop)) begin armed<=select_restart;state<=5;flush_wait<=0;decoded_pairs<=0;loop_count<=0;end
+      |                                       ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_image_player.sv:28:43: Operator LT expects 6 bits on the LHS, but LHS's VARREF 'requested_index' generates 5 bits.
+                                                                                                                                  : ... note: In instance 'dmz_media_storage.images'
+   28 |    else if(select_request&&requested_index<image_count)begin selected_index<=requested_index;state<=LOOKUP;end end
+      |                                           ^
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_image_player.sv:27:79: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'MANUAL_START' generates 32 bits.
+                                                                                                                                 : ... note: In instance 'dmz_media_storage.images'
+   27 |   WAIT_CATALOG:if(catalog_ready) begin if(image_count==0) state<=FAIL;else if(!MANUAL_START||!manual_mode)state<=LOOKUP;
+      |                                                                               ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_image_player.sv:33:49: Operator LT expects 6 bits on the LHS, but LHS's VARREF 'requested_index' generates 5 bits.
+                                                                                                                                  : ... note: In instance 'dmz_media_storage.images'
+   33 |   FINISH,FAIL:if(select_request&&requested_index<image_count&&!stream_busy) begin selected_index<=requested_index;state<=LOOKUP;end
+      |                                                 ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:182:13: Operator NEQ expects 8 bits on the RHS, but RHS's VARREF 'pi' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'dmz_media_storage.genblk1.runtime'
+  182 |     if(rb(0)!=pi||rb(1)>=resource_count||types[6'(rb(1) >> 0)]!=1||
+      |             ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:182:24: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'dmz_media_storage.genblk1.runtime'
+  182 |     if(rb(0)!=pi||rb(1)>=resource_count||types[6'(rb(1) >> 0)]!=1||
+      |                        ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:183:26: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'dmz_media_storage.genblk1.runtime'
+  183 |       (rb(2)!=255&&(rb(2)>=resource_count||types[6'(rb(2) >> 0)]!=2))||
+      |                          ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:184:43: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'dmz_media_storage.genblk1.runtime'
+  184 |       (rb(3)&8'hf8)!=0||(rb(4)!=255&&rb(4)>=page_count)||rb(5)!=0||rb(9)>8||
+      |                                           ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:185:74: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'dmz_media_storage.genblk1.runtime'
+  185 |       {1'b0,rb(8)}+{1'b0,rb(9)}>{1'b0,widget_total}||(rb(10)!=255&&rb(10)>=page_count)||
+      |                                                                          ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:198:13: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'dmz_media_storage.genblk1.runtime'
+  198 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||types[6'(rb(2) >> 0)]!=3||types[6'(rb(3) >> 0)]!=3||
+      |             ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:198:41: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'dmz_media_storage.genblk1.runtime'
+  198 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||types[6'(rb(2) >> 0)]!=3||types[6'(rb(3) >> 0)]!=3||
+      |                                         ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:198:64: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'dmz_media_storage.genblk1.runtime'
+  198 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||types[6'(rb(2) >> 0)]!=3||types[6'(rb(3) >> 0)]!=3||
+      |                                                                ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:202:39: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'dmz_media_storage.genblk1.runtime'
+  202 |        ((rb(12)==1||rb(12)==9)&&rb(13)>=page_count)||
+      |                                       ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:203:27: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'dmz_media_storage.genblk1.runtime'
+  203 |        (rb(12)==2&&(rb(13)>=resource_count||types[6'(rb(13) >> 0)]!=2))||
+      |                           ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_fat_catalog.sv:108:42: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'cluster_sector' generates 8 bits.
+                                                                                                                                  : ... note: In instance 'dmz_media_storage.catalog'
+  108 |     else sector(data_base+(cluster-2)*spc+cluster_sector,FILL);
+      |                                          ^
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_media_storage.sv:35:33: Logical operator LOGAND expects 1 bit on the LHS, but LHS's VARREF 'RT_PLATFORM' generates 32 bits.
+                                                                                                                                  : ... note: In instance 'dmz_media_storage'
+   35 | assign platform_mode=RT_PLATFORM&&platform_ready&&config_version==2&&rt_error==0;
+      |                                 ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 1.116 MB sources in 21 modules, into 0.692 MB in 5 C++ files needing 0.000 MB
+- Verilator: Walltime 0.124 s (elab=0.011, cvt=0.052, bld=0.000); cpu 0.000 s on 1 threads; alloced 23.137 MB

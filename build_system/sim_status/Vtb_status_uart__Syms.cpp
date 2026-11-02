@@ -18,7 +18,7 @@ Vtb_status_uart__Syms::Vtb_status_uart__Syms(VerilatedContext* contextp, const c
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(409);
+        Verilated::stackCheck(487);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
     _vm_contextp__->timeprecision(-12);

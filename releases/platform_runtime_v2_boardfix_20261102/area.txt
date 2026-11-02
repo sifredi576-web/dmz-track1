@@ -1,0 +1,224 @@
+standard
+***Report Model: dmz_track1_top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        32   out of    188   17.02%
+  #input                   12
+  #output                  16
+  #inout                    4
+
+Utilization Statistics
+#lut                    16777   out of  19600   85.60%
+#reg                     8962   out of  19600   45.72%
+#le                     17525
+  #lut only              8563   out of  17525   48.86%
+  #reg only               748   out of  17525    4.27%
+  #lut&reg               8214   out of  17525   46.87%
+#bram                      63   out of     64   98.44%
+  #bram9k                  63
+  #fifo9k                   0
+#bram32k                    0   out of     16    0.00%
+#dsp                       20   out of     29   68.97%
+#pad                       36   out of    188   19.15%
+  #ireg                    10
+  #oreg                    11
+  #treg                     0
+#pll                        1   out of      4   25.00%
+#gclk                       1   out of     16    6.25%
+
+
+Detailed IO Report
+
+         Name           Direction    Location    IOStandard    IOType    DriveStrength    PullType    PackReg  
+       SD_MISO            INPUT        D14        LVCMOS33      PAD           N/A          PULLUP      IREG    
+       clk_50m            INPUT         R7        LVCMOS33      PAD           N/A          PULLUP      NONE    
+   emergency_switch       INPUT        A11        LVCMOS33      PAD           N/A          PULLUP      IREG    
+      key_col[3]          INPUT        F10        LVCMOS33      PAD           N/A          PULLUP      IREG    
+      key_col[2]          INPUT        C11        LVCMOS33      PAD           N/A          PULLUP      IREG    
+      key_col[1]          INPUT        D11        LVCMOS33      PAD           N/A          PULLUP      IREG    
+      key_col[0]          INPUT        E11        LVCMOS33      PAD           N/A          PULLUP      IREG    
+     mute_switch          INPUT        A10        LVCMOS33      PAD           N/A          PULLUP      IREG    
+    pattern_switch        INPUT        B10        LVCMOS33      PAD           N/A          PULLUP      IREG    
+        run_n             INPUT         A9        LVCMOS33      PAD           N/A          PULLUP      NONE    
+       uart_rx            INPUT        F12        LVCMOS33      PAD           N/A          PULLUP      IREG    
+  visual_hide_switch      INPUT        A12        LVCMOS33      PAD           N/A          PULLUP      IREG    
+      HDMI_CLK_P         OUTPUT         P1         LVDS33       PAD           NA            NONE       DDRX1   
+    HDMI_CLK_P(n)        OUTPUT         R1         LVDS33       PAD           NA            NONE       NONE    
+      HDMI_D0_P          OUTPUT         N1         LVDS33       PAD           NA            NONE       DDRX1   
+     HDMI_D0_P(n)        OUTPUT         M1         LVDS33       PAD           NA            NONE       NONE    
+      HDMI_D1_P          OUTPUT         P4         LVDS33       PAD           NA            NONE       DDRX1   
+     HDMI_D1_P(n)        OUTPUT         N4         LVDS33       PAD           NA            NONE       NONE    
+      HDMI_D2_P          OUTPUT         J3         LVDS33       PAD           NA            NONE       DDRX1   
+     HDMI_D2_P(n)        OUTPUT         J4         LVDS33       PAD           NA            NONE       NONE    
+        SD_CS            OUTPUT        F13        LVCMOS33      PAD            8            NONE       OREG    
+       SD_MOSI           OUTPUT        F14        LVCMOS33      PAD            8            NONE       OREG    
+        SD_SCK           OUTPUT        F15        LVCMOS33      PAD            8            NONE       OREG    
+       leds[7]           OUTPUT        F16        LVCMOS33      PAD            8            NONE       NONE    
+       leds[6]           OUTPUT        E16        LVCMOS33      PAD            8            NONE       NONE    
+       leds[5]           OUTPUT        E13        LVCMOS33      PAD            8            NONE       NONE    
+       leds[4]           OUTPUT        C16        LVCMOS33      PAD            8            NONE       OREG    
+       leds[3]           OUTPUT        C15        LVCMOS33      PAD            8            NONE       NONE    
+       leds[2]           OUTPUT        B16        LVCMOS33      PAD            8            NONE       NONE    
+       leds[1]           OUTPUT        B15        LVCMOS33      PAD            8            NONE       OREG    
+       leds[0]           OUTPUT        B14        LVCMOS33      PAD            8            NONE       OREG    
+       uart_tx           OUTPUT        D12        LVCMOS33      PAD            8            NONE       OREG    
+      key_row[3]          INOUT         D9        LVCMOS33      PAD            8           PULLUP      NONE    
+      key_row[2]          INOUT         F9        LVCMOS33      PAD            8           PULLUP      NONE    
+      key_row[1]          INOUT        C10        LVCMOS33      PAD            8           PULLUP      NONE    
+      key_row[0]          INOUT        E10        LVCMOS33      PAD            8           PULLUP      NONE    
+         dm0             OUTPUT        S14        LVCMOS25      PAD            8            NONE       NONE    
+         cke             OUTPUT        S18        LVCMOS25      PAD            8            NONE       NONE    
+         we_n            OUTPUT        S19        LVCMOS25      PAD            8            NONE       NONE    
+        cas_n            OUTPUT        S20        LVCMOS25      PAD            8            NONE       NONE    
+        ras_n            OUTPUT        S21        LVCMOS25      PAD            8            NONE       NONE    
+         cs_n            OUTPUT        S22        LVCMOS25      PAD            8            NONE       NONE    
+       addr[9]           OUTPUT        S23        LVCMOS25      PAD            8            NONE       NONE    
+       addr[8]           OUTPUT        S24        LVCMOS25      PAD            8            NONE       NONE    
+       addr[7]           OUTPUT        S25        LVCMOS25      PAD            8            NONE       NONE    
+       addr[6]           OUTPUT        S26        LVCMOS25      PAD            8            NONE       NONE    
+       addr[5]           OUTPUT        S27        LVCMOS25      PAD            8            NONE       NONE    
+       addr[4]           OUTPUT        S28        LVCMOS25      PAD            8            NONE       NONE    
+         dm2             OUTPUT        S29        LVCMOS25      PAD            8            NONE       NONE    
+         dm3             OUTPUT        S61        LVCMOS25      PAD            8            NONE       NONE    
+       addr[3]           OUTPUT        S64        LVCMOS25      PAD            8            NONE       NONE    
+       addr[2]           OUTPUT        S65        LVCMOS25      PAD            8            NONE       NONE    
+       addr[1]           OUTPUT        S66        LVCMOS25      PAD            8            NONE       NONE    
+       addr[0]           OUTPUT        S67        LVCMOS25      PAD            8            NONE       NONE    
+       addr[10]          OUTPUT        S68        LVCMOS25      PAD            8            NONE       NONE    
+        ba[0]            OUTPUT        S69        LVCMOS25      PAD            8            NONE       NONE    
+        ba[1]            OUTPUT        S70        LVCMOS25      PAD            8            NONE       NONE    
+         clk             OUTPUT        S73        LVCMOS25      PAD            8            NONE       NONE    
+         dm1             OUTPUT        S76        LVCMOS25      PAD            8            NONE       NONE    
+        dq[0]             INOUT         S1        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[6]             INOUT        S11        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[7]             INOUT        S12        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[1]             INOUT         S2        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[23]            INOUT        S31        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[22]            INOUT        S32        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[21]            INOUT        S35        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[20]            INOUT        S36        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[19]            INOUT        S37        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[18]            INOUT        S38        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[17]            INOUT        S41        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[16]            INOUT        S42        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[31]            INOUT        S48        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[30]            INOUT        S49        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[2]             INOUT         S5        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[29]            INOUT        S52        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[28]            INOUT        S53        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[27]            INOUT        S54        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[26]            INOUT        S55        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[25]            INOUT        S58        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[24]            INOUT        S59        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[3]             INOUT         S6        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[4]             INOUT         S7        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[8]             INOUT        S78        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[9]             INOUT        S79        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[5]             INOUT         S8        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[10]            INOUT        S82        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[11]            INOUT        S83        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[12]            INOUT        S84        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[13]            INOUT        S85        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[14]            INOUT        S88        LVCMOS25      PAD            8           PULLUP      IREG    
+        dq[15]            INOUT        S89        LVCMOS25      PAD            8           PULLUP      IREG    
+
+Report Clock Domain Luts:
+
+---------------------------------------------------------------------------------------------------------------------------
+  Index   |  Name                  |  Frequency   |  LUT As Logic   |  LUT As Shifter   |  LUT As Dram   |  BRAM   |  DSP
+---------------------------------------------------------------------------------------------------------------------------
+  #1      |  pll/pll_inst.clkc[0]  |  25MHz       |  2043           |  0                |  48            |  31     |  4
+  #2      |  pll/pll_inst.clkc[1]  |  125MHz      |  25             |  0                |  0             |  0      |  0
+  #3      |  pll/pll_inst.clkc[2]  |  50MHz       |  5819           |  0                |  8             |  48     |  14
+  #4      |  pll/pll_inst.clkc[3]  |  50MHz       |  52             |  0                |  0             |  0      |  0
+---------------------------------------------------------------------------------------------------------------------------
+
+Clock Resource Statistics
+Index     ClockNet                      Type               DriverType         Driver                Fanout
+#1        mem_clk                       Global             pll                pll/pll_inst.clkc2    4485
+#2        pll/clk0_buf                  Global             pll                pll/pll_inst.clkc0    1220
+#3        tx/serializer/clk_pixel_x5    Global             pll                pll/pll_inst.clkc1    24
+#4        clk_50m_dup_1                 GeneralRouting     io                 clk_50m_syn_2.di      1
+#5        sdram_clk                     Global             pll                pll/pll_inst.clkc3    0
+
+Report Hierarchy Area:
++-----------------------------------------------------------------------------------------------------------------------------+
+|Instance                              |Module                          |le      |lut     |ripple  |seq     |bram    |dsp     |
++-----------------------------------------------------------------------------------------------------------------------------+
+|top                                   |dmz_track1_top                  |17525   |14300   |2477    |8983    |63      |20      |
+|  adjust_picture                      |dmz_picture_adjust              |62      |32      |30      |10      |0       |1       |
+|  audio_fifo                          |dmz_pixel_fifo                  |111     |82      |12      |92      |8       |0       |
+|  bist                                |dmz_sdram_bist                  |143     |126     |14      |82      |0       |0       |
+|  command_fifo                        |dmz_pixel_fifo                  |36      |36      |0       |31      |0       |0       |
+|  command_rx                          |dmz_uart_rx                     |68      |63      |5       |44      |0       |0       |
+|  completion                          |dmz_audio_completion            |112     |88      |18      |49      |0       |0       |
+|  completion_to_memory                |dmz_status_cdc                  |40      |25      |0       |36      |0       |0       |
+|  controls                            |dmz_media_control               |158     |142     |16      |69      |0       |0       |
+|  ctrl                                |dmz_sdram_ctrl                  |907     |864     |19      |623     |0       |0       |
+|  display_controls                    |dmz_display_control             |96      |89      |7       |57      |0       |0       |
+|  fb                                  |dmz_image_framebuffer           |382     |319     |33      |297     |0       |0       |
+|  fifo                                |dmz_pixel_fifo                  |131     |89      |12      |103     |8       |0       |
+|  file_menu                           |dmz_file_menu                   |205     |201     |4       |42      |0       |0       |
+|  gallery                             |dmz_gallery_control             |159     |128     |31      |86      |0       |0       |
+|  keys                                |dmz_matrix_keys                 |130     |121     |9       |55      |0       |0       |
+|  memory_clients                      |dmz_mem_mux                     |4       |4       |0       |3       |0       |0       |
+|  menu_reply_cdc                      |dmz_status_cdc                  |202     |192     |4       |182     |0       |0       |
+|  menu_request_cdc                    |dmz_status_cdc                  |41      |37      |4       |33      |0       |0       |
+|  osd                                 |dmz_osd                         |489     |467     |21      |218     |5       |0       |
+|  params_ack                          |dmz_status_cdc                  |24      |19      |0       |24      |0       |0       |
+|  params_to_pixel                     |dmz_status_cdc                  |93      |63      |0       |87      |0       |0       |
+|  pll                                 |dmz_p2_pll                      |2       |2       |0       |1       |0       |0       |
+|  production_diagnostics$telemetry    |dmz_status_uart                 |262     |249     |10      |217     |0       |0       |
+|  scene                               |dmz_scene_control               |63      |45      |18      |25      |0       |0       |
+|  sd                                  |dmz_sd_reader                   |490     |461     |29      |230     |0       |0       |
+|    spi                               |dmz_spi_byte                    |39      |37      |2       |23      |0       |0       |
+|  storage                             |dmz_media_storage               |10342   |8129    |1726    |5206    |32      |17      |
+|    arbiter                           |dmz_sd_arbiter                  |88      |81      |0       |87      |0       |0       |
+|    audio                             |dmz_wav_player                  |1390    |1092    |266     |430     |1       |2       |
+|      decoder                         |dmz_wav_decoder                 |913     |736     |145     |224     |0       |0       |
+|      file_stream                     |dmz_fat_stream                  |470     |349     |121     |200     |1       |2       |
+|    auxiliary                         |dmz_mem_mux                     |2       |2       |0       |2       |0       |0       |
+|    catalog                           |dmz_fat_catalog                 |1882    |1445    |254     |1194    |17      |4       |
+|    compositor                        |dmz_page_compositor             |723     |641     |82      |429     |0       |1       |
+|    configured_ui$runtime             |dmz_scene_runtime               |2587    |2014    |397     |1411    |8       |1       |
+|      ui                              |dmz_ui_controller               |369     |325     |44      |136     |0       |0       |
+|    images                            |dmz_image_player                |2350    |1786    |497     |913     |5       |7       |
+|      decoder                         |dmz_bmp_decoder                 |1837    |1403    |372     |709     |4       |5       |
+|        divider                       |dmz_udiv32                      |155     |126     |27      |100     |0       |0       |
+|      file_stream                     |dmz_fat_stream                  |489     |363     |121     |189     |1       |2       |
+|    pairing                           |dmz_pair_control                |45      |45      |0       |40      |0       |0       |
+|    platform_boot                     |dmz_platform_boot               |1257    |1009    |226     |692     |1       |2       |
+|      parser                          |dmz_scene_loader                |517     |401     |105     |248     |0       |0       |
+|      stream                          |dmz_fat_stream                  |502     |381     |121     |212     |1       |2       |
+|      writer                          |dmz_cfg_writer                  |237     |226     |0       |231     |0       |0       |
+|  tone                                |dmz_tone                        |122     |97      |25      |43      |0       |0       |
+|  tx                                  |hdmi                            |1113    |993     |111     |295     |9       |0       |
+|    serializer                        |serializer                      |32      |32      |0       |32      |0       |0       |
+|    tmds_gen[0]$tmds_channel          |tmds_channel                    |100     |91      |9       |17      |0       |0       |
+|    tmds_gen[1]$tmds_channel          |tmds_channel                    |104     |95      |9       |15      |0       |0       |
+|    tmds_gen[2]$tmds_channel          |tmds_channel                    |103     |94      |9       |15      |0       |0       |
+|    true_hdmi_output$packet_assembler |packet_assembler                |372     |372     |0       |73      |0       |0       |
+|    true_hdmi_output$packet_picker    |packet_picker                   |211     |184     |18      |87      |9       |0       |
+|      audio_clock_regeneration_packet |audio_clock_regeneration_packet |53      |34      |10      |36      |0       |0       |
+|  ui_commands                         |dmz_pixel_fifo                  |31      |31      |0       |27      |0       |0       |
+|  ui_events                           |dmz_pixel_fifo                  |59      |59      |0       |43      |0       |0       |
+|  ui_flags                            |dmz_status_cdc                  |24      |24      |0       |19      |0       |0       |
+|  ui_overlay                          |dmz_ui_overlay                  |404     |205     |199     |48      |0       |0       |
+|  ui_snapshot                         |dmz_status_cdc                  |257     |253     |0       |230     |0       |0       |
+|  visualizer                          |dmz_audio_visual                |366     |274     |92      |104     |1       |0       |
+|  board_commands                      |dmz_ui_keys                     |4       |4       |0       |4       |0       |0       |
++-----------------------------------------------------------------------------------------------------------------------------+
+
+
+DataNet Average Fanout:
+
+   Index     Fanout     Nets   
+    #1          1       14224  
+    #2          2       4414   
+    #3          3       1917   
+    #4          4       1181   
+    #5        5-10      1808   
+    #6        11-50      731   
+    #7       51-100      70    
+    #8       101-500      8    
+  Average     2.74             

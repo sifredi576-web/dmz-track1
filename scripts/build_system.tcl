@@ -7,6 +7,17 @@ if {[file exists dmz_track1.al]} {
  open_project dmz_track1.al
 }
 top_module dmz_track1_top
+add_files ../rtl/platform/dmz_mem_mux.sv
+add_files ../rtl/platform/dmz_cfg_writer.sv
+add_files ../rtl/platform/dmz_scene_runtime.sv
+add_files ../rtl/platform/dmz_page_compositor.sv
+add_files ../rtl/platform/dmz_ui_overlay.sv
+add_files ../rtl/platform/dmz_audio_completion.sv
+add_files ../rtl/platform/dmz_ui_keys.sv
+add_files ../rtl/platform/dmz_ui_controller.sv
+add_files ../rtl/platform/dmz_scene_loader.sv
+add_files ../rtl/platform/dmz_platform_boot.sv
+add_files ../rtl/media/dmz_pair_control.sv
 add_files ../rtl/media/dmz_fat_catalog.sv
 add_files ../rtl/media/dmz_fat_stream.sv
 add_files ../rtl/media/dmz_sd_arbiter.sv
@@ -50,8 +61,14 @@ add_files ../rtl/p1/hdmi_core/source_product_description_info_frame.sv
 add_files ../rtl/p1/hdmi_core/tmds_channel.sv
 add_files ../constraints/dmz_p3.adc
 add_files ../constraints/dmz_p3.sdc
+# Compact neighbour table reduces pressure; use default physical parameters.
+# Revert prior experimental congestion knobs for reproducible normal routing.
+non_default_params -revert -run phy_1
+set_param place seed 3 -run phy_1
 launch_runs {syn_1 phy_1}
 wait_run syn_1 -quiet
 wait_run phy_1 -quiet
 close_project
 exit
+
+

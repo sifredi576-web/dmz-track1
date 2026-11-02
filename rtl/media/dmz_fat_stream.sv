@@ -8,17 +8,23 @@ module dmz_fat_stream(input clk,reset,start,cancel,
  output wire busy,output reg done,output reg [7:0] error,output reg [31:0] bytes_read);
 localparam IDLE=0,PREPARE=1,ISSUE=2,WAIT_DATA=3,STREAM=4,FAT_ISSUE=5,FAT_WAIT=6,FAT_CHECK=7,DRAIN=8,FINISH=9,FAIL=15;
 reg [3:0] state;
-reg [7:0] cache[0:511];reg [8:0] pos;
+reg [7:0] cache[0:511]; /* fehdl force_ram=1, ram_style="bram" */
+reg [7:0] cache_q;reg [8:0] pos;
+// Look ahead only when accepting a byte, retaining the output under backpressure.
+wire [8:0] read_pos=(state==WAIT_DATA)?9'd0:(byte_valid&&byte_ready)?pos+9'd1:pos;
+always @(posedge clk) begin
+ cache_q<=cache[read_pos];
+ if(sd_byte_valid) cache[sd_byte_index]<=sd_byte_data;
+end
 reg [31:0] cluster,remaining,cluster_lba,fat_cached;
 reg [7:0] sector_index;
 wire [8:0] fat_offset=fat16?{cluster[7:0],1'b0}:{cluster[6:0],2'b00};
 wire [31:0] next_cluster=fat16?{16'd0,fat_cached[15:0]}:fat_cached&32'h0fffffff;
 assign byte_valid=state==STREAM&&remaining!=0&&!cancel;
-assign byte_data=cache[pos];assign byte_last=remaining==1;
+assign byte_data=cache_q;assign byte_last=remaining==1;
 assign busy=state!=IDLE&&state!=FINISH&&state!=FAIL;
 always @(posedge clk) begin
  if(sd_byte_valid) begin
-  cache[sd_byte_index]<=sd_byte_data;
   if(sd_byte_index==fat_offset) fat_cached[7:0]<=sd_byte_data;
   if(sd_byte_index==fat_offset+1) fat_cached[15:8]<=sd_byte_data;
   if(sd_byte_index==fat_offset+2) fat_cached[23:16]<=sd_byte_data;

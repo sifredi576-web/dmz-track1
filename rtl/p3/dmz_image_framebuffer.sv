@@ -35,10 +35,11 @@ assign fifo_push=state==DRAIN && !fifo_full && flush==0;
 assign fifo_data=read_buffer[beat*32+:32];
 assign fifo_reset=reset || flush!=0 || !display_valid;
 always @* req_wdata=load_data;
+always @(posedge clk)if(!reset&&state==WAIT_READ&&rsp_valid)read_buffer<=rsp_rdata;
 always @(posedge clk) begin
  if(reset) begin
   transition_active<=0;wipe_words<=0;rd_x<=0;state<=IDLE;ft1<=0;ft2<=0;last_frame<=0;frame_pending<=0;flush<=0;rd_addr<=153600;wr_addr<=0;
-  wr_x<=0;wr_y<=0;back_ready<=0;swap_timer<=0;beat<=0;read_buffer<=0;display_valid<=0;front_bank<=0;
+  wr_x<=0;wr_y<=0;back_ready<=0;swap_timer<=0;beat<=0;display_valid<=0;front_bank<=0;
   swaps<=0;frames_written<=0;dma_reads<=0;fault<=0;load_ack<=0;transaction_last<=0;
  end else begin
   load_ack<=0;
@@ -60,7 +61,7 @@ always @(posedge clk) begin
    end
   end else case(state)
   IDLE:if(req_valid&&req_ready) begin if(video_req) state<=WAIT_READ;else begin state<=WAIT_WRITE;transaction_last<=load_last;end end
-  WAIT_READ:if(rsp_valid) begin read_buffer<=rsp_rdata;beat<=0;state<=DRAIN;rd_addr<=rd_addr+8;rd_x<=rd_x==312?0:rd_x+8;dma_reads<=dma_reads+1'b1;end
+  WAIT_READ:if(rsp_valid) begin beat<=0;state<=DRAIN;rd_addr<=rd_addr+8;rd_x<=rd_x==312?0:rd_x+8;dma_reads<=dma_reads+1'b1;end
   DRAIN:if(!fifo_full) begin if(beat==7) state<=IDLE;else beat<=beat+1'b1;end
   WAIT_WRITE:if(rsp_valid) begin
    state<=IDLE;load_ack<=1;

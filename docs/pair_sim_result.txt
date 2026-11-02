@@ -1,0 +1,2 @@
+PASS pair entry, commit-only, same track restart, no-match, cancellation
+- sim/media\tb_pair.sv:16: Verilog $finish

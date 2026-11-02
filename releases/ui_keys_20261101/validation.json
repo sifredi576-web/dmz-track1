@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-01",
+  "stage": "unified key routing and settings integrated; generic UI controller simulation only",
+  "software_passed": true,
+  "hardware_tested": false,
+  "downloaded": false,
+  "flashed": false,
+  "main_platform_active": false,
+  "keyboard_layout": "15 home,14 up,13 replay,12 menu/tab;11 left,10 confirm,9 right,8 back;7 notice,6 down,5 priority,4 exit;3 mute,2 pause,1 volume-,0 volume+",
+  "integrated": [
+    "exclusive physical-key command/UI routing",
+    "four resource/display/system tabs",
+    "brightness/contrast/defaults via menu",
+    "replay keeps mute/volume and pair mode",
+    "synchronous filename tables with aligned browse tags",
+    "recoded audio FIFO address paths"
+  ],
+  "simulation_only": [
+    "generic configured focus and disabled skip",
+    "provisional choice and independent submit",
+    "first-answer scoring and lock",
+    "home/back/restart state rules",
+    "notice event dispatch while busy"
+  ],
+  "pending": [
+    "active configuration tables and runtime semantic validation",
+    "resource ID to FAT short-name resolution",
+    "sprite drawing and focus border",
+    "connect UI events/controller into actual course",
+    "audio completion and page auto-advance",
+    "notice priority/context/cancellation manager",
+    "hardware validation and Flash cold boot"
+  ],
+  "timing": {
+    "setup_ns": 1.553,
+    "hold_ns": 0.031,
+    "constraints_relaxed": false,
+    "tool_hold_fix": "All hold violations are fixed; slice utilization 88%"
+  },
+  "resources": {
+    "lut": 15631,
+    "registers": 8242,
+    "bram9k": 56,
+    "dsp": 19,
+    "pll": 1,
+    "slice_percent": 88
+  },
+  "resource_scope": "Current main includes key router/settings, not the uninstantiated generic UI controller",
+  "tests": [
+    "docs/ui_keys_result.txt",
+    "docs/ui_controller_result.txt",
+    "docs/fifo_recode_result.txt",
+    "docs/command_fifo_sim_result.txt",
+    "docs/osd_menu_sim_result.txt",
+    "docs/system_control_sim_result.txt",
+    "docs/display_sim_result.txt",
+    "docs/platform_loader_sim_result.txt",
+    "docs/platform_pack_tests.txt",
+    "docs/media_paired_result.txt",
+    "docs/media_platform_result.txt",
+    "docs/media_platform_invalid_result.txt"
+  ],
+  "pack_unit_tests": 14,
+  "preview": "docs/ui_display_settings_preview.png is RTL simulation, not hardware",
+  "bit_sha256": "0C28AD9C486DF5E14E7B1F6DAB6C259F353846D0CCFC10A3E2A192FD570FA15B"
+}

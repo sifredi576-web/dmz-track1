@@ -25,7 +25,7 @@ always @(posedge clk) begin
   else second_count<=second_count+1'b1;
   if(restart_count!=0) begin restart_count<=restart_count-1'b1;if(restart_count==1) restart<=0;end
   if(command_valid) case(command_byte)
-   "U","u","M","m","B","b","S","s","R","r","N","n","P","p","A","a","H","h","W","w","T","t","K","k","L","l","+","-","Q","q","X","x","Z","z","[","]","C","D","F","f","E","e","V","v","I","i","O","o":begin
+   "U","u","M","m","B","b","S","s","R","r","N","n","P","p","A","a","H","h","W","w","J","j","T","t","K","k","L","l","+","-","Q","q","X","x","Z","z","[","]","C","c","D","F","f","E","e","V","v","I","i","O","o":begin
     command_count<=command_count+1'b1;last_command<=command_byte;
     case(command_byte)
      "U","u":mode<=1;
@@ -34,6 +34,7 @@ always @(posedge clk) begin
      "S","s":mode<=0;
      "R","r":begin mode<=2'(DEFAULT_MODE);wav_source<=1'(DEFAULT_WAV);audio_paused<=0;restart_count<=RESTART_CYCLES;restart<=1;end
      "W","w":begin wav_source<=1;mode<=1;audio_paused<=0;end
+     "J","j":begin wav_source<=1;audio_paused<=0;end
      "T","t":begin wav_source<=0;mode<=1;audio_paused<=0;end
      "H","h","K","k":audio_paused<=1;
      "A","a","L","l":audio_paused<=0;

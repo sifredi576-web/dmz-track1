@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- HMAC is: 3ef1e9da4f1773767a59087458458345b7368e235191e6668240365937bfd260 -->
+<!-- HMAC is: 13f85023350fbdf6e3e8138a8742c79bb43b8a210dbd070e6985b2584723b78d -->
 <All_Bram_Infos>
-    <Ucode>01101000</Ucode>
+    <Ucode>01000011</Ucode>
     <AL_PHY_BRAM>
         <INST_1>
             <rid>0X0004</rid>
@@ -10,25 +10,25 @@
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
             <name>audio_fifo/ramread0_syn_6</name>
-            <width_a>18</width_a>
-            <width_b>18</width_b>
+            <width_a>4</width_a>
+            <width_b>4</width_b>
             <logic_name>audio_fifo/ramread0_syn_4</logic_name>
             <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
+            <logic_depth>2048</logic_depth>
             <sub_bid_info>
                 <address_offset>0</address_offset>
                 <data_offset>0</data_offset>
-                <depth>512</depth>
-                <width>18</width>
+                <depth>2048</depth>
+                <width>4</width>
                 <num_section>1</num_section>
                 <section_size>32</section_size>
-                <width_per_section>18</width_per_section>
+                <width_per_section>4</width_per_section>
                 <bytes_in_per_section>1</bytes_in_per_section>
                 <working_mode>
                     <address_step>1</address_step>
-                    <depth>512</depth>
+                    <depth>2048</depth>
                     <mode_type>159</mode_type>
-                    <width>18</width>
+                    <width>4</width>
                     <num_byte>1</num_byte>
                     <ecc>0</ecc>
                 </working_mode>
@@ -40,26 +40,26 @@
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_25</name>
-            <width_a>18</width_a>
-            <width_b>18</width_b>
+            <name>audio_fifo/ramread0_syn_11</name>
+            <width_a>4</width_a>
+            <width_b>4</width_b>
             <logic_name>audio_fifo/ramread0_syn_4</logic_name>
             <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
+            <logic_depth>2048</logic_depth>
             <sub_bid_info>
-                <address_offset>512</address_offset>
-                <data_offset>0</data_offset>
-                <depth>512</depth>
-                <width>18</width>
+                <address_offset>0</address_offset>
+                <data_offset>4</data_offset>
+                <depth>2048</depth>
+                <width>4</width>
                 <num_section>1</num_section>
                 <section_size>32</section_size>
-                <width_per_section>18</width_per_section>
+                <width_per_section>4</width_per_section>
                 <bytes_in_per_section>1</bytes_in_per_section>
                 <working_mode>
                     <address_step>1</address_step>
-                    <depth>512</depth>
+                    <depth>2048</depth>
                     <mode_type>159</mode_type>
-                    <width>18</width>
+                    <width>4</width>
                     <num_byte>1</num_byte>
                     <ecc>0</ecc>
                 </working_mode>
@@ -71,26 +71,26 @@
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_44</name>
-            <width_a>18</width_a>
-            <width_b>18</width_b>
+            <name>audio_fifo/ramread0_syn_16</name>
+            <width_a>4</width_a>
+            <width_b>4</width_b>
             <logic_name>audio_fifo/ramread0_syn_4</logic_name>
             <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
+            <logic_depth>2048</logic_depth>
             <sub_bid_info>
-                <address_offset>1024</address_offset>
-                <data_offset>0</data_offset>
-                <depth>512</depth>
-                <width>18</width>
+                <address_offset>0</address_offset>
+                <data_offset>8</data_offset>
+                <depth>2048</depth>
+                <width>4</width>
                 <num_section>1</num_section>
                 <section_size>32</section_size>
-                <width_per_section>18</width_per_section>
+                <width_per_section>4</width_per_section>
                 <bytes_in_per_section>1</bytes_in_per_section>
                 <working_mode>
                     <address_step>1</address_step>
-                    <depth>512</depth>
+                    <depth>2048</depth>
                     <mode_type>159</mode_type>
-                    <width>18</width>
+                    <width>4</width>
                     <num_byte>1</num_byte>
                     <ecc>0</ecc>
                 </working_mode>
@@ -102,26 +102,26 @@
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_63</name>
-            <width_a>18</width_a>
-            <width_b>18</width_b>
+            <name>audio_fifo/ramread0_syn_21</name>
+            <width_a>4</width_a>
+            <width_b>4</width_b>
             <logic_name>audio_fifo/ramread0_syn_4</logic_name>
             <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
+            <logic_depth>2048</logic_depth>
             <sub_bid_info>
-                <address_offset>1536</address_offset>
-                <data_offset>0</data_offset>
-                <depth>512</depth>
-                <width>18</width>
+                <address_offset>0</address_offset>
+                <data_offset>12</data_offset>
+                <depth>2048</depth>
+                <width>4</width>
                 <num_section>1</num_section>
                 <section_size>32</section_size>
-                <width_per_section>18</width_per_section>
+                <width_per_section>4</width_per_section>
                 <bytes_in_per_section>1</bytes_in_per_section>
                 <working_mode>
                     <address_step>1</address_step>
-                    <depth>512</depth>
+                    <depth>2048</depth>
                     <mode_type>159</mode_type>
-                    <width>18</width>
+                    <width>4</width>
                     <num_byte>1</num_byte>
                     <ecc>0</ecc>
                 </working_mode>
@@ -133,26 +133,26 @@
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_82</name>
-            <width_a>18</width_a>
-            <width_b>18</width_b>
+            <name>audio_fifo/ramread0_syn_26</name>
+            <width_a>4</width_a>
+            <width_b>4</width_b>
             <logic_name>audio_fifo/ramread0_syn_4</logic_name>
             <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
+            <logic_depth>2048</logic_depth>
             <sub_bid_info>
-                <address_offset>2048</address_offset>
-                <data_offset>0</data_offset>
-                <depth>512</depth>
-                <width>18</width>
+                <address_offset>0</address_offset>
+                <data_offset>16</data_offset>
+                <depth>2048</depth>
+                <width>4</width>
                 <num_section>1</num_section>
                 <section_size>32</section_size>
-                <width_per_section>18</width_per_section>
+                <width_per_section>4</width_per_section>
                 <bytes_in_per_section>1</bytes_in_per_section>
                 <working_mode>
                     <address_step>1</address_step>
-                    <depth>512</depth>
+                    <depth>2048</depth>
                     <mode_type>159</mode_type>
-                    <width>18</width>
+                    <width>4</width>
                     <num_byte>1</num_byte>
                     <ecc>0</ecc>
                 </working_mode>
@@ -164,26 +164,26 @@
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_101</name>
-            <width_a>18</width_a>
-            <width_b>18</width_b>
+            <name>audio_fifo/ramread0_syn_31</name>
+            <width_a>4</width_a>
+            <width_b>4</width_b>
             <logic_name>audio_fifo/ramread0_syn_4</logic_name>
             <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
+            <logic_depth>2048</logic_depth>
             <sub_bid_info>
-                <address_offset>2560</address_offset>
-                <data_offset>0</data_offset>
-                <depth>512</depth>
-                <width>18</width>
+                <address_offset>0</address_offset>
+                <data_offset>20</data_offset>
+                <depth>2048</depth>
+                <width>4</width>
                 <num_section>1</num_section>
                 <section_size>32</section_size>
-                <width_per_section>18</width_per_section>
+                <width_per_section>4</width_per_section>
                 <bytes_in_per_section>1</bytes_in_per_section>
                 <working_mode>
                     <address_step>1</address_step>
-                    <depth>512</depth>
+                    <depth>2048</depth>
                     <mode_type>159</mode_type>
-                    <width>18</width>
+                    <width>4</width>
                     <num_byte>1</num_byte>
                     <ecc>0</ecc>
                 </working_mode>
@@ -195,26 +195,26 @@
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_120</name>
-            <width_a>18</width_a>
-            <width_b>18</width_b>
+            <name>audio_fifo/ramread0_syn_36</name>
+            <width_a>4</width_a>
+            <width_b>4</width_b>
             <logic_name>audio_fifo/ramread0_syn_4</logic_name>
             <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
+            <logic_depth>2048</logic_depth>
             <sub_bid_info>
-                <address_offset>3072</address_offset>
-                <data_offset>0</data_offset>
-                <depth>512</depth>
-                <width>18</width>
+                <address_offset>0</address_offset>
+                <data_offset>24</data_offset>
+                <depth>2048</depth>
+                <width>4</width>
                 <num_section>1</num_section>
                 <section_size>32</section_size>
-                <width_per_section>18</width_per_section>
+                <width_per_section>4</width_per_section>
                 <bytes_in_per_section>1</bytes_in_per_section>
                 <working_mode>
                     <address_step>1</address_step>
-                    <depth>512</depth>
+                    <depth>2048</depth>
                     <mode_type>159</mode_type>
-                    <width>18</width>
+                    <width>4</width>
                     <num_byte>1</num_byte>
                     <ecc>0</ecc>
                 </working_mode>
@@ -226,26 +226,26 @@
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_139</name>
-            <width_a>18</width_a>
-            <width_b>18</width_b>
+            <name>audio_fifo/ramread0_syn_41</name>
+            <width_a>4</width_a>
+            <width_b>4</width_b>
             <logic_name>audio_fifo/ramread0_syn_4</logic_name>
             <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
+            <logic_depth>2048</logic_depth>
             <sub_bid_info>
-                <address_offset>3584</address_offset>
-                <data_offset>0</data_offset>
-                <depth>512</depth>
-                <width>18</width>
+                <address_offset>0</address_offset>
+                <data_offset>28</data_offset>
+                <depth>2048</depth>
+                <width>4</width>
                 <num_section>1</num_section>
                 <section_size>32</section_size>
-                <width_per_section>18</width_per_section>
+                <width_per_section>4</width_per_section>
                 <bytes_in_per_section>1</bytes_in_per_section>
                 <working_mode>
                     <address_step>1</address_step>
-                    <depth>512</depth>
+                    <depth>2048</depth>
                     <mode_type>159</mode_type>
-                    <width>18</width>
+                    <width>4</width>
                     <num_byte>1</num_byte>
                     <ecc>0</ecc>
                 </working_mode>
@@ -254,223 +254,6 @@
         <INST_9>
             <rid>0X000C</rid>
             <wid>0X000C</wid>
-            <is_debuggable>n</is_debuggable>
-            <is_initialize>n</is_initialize>
-            <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_158</name>
-            <width_a>2</width_a>
-            <width_b>2</width_b>
-            <logic_name>audio_fifo/ramread0_syn_4</logic_name>
-            <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
-            <sub_bid_info>
-                <address_offset>0</address_offset>
-                <data_offset>18</data_offset>
-                <depth>4096</depth>
-                <width>2</width>
-                <num_section>1</num_section>
-                <section_size>32</section_size>
-                <width_per_section>2</width_per_section>
-                <bytes_in_per_section>1</bytes_in_per_section>
-                <working_mode>
-                    <address_step>1</address_step>
-                    <depth>4096</depth>
-                    <mode_type>159</mode_type>
-                    <width>2</width>
-                    <num_byte>1</num_byte>
-                    <ecc>0</ecc>
-                </working_mode>
-            </sub_bid_info>
-        </INST_9>
-        <INST_10>
-            <rid>0X000D</rid>
-            <wid>0X000D</wid>
-            <is_debuggable>n</is_debuggable>
-            <is_initialize>n</is_initialize>
-            <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_161</name>
-            <width_a>2</width_a>
-            <width_b>2</width_b>
-            <logic_name>audio_fifo/ramread0_syn_4</logic_name>
-            <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
-            <sub_bid_info>
-                <address_offset>0</address_offset>
-                <data_offset>20</data_offset>
-                <depth>4096</depth>
-                <width>2</width>
-                <num_section>1</num_section>
-                <section_size>32</section_size>
-                <width_per_section>2</width_per_section>
-                <bytes_in_per_section>1</bytes_in_per_section>
-                <working_mode>
-                    <address_step>1</address_step>
-                    <depth>4096</depth>
-                    <mode_type>159</mode_type>
-                    <width>2</width>
-                    <num_byte>1</num_byte>
-                    <ecc>0</ecc>
-                </working_mode>
-            </sub_bid_info>
-        </INST_10>
-        <INST_11>
-            <rid>0X000E</rid>
-            <wid>0X000E</wid>
-            <is_debuggable>n</is_debuggable>
-            <is_initialize>n</is_initialize>
-            <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_164</name>
-            <width_a>2</width_a>
-            <width_b>2</width_b>
-            <logic_name>audio_fifo/ramread0_syn_4</logic_name>
-            <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
-            <sub_bid_info>
-                <address_offset>0</address_offset>
-                <data_offset>22</data_offset>
-                <depth>4096</depth>
-                <width>2</width>
-                <num_section>1</num_section>
-                <section_size>32</section_size>
-                <width_per_section>2</width_per_section>
-                <bytes_in_per_section>1</bytes_in_per_section>
-                <working_mode>
-                    <address_step>1</address_step>
-                    <depth>4096</depth>
-                    <mode_type>159</mode_type>
-                    <width>2</width>
-                    <num_byte>1</num_byte>
-                    <ecc>0</ecc>
-                </working_mode>
-            </sub_bid_info>
-        </INST_11>
-        <INST_12>
-            <rid>0X000F</rid>
-            <wid>0X000F</wid>
-            <is_debuggable>n</is_debuggable>
-            <is_initialize>n</is_initialize>
-            <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_167</name>
-            <width_a>2</width_a>
-            <width_b>2</width_b>
-            <logic_name>audio_fifo/ramread0_syn_4</logic_name>
-            <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
-            <sub_bid_info>
-                <address_offset>0</address_offset>
-                <data_offset>24</data_offset>
-                <depth>4096</depth>
-                <width>2</width>
-                <num_section>1</num_section>
-                <section_size>32</section_size>
-                <width_per_section>2</width_per_section>
-                <bytes_in_per_section>1</bytes_in_per_section>
-                <working_mode>
-                    <address_step>1</address_step>
-                    <depth>4096</depth>
-                    <mode_type>159</mode_type>
-                    <width>2</width>
-                    <num_byte>1</num_byte>
-                    <ecc>0</ecc>
-                </working_mode>
-            </sub_bid_info>
-        </INST_12>
-        <INST_13>
-            <rid>0X0010</rid>
-            <wid>0X0010</wid>
-            <is_debuggable>n</is_debuggable>
-            <is_initialize>n</is_initialize>
-            <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_170</name>
-            <width_a>2</width_a>
-            <width_b>2</width_b>
-            <logic_name>audio_fifo/ramread0_syn_4</logic_name>
-            <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
-            <sub_bid_info>
-                <address_offset>0</address_offset>
-                <data_offset>26</data_offset>
-                <depth>4096</depth>
-                <width>2</width>
-                <num_section>1</num_section>
-                <section_size>32</section_size>
-                <width_per_section>2</width_per_section>
-                <bytes_in_per_section>1</bytes_in_per_section>
-                <working_mode>
-                    <address_step>1</address_step>
-                    <depth>4096</depth>
-                    <mode_type>159</mode_type>
-                    <width>2</width>
-                    <num_byte>1</num_byte>
-                    <ecc>0</ecc>
-                </working_mode>
-            </sub_bid_info>
-        </INST_13>
-        <INST_14>
-            <rid>0X0011</rid>
-            <wid>0X0011</wid>
-            <is_debuggable>n</is_debuggable>
-            <is_initialize>n</is_initialize>
-            <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_173</name>
-            <width_a>2</width_a>
-            <width_b>2</width_b>
-            <logic_name>audio_fifo/ramread0_syn_4</logic_name>
-            <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
-            <sub_bid_info>
-                <address_offset>0</address_offset>
-                <data_offset>28</data_offset>
-                <depth>4096</depth>
-                <width>2</width>
-                <num_section>1</num_section>
-                <section_size>32</section_size>
-                <width_per_section>2</width_per_section>
-                <bytes_in_per_section>1</bytes_in_per_section>
-                <working_mode>
-                    <address_step>1</address_step>
-                    <depth>4096</depth>
-                    <mode_type>159</mode_type>
-                    <width>2</width>
-                    <num_byte>1</num_byte>
-                    <ecc>0</ecc>
-                </working_mode>
-            </sub_bid_info>
-        </INST_14>
-        <INST_15>
-            <rid>0X0012</rid>
-            <wid>0X0012</wid>
-            <is_debuggable>n</is_debuggable>
-            <is_initialize>n</is_initialize>
-            <model_type>AL_PHY_BRAM</model_type>
-            <name>audio_fifo/ramread0_syn_176</name>
-            <width_a>2</width_a>
-            <width_b>2</width_b>
-            <logic_name>audio_fifo/ramread0_syn_4</logic_name>
-            <logic_width>32</logic_width>
-            <logic_depth>4096</logic_depth>
-            <sub_bid_info>
-                <address_offset>0</address_offset>
-                <data_offset>30</data_offset>
-                <depth>4096</depth>
-                <width>2</width>
-                <num_section>1</num_section>
-                <section_size>32</section_size>
-                <width_per_section>2</width_per_section>
-                <bytes_in_per_section>1</bytes_in_per_section>
-                <working_mode>
-                    <address_step>1</address_step>
-                    <depth>4096</depth>
-                    <mode_type>159</mode_type>
-                    <width>2</width>
-                    <num_byte>1</num_byte>
-                    <ecc>0</ecc>
-                </working_mode>
-            </sub_bid_info>
-        </INST_15>
-        <INST_16>
-            <rid>0X0013</rid>
-            <wid>0X0013</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -498,10 +281,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_16>
-        <INST_17>
-            <rid>0X0014</rid>
-            <wid>0X0014</wid>
+        </INST_9>
+        <INST_10>
+            <rid>0X000D</rid>
+            <wid>0X000D</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -529,10 +312,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_17>
-        <INST_18>
-            <rid>0X0015</rid>
-            <wid>0X0015</wid>
+        </INST_10>
+        <INST_11>
+            <rid>0X000E</rid>
+            <wid>0X000E</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -560,10 +343,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_18>
-        <INST_19>
-            <rid>0X0016</rid>
-            <wid>0X0016</wid>
+        </INST_11>
+        <INST_12>
+            <rid>0X000F</rid>
+            <wid>0X000F</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -591,10 +374,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_19>
-        <INST_20>
-            <rid>0X0017</rid>
-            <wid>0X0017</wid>
+        </INST_12>
+        <INST_13>
+            <rid>0X0010</rid>
+            <wid>0X0010</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -622,10 +405,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_20>
-        <INST_21>
-            <rid>0X0018</rid>
-            <wid>0X0018</wid>
+        </INST_13>
+        <INST_14>
+            <rid>0X0011</rid>
+            <wid>0X0011</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -653,10 +436,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_21>
-        <INST_22>
-            <rid>0X0019</rid>
-            <wid>0X0019</wid>
+        </INST_14>
+        <INST_15>
+            <rid>0X0012</rid>
+            <wid>0X0012</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -684,10 +467,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_22>
-        <INST_23>
-            <rid>0X001A</rid>
-            <wid>0X001A</wid>
+        </INST_15>
+        <INST_16>
+            <rid>0X0013</rid>
+            <wid>0X0013</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -715,6 +498,223 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
+        </INST_16>
+        <INST_17>
+            <rid>0X0014</rid>
+            <wid>0X0014</wid>
+            <is_debuggable>y</is_debuggable>
+            <is_initialize>y</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>osd/ramread0_syn_6</name>
+            <width_a>2</width_a>
+            <width_b>2</width_b>
+            <logic_name>osd/ramread0_syn_4</logic_name>
+            <logic_width>7</logic_width>
+            <logic_depth>4096</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>4096</depth>
+                <width>2</width>
+                <num_section>1</num_section>
+                <section_size>7</section_size>
+                <width_per_section>2</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>4096</depth>
+                    <mode_type>159</mode_type>
+                    <width>2</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_17>
+        <INST_18>
+            <rid>0X0015</rid>
+            <wid>0X0015</wid>
+            <is_debuggable>y</is_debuggable>
+            <is_initialize>y</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>osd/ramread0_syn_9</name>
+            <width_a>2</width_a>
+            <width_b>2</width_b>
+            <logic_name>osd/ramread0_syn_4</logic_name>
+            <logic_width>7</logic_width>
+            <logic_depth>4096</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>2</data_offset>
+                <depth>4096</depth>
+                <width>2</width>
+                <num_section>1</num_section>
+                <section_size>7</section_size>
+                <width_per_section>2</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>4096</depth>
+                    <mode_type>159</mode_type>
+                    <width>2</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_18>
+        <INST_19>
+            <rid>0X0016</rid>
+            <wid>0X0016</wid>
+            <is_debuggable>y</is_debuggable>
+            <is_initialize>y</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>osd/ramread0_syn_12</name>
+            <width_a>2</width_a>
+            <width_b>2</width_b>
+            <logic_name>osd/ramread0_syn_4</logic_name>
+            <logic_width>7</logic_width>
+            <logic_depth>4096</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>4</data_offset>
+                <depth>4096</depth>
+                <width>2</width>
+                <num_section>1</num_section>
+                <section_size>7</section_size>
+                <width_per_section>2</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>4096</depth>
+                    <mode_type>159</mode_type>
+                    <width>2</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_19>
+        <INST_20>
+            <rid>0X0017</rid>
+            <wid>0X0017</wid>
+            <is_debuggable>y</is_debuggable>
+            <is_initialize>y</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>osd/ramread0_syn_15</name>
+            <width_a>1</width_a>
+            <width_b>1</width_b>
+            <logic_name>osd/ramread0_syn_4</logic_name>
+            <logic_width>7</logic_width>
+            <logic_depth>4096</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>6</data_offset>
+                <depth>4096</depth>
+                <width>1</width>
+                <num_section>1</num_section>
+                <section_size>7</section_size>
+                <width_per_section>1</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>8192</depth>
+                    <mode_type>159</mode_type>
+                    <width>1</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_20>
+        <INST_21>
+            <rid>0X0018</rid>
+            <wid>0X0018</wid>
+            <is_debuggable>y</is_debuggable>
+            <is_initialize>y</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>osd/ramread1_syn_5</name>
+            <width_a>9</width_a>
+            <width_b>9</width_b>
+            <logic_name>osd/ramread1_syn_4</logic_name>
+            <logic_width>8</logic_width>
+            <logic_depth>1024</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>1024</depth>
+                <width>8</width>
+                <num_section>1</num_section>
+                <section_size>8</section_size>
+                <width_per_section>8</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>1024</depth>
+                    <mode_type>159</mode_type>
+                    <width>9</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_21>
+        <INST_22>
+            <rid>0X0019</rid>
+            <wid>0X0019</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/audio/file_stream/ramread0_syn_6</name>
+            <width_a>9</width_a>
+            <width_b>9</width_b>
+            <logic_name>storage/audio/file_stream/ramread0_syn_4</logic_name>
+            <logic_width>8</logic_width>
+            <logic_depth>512</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>512</depth>
+                <width>8</width>
+                <num_section>1</num_section>
+                <section_size>8</section_size>
+                <width_per_section>8</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>1024</depth>
+                    <mode_type>159</mode_type>
+                    <width>9</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_22>
+        <INST_23>
+            <rid>0X001A</rid>
+            <wid>0X001A</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread0_syn_7</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread0_syn_4</logic_name>
+            <logic_width>96</logic_width>
+            <logic_depth>32</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>32</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>96</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
         </INST_23>
         <INST_24>
             <rid>0X001B</rid>
@@ -722,10 +722,723 @@
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
-            <name>storage/images/decoder/ramread66_syn_6</name>
+            <name>storage/catalog/ramread0_syn_26</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread0_syn_4</logic_name>
+            <logic_width>96</logic_width>
+            <logic_depth>32</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>18</data_offset>
+                <depth>32</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>96</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_24>
+        <INST_25>
+            <rid>0X001C</rid>
+            <wid>0X001C</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread0_syn_45</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread0_syn_4</logic_name>
+            <logic_width>96</logic_width>
+            <logic_depth>32</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>36</data_offset>
+                <depth>32</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>96</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_25>
+        <INST_26>
+            <rid>0X001D</rid>
+            <wid>0X001D</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread0_syn_64</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread0_syn_4</logic_name>
+            <logic_width>96</logic_width>
+            <logic_depth>32</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>54</data_offset>
+                <depth>32</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>96</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_26>
+        <INST_27>
+            <rid>0X001E</rid>
+            <wid>0X001E</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread0_syn_83</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread0_syn_4</logic_name>
+            <logic_width>96</logic_width>
+            <logic_depth>32</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>72</data_offset>
+                <depth>32</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>96</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_27>
+        <INST_28>
+            <rid>0X001F</rid>
+            <wid>0X001F</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread0_syn_102</name>
+            <width_a>9</width_a>
+            <width_b>9</width_b>
+            <logic_name>storage/catalog/ramread0_syn_4</logic_name>
+            <logic_width>96</logic_width>
+            <logic_depth>32</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>90</data_offset>
+                <depth>32</depth>
+                <width>6</width>
+                <num_section>1</num_section>
+                <section_size>96</section_size>
+                <width_per_section>6</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>1024</depth>
+                    <mode_type>159</mode_type>
+                    <width>9</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_28>
+        <INST_29>
+            <rid>0X0020</rid>
+            <wid>0X0020</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread1_syn_6</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread1_syn_4</logic_name>
+            <logic_width>64</logic_width>
+            <logic_depth>16</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>16</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>64</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_29>
+        <INST_30>
+            <rid>0X0021</rid>
+            <wid>0X0021</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread1_syn_25</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread1_syn_4</logic_name>
+            <logic_width>64</logic_width>
+            <logic_depth>16</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>18</data_offset>
+                <depth>16</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>64</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_30>
+        <INST_31>
+            <rid>0X0022</rid>
+            <wid>0X0022</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread1_syn_44</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread1_syn_4</logic_name>
+            <logic_width>64</logic_width>
+            <logic_depth>16</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>36</data_offset>
+                <depth>16</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>64</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_31>
+        <INST_32>
+            <rid>0X0023</rid>
+            <wid>0X0023</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread1_syn_63</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread1_syn_4</logic_name>
+            <logic_width>64</logic_width>
+            <logic_depth>16</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>54</data_offset>
+                <depth>16</depth>
+                <width>10</width>
+                <num_section>1</num_section>
+                <section_size>64</section_size>
+                <width_per_section>10</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_32>
+        <INST_33>
+            <rid>0X0024</rid>
+            <wid>0X0024</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread2_syn_6</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread2_syn_4</logic_name>
+            <logic_width>32</logic_width>
+            <logic_depth>32</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>32</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>32</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_33>
+        <INST_34>
+            <rid>0X0025</rid>
+            <wid>0X0025</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread2_syn_25</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread2_syn_4</logic_name>
+            <logic_width>32</logic_width>
+            <logic_depth>32</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>18</data_offset>
+                <depth>32</depth>
+                <width>14</width>
+                <num_section>1</num_section>
+                <section_size>32</section_size>
+                <width_per_section>14</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_34>
+        <INST_35>
+            <rid>0X0026</rid>
+            <wid>0X0026</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread3_syn_6</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread3_syn_4</logic_name>
+            <logic_width>32</logic_width>
+            <logic_depth>16</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>16</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>32</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_35>
+        <INST_36>
+            <rid>0X0027</rid>
+            <wid>0X0027</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread3_syn_25</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread3_syn_4</logic_name>
+            <logic_width>32</logic_width>
+            <logic_depth>16</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>18</data_offset>
+                <depth>16</depth>
+                <width>14</width>
+                <num_section>1</num_section>
+                <section_size>32</section_size>
+                <width_per_section>14</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_36>
+        <INST_37>
+            <rid>0X0028</rid>
+            <wid>0X0028</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread5_syn_6</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread5_syn_4</logic_name>
+            <logic_width>32</logic_width>
+            <logic_depth>16</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>16</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>32</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_37>
+        <INST_38>
+            <rid>0X0029</rid>
+            <wid>0X0029</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread5_syn_25</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/catalog/ramread5_syn_4</logic_name>
+            <logic_width>32</logic_width>
+            <logic_depth>16</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>18</data_offset>
+                <depth>16</depth>
+                <width>14</width>
+                <num_section>1</num_section>
+                <section_size>32</section_size>
+                <width_per_section>14</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_38>
+        <INST_39>
+            <rid>0X002A</rid>
+            <wid>0X002A</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/catalog/ramread6_syn_6</name>
+            <width_a>9</width_a>
+            <width_b>9</width_b>
+            <logic_name>storage/catalog/ramread6_syn_4</logic_name>
+            <logic_width>8</logic_width>
+            <logic_depth>512</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>512</depth>
+                <width>8</width>
+                <num_section>1</num_section>
+                <section_size>8</section_size>
+                <width_per_section>8</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>1024</depth>
+                    <mode_type>159</mode_type>
+                    <width>9</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_39>
+        <INST_40>
+            <rid>0X002B</rid>
+            <wid>0X002B</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/configured_ui$runtime/ramread0_syn_6</name>
+            <width_a>9</width_a>
+            <width_b>9</width_b>
+            <logic_name>storage/configured_ui$runtime/ramread0_syn_4</logic_name>
+            <logic_width>5</logic_width>
+            <logic_depth>64</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>64</depth>
+                <width>5</width>
+                <num_section>1</num_section>
+                <section_size>5</section_size>
+                <width_per_section>5</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>1024</depth>
+                    <mode_type>159</mode_type>
+                    <width>9</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_40>
+        <INST_41>
+            <rid>0X002C</rid>
+            <wid>0X002C</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/configured_ui$runtime/ramread1_syn_6</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/configured_ui$runtime/ramread1_syn_4</logic_name>
+            <logic_width>99</logic_width>
+            <logic_depth>8</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>8</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>99</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_41>
+        <INST_42>
+            <rid>0X002D</rid>
+            <wid>0X002D</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/configured_ui$runtime/ramread1_syn_25</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/configured_ui$runtime/ramread1_syn_4</logic_name>
+            <logic_width>99</logic_width>
+            <logic_depth>8</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>18</data_offset>
+                <depth>8</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>99</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_42>
+        <INST_43>
+            <rid>0X002E</rid>
+            <wid>0X002E</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/configured_ui$runtime/ramread1_syn_44</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/configured_ui$runtime/ramread1_syn_4</logic_name>
+            <logic_width>99</logic_width>
+            <logic_depth>8</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>36</data_offset>
+                <depth>8</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>99</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_43>
+        <INST_44>
+            <rid>0X002F</rid>
+            <wid>0X002F</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/configured_ui$runtime/ramread1_syn_63</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/configured_ui$runtime/ramread1_syn_4</logic_name>
+            <logic_width>99</logic_width>
+            <logic_depth>8</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>54</data_offset>
+                <depth>8</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>99</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_44>
+        <INST_45>
+            <rid>0X0030</rid>
+            <wid>0X0030</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/configured_ui$runtime/ramread1_syn_82</name>
+            <width_a>18</width_a>
+            <width_b>18</width_b>
+            <logic_name>storage/configured_ui$runtime/ramread1_syn_4</logic_name>
+            <logic_width>99</logic_width>
+            <logic_depth>8</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>72</data_offset>
+                <depth>8</depth>
+                <width>18</width>
+                <num_section>1</num_section>
+                <section_size>99</section_size>
+                <width_per_section>18</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>512</depth>
+                    <mode_type>159</mode_type>
+                    <width>18</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_45>
+        <INST_46>
+            <rid>0X0031</rid>
+            <wid>0X0031</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/configured_ui$runtime/ramread1_syn_101</name>
+            <width_a>9</width_a>
+            <width_b>9</width_b>
+            <logic_name>storage/configured_ui$runtime/ramread1_syn_4</logic_name>
+            <logic_width>99</logic_width>
+            <logic_depth>8</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>90</data_offset>
+                <depth>8</depth>
+                <width>9</width>
+                <num_section>1</num_section>
+                <section_size>99</section_size>
+                <width_per_section>9</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>1024</depth>
+                    <mode_type>159</mode_type>
+                    <width>9</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_46>
+        <INST_47>
+            <rid>0X0032</rid>
+            <wid>0X0032</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/images/decoder/ramread67_syn_6</name>
             <width_a>4</width_a>
             <width_b>4</width_b>
-            <logic_name>storage/images/decoder/ramread66_syn_4</logic_name>
+            <logic_name>storage/images/decoder/ramread67_syn_4</logic_name>
             <logic_width>16</logic_width>
             <logic_depth>2048</logic_depth>
             <sub_bid_info>
@@ -746,17 +1459,17 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_24>
-        <INST_25>
-            <rid>0X001C</rid>
-            <wid>0X001C</wid>
+        </INST_47>
+        <INST_48>
+            <rid>0X0033</rid>
+            <wid>0X0033</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
-            <name>storage/images/decoder/ramread66_syn_11</name>
+            <name>storage/images/decoder/ramread67_syn_11</name>
             <width_a>4</width_a>
             <width_b>4</width_b>
-            <logic_name>storage/images/decoder/ramread66_syn_4</logic_name>
+            <logic_name>storage/images/decoder/ramread67_syn_4</logic_name>
             <logic_width>16</logic_width>
             <logic_depth>2048</logic_depth>
             <sub_bid_info>
@@ -777,17 +1490,17 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_25>
-        <INST_26>
-            <rid>0X001D</rid>
-            <wid>0X001D</wid>
+        </INST_48>
+        <INST_49>
+            <rid>0X0034</rid>
+            <wid>0X0034</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
-            <name>storage/images/decoder/ramread66_syn_16</name>
+            <name>storage/images/decoder/ramread67_syn_16</name>
             <width_a>4</width_a>
             <width_b>4</width_b>
-            <logic_name>storage/images/decoder/ramread66_syn_4</logic_name>
+            <logic_name>storage/images/decoder/ramread67_syn_4</logic_name>
             <logic_width>16</logic_width>
             <logic_depth>2048</logic_depth>
             <sub_bid_info>
@@ -808,17 +1521,17 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_26>
-        <INST_27>
-            <rid>0X001E</rid>
-            <wid>0X001E</wid>
+        </INST_49>
+        <INST_50>
+            <rid>0X0035</rid>
+            <wid>0X0035</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
-            <name>storage/images/decoder/ramread66_syn_21</name>
+            <name>storage/images/decoder/ramread67_syn_21</name>
             <width_a>4</width_a>
             <width_b>4</width_b>
-            <logic_name>storage/images/decoder/ramread66_syn_4</logic_name>
+            <logic_name>storage/images/decoder/ramread67_syn_4</logic_name>
             <logic_width>16</logic_width>
             <logic_depth>2048</logic_depth>
             <sub_bid_info>
@@ -839,10 +1552,72 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_27>
-        <INST_28>
-            <rid>0X001F</rid>
-            <wid>0X001F</wid>
+        </INST_50>
+        <INST_51>
+            <rid>0X0036</rid>
+            <wid>0X0036</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/images/file_stream/ramread0_syn_6</name>
+            <width_a>9</width_a>
+            <width_b>9</width_b>
+            <logic_name>storage/images/file_stream/ramread0_syn_4</logic_name>
+            <logic_width>8</logic_width>
+            <logic_depth>512</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>512</depth>
+                <width>8</width>
+                <num_section>1</num_section>
+                <section_size>8</section_size>
+                <width_per_section>8</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>1024</depth>
+                    <mode_type>159</mode_type>
+                    <width>9</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_51>
+        <INST_52>
+            <rid>0X0037</rid>
+            <wid>0X0037</wid>
+            <is_debuggable>n</is_debuggable>
+            <is_initialize>n</is_initialize>
+            <model_type>AL_PHY_BRAM</model_type>
+            <name>storage/platform_boot/stream/ramread0_syn_6</name>
+            <width_a>9</width_a>
+            <width_b>9</width_b>
+            <logic_name>storage/platform_boot/stream/ramread0_syn_4</logic_name>
+            <logic_width>8</logic_width>
+            <logic_depth>512</logic_depth>
+            <sub_bid_info>
+                <address_offset>0</address_offset>
+                <data_offset>0</data_offset>
+                <depth>512</depth>
+                <width>8</width>
+                <num_section>1</num_section>
+                <section_size>8</section_size>
+                <width_per_section>8</width_per_section>
+                <bytes_in_per_section>1</bytes_in_per_section>
+                <working_mode>
+                    <address_step>1</address_step>
+                    <depth>1024</depth>
+                    <mode_type>159</mode_type>
+                    <width>9</width>
+                    <num_byte>1</num_byte>
+                    <ecc>0</ecc>
+                </working_mode>
+            </sub_bid_info>
+        </INST_52>
+        <INST_53>
+            <rid>0X0038</rid>
+            <wid>0X0038</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -870,10 +1645,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_28>
-        <INST_29>
-            <rid>0X0020</rid>
-            <wid>0X0020</wid>
+        </INST_53>
+        <INST_54>
+            <rid>0X0039</rid>
+            <wid>0X0039</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -901,10 +1676,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_29>
-        <INST_30>
-            <rid>0X0021</rid>
-            <wid>0X0021</wid>
+        </INST_54>
+        <INST_55>
+            <rid>0X003A</rid>
+            <wid>0X003A</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -932,10 +1707,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_30>
-        <INST_31>
-            <rid>0X0022</rid>
-            <wid>0X0022</wid>
+        </INST_55>
+        <INST_56>
+            <rid>0X003B</rid>
+            <wid>0X003B</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -963,10 +1738,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_31>
-        <INST_32>
-            <rid>0X0023</rid>
-            <wid>0X0023</wid>
+        </INST_56>
+        <INST_57>
+            <rid>0X003C</rid>
+            <wid>0X003C</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -994,10 +1769,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_32>
-        <INST_33>
-            <rid>0X0024</rid>
-            <wid>0X0024</wid>
+        </INST_57>
+        <INST_58>
+            <rid>0X003D</rid>
+            <wid>0X003D</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -1025,10 +1800,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_33>
-        <INST_34>
-            <rid>0X0025</rid>
-            <wid>0X0025</wid>
+        </INST_58>
+        <INST_59>
+            <rid>0X003E</rid>
+            <wid>0X003E</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -1056,10 +1831,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_34>
-        <INST_35>
-            <rid>0X0026</rid>
-            <wid>0X0026</wid>
+        </INST_59>
+        <INST_60>
+            <rid>0X003F</rid>
+            <wid>0X003F</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -1087,10 +1862,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_35>
-        <INST_36>
-            <rid>0X0027</rid>
-            <wid>0X0027</wid>
+        </INST_60>
+        <INST_61>
+            <rid>0X0040</rid>
+            <wid>0X0040</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -1118,10 +1893,10 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_36>
-        <INST_37>
-            <rid>0X0028</rid>
-            <wid>0X0028</wid>
+        </INST_61>
+        <INST_62>
+            <rid>0X0041</rid>
+            <wid>0X0041</wid>
             <is_debuggable>n</is_debuggable>
             <is_initialize>n</is_initialize>
             <model_type>AL_PHY_BRAM</model_type>
@@ -1149,6 +1924,6 @@
                     <ecc>0</ecc>
                 </working_mode>
             </sub_bid_info>
-        </INST_37>
+        </INST_62>
     </AL_PHY_BRAM>
 </All_Bram_Infos>

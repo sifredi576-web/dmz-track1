@@ -18,7 +18,7 @@ Vtb_media__Syms::Vtb_media__Syms(VerilatedContext* contextp, const char* namep, 
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(1896);
+        Verilated::stackCheck(2422);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
     _vm_contextp__->timeprecision(-12);

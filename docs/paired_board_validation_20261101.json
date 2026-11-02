@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-01",
+  "hardware_tested": true,
+  "pair_index_cycle_passed": true,
+  "user_listening_confirmation": "用户反馈：切换较快；未单独明确逐组封面/歌曲内容对应性",
+  "strict_sync_timing": "not measured",
+  "cause_of_previous_mismatch": "FAT short names ~1.WAV vs ~2.BMP",
+  "media_fixed": "TRACK01 to TRACK04; hashes unchanged",
+  "evidence": "docs/paired_fixed_cycle_20261101.json",
+  "user_feedback": "切换较快"
+}

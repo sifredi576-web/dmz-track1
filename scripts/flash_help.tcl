@@ -1,0 +1,2 @@
+download -help
+exit

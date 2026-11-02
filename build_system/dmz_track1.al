@@ -349,6 +349,94 @@
                     <Attr Name="CompileOrder" Val="42"/>
                 </FileInfo>
             </File>
+            <File Path="../rtl/media/dmz_pair_control.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="43"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/platform/dmz_scene_loader.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="44"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/platform/dmz_platform_boot.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="45"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/platform/dmz_ui_keys.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="46"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/platform/dmz_ui_controller.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="47"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/platform/dmz_mem_mux.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="48"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/platform/dmz_cfg_writer.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="49"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/platform/dmz_scene_runtime.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="50"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/platform/dmz_page_compositor.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="51"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/platform/dmz_ui_overlay.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="52"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/platform/dmz_audio_completion.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="53"/>
+                </FileInfo>
+            </File>
         </System_Verilog>
         <ADC_FILE>
             <File Path="../constraints/dmz_p3.adc">
@@ -378,7 +466,7 @@
         </FileSet>
     </FileSets>
     <TOP_MODULE>
-        <LABEL>dmz_track1_top</LABEL>
+        <LABEL></LABEL>
         <MODULE>dmz_track1_top</MODULE>
         <CREATEINDEX>user</CREATEINDEX>
     </TOP_MODULE>
@@ -397,6 +485,11 @@
         </Run>
         <Run Name="phy_1" Type="PhysicalDesign" ConstraintSet="constraint_1" Description="" SynRun="syn_1" Active="true">
             <Strategy Name="Default_PhysicalDesign_Strategy">
+                <PlaceProperty>
+                    <opt_timing>high</opt_timing>
+                    <post_place_opt>high</post_place_opt>
+                    <seed>3</seed>
+                </PlaceProperty>
             </Strategy>
             <UserParams>
             </UserParams>

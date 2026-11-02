@@ -1,6 +1,26 @@
 # DMZ FPGA 多媒体展示系统
 
-完整操作入口：[用户使用说明（含安路TD软件、下载、按键与常见问题）](docs/USER_GUIDE.md)。
+## 当前开发版（2026-11-02，已下载SRAM，未固化）
+
+统一主工程已完成本轮实拍问题修正并下载SRAM：蓝色背景恢复、红色警示页恢复、讲解可重复重播，三个音源和实时波形可用，KEY4结束警示与KEY8返回第三讲均已由用户确认。板端16页课件自动流程通过，最终计分2/3，配置/SD/BMP/WAV错误为0。当前时序setup +0.266ns、hold +0.030ns，LUT16089、BRAM62。位流SHA256：25e1fc49f83a81bdd24e7bcb0c524005cb3921b735ecee7b4adb6d472b03cba9。未写Flash。证据见 docs/platform_v2_board_validation.json 和 docs/platform_runtime_validation_boardfix.json。
+
+使用说明及工程结构见[配置交互平台说明](docs/PLATFORM_RUNTIME.md)，键位见[平台按键说明](docs/PLATFORM_KEYS.md)。唯一主工程仍是 build_system/dmz_track1.al。课件素材包在 assets/platform/tf_course_v2，另一套配置在 assets/platform/tf_notice_v2；同一 TF 卡根目录只使用一份 SCENE.BIN。没有有效配置时保留媒体兼容模式。
+
+板卡、COM9、JTAG、HDMI 和新课件 TF 卡现已连接；本轮先完成 SRAM 课件验收，未执行 Flash 擦写。音量继续保留 0～8 档及原增益；最终响度上限受扩展屏音量设置限制。
+
+文档统一入口：[工作区文档导航](docs/DOCUMENT_INDEX.md)。
+
+## 最终目标声明（2026-11-01，优先于下方旧定位）
+
+**基于FPGA的可配置交互多媒体演示平台，以“声音与音色”教学课件展示能力。**
+
+现行要求见[最终目标与实施边界](docs/PROJECT_GOALS_LOCKED.md)。页面、图层、控件及动作通过TF资源和配置组合，在支持范围内更换课件无需重编译FPGA；首套教学模板不限制其他页面布局。三分钟演示视频，完整操作流程可更长。配置化平台、按钮图层与课程组件已接入主工程并完成软件整合验证；本批硬件验收尚未完成。Flash固化及断电自动启动已由用户追加为最终交付项（2026-11-01），当前待实现、待实板验收；这是用户工程要求，不是赛题原文的强制条款。
+
+当前配对版已于2026-11-01完成四组索引实板检查，用户反馈“切换较快”；旧文中的“无硬件测试”仅指此前开发阶段，精确同步时差仍未测。
+
+当前配对功能变更及验证边界见[配对播放说明](docs/PAIRED_PLAYBACK.md)。KEY10已增加配对模式切换，下方旧说明以此变更为准；默认背景模式，本次无硬件测试。
+
+完整操作入口：[用户使用说明（含安路TD软件、下载、按键与常见问题）](USER_GUIDE.md)。
 
 ## 当前范围裁定（2026-10-28，用户最新指示）
 
@@ -128,61 +148,7 @@ flowchart LR
 - [当前进度](docs/PROJECT_PROGRESS.md)
 - [后续AI接手说明](README_AI_HANDOFF.md)
 
-## 历史P0记录（非当前整机入口）
 
-以下仅保留早期硬件/工具基线证据，旧端口、资源和行为不代表当前版本。
+## 历史清理（2026-10-31）
 
-以下为保留的 P0 记录。
-
-## 使用入口
-- TD 工程：`build/dmz_p0.al`
-- 位流：`build/dmz_p0_Runs/phy_1/dmz_p0.bit`
-- 源码：`rtl/dmz_p0_top.v`
-- 约束：`constraints/dmz_p0.adc` 和 `dmz_p0.sdc`
-- 构建：在工程根目录运行 `powershell -File scripts/build.ps1`。
-- 串口验证：SRAM 下载后 SW0 拨上，运行 `powershell -File scripts/test_uart.ps1 -Port COM3`。
-
-## 基线行为
-SW0（A9）低电平复位，高电平运行；复位释放经过两级同步。
-LED0 每 0.5 秒翻转一次，完整周期 1 秒。LED1～7 显示 SW1～7 的同步输入。
-F12 输入经过两级同步后从 D12 回送，作为串口物理链路诊断；这不是 UART 协议解析器。
-P0 不驱动 HDMI、SD 卡、矩阵键盘或音频外围，避免未确认扩展连接就输出信号。
-LED 引脚与 R-2R DAC 复用，基线运行时 DAC 会有对应电压变化。
-
-## 已核对的主板引脚
-依据工作区《大拇指安路EG4S20 - 板卡和开发工具入门.pdf》PDF 第 8、9、13、15、16、24 页。
-| 功能 | 引脚 |
-|---|---|
-| 50MHz 时钟 | R7 |
-| SW0 / 本工程 run_n | A9 |
-| SW1～7 | A10 B10 A11 A12 B12 A13 A14 |
-| LED0～7，高亮 | B14 B15 B16 C15 C16 E13 E16 F16 |
-| FPGA UART RX / TX | F12 / D12 |
-
-注意：本工程明确使用 SW0 作为复位输入，不使用 E3 复位键。二者不得混淆。
-
-## 扩展接口核对边界
-综合底板说明列出 HDMI 正端：CLK=P1，D0=N1，D1=P4，D2=J3。
-这只是资料候选映射，并未加入 P0 约束。进入 P1 前还须确认实际底板版本、负端差分对、IO 电气标准、HPD/DDC 连接和显示设备。
-SD 卡需确认实际插槽/模块及 SPI 引脚，不能从 USB 识别结果推断已经连接。
-SDRAM 使用芯片封装内 2M×32bit（8 MiB）存储，P2 执行存储测试。
-
-## 已验证结果
-- Windows 当前设备：Anlogic AL-Link Mini，状态 OK；CH340 COM3，状态 OK。
-- AL-Link 驱动：Anlogic 1.2.3.20，oem285.inf，已签名。
-- CH340 驱动：wch.cn 3.9.2024.9，oem215.inf，已签名。
-- 工具：D:/ANLU/bin/td_commands_prompt.exe；运行版本 V6.2.168116，与随包 TD 6.2.1 Engineer 168116 对应。
-- 综合、布局布线、位流生成成功。
-- 50MHz 布线后报告：建立裕量 15.022ns，保持裕量 0.038ns，无违例。
-- 逻辑资源：36 LUT，28 普通寄存器；另有 IO 打包寄存器；无 BRAM/DSP/PLL 占用。
-- 外部异步输入到第一同步级、异步输出设置时序例外；100% STA coverage 不代表这些外部接口已通过电气验证。
-- ChipLinker 检测到 Anlogic USB Cable #0 和 EG4S20BG256。
-
-实物 LED、拨码和扩展接口仍需观察验证；软件构建成功不等同于全部上板验收。
-
-## 上板验证补充
-2026-10-25：BitWriter 使用 PROGRAM_SRAM / 5MHz，识别 EG4S20BG256，显示 Downloading succeeded。
-未编程 Flash；掉电后 P0 临时配置不会保留。
-COM3 / 115200 / 8N1，发送 0x00～0xFF 共256字节，全部原样回传。
-证据：docs/download_log.txt 与 docs/uart_test.txt。
-剩余人工观察：LED0 每秒完整闪烁一次；SW1～7 对应 LED1～7；SW0 向下复位/向上恢复。
+早期build、build_audio_test、build_p1～p3及P6和更早阶段归档已删除；当前统一工程build_system、源码/约束/脚本/仿真依赖保留。有效归档为releases/p7_20261028（实物基线）和releases/paired_20261031（软件验证，未上板）。旧文档中的已删除路径不作为可用入口。

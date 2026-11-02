@@ -1,0 +1,5 @@
+REAL SD PAGE 0 complete frames=1 audio samples=0
+REAL SD PAGE 1 complete frames=2 audio samples=0
+REAL SD PAGE 0 complete frames=3 audio samples=0
+PASS second TF package on same integrated RTL, fragmented config/BMP, independent labels and no WAV requirement
+- sim/platform\tb_platform_media.sv:57: Verilog $finish

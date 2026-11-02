@@ -1,10 +1,24 @@
 # 用户使用说明（含安路TD软件）
 
+## 当前开发版（2026-11-02，已下载SRAM，未固化）
+
+统一主工程已完成本轮实拍问题修正并下载SRAM：蓝色背景恢复、红色警示页恢复、讲解可重复重播，三个音源和实时波形可用，KEY4结束警示与KEY8返回第三讲均已由用户确认。板端16页课件自动流程通过，最终计分2/3，配置/SD/BMP/WAV错误为0。当前时序setup +0.266ns、hold +0.030ns，LUT16089、BRAM62。位流SHA256：25e1fc49f83a81bdd24e7bcb0c524005cb3921b735ecee7b4adb6d472b03cba9。未写Flash。证据见 docs/platform_v2_board_validation.json 和 docs/platform_runtime_validation_boardfix.json。
+
+使用说明及工程结构见[配置交互平台说明](docs/PLATFORM_RUNTIME.md)，键位见[平台按键说明](docs/PLATFORM_KEYS.md)。唯一主工程仍是 build_system/dmz_track1.al。课件素材包在 assets/platform/tf_course_v2，另一套配置在 assets/platform/tf_notice_v2；同一 TF 卡根目录只使用一份 SCENE.BIN。没有有效配置时保留媒体兼容模式。
+
+板卡、COM9、JTAG、HDMI 和新课件 TF 卡现已连接；本轮先完成 SRAM 课件验收，未执行 Flash 擦写。音量继续保留 0～8 档及原增益；最终响度上限受扩展屏音量设置限制。
+
+使用新课件时，复制 tf_course_v2 中的 SCENE.BIN、BMP 和 WAV 到 TF 根目录；FAT16/FAT32 均可，文件名以包内生成的名称为准，不要改为长文件名。PACKAGE.json 和 UI 文件是检查/预览辅助文件，板端按钮像素已嵌入 SCENE.BIN。换包后重新启动或重扫，不能带电拔卡后假定已自动识别。
+
+课件中 KEY14/6/11/9 为上/下/左/右，KEY10 确认，KEY8 返回，KEY15 主页，KEY13 重播本页音频；KEY2 暂停/继续，KEY3 静音，KEY1/0 音量减/加。答题先选选项，再移动到提交按钮确认；返回重答不会重复加分，结果页重新学习才清空成绩。
+
+以下保留旧媒体版本及安路 TD 操作说明；其中旧键位、串口诊断格式以本页上方和新平台说明为准。
+
 更新：2026-10-29。适用于当前DMZ_EG4S20统一主工程及P7已验证版本。
 
 ## 1. 使用方式与准备
 
-系统从TF卡读取图片和WAV，由FPGA自主处理并经HDMI输出；下载后用板载按键操作，无需电脑参与媒体处理。当前程序下载到SRAM，断电丢失配置，下次上电需要重新下载。Flash固化不在当前必做范围。
+系统从TF卡读取图片和WAV，由FPGA自主处理并经HDMI输出；下载后用板载按键操作，无需电脑参与媒体处理。当前程序下载到SRAM，断电丢失配置，下次上电需要重新下载。Flash固化已列为后续交付项，当前未完成。
 
 准备板卡及配套底板、供电、TF卡、HDMI线和带声音输出的显示设备。重新下载还需电脑及JTAG USB；UART2USB仅供开发诊断，不是下载接口。
 

@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-01",
+  "stage": "integrated_platform_v2",
+  "hardware_connected_or_programmed_this_batch": false,
+  "project": "build_system/dmz_track1.al",
+  "top": "dmz_track1_top",
+  "bitstream": "build_system/dmz_track1_Runs/phy_1/dmz_track1.bit",
+  "bitstream_sha256": "e98c254927f3c302265b4ea667caa5cdfb2b3857d93828f2f7bcbc83a7fd9aa2",
+  "setup_slack_ns": 1.512,
+  "hold_slack_ns": 0.03,
+  "sta_reported_coverage_percent": 100,
+  "clock_MHz": {
+    "memory": 50,
+    "pixel": 25,
+    "serializer": 125
+  },
+  "routed_resources": {
+    "lut": 14905,
+    "reg": 8723,
+    "bram": 61,
+    "dsp": 20
+  },
+  "course": {
+    "pages": 16,
+    "widgets": 41,
+    "resources": 49,
+    "scene_file_bytes": 514272
+  },
+  "audio_fifo_pairs": 2048,
+  "audio_fifo_buffer_ms": 42.666666666666664,
+  "production_telemetry": "T1ST v5, 32 bytes; FULL_TELEMETRY=0",
+  "checks": {
+    "course_flow": {
+      "result": "docs/scene_runtime_result.txt",
+      "sha256": "8abc59a59b8278a868a9a22cf0c9a65f9e154198b20a1b9db9488b5f4495d681"
+    },
+    "second_scene": {
+      "result": "docs/scene_runtime_notice_result.txt",
+      "sha256": "4d8f129e17a7037c8bd029df097c3727d67bc3e4bf663ffbc13028ccdc448e76"
+    },
+    "real_fragmented_media": {
+      "result": "docs/platform_media_result.txt",
+      "sha256": "858d3747a8d4616f86a622a6247acbf99137e634551d5ac3024b6a6f4bf1de0c"
+    },
+    "second_scene_fragmented_media": {
+      "result": "docs/platform_media_notice_result.txt",
+      "sha256": "242da71aae5177669d7efa6ca70de55ae7825325abcd7988662be735fd57917e"
+    },
+    "timed_audio_fifo": {
+      "result": "docs/platform_media_timed_result.txt",
+      "sha256": "4f34c348fe4710af02701c02164698aa1288defe28930208fac1c88659920e62"
+    },
+    "full_frame_chinese_composition": {
+      "result": "docs/page_compositor_result.txt",
+      "sha256": "3a1d73ec2472933e9142d54a14c830faab87ae25bf6f7526e5d6c9c75c76c5f0"
+    },
+    "consumed_pcm_completion": {
+      "result": "docs/audio_completion_result.txt",
+      "sha256": "c7d673165b794c5cef744666aaf20f7eba48f1932383141d780525e061caff9b"
+    },
+    "file_size_rejection": {
+      "result": "docs/scene_runtime_badmeta_result.txt",
+      "sha256": "f83cff4cc8d524807f8fa3f552da55f18c19704a962c3fabef5733ca19e38f64"
+    },
+    "semantic_rejection": {
+      "result": "docs/scene_runtime_badwidget_result.txt",
+      "sha256": "77171def30cf0fe90526939fd77489470f330e5a1fdc31d0bd12c62d0c0fef3e"
+    },
+    "crc_abort": {
+      "result": "docs/scene_runtime_badcrc_result.txt",
+      "sha256": "e85e816c784fd95889d1bf0c64c1951fbd847f17d7bbe4ba9d1f29bc8a2d62d5"
+    },
+    "keys": {
+      "result": "docs/ui_keys_result.txt",
+      "sha256": "1ce59b0b59b839603f986362d3460d4b7265dbf05c129d77c579a4fa3835eb0e"
+    },
+    "controller": {
+      "result": "docs/ui_controller_result.txt",
+      "sha256": "26a36fcbe3223cd1ffe9aea17368f1c44614712653807d22aa29a0d8d57e1ab8"
+    },
+    "fifo_2048": {
+      "result": "docs/fifo_recode_result.txt",
+      "sha256": "851e0ecc4bafb9467b6bfde184e990fd4a6da2fac7960184e56673947f14ffc8"
+    },
+    "settings_osd": {
+      "result": "docs/osd_menu_sim_result.txt",
+      "sha256": "3e5268ee504d68a8b876b5468b88c75b457f80b7fc95fd6b33ec598bc96986d1"
+    },
+    "sdram": {
+      "result": "docs/p2_sim_result.txt",
+      "sha256": "dbe6e20fcd66986103811aee2533f71458bb41ce76268a5414a6a5517473c2cf"
+    },
+    "sdram_fault_flag": {
+      "result": "docs/p2_fault_result.txt",
+      "sha256": "906e75d97bef5f274bade5e55f84ee48176d9fb98a39223573e772ecc830de82"
+    },
+    "uart_lengths": {
+      "result": "docs/status_uart_sim_result.txt",
+      "sha256": "4344c1bd1bdc26b9b6a13f2fb9520c4cbf01424959e4fb4a6f956057b4c40b25"
+    },
+    "loader": {
+      "result": "docs/platform_loader_sim_result.txt",
+      "sha256": "21e35c67fca5dabec48201a04bfa2fa7677043a41d4a90a2c294cf2fc7b2c507"
+    }
+  },
+  "scope": {
+    "timed_case": "Actual package with fragmented FAT32, 12.5Mbit/s sector byte rate plus 100us token delay, async FIFO consumer approximately 48kHz. 110180 pairs consumed, zero audio underflows. Final row-offset pipeline is separately retested against full-frame reference pixels; it does not add FSM cycles.",
+    "memory_model": "Simulation SDRAM request/response model for scene/atlas, framebuffer commit adapter, plus independent SDRAM controller pin-model regression. Does not measure physical HDMI receiver latency or real card extremes.",
+    "old_hardware_records": "Only older p7/paired bitstreams, not proof of this release."
+  },
+  "pending": [
+    "current course/keys/menu/score on board",
+    "actual AV boundary and TF read latency",
+    "Flash programming, power-cycle boot",
+    "final demonstration package"
+  ],
+  "cleanup": "Old v1 generated TF directories retained: automatic approval review rejected recursive deletion as blocked by policy."
+}

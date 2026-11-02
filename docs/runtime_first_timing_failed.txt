@@ -1,0 +1,1 @@
+Pre-pipeline production build: setup -0.505ns, hold +0.014ns. Critical path compositor y -> row multiply -> address/cache hit -> framebuffer buffer CE. Repaired by registering per-widget row offset; no timing exceptions or clock reduction. This file is failure history, not current acceptance evidence.

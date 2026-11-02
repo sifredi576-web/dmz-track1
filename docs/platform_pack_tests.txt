@@ -1,0 +1,19 @@
+test_bad_jump (__main__.PlatformPackageTests.test_bad_jump) ... ok
+test_duplicate_resource (__main__.PlatformPackageTests.test_duplicate_resource) ... ok
+test_invalid_answer (__main__.PlatformPackageTests.test_invalid_answer) ... ok
+test_invalid_focus_neighbor (__main__.PlatformPackageTests.test_invalid_focus_neighbor) ... ok
+test_long_output_name (__main__.PlatformPackageTests.test_long_output_name) ... ok
+test_outside_layout (__main__.PlatformPackageTests.test_outside_layout) ... ok
+test_path_escape (__main__.PlatformPackageTests.test_path_escape) ... ok
+test_quiz_selection_and_submit_are_distinct (__main__.PlatformPackageTests.test_quiz_selection_and_submit_are_distinct) ... ok
+test_real_package_integrity (__main__.PlatformPackageTests.test_real_package_integrity) ... ok
+test_resource_order_independent_binding (__main__.PlatformPackageTests.test_resource_order_independent_binding) ... ok
+test_second_scene_same_protocol (__main__.PlatformPackageTests.test_second_scene_same_protocol) ... ok
+test_sprite_header_alpha_and_size (__main__.PlatformPackageTests.test_sprite_header_alpha_and_size) ... ok
+test_wrong_audio_type (__main__.PlatformPackageTests.test_wrong_audio_type) ... ok
+test_wrong_sprite_size (__main__.PlatformPackageTests.test_wrong_sprite_size) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.745s
+
+OK

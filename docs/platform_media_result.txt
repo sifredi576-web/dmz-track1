@@ -1,0 +1,9 @@
+REAL SD PAGE 0 complete frames=1 audio samples=0
+REAL SD PAGE 1 complete frames=2 audio samples=0
+REAL SD PAGE 2 complete frames=3 audio samples=0
+REAL SD PAGE 3 complete frames=4 audio samples=0
+REAL SD PAGE 14 complete frames=5 audio samples=6561
+REAL SD PAGE 15 complete frames=6 audio samples=12824
+REAL SD PAGE 3 complete frames=7 audio samples=19608
+PASS pixel-exact BMP + Chinese composition including NOTICE/ALERT, actual FAT32 fragmented SCENE/BMP/WAV, CRC->SDRAM->runtime->Chinese composition->frame commit, real PCM and notice return without audio restart
+- sim/platform\tb_platform_media.sv:93: Verilog $finish

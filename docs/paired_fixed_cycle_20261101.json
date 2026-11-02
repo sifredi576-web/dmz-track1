@@ -1,0 +1,58 @@
+[
+  {
+    "image": 1,
+    "wav": 1,
+    "loading": false,
+    "errors": [
+      0,
+      0,
+      0
+    ],
+    "audio_underflows": 0,
+    "video_underflows": 0,
+    "played": 239559,
+    "bytes": 10373096
+  },
+  {
+    "image": 2,
+    "wav": 2,
+    "loading": false,
+    "errors": [
+      0,
+      0,
+      0
+    ],
+    "audio_underflows": 0,
+    "video_underflows": 0,
+    "played": 239702,
+    "bytes": 9257184
+  },
+  {
+    "image": 3,
+    "wav": 3,
+    "loading": false,
+    "errors": [
+      0,
+      0,
+      0
+    ],
+    "audio_underflows": 0,
+    "video_underflows": 0,
+    "played": 239590,
+    "bytes": 13671768
+  },
+  {
+    "image": 0,
+    "wav": 0,
+    "loading": false,
+    "errors": [
+      0,
+      0,
+      0
+    ],
+    "audio_underflows": 0,
+    "video_underflows": 0,
+    "played": 239477,
+    "bytes": 12192044
+  }
+]

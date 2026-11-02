@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-01",
+  "stage": "platform material/config foundation",
+  "software_passed": true,
+  "hardware_tested": false,
+  "downloaded": false,
+  "flashed": false,
+  "source_assets_unchanged": true,
+  "resources": 49,
+  "pages": 16,
+  "widgets": 41,
+  "config_bytes": 3424,
+  "pack_unit_tests": 12,
+  "loader_cases": 9,
+  "media_regression_cases": 10,
+  "setup_ns": 1.645,
+  "hold_ns": 0.004,
+  "lut": 15747,
+  "registers": 8246,
+  "bram9k": 40,
+  "dsp": 19,
+  "pll": 1,
+  "implemented": [
+    "deterministic offline package and short names",
+    "separate backgrounds/UI/labels",
+    "two scene configurations",
+    "versioned streaming CRC32 loader",
+    "FAT config boot and invalid fallback",
+    "synchronous BRAM FAT caches"
+  ],
+  "pending": [
+    "active config tables and semantic checks",
+    "name-based resource resolution",
+    "sprite renderer and focus/actions",
+    "audio playback completion and first-answer scoring",
+    "notification context",
+    "new hardware validation",
+    "Flash programming and cold boot"
+  ],
+  "previews": "software reference raster, not FPGA output",
+  "bit_sha256": "66658AF6B7CF890FDE971A395BC6E64EDCEF4D01B9B0CC2F3E3AE6BA1ED58279",
+  "evidence": [
+    "docs/platform_pack_tests.txt",
+    "docs/platform_loader_sim_result.txt",
+    "docs/media_platform_result.txt",
+    "docs/media_platform_invalid_result.txt",
+    "docs/media_paired_result.txt"
+  ]
+}

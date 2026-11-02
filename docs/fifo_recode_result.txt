@@ -1,0 +1,2 @@
+PASS actual 2048-pair FIFO: full/empty, asynchronous clocks, random stalls, multiple wraps, data order and reset/refill against independent sequence and original FIFO
+- sim/platform\tb_fifo_recode.sv:51: Verilog $finish

@@ -1,0 +1,243 @@
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_audio_completion.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_audio_completion(input clk,reset,input [41:0] params,input flushing,pop,
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_cfg_writer.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_cfg_writer(input clk,reset,start,abort,
+      |        ^~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_mem_mux.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_mem_mux #(parameter N=2)(input clk,reset,
+      |        ^~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_page_compositor.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module dmz_page_compositor(input clk,reset,enabled,page_begin,input [3:0] widget_count,
+      |        ^~~~~~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_platform_boot.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_platform_boot #(parameter STORE_CONFIG=0)(input clk,reset,catalog_ready,found,
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_loader.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_scene_loader(
+      |        ^~~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_scene_runtime #(parameter MS_CYCLES=50000)(input clk,reset,start,
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_ui_controller.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_ui_controller #(parameter COMPACT_NEIGHBORS=0)(input clk,reset,config_ready,input [4:0] entry_page,
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_ui_keys.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_ui_keys(input clk,reset,key_valid,input [3:0] key_code,
+      |        ^~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_ui_overlay.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_ui_overlay(input [9:0] x,y,input [159:0] status,
+      |        ^~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_bmp_decoder.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_bmp_decoder(input clk,reset,start,input [31:0] file_bytes,input [7:0] stream_error,
+      |        ^~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_fat_catalog.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_fat_catalog(input clk,reset,enable,
+      |        ^~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_fat_stream.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_fat_stream(input clk,reset,start,cancel,
+      |        ^~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_image_player.sv:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    1 | module dmz_image_player #(parameter MANUAL_START=0)(input clk,reset,input catalog_ready,input [5:0] image_count,
+      |        ^~~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_media_storage.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_media_storage #(parameter RT_PLATFORM=0)(input clk,reset,enable,audio_urgent,
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_pair_control.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_pair_control(input clk,reset,enable,input [31:0] swaps,
+      |        ^~~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_sd_arbiter.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_sd_arbiter(input clk,reset,input audio_urgent,
+      |        ^~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_udiv32.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_udiv32(input clk,reset,start,input [31:0] numerator,denominator,
+      |        ^~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_wav_decoder.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module dmz_wav_decoder(
+      |        ^~~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_wav_player.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_wav_player #(parameter MANUAL_START=0)(input clk,reset,input catalog_ready,wav_found,select_restart,output wire flushing,
+      |        ^~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p2\dmz_pixel_fifo.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_pixel_fifo #(parameter AW=11,RECODE_ADDR=0)(
+      |        ^~~~~~~~~~~~~~
+                       sim/platform\tb_platform_media.sv:2:8: ... Location of module with timescale
+    2 | module tb_platform_media;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_ui_controller.sv:23:38: Bit extraction of var[255:0] requires 8 bit index, not 7 bits.
+                                                                                                                                      : ... note: In instance 'tb_platform_media.dut.configured_ui.runtime.ui'
+   23 | wire [3:0] compact_neighbor=neighbors[{candidate,direction,2'b00}+:4];
+      |                                      ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_fat_stream.sv:47:48: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'sector_index' generates 8 bits.
+                                                                                                                                : ... note: In instance 'tb_platform_media.dut.audio.file_stream'
+   47 |    ISSUE:if(sd_ready) begin sd_lba<=cluster_lba+sector_index;sd_start<=1;state<=WAIT_DATA;end
+      |                                                ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_bmp_decoder.sv:110:52: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'draw_w' generates 10 bits.
+                                                                                                                                  : ... note: In instance 'tb_platform_media.dut.images.decoder'
+  110 |   X_STEP:if(x_error>=draw_w) begin x_error<=x_error-draw_w;sample_x<=sample_x+1'b1;end else state<=FETCH;
+      |                                                    ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_bmp_decoder.sv:110:20: Operator GTE expects 12 bits on the RHS, but RHS's VARREF 'draw_w' generates 10 bits.
+                                                                                                                                  : ... note: In instance 'tb_platform_media.dut.images.decoder'
+  110 |   X_STEP:if(x_error>=draw_w) begin x_error<=x_error-draw_w;sample_x<=sample_x+1'b1;end else state<=FETCH;
+      |                    ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_bmp_decoder.sv:127:52: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                                                                                                  : ... note: In instance 'tb_platform_media.dut.images.decoder'
+  127 |   Y_STEP:if(y_error>=draw_h) begin y_error<=y_error-draw_h;wanted_y<=wanted_y+1'b1;end
+      |                                                    ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_bmp_decoder.sv:127:20: Operator GTE expects 12 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                                                                                                  : ... note: In instance 'tb_platform_media.dut.images.decoder'
+  127 |   Y_STEP:if(y_error>=draw_h) begin y_error<=y_error-draw_h;wanted_y<=wanted_y+1'b1;end
+      |                    ^~
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_loader.sv:26:20: Operator ASSIGNW expects 20 bits on the Assign RHS, but Assign RHS's SUB generates 21 bits.
+                                                                                                                                    : ... note: In instance 'tb_platform_media.dut.platform_boot.parser'
+   26 | assign staging_addr=position-21'd32;
+      |                    ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_image_player.sv:28:43: Operator LT expects 6 bits on the LHS, but LHS's VARREF 'requested_index' generates 5 bits.
+                                                                                                                                  : ... note: In instance 'tb_platform_media.dut.images'
+   28 |    else if(select_request&&requested_index<image_count)begin selected_index<=requested_index;state<=LOOKUP;end end
+      |                                           ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_image_player.sv:33:49: Operator LT expects 6 bits on the LHS, but LHS's VARREF 'requested_index' generates 5 bits.
+                                                                                                                                  : ... note: In instance 'tb_platform_media.dut.images'
+   33 |   FINISH,FAIL:if(select_request&&requested_index<image_count&&!stream_busy) begin selected_index<=requested_index;state<=LOOKUP;end
+      |                                                 ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\media\dmz_fat_catalog.sv:145:42: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'cluster_sector' generates 8 bits.
+                                                                                                                                  : ... note: In instance 'tb_platform_media.dut.catalog'
+  145 |     else sector(data_base+(cluster-2)*spc+cluster_sector,CACHE_FETCH);
+      |                                          ^
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:220:13: Operator NEQ expects 8 bits on the RHS, but RHS's VARREF 'pi' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'tb_platform_media.dut.configured_ui.runtime'
+  220 |     if(rb(0)!=pi||rb(1)>=resource_count||
+      |             ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:220:24: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'tb_platform_media.dut.configured_ui.runtime'
+  220 |     if(rb(0)!=pi||rb(1)>=resource_count||
+      |                        ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:221:26: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'tb_platform_media.dut.configured_ui.runtime'
+  221 |       (rb(2)!=255&&(rb(2)>=resource_count))||
+      |                          ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:222:43: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'tb_platform_media.dut.configured_ui.runtime'
+  222 |       (rb(3)&8'hf8)!=0||(rb(4)!=255&&rb(4)>=page_count)||rb(5)!=0||rb(9)>8||
+      |                                           ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:223:74: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'tb_platform_media.dut.configured_ui.runtime'
+  223 |       {1'b0,rb(8)}+{1'b0,rb(9)}>{1'b0,widget_total}||(rb(10)!=255&&rb(10)>=page_count)||
+      |                                                                          ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:240:13: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'tb_platform_media.dut.configured_ui.runtime'
+  240 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
+      |             ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:240:41: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'tb_platform_media.dut.configured_ui.runtime'
+  240 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
+      |                                         ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:240:64: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'tb_platform_media.dut.configured_ui.runtime'
+  240 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
+      |                                                                ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:244:39: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'tb_platform_media.dut.configured_ui.runtime'
+  244 |        ((rb(12)==1||rb(12)==9)&&rb(13)>=page_count)||
+      |                                       ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:245:27: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'tb_platform_media.dut.configured_ui.runtime'
+  245 |        (rb(12)==2&&(rb(13)>=resource_count))||
+      |                           ^~
+%Warning-WIDTHEXPAND: rtl/p2\dmz_pixel_fifo.sv:10:18: Operator ADD expects 12 bits on the RHS, but RHS's VARREF 'pop' generates 1 bits.
+                                                    : ... note: In instance 'tb_platform_media.fifo'
+   10 | wire [AW:0] rn=rp+pop,wn=wp+push;
+      |                  ^
+%Warning-WIDTHEXPAND: rtl/p2\dmz_pixel_fifo.sv:10:28: Operator ADD expects 12 bits on the RHS, but RHS's VARREF 'push' generates 1 bits.
+                                                    : ... note: In instance 'tb_platform_media.fifo'
+   10 | wire [AW:0] rn=rp+pop,wn=wp+push;
+      |                            ^
+%Warning-WIDTHTRUNC: sim/platform\tb_platform_media.sv:54:19: Bit extraction of array[32767:0] requires 15 bit index, not 21 bits.
+                                                            : ... note: In instance 'tb_platform_media'
+   54 |   if(mwrite)memory[(maddr-21'h80000)>>3]<=mdata;else ard<=memory[(maddr-21'h80000)>>3];
+      |                   ^
+%Warning-WIDTHTRUNC: sim/platform\tb_platform_media.sv:54:65: Bit extraction of array[32767:0] requires 15 bit index, not 21 bits.
+                                                            : ... note: In instance 'tb_platform_media'
+   54 |   if(mwrite)memory[(maddr-21'h80000)>>3]<=mdata;else ard<=memory[(maddr-21'h80000)>>3];
+      |                                                                 ^
+%Warning-WIDTHEXPAND: sim/platform\tb_platform_media.sv:66:13: Operator FUNCREF 'dmz_expected_pcm' expects 32 bits on the Function Argument, but Function Argument's VARREF 'wave' generates 4 bits.
+                                                             : ... note: In instance 'tb_platform_media'
+   66 |   if(pair!==dmz_expected_pcm(wave,samples))$fatal(1,"real WAV data mismatch wave=%0d sample=%0d got=%h",wave,samples,pair);
+      |             ^~~~~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: sim/platform\tb_platform_media.sv:73:57: Operator EQ expects 32 bits on the LHS, but LHS's SEL generates 5 bits.
+                                                             : ... note: In instance 'tb_platform_media'
+   73 |  wait(status[0]&&!status[1]&&!status[149]&&status[15:11]==wanted&&dut.configured_ui.runtime.state==11);ticks(16);
+      |                                                         ^~
+%Warning-WIDTHEXPAND: sim/platform\tb_platform_media.sv:74:18: Operator NEQ expects 32 bits on the LHS, but LHS's SEL generates 5 bits.
+                                                             : ... note: In instance 'tb_platform_media'
+   74 |  if(status[15:11]!=wanted)$fatal(1,"expected page %0d got %0d",wanted,status[15:11]);
+      |                  ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 1.374 MB sources in 23 modules, into 1.557 MB in 9 C++ files needing 0.003 MB
+- Verilator: Walltime 0.244 s (elab=0.018, cvt=0.141, bld=0.000); cpu 0.000 s on 1 threads; alloced 31.746 MB

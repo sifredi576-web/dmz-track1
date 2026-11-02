@@ -1,0 +1,1 @@
+PASS production v5 parser, XOR checksum/resynchronization, UI/score, file indexes, command acknowledgements and health flags; no hardware access

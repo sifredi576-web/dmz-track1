@@ -1,0 +1,93 @@
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_audio_completion.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_audio_completion(input clk,reset,input [41:0] params,input flushing,pop,
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       sim/platform\tb_page_compositor.sv:2:8: ... Location of module with timescale
+    2 | module tb_page_compositor;
+      |        ^~~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_cfg_writer.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_cfg_writer(input clk,reset,start,abort,
+      |        ^~~~~~~~~~~~~~
+                       sim/platform\tb_page_compositor.sv:2:8: ... Location of module with timescale
+    2 | module tb_page_compositor;
+      |        ^~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_mem_mux.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_mem_mux #(parameter N=2)(input clk,reset,
+      |        ^~~~~~~~~~~
+                       sim/platform\tb_page_compositor.sv:2:8: ... Location of module with timescale
+    2 | module tb_page_compositor;
+      |        ^~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_page_compositor.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module dmz_page_compositor(input clk,reset,enabled,page_begin,input [3:0] widget_count,
+      |        ^~~~~~~~~~~~~~~~~~~
+                       sim/platform\tb_page_compositor.sv:2:8: ... Location of module with timescale
+    2 | module tb_page_compositor;
+      |        ^~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_platform_boot.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_platform_boot #(parameter STORE_CONFIG=0)(input clk,reset,catalog_ready,found,
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/platform\tb_page_compositor.sv:2:8: ... Location of module with timescale
+    2 | module tb_page_compositor;
+      |        ^~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_loader.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_scene_loader(
+      |        ^~~~~~~~~~~~~~~~
+                       sim/platform\tb_page_compositor.sv:2:8: ... Location of module with timescale
+    2 | module tb_page_compositor;
+      |        ^~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_scene_runtime #(parameter MS_CYCLES=50000)(input clk,reset,start,
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/platform\tb_page_compositor.sv:2:8: ... Location of module with timescale
+    2 | module tb_page_compositor;
+      |        ^~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_ui_controller.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_ui_controller #(parameter COMPACT_NEIGHBORS=0)(input clk,reset,config_ready,input [4:0] entry_page,
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/platform\tb_page_compositor.sv:2:8: ... Location of module with timescale
+    2 | module tb_page_compositor;
+      |        ^~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_ui_keys.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_ui_keys(input clk,reset,key_valid,input [3:0] key_code,
+      |        ^~~~~~~~~~~
+                       sim/platform\tb_page_compositor.sv:2:8: ... Location of module with timescale
+    2 | module tb_page_compositor;
+      |        ^~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_ui_overlay.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_ui_overlay(input [9:0] x,y,input [159:0] status,
+      |        ^~~~~~~~~~~~~~
+                       sim/platform\tb_page_compositor.sv:2:8: ... Location of module with timescale
+    2 | module tb_page_compositor;
+      |        ^~~~~~~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: sim/platform\tb_page_compositor.sv:16:68: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'address' generates 21 bits.
+                                                              : ... note: In instance 'tb_page_compositor'
+   16 |   else begin for(integer j=0;j<32;j++)md[j*8+:8]<=scene[32+(address-21'h80000)*4+j];mrsp<=1;mpending<=0;end
+      |                                                                    ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: sim/platform\tb_page_compositor.sv:16:68: Operator SUB expects 32 bits on the RHS, but RHS's CONST '21'h80000' generates 21 bits.
+                                                              : ... note: In instance 'tb_page_compositor'
+   16 |   else begin for(integer j=0;j<32;j++)md[j*8+:8]<=scene[32+(address-21'h80000)*4+j];mrsp<=1;mpending<=0;end
+      |                                                                    ^
+%Warning-WIDTHTRUNC: sim/platform\tb_page_compositor.sv:19:99: Bit extraction of array[19199:0] requires 15 bit index, not 18 bits.
+                                                             : ... note: In instance 'tb_page_compositor'
+   19 |   if(od!=expected[oa>>3])$fatal(1,"composition mismatch addr=%h got=%h expected=%h",oa,od,expected[oa>>3]);
+      |                                                                                                   ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: sim/platform\tb_page_compositor.sv:19:18: Bit extraction of array[19199:0] requires 15 bit index, not 18 bits.
+                                                             : ... note: In instance 'tb_page_compositor'
+   19 |   if(od!=expected[oa>>3])$fatal(1,"composition mismatch addr=%h got=%h expected=%h",oa,od,expected[oa>>3]);
+      |                  ^
+%Warning-WIDTHTRUNC: sim/platform\tb_page_compositor.sv:29:16: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'bottom_up' generates 32 bits.
+                                                             : ... note: In instance 'tb_page_compositor'
+   29 |   row=bottom_up?479-y:y;while(!ir)ticks(1);ia=row*320+col*8;il=y==479&&col==39;iv=1;ticks(1);iv=0;
+      |                ^
+%Warning-WIDTHTRUNC: sim/platform\tb_page_compositor.sv:29:46: Operator ASSIGN expects 18 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits.
+                                                             : ... note: In instance 'tb_page_compositor'
+   29 |   row=bottom_up?479-y:y;while(!ir)ticks(1);ia=row*320+col*8;il=y==479&&col==39;iv=1;ticks(1);iv=0;
+      |                                              ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.375 MB sources in 13 modules, into 0.476 MB in 8 C++ files needing 0.000 MB
+- Verilator: Walltime 0.081 s (elab=0.004, cvt=0.028, bld=0.000); cpu 0.031 s on 1 threads; alloced 19.121 MB

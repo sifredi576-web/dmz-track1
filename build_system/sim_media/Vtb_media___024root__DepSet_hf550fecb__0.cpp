@@ -15,19 +15,57 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vt
     __Vtask_tb_media__DOT__choose__7__slot = 0;
     CData/*4:0*/ __Vtask_tb_media__DOT__choose__8__slot;
     __Vtask_tb_media__DOT__choose__8__slot = 0;
-    VlWide<3>/*95:0*/ __Vtemp_1;
-    VlWide<3>/*95:0*/ __Vtemp_2;
+    CData/*4:0*/ __Vtask_tb_media__DOT__choose__9__slot;
+    __Vtask_tb_media__DOT__choose__9__slot = 0;
+    CData/*4:0*/ __Vtask_tb_media__DOT__choose__10__slot;
+    __Vtask_tb_media__DOT__choose__10__slot = 0;
+    VlWide<4>/*127:0*/ __Vtemp_1;
+    VlWide<4>/*127:0*/ __Vtemp_2;
+    VlWide<3>/*95:0*/ __Vtemp_3;
+    VlWide<3>/*95:0*/ __Vtemp_4;
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x186a0ULL, 
                                          nullptr, "sim/media\tb_media.sv", 
-                                         61);
+                                         66);
     vlSelfRef.tb_media__DOT__reset = 0U;
     while ((5U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
         co_await vlSelfRef.__VtrigSched_h6aad0e7d__0.trigger(1U, 
                                                              nullptr, 
                                                              "@( (3'h5 == tb_media.dut.images.state))", 
                                                              "sim/media\tb_media.sv", 
-                                                             61);
+                                                             66);
+    }
+    if (VL_UNLIKELY((VL_TESTPLUSARGS_I(std::string{"platform"})))) {
+        __Vtemp_1[0U] = 0x72726f72U;
+        __Vtemp_1[1U] = 0x63726365U;
+        __Vtemp_1[2U] = 0x6e666967U;
+        __Vtemp_1[3U] = 0x636fU;
+        __Vtemp_2[0U] = 0x72726f72U;
+        __Vtemp_2[1U] = 0x63726365U;
+        __Vtemp_2[2U] = 0x6e666967U;
+        __Vtemp_2[3U] = 0x636fU;
+        if (VL_UNLIKELY(((1U & (((~ (IData)(vlSelfRef.tb_media__DOT__platform_found)) 
+                                 | ((IData)(vlSelfRef.tb_media__DOT__platform_ready) 
+                                    == VL_TESTPLUSARGS_I(
+                                                         VL_CVT_PACK_STR_NW(4, __Vtemp_1)))) 
+                                | (((0U == ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__file_error))
+                                             ? 1U : (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error)))
+                                     ? 0U : ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__file_error))
+                                              ? 1U : (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error))) 
+                                   != (VL_TESTPLUSARGS_I(
+                                                         VL_CVT_PACK_STR_NW(4, __Vtemp_2))
+                                        ? 7U : 0U))))))) {
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:69: Assertion failed in %Ntb_media: configuration bootstrap found=%0# valid=%0# error=%0#\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,vlSymsp->name(),1,(IData)(vlSelfRef.tb_media__DOT__platform_found),
+                         1,vlSelfRef.tb_media__DOT__platform_ready,
+                         8,((0U == ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__file_error))
+                                     ? 1U : (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error)))
+                             ? 0U : ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__file_error))
+                                      ? 1U : (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error))));
+            VL_STOP_MT("sim/media\\tb_media.sv", 69, "", false);
+        }
+        VL_WRITEF_NX("PASS configuration read before media, CRC and fallback\n",0);
     }
     if (VL_UNLIKELY((((((2U != (IData)(vlSelfRef.tb_media__DOT__count)) 
                         | ((IData)(vlSelfRef.tb_media__DOT__wav_found) 
@@ -35,19 +73,19 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vt
                        | ((! VL_TESTPLUSARGS_I(std::string{"nowav"})) 
                           & (0x402cU != vlSelfRef.tb_media__DOT__wav_bytes))) 
                       | (0x4b00U != vlSelfRef.tb_media__DOT__bursts))))) {
-        VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:62: Assertion failed in %Ntb_media: catalog/image count=%0# wav=%0# bursts=%0d\n",0,
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:72: Assertion failed in %Ntb_media: catalog/image count=%0# wav=%0# bursts=%0d\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      6,(IData)(vlSelfRef.tb_media__DOT__count),
                      1,vlSelfRef.tb_media__DOT__wav_found,
                      32,vlSelfRef.tb_media__DOT__bursts);
-        VL_STOP_MT("sim/media\\tb_media.sv", 62, "", false);
+        VL_STOP_MT("sim/media\\tb_media.sv", 72, "", false);
     }
     __Vtask_tb_media__DOT__choose__7__slot = 1U;
     co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_media.clk)", 
                                                          "sim/media\tb_media.sv", 
-                                                         58);
+                                                         63);
     vlSelfRef.tb_media__DOT__bursts = 0U;
     vlSelfRef.tb_media__DOT__requested = __Vtask_tb_media__DOT__choose__7__slot;
     vlSelfRef.tb_media__DOT__select_request = 1U;
@@ -55,7 +93,7 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vt
                                                          nullptr, 
                                                          "@(negedge tb_media.clk)", 
                                                          "sim/media\tb_media.sv", 
-                                                         58);
+                                                         63);
     vlSelfRef.tb_media__DOT__select_request = 0U;
     while ((1U & (~ ((5U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)) 
                      & (6U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)))))) {
@@ -63,27 +101,27 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vt
                                                              nullptr, 
                                                              "@( ((3'h5 != tb_media.dut.images.state) & (3'h6 != tb_media.dut.images.state)))", 
                                                              "sim/media\tb_media.sv", 
-                                                             58);
+                                                             63);
     }
     while ((5U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
         co_await vlSelfRef.__VtrigSched_h6aad0e7d__0.trigger(1U, 
                                                              nullptr, 
                                                              "@( (3'h5 == tb_media.dut.images.state))", 
                                                              "sim/media\tb_media.sv", 
-                                                             58);
+                                                             63);
     }
     if (VL_UNLIKELY((((0x4b00U != vlSelfRef.tb_media__DOT__bursts) 
                       | (0x4b000U != vlSelfRef.tb_media__DOT__pixels))))) {
-        VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:63: Assertion failed in %Ntb_media: second image frame incomplete\n",0,
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:73: Assertion failed in %Ntb_media: second image frame incomplete\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-        VL_STOP_MT("sim/media\\tb_media.sv", 63, "", false);
+        VL_STOP_MT("sim/media\\tb_media.sv", 73, "", false);
     }
     __Vtask_tb_media__DOT__choose__8__slot = 0U;
     co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_media.clk)", 
                                                          "sim/media\tb_media.sv", 
-                                                         58);
+                                                         63);
     vlSelfRef.tb_media__DOT__bursts = 0U;
     vlSelfRef.tb_media__DOT__requested = __Vtask_tb_media__DOT__choose__8__slot;
     vlSelfRef.tb_media__DOT__select_request = 1U;
@@ -91,7 +129,7 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vt
                                                          nullptr, 
                                                          "@(negedge tb_media.clk)", 
                                                          "sim/media\tb_media.sv", 
-                                                         58);
+                                                         63);
     vlSelfRef.tb_media__DOT__select_request = 0U;
     while ((1U & (~ ((5U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)) 
                      & (6U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)))))) {
@@ -99,129 +137,755 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vt
                                                              nullptr, 
                                                              "@( ((3'h5 != tb_media.dut.images.state) & (3'h6 != tb_media.dut.images.state)))", 
                                                              "sim/media\tb_media.sv", 
-                                                             58);
+                                                             63);
     }
     while ((5U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
         co_await vlSelfRef.__VtrigSched_h6aad0e7d__0.trigger(1U, 
                                                              nullptr, 
                                                              "@( (3'h5 == tb_media.dut.images.state))", 
                                                              "sim/media\tb_media.sv", 
-                                                             58);
+                                                             63);
     }
     if (VL_UNLIKELY((((0x4b00U != vlSelfRef.tb_media__DOT__bursts) 
                       | (0U == vlSelfRef.tb_media__DOT__image_reads))))) {
-        VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:64: Assertion failed in %Ntb_media: image reload progress\n",0,
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:74: Assertion failed in %Ntb_media: image reload progress\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-        VL_STOP_MT("sim/media\\tb_media.sv", 64, "", false);
+        VL_STOP_MT("sim/media\\tb_media.sv", 74, "", false);
     }
-    __Vtemp_1[0U] = 0x616c6964U;
-    __Vtemp_1[1U] = 0x76696e76U;
-    __Vtemp_1[2U] = 0x7761U;
-    if (VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_1))) {
+    __Vtemp_3[0U] = 0x616c6964U;
+    __Vtemp_3[1U] = 0x76696e76U;
+    __Vtemp_3[2U] = 0x7761U;
+    if (VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_3))) {
         if (VL_UNLIKELY((((3U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decode_error)) 
                           | (0U != vlSelfRef.tb_media__DOT__pcm_count))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:65: Assertion failed in %Ntb_media: bad WAV must stop without harming gallery\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:75: Assertion failed in %Ntb_media: bad WAV must stop without harming gallery\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
-            VL_STOP_MT("sim/media\\tb_media.sv", 65, "", false);
+            VL_STOP_MT("sim/media\\tb_media.sv", 75, "", false);
         }
     } else {
-        __Vtemp_2[0U] = 0x6861696eU;
-        __Vtemp_2[1U] = 0x6f727463U;
-        __Vtemp_2[2U] = 0x7368U;
-        if (VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_2))) {
+        __Vtemp_4[0U] = 0x6861696eU;
+        __Vtemp_4[1U] = 0x6f727463U;
+        __Vtemp_4[2U] = 0x7368U;
+        if (VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_4))) {
             if (VL_UNLIKELY((((0x87U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decode_error)) 
                               | VL_LTS_III(32, 0x3f5U, vlSelfRef.tb_media__DOT__pcm_count))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:66: Assertion failed in %Ntb_media: short FAT chain must stop audio\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:76: Assertion failed in %Ntb_media: short FAT chain must stop audio\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/media\\tb_media.sv", 66, "", false);
+                VL_STOP_MT("sim/media\\tb_media.sv", 76, "", false);
             }
         } else if (VL_TESTPLUSARGS_I(std::string{"nowav"})) {
             if (VL_UNLIKELY((((0U != vlSelfRef.tb_media__DOT__audio_reads) 
                               | (0U != vlSelfRef.tb_media__DOT__pcm_count))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:67: Assertion failed in %Ntb_media: missing WAV must not read audio\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:77: Assertion failed in %Ntb_media: missing WAV must not read audio\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/media\\tb_media.sv", 67, "", false);
+                VL_STOP_MT("sim/media\\tb_media.sv", 77, "", false);
             }
         } else if (VL_UNLIKELY(((((2U > vlSelfRef.tb_media__DOT__loops) 
                                   | (0x1000U != vlSelfRef.tb_media__DOT__total)) 
                                  | (0U == vlSelfRef.tb_media__DOT__audio_reads))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:68: Assertion failed in %Ntb_media: loop/concurrent progress\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:78: Assertion failed in %Ntb_media: loop/concurrent progress\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
-            VL_STOP_MT("sim/media\\tb_media.sv", 68, "", false);
+            VL_STOP_MT("sim/media\\tb_media.sv", 78, "", false);
         }
+    }
+    if (VL_UNLIKELY((VL_TESTPLUSARGS_I(std::string{"paired"})))) {
+        vlSelfRef.tb_media__DOT__paired = 1U;
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             80);
+        if (VL_UNLIKELY(((1U & ((~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__pair_found)) 
+                                | (0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__pair_index))))))) {
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:81: Assertion failed in %Ntb_media: first filename match\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,vlSymsp->name());
+            VL_STOP_MT("sim/media\\tb_media.sv", 81, "", false);
+        }
+        __Vtask_tb_media__DOT__choose__9__slot = 1U;
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             63);
+        vlSelfRef.tb_media__DOT__bursts = 0U;
+        vlSelfRef.tb_media__DOT__requested = __Vtask_tb_media__DOT__choose__9__slot;
+        vlSelfRef.tb_media__DOT__select_request = 1U;
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             63);
+        vlSelfRef.tb_media__DOT__select_request = 0U;
+        while ((1U & (~ ((5U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)) 
+                         & (6U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)))))) {
+            co_await vlSelfRef.__VtrigSched_h169934e5__0.trigger(1U, 
+                                                                 nullptr, 
+                                                                 "@( ((3'h5 != tb_media.dut.images.state) & (3'h6 != tb_media.dut.images.state)))", 
+                                                                 "sim/media\tb_media.sv", 
+                                                                 63);
+        }
+        while ((5U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
+            co_await vlSelfRef.__VtrigSched_h6aad0e7d__0.trigger(1U, 
+                                                                 nullptr, 
+                                                                 "@( (3'h5 == tb_media.dut.images.state))", 
+                                                                 "sim/media\tb_media.sv", 
+                                                                 63);
+        }
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             82);
+        if (VL_UNLIKELY(((1U & (((0U != (IData)(vlSelfRef.tb_media__DOT__audio_selected)) 
+                                 | (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__pair_found))) 
+                                | (1U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__pair_index))))))) {
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:83: Assertion failed in %Ntb_media: precommit or filename match\n",0,
+                         64,VL_TIME_UNITED_Q(1000),
+                         -9,vlSymsp->name());
+            VL_STOP_MT("sim/media\\tb_media.sv", 83, "", false);
+        }
+        vlSelfRef.tb_media__DOT__frame_swaps = 1U;
+        while ((1U & (~ (IData)(vlSelfRef.tb_media__DOT__audio_flush)))) {
+            co_await vlSelfRef.__VtrigSched_he9dec02e__0.trigger(1U, 
+                                                                 nullptr, 
+                                                                 "@( tb_media.audio_flush)", 
+                                                                 "sim/media\tb_media.sv", 
+                                                                 84);
+        }
+        while (vlSelfRef.tb_media__DOT__audio_flush) {
+            co_await vlSelfRef.__VtrigSched_hb0d36602__0.trigger(1U, 
+                                                                 nullptr, 
+                                                                 "@( (~ tb_media.audio_flush))", 
+                                                                 "sim/media\tb_media.sv", 
+                                                                 84);
+        }
+        while ((1U & (~ ((1U == (IData)(vlSelfRef.tb_media__DOT__audio_selected)) 
+                         & VL_LTS_III(32, 0x1194U, vlSelfRef.tb_media__DOT__pcm_count))))) {
+            co_await vlSelfRef.__VtrigSched_h8dcd73a7__0.trigger(1U, 
+                                                                 nullptr, 
+                                                                 "@( ((4'h1 == tb_media.audio_selected) & (32'sh1194 < tb_media.pcm_count)))", 
+                                                                 "sim/media\tb_media.sv", 
+                                                                 84);
+        }
+        __Vtask_tb_media__DOT__choose__10__slot = 0U;
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             63);
+        vlSelfRef.tb_media__DOT__bursts = 0U;
+        vlSelfRef.tb_media__DOT__requested = __Vtask_tb_media__DOT__choose__10__slot;
+        vlSelfRef.tb_media__DOT__select_request = 1U;
+        co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_media.clk)", 
+                                                             "sim/media\tb_media.sv", 
+                                                             63);
+        vlSelfRef.tb_media__DOT__select_request = 0U;
+        while ((1U & (~ ((5U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)) 
+                         & (6U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)))))) {
+            co_await vlSelfRef.__VtrigSched_h169934e5__0.trigger(1U, 
+                                                                 nullptr, 
+                                                                 "@( ((3'h5 != tb_media.dut.images.state) & (3'h6 != tb_media.dut.images.state)))", 
+                                                                 "sim/media\tb_media.sv", 
+                                                                 63);
+        }
+        while ((5U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
+            co_await vlSelfRef.__VtrigSched_h6aad0e7d__0.trigger(1U, 
+                                                                 nullptr, 
+                                                                 "@( (3'h5 == tb_media.dut.images.state))", 
+                                                                 "sim/media\tb_media.sv", 
+                                                                 63);
+        }
+        vlSelfRef.tb_media__DOT__frame_swaps = 2U;
+        while ((1U & (~ (IData)(vlSelfRef.tb_media__DOT__audio_flush)))) {
+            co_await vlSelfRef.__VtrigSched_he9dec02e__0.trigger(1U, 
+                                                                 nullptr, 
+                                                                 "@( tb_media.audio_flush)", 
+                                                                 "sim/media\tb_media.sv", 
+                                                                 85);
+        }
+        while (vlSelfRef.tb_media__DOT__audio_flush) {
+            co_await vlSelfRef.__VtrigSched_hb0d36602__0.trigger(1U, 
+                                                                 nullptr, 
+                                                                 "@( (~ tb_media.audio_flush))", 
+                                                                 "sim/media\tb_media.sv", 
+                                                                 85);
+        }
+        while ((1U & (~ ((0U == (IData)(vlSelfRef.tb_media__DOT__audio_selected)) 
+                         & VL_LTS_III(32, 0x1194U, vlSelfRef.tb_media__DOT__pcm_count))))) {
+            co_await vlSelfRef.__VtrigSched_h8c9c9318__0.trigger(1U, 
+                                                                 nullptr, 
+                                                                 "@( ((4'h0 == tb_media.audio_selected) & (32'sh1194 < tb_media.pcm_count)))", 
+                                                                 "sim/media\tb_media.sv", 
+                                                                 85);
+        }
+        VL_WRITEF_NX("PASS paired FAT lookup, commit gating, both track directions, exact PCM after flush\n",0);
+        VL_FINISH_MT("sim/media\\tb_media.sv", 86, "");
     }
     if (VL_UNLIKELY((VL_TESTPLUSARGS_I(std::string{"multiwav"})))) {
         if (VL_UNLIKELY(((2U != (IData)(vlSelfRef.tb_media__DOT__wav_count))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:70: Assertion failed in %Ntb_media: WAV index count\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:89: Assertion failed in %Ntb_media: WAV index count\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
-            VL_STOP_MT("sim/media\\tb_media.sv", 70, "", false);
+            VL_STOP_MT("sim/media\\tb_media.sv", 89, "", false);
         }
         vlSelfRef.tb_media__DOT__browse_query = 0x21U;
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             71);
+                                                             90);
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             71);
+                                                             90);
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             71);
+                                                             90);
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             71);
+                                                             90);
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             71);
+                                                             90);
         if (VL_UNLIKELY(((1U & (((~ (IData)(vlSelfRef.tb_media__DOT__browse_valid)) 
                                  | (0x21U != (IData)(vlSelfRef.tb_media__DOT__browse_tag))) 
                                 | (0x202020324f4d4544ULL 
                                    != vlSelfRef.tb_media__DOT__browse_name)))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:72: Assertion failed in %Ntb_media: WAV metadata query\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:91: Assertion failed in %Ntb_media: WAV metadata query\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
-            VL_STOP_MT("sim/media\\tb_media.sv", 72, "", false);
+            VL_STOP_MT("sim/media\\tb_media.sv", 91, "", false);
         }
         while ((3U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state))) {
             co_await vlSelfRef.__VtrigSched_h2ec6dfc1__0.trigger(1U, 
                                                                  nullptr, 
                                                                  "@( (4'h3 == tb_media.dut.audio.file_stream.state))", 
                                                                  "sim/media\tb_media.sv", 
-                                                                 74);
+                                                                 93);
         }
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             74);
+                                                             93);
         vlSelfRef.tb_media__DOT__audio_requested = 1U;
         vlSelfRef.tb_media__DOT__audio_select = 1U;
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             75);
+                                                             94);
         vlSelfRef.tb_media__DOT__audio_select = 0U;
         while (vlSelfRef.tb_media__DOT__audio_flush) {
             co_await vlSelfRef.__VtrigSched_hb0d36602__0.trigger(1U, 
                                                                  nullptr, 
                                                                  "@( (~ tb_media.audio_flush))", 
                                                                  "sim/media\tb_media.sv", 
-                                                                 75);
+                                                                 94);
         }
         while ((1U & (~ ((1U <= vlSelfRef.tb_media__DOT__loops) 
                          & VL_LTS_III(32, 0x1194U, vlSelfRef.tb_media__DOT__pcm_count))))) {
@@ -229,42 +893,42 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vt
                                                                  nullptr, 
                                                                  "@( ((32'sh1 <= tb_media.loops) & (32'sh1194 < tb_media.pcm_count)))", 
                                                                  "sim/media\tb_media.sv", 
-                                                                 75);
+                                                                 94);
         }
         vlSelfRef.tb_media__DOT__browse_query = 1U;
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             76);
+                                                             95);
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             76);
+                                                             95);
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             76);
+                                                             95);
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             76);
+                                                             95);
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             76);
+                                                             95);
         if (VL_UNLIKELY(((1U & (((~ (IData)(vlSelfRef.tb_media__DOT__browse_valid)) 
                                  | (1U != (IData)(vlSelfRef.tb_media__DOT__browse_tag))) 
                                 | (0x2020202020424349ULL 
                                    != vlSelfRef.tb_media__DOT__browse_name)))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:77: Assertion failed in %Ntb_media: BMP metadata query\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:96: Assertion failed in %Ntb_media: BMP metadata query\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
-            VL_STOP_MT("sim/media\\tb_media.sv", 77, "", false);
+            VL_STOP_MT("sim/media\\tb_media.sv", 96, "", false);
         }
         while ((1U & (~ ((IData)(vlSelfRef.tb_media__DOT__pcm_valid) 
                          & (0U != VL_MODDIVS_III(32, vlSelfRef.tb_media__DOT__cycle, (IData)(0x67U))))))) {
@@ -272,27 +936,27 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vt
                                                                  nullptr, 
                                                                  "@( (tb_media.pcm_valid & (32'sh0 != (tb_media.cycle % 32'sh67))))", 
                                                                  "sim/media\tb_media.sv", 
-                                                                 80);
+                                                                 99);
         }
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             80);
+                                                             99);
         vlSelfRef.tb_media__DOT__audio_requested = 0U;
         vlSelfRef.tb_media__DOT__audio_select = 1U;
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             81);
+                                                             100);
         vlSelfRef.tb_media__DOT__audio_select = 0U;
         while (vlSelfRef.tb_media__DOT__audio_flush) {
             co_await vlSelfRef.__VtrigSched_hb0d36602__0.trigger(1U, 
                                                                  nullptr, 
                                                                  "@( (~ tb_media.audio_flush))", 
                                                                  "sim/media\tb_media.sv", 
-                                                                 81);
+                                                                 100);
         }
         while ((1U & (~ ((1U <= vlSelfRef.tb_media__DOT__loops) 
                          & VL_LTS_III(32, 0x1194U, vlSelfRef.tb_media__DOT__pcm_count))))) {
@@ -300,7 +964,7 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vt
                                                                  nullptr, 
                                                                  "@( ((32'sh1 <= tb_media.loops) & (32'sh1194 < tb_media.pcm_count)))", 
                                                                  "sim/media\tb_media.sv", 
-                                                                 81);
+                                                                 100);
         }
         while ((1U & (~ ((IData)(vlSelfRef.tb_media__DOT__pcm_valid) 
                          & (0U != VL_MODDIVS_III(32, vlSelfRef.tb_media__DOT__cycle, (IData)(0x67U))))))) {
@@ -308,27 +972,27 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vt
                                                                  nullptr, 
                                                                  "@( (tb_media.pcm_valid & (32'sh0 != (tb_media.cycle % 32'sh67))))", 
                                                                  "sim/media\tb_media.sv", 
-                                                                 80);
+                                                                 99);
         }
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             80);
+                                                             99);
         vlSelfRef.tb_media__DOT__audio_requested = 0U;
         vlSelfRef.tb_media__DOT__audio_select = 1U;
         co_await vlSelfRef.__VtrigSched_h4fe65f05__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_media.clk)", 
                                                              "sim/media\tb_media.sv", 
-                                                             81);
+                                                             100);
         vlSelfRef.tb_media__DOT__audio_select = 0U;
         while (vlSelfRef.tb_media__DOT__audio_flush) {
             co_await vlSelfRef.__VtrigSched_hb0d36602__0.trigger(1U, 
                                                                  nullptr, 
                                                                  "@( (~ tb_media.audio_flush))", 
                                                                  "sim/media\tb_media.sv", 
-                                                                 81);
+                                                                 100);
         }
         while ((1U & (~ ((1U <= vlSelfRef.tb_media__DOT__loops) 
                          & VL_LTS_III(32, 0x1194U, vlSelfRef.tb_media__DOT__pcm_count))))) {
@@ -336,12 +1000,12 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vt
                                                                  nullptr, 
                                                                  "@( ((32'sh1 <= tb_media.loops) & (32'sh1194 < tb_media.pcm_count)))", 
                                                                  "sim/media\tb_media.sv", 
-                                                                 81);
+                                                                 100);
         }
         VL_WRITEF_NX("PASS multi-WAV metadata, exact new-track samples, outstanding SD cancellation, backpressure switching and same-file restart\n",0);
     }
     VL_WRITEF_NX("PASS shared FAT/SD: catalog BMP+WAV, 3 complete images/921600 pixels, fragmented WAV loops and exact stereo samples, concurrent arbitration/backpressure\n",0);
-    VL_FINISH_MT("sim/media\\tb_media.sv", 85, "");
+    VL_FINISH_MT("sim/media\\tb_media.sv", 104, "");
 }
 
 VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__1(Vtb_media___024root* vlSelf) {
@@ -351,14 +1015,14 @@ VL_INLINE_OPT VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__1(Vt
     // Body
     co_await vlSelfRef.__VdlySched.delay(0xe8d4a51000ULL, 
                                          nullptr, "sim/media\tb_media.sv", 
-                                         87);
-    VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:87: Assertion failed in %Ntb_media: media timeout image=%0# wav=%0#\n",0,
+                                         106);
+    VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:106: Assertion failed in %Ntb_media: media timeout image=%0# wav=%0#\n",0,
                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                  8,((IData)(vlSelfRef.tb_media__DOT__catalog_ready)
                      ? (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state)
                      : (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state)),
                  8,(IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state));
-    VL_STOP_MT("sim/media\\tb_media.sv", 87, "", false);
+    VL_STOP_MT("sim/media\\tb_media.sv", 106, "", false);
 }
 
 #ifdef VL_DEBUG
@@ -374,10 +1038,14 @@ void Vtb_media___024root___eval_triggers__act(Vtb_media___024root* vlSelf) {
     __Vtrigprevexpr_hfa9ac863__0 = 0;
     CData/*0:0*/ __Vtrigprevexpr_h8eaeeabb__0;
     __Vtrigprevexpr_h8eaeeabb__0 = 0;
-    CData/*0:0*/ __Vtrigprevexpr_hb6f197cf__0;
-    __Vtrigprevexpr_hb6f197cf__0 = 0;
     CData/*0:0*/ __Vtrigprevexpr_h34e52112__0;
     __Vtrigprevexpr_h34e52112__0 = 0;
+    CData/*0:0*/ __Vtrigprevexpr_h19fb2b7d__0;
+    __Vtrigprevexpr_h19fb2b7d__0 = 0;
+    CData/*0:0*/ __Vtrigprevexpr_h18ab4be8__0;
+    __Vtrigprevexpr_h18ab4be8__0 = 0;
+    CData/*0:0*/ __Vtrigprevexpr_hb6f197cf__0;
+    __Vtrigprevexpr_hb6f197cf__0 = 0;
     CData/*0:0*/ __Vtrigprevexpr_hfe0cc398__0;
     __Vtrigprevexpr_hfe0cc398__0 = 0;
     CData/*0:0*/ __Vtrigprevexpr_hb1b7b8a8__0;
@@ -386,8 +1054,12 @@ void Vtb_media___024root___eval_triggers__act(Vtb_media___024root* vlSelf) {
     __Vtrigprevexpr_hfa9ac863__0 = (5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state));
     __Vtrigprevexpr_h8eaeeabb__0 = ((5U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)) 
                                     & (6U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)));
-    __Vtrigprevexpr_hb6f197cf__0 = (3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state));
     __Vtrigprevexpr_h34e52112__0 = (1U & (~ (IData)(vlSelfRef.tb_media__DOT__audio_flush)));
+    __Vtrigprevexpr_h19fb2b7d__0 = ((1U == (IData)(vlSelfRef.tb_media__DOT__audio_selected)) 
+                                    & VL_LTS_III(32, 0x1194U, vlSelfRef.tb_media__DOT__pcm_count));
+    __Vtrigprevexpr_h18ab4be8__0 = ((0U == (IData)(vlSelfRef.tb_media__DOT__audio_selected)) 
+                                    & VL_LTS_III(32, 0x1194U, vlSelfRef.tb_media__DOT__pcm_count));
+    __Vtrigprevexpr_hb6f197cf__0 = (3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state));
     __Vtrigprevexpr_hfe0cc398__0 = ((1U <= vlSelfRef.tb_media__DOT__loops) 
                                     & VL_LTS_III(32, 0x1194U, vlSelfRef.tb_media__DOT__pcm_count));
     __Vtrigprevexpr_hb1b7b8a8__0 = ((IData)(vlSelfRef.tb_media__DOT__pcm_valid) 
@@ -401,20 +1073,30 @@ void Vtb_media___024root___eval_triggers__act(Vtb_media___024root* vlSelf) {
                                           & (IData)(vlSelfRef.__Vtrigprevexpr___TOP__tb_media__DOT__clk__0)));
     vlSelfRef.__VactTriggered.setBit(4U, ((IData)(__Vtrigprevexpr_h8eaeeabb__0) 
                                           != (IData)(vlSelfRef.__Vtrigprevexpr_h8eaeeabb__1)));
-    vlSelfRef.__VactTriggered.setBit(5U, ((IData)(__Vtrigprevexpr_hb6f197cf__0) 
-                                          != (IData)(vlSelfRef.__Vtrigprevexpr_hb6f197cf__1)));
+    vlSelfRef.__VactTriggered.setBit(5U, ((IData)(vlSelfRef.tb_media__DOT__audio_flush) 
+                                          != (IData)(vlSelfRef.__Vtrigprevexpr___TOP__tb_media__DOT__audio_flush__0)));
     vlSelfRef.__VactTriggered.setBit(6U, ((IData)(__Vtrigprevexpr_h34e52112__0) 
                                           != (IData)(vlSelfRef.__Vtrigprevexpr_h34e52112__1)));
-    vlSelfRef.__VactTriggered.setBit(7U, ((IData)(__Vtrigprevexpr_hfe0cc398__0) 
-                                          != (IData)(vlSelfRef.__Vtrigprevexpr_hfe0cc398__1)));
-    vlSelfRef.__VactTriggered.setBit(8U, ((IData)(__Vtrigprevexpr_hb1b7b8a8__0) 
-                                          != (IData)(vlSelfRef.__Vtrigprevexpr_hb1b7b8a8__1)));
+    vlSelfRef.__VactTriggered.setBit(7U, ((IData)(__Vtrigprevexpr_h19fb2b7d__0) 
+                                          != (IData)(vlSelfRef.__Vtrigprevexpr_h19fb2b7d__1)));
+    vlSelfRef.__VactTriggered.setBit(8U, ((IData)(__Vtrigprevexpr_h18ab4be8__0) 
+                                          != (IData)(vlSelfRef.__Vtrigprevexpr_h18ab4be8__1)));
+    vlSelfRef.__VactTriggered.setBit(9U, ((IData)(__Vtrigprevexpr_hb6f197cf__0) 
+                                          != (IData)(vlSelfRef.__Vtrigprevexpr_hb6f197cf__1)));
+    vlSelfRef.__VactTriggered.setBit(0xaU, ((IData)(__Vtrigprevexpr_hfe0cc398__0) 
+                                            != (IData)(vlSelfRef.__Vtrigprevexpr_hfe0cc398__1)));
+    vlSelfRef.__VactTriggered.setBit(0xbU, ((IData)(__Vtrigprevexpr_hb1b7b8a8__0) 
+                                            != (IData)(vlSelfRef.__Vtrigprevexpr_hb1b7b8a8__1)));
     vlSelfRef.__Vtrigprevexpr___TOP__tb_media__DOT__clk__0 
         = vlSelfRef.tb_media__DOT__clk;
     vlSelfRef.__Vtrigprevexpr_hfa9ac863__1 = __Vtrigprevexpr_hfa9ac863__0;
     vlSelfRef.__Vtrigprevexpr_h8eaeeabb__1 = __Vtrigprevexpr_h8eaeeabb__0;
-    vlSelfRef.__Vtrigprevexpr_hb6f197cf__1 = __Vtrigprevexpr_hb6f197cf__0;
+    vlSelfRef.__Vtrigprevexpr___TOP__tb_media__DOT__audio_flush__0 
+        = vlSelfRef.tb_media__DOT__audio_flush;
     vlSelfRef.__Vtrigprevexpr_h34e52112__1 = __Vtrigprevexpr_h34e52112__0;
+    vlSelfRef.__Vtrigprevexpr_h19fb2b7d__1 = __Vtrigprevexpr_h19fb2b7d__0;
+    vlSelfRef.__Vtrigprevexpr_h18ab4be8__1 = __Vtrigprevexpr_h18ab4be8__0;
+    vlSelfRef.__Vtrigprevexpr_hb6f197cf__1 = __Vtrigprevexpr_hb6f197cf__0;
     vlSelfRef.__Vtrigprevexpr_hfe0cc398__1 = __Vtrigprevexpr_hfe0cc398__0;
     vlSelfRef.__Vtrigprevexpr_hb1b7b8a8__1 = __Vtrigprevexpr_hb1b7b8a8__0;
     if (VL_UNLIKELY(((1U & (~ (IData)(vlSelfRef.__VactDidInit)))))) {
@@ -425,6 +1107,9 @@ void Vtb_media___024root___eval_triggers__act(Vtb_media___024root* vlSelf) {
         vlSelfRef.__VactTriggered.setBit(6U, 1U);
         vlSelfRef.__VactTriggered.setBit(7U, 1U);
         vlSelfRef.__VactTriggered.setBit(8U, 1U);
+        vlSelfRef.__VactTriggered.setBit(9U, 1U);
+        vlSelfRef.__VactTriggered.setBit(0xaU, 1U);
+        vlSelfRef.__VactTriggered.setBit(0xbU, 1U);
     }
 #ifdef VL_DEBUG
     if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {
@@ -433,7 +1118,12 @@ void Vtb_media___024root___eval_triggers__act(Vtb_media___024root* vlSelf) {
 #endif
 }
 
+extern const VlUnpacked<CData/*2:0*/, 256> Vtb_media__ConstPool__TABLE_hadd61ea7_0;
+extern const VlUnpacked<CData/*0:0*/, 256> Vtb_media__ConstPool__TABLE_h79cf329d_0;
+extern const VlUnpacked<CData/*0:0*/, 256> Vtb_media__ConstPool__TABLE_hb9b7bc7b_0;
+extern const VlUnpacked<CData/*0:0*/, 256> Vtb_media__ConstPool__TABLE_hd75a4263_0;
 extern const VlWide<8>/*255:0*/ Vtb_media__ConstPool__CONST_h9e67c271_0;
+extern const VlUnpacked<CData/*0:0*/, 4> Vtb_media__ConstPool__TABLE_h97bd9a81_0;
 
 VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_media___024root___nba_sequent__TOP__0\n"); );
@@ -446,6 +1136,8 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     tb_media__DOT__dut__DOT__img_done = 0;
     CData/*0:0*/ tb_media__DOT__dut__DOT__img_bv;
     tb_media__DOT__dut__DOT__img_bv = 0;
+    CData/*0:0*/ tb_media__DOT__dut__DOT____VdfgRegularize_h3b018e90_0_1;
+    tb_media__DOT__dut__DOT____VdfgRegularize_h3b018e90_0_1 = 0;
     CData/*0:0*/ tb_media__DOT__dut__DOT__arbiter__DOT____VdfgRegularize_hcdb9eaa0_0_1;
     tb_media__DOT__dut__DOT__arbiter__DOT____VdfgRegularize_hcdb9eaa0_0_1 = 0;
     CData/*0:0*/ tb_media__DOT__dut__DOT__arbiter__DOT____VdfgRegularize_hcdb9eaa0_0_2;
@@ -610,140 +1302,258 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __Vfunc_tb_media__DOT__audio_expected__6__index = 0;
     SData/*15:0*/ __Vfunc_tb_media__DOT__audio_expected__6__left;
     __Vfunc_tb_media__DOT__audio_expected__6__left = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__13__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__13__Vfuncout = 0;
-    IData/*31:0*/ __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__14__lba;
-    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__14__lba = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__15__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__15__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__16__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__16__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__17__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__17__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__18__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__18__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__19__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__19__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__20__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__20__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__21__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__21__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__22__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__22__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__23__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__23__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__24__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__24__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__25__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__25__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__26__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__26__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__27__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__27__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__28__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__28__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__29__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__29__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__30__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__30__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__31__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__31__Vfuncout = 0;
-    IData/*31:0*/ __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__32__lba;
-    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__32__lba = 0;
-    IData/*31:0*/ __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__33__lba;
-    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__33__lba = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__34__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__34__Vfuncout = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__34__c;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__34__c = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__35__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__35__Vfuncout = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__35__c;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__35__c = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__36__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__36__Vfuncout = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__36__c;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__36__c = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__37__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__37__Vfuncout = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__38__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__38__Vfuncout = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__38__c;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__38__c = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__39__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__39__Vfuncout = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__39__c;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__39__c = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__40__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__40__Vfuncout = 0;
-    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__40__c;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__40__c = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__41__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__41__Vfuncout = 0;
-    IData/*31:0*/ __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__42__lba;
-    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__42__lba = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__47__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__47__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__48__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__48__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__49__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__49__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__50__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__50__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__51__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__51__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__52__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__52__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__53__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__53__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__54__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__54__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__55__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__55__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__56__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__56__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__57__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__57__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__58__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__58__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__59__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__59__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__60__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__60__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__61__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__61__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__62__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__62__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__65__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__65__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__66__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__66__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__67__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__67__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__68__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__68__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__69__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__69__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__70__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__70__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__71__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__71__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__72__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__72__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__73__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__73__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__74__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__74__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__75__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__75__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__76__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__76__Vfuncout = 0;
-    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__77__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__77__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__78__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__78__Vfuncout = 0;
-    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__79__Vfuncout;
-    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__79__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__old;
+    __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__old = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__data;
+    __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__data = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value;
+    __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__old;
+    __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__old = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__data;
+    __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__data = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value;
+    __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value = 0;
+    QData/*63:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value = 0;
+    QData/*63:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__Vfuncout = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__a = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__g = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__Vfuncout = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__a = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__g = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__Vfuncout = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__a = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__g = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__Vfuncout = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__a = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__g = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__Vfuncout = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__a = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__g = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__Vfuncout = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__a = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__g = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__33__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__33__Vfuncout = 0;
+    IData/*31:0*/ __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__34__lba;
+    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__34__lba = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__35__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__35__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__36__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__36__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__37__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__37__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__38__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__38__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__39__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__39__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__40__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__40__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__41__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__41__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__42__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__42__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__43__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__43__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__44__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__44__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__45__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__45__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__46__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__46__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__47__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__47__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__48__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__48__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__49__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__49__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__50__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__50__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__51__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__51__Vfuncout = 0;
+    IData/*31:0*/ __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__52__lba;
+    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__52__lba = 0;
+    IData/*31:0*/ __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__53__lba;
+    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__53__lba = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__54__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__54__Vfuncout = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__55__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__55__Vfuncout = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__55__c;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__55__c = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__56__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__56__Vfuncout = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__56__c;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__56__c = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__57__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__57__Vfuncout = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__57__c;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__57__c = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__Vfuncout = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__a = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__g = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__59__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__59__Vfuncout = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__Vfuncout = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__a = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__g = 0;
+    QData/*63:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout = 0;
+    QData/*63:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__Vfuncout = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__a = 0;
+    CData/*4:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__g = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__63__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__63__Vfuncout = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__63__c;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__63__c = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__64__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__64__Vfuncout = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__64__c;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__64__c = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__65__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__65__Vfuncout = 0;
+    CData/*7:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__65__c;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__65__c = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__Vfuncout = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__a = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__g = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__67__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__67__Vfuncout = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__Vfuncout = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__a = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__g = 0;
+    QData/*63:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout = 0;
+    QData/*63:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__Vfuncout = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__a;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__a = 0;
+    CData/*3:0*/ __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__g;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__g = 0;
+    IData/*31:0*/ __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__71__lba;
+    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__71__lba = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__76__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__76__Vfuncout = 0;
+    SData/*10:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__Vfuncout = 0;
+    SData/*10:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__a;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__a = 0;
+    SData/*10:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__g;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__g = 0;
+    SData/*10:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__Vfuncout = 0;
+    SData/*10:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__a;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__a = 0;
+    SData/*10:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__g;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__g = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__79__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__79__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__80__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__80__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__81__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__81__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__82__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__82__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__83__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__83__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__84__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__84__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__85__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__85__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__86__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__86__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__87__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__87__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__88__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__88__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__89__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__89__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__90__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__90__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__91__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__91__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__92__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__92__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__93__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__93__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__96__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__96__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__97__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__97__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__98__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__98__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__99__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__99__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__100__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__100__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__101__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__101__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__102__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__102__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__103__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__103__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__104__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__104__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__105__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__105__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__106__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__106__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__107__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__107__Vfuncout = 0;
+    IData/*31:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__108__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__108__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__109__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__109__Vfuncout = 0;
+    SData/*15:0*/ __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__110__Vfuncout;
+    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__110__Vfuncout = 0;
+    CData/*1:0*/ __Vtableidx1;
+    __Vtableidx1 = 0;
+    CData/*7:0*/ __Vtableidx2;
+    __Vtableidx2 = 0;
     IData/*31:0*/ __Vdly__tb_media__DOT__cycle;
     __Vdly__tb_media__DOT__cycle = 0;
     CData/*0:0*/ __Vdly__tb_media__DOT__sd_done;
@@ -766,10 +1576,64 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __Vdly__tb_media__DOT__pcm_count = 0;
     CData/*0:0*/ __Vdly__tb_media__DOT__held;
     __Vdly__tb_media__DOT__held = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__launch;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__launch = 0;
+    CData/*3:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__config_start;
+    __Vdly__tb_media__DOT__dut__DOT__config_start = 0;
+    CData/*7:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__file_error;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__file_error = 0;
+    IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__bytes_read;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__bytes_read = 0;
+    SData/*8:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos = 0;
+    IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster = 0;
+    IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining = 0;
+    IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster_lba;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster_lba = 0;
+    CData/*7:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index = 0;
+    IData/*20:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position = 0;
+    IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__expected_crc;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__expected_crc = 0;
+    IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc = 0;
+    IData/*20:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__payload_bytes;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__payload_bytes = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_done;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_done = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_reserved;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_reserved = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__pending;
+    __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__pending = 0;
+    CData/*4:0*/ __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__settle;
+    __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__settle = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__name_phase;
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__name_phase = 0;
+    QData/*63:0*/ __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_name;
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_name = 0;
+    CData/*4:0*/ __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_scan;
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_scan = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__pair_found;
+    __Vdly__tb_media__DOT__dut__DOT__pair_found = 0;
+    CData/*3:0*/ __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_index;
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_index = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid;
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid = 0;
     IData/*31:0*/ __Vdly__tb_media__DOT__wav_bytes;
     __Vdly__tb_media__DOT__wav_bytes = 0;
     IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__image_bytes;
     __Vdly__tb_media__DOT__dut__DOT__image_bytes = 0;
+    QData/*63:0*/ __Vdly__tb_media__DOT__name;
+    __Vdly__tb_media__DOT__name = 0;
     SData/*15:0*/ __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__signature;
     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__signature = 0;
     IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__partition_start;
@@ -778,10 +1642,8 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 0;
     CData/*5:0*/ __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__after_read;
     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__after_read = 0;
-    IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__cat_lba;
-    __Vdly__tb_media__DOT__dut__DOT__cat_lba = 0;
-    CData/*0:0*/ __Vdly__tb_media__DOT__catalog_ready;
-    __Vdly__tb_media__DOT__catalog_ready = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__raw_catalog_ready;
+    __Vdly__tb_media__DOT__dut__DOT__raw_catalog_ready = 0;
     CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__fat16;
     __Vdly__tb_media__DOT__dut__DOT__fat16 = 0;
     CData/*7:0*/ __Vdly__tb_media__DOT__dut__DOT__spc;
@@ -816,12 +1678,12 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __Vdly__tb_media__DOT__wav_count = 0;
     CData/*2:0*/ __Vdly__tb_media__DOT__dut__DOT__images__DOT__state;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 0;
+    CData/*2:0*/ __Vdly__tb_media__DOT__dut__DOT__images__DOT__lookup_wait;
+    __Vdly__tb_media__DOT__dut__DOT__images__DOT__lookup_wait = 0;
     CData/*3:0*/ __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0;
     CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__img_start;
     __Vdly__tb_media__DOT__dut__DOT__img_start = 0;
-    IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__img_lba;
-    __Vdly__tb_media__DOT__dut__DOT__img_lba = 0;
     CData/*7:0*/ __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = 0;
     IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read;
@@ -894,10 +1756,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__burst_pixel = 0;
     SData/*15:0*/ __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__low_pixel;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__low_pixel = 0;
-    IData/*17:0*/ __Vdly__tb_media__DOT__addr;
-    __Vdly__tb_media__DOT__addr = 0;
-    CData/*0:0*/ __Vdly__tb_media__DOT__last;
-    __Vdly__tb_media__DOT__last = 0;
+    IData/*17:0*/ __Vdly__tb_media__DOT__dut__DOT__raw_load_addr;
+    __Vdly__tb_media__DOT__dut__DOT__raw_load_addr = 0;
+    CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__raw_load_last;
+    __Vdly__tb_media__DOT__dut__DOT__raw_load_last = 0;
     IData/*31:0*/ __Vdly__tb_media__DOT__pixels;
     __Vdly__tb_media__DOT__pixels = 0;
     CData/*0:0*/ __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__busy;
@@ -968,6 +1830,20 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __Vdly__tb_media__DOT__image_reads = 0;
     IData/*31:0*/ __Vdly__tb_media__DOT__audio_reads;
     __Vdly__tb_media__DOT__audio_reads = 0;
+    IData/*31:0*/ __Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__held_image;
+    __Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__held_image = 0;
+    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0;
+    __VdlyVal__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0 = 0;
+    SData/*8:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0;
+    __VdlyDim0__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0 = 0;
+    CData/*0:0*/ __VdlySet__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0;
+    __VdlySet__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0 = 0;
+    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0;
+    __VdlyVal__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0 = 0;
+    CData/*4:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0;
+    __VdlyDim0__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0 = 0;
+    CData/*0:0*/ __VdlySet__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0;
+    __VdlySet__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0 = 0;
     CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0;
     __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0 = 0;
     SData/*8:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0;
@@ -998,38 +1874,12 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 = 0;
     CData/*0:0*/ __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0;
     __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v0;
+    QData/*63:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v0;
     __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 = 0;
     CData/*4:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v0;
     __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v1;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v1 = 0;
-    CData/*4:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v1;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v1 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v2;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v2 = 0;
-    CData/*4:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v2;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v2 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v3;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v3 = 0;
-    CData/*4:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v3;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v3 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v4;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v4 = 0;
-    CData/*4:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v4;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v4 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v5;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v5 = 0;
-    CData/*4:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v5;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v5 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v6;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v6 = 0;
-    CData/*4:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v6;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v6 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v7;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v7 = 0;
-    CData/*4:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v7;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v7 = 0;
+    CData/*0:0*/ __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__names__v0;
+    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 = 0;
     IData/*31:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0;
     __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 = 0;
     CData/*3:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0;
@@ -1042,38 +1892,12 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 = 0;
     CData/*0:0*/ __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0;
     __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0;
+    QData/*63:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0;
     __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 = 0;
     CData/*3:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0;
     __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v1;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v1 = 0;
-    CData/*3:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v1;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v1 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v2;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v2 = 0;
-    CData/*3:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v2;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v2 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v3;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v3 = 0;
-    CData/*3:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v3;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v3 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v4;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v4 = 0;
-    CData/*3:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v4;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v4 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v5;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v5 = 0;
-    CData/*3:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v5;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v5 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v6;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v6 = 0;
-    CData/*3:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v6;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v6 = 0;
-    CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v7;
-    __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v7 = 0;
-    CData/*3:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v7;
-    __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v7 = 0;
+    CData/*0:0*/ __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0;
+    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 = 0;
     CData/*7:0*/ __VdlyVal__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0;
     __VdlyVal__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0 = 0;
     SData/*8:0*/ __VdlyDim0__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0;
@@ -1116,16 +1940,19 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __VdlyDim0__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v2 = 0;
     CData/*0:0*/ __VdlySet__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v2;
     __VdlySet__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v2 = 0;
-    VlWide<3>/*95:0*/ __Vtemp_2;
-    VlWide<3>/*95:0*/ __Vtemp_3;
-    VlWide<3>/*95:0*/ __Vtemp_4;
-    VlWide<3>/*95:0*/ __Vtemp_6;
-    VlWide<3>/*95:0*/ __Vtemp_8;
-    VlWide<3>/*95:0*/ __Vtemp_9;
-    VlWide<3>/*95:0*/ __Vtemp_10;
-    VlWide<3>/*95:0*/ __Vtemp_12;
-    VlWide<3>/*95:0*/ __Vtemp_63;
-    VlWide<3>/*95:0*/ __Vtemp_64;
+    VlWide<3>/*95:0*/ __Vtemp_28;
+    VlWide<3>/*95:0*/ __Vtemp_29;
+    VlWide<3>/*95:0*/ __Vtemp_30;
+    VlWide<3>/*95:0*/ __Vtemp_32;
+    VlWide<3>/*95:0*/ __Vtemp_34;
+    VlWide<3>/*95:0*/ __Vtemp_35;
+    VlWide<3>/*95:0*/ __Vtemp_38;
+    VlWide<3>/*95:0*/ __Vtemp_39;
+    VlWide<3>/*95:0*/ __Vtemp_40;
+    VlWide<3>/*95:0*/ __Vtemp_42;
+    VlWide<4>/*127:0*/ __Vtemp_44;
+    VlWide<3>/*95:0*/ __Vtemp_95;
+    VlWide<3>/*95:0*/ __Vtemp_96;
     // Body
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__busy 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__busy;
@@ -1133,6 +1960,32 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__count;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__divisor 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__divisor;
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_index 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_index;
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid;
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_name 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_name;
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_scan 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_scan;
+    __Vdly__tb_media__DOT__dut__DOT__pair_found = vlSelfRef.tb_media__DOT__dut__DOT__pair_found;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__expected_crc 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__expected_crc;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__payload_bytes 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__payload_bytes;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_done 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_done;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_reserved 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_reserved;
+    __VdlySet__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0 = 0U;
     __Vdly__tb_media__DOT__read_start = vlSelfRef.tb_media__DOT__read_start;
     __Vdly__tb_media__DOT__image_reads = vlSelfRef.tb_media__DOT__image_reads;
     __Vdly__tb_media__DOT__audio_reads = vlSelfRef.tb_media__DOT__audio_reads;
@@ -1142,6 +1995,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         = vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__image_pending;
     __Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__active 
         = vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__active;
+    __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__pending 
+        = vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__pending;
+    __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__settle 
+        = vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__settle;
     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__index 
         = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__index;
     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__length 
@@ -1169,8 +2026,6 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __VdlySet__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v0 = 0U;
     __VdlySet__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v1 = 0U;
     __VdlySet__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v2 = 0U;
-    __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state 
-        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__after_ack 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__after_ack;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__position 
@@ -1217,9 +2072,13 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__burst_pixel;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__low_pixel 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__low_pixel;
-    __Vdly__tb_media__DOT__addr = vlSelfRef.tb_media__DOT__addr;
-    __Vdly__tb_media__DOT__last = vlSelfRef.tb_media__DOT__last;
+    __Vdly__tb_media__DOT__dut__DOT__raw_load_addr 
+        = vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr;
+    __Vdly__tb_media__DOT__dut__DOT__raw_load_last 
+        = vlSelfRef.tb_media__DOT__dut__DOT__raw_load_last;
     __Vdly__tb_media__DOT__pixels = vlSelfRef.tb_media__DOT__pixels;
+    __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state 
+        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__dest_row 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__dest_row;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__top_down 
@@ -1231,9 +2090,13 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__blank_row 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__blank_row;
     __VdlySet__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header__v0 = 0U;
-    __VdlySet__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache__v0 = 0U;
+    __Vdly__tb_media__DOT__dut__DOT__images__DOT__lookup_wait 
+        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__lookup_wait;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__state 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state;
+    __VdlySet__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache__v0 = 0U;
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__name_phase 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase;
     __Vdly__tb_media__DOT__ack = vlSelfRef.tb_media__DOT__ack;
     __Vdly__tb_media__DOT__active_lba = vlSelfRef.tb_media__DOT__active_lba;
     __Vdly__tb_media__DOT__sd_pos = vlSelfRef.tb_media__DOT__sd_pos;
@@ -1245,6 +2108,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     __Vdly__tb_media__DOT__held = vlSelfRef.tb_media__DOT__held;
     __Vdly__tb_media__DOT__cycle = vlSelfRef.tb_media__DOT__cycle;
     __Vdly__tb_media__DOT__sd_done = vlSelfRef.tb_media__DOT__sd_done;
+    __VdlySet__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0 = 0U;
     __VdlySet__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0 = 0U;
     __VdlySet__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0 = 0U;
     __Vdly__tb_media__DOT__wav_bytes = vlSelfRef.tb_media__DOT__wav_bytes;
@@ -1257,7 +2121,6 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state;
     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__after_read 
         = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__after_read;
-    __Vdly__tb_media__DOT__dut__DOT__cat_lba = vlSelfRef.tb_media__DOT__dut__DOT__cat_lba;
     __Vdly__tb_media__DOT__dut__DOT__spc = vlSelfRef.tb_media__DOT__dut__DOT__spc;
     __Vdly__tb_media__DOT__dut__DOT__fat_base = vlSelfRef.tb_media__DOT__dut__DOT__fat_base;
     __Vdly__tb_media__DOT__dut__DOT__data_base = vlSelfRef.tb_media__DOT__dut__DOT__data_base;
@@ -1275,39 +2138,42 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster_sector;
     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__directory_sectors 
         = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__directory_sectors;
-    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0 = 0U;
-    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__header__v0 = 0U;
-    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0 = 0U;
-    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 = 0U;
-    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__cluster 
-        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster;
     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__dir_pos 
         = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__dir_pos;
     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__entry_pos 
         = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_pos;
-    __Vdly__tb_media__DOT__count = vlSelfRef.tb_media__DOT__count;
-    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__entry__v0 = 0U;
+    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0 = 0U;
+    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__header__v0 = 0U;
+    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0 = 0U;
     __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 = 0U;
+    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 = 0U;
+    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 = 0U;
     __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 = 0U;
+    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 = 0U;
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__cluster 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster;
+    __Vdly__tb_media__DOT__count = vlSelfRef.tb_media__DOT__count;
+    __Vdly__tb_media__DOT__name = vlSelfRef.tb_media__DOT__name;
+    __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__entry__v0 = 0U;
     __Vdly__tb_media__DOT__dut__DOT__fat16 = vlSelfRef.tb_media__DOT__dut__DOT__fat16;
     __Vdly__tb_media__DOT__wav_count = vlSelfRef.tb_media__DOT__wav_count;
-    __Vdly__tb_media__DOT__catalog_ready = vlSelfRef.tb_media__DOT__catalog_ready;
-    __Vdly__tb_media__DOT__dut__DOT__img_lba = vlSelfRef.tb_media__DOT__dut__DOT__img_lba;
+    __Vdly__tb_media__DOT__dut__DOT__raw_catalog_ready 
+        = vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_error;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__bytes_read;
+    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos 
+        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index;
-    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos 
-        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster;
-    __Vdly__tb_media__DOT__dut__DOT__img_start = vlSelfRef.tb_media__DOT__dut__DOT__img_start;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining;
+    __Vdly__tb_media__DOT__dut__DOT__img_start = vlSelfRef.tb_media__DOT__dut__DOT__img_start;
     __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state 
         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state;
     __Vdly__tb_media__DOT__dut__DOT__aud_start = vlSelfRef.tb_media__DOT__dut__DOT__aud_start;
@@ -1316,41 +2182,50 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_error;
     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__bytes_read 
         = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__bytes_read;
+    __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos 
+        = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos;
     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster_lba 
         = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster_lba;
     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__sector_index 
         = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__sector_index;
-    __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos 
-        = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos;
     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster 
         = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster;
     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__remaining 
         = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__remaining;
     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state 
         = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__launch 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__launch;
     __Vdly__tb_media__DOT__loops = vlSelfRef.tb_media__DOT__loops;
     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__flush_wait 
         = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__flush_wait;
     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__state 
         = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__state;
-    if ((((((((~ (IData)(vlSelfRef.tb_media__DOT__reset)) 
-              & (3U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) 
-             & (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state))) 
-            & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_valid)) 
-           & (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__position 
-              >= vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__offset)) 
-          & (0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__pad_left))) 
-         & (2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__channel)))) {
-        __VdlyVal__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache__v0 
-            = ((0xf800U & (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache
-                           [vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos] 
-                           << 8U)) | ((0x7e0U & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__green) 
-                                                 << 3U)) 
-                                      | (0x1fU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__blue) 
-                                                  >> 3U))));
-        __VdlyDim0__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache__v0 
-            = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__source_x;
-        __VdlySet__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache__v0 = 1U;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__file_error 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__file_error;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__bytes_read 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__bytes_read;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster_lba 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster_lba;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining;
+    __Vdly__tb_media__DOT__dut__DOT__config_start = vlSelfRef.tb_media__DOT__dut__DOT__config_start;
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state;
+    __Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__held_image 
+        = vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__held_image;
+    if (vlSelfRef.tb_media__DOT__dut__DOT__config_bv) {
+        __VdlyVal__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0 
+            = vlSelfRef.tb_media__DOT__bd;
+        __VdlyDim0__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0 
+            = vlSelfRef.tb_media__DOT__bi;
+        __VdlySet__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0 = 1U;
     }
     if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_byte_valid) {
         __VdlyVal__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0 
@@ -1358,32 +2233,6 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         __VdlyDim0__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0 
             = vlSelfRef.tb_media__DOT__bi;
         __VdlySet__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0 = 1U;
-        if (((IData)(vlSelfRef.tb_media__DOT__bi) == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_offset))) {
-            vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached 
-                = ((0xffffff00U & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached) 
-                   | (IData)(vlSelfRef.tb_media__DOT__bd));
-        }
-        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
-             ((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_offset)))) {
-            vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached 
-                = ((0xffff00ffU & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached) 
-                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
-                      << 8U));
-        }
-        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
-             ((IData)(2U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_offset)))) {
-            vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached 
-                = ((0xff00ffffU & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached) 
-                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
-                      << 0x10U));
-        }
-        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
-             ((IData)(3U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_offset)))) {
-            vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached 
-                = ((0xffffffU & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached) 
-                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
-                      << 0x18U));
-        }
     }
     if (vlSelfRef.tb_media__DOT__dut__DOT__aud_bv) {
         __VdlyVal__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0 
@@ -1391,71 +2240,8 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         __VdlyDim0__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0 
             = vlSelfRef.tb_media__DOT__bi;
         __VdlySet__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0 = 1U;
-        if (((IData)(vlSelfRef.tb_media__DOT__bi) == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_offset))) {
-            vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached 
-                = ((0xffffff00U & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached) 
-                   | (IData)(vlSelfRef.tb_media__DOT__bd));
-        }
-        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
-             ((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_offset)))) {
-            vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached 
-                = ((0xffff00ffU & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached) 
-                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
-                      << 8U));
-        }
-        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
-             ((IData)(2U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_offset)))) {
-            vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached 
-                = ((0xff00ffffU & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached) 
-                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
-                      << 0x10U));
-        }
-        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
-             ((IData)(3U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_offset)))) {
-            vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached 
-                = ((0xffffffU & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached) 
-                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
-                      << 0x18U));
-        }
-    }
-    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_q 
-        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache
-        [vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__sample_x];
-    if (__VdlySet__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0) {
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache[__VdlyDim0__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0] 
-            = __VdlyVal__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0;
-    }
-    if (__VdlySet__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0) {
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache[__VdlyDim0__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0] 
-            = __VdlyVal__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0;
     }
     if (vlSelfRef.tb_media__DOT__reset) {
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0U;
-        __Vdly__tb_media__DOT__dut__DOT__img_start = 0U;
-        __Vdly__tb_media__DOT__dut__DOT__img_lba = 0U;
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = 0U;
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read = 0U;
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos = 0U;
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster = 0U;
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining = 0U;
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba = 0U;
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index = 0U;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__bytes_read 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos;
-        vlSelfRef.tb_media__DOT__dut__DOT__img_start 
-            = __Vdly__tb_media__DOT__dut__DOT__img_start;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state;
         __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state = 0U;
         __Vdly__tb_media__DOT__dut__DOT__aud_start = 0U;
         __Vdly__tb_media__DOT__dut__DOT__aud_lba = 0U;
@@ -1466,168 +2252,11 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__remaining = 0U;
         __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster_lba = 0U;
         __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__sector_index = 0U;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__bytes_read 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__bytes_read;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster_lba 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster_lba;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__sector_index 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__sector_index;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__remaining 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__remaining;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state;
         __Vdly__tb_media__DOT__dut__DOT__audio__DOT__state = 0U;
         __Vdly__tb_media__DOT__loops = 0U;
         __Vdly__tb_media__DOT__dut__DOT__audio__DOT__flush_wait = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__held_image = 0U;
     } else {
-        __Vdly__tb_media__DOT__dut__DOT__img_start = 0U;
-        if (((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)) 
-             & (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_busy)))) {
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster 
-                = vlSelfRef.tb_media__DOT__dut__DOT__image_cluster;
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining 
-                = vlSelfRef.tb_media__DOT__dut__DOT__image_bytes;
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index = 0U;
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos = 0U;
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = 0U;
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read = 0U;
-            if ((((2U > vlSelfRef.tb_media__DOT__dut__DOT__image_cluster) 
-                  | (0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__spc))) 
-                 | (0U == vlSelfRef.tb_media__DOT__dut__DOT__image_bytes))) {
-                __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = 7U;
-                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0xfU;
-            } else {
-                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 1U;
-            }
-        } else if (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__cancel) 
-                    & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_busy))) {
-            if ((((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)) 
-                  | (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
-                 | (IData)(vlSelfRef.tb_media__DOT__dut__DOT__img_start))) {
-                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state 
-                    = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done)
-                        ? 0U : 8U);
-            } else if ((8U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
-                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0U;
-            } else if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done) {
-                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0U;
-            }
-        } else if (((((((((((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)) 
-                            || (9U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
-                           || (0xfU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
-                          | (1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
-                         | (2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
-                        | (3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
-                       | (4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
-                      | (5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
-                     | (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
-                    | (7U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)))) {
-            if ((1U & (~ (((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)) 
-                           || (9U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
-                          || (0xfU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)))))) {
-                if ((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
-                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba 
-                        = (vlSelfRef.tb_media__DOT__dut__DOT__data_base 
-                           + ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster 
-                               - (IData)(2U)) * (IData)(vlSelfRef.tb_media__DOT__dut__DOT__spc)));
-                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 2U;
-                } else if ((2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
-                    if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_ready) {
-                        __Vdly__tb_media__DOT__dut__DOT__img_lba 
-                            = (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba 
-                               + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index));
-                        __Vdly__tb_media__DOT__dut__DOT__img_start = 1U;
-                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 3U;
-                    }
-                } else if ((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
-                    if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done) {
-                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos = 0U;
-                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 4U;
-                    }
-                } else if ((4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
-                    if (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_valid) 
-                         & ((3U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)) 
-                            & ((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state)) 
-                               | (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state)))))) {
-                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read 
-                            = ((IData)(1U) + vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__bytes_read);
-                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining 
-                            = (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining 
-                               - (IData)(1U));
-                        if ((1U == vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining)) {
-                            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 9U;
-                        } else if ((0x1ffU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos))) {
-                            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos = 0U;
-                            if ((((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index)) 
-                                 < (IData)(vlSelfRef.tb_media__DOT__dut__DOT__spc))) {
-                                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index 
-                                    = (0xffU & ((IData)(1U) 
-                                                + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index)));
-                                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 2U;
-                            } else {
-                                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 5U;
-                            }
-                        } else {
-                            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos 
-                                = (0x1ffU & ((IData)(1U) 
-                                             + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos)));
-                        }
-                    }
-                } else if ((5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
-                    if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_ready) {
-                        __Vdly__tb_media__DOT__dut__DOT__img_lba 
-                            = (vlSelfRef.tb_media__DOT__dut__DOT__fat_base 
-                               + ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__fat16)
-                                   ? VL_SHIFTR_III(32,32,32, vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster, 8U)
-                                   : VL_SHIFTR_III(32,32,32, vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster, 7U)));
-                        __Vdly__tb_media__DOT__dut__DOT__img_start = 1U;
-                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 6U;
-                    }
-                } else if ((6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
-                    if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done) {
-                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 7U;
-                    }
-                } else if (((2U > vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__next_cluster) 
-                            | ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__fat16)
-                                ? (0xfff0U <= vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__next_cluster)
-                                : (0xffffff0U <= vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__next_cluster)))) {
-                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = 7U;
-                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0xfU;
-                } else {
-                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster 
-                        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__next_cluster;
-                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index = 0U;
-                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 1U;
-                }
-            }
-        } else if ((8U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
-            if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done) {
-                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0U;
-            }
-        } else {
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = 0xffU;
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0xfU;
-        }
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__bytes_read 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos;
-        vlSelfRef.tb_media__DOT__dut__DOT__img_start 
-            = __Vdly__tb_media__DOT__dut__DOT__img_start;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining;
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state 
-            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state;
         __Vdly__tb_media__DOT__dut__DOT__aud_start = 0U;
         if (((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__state)) 
              & (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_busy)))) {
@@ -1754,20 +2383,6 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
             __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_error = 0xffU;
             __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state = 0xfU;
         }
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__bytes_read 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__bytes_read;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster_lba 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster_lba;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__sector_index 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__sector_index;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__remaining 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__remaining;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state 
-            = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state;
         if (vlSelfRef.tb_media__DOT__dut__DOT__audio_change) {
             __Vdly__tb_media__DOT__dut__DOT__audio__DOT__state = 5U;
             __Vdly__tb_media__DOT__dut__DOT__audio__DOT__flush_wait = 0U;
@@ -1806,7 +2421,181 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                 }
             }
         }
+        if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__arbiter__image_start) {
+            __Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__held_image 
+                = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready)
+                    ? ((IData)(vlSelfRef.tb_media__DOT__catalog_ready)
+                        ? vlSelfRef.tb_media__DOT__dut__DOT__img_lba
+                        : vlSelfRef.tb_media__DOT__dut__DOT__config_lba)
+                    : vlSelfRef.tb_media__DOT__dut__DOT__cat_lba);
+        }
     }
+    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_q 
+        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache
+        [([&]() {
+            __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__a 
+                = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__sample_x;
+            __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__g 
+                = (0x7ffU & (VL_SHIFTR_III(11,11,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__a), 1U) 
+                             ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__a)));
+            __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__g 
+                = ((0x3ffU & (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__g)) 
+                   | (0x400U & ((0xfffffc00U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__g)) 
+                                ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__g) 
+                                   << 0xaU))));
+            __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__Vfuncout 
+                = __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__g;
+        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__77__Vfuncout))];
+    if (vlSelfRef.tb_media__DOT__dut__DOT__aud_bv) {
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_offset))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached 
+                = ((0xffffff00U & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached) 
+                   | (IData)(vlSelfRef.tb_media__DOT__bd));
+        }
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
+             ((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_offset)))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached 
+                = ((0xffff00ffU & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached) 
+                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
+                      << 8U));
+        }
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
+             ((IData)(2U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_offset)))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached 
+                = ((0xff00ffffU & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached) 
+                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
+                      << 0x10U));
+        }
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
+             ((IData)(3U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_offset)))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached 
+                = ((0xffffffU & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached) 
+                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
+                      << 0x18U));
+        }
+    }
+    if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_byte_valid) {
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_offset))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached 
+                = ((0xffffff00U & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached) 
+                   | (IData)(vlSelfRef.tb_media__DOT__bd));
+        }
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
+             ((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_offset)))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached 
+                = ((0xffff00ffU & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached) 
+                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
+                      << 8U));
+        }
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
+             ((IData)(2U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_offset)))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached 
+                = ((0xff00ffffU & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached) 
+                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
+                      << 0x10U));
+        }
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
+             ((IData)(3U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_offset)))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached 
+                = ((0xffffffU & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached) 
+                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
+                      << 0x18U));
+        }
+    }
+    if (vlSelfRef.tb_media__DOT__dut__DOT__config_bv) {
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_offset))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_cached 
+                = ((0xffffff00U & vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_cached) 
+                   | (IData)(vlSelfRef.tb_media__DOT__bd));
+        }
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
+             ((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_offset)))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_cached 
+                = ((0xffff00ffU & vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_cached) 
+                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
+                      << 8U));
+        }
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
+             ((IData)(2U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_offset)))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_cached 
+                = ((0xff00ffffU & vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_cached) 
+                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
+                      << 0x10U));
+        }
+        if (((IData)(vlSelfRef.tb_media__DOT__bi) == 
+             ((IData)(3U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_offset)))) {
+            vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_cached 
+                = ((0xffffffU & vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_cached) 
+                   | ((IData)(vlSelfRef.tb_media__DOT__bd) 
+                      << 0x18U));
+        }
+    }
+    if ((((((((~ (IData)(vlSelfRef.tb_media__DOT__reset)) 
+              & (3U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) 
+             & (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state))) 
+            & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_valid)) 
+           & (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__position 
+              >= vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__offset)) 
+          & (0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__pad_left))) 
+         & (2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__channel)))) {
+        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__a 
+            = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__source_x;
+        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__g 
+            = (0x7ffU & (VL_SHIFTR_III(11,11,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__a), 1U) 
+                         ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__a)));
+        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__g 
+            = ((0x3ffU & (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__g)) 
+               | (0x400U & ((0xfffffc00U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__g)) 
+                            ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__g) 
+                               << 0xaU))));
+        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__Vfuncout 
+            = __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__g;
+        __VdlyVal__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache__v0 
+            = ((0xf800U & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache_q) 
+                           << 8U)) | ((0x7e0U & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__green) 
+                                                 << 3U)) 
+                                      | (0x1fU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__blue) 
+                                                  >> 3U))));
+        __VdlyDim0__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache__v0 
+            = __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_addr__78__Vfuncout;
+        __VdlySet__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache__v0 = 1U;
+    }
+    __Vtableidx2 = ((((((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__file_error)) 
+                        | (0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error))) 
+                       << 7U) | ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__busy) 
+                                 << 6U)) | (((IData)(vlSelfRef.tb_media__DOT__platform_ready) 
+                                             << 5U) 
+                                            | ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__launch) 
+                                               << 4U))) 
+                    | ((((IData)(vlSelfRef.tb_media__DOT__platform_found) 
+                         << 3U) | ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__started) 
+                                   << 2U)) | (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready) 
+                                               << 1U) 
+                                              | (IData)(vlSelfRef.tb_media__DOT__reset))));
+    if ((1U & Vtb_media__ConstPool__TABLE_hadd61ea7_0
+         [__Vtableidx2])) {
+        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__started 
+            = Vtb_media__ConstPool__TABLE_h79cf329d_0
+            [__Vtableidx2];
+    }
+    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__launch 
+        = Vtb_media__ConstPool__TABLE_hb9b7bc7b_0[__Vtableidx2];
+    if ((4U & Vtb_media__ConstPool__TABLE_hadd61ea7_0
+         [__Vtableidx2])) {
+        vlSelfRef.tb_media__DOT__dut__DOT__boot_finished 
+            = Vtb_media__ConstPool__TABLE_hd75a4263_0
+            [__Vtableidx2];
+    }
+    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__bytes_read 
+        = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__bytes_read;
+    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster_lba 
+        = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster_lba;
+    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__sector_index 
+        = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__sector_index;
+    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster 
+        = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cluster;
+    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__remaining 
+        = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__remaining;
     vlSelfRef.tb_media__DOT__loops = __Vdly__tb_media__DOT__loops;
     vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__flush_wait 
         = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__flush_wait;
@@ -1814,30 +2603,598 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache[__VdlyDim0__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache__v0] 
             = __VdlyVal__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_cache__v0;
     }
-    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_busy 
-        = ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state)) 
-           & ((9U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state)) 
-              & (0xfU != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state))));
-    vlSelfRef.tb_media__DOT__browse_tag = vlSelfRef.tb_media__DOT__browse_query;
-    vlSelfRef.tb_media__DOT__browse_name = ((0x20U 
-                                             & (IData)(vlSelfRef.tb_media__DOT__browse_query))
-                                             ? vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names
-                                            [(0xfU 
-                                              & (IData)(vlSelfRef.tb_media__DOT__browse_query))]
-                                             : vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names
-                                            [(0x1fU 
-                                              & (IData)(vlSelfRef.tb_media__DOT__browse_query))]);
-    vlSelfRef.tb_media__DOT__browse_valid = ((IData)(vlSelfRef.tb_media__DOT__catalog_ready) 
-                                             & ((0x20U 
-                                                 & (IData)(vlSelfRef.tb_media__DOT__browse_query))
-                                                 ? 
-                                                ((0x1fU 
-                                                  & (IData)(vlSelfRef.tb_media__DOT__browse_query)) 
-                                                 < (IData)(vlSelfRef.tb_media__DOT__wav_count))
-                                                 : 
-                                                ((0x1fU 
-                                                  & (IData)(vlSelfRef.tb_media__DOT__browse_query)) 
-                                                 < (IData)(vlSelfRef.tb_media__DOT__count))));
+    if (vlSelfRef.tb_media__DOT__reset) {
+        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_cached = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__img_start = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__img_lba = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__bytes_read 
+            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read;
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba 
+            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba;
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index 
+            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index;
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster 
+            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster;
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining 
+            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining;
+        vlSelfRef.tb_media__DOT__dut__DOT__img_start 
+            = __Vdly__tb_media__DOT__dut__DOT__img_start;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__config_start = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__config_lba = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__file_error = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__bytes_read = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster_lba = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index = 0U;
+    } else {
+        __Vdly__tb_media__DOT__dut__DOT__img_start = 0U;
+        if (((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)) 
+             & (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_busy)))) {
+            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster 
+                = vlSelfRef.tb_media__DOT__dut__DOT__image_cluster;
+            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining 
+                = vlSelfRef.tb_media__DOT__dut__DOT__image_bytes;
+            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index = 0U;
+            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos = 0U;
+            __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = 0U;
+            __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read = 0U;
+            if ((((2U > vlSelfRef.tb_media__DOT__dut__DOT__image_cluster) 
+                  | (0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__spc))) 
+                 | (0U == vlSelfRef.tb_media__DOT__dut__DOT__image_bytes))) {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = 7U;
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0xfU;
+            } else {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 1U;
+            }
+        } else if (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__cancel) 
+                    & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_busy))) {
+            if ((((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)) 
+                  | (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
+                 | (IData)(vlSelfRef.tb_media__DOT__dut__DOT__img_start))) {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state 
+                    = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done)
+                        ? 0U : 8U);
+            } else if ((8U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0U;
+            } else if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done) {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0U;
+            }
+        } else if (((((((((((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)) 
+                            || (9U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
+                           || (0xfU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
+                          | (1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
+                         | (2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
+                        | (3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
+                       | (4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
+                      | (5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
+                     | (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
+                    | (7U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)))) {
+            if ((1U & (~ (((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)) 
+                           || (9U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) 
+                          || (0xfU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)))))) {
+                if ((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
+                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba 
+                        = (vlSelfRef.tb_media__DOT__dut__DOT__data_base 
+                           + ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster 
+                               - (IData)(2U)) * (IData)(vlSelfRef.tb_media__DOT__dut__DOT__spc)));
+                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 2U;
+                } else if ((2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
+                    if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_ready) {
+                        vlSelfRef.tb_media__DOT__dut__DOT__img_lba 
+                            = (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba 
+                               + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index));
+                        __Vdly__tb_media__DOT__dut__DOT__img_start = 1U;
+                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 3U;
+                    }
+                } else if ((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
+                    if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done) {
+                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos = 0U;
+                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 4U;
+                    }
+                } else if ((4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
+                    if (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_valid) 
+                         & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_ready))) {
+                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read 
+                            = ((IData)(1U) + vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__bytes_read);
+                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining 
+                            = (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining 
+                               - (IData)(1U));
+                        if ((1U == vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining)) {
+                            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 9U;
+                        } else if ((0x1ffU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos))) {
+                            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos = 0U;
+                            if ((((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index)) 
+                                 < (IData)(vlSelfRef.tb_media__DOT__dut__DOT__spc))) {
+                                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index 
+                                    = (0xffU & ((IData)(1U) 
+                                                + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index)));
+                                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 2U;
+                            } else {
+                                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 5U;
+                            }
+                        } else {
+                            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos 
+                                = (0x1ffU & ((IData)(1U) 
+                                             + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos)));
+                        }
+                    }
+                } else if ((5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
+                    if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_ready) {
+                        vlSelfRef.tb_media__DOT__dut__DOT__img_lba 
+                            = (vlSelfRef.tb_media__DOT__dut__DOT__fat_base 
+                               + ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__fat16)
+                                   ? VL_SHIFTR_III(32,32,32, vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster, 8U)
+                                   : VL_SHIFTR_III(32,32,32, vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster, 7U)));
+                        __Vdly__tb_media__DOT__dut__DOT__img_start = 1U;
+                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 6U;
+                    }
+                } else if ((6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
+                    if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done) {
+                        __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 7U;
+                    }
+                } else if (((2U > vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__next_cluster) 
+                            | ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__fat16)
+                                ? (0xfff0U <= vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__next_cluster)
+                                : (0xffffff0U <= vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__next_cluster)))) {
+                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = 7U;
+                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0xfU;
+                } else {
+                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster 
+                        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__next_cluster;
+                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index = 0U;
+                    __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 1U;
+                }
+            }
+        } else if ((8U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))) {
+            if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done) {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0U;
+            }
+        } else {
+            __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = 0xffU;
+            __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = 0xfU;
+        }
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__bytes_read 
+            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__bytes_read;
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba 
+            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba;
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index 
+            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__sector_index;
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster 
+            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster;
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining 
+            = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining;
+        vlSelfRef.tb_media__DOT__dut__DOT__img_start 
+            = __Vdly__tb_media__DOT__dut__DOT__img_start;
+        __Vdly__tb_media__DOT__dut__DOT__config_start = 0U;
+        if (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__launch) 
+             & (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__busy)))) {
+            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster 
+                = vlSelfRef.tb_media__DOT__dut__DOT__config_cluster;
+            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining 
+                = vlSelfRef.tb_media__DOT__dut__DOT__config_bytes;
+            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index = 0U;
+            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos = 0U;
+            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__file_error = 0U;
+            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__bytes_read = 0U;
+            if ((((2U > vlSelfRef.tb_media__DOT__dut__DOT__config_cluster) 
+                  | (0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__spc))) 
+                 | (0U == vlSelfRef.tb_media__DOT__dut__DOT__config_bytes))) {
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__file_error = 7U;
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 0xfU;
+            } else {
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 1U;
+            }
+        } else if (((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error)) 
+                    & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__busy))) {
+            if ((((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state)) 
+                  | (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) 
+                 | (IData)(vlSelfRef.tb_media__DOT__dut__DOT__config_start))) {
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state 
+                    = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__config_sd_done)
+                        ? 0U : 8U);
+            } else if ((8U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) {
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 0U;
+            } else if (vlSelfRef.tb_media__DOT__dut__DOT__config_sd_done) {
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 0U;
+            }
+        } else if (((((((((((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state)) 
+                            || (9U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) 
+                           || (0xfU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) 
+                          | (1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) 
+                         | (2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) 
+                        | (3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) 
+                       | (4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) 
+                      | (5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) 
+                     | (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) 
+                    | (7U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state)))) {
+            if ((1U & (~ (((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state)) 
+                           || (9U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) 
+                          || (0xfU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state)))))) {
+                if ((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) {
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster_lba 
+                        = (vlSelfRef.tb_media__DOT__dut__DOT__data_base 
+                           + ((vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster 
+                               - (IData)(2U)) * (IData)(vlSelfRef.tb_media__DOT__dut__DOT__spc)));
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 2U;
+                } else if ((2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) {
+                    if (vlSelfRef.tb_media__DOT__dut__DOT__config_sd_ready) {
+                        vlSelfRef.tb_media__DOT__dut__DOT__config_lba 
+                            = (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster_lba 
+                               + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index));
+                        __Vdly__tb_media__DOT__dut__DOT__config_start = 1U;
+                        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 3U;
+                    }
+                } else if ((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) {
+                    if (vlSelfRef.tb_media__DOT__dut__DOT__config_sd_done) {
+                        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos = 0U;
+                        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 4U;
+                    }
+                } else if ((4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) {
+                    if (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__byte_valid) 
+                         & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy))) {
+                        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__bytes_read 
+                            = ((IData)(1U) + vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__bytes_read);
+                        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining 
+                            = (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining 
+                               - (IData)(1U));
+                        if ((1U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining)) {
+                            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 9U;
+                        } else if ((0x1ffU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos))) {
+                            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos = 0U;
+                            if ((((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index)) 
+                                 < (IData)(vlSelfRef.tb_media__DOT__dut__DOT__spc))) {
+                                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index 
+                                    = (0xffU & ((IData)(1U) 
+                                                + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index)));
+                                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 2U;
+                            } else {
+                                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 5U;
+                            }
+                        } else {
+                            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos 
+                                = (0x1ffU & ((IData)(1U) 
+                                             + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos)));
+                        }
+                    }
+                } else if ((5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) {
+                    if (vlSelfRef.tb_media__DOT__dut__DOT__config_sd_ready) {
+                        vlSelfRef.tb_media__DOT__dut__DOT__config_lba 
+                            = (vlSelfRef.tb_media__DOT__dut__DOT__fat_base 
+                               + ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__fat16)
+                                   ? VL_SHIFTR_III(32,32,32, vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster, 8U)
+                                   : VL_SHIFTR_III(32,32,32, vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster, 7U)));
+                        __Vdly__tb_media__DOT__dut__DOT__config_start = 1U;
+                        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 6U;
+                    }
+                } else if ((6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) {
+                    if (vlSelfRef.tb_media__DOT__dut__DOT__config_sd_done) {
+                        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 7U;
+                    }
+                } else if (((2U > vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__next_cluster) 
+                            | ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__fat16)
+                                ? (0xfff0U <= vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__next_cluster)
+                                : (0xffffff0U <= vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__next_cluster)))) {
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__file_error = 7U;
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 0xfU;
+                } else {
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster 
+                        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__next_cluster;
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index = 0U;
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 1U;
+                }
+            }
+        } else if ((8U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))) {
+            if (vlSelfRef.tb_media__DOT__dut__DOT__config_sd_done) {
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 0U;
+            }
+        } else {
+            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__file_error = 0xffU;
+            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = 0xfU;
+        }
+    }
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__bytes_read 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__bytes_read;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster_lba 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster_lba;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__sector_index;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster;
+    vlSelfRef.tb_media__DOT__dut__DOT__config_start 
+        = __Vdly__tb_media__DOT__dut__DOT__config_start;
+    if (vlSelfRef.tb_media__DOT__reset) {
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__expected_crc = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc = 0xffffffffU;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__payload_bytes = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 0U;
+        vlSelfRef.tb_media__DOT__platform_ready = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_done = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_reserved = 0U;
+    } else if (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__launch) {
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc = 0xffffffffU;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 1U;
+        vlSelfRef.tb_media__DOT__platform_ready = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_done = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_reserved = 0U;
+    } else if (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy) 
+                & (0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__file_error)))) {
+        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error = 1U;
+        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 0U;
+        vlSelfRef.tb_media__DOT__platform_ready = 0U;
+    } else if (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy) 
+                & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__byte_valid))) {
+        if (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_done) {
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__data 
+                = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q;
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__old 
+                = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc;
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value 
+                = (__Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__old 
+                   ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__data));
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value 
+                = ((1U & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value)
+                    ? (0xedb88320U ^ VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U))
+                    : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U));
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value 
+                = ((1U & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value)
+                    ? (0xedb88320U ^ VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U))
+                    : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U));
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value 
+                = ((1U & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value)
+                    ? (0xedb88320U ^ VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U))
+                    : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U));
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value 
+                = ((1U & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value)
+                    ? (0xedb88320U ^ VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U))
+                    : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U));
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value 
+                = ((1U & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value)
+                    ? (0xedb88320U ^ VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U))
+                    : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U));
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value 
+                = ((1U & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value)
+                    ? (0xedb88320U ^ VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U))
+                    : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U));
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value 
+                = ((1U & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value)
+                    ? (0xedb88320U ^ VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U))
+                    : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U));
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value 
+                = ((1U & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value)
+                    ? (0xedb88320U ^ VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U))
+                    : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value, 1U));
+            __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__Vfuncout 
+                = __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__value;
+            __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc 
+                = __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__12__Vfuncout;
+            if (((0x1fffffU & (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position 
+                               - (IData)(0x20U))) == 
+                 (0x1fffffU & (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__payload_bytes 
+                               - (IData)(1U))))) {
+                if ((1U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining)) {
+                    if (((~ ([&]() {
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__data 
+                                            = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q;
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__old 
+                                            = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc;
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value 
+                                            = (__Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__old 
+                                               ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__data));
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value 
+                                            = ((1U 
+                                                & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value)
+                                                ? (0xedb88320U 
+                                                   ^ 
+                                                   VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U))
+                                                : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U));
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value 
+                                            = ((1U 
+                                                & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value)
+                                                ? (0xedb88320U 
+                                                   ^ 
+                                                   VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U))
+                                                : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U));
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value 
+                                            = ((1U 
+                                                & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value)
+                                                ? (0xedb88320U 
+                                                   ^ 
+                                                   VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U))
+                                                : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U));
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value 
+                                            = ((1U 
+                                                & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value)
+                                                ? (0xedb88320U 
+                                                   ^ 
+                                                   VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U))
+                                                : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U));
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value 
+                                            = ((1U 
+                                                & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value)
+                                                ? (0xedb88320U 
+                                                   ^ 
+                                                   VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U))
+                                                : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U));
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value 
+                                            = ((1U 
+                                                & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value)
+                                                ? (0xedb88320U 
+                                                   ^ 
+                                                   VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U))
+                                                : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U));
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value 
+                                            = ((1U 
+                                                & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value)
+                                                ? (0xedb88320U 
+                                                   ^ 
+                                                   VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U))
+                                                : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U));
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value 
+                                            = ((1U 
+                                                & __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value)
+                                                ? (0xedb88320U 
+                                                   ^ 
+                                                   VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U))
+                                                : VL_SHIFTR_III(32,32,32, __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value, 1U));
+                                        __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__Vfuncout 
+                                            = __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__value;
+                                    }(), __Vfunc_tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc_byte__13__Vfuncout)) 
+                         != vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__expected_crc)) {
+                        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error = 7U;
+                        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 0U;
+                        vlSelfRef.tb_media__DOT__platform_ready = 0U;
+                    } else {
+                        __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 0U;
+                        vlSelfRef.tb_media__DOT__platform_ready = 1U;
+                    }
+                } else {
+                    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error = 6U;
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 0U;
+                    vlSelfRef.tb_media__DOT__platform_ready = 0U;
+                }
+            } else if ((1U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining)) {
+                vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error = 2U;
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 0U;
+                vlSelfRef.tb_media__DOT__platform_ready = 0U;
+            } else {
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position 
+                    = (0x1fffffU & ((IData)(1U) + vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position));
+            }
+        } else {
+            if ((0x14U > vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position)) {
+                __VdlyVal__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0 
+                    = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q;
+                __VdlyDim0__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0 
+                    = (0x1fU & vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position);
+                __VdlySet__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0 = 1U;
+            }
+            if (((0x14U <= vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position) 
+                 & (0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q)))) {
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_reserved = 1U;
+            }
+            if ((0U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position)) {
+                if ((0x44U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q))) {
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix = 1U;
+                }
+            } else if ((1U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position)) {
+                if ((0x4dU != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q))) {
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix = 1U;
+                }
+            } else if ((2U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position)) {
+                if ((0x5aU != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q))) {
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix = 1U;
+                }
+            } else if ((3U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position)) {
+                if ((0x50U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q))) {
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix = 1U;
+                }
+            } else if ((4U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position)) {
+                if (((1U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q)) 
+                     & (2U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q)))) {
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix = 1U;
+                }
+            } else if (((5U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position) 
+                        || (7U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position))) {
+                if ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q))) {
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix = 1U;
+                }
+            } else if ((6U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position)) {
+                if ((0x20U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q))) {
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix = 1U;
+                }
+            }
+            if ((1U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining)) {
+                vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error = 2U;
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 0U;
+                vlSelfRef.tb_media__DOT__platform_ready = 0U;
+            } else if ((0x1fU == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position)) {
+                if (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix) {
+                    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error = 3U;
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 0U;
+                    vlSelfRef.tb_media__DOT__platform_ready = 0U;
+                } else if (((((((((0U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                   [0x10U]) | (0x40U 
+                                               < vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                               [0x10U])) 
+                                 | (0U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                    [0x11U])) | (0x20U 
+                                                 < 
+                                                 vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                                 [0x11U])) 
+                               | (0x80U < vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                  [0x12U])) | (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                               [0x13U] 
+                                               >= vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                               [0x11U])) 
+                             | ((1U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                 [4U]) & ((vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_length 
+                                           != VL_SHIFTL_III(32,32,32, (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__count_sum), 5U)) 
+                                          | (0x1c00U 
+                                             < vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_length)))) 
+                            | ((2U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                [4U]) & ((vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_length 
+                                          < VL_SHIFTL_III(32,32,32, (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__count_sum), 5U)) 
+                                         | (0x100000U 
+                                            < vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_length))))) {
+                    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error = 4U;
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 0U;
+                    vlSelfRef.tb_media__DOT__platform_ready = 0U;
+                } else if (((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q)) 
+                            | (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_reserved))) {
+                    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error = 5U;
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = 0U;
+                    vlSelfRef.tb_media__DOT__platform_ready = 0U;
+                } else {
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_done = 1U;
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__payload_bytes 
+                        = (0x1fffffU & vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_length);
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__expected_crc 
+                        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_crc;
+                    __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position = 0x20U;
+                }
+            } else {
+                __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position 
+                    = (0x1fffffU & ((IData)(1U) + vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position));
+            }
+        }
+    }
+    if (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase_q) {
+        vlSelfRef.tb_media__DOT__browse_tag = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__browse_query_q;
+        vlSelfRef.tb_media__DOT__browse_valid = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready) 
+                                                 & ((0x20U 
+                                                     & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__browse_query_q))
+                                                     ? 
+                                                    ((0x1fU 
+                                                      & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__browse_query_q)) 
+                                                     < (IData)(vlSelfRef.tb_media__DOT__wav_count))
+                                                     : 
+                                                    ((0x1fU 
+                                                      & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__browse_query_q)) 
+                                                     < (IData)(vlSelfRef.tb_media__DOT__count))));
+        vlSelfRef.tb_media__DOT__browse_name = ((0x20U 
+                                                 & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__browse_query_q))
+                                                 ? vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_wav_name
+                                                 : vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_image_name);
+    }
     if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__catalog__sd_byte_valid) {
         __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0 
             = vlSelfRef.tb_media__DOT__bd;
@@ -1904,42 +3261,42 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         }
     }
     if (vlSelfRef.tb_media__DOT__reset) {
-        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached = 0U;
-        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached = 0U;
         vlSelfRef.tb_media__DOT__dut__DOT__wav_cluster = 0U;
         __Vdly__tb_media__DOT__wav_bytes = 0U;
         vlSelfRef.tb_media__DOT__browse_valid = 0U;
         vlSelfRef.tb_media__DOT__browse_tag = 0U;
         vlSelfRef.tb_media__DOT__dut__DOT__image_cluster = 0U;
         __Vdly__tb_media__DOT__dut__DOT__image_bytes = 0U;
+        __Vdly__tb_media__DOT__name = 0ULL;
     } else {
         if (((IData)(vlSelfRef.tb_media__DOT__audio_selected) 
              < (IData)(vlSelfRef.tb_media__DOT__wav_count))) {
             vlSelfRef.tb_media__DOT__dut__DOT__wav_cluster 
-                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters
-                [vlSelfRef.tb_media__DOT__audio_selected];
-            __Vdly__tb_media__DOT__wav_bytes = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes
-                [vlSelfRef.tb_media__DOT__audio_selected];
+                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_cluster_q;
+            __Vdly__tb_media__DOT__wav_bytes = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_bytes_q;
         }
         if (((IData)(vlSelfRef.tb_media__DOT__selected) 
              < (IData)(vlSelfRef.tb_media__DOT__count))) {
             vlSelfRef.tb_media__DOT__dut__DOT__image_cluster 
-                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__clusters
-                [vlSelfRef.tb_media__DOT__selected];
+                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__image_cluster_q;
             __Vdly__tb_media__DOT__dut__DOT__image_bytes 
-                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__sizes
-                [vlSelfRef.tb_media__DOT__selected];
+                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__image_bytes_q;
+            __Vdly__tb_media__DOT__name = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__image_name_q;
         } else {
             vlSelfRef.tb_media__DOT__dut__DOT__image_cluster = 0U;
             __Vdly__tb_media__DOT__dut__DOT__image_bytes = 0U;
+            __Vdly__tb_media__DOT__name = 0ULL;
         }
     }
     if (vlSelfRef.tb_media__DOT__reset) {
+        vlSelfRef.tb_media__DOT__platform_found = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__config_cluster = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__config_bytes = 0U;
         __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 0U;
         __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__after_read = 0U;
         vlSelfRef.tb_media__DOT__dut__DOT__cat_start = 0U;
-        __Vdly__tb_media__DOT__dut__DOT__cat_lba = 0U;
-        __Vdly__tb_media__DOT__catalog_ready = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__cat_lba = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__raw_catalog_ready = 0U;
         vlSelfRef.tb_media__DOT__dut__DOT__cat_error = 0U;
         __Vdly__tb_media__DOT__dut__DOT__fat16 = 0U;
         __Vdly__tb_media__DOT__dut__DOT__spc = 0U;
@@ -1968,12 +3325,12 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                   | (2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) 
                  | (3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) 
                 | (4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) 
-               | (5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) 
-              | (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) 
-             | (7U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state)))) {
+               | (0xbU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) 
+              | (5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) 
+             | (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state)))) {
             if ((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) {
                 if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__catalog__sd_ready) {
-                    __Vdly__tb_media__DOT__dut__DOT__cat_lba = 0U;
+                    vlSelfRef.tb_media__DOT__dut__DOT__cat_lba = 0U;
                     vlSelfRef.tb_media__DOT__dut__DOT__cat_start = 1U;
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__after_read = 2U;
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 1U;
@@ -1988,13 +3345,13 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                     vlSelfRef.tb_media__DOT__dut__DOT__cat_error = 1U;
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 0x3fU;
                 } else if (((0x200U == ([&]() {
-                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__13__Vfuncout 
+                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__33__Vfuncout 
                                         = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                             [0xcU] 
                                             << 8U) 
                                            | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                            [0xbU]);
-                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__13__Vfuncout))) 
+                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__33__Vfuncout))) 
                             & (0U != vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                [0xdU]))) {
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__volume_base = 0U;
@@ -2005,10 +3362,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                     vlSelfRef.tb_media__DOT__dut__DOT__cat_start = 1U;
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__after_read = 3U;
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 1U;
-                    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__14__lba 
+                    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__34__lba 
                         = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__partition_start;
-                    __Vdly__tb_media__DOT__dut__DOT__cat_lba 
-                        = __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__14__lba;
+                    vlSelfRef.tb_media__DOT__dut__DOT__cat_lba 
+                        = __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__34__lba;
                 } else {
                     vlSelfRef.tb_media__DOT__dut__DOT__cat_error = 2U;
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 0x3fU;
@@ -2016,14 +3373,14 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
             } else if ((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) {
                 if (((((((0xaa55U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__signature)) 
                          | (0x200U != ([&]() {
-                                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__15__Vfuncout 
+                                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__35__Vfuncout 
                                                         = 
                                                         ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                           [0xcU] 
                                                           << 8U) 
                                                          | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                          [0xbU]);
-                                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__15__Vfuncout)))) 
+                                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__35__Vfuncout)))) 
                         | (0U == vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                            [0xdU])) | (0U != (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                               [0xdU] 
@@ -2031,13 +3388,13 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                  [0xdU] 
                                                  - (IData)(1U))))) 
                       | (0U == ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__16__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__36__Vfuncout 
                                             = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                 [0xfU] 
                                                 << 8U) 
                                                | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                [0xeU]);
-                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__16__Vfuncout)))) 
+                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__36__Vfuncout)))) 
                      | (0U == vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                         [0x10U]))) {
                     vlSelfRef.tb_media__DOT__dut__DOT__cat_error = 3U;
@@ -2045,12 +3402,12 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                 } else {
                     __Vdly__tb_media__DOT__dut__DOT__fat16 
                         = (0U != ([&]() {
-                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__17__Vfuncout 
+                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__37__Vfuncout 
                                     = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                         [0x17U] << 8U) 
                                        | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                        [0x16U]);
-                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__17__Vfuncout)));
+                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__37__Vfuncout)));
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__root_index = 0U;
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__cluster_sector = 0U;
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 4U;
@@ -2060,57 +3417,57 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                     __Vdly__tb_media__DOT__dut__DOT__fat_base 
                         = (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__volume_base 
                            + VL_EXTEND_II(32,16, ([&]() {
-                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__18__Vfuncout 
+                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__38__Vfuncout 
                                         = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                             [0xfU] 
                                             << 8U) 
                                            | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                            [0xeU]);
-                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__18__Vfuncout))));
+                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__38__Vfuncout))));
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__root_sectors 
                         = VL_SHIFTR_III(32,32,32, ((IData)(0xfU) 
                                                    + 
                                                    VL_EXTEND_II(32,16, 
                                                                 ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__19__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__39__Vfuncout 
                                             = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                 [0x12U] 
                                                 << 8U) 
                                                | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                [0x11U]);
-                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__19__Vfuncout)))), 4U);
+                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__39__Vfuncout)))), 4U);
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__root_base 
                         = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__volume_base 
                             + VL_EXTEND_II(32,16, ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__20__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__40__Vfuncout 
                                             = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                 [0xfU] 
                                                 << 8U) 
                                                | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                [0xeU]);
-                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__20__Vfuncout)))) 
+                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__40__Vfuncout)))) 
                            + (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                               [0x10U] * ((0U != ([&]() {
-                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__21__Vfuncout 
+                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__41__Vfuncout 
                                                 = (
                                                    (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                     [0x17U] 
                                                     << 8U) 
                                                    | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                    [0x16U]);
-                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__21__Vfuncout)))
+                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__41__Vfuncout)))
                                           ? VL_EXTEND_II(32,16, 
                                                          ([&]() {
-                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__22__Vfuncout 
+                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__42__Vfuncout 
                                                 = (
                                                    (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                     [0x17U] 
                                                     << 8U) 
                                                    | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                    [0x16U]);
-                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__22__Vfuncout)))
+                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__42__Vfuncout)))
                                           : ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__23__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__43__Vfuncout 
                                             = (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                  [0x27U] 
                                                  << 0x18U) 
@@ -2122,41 +3479,41 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                    << 8U) 
                                                   | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                   [0x24U]));
-                                    }(), __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__23__Vfuncout))));
+                                    }(), __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__43__Vfuncout))));
                     __Vdly__tb_media__DOT__dut__DOT__data_base 
                         = (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__volume_base 
                              + VL_EXTEND_II(32,16, 
                                             ([&]() {
-                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__24__Vfuncout 
+                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__44__Vfuncout 
                                                 = (
                                                    (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                     [0xfU] 
                                                     << 8U) 
                                                    | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                    [0xeU]);
-                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__24__Vfuncout)))) 
+                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__44__Vfuncout)))) 
                             + (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                [0x10U] * ((0U != ([&]() {
-                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__25__Vfuncout 
+                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__45__Vfuncout 
                                                     = 
                                                     ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                       [0x17U] 
                                                       << 8U) 
                                                      | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                      [0x16U]);
-                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__25__Vfuncout)))
+                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__45__Vfuncout)))
                                            ? VL_EXTEND_II(32,16, 
                                                           ([&]() {
-                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__26__Vfuncout 
+                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__46__Vfuncout 
                                                     = 
                                                     ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                       [0x17U] 
                                                       << 8U) 
                                                      | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                      [0x16U]);
-                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__26__Vfuncout)))
+                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__46__Vfuncout)))
                                            : ([&]() {
-                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__27__Vfuncout 
+                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__47__Vfuncout 
                                                 = (
                                                    ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                      [0x27U] 
@@ -2169,38 +3526,38 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                        << 8U) 
                                                       | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                       [0x24U]));
-                                        }(), __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__27__Vfuncout)))) 
+                                        }(), __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__47__Vfuncout)))) 
                            + VL_SHIFTR_III(32,32,32, 
                                            ((IData)(0xfU) 
                                             + VL_EXTEND_II(32,16, 
                                                            ([&]() {
-                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__28__Vfuncout 
+                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__48__Vfuncout 
                                                 = (
                                                    (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                     [0x12U] 
                                                     << 8U) 
                                                    | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                                    [0x11U]);
-                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__28__Vfuncout)))), 4U));
+                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__48__Vfuncout)))), 4U));
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__fixed_root 
                         = (0U != ([&]() {
-                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__29__Vfuncout 
+                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__49__Vfuncout 
                                     = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                         [0x17U] << 8U) 
                                        | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                        [0x16U]);
-                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__29__Vfuncout)));
+                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__49__Vfuncout)));
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__cluster 
                         = ((0U != ([&]() {
-                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__30__Vfuncout 
+                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__50__Vfuncout 
                                         = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                             [0x17U] 
                                             << 8U) 
                                            | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                            [0x16U]);
-                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__30__Vfuncout)))
+                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h16__50__Vfuncout)))
                             ? 0U : (0xfffffffU & ([&]() {
-                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__31__Vfuncout 
+                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__51__Vfuncout 
                                         = (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                              [0x2fU] 
                                              << 0x18U) 
@@ -2212,7 +3569,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                << 8U) 
                                               | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header
                                               [0x2cU]));
-                                }(), __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__31__Vfuncout)));
+                                }(), __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__h32__51__Vfuncout)));
                 }
             } else if ((4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) {
                 __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__directory_sectors 
@@ -2227,34 +3584,35 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                          >= vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__root_sectors)) {
                         __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 9U;
                     } else {
-                        __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__32__lba 
+                        __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__52__lba 
                             = (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__root_base 
                                + vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__root_index);
-                        __Vdly__tb_media__DOT__dut__DOT__cat_lba 
-                            = __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__32__lba;
+                        vlSelfRef.tb_media__DOT__dut__DOT__cat_lba 
+                            = __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__52__lba;
                         vlSelfRef.tb_media__DOT__dut__DOT__cat_start = 1U;
-                        __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__after_read = 5U;
+                        __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__after_read = 0xbU;
                         __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 1U;
                     }
                 } else if ((2U > vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster)) {
                     vlSelfRef.tb_media__DOT__dut__DOT__cat_error = 6U;
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 0x3fU;
                 } else {
-                    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__33__lba 
+                    __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__53__lba 
                         = ((vlSelfRef.tb_media__DOT__dut__DOT__data_base 
                             + ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster 
                                 - (IData)(2U)) * (IData)(vlSelfRef.tb_media__DOT__dut__DOT__spc))) 
                            + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster_sector));
-                    __Vdly__tb_media__DOT__dut__DOT__cat_lba 
-                        = __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__33__lba;
+                    vlSelfRef.tb_media__DOT__dut__DOT__cat_lba 
+                        = __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__53__lba;
                     vlSelfRef.tb_media__DOT__dut__DOT__cat_start = 1U;
-                    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__after_read = 5U;
+                    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__after_read = 0xbU;
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 1U;
                 }
+            } else if ((0xbU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) {
+                __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 5U;
             } else if ((5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) {
                 __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__entry__v0 
-                    = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cache
-                    [vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cache_addr];
+                    = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cache_q;
                 __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__entry__v0 
                     = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_pos;
                 __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__entry__v0 = 1U;
@@ -2264,252 +3622,1405 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                 } else {
                     __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__entry_pos 
                         = (0x1fU & ((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_pos)));
+                    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 0xbU;
                 }
-            } else if ((6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) {
-                if ((0U == vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                     [0U])) {
-                    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 9U;
-                } else {
-                    if (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__regular_file) {
-                        if (((((0x42U == ([&]() {
-                                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__34__c 
-                                                        = 
-                                                        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                                        [8U];
-                                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__34__Vfuncout 
-                                                        = 
-                                                        (0xffU 
-                                                         & (((0x61U 
-                                                              <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__34__c)) 
-                                                             & (0x7aU 
-                                                                >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__34__c)))
-                                                             ? 
-                                                            ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__34__c) 
-                                                             - (IData)(0x20U))
-                                                             : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__34__c)));
-                                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__34__Vfuncout))) 
-                               & (0x4dU == ([&]() {
-                                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__35__c 
-                                                        = 
-                                                        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                                        [9U];
-                                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__35__Vfuncout 
-                                                        = 
-                                                        (0xffU 
-                                                         & (((0x61U 
-                                                              <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__35__c)) 
-                                                             & (0x7aU 
-                                                                >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__35__c)))
-                                                             ? 
-                                                            ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__35__c) 
-                                                             - (IData)(0x20U))
-                                                             : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__35__c)));
-                                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__35__Vfuncout)))) 
-                              & (0x50U == ([&]() {
-                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__36__c 
-                                                    = 
-                                                    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                                    [0xaU];
-                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__36__Vfuncout 
-                                                    = 
-                                                    (0xffU 
-                                                     & (((0x61U 
-                                                          <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__36__c)) 
-                                                         & (0x7aU 
-                                                            >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__36__c)))
-                                                         ? 
-                                                        ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__36__c) 
-                                                         - (IData)(0x20U))
-                                                         : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__36__c)));
-                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__36__Vfuncout)))) 
-                             & (0x20U > (IData)(vlSelfRef.tb_media__DOT__count)))) {
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_cluster;
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0 
-                                = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
-                            __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0 = 1U;
-                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__37__Vfuncout 
-                                = (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                     [0x1fU] << 0x18U) 
-                                    | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                       [0x1eU] << 0x10U)) 
-                                   | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                       [0x1dU] << 8U) 
-                                      | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                      [0x1cU]));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 
-                                = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__37__Vfuncout;
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 
-                                = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
-                            __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 = 1U;
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [0U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 
-                                = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v1 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [1U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v1 
-                                = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v2 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [2U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v2 
-                                = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v3 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [3U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v3 
-                                = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v4 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [4U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v4 
-                                = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v5 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [5U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v5 
-                                = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v6 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [6U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v6 
-                                = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v7 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [7U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v7 
-                                = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
-                            __Vdly__tb_media__DOT__count 
-                                = (0x3fU & ((IData)(1U) 
-                                            + (IData)(vlSelfRef.tb_media__DOT__count)));
-                        }
-                        if (((((0x57U == ([&]() {
-                                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__38__c 
-                                                        = 
-                                                        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                                        [8U];
-                                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__38__Vfuncout 
-                                                        = 
-                                                        (0xffU 
-                                                         & (((0x61U 
-                                                              <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__38__c)) 
-                                                             & (0x7aU 
-                                                                >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__38__c)))
-                                                             ? 
-                                                            ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__38__c) 
-                                                             - (IData)(0x20U))
-                                                             : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__38__c)));
-                                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__38__Vfuncout))) 
-                               & (0x41U == ([&]() {
-                                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__39__c 
-                                                        = 
-                                                        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                                        [9U];
-                                                    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__39__Vfuncout 
-                                                        = 
-                                                        (0xffU 
-                                                         & (((0x61U 
-                                                              <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__39__c)) 
-                                                             & (0x7aU 
-                                                                >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__39__c)))
-                                                             ? 
-                                                            ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__39__c) 
-                                                             - (IData)(0x20U))
-                                                             : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__39__c)));
-                                                }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__39__Vfuncout)))) 
-                              & (0x56U == ([&]() {
-                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__40__c 
-                                                    = 
-                                                    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                                    [0xaU];
-                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__40__Vfuncout 
-                                                    = 
-                                                    (0xffU 
-                                                     & (((0x61U 
-                                                          <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__40__c)) 
-                                                         & (0x7aU 
-                                                            >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__40__c)))
-                                                         ? 
-                                                        ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__40__c) 
-                                                         - (IData)(0x20U))
-                                                         : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__40__c)));
-                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__40__Vfuncout)))) 
-                             & (0x10U > (IData)(vlSelfRef.tb_media__DOT__wav_count)))) {
-                            __Vdly__tb_media__DOT__wav_count 
-                                = (0x1fU & ((IData)(1U) 
-                                            + (IData)(vlSelfRef.tb_media__DOT__wav_count)));
-                            vlSelfRef.tb_media__DOT__wav_found = 1U;
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_cluster;
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 
-                                = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
-                            __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 = 1U;
-                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__41__Vfuncout 
-                                = (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                     [0x1fU] << 0x18U) 
-                                    | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                       [0x1eU] << 0x10U)) 
-                                   | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                       [0x1dU] << 8U) 
-                                      | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                      [0x1cU]));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 
-                                = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__41__Vfuncout;
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 
-                                = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
-                            __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 = 1U;
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [0U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 
-                                = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v1 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [1U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v1 
-                                = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v2 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [2U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v2 
-                                = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v3 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [3U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v3 
-                                = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v4 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [4U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v4 
-                                = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v5 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [5U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v5 
-                                = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v6 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [6U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v6 
-                                = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
-                            __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v7 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
-                                [7U];
-                            __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v7 
-                                = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
-                        }
+            } else if ((0U == vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                        [0U])) {
+                __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 9U;
+            } else {
+                if (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__regular_file) {
+                    if ((0U == (((0x2042494eU ^ (IData)(
+                                                        (((QData)((IData)(
+                                                                          (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                             [3U] 
+                                                                             << 0x18U) 
+                                                                            | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                               [4U] 
+                                                                               << 0x10U)) 
+                                                                           | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                               [5U] 
+                                                                               << 8U) 
+                                                                              | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                              [6U])))) 
+                                                          << 0x20U) 
+                                                         | (QData)((IData)(
+                                                                           (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                              [7U] 
+                                                                              << 0x18U) 
+                                                                             | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                                [8U] 
+                                                                                << 0x10U)) 
+                                                                            | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                                [9U] 
+                                                                                << 8U) 
+                                                                               | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                               [0xaU]))))))) 
+                                 | (0x4e452020U ^ (IData)(
+                                                          ((((QData)((IData)(
+                                                                             (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                                [3U] 
+                                                                                << 0x18U) 
+                                                                               | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                                [4U] 
+                                                                                << 0x10U)) 
+                                                                              | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                                [5U] 
+                                                                                << 8U) 
+                                                                                | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                                [6U])))) 
+                                                             << 0x20U) 
+                                                            | (QData)((IData)(
+                                                                              (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                                [7U] 
+                                                                                << 0x18U) 
+                                                                                | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                                [8U] 
+                                                                                << 0x10U)) 
+                                                                               | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                                [9U] 
+                                                                                << 8U) 
+                                                                                | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                                [0xaU]))))) 
+                                                           >> 0x20U)))) 
+                                | (0x534345U ^ ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                 [0U] 
+                                                 << 0x10U) 
+                                                | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                    [1U] 
+                                                    << 8U) 
+                                                   | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                   [2U])))))) {
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__54__Vfuncout 
+                            = (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                 [0x1fU] << 0x18U) 
+                                | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                   [0x1eU] << 0x10U)) 
+                               | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                   [0x1dU] << 8U) | 
+                                  vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                  [0x1cU]));
+                        vlSelfRef.tb_media__DOT__platform_found = 1U;
+                        vlSelfRef.tb_media__DOT__dut__DOT__config_cluster 
+                            = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_cluster;
+                        vlSelfRef.tb_media__DOT__dut__DOT__config_bytes 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__54__Vfuncout;
                     }
-                    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 7U;
+                    if (((((0x42U == ([&]() {
+                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__55__c 
+                                                    = 
+                                                    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                    [8U];
+                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__55__Vfuncout 
+                                                    = 
+                                                    (0xffU 
+                                                     & (((0x61U 
+                                                          <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__55__c)) 
+                                                         & (0x7aU 
+                                                            >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__55__c)))
+                                                         ? 
+                                                        ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__55__c) 
+                                                         - (IData)(0x20U))
+                                                         : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__55__c)));
+                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__55__Vfuncout))) 
+                           & (0x4dU == ([&]() {
+                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__56__c 
+                                                    = 
+                                                    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                    [9U];
+                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__56__Vfuncout 
+                                                    = 
+                                                    (0xffU 
+                                                     & (((0x61U 
+                                                          <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__56__c)) 
+                                                         & (0x7aU 
+                                                            >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__56__c)))
+                                                         ? 
+                                                        ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__56__c) 
+                                                         - (IData)(0x20U))
+                                                         : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__56__c)));
+                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__56__Vfuncout)))) 
+                          & (0x50U == ([&]() {
+                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__57__c 
+                                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                [0xaU];
+                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__57__Vfuncout 
+                                                = (0xffU 
+                                                   & (((0x61U 
+                                                        <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__57__c)) 
+                                                       & (0x7aU 
+                                                          >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__57__c)))
+                                                       ? 
+                                                      ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__57__c) 
+                                                       - (IData)(0x20U))
+                                                       : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__57__c)));
+                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__57__Vfuncout)))) 
+                         & (0x20U > (IData)(vlSelfRef.tb_media__DOT__count)))) {
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__a 
+                            = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__g 
+                            = (0x1fU & (VL_SHIFTR_III(5,5,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__a), 1U) 
+                                        ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__a)));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__g 
+                            = ((0xfU & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__g)) 
+                               | (0x10U & ((0xfffffff0U 
+                                            & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__g)) 
+                                           ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__g) 
+                                              << 4U))));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__Vfuncout 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__g;
+                        __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0 
+                            = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_cluster;
+                        __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__58__Vfuncout;
+                        __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0 = 1U;
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__59__Vfuncout 
+                            = (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                 [0x1fU] << 0x18U) 
+                                | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                   [0x1eU] << 0x10U)) 
+                               | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                   [0x1dU] << 8U) | 
+                                  vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                  [0x1cU]));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__a 
+                            = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__g 
+                            = (0x1fU & (VL_SHIFTR_III(5,5,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__a), 1U) 
+                                        ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__a)));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__g 
+                            = ((0xfU & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__g)) 
+                               | (0x10U & ((0xfffffff0U 
+                                            & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__g)) 
+                                           ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__g) 
+                                              << 4U))));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__Vfuncout 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__g;
+                        __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__59__Vfuncout;
+                        __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__60__Vfuncout;
+                        __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 = 1U;
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value 
+                            = (((QData)((IData)((((
+                                                   vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                   [7U] 
+                                                   << 0x18U) 
+                                                  | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                     [6U] 
+                                                     << 0x10U)) 
+                                                 | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                     [5U] 
+                                                     << 8U) 
+                                                    | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                    [4U])))) 
+                                << 0x20U) | (QData)((IData)(
+                                                            (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                               [3U] 
+                                                               << 0x18U) 
+                                                              | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                 [2U] 
+                                                                 << 0x10U)) 
+                                                             | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                 [1U] 
+                                                                 << 8U) 
+                                                                | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                [0U])))));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffffffffeULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | (IData)((IData)((1U 
+                                                  & VL_REDXOR_4(
+                                                                (0xeULL 
+                                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffffffffdULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_4(
+                                                                 (0xdULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 1U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffffffffbULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_4(
+                                                                 (0xbULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 2U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffffffff7ULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_4(
+                                                                 (7ULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 3U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffffffffefULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_8(
+                                                                 (0xe0ULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 4U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffffffffdfULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_8(
+                                                                 (0xd0ULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 5U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffffffffbfULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_8(
+                                                                 (0xb0ULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 6U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffffffff7fULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_8(
+                                                                 (0x70ULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 7U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffffffeffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xe00ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 8U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffffffdffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xd00ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 9U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffffffbffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xb00ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0xaU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffffff7ffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0x700ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0xbU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffffffefffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xe000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0xcU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffffffdfffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xd000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0xdU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffffffbfffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xb000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0xeU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffffff7fffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0x7000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0xfU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffffeffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xe0000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x10U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffffdffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xd0000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x11U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffffbffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xb0000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x12U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffff7ffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0x70000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x13U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffffefffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xe00000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x14U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffffdfffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xd00000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x15U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffffbfffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xb00000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x16U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffff7fffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0x700000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x17U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffeffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xe000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x18U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffdffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xd000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x19U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffffbffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xb000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x1aU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffff7ffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0x7000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x1bU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffefffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xe0000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x1cU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffdfffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xd0000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x1dU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffffbfffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xb0000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x1eU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffff7fffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0x70000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x1fU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffeffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe00000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x20U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffdffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd00000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x21U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffffbffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb00000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x22U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffff7ffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x700000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x23U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffefffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x24U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffdfffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x25U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffffbfffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x26U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffff7fffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x7000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x27U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffeffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe0000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x28U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffdffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd0000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x29U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffffbffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb0000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x2aU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffff7ffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x70000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x2bU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffefffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe00000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x2cU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffdfffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd00000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x2dU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffffbfffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb00000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x2eU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffff7fffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x700000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x2fU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffeffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x30U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffdffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x31U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfffbffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x32U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfff7ffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x7000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x33U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffefffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe0000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x34U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffdfffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd0000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x35U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xffbfffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb0000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x36U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xff7fffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x70000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x37U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfeffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe00000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x38U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfdffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd00000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x39U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xfbffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb00000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x3aU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xf7ffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x700000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x3bU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xefffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe000000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x3cU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xdfffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd000000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x3dU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0xbfffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb000000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x3eU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout 
+                            = ((0x7fffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x7000000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__value))))) 
+                                  << 0x3fU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__a 
+                            = (0x1fU & (IData)(vlSelfRef.tb_media__DOT__count));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__g 
+                            = (0x1fU & (VL_SHIFTR_III(5,5,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__a), 1U) 
+                                        ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__a)));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__g 
+                            = ((0xfU & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__g)) 
+                               | (0x10U & ((0xfffffff0U 
+                                            & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__g)) 
+                                           ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__g) 
+                                              << 4U))));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__Vfuncout 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__g;
+                        __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__61__Vfuncout;
+                        __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__62__Vfuncout;
+                        __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 = 1U;
+                        __Vdly__tb_media__DOT__count 
+                            = (0x3fU & ((IData)(1U) 
+                                        + (IData)(vlSelfRef.tb_media__DOT__count)));
+                    }
+                    if (((((0x57U == ([&]() {
+                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__63__c 
+                                                    = 
+                                                    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                    [8U];
+                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__63__Vfuncout 
+                                                    = 
+                                                    (0xffU 
+                                                     & (((0x61U 
+                                                          <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__63__c)) 
+                                                         & (0x7aU 
+                                                            >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__63__c)))
+                                                         ? 
+                                                        ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__63__c) 
+                                                         - (IData)(0x20U))
+                                                         : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__63__c)));
+                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__63__Vfuncout))) 
+                           & (0x41U == ([&]() {
+                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__64__c 
+                                                    = 
+                                                    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                    [9U];
+                                                __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__64__Vfuncout 
+                                                    = 
+                                                    (0xffU 
+                                                     & (((0x61U 
+                                                          <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__64__c)) 
+                                                         & (0x7aU 
+                                                            >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__64__c)))
+                                                         ? 
+                                                        ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__64__c) 
+                                                         - (IData)(0x20U))
+                                                         : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__64__c)));
+                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__64__Vfuncout)))) 
+                          & (0x56U == ([&]() {
+                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__65__c 
+                                                = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                [0xaU];
+                                            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__65__Vfuncout 
+                                                = (0xffU 
+                                                   & (((0x61U 
+                                                        <= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__65__c)) 
+                                                       & (0x7aU 
+                                                          >= (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__65__c)))
+                                                       ? 
+                                                      ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__65__c) 
+                                                       - (IData)(0x20U))
+                                                       : (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__65__c)));
+                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__upper__65__Vfuncout)))) 
+                         & (0x10U > (IData)(vlSelfRef.tb_media__DOT__wav_count)))) {
+                        vlSelfRef.tb_media__DOT__wav_found = 1U;
+                        __Vdly__tb_media__DOT__wav_count 
+                            = (0x1fU & ((IData)(1U) 
+                                        + (IData)(vlSelfRef.tb_media__DOT__wav_count)));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__a 
+                            = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__g 
+                            = (0xfU & (VL_SHIFTR_III(4,4,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__a), 1U) 
+                                       ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__a)));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__g 
+                            = ((7U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__g)) 
+                               | (8U & ((0xfffffff8U 
+                                         & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__g)) 
+                                        ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__g) 
+                                           << 3U))));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__Vfuncout 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__g;
+                        __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 
+                            = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_cluster;
+                        __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__66__Vfuncout;
+                        __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 = 1U;
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__67__Vfuncout 
+                            = (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                 [0x1fU] << 0x18U) 
+                                | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                   [0x1eU] << 0x10U)) 
+                               | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                   [0x1dU] << 8U) | 
+                                  vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                  [0x1cU]));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__a 
+                            = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__g 
+                            = (0xfU & (VL_SHIFTR_III(4,4,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__a), 1U) 
+                                       ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__a)));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__g 
+                            = ((7U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__g)) 
+                               | (8U & ((0xfffffff8U 
+                                         & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__g)) 
+                                        ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__g) 
+                                           << 3U))));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__Vfuncout 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__g;
+                        __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e32__67__Vfuncout;
+                        __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__68__Vfuncout;
+                        __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 = 1U;
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value 
+                            = (((QData)((IData)((((
+                                                   vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                   [7U] 
+                                                   << 0x18U) 
+                                                  | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                     [6U] 
+                                                     << 0x10U)) 
+                                                 | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                     [5U] 
+                                                     << 8U) 
+                                                    | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                    [4U])))) 
+                                << 0x20U) | (QData)((IData)(
+                                                            (((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                               [3U] 
+                                                               << 0x18U) 
+                                                              | (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                 [2U] 
+                                                                 << 0x10U)) 
+                                                             | ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                 [1U] 
+                                                                 << 8U) 
+                                                                | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
+                                                                [0U])))));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffffffffeULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | (IData)((IData)((1U 
+                                                  & VL_REDXOR_4(
+                                                                (0xeULL 
+                                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffffffffdULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_4(
+                                                                 (0xdULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 1U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffffffffbULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_4(
+                                                                 (0xbULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 2U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffffffff7ULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_4(
+                                                                 (7ULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 3U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffffffffefULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_8(
+                                                                 (0xe0ULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 4U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffffffffdfULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_8(
+                                                                 (0xd0ULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 5U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffffffffbfULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_8(
+                                                                 (0xb0ULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 6U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffffffff7fULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_8(
+                                                                 (0x70ULL 
+                                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 7U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffffffeffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xe00ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 8U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffffffdffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xd00ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 9U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffffffbffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xb00ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0xaU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffffff7ffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0x700ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0xbU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffffffefffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xe000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0xcU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffffffdfffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xd000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0xdU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffffffbfffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0xb000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0xeU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffffff7fffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_16(
+                                                                  (0x7000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0xfU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffffeffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xe0000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x10U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffffdffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xd0000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x11U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffffbffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xb0000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x12U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffff7ffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0x70000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x13U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffffefffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xe00000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x14U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffffdfffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xd00000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x15U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffffbfffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xb00000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x16U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffff7fffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0x700000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x17U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffeffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xe000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x18U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffdffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xd000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x19U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffffbffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xb000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x1aU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffff7ffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0x7000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x1bU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffefffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xe0000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x1cU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffdfffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xd0000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x1dU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffffbfffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0xb0000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x1eU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffff7fffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_32(
+                                                                  (0x70000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x1fU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffeffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe00000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x20U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffdffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd00000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x21U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffffbffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb00000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x22U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffff7ffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x700000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x23U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffefffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x24U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffdfffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x25U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffffbfffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x26U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffff7fffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x7000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x27U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffeffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe0000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x28U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffdffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd0000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x29U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffffbffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb0000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x2aU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffff7ffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x70000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x2bU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffefffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe00000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x2cU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffdfffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd00000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x2dU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffffbfffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb00000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x2eU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffff7fffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x700000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x2fU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffeffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x30U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffdffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x31U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfffbffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x32U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfff7ffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x7000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x33U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffefffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe0000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x34U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffdfffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd0000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x35U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xffbfffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb0000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x36U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xff7fffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x70000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x37U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfeffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe00000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x38U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfdffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd00000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x39U));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xfbffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb00000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x3aU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xf7ffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x700000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x3bU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xefffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xe000000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x3cU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xdfffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xd000000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x3dU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0xbfffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0xb000000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x3eU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout 
+                            = ((0x7fffffffffffffffULL 
+                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout) 
+                               | ((QData)((IData)((1U 
+                                                   & VL_REDXOR_64(
+                                                                  (0x7000000000000000ULL 
+                                                                   & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__value))))) 
+                                  << 0x3fU));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__a 
+                            = (0xfU & (IData)(vlSelfRef.tb_media__DOT__wav_count));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__g 
+                            = (0xfU & (VL_SHIFTR_III(4,4,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__a), 1U) 
+                                       ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__a)));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__g 
+                            = ((7U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__g)) 
+                               | (8U & ((0xfffffff8U 
+                                         & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__g)) 
+                                        ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__g) 
+                                           << 3U))));
+                        __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__Vfuncout 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__g;
+                        __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__69__Vfuncout;
+                        __VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 
+                            = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__70__Vfuncout;
+                        __VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 = 1U;
+                    }
                 }
-            } else if ((0x1e0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__dir_pos))) {
+                __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 7U;
+            }
+        } else if ((7U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) {
+            if ((0x1e0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__dir_pos))) {
                 __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__dir_pos 
                     = (0x1ffU & ((IData)(0x20U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__dir_pos)));
                 __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__entry_pos = 0U;
-                __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 5U;
+                __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 0xbU;
             } else if (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__fixed_root) {
                 __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__root_index 
                     = ((IData)(1U) + vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__root_index);
@@ -2520,13 +5031,13 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                     = (0xffU & ((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster_sector)));
                 __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 4U;
             } else {
-                __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__42__lba 
+                __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__71__lba 
                     = (vlSelfRef.tb_media__DOT__dut__DOT__fat_base 
                        + ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__fat16)
                            ? VL_SHIFTR_III(32,32,32, vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster, 8U)
                            : VL_SHIFTR_III(32,32,32, vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster, 7U)));
-                __Vdly__tb_media__DOT__dut__DOT__cat_lba 
-                    = __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__42__lba;
+                vlSelfRef.tb_media__DOT__dut__DOT__cat_lba 
+                    = __Vtask_tb_media__DOT__dut__DOT__catalog__DOT__sector__71__lba;
                 vlSelfRef.tb_media__DOT__dut__DOT__cat_start = 1U;
                 __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__after_read = 8U;
                 __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 1U;
@@ -2549,13 +5060,37 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                 __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 4U;
             }
         } else if ((9U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state))) {
-            __Vdly__tb_media__DOT__catalog_ready = 1U;
+            __Vdly__tb_media__DOT__dut__DOT__raw_catalog_ready = 1U;
             __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 0xaU;
         } else if ((1U & (~ ((0xaU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state)) 
                              || (0x3fU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__state)))))) {
             vlSelfRef.tb_media__DOT__dut__DOT__cat_error = 0xffU;
             __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__state = 0x3fU;
         }
+    }
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__position;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__expected_crc 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__expected_crc;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__crc;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__payload_bytes 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__payload_bytes;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_done 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_done;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_prefix;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_reserved 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__bad_reserved;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__file_error 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__file_error;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__launch 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__launch;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining;
+    if (__VdlySet__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0) {
+        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header[__VdlyDim0__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0] 
+            = __VdlyVal__tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header__v0;
     }
     vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__signature 
         = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__signature;
@@ -2579,132 +5114,63 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__cluster_sector;
     vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__directory_sectors 
         = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__directory_sectors;
-    vlSelfRef.tb_media__DOT__dut__DOT__data_base = __Vdly__tb_media__DOT__dut__DOT__data_base;
-    vlSelfRef.tb_media__DOT__dut__DOT__spc = __Vdly__tb_media__DOT__dut__DOT__spc;
-    vlSelfRef.tb_media__DOT__dut__DOT__fat_base = __Vdly__tb_media__DOT__dut__DOT__fat_base;
-    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0) {
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cache[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0] 
-            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0;
-    }
     if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__header__v0) {
         vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__header[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__header__v0] 
             = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__header__v0;
     }
-    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0) {
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__clusters[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0] 
-            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0;
-    }
-    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0) {
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0] 
-            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0;
-    }
+    vlSelfRef.tb_media__DOT__dut__DOT__data_base = __Vdly__tb_media__DOT__dut__DOT__data_base;
+    vlSelfRef.tb_media__DOT__dut__DOT__spc = __Vdly__tb_media__DOT__dut__DOT__spc;
+    vlSelfRef.tb_media__DOT__dut__DOT__fat_base = __Vdly__tb_media__DOT__dut__DOT__fat_base;
     vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster 
         = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__cluster;
-    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__dir_pos 
-        = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__dir_pos;
-    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_pos 
-        = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__entry_pos;
     if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__entry__v0) {
         vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__entry__v0] 
             = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__entry__v0;
     }
-    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0) {
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__sizes[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0] 
-            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0;
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v0] 
-            = ((0xffffffffffffff00ULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v0]) 
-               | (IData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v0)));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v1] 
-            = ((0xffffffffffff00ffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v1]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v1)) 
-                  << 8U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v2] 
-            = ((0xffffffffff00ffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v2]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v2)) 
-                  << 0x10U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v3] 
-            = ((0xffffffff00ffffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v3]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v3)) 
-                  << 0x18U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v4] 
-            = ((0xffffff00ffffffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v4]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v4)) 
-                  << 0x20U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v5] 
-            = ((0xffff00ffffffffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v5]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v5)) 
-                  << 0x28U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v6] 
-            = ((0xff00ffffffffffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v6]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v6)) 
-                  << 0x30U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v7] 
-            = ((0xffffffffffffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v7]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v7)) 
-                  << 0x38U));
-    }
-    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0) {
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0] 
-            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0;
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0] 
-            = ((0xffffffffffffff00ULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0]) 
-               | (IData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0)));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v1] 
-            = ((0xffffffffffff00ffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v1]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v1)) 
-                  << 8U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v2] 
-            = ((0xffffffffff00ffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v2]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v2)) 
-                  << 0x10U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v3] 
-            = ((0xffffffff00ffffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v3]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v3)) 
-                  << 0x18U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v4] 
-            = ((0xffffff00ffffffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v4]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v4)) 
-                  << 0x20U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v5] 
-            = ((0xffff00ffffffffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v5]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v5)) 
-                  << 0x28U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v6] 
-            = ((0xff00ffffffffffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v6]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v6)) 
-                  << 0x30U));
-        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v7] 
-            = ((0xffffffffffffffULL & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names
-                [__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v7]) 
-               | ((QData)((IData)(__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v7)) 
-                  << 0x38U));
-    }
     vlSelfRef.tb_media__DOT__dut__DOT__fat16 = __Vdly__tb_media__DOT__dut__DOT__fat16;
     vlSelfRef.tb_media__DOT__wav_count = __Vdly__tb_media__DOT__wav_count;
-    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cache_addr 
-        = (0x1ffU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__dir_pos) 
-                     + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_pos)));
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_length 
+        = (((vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+             [0xbU] << 0x18U) | (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                 [0xaU] << 0x10U)) 
+           | ((vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+               [9U] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+              [8U]));
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__count_sum 
+        = (0x3ffU & (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                     [0x10U] + (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                [0x11U] + vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                [0x12U])));
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header_crc 
+        = (((vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+             [0xfU] << 0x18U) | (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+                                 [0xeU] << 0x10U)) 
+           | ((vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+               [0xdU] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser__DOT__header
+              [0xcU]));
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache_q 
+        = vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache
+        [((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))
+           ? 0U : (0x1ffU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos) 
+                             + ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__byte_valid) 
+                                & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy)))))];
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__browse_query_q 
+        = vlSelfRef.tb_media__DOT__browse_query;
     vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__regular_file 
         = ((0xe5U != vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
             [0U]) & ((0U == (0x18U & vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
                              [0xbU])) & (0xfU != vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
                                          [0xbU])));
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cache_q 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cache
+        [(0x1ffU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__dir_pos) 
+                    + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_pos)))];
     if (vlSelfRef.tb_media__DOT__dut__DOT__fat16) {
+        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_offset 
+            = (0x1feU & (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster 
+                         << 1U));
+        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__next_cluster 
+            = (0xffffU & vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_cached);
         vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__fat_offset 
             = (0x1feU & (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster 
                          << 1U));
@@ -2721,6 +5187,11 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__next_cluster 
             = (0xffffU & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__fat_cached);
     } else {
+        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_offset 
+            = (0x1fcU & (vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cluster 
+                         << 2U));
+        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__next_cluster 
+            = (0xfffffffU & vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__fat_cached);
         vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__fat_offset 
             = (0x1fcU & (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cluster 
                          << 2U));
@@ -2740,23 +5211,23 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_cluster 
         = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__fat16)
             ? VL_EXTEND_II(32,16, ([&]() {
-                    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__9__Vfuncout 
+                    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__21__Vfuncout 
                         = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
                             [0x1bU] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
                            [0x1aU]);
-                }(), (IData)(vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__9__Vfuncout)))
+                }(), (IData)(vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__21__Vfuncout)))
             : ((([&]() {
-                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__10__Vfuncout 
+                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__22__Vfuncout 
                             = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
                                 [0x15U] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
                                [0x14U]);
-                    }(), (IData)(vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__10__Vfuncout)) 
+                    }(), (IData)(vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__22__Vfuncout)) 
                 << 0x10U) | ([&]() {
-                    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__11__Vfuncout 
+                    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__23__Vfuncout 
                         = ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
                             [0x1bU] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry
                            [0x1aU]);
-                }(), (IData)(vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__11__Vfuncout))));
+                }(), (IData)(vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__23__Vfuncout))));
     __Vdly__tb_media__DOT__cycle = ((IData)(1U) + vlSelfRef.tb_media__DOT__cycle);
     vlSelfRef.tb_media__DOT__bv = 0U;
     __Vdly__tb_media__DOT__sd_done = 0U;
@@ -2764,10 +5235,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     if (vlSelfRef.tb_media__DOT__read_start) {
         if (VL_UNLIKELY(((1U & ((~ (IData)(vlSelfRef.tb_media__DOT__sd_ready)) 
                                 | (IData)(vlSelfRef.tb_media__DOT__reading)))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:36: Assertion failed in %Ntb_media: SD transaction overlap\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:41: Assertion failed in %Ntb_media: SD transaction overlap\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
-            VL_STOP_MT("sim/media\\tb_media.sv", 36, "", false);
+            VL_STOP_MT("sim/media\\tb_media.sv", 41, "", false);
         }
         __Vdly__tb_media__DOT__active_lba = vlSelfRef.tb_media__DOT__lba;
         __Vdly__tb_media__DOT__sd_pos = 0U;
@@ -2897,10 +5368,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                      && (0xdU == __Vfunc_tb_media__DOT__basic_disk__1__i))) {
                     __Vfunc_tb_media__DOT__basic_disk__1__Vfuncout = 3U;
                 }
-                __Vtemp_2[0U] = 0x74757265U;
-                __Vtemp_2[1U] = 0x69676e61U;
-                __Vtemp_2[2U] = 0x73U;
-                if ((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_2)) 
+                __Vtemp_28[0U] = 0x74757265U;
+                __Vtemp_28[1U] = 0x69676e61U;
+                __Vtemp_28[2U] = 0x73U;
+                if ((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_28)) 
                      && (0x1ffU == __Vfunc_tb_media__DOT__basic_disk__1__i))) {
                     __Vfunc_tb_media__DOT__basic_disk__1__Vfuncout = 0U;
                 }
@@ -2974,10 +5445,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                      && (0x28U == __Vfunc_tb_media__DOT__basic_disk__1__i))) {
                     __Vfunc_tb_media__DOT__basic_disk__1__Vfuncout = 0x4aU;
                 }
-                __Vtemp_3[0U] = 0x66696c65U;
-                __Vtemp_3[1U] = 0x686f7274U;
-                __Vtemp_3[2U] = 0x73U;
-                if (((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_3)) 
+                __Vtemp_29[0U] = 0x66696c65U;
+                __Vtemp_29[1U] = 0x686f7274U;
+                __Vtemp_29[2U] = 0x73U;
+                if (((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_29)) 
                       && VL_LTES_III(32, 0x3cU, __Vfunc_tb_media__DOT__basic_disk__1__i)) 
                      & VL_GTES_III(32, 0x3fU, __Vfunc_tb_media__DOT__basic_disk__1__i))) {
                     __Vfunc_tb_media__DOT__basic_disk__1__Vfuncout 
@@ -3070,10 +5541,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                              && (0x1eU == __Vfunc_tb_media__DOT__basic_disk__1__ofs))) {
                             __Vfunc_tb_media__DOT__basic_disk__1__Vfuncout = 1U;
                         }
-                        __Vtemp_4[0U] = 0x696f6e73U;
-                        __Vtemp_4[1U] = 0x6d656e73U;
-                        __Vtemp_4[2U] = 0x6469U;
-                        if ((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_4)) 
+                        __Vtemp_30[0U] = 0x696f6e73U;
+                        __Vtemp_30[1U] = 0x6d656e73U;
+                        __Vtemp_30[2U] = 0x6469U;
+                        if ((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_30)) 
                              && (0x12U == __Vfunc_tb_media__DOT__basic_disk__1__ofs))) {
                             __Vfunc_tb_media__DOT__basic_disk__1__Vfuncout = 0U;
                         }
@@ -3199,11 +5670,11 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                 }
                 if ((__Vfunc_tb_media__DOT__disk__0__e 
                      == __Vfunc_tb_media__DOT__disk__0__wav_start)) {
-                    __Vtemp_6[0U] = 0x6861696eU;
-                    __Vtemp_6[1U] = 0x6f727463U;
-                    __Vtemp_6[2U] = 0x7368U;
+                    __Vtemp_32[0U] = 0x6861696eU;
+                    __Vtemp_32[1U] = 0x6f727463U;
+                    __Vtemp_32[2U] = 0x7368U;
                     __Vfunc_tb_media__DOT__disk__0__value 
-                        = (VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_6))
+                        = (VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_32))
                             ? 0xfffffffU : ((IData)(4U) 
                                             + __Vfunc_tb_media__DOT__disk__0__wav_start));
                 }
@@ -3278,6 +5749,13 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                                 : 0x2020202020424349ULL)), 
                                                              VL_MULS_III(32, (IData)(8U), __Vfunc_tb_media__DOT__disk__0__j))));
                     }
+                    if (((VL_TESTPLUSARGS_I(std::string{"paired"}) 
+                          && (1U == __Vfunc_tb_media__DOT__disk__0__slot)) 
+                         & VL_GTS_III(32, 8U, __Vfunc_tb_media__DOT__disk__0__j))) {
+                        __Vfunc_tb_media__DOT__disk__0__Vfuncout 
+                            = (0xffU & (IData)(VL_SHIFTR_QQI(64,64,32, 0x2020202020414349ULL, 
+                                                             VL_MULS_III(32, (IData)(8U), __Vfunc_tb_media__DOT__disk__0__j))));
+                    }
                     if ((8U == __Vfunc_tb_media__DOT__disk__0__j)) {
                         __Vfunc_tb_media__DOT__disk__0__Vfuncout 
                             = ((1U == __Vfunc_tb_media__DOT__disk__0__slot)
@@ -3334,7 +5812,11 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                      && VL_TESTPLUSARGS_I(std::string{"multiwav"}))) {
                     if (VL_GTS_III(32, 8U, __Vfunc_tb_media__DOT__disk__0__j)) {
                         __Vfunc_tb_media__DOT__disk__0__Vfuncout 
-                            = (0xffU & (IData)(VL_SHIFTR_QQI(64,64,32, 0x202020324f4d4544ULL, 
+                            = (0xffU & (IData)(VL_SHIFTR_QQI(64,64,32, 
+                                                             (VL_TESTPLUSARGS_I(
+                                                                                std::string{"paired"})
+                                                               ? 0x2020202020424349ULL
+                                                               : 0x202020324f4d4544ULL), 
                                                              VL_MULS_III(32, (IData)(8U), __Vfunc_tb_media__DOT__disk__0__j))));
                     }
                     if ((8U == __Vfunc_tb_media__DOT__disk__0__j)) {
@@ -3367,6 +5849,39 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                                  (__Vfunc_tb_media__DOT__disk__0__j 
                                                                   - (IData)(0x1cU)))));
                     }
+                }
+            }
+            if (((VL_TESTPLUSARGS_I(std::string{"platform"}) 
+                  && (__Vfunc_tb_media__DOT__disk__0__l 
+                      == __Vfunc_tb_media__DOT__disk__0__root_lba)) 
+                 & (3U == VL_DIVS_III(32, __Vfunc_tb_media__DOT__disk__0__i, (IData)(0x20U))))) {
+                __Vfunc_tb_media__DOT__disk__0__j = 
+                    VL_MODDIVS_III(32, __Vfunc_tb_media__DOT__disk__0__i, (IData)(0x20U));
+                __Vfunc_tb_media__DOT__disk__0__Vfuncout = 0U;
+                if (VL_GTS_III(32, 0xbU, __Vfunc_tb_media__DOT__disk__0__j)) {
+                    __Vtemp_34[0U] = 0x4e454353U;
+                    __Vtemp_34[1U] = 0x20202045U;
+                    __Vtemp_34[2U] = 0x4e4942U;
+                    VL_SHIFTR_WWI(88,88,32, __Vtemp_35, __Vtemp_34, 
+                                  VL_MULS_III(32, (IData)(8U), __Vfunc_tb_media__DOT__disk__0__j));
+                    __Vfunc_tb_media__DOT__disk__0__Vfuncout 
+                        = (0xffU & __Vtemp_35[0U]);
+                }
+                if ((0xbU == __Vfunc_tb_media__DOT__disk__0__j)) {
+                    __Vfunc_tb_media__DOT__disk__0__Vfuncout = 0x20U;
+                }
+                if ((0x1aU == __Vfunc_tb_media__DOT__disk__0__j)) {
+                    __Vfunc_tb_media__DOT__disk__0__Vfuncout = 0xd3U;
+                }
+                if ((0x1bU == __Vfunc_tb_media__DOT__disk__0__j)) {
+                    __Vfunc_tb_media__DOT__disk__0__Vfuncout = 7U;
+                }
+                if (VL_LTES_III(32, 0x1cU, __Vfunc_tb_media__DOT__disk__0__j)) {
+                    __Vfunc_tb_media__DOT__disk__0__Vfuncout 
+                        = (0xffU & VL_SHIFTR_III(8,32,32, 0xd60U, 
+                                                 VL_MULS_III(32, (IData)(8U), 
+                                                             (__Vfunc_tb_media__DOT__disk__0__j 
+                                                              - (IData)(0x1cU)))));
                 }
             }
             if ((VL_GTES_III(32, __Vfunc_tb_media__DOT__disk__0__l, 
@@ -3484,10 +5999,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                              && (0xdU == __Vfunc_tb_media__DOT__basic_disk__2__i))) {
                             __Vfunc_tb_media__DOT__basic_disk__2__Vfuncout = 3U;
                         }
-                        __Vtemp_8[0U] = 0x74757265U;
-                        __Vtemp_8[1U] = 0x69676e61U;
-                        __Vtemp_8[2U] = 0x73U;
-                        if ((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_8)) 
+                        __Vtemp_38[0U] = 0x74757265U;
+                        __Vtemp_38[1U] = 0x69676e61U;
+                        __Vtemp_38[2U] = 0x73U;
+                        if ((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_38)) 
                              && (0x1ffU == __Vfunc_tb_media__DOT__basic_disk__2__i))) {
                             __Vfunc_tb_media__DOT__basic_disk__2__Vfuncout = 0U;
                         }
@@ -3568,10 +6083,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                              && (0x28U == __Vfunc_tb_media__DOT__basic_disk__2__i))) {
                             __Vfunc_tb_media__DOT__basic_disk__2__Vfuncout = 0x4aU;
                         }
-                        __Vtemp_9[0U] = 0x66696c65U;
-                        __Vtemp_9[1U] = 0x686f7274U;
-                        __Vtemp_9[2U] = 0x73U;
-                        if (((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_9)) 
+                        __Vtemp_39[0U] = 0x66696c65U;
+                        __Vtemp_39[1U] = 0x686f7274U;
+                        __Vtemp_39[2U] = 0x73U;
+                        if (((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_39)) 
                               && VL_LTES_III(32, 0x3cU, __Vfunc_tb_media__DOT__basic_disk__2__i)) 
                              & VL_GTES_III(32, 0x3fU, __Vfunc_tb_media__DOT__basic_disk__2__i))) {
                             __Vfunc_tb_media__DOT__basic_disk__2__Vfuncout 
@@ -3668,11 +6183,11 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                      && (0x1eU == __Vfunc_tb_media__DOT__basic_disk__2__ofs))) {
                                     __Vfunc_tb_media__DOT__basic_disk__2__Vfuncout = 1U;
                                 }
-                                __Vtemp_10[0U] = 0x696f6e73U;
-                                __Vtemp_10[1U] = 0x6d656e73U;
-                                __Vtemp_10[2U] = 0x6469U;
+                                __Vtemp_40[0U] = 0x696f6e73U;
+                                __Vtemp_40[1U] = 0x6d656e73U;
+                                __Vtemp_40[2U] = 0x6469U;
                                 if ((VL_TESTPLUSARGS_I(
-                                                       VL_CVT_PACK_STR_NW(3, __Vtemp_10)) 
+                                                       VL_CVT_PACK_STR_NW(3, __Vtemp_40)) 
                                      && (0x12U == __Vfunc_tb_media__DOT__basic_disk__2__ofs))) {
                                     __Vfunc_tb_media__DOT__basic_disk__2__Vfuncout = 0U;
                                 }
@@ -3926,11 +6441,11 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                                  (__Vfunc_tb_media__DOT__disk__0__ofs 
                                                                   - (IData)(0x28U)))));
                     }
-                    __Vtemp_12[0U] = 0x616c6964U;
-                    __Vtemp_12[1U] = 0x76696e76U;
-                    __Vtemp_12[2U] = 0x7761U;
+                    __Vtemp_42[0U] = 0x616c6964U;
+                    __Vtemp_42[1U] = 0x76696e76U;
+                    __Vtemp_42[2U] = 0x7761U;
                     if (((0x16U == __Vfunc_tb_media__DOT__disk__0__ofs) 
-                         && VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_12)))) {
+                         && VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(3, __Vtemp_42)))) {
                         __Vfunc_tb_media__DOT__disk__0__Vfuncout = 1U;
                     }
                     if (VL_LTES_III(32, 0x2cU, __Vfunc_tb_media__DOT__disk__0__ofs)) {
@@ -3963,6 +6478,33 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                 }
             }
         }
+        if (((VL_TESTPLUSARGS_I(std::string{"platform"}) 
+              && VL_GTES_III(32, __Vfunc_tb_media__DOT__disk__0__l, 
+                             ((IData)(0x3e80U) + __Vfunc_tb_media__DOT__disk__0__base_lba))) 
+             & VL_LTS_III(32, __Vfunc_tb_media__DOT__disk__0__l, 
+                          ((IData)(0x3e87U) + __Vfunc_tb_media__DOT__disk__0__base_lba)))) {
+            __Vfunc_tb_media__DOT__disk__0__ofs = (
+                                                   VL_MULS_III(32, (IData)(0x200U), 
+                                                               ((__Vfunc_tb_media__DOT__disk__0__l 
+                                                                 - __Vfunc_tb_media__DOT__disk__0__base_lba) 
+                                                                - (IData)(0x3e80U))) 
+                                                   + __Vfunc_tb_media__DOT__disk__0__i);
+            __Vfunc_tb_media__DOT__disk__0__Vfuncout 
+                = (VL_GTS_III(32, 0xd60U, __Vfunc_tb_media__DOT__disk__0__ofs)
+                    ? ((0xd5fU >= (0xfffU & __Vfunc_tb_media__DOT__disk__0__ofs))
+                        ? (0xffU & vlSelfRef.tb_media__DOT__config_image
+                           [(0xfffU & __Vfunc_tb_media__DOT__disk__0__ofs)])
+                        : 0U) : 0U);
+            __Vtemp_44[0U] = 0x72726f72U;
+            __Vtemp_44[1U] = 0x63726365U;
+            __Vtemp_44[2U] = 0x6e666967U;
+            __Vtemp_44[3U] = 0x636fU;
+            if ((VL_TESTPLUSARGS_I(VL_CVT_PACK_STR_NW(4, __Vtemp_44)) 
+                 && (0x64U == __Vfunc_tb_media__DOT__disk__0__ofs))) {
+                __Vfunc_tb_media__DOT__disk__0__Vfuncout 
+                    = (1U ^ (IData)(__Vfunc_tb_media__DOT__disk__0__Vfuncout));
+            }
+        }
         vlSelfRef.tb_media__DOT__bd = __Vfunc_tb_media__DOT__disk__0__Vfuncout;
         if ((0x1ffU == vlSelfRef.tb_media__DOT__sd_pos)) {
             __Vdly__tb_media__DOT__reading = 0U;
@@ -3977,10 +6519,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     }
     if (((0xfU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state)) 
          & (IData)(vlSelfRef.tb_media__DOT__load_ready))) {
-        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__data[0U] 
+        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[0U] 
                           != ((([&]() {
                                         __Vfunc_tb_media__DOT__image_expected__4__a 
-                                            = vlSelfRef.tb_media__DOT__addr;
+                                            = vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr;
                                         __Vfunc_tb_media__DOT__image_expected__4__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
@@ -4021,7 +6563,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                     }(), (IData)(__Vfunc_tb_media__DOT__image_expected__4__Vfuncout)) 
                                << 0x10U) | ([&]() {
                                     __Vfunc_tb_media__DOT__image_expected__5__a 
-                                        = vlSelfRef.tb_media__DOT__addr;
+                                        = vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr;
                                     __Vfunc_tb_media__DOT__image_expected__5__x 
                                         = VL_MULS_III(32, (IData)(2U), 
                                                       VL_MODDIVS_III(32, __Vfunc_tb_media__DOT__image_expected__5__a, (IData)(0x140U)));
@@ -4057,20 +6599,20 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                  & ((IData)(__Vfunc_tb_media__DOT__image_expected__5__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_media__DOT__image_expected__5__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:43: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:48: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
                          64,VL_TIME_UNITED_Q(1000),
-                         -9,vlSymsp->name(),32,vlSelfRef.tb_media__DOT__addr);
-            VL_STOP_MT("sim/media\\tb_media.sv", 43, "", false);
+                         -9,vlSymsp->name(),32,vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
+            VL_STOP_MT("sim/media\\tb_media.sv", 48, "", false);
         }
         vlSelfRef.tb_media__DOT__bursts = ((IData)(1U) 
                                            + vlSelfRef.tb_media__DOT__bursts);
         __Vdly__tb_media__DOT__ack_delay = 5U;
         __Vdly__tb_media__DOT__load_ready = 0U;
-        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__data[1U] 
+        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[1U] 
                           != ((([&]() {
                                         __Vfunc_tb_media__DOT__image_expected__4__a 
                                             = ((IData)(1U) 
-                                               + vlSelfRef.tb_media__DOT__addr);
+                                               + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                         __Vfunc_tb_media__DOT__image_expected__4__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
@@ -4112,7 +6654,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                << 0x10U) | ([&]() {
                                     __Vfunc_tb_media__DOT__image_expected__5__a 
                                         = ((IData)(1U) 
-                                           + vlSelfRef.tb_media__DOT__addr);
+                                           + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                     __Vfunc_tb_media__DOT__image_expected__5__x 
                                         = VL_MULS_III(32, (IData)(2U), 
                                                       VL_MODDIVS_III(32, __Vfunc_tb_media__DOT__image_expected__5__a, (IData)(0x140U)));
@@ -4148,17 +6690,17 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                  & ((IData)(__Vfunc_tb_media__DOT__image_expected__5__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_media__DOT__image_expected__5__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:43: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:48: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),32,((IData)(1U) 
-                                                + vlSelfRef.tb_media__DOT__addr));
-            VL_STOP_MT("sim/media\\tb_media.sv", 43, "", false);
+                                                + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr));
+            VL_STOP_MT("sim/media\\tb_media.sv", 48, "", false);
         }
-        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__data[2U] 
+        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[2U] 
                           != ((([&]() {
                                         __Vfunc_tb_media__DOT__image_expected__4__a 
                                             = ((IData)(2U) 
-                                               + vlSelfRef.tb_media__DOT__addr);
+                                               + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                         __Vfunc_tb_media__DOT__image_expected__4__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
@@ -4200,7 +6742,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                << 0x10U) | ([&]() {
                                     __Vfunc_tb_media__DOT__image_expected__5__a 
                                         = ((IData)(2U) 
-                                           + vlSelfRef.tb_media__DOT__addr);
+                                           + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                     __Vfunc_tb_media__DOT__image_expected__5__x 
                                         = VL_MULS_III(32, (IData)(2U), 
                                                       VL_MODDIVS_III(32, __Vfunc_tb_media__DOT__image_expected__5__a, (IData)(0x140U)));
@@ -4236,17 +6778,17 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                  & ((IData)(__Vfunc_tb_media__DOT__image_expected__5__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_media__DOT__image_expected__5__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:43: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:48: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),32,((IData)(2U) 
-                                                + vlSelfRef.tb_media__DOT__addr));
-            VL_STOP_MT("sim/media\\tb_media.sv", 43, "", false);
+                                                + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr));
+            VL_STOP_MT("sim/media\\tb_media.sv", 48, "", false);
         }
-        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__data[3U] 
+        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[3U] 
                           != ((([&]() {
                                         __Vfunc_tb_media__DOT__image_expected__4__a 
                                             = ((IData)(3U) 
-                                               + vlSelfRef.tb_media__DOT__addr);
+                                               + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                         __Vfunc_tb_media__DOT__image_expected__4__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
@@ -4288,7 +6830,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                << 0x10U) | ([&]() {
                                     __Vfunc_tb_media__DOT__image_expected__5__a 
                                         = ((IData)(3U) 
-                                           + vlSelfRef.tb_media__DOT__addr);
+                                           + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                     __Vfunc_tb_media__DOT__image_expected__5__x 
                                         = VL_MULS_III(32, (IData)(2U), 
                                                       VL_MODDIVS_III(32, __Vfunc_tb_media__DOT__image_expected__5__a, (IData)(0x140U)));
@@ -4324,17 +6866,17 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                  & ((IData)(__Vfunc_tb_media__DOT__image_expected__5__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_media__DOT__image_expected__5__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:43: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:48: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),32,((IData)(3U) 
-                                                + vlSelfRef.tb_media__DOT__addr));
-            VL_STOP_MT("sim/media\\tb_media.sv", 43, "", false);
+                                                + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr));
+            VL_STOP_MT("sim/media\\tb_media.sv", 48, "", false);
         }
-        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__data[4U] 
+        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[4U] 
                           != ((([&]() {
                                         __Vfunc_tb_media__DOT__image_expected__4__a 
                                             = ((IData)(4U) 
-                                               + vlSelfRef.tb_media__DOT__addr);
+                                               + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                         __Vfunc_tb_media__DOT__image_expected__4__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
@@ -4376,7 +6918,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                << 0x10U) | ([&]() {
                                     __Vfunc_tb_media__DOT__image_expected__5__a 
                                         = ((IData)(4U) 
-                                           + vlSelfRef.tb_media__DOT__addr);
+                                           + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                     __Vfunc_tb_media__DOT__image_expected__5__x 
                                         = VL_MULS_III(32, (IData)(2U), 
                                                       VL_MODDIVS_III(32, __Vfunc_tb_media__DOT__image_expected__5__a, (IData)(0x140U)));
@@ -4412,17 +6954,17 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                  & ((IData)(__Vfunc_tb_media__DOT__image_expected__5__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_media__DOT__image_expected__5__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:43: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:48: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),32,((IData)(4U) 
-                                                + vlSelfRef.tb_media__DOT__addr));
-            VL_STOP_MT("sim/media\\tb_media.sv", 43, "", false);
+                                                + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr));
+            VL_STOP_MT("sim/media\\tb_media.sv", 48, "", false);
         }
-        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__data[5U] 
+        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[5U] 
                           != ((([&]() {
                                         __Vfunc_tb_media__DOT__image_expected__4__a 
                                             = ((IData)(5U) 
-                                               + vlSelfRef.tb_media__DOT__addr);
+                                               + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                         __Vfunc_tb_media__DOT__image_expected__4__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
@@ -4464,7 +7006,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                << 0x10U) | ([&]() {
                                     __Vfunc_tb_media__DOT__image_expected__5__a 
                                         = ((IData)(5U) 
-                                           + vlSelfRef.tb_media__DOT__addr);
+                                           + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                     __Vfunc_tb_media__DOT__image_expected__5__x 
                                         = VL_MULS_III(32, (IData)(2U), 
                                                       VL_MODDIVS_III(32, __Vfunc_tb_media__DOT__image_expected__5__a, (IData)(0x140U)));
@@ -4500,17 +7042,17 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                  & ((IData)(__Vfunc_tb_media__DOT__image_expected__5__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_media__DOT__image_expected__5__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:43: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:48: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),32,((IData)(5U) 
-                                                + vlSelfRef.tb_media__DOT__addr));
-            VL_STOP_MT("sim/media\\tb_media.sv", 43, "", false);
+                                                + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr));
+            VL_STOP_MT("sim/media\\tb_media.sv", 48, "", false);
         }
-        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__data[6U] 
+        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[6U] 
                           != ((([&]() {
                                         __Vfunc_tb_media__DOT__image_expected__4__a 
                                             = ((IData)(6U) 
-                                               + vlSelfRef.tb_media__DOT__addr);
+                                               + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                         __Vfunc_tb_media__DOT__image_expected__4__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
@@ -4552,7 +7094,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                << 0x10U) | ([&]() {
                                     __Vfunc_tb_media__DOT__image_expected__5__a 
                                         = ((IData)(6U) 
-                                           + vlSelfRef.tb_media__DOT__addr);
+                                           + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                     __Vfunc_tb_media__DOT__image_expected__5__x 
                                         = VL_MULS_III(32, (IData)(2U), 
                                                       VL_MODDIVS_III(32, __Vfunc_tb_media__DOT__image_expected__5__a, (IData)(0x140U)));
@@ -4588,17 +7130,17 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                  & ((IData)(__Vfunc_tb_media__DOT__image_expected__5__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_media__DOT__image_expected__5__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:43: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:48: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),32,((IData)(6U) 
-                                                + vlSelfRef.tb_media__DOT__addr));
-            VL_STOP_MT("sim/media\\tb_media.sv", 43, "", false);
+                                                + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr));
+            VL_STOP_MT("sim/media\\tb_media.sv", 48, "", false);
         }
-        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__data[7U] 
+        if (VL_UNLIKELY(((vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[7U] 
                           != ((([&]() {
                                         __Vfunc_tb_media__DOT__image_expected__4__a 
                                             = ((IData)(7U) 
-                                               + vlSelfRef.tb_media__DOT__addr);
+                                               + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                         __Vfunc_tb_media__DOT__image_expected__4__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
@@ -4640,7 +7182,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                << 0x10U) | ([&]() {
                                     __Vfunc_tb_media__DOT__image_expected__5__a 
                                         = ((IData)(7U) 
-                                           + vlSelfRef.tb_media__DOT__addr);
+                                           + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr);
                                     __Vfunc_tb_media__DOT__image_expected__5__x 
                                         = VL_MULS_III(32, (IData)(2U), 
                                                       VL_MODDIVS_III(32, __Vfunc_tb_media__DOT__image_expected__5__a, (IData)(0x140U)));
@@ -4676,11 +7218,11 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                  & ((IData)(__Vfunc_tb_media__DOT__image_expected__5__b) 
                                                     >> 3U))));
                                 }(), (IData)(__Vfunc_tb_media__DOT__image_expected__5__Vfuncout))))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:43: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:48: Assertion failed in %Ntb_media.unnamedblk1: streamed BMP pixel address=%0#\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name(),32,((IData)(7U) 
-                                                + vlSelfRef.tb_media__DOT__addr));
-            VL_STOP_MT("sim/media\\tb_media.sv", 43, "", false);
+                                                + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr));
+            VL_STOP_MT("sim/media\\tb_media.sv", 48, "", false);
         }
     }
     if (VL_LTS_III(32, 0U, vlSelfRef.tb_media__DOT__ack_delay)) {
@@ -4713,12 +7255,12 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                     }(), __Vfunc_tb_media__DOT__audio_expected__6__Vfuncout) 
                                   ^ ((1U == (IData)(vlSelfRef.tb_media__DOT__audio_selected))
                                       ? 0xff00ffU : 0U)))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:49: Assertion failed in %Ntb_media: fragmented WAV/sample/loop mismatch idx=%0d got=%x\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:54: Assertion failed in %Ntb_media: fragmented WAV/sample/loop mismatch idx=%0d got=%x\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name(),32,
                              vlSelfRef.tb_media__DOT__pcm_count,
                              32,vlSelfRef.tb_media__DOT__pcm_pair);
-                VL_STOP_MT("sim/media\\tb_media.sv", 49, "", false);
+                VL_STOP_MT("sim/media\\tb_media.sv", 54, "", false);
             }
             __Vdly__tb_media__DOT__pcm_count = ((IData)(1U) 
                                                 + vlSelfRef.tb_media__DOT__pcm_count);
@@ -4729,33 +7271,59 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                           & ((~ (IData)(vlSelfRef.tb_media__DOT__pcm_valid)) 
                              | (vlSelfRef.tb_media__DOT__pcm_pair 
                                 != vlSelfRef.tb_media__DOT__held_pcm)))))) {
-            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:52: Assertion failed in %Ntb_media: PCM did not hold under backpressure\n",0,
+            VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:57: Assertion failed in %Ntb_media: PCM did not hold under backpressure\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
-            VL_STOP_MT("sim/media\\tb_media.sv", 52, "", false);
+            VL_STOP_MT("sim/media\\tb_media.sv", 57, "", false);
         }
         __Vdly__tb_media__DOT__held = ((IData)(vlSelfRef.tb_media__DOT__pcm_valid) 
                                        & (~ (IData)(vlSelfRef.tb_media__DOT__pcm_ready)));
         vlSelfRef.tb_media__DOT__held_pcm = vlSelfRef.tb_media__DOT__pcm_pair;
     }
-    __Vtemp_63[0U] = 0x616c6964U;
-    __Vtemp_63[1U] = 0x76696e76U;
-    __Vtemp_63[2U] = 0x7761U;
-    __Vtemp_64[0U] = 0x6861696eU;
-    __Vtemp_64[1U] = 0x6f727463U;
-    __Vtemp_64[2U] = 0x7368U;
+    __Vtemp_95[0U] = 0x616c6964U;
+    __Vtemp_95[1U] = 0x76696e76U;
+    __Vtemp_95[2U] = 0x7761U;
+    __Vtemp_96[0U] = 0x6861696eU;
+    __Vtemp_96[1U] = 0x6f727463U;
+    __Vtemp_96[2U] = 0x7368U;
     if (VL_UNLIKELY((((~ (IData)(vlSelfRef.tb_media__DOT__reset)) 
                       & ((0U != (IData)(vlSelfRef.tb_media__DOT__image_error)) 
                          | (((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decode_error)) 
                              & (! VL_TESTPLUSARGS_I(
-                                                    VL_CVT_PACK_STR_NW(3, __Vtemp_63)))) 
+                                                    VL_CVT_PACK_STR_NW(3, __Vtemp_95)))) 
                             & (! VL_TESTPLUSARGS_I(
-                                                   VL_CVT_PACK_STR_NW(3, __Vtemp_64))))))))) {
-        VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:55: Assertion failed in %Ntb_media: media error BMP=%0# WAV=%0#\n",0,
+                                                   VL_CVT_PACK_STR_NW(3, __Vtemp_96))))))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_media.sv:60: Assertion failed in %Ntb_media: media error BMP=%0# WAV=%0#\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
                      8,(IData)(vlSelfRef.tb_media__DOT__image_error),
                      8,vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decode_error);
-        VL_STOP_MT("sim/media\\tb_media.sv", 55, "", false);
+        VL_STOP_MT("sim/media\\tb_media.sv", 60, "", false);
+    }
+    if ((1U & (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase_q)))) {
+        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__image_name_q 
+            = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_image_name;
+        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__image_bytes_q 
+            = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_image_bytes;
+        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_bytes_q 
+            = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_wav_bytes;
+    }
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos;
+    if (__VdlySet__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0) {
+        vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache[__VdlyDim0__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0] 
+            = __VdlyVal__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0;
+    }
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state 
+        = __Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state;
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__dir_pos 
+        = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__dir_pos;
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__entry_pos 
+        = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__entry_pos;
+    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0) {
+        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__cache[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0] 
+            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0;
     }
     vlSelfRef.tb_media__DOT__active_lba = __Vdly__tb_media__DOT__active_lba;
     vlSelfRef.tb_media__DOT__sd_pos = __Vdly__tb_media__DOT__sd_pos;
@@ -4763,8 +7331,15 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     vlSelfRef.tb_media__DOT__ack_delay = __Vdly__tb_media__DOT__ack_delay;
     vlSelfRef.tb_media__DOT__pcm_count = __Vdly__tb_media__DOT__pcm_count;
     vlSelfRef.tb_media__DOT__held = __Vdly__tb_media__DOT__held;
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__busy 
+        = ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state)) 
+           & ((9U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state)) 
+              & (0xfU != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state))));
+    vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__byte_valid 
+        = ((~ ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__parse_error)) 
+               | (0U == vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__remaining))) 
+           & (4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state)));
     if (vlSelfRef.tb_media__DOT__reset) {
-        vlSelfRef.tb_media__DOT__audio_selected = 0U;
         __Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__image_pending = 0U;
         __Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__audio_pending = 0U;
         __Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__active = 0U;
@@ -4774,10 +7349,6 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         __Vdly__tb_media__DOT__image_reads = 0U;
         __Vdly__tb_media__DOT__audio_reads = 0U;
     } else {
-        if (vlSelfRef.tb_media__DOT__dut__DOT__audio_change) {
-            vlSelfRef.tb_media__DOT__audio_selected 
-                = vlSelfRef.tb_media__DOT__audio_requested;
-        }
         __Vdly__tb_media__DOT__read_start = 0U;
         if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__arbiter__image_start) {
             __Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__image_pending = 1U;
@@ -4885,7 +7456,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                 if ((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state))) {
                     if (vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__consume) {
                         __VdlyVal__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v0 
-                            = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__byte_data;
+                            = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache_q;
                         __VdlyDim0__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v0 
                             = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__index;
                         __VdlySet__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v0 = 1U;
@@ -4900,7 +7471,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                     }
                 } else if ((2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state))) {
                     if (((0x46464952U != ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__65__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__96__Vfuncout 
                                             = (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                  [3U] 
                                                  << 0x18U) 
@@ -4912,9 +7483,9 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                    << 8U) 
                                                   | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                   [0U]));
-                                    }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__65__Vfuncout)) 
+                                    }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__96__Vfuncout)) 
                          | (0x45564157U != ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__66__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__97__Vfuncout 
                                             = (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                  [0xbU] 
                                                  << 0x18U) 
@@ -4926,7 +7497,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                    << 8U) 
                                                   | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                   [8U]));
-                                    }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__66__Vfuncout)))) {
+                                    }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__97__Vfuncout)))) {
                         vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decode_error = 1U;
                         __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state = 0xfU;
                     } else if (((0xcULL > vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__riff_length) 
@@ -4949,7 +7520,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                         __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state = 0xfU;
                     } else if (vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__consume) {
                         __VdlyVal__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v1 
-                            = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__byte_data;
+                            = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache_q;
                         __VdlyDim0__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v1 
                             = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__index;
                         __VdlySet__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v1 = 1U;
@@ -4963,7 +7534,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                         }
                     }
                 } else if ((4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state))) {
-                    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__67__Vfuncout 
+                    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__98__Vfuncout 
                         = (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                              [7U] << 0x18U) | (vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                [6U] 
@@ -4972,7 +7543,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                [5U] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                               [4U]));
                     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__remaining 
-                        = __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__67__Vfuncout;
+                        = __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__98__Vfuncout;
                     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__index = 0U;
                     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__chunk_odd 
                         = (1U & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
@@ -4982,7 +7553,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                         vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decode_error = 4U;
                         __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state = 0xfU;
                     } else if ((0x20746d66U == ([&]() {
-                                    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__68__Vfuncout 
+                                    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__99__Vfuncout 
                                         = (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                              [3U] << 0x18U) 
                                             | (vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
@@ -4993,9 +7564,9 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                << 8U) 
                                               | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                               [0U]));
-                                }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__68__Vfuncout))) {
+                                }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__99__Vfuncout))) {
                         if (((0x10U > ([&]() {
-                                            __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__69__Vfuncout 
+                                            __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__100__Vfuncout 
                                                 = (
                                                    ((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                      [7U] 
@@ -5008,7 +7579,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                        << 8U) 
                                                       | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                       [4U]));
-                                        }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__69__Vfuncout)) 
+                                        }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__100__Vfuncout)) 
                              | (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__format_seen))) {
                             vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decode_error = 3U;
                             __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state = 0xfU;
@@ -5016,7 +7587,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                             __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state = 5U;
                         }
                     } else if ((0x61746164U == ([&]() {
-                                    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__70__Vfuncout 
+                                    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__101__Vfuncout 
                                         = (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                              [3U] << 0x18U) 
                                             | (vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
@@ -5027,10 +7598,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                << 8U) 
                                               | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                               [0U]));
-                                }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__70__Vfuncout))) {
+                                }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__101__Vfuncout))) {
                         if (vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__format_seen) {
                             if (((0U == ([&]() {
-                                                __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__71__Vfuncout 
+                                                __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__102__Vfuncout 
                                                     = 
                                                     (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                        [7U] 
@@ -5043,7 +7614,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                          << 8U) 
                                                         | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                         [4U]));
-                                            }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__71__Vfuncout)) 
+                                            }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__102__Vfuncout)) 
                                  | (0U != (3U & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                            [4U])))) {
                                 vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decode_error = 7U;
@@ -5052,7 +7623,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                 vlSelfRef.tb_media__DOT__total 
                                     = VL_SHIFTR_III(32,32,32, 
                                                     ([&]() {
-                                            __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__72__Vfuncout 
+                                            __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__103__Vfuncout 
                                                 = (
                                                    ((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                      [7U] 
@@ -5065,7 +7636,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                        << 8U) 
                                                       | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                       [4U]));
-                                        }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__72__Vfuncout), 2U);
+                                        }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__103__Vfuncout), 2U);
                                 __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__channel_byte = 0U;
                                 __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state = 9U;
                             }
@@ -5076,7 +7647,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                     } else {
                         __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state 
                             = ((0U == ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__73__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__104__Vfuncout 
                                             = (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                  [7U] 
                                                  << 0x18U) 
@@ -5088,7 +7659,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                    << 8U) 
                                                   | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                   [4U]));
-                                    }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__73__Vfuncout))
+                                    }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__104__Vfuncout))
                                 ? 3U : 7U);
                     }
                 } else if ((5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state))) {
@@ -5097,7 +7668,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                             = (vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__remaining 
                                - (IData)(1U));
                         __VdlyVal__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v2 
-                            = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__byte_data;
+                            = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache_q;
                         __VdlyDim0__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v2 
                             = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__index;
                         __VdlySet__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v2 = 1U;
@@ -5112,25 +7683,25 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                     }
                 } else if ((6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state))) {
                     if (((((((1U != ([&]() {
-                                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__74__Vfuncout 
+                                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__105__Vfuncout 
                                                             = 
                                                             ((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                               [1U] 
                                                               << 8U) 
                                                              | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                              [0U]);
-                                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__74__Vfuncout))) 
+                                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__105__Vfuncout))) 
                              | (2U != ([&]() {
-                                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__75__Vfuncout 
+                                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__106__Vfuncout 
                                                             = 
                                                             ((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                               [3U] 
                                                               << 8U) 
                                                              | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                              [2U]);
-                                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__75__Vfuncout)))) 
+                                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__106__Vfuncout)))) 
                             | (0xbb80U != ([&]() {
-                                                    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__76__Vfuncout 
+                                                    __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__107__Vfuncout 
                                                         = 
                                                         (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                            [7U] 
@@ -5143,9 +7714,9 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                              << 8U) 
                                                             | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                             [4U]));
-                                                }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__76__Vfuncout))) 
+                                                }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__107__Vfuncout))) 
                            | (0x2ee00U != ([&]() {
-                                                __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__77__Vfuncout 
+                                                __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__108__Vfuncout 
                                                     = 
                                                     (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                        [0xbU] 
@@ -5158,24 +7729,24 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                          << 8U) 
                                                         | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                         [8U]));
-                                            }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__77__Vfuncout))) 
+                                            }(), __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__108__Vfuncout))) 
                           | (4U != ([&]() {
-                                            __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__78__Vfuncout 
+                                            __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__109__Vfuncout 
                                                 = (
                                                    (vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                     [0xdU] 
                                                     << 8U) 
                                                    | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                    [0xcU]);
-                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__78__Vfuncout)))) 
+                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__109__Vfuncout)))) 
                          | (0x10U != ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__79__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__110__Vfuncout 
                                             = ((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                 [0xfU] 
                                                 << 8U) 
                                                | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                [0xeU]);
-                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__79__Vfuncout))))) {
+                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le16__110__Vfuncout))))) {
                         vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decode_error = 3U;
                         __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state = 0xfU;
                     } else {
@@ -5212,22 +7783,22 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                 if ((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__channel_byte))) {
                     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__assembly 
                         = ((0xffff00U & __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__assembly) 
-                           | (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__byte_data));
+                           | (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache_q));
                 } else if ((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__channel_byte))) {
                     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__assembly 
                         = ((0xff00ffU & __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__assembly) 
-                           | ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__byte_data) 
+                           | ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache_q) 
                               << 8U));
                 } else if ((2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__channel_byte))) {
                     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__assembly 
                         = ((0xffffU & __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__assembly) 
-                           | ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__byte_data) 
+                           | ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache_q) 
                               << 0x10U));
                 } else if ((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__channel_byte))) {
                     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__sample_pairs 
                         = ((IData)(1U) + vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__sample_pairs);
                     vlSelfRef.tb_media__DOT__pcm_pair 
-                        = (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__byte_data) 
+                        = (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache_q) 
                             << 0x18U) | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__assembly);
                     __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder_pcm_valid = 1U;
                 }
@@ -5247,6 +7818,117 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
             __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder_pcm_valid = 0U;
         }
     }
+    __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__name_phase 
+        = (1U & ((~ (IData)(vlSelfRef.tb_media__DOT__reset)) 
+                 & (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase))));
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase_q 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase;
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_image_name_raw 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names
+        [([&]() {
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__a 
+                = (0x1fU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase)
+                             ? (IData)(vlSelfRef.tb_media__DOT__browse_query)
+                             : (IData)(vlSelfRef.tb_media__DOT__selected)));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__g 
+                = (0x1fU & (VL_SHIFTR_III(5,5,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__a), 1U) 
+                            ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__a)));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__g 
+                = ((0xfU & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__g)) 
+                   | (0x10U & ((0xfffffff0U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__g)) 
+                               ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__g) 
+                                  << 4U))));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__Vfuncout 
+                = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__g;
+        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__26__Vfuncout))];
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_wav_name_raw 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names
+        [([&]() {
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__a 
+                = (0xfU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase)
+                            ? (IData)(vlSelfRef.tb_media__DOT__browse_query)
+                            : (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_scan)));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__g 
+                = (0xfU & (VL_SHIFTR_III(4,4,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__a), 1U) 
+                           ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__a)));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__g 
+                = ((7U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__g)) 
+                   | (8U & ((0xfffffff8U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__g)) 
+                            ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__g) 
+                               << 3U))));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__Vfuncout 
+                = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__g;
+        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__27__Vfuncout))];
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__image_cluster_q 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__clusters
+        [([&]() {
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__a 
+                = vlSelfRef.tb_media__DOT__selected;
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__g 
+                = (0x1fU & (VL_SHIFTR_III(5,5,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__a), 1U) 
+                            ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__a)));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__g 
+                = ((0xfU & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__g)) 
+                   | (0x10U & ((0xfffffff0U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__g)) 
+                               ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__g) 
+                                  << 4U))));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__Vfuncout 
+                = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__g;
+        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__28__Vfuncout))];
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_cluster_q 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters
+        [([&]() {
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__a 
+                = vlSelfRef.tb_media__DOT__audio_selected;
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__g 
+                = (0xfU & (VL_SHIFTR_III(4,4,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__a), 1U) 
+                           ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__a)));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__g 
+                = ((7U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__g)) 
+                   | (8U & ((0xfffffff8U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__g)) 
+                            ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__g) 
+                               << 3U))));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__Vfuncout 
+                = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__g;
+        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__29__Vfuncout))];
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_image_bytes 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__sizes
+        [([&]() {
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__a 
+                = (0x1fU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase)
+                             ? (IData)(vlSelfRef.tb_media__DOT__browse_query)
+                             : (IData)(vlSelfRef.tb_media__DOT__selected)));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__g 
+                = (0x1fU & (VL_SHIFTR_III(5,5,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__a), 1U) 
+                            ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__a)));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__g 
+                = ((0xfU & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__g)) 
+                   | (0x10U & ((0xfffffff0U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__g)) 
+                               ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__g) 
+                                  << 4U))));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__Vfuncout 
+                = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__g;
+        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr5__30__Vfuncout))];
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_wav_bytes 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes
+        [([&]() {
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__a 
+                = (0xfU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase)
+                            ? (IData)(vlSelfRef.tb_media__DOT__browse_query)
+                            : (IData)(vlSelfRef.tb_media__DOT__audio_selected)));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__g 
+                = (0xfU & (VL_SHIFTR_III(4,4,32, (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__a), 1U) 
+                           ^ (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__a)));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__g 
+                = ((7U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__g)) 
+                   | (8U & ((0xfffffff8U & (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__g)) 
+                            ^ ((IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__g) 
+                               << 3U))));
+            __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__Vfuncout 
+                = __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__g;
+        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__addr4__31__Vfuncout))];
+    vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__held_image 
+        = __Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__held_image;
     vlSelfRef.tb_media__DOT__image_reads = __Vdly__tb_media__DOT__image_reads;
     vlSelfRef.tb_media__DOT__audio_reads = __Vdly__tb_media__DOT__audio_reads;
     vlSelfRef.tb_media__DOT__sd_ready = __Vdly__tb_media__DOT__sd_ready;
@@ -5280,9 +7962,6 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__sample_pairs 
         = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__sample_pairs;
     vlSelfRef.tb_media__DOT__wav_bytes = __Vdly__tb_media__DOT__wav_bytes;
-    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__byte_data 
-        = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache
-        [vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos];
     vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__offset 
         = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__offset;
     vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state 
@@ -5303,46 +7982,32 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     }
     vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__state 
         = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__state;
-    if (vlSelfRef.tb_media__DOT__reset) {
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 0U;
-        vlSelfRef.tb_media__DOT__selected = 0U;
-    } else if ((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
-        if (vlSelfRef.tb_media__DOT__catalog_ready) {
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__state 
-                = ((0U == (IData)(vlSelfRef.tb_media__DOT__count))
-                    ? 6U : 1U);
-        }
-    } else if ((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 2U;
-    } else if ((2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
-        if ((1U & (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_busy)))) {
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 3U;
-        }
-    } else if ((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 4U;
-    } else if ((4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
-        if ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_error))) {
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 6U;
-        } else if (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_done) {
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 5U;
-        }
-    } else if (((5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)) 
-                || (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)))) {
-        if ((((IData)(vlSelfRef.tb_media__DOT__select_request) 
-              & ((IData)(vlSelfRef.tb_media__DOT__requested) 
-                 < (IData)(vlSelfRef.tb_media__DOT__count))) 
-             & (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_busy)))) {
-            vlSelfRef.tb_media__DOT__selected = vlSelfRef.tb_media__DOT__requested;
-            __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 1U;
-        }
-    } else {
-        __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 6U;
+    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__names__v0) {
+        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v0] 
+            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v0;
     }
-    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_busy 
-        = ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)) 
-           & ((9U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)) 
-              & (0xfU != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))));
-    vlSelfRef.tb_media__DOT__count = __Vdly__tb_media__DOT__count;
+    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0) {
+        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_names[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0] 
+            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0;
+    }
+    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0) {
+        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__clusters[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0] 
+            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0;
+    }
+    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0) {
+        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0] 
+            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0;
+    }
+    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0) {
+        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__sizes[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0] 
+            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0;
+    }
+    if (__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0) {
+        vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes[__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0] 
+            = __VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0;
+    }
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase 
+        = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__name_phase;
     vlSelfRef.tb_media__DOT__pcm_ready = (0U == VL_MODDIVS_III(32, vlSelfRef.tb_media__DOT__cycle, (IData)(0x67U)));
     vlSelfRef.tb_media__DOT__dut__DOT__aud_ready = 
         (1U & (~ ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__audio_pending) 
@@ -5358,23 +8023,14 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         = ((IData)(vlSelfRef.tb_media__DOT__bv) & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__active));
     if (vlSelfRef.tb_media__DOT__reset) {
         vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__held_audio = 0U;
-        vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__held_image = 0U;
-    } else {
-        if (vlSelfRef.tb_media__DOT__dut__DOT__aud_start) {
-            vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__held_audio 
-                = vlSelfRef.tb_media__DOT__dut__DOT__aud_lba;
-        }
-        if (vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__arbiter__image_start) {
-            vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__held_image 
-                = ((IData)(vlSelfRef.tb_media__DOT__catalog_ready)
-                    ? vlSelfRef.tb_media__DOT__dut__DOT__img_lba
-                    : vlSelfRef.tb_media__DOT__dut__DOT__cat_lba);
-        }
+    } else if (vlSelfRef.tb_media__DOT__dut__DOT__aud_start) {
+        vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__held_audio 
+            = vlSelfRef.tb_media__DOT__dut__DOT__aud_lba;
     }
     vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__riff_length 
         = (0x1ffffffffULL & (8ULL + VL_EXTEND_QI(33,32, 
                                                  ([&]() {
-                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__63__Vfuncout 
+                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__94__Vfuncout 
                             = (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                  [7U] << 0x18U) | (
                                                    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
@@ -5383,12 +8039,12 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                | ((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                    [5U] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                   [4U]));
-                    }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__63__Vfuncout))));
+                    }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__94__Vfuncout))));
     vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__chunk_end 
         = (0x1ffffffffULL & (((QData)((IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__offset)) 
                               + VL_EXTEND_QI(33,32, 
                                              ([&]() {
-                            vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__64__Vfuncout 
+                            vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__95__Vfuncout 
                                 = (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                      [7U] << 0x18U) 
                                     | (vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
@@ -5397,10 +8053,446 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                        [5U] << 8U) 
                                       | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                       [4U]));
-                        }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__64__Vfuncout))) 
+                        }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__95__Vfuncout))) 
                              + (QData)((IData)((1U 
                                                 & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                 [4U])))));
+    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache_q 
+        = vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache
+        [((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state))
+           ? 0U : (0x1ffU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos) 
+                             + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__consume))))];
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_image_name_raw;
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffffffffeULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | (IData)((IData)((1U & VL_REDXOR_4((0xeULL 
+                                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffffffffdULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_4((0xdULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 1U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffffffffbULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_4((0xbULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 2U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffffffff7ULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_4((7ULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 3U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffffffffefULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_8((0xe0ULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 4U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffffffffdfULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_8((0xd0ULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 5U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffffffffbfULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_8((0xb0ULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 6U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffffffff7fULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_8((0x70ULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 7U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffffffeffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xe00ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 8U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffffffdffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xd00ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 9U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffffffbffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xb00ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0xaU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffffff7ffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0x700ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0xbU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffffffefffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xe000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0xcU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffffffdfffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xd000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0xdU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffffffbfffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xb000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0xeU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffffff7fffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0x7000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0xfU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffffeffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xe0000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x10U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffffdffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xd0000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x11U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffffbffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xb0000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x12U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffff7ffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0x70000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x13U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffffefffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xe00000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x14U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffffdfffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xd00000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x15U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffffbfffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xb00000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x16U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffff7fffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0x700000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x17U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffeffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xe000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x18U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffdffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xd000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x19U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffffbffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xb000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x1aU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffff7ffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0x7000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x1bU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffefffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xe0000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x1cU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffdfffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xd0000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x1dU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffffbfffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xb0000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x1eU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffff7fffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0x70000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x1fU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffeffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe00000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x20U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffdffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd00000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x21U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffffbffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb00000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x22U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffff7ffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x700000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x23U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffefffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x24U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffdfffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x25U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffffbfffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x26U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffff7fffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x7000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x27U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffeffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe0000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x28U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffdffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd0000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x29U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffffbffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb0000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x2aU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffff7ffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x70000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x2bU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffefffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe00000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x2cU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffdfffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd00000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x2dU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffffbfffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb00000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x2eU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffff7fffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x700000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x2fU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffeffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x30U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffdffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x31U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfffbffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x32U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfff7ffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x7000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x33U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffefffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe0000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x34U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffdfffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd0000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x35U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xffbfffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb0000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x36U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xff7fffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x70000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x37U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfeffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe00000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x38U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfdffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd00000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x39U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xfbffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb00000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x3aU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xf7ffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x700000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x3bU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xefffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe000000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x3cU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xdfffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd000000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x3dU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0xbfffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb000000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x3eU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout 
+        = ((0x7fffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x7000000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__value))))) 
+              << 0x3fU));
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_image_name 
+        = vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout;
+    vlSelfRef.tb_media__DOT__dut__DOT__aud_done = ((IData)(tb_media__DOT__dut__DOT__arbiter__DOT____VdfgRegularize_hcdb9eaa0_0_2) 
+                                                   & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__owner));
+    tb_media__DOT__dut__DOT__img_done = ((~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__owner)) 
+                                         & (IData)(tb_media__DOT__dut__DOT__arbiter__DOT____VdfgRegularize_hcdb9eaa0_0_2));
+    vlSelfRef.tb_media__DOT__dut__DOT__aud_bv = ((IData)(tb_media__DOT__dut__DOT__arbiter__DOT____VdfgRegularize_hcdb9eaa0_0_1) 
+                                                 & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__owner));
+    tb_media__DOT__dut__DOT__img_bv = ((~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__owner)) 
+                                       & (IData)(tb_media__DOT__dut__DOT__arbiter__DOT____VdfgRegularize_hcdb9eaa0_0_1));
+    vlSelfRef.tb_media__DOT__dut__DOT__aud_lba = __Vdly__tb_media__DOT__dut__DOT__aud_lba;
+    vlSelfRef.tb_media__DOT__dut__DOT__aud_start = __Vdly__tb_media__DOT__dut__DOT__aud_start;
+    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos 
+        = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos;
+    if (__VdlySet__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0) {
+        vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache[__VdlyDim0__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0] 
+            = __VdlyVal__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0;
+    }
+    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state 
+        = __Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state;
+    if (vlSelfRef.tb_media__DOT__reset) {
+        vlSelfRef.tb_media__DOT__audio_selected = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 0U;
+        vlSelfRef.tb_media__DOT__selected = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__images__DOT__lookup_wait = 0U;
+    } else {
+        if (vlSelfRef.tb_media__DOT__dut__DOT__audio_change) {
+            vlSelfRef.tb_media__DOT__audio_selected 
+                = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__pair_request)
+                    ? (IData)(vlSelfRef.tb_media__DOT__dut__DOT__paired_index)
+                    : (IData)(vlSelfRef.tb_media__DOT__audio_requested));
+        }
+        if ((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
+            if (vlSelfRef.tb_media__DOT__catalog_ready) {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__state 
+                    = ((0U == (IData)(vlSelfRef.tb_media__DOT__count))
+                        ? 6U : 1U);
+            }
+        } else if ((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
+            if ((4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__lookup_wait))) {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__lookup_wait = 0U;
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 2U;
+            } else {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__lookup_wait 
+                    = (7U & ((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__lookup_wait)));
+            }
+        } else if ((2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
+            if ((1U & (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_busy)))) {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 3U;
+            }
+        } else if ((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
+            __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 4U;
+        } else if ((4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state))) {
+            if ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_error))) {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 6U;
+            } else if (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_done) {
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 5U;
+            }
+        } else if (((5U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)) 
+                    || (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)))) {
+            if ((((IData)(vlSelfRef.tb_media__DOT__select_request) 
+                  & ((IData)(vlSelfRef.tb_media__DOT__requested) 
+                     < (IData)(vlSelfRef.tb_media__DOT__count))) 
+                 & (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_busy)))) {
+                vlSelfRef.tb_media__DOT__selected = vlSelfRef.tb_media__DOT__requested;
+                __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 1U;
+            }
+        } else {
+            __Vdly__tb_media__DOT__dut__DOT__images__DOT__state = 6U;
+        }
+    }
+    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__lookup_wait 
+        = __Vdly__tb_media__DOT__dut__DOT__images__DOT__lookup_wait;
+    vlSelfRef.tb_media__DOT__count = __Vdly__tb_media__DOT__count;
+    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_busy 
+        = ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state)) 
+           & ((9U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state)) 
+              & (0xfU != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state))));
+    if (vlSelfRef.tb_media__DOT__reset) {
+        __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__pending = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__settle = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__pair_request = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__paired_index = 0U;
+    } else {
+        vlSelfRef.tb_media__DOT__dut__DOT__pair_request = 0U;
+        if (vlSelfRef.tb_media__DOT__paired) {
+            if ((1U & ((~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__was_enabled)) 
+                       | (vlSelfRef.tb_media__DOT__frame_swaps 
+                          != vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__last_swaps)))) {
+                __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__pending = 1U;
+                __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__settle = 0x1fU;
+            } else if (vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__pending) {
+                if ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__settle))) {
+                    __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__settle 
+                        = (0x1fU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__settle) 
+                                    - (IData)(1U)));
+                } else {
+                    __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__pending = 0U;
+                    if (vlSelfRef.tb_media__DOT__dut__DOT__pair_found) {
+                        vlSelfRef.tb_media__DOT__dut__DOT__pair_request = 1U;
+                        vlSelfRef.tb_media__DOT__dut__DOT__paired_index 
+                            = vlSelfRef.tb_media__DOT__dut__DOT__pair_index;
+                    }
+                }
+            }
+        } else {
+            __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__pending = 0U;
+            __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__settle = 0U;
+        }
+    }
     if (((IData)(vlSelfRef.tb_media__DOT__reset) | 
          (3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)))) {
         __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state 
@@ -5438,16 +8530,24 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__input_finished = 0U;
         __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__burst_pixel = 0U;
         __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__low_pixel = 0U;
-        __Vdly__tb_media__DOT__addr = 0U;
-        vlSelfRef.tb_media__DOT__data[0U] = Vtb_media__ConstPool__CONST_h9e67c271_0[0U];
-        vlSelfRef.tb_media__DOT__data[1U] = Vtb_media__ConstPool__CONST_h9e67c271_0[1U];
-        vlSelfRef.tb_media__DOT__data[2U] = Vtb_media__ConstPool__CONST_h9e67c271_0[2U];
-        vlSelfRef.tb_media__DOT__data[3U] = Vtb_media__ConstPool__CONST_h9e67c271_0[3U];
-        vlSelfRef.tb_media__DOT__data[4U] = Vtb_media__ConstPool__CONST_h9e67c271_0[4U];
-        vlSelfRef.tb_media__DOT__data[5U] = Vtb_media__ConstPool__CONST_h9e67c271_0[5U];
-        vlSelfRef.tb_media__DOT__data[6U] = Vtb_media__ConstPool__CONST_h9e67c271_0[6U];
-        vlSelfRef.tb_media__DOT__data[7U] = Vtb_media__ConstPool__CONST_h9e67c271_0[7U];
-        __Vdly__tb_media__DOT__last = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__raw_load_addr = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[0U] 
+            = Vtb_media__ConstPool__CONST_h9e67c271_0[0U];
+        vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[1U] 
+            = Vtb_media__ConstPool__CONST_h9e67c271_0[1U];
+        vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[2U] 
+            = Vtb_media__ConstPool__CONST_h9e67c271_0[2U];
+        vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[3U] 
+            = Vtb_media__ConstPool__CONST_h9e67c271_0[3U];
+        vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[4U] 
+            = Vtb_media__ConstPool__CONST_h9e67c271_0[4U];
+        vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[5U] 
+            = Vtb_media__ConstPool__CONST_h9e67c271_0[5U];
+        vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[6U] 
+            = Vtb_media__ConstPool__CONST_h9e67c271_0[6U];
+        vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data[7U] 
+            = Vtb_media__ConstPool__CONST_h9e67c271_0[7U];
+        __Vdly__tb_media__DOT__dut__DOT__raw_load_last = 0U;
         vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_done = 0U;
         __Vdly__tb_media__DOT__pixels = 0U;
         vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_error = 0U;
@@ -5478,7 +8578,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
             if ((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state))) {
                 if (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_valid) {
                     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT____Vlvbound_h2fb5cc83__0 
-                        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_data;
+                        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache_q;
                     if (VL_LIKELY(((0x35U >= (0x3fU 
                                               & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__position))))) {
                         __VdlyVal__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header__v0 
@@ -5495,16 +8595,16 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                 }
             } else if ((2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state))) {
                 if (((((0x4d42U != ([&]() {
-                                            __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__48__Vfuncout 
+                                            __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__79__Vfuncout 
                                                 = (
                                                    (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                     [1U] 
                                                     << 8U) 
                                                    | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                    [0U]);
-                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__48__Vfuncout))) 
+                                        }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__79__Vfuncout))) 
                        | (0x28U > ([&]() {
-                                            __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__49__Vfuncout 
+                                            __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__80__Vfuncout 
                                                 = (
                                                    ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                      [0x11U] 
@@ -5517,17 +8617,17 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                        << 8U) 
                                                       | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                       [0xeU]));
-                                        }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__49__Vfuncout))) 
+                                        }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__80__Vfuncout))) 
                       | (1U != ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__50__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__81__Vfuncout 
                                             = ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                 [0x1bU] 
                                                 << 8U) 
                                                | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                [0x1aU]);
-                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__50__Vfuncout)))) 
+                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__81__Vfuncout)))) 
                      | (0U != ([&]() {
-                                    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__51__Vfuncout 
+                                    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__82__Vfuncout 
                                         = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                              [0x21U] 
                                              << 0x18U) 
@@ -5539,11 +8639,11 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                << 8U) 
                                               | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                               [0x1eU]));
-                                }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__51__Vfuncout)))) {
+                                }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__82__Vfuncout)))) {
                     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_error = 8U;
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 0x1fU;
                 } else if ((((((1U > ([&]() {
-                                                __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__52__Vfuncout 
+                                                __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__83__Vfuncout 
                                                     = 
                                                     (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                        [0x15U] 
@@ -5556,9 +8656,9 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                          << 8U) 
                                                         | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                         [0x12U]));
-                                            }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__52__Vfuncout)) 
+                                            }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__83__Vfuncout)) 
                                | (0x780U < ([&]() {
-                                                __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__53__Vfuncout 
+                                                __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__84__Vfuncout 
                                                     = 
                                                     (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                        [0x15U] 
@@ -5571,29 +8671,29 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                          << 8U) 
                                                         | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                         [0x12U]));
-                                            }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__53__Vfuncout))) 
+                                            }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__84__Vfuncout))) 
                               | (1U > vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__abs_height)) 
                              | (0x438U < vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__abs_height)) 
                             | ((0x18U != ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__54__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__85__Vfuncout 
                                             = ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                 [0x1dU] 
                                                 << 8U) 
                                                | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                [0x1cU]);
-                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__54__Vfuncout))) 
+                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__85__Vfuncout))) 
                                & (0x20U != ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__55__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__86__Vfuncout 
                                             = ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                 [0x1dU] 
                                                 << 8U) 
                                                | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                [0x1cU]);
-                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__55__Vfuncout)))))) {
+                                    }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__86__Vfuncout)))))) {
                     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_error = 9U;
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 0x1fU;
                 } else if ((((0x36U > ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__56__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__87__Vfuncout 
                                             = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                  [0xdU] 
                                                  << 0x18U) 
@@ -5605,9 +8705,9 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                    << 8U) 
                                                   | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                   [0xaU]));
-                                    }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__56__Vfuncout)) 
+                                    }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__87__Vfuncout)) 
                              | (0x100000U < ([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__57__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__88__Vfuncout 
                                             = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                  [0xdU] 
                                                  << 0x18U) 
@@ -5619,13 +8719,13 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                    << 8U) 
                                                   | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                   [0xaU]));
-                                    }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__57__Vfuncout))) 
+                                    }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__88__Vfuncout))) 
                             | ((QData)((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__length)) 
                                < vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__required_end))) {
                     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_error = 0xaU;
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 0x1fU;
                 } else {
-                    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__58__Vfuncout 
+                    __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__89__Vfuncout 
                         = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                              [0xdU] << 0x18U) | (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                  [0xcU] 
@@ -5634,7 +8734,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                [0xbU] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                               [0xaU]));
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__offset 
-                        = __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__58__Vfuncout;
+                        = __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__89__Vfuncout;
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__height 
                         = (0x7ffU & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__abs_height);
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__width_limited 
@@ -5644,7 +8744,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 3U;
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__width 
                         = (0x7ffU & ([&]() {
-                                __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__59__Vfuncout 
+                                __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__90__Vfuncout 
                                     = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                          [0x15U] << 0x18U) 
                                         | (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
@@ -5655,15 +8755,15 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                            << 8U) | 
                                           vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                           [0x12U]));
-                            }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__59__Vfuncout));
+                            }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__90__Vfuncout));
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__rgba 
                         = (0x20U == ([&]() {
-                                __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__60__Vfuncout 
+                                __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__91__Vfuncout 
                                     = ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                         [0x1dU] << 8U) 
                                        | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                        [0x1cU]);
-                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__60__Vfuncout)));
+                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__91__Vfuncout)));
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__top_down 
                         = (1U & (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                  [0x19U] >> 7U));
@@ -5671,7 +8771,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                         = (3U & ((0x1ffcU & ((IData)(3U) 
                                              + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_bytes))) 
                                  - (([&]() {
-                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__61__Vfuncout 
+                                        __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__92__Vfuncout 
                                             = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                  [0x15U] 
                                                  << 0x18U) 
@@ -5683,16 +8783,16 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                                    << 8U) 
                                                   | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                   [0x12U]));
-                                    }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__61__Vfuncout) 
+                                    }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__92__Vfuncout) 
                                     * ((0x20U == ([&]() {
-                                                __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__62__Vfuncout 
+                                                __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__93__Vfuncout 
                                                     = 
                                                     ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                       [0x1dU] 
                                                       << 8U) 
                                                      | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                                      [0x1cU]);
-                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__62__Vfuncout)))
+                                            }(), (IData)(__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__93__Vfuncout)))
                                         ? 4U : 3U))));
                 }
             } else if ((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state))) {
@@ -5758,11 +8858,11 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                             }
                         } else if ((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__channel))) {
                             vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__blue 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_data;
+                                = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache_q;
                             __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__channel = 1U;
                         } else if ((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__channel))) {
                             vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__green 
-                                = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_data;
+                                = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache_q;
                             __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__channel = 2U;
                         } else if ((2U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__channel))) {
                             __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__channel 
@@ -5825,9 +8925,9 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
             __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__sample_x = 0U;
             __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__x_error = 0U;
             __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__burst_pixel = 0U;
-            __Vdly__tb_media__DOT__addr = (0x3ffffU 
-                                           & (VL_SHIFTL_III(18,32,32, (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__actual_y), 8U) 
-                                              + VL_SHIFTL_III(18,32,32, (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__actual_y), 6U)));
+            __Vdly__tb_media__DOT__dut__DOT__raw_load_addr 
+                = (0x3ffffU & (VL_SHIFTL_III(18,32,32, (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__actual_y), 8U) 
+                               + VL_SHIFTL_III(18,32,32, (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__actual_y), 6U)));
             __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 9U;
         } else if ((9U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state))) {
             __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 0xaU;
@@ -5841,7 +8941,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
             }
             if ((1U & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__burst_pixel))) {
                 VL_ASSIGNSEL_WI(256,32,(0xe0U & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__burst_pixel) 
-                                                 << 4U)), vlSelfRef.tb_media__DOT__data, 
+                                                 << 4U)), vlSelfRef.tb_media__DOT__dut__DOT__raw_load_data, 
                                 (((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__sample565) 
                                   << 0x10U) | (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__low_pixel)));
             } else {
@@ -5863,11 +8963,9 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__dest_row = 0x1e0U;
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 0xeU;
                 } else {
-                    __Vdly__tb_media__DOT__last = (
-                                                   (0x1dfU 
-                                                    == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__dest_row)) 
-                                                   & (0x27fU 
-                                                      == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__out_x)));
+                    __Vdly__tb_media__DOT__dut__DOT__raw_load_last 
+                        = ((0x1dfU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__dest_row)) 
+                           & (0x27fU == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__out_x)));
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 0xfU;
                 }
             } else {
@@ -5891,14 +8989,14 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                 __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 0x10U;
             }
         } else if ((0x10U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state))) {
-            if (vlSelfRef.tb_media__DOT__ack) {
-                if (vlSelfRef.tb_media__DOT__last) {
+            if (vlSelfRef.tb_media__DOT__dut__DOT__raw_load_ack) {
+                if (vlSelfRef.tb_media__DOT__dut__DOT__raw_load_last) {
                     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_done = 1U;
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 0x11U;
                 } else {
-                    __Vdly__tb_media__DOT__addr = (0x3ffffU 
-                                                   & ((IData)(8U) 
-                                                      + vlSelfRef.tb_media__DOT__addr));
+                    __Vdly__tb_media__DOT__dut__DOT__raw_load_addr 
+                        = (0x3ffffU & ((IData)(8U) 
+                                       + vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr));
                     __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state 
                         = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__after_ack;
                 }
@@ -5947,7 +9045,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         } else {
             __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__input_finished = 1U;
             if ((0x1e0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__dest_row))) {
-                __Vdly__tb_media__DOT__last = 1U;
+                __Vdly__tb_media__DOT__dut__DOT__raw_load_last = 1U;
                 __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 0xfU;
             } else {
                 __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__blank_row = 1U;
@@ -5958,22 +9056,12 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_error = 0xffU;
         __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = 0x1fU;
     }
-    vlSelfRef.tb_media__DOT__dut__DOT__aud_lba = __Vdly__tb_media__DOT__dut__DOT__aud_lba;
-    vlSelfRef.tb_media__DOT__dut__DOT__aud_start = __Vdly__tb_media__DOT__dut__DOT__aud_start;
-    vlSelfRef.tb_media__DOT__dut__DOT__aud_done = ((IData)(tb_media__DOT__dut__DOT__arbiter__DOT____VdfgRegularize_hcdb9eaa0_0_2) 
-                                                   & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__owner));
-    tb_media__DOT__dut__DOT__img_done = ((~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__owner)) 
-                                         & (IData)(tb_media__DOT__dut__DOT__arbiter__DOT____VdfgRegularize_hcdb9eaa0_0_2));
-    vlSelfRef.tb_media__DOT__dut__DOT__aud_bv = ((IData)(tb_media__DOT__dut__DOT__arbiter__DOT____VdfgRegularize_hcdb9eaa0_0_1) 
-                                                 & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__owner));
-    tb_media__DOT__dut__DOT__img_bv = ((~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__owner)) 
-                                       & (IData)(tb_media__DOT__dut__DOT__arbiter__DOT____VdfgRegularize_hcdb9eaa0_0_1));
-    vlSelfRef.tb_media__DOT__dut__DOT__img_lba = __Vdly__tb_media__DOT__dut__DOT__img_lba;
-    vlSelfRef.tb_media__DOT__dut__DOT__cat_lba = __Vdly__tb_media__DOT__dut__DOT__cat_lba;
-    vlSelfRef.tb_media__DOT__catalog_ready = __Vdly__tb_media__DOT__catalog_ready;
+    vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__pending 
+        = __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__pending;
+    vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__settle 
+        = __Vdly__tb_media__DOT__dut__DOT__pairing__DOT__settle;
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_error 
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error;
-    vlSelfRef.tb_media__DOT__ack = __Vdly__tb_media__DOT__ack;
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__after_ack 
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__after_ack;
     vlSelfRef.tb_media__DOT__dut__DOT__image_bytes 
@@ -6004,11 +9092,9 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__burst_pixel;
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__low_pixel 
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__low_pixel;
-    vlSelfRef.tb_media__DOT__last = __Vdly__tb_media__DOT__last;
+    vlSelfRef.tb_media__DOT__dut__DOT__raw_load_last 
+        = __Vdly__tb_media__DOT__dut__DOT__raw_load_last;
     vlSelfRef.tb_media__DOT__pixels = __Vdly__tb_media__DOT__pixels;
-    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_data 
-        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache
-        [vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos];
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__position 
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__position;
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__offset 
@@ -6022,44 +9108,23 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__sample_x 
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__sample_x;
     vlSelfRef.tb_media__DOT__load_ready = __Vdly__tb_media__DOT__load_ready;
-    vlSelfRef.tb_media__DOT__addr = __Vdly__tb_media__DOT__addr;
-    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state 
-        = __Vdly__tb_media__DOT__dut__DOT__images__DOT__state;
+    vlSelfRef.tb_media__DOT__dut__DOT__raw_load_addr 
+        = __Vdly__tb_media__DOT__dut__DOT__raw_load_addr;
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__dest_row 
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__dest_row;
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__top_down 
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__top_down;
+    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state 
+        = __Vdly__tb_media__DOT__dut__DOT__images__DOT__state;
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__draw_w 
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__draw_w;
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__out_x 
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__out_x;
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__blank_row 
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__blank_row;
-    vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__catalog__sd_ready 
-        = ((~ (IData)(vlSelfRef.tb_media__DOT__catalog_ready)) 
-           & (IData)(tb_media__DOT__dut__DOT__img_ready));
-    vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__catalog__sd_done 
-        = ((~ (IData)(vlSelfRef.tb_media__DOT__catalog_ready)) 
-           & (IData)(tb_media__DOT__dut__DOT__img_done));
-    vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__catalog__sd_byte_valid 
-        = ((~ (IData)(vlSelfRef.tb_media__DOT__catalog_ready)) 
-           & (IData)(tb_media__DOT__dut__DOT__img_bv));
-    if (vlSelfRef.tb_media__DOT__catalog_ready) {
-        vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_ready 
-            = tb_media__DOT__dut__DOT__img_ready;
-        vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done 
-            = tb_media__DOT__dut__DOT__img_done;
-        vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_byte_valid 
-            = tb_media__DOT__dut__DOT__img_bv;
-        vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__arbiter__image_start 
-            = vlSelfRef.tb_media__DOT__dut__DOT__img_start;
-    } else {
-        vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_ready = 0U;
-        vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done = 0U;
-        vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_byte_valid = 0U;
-        vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__arbiter__image_start 
-            = vlSelfRef.tb_media__DOT__dut__DOT__cat_start;
-    }
+    vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__was_enabled 
+        = ((1U & (~ (IData)(vlSelfRef.tb_media__DOT__reset))) 
+           && (IData)(vlSelfRef.tb_media__DOT__paired));
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__actual_y 
         = (0x3ffU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__top_down)
                       ? (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__dest_row)
@@ -6071,21 +9136,63 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
               & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__out_x) 
                  < (0x3ffU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__draw_w) 
                               + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__left_pad))))));
-    vlSelfRef.tb_media__DOT__image_error = ((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__cat_error))
-                                             ? (((IData)(vlSelfRef.tb_media__DOT__catalog_ready) 
-                                                 & (0U 
-                                                    == (IData)(vlSelfRef.tb_media__DOT__count)))
-                                                 ? 5U
-                                                 : (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_error))
-                                             : (IData)(vlSelfRef.tb_media__DOT__dut__DOT__cat_error));
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__cancel 
         = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_done) 
            | (0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_error)));
+    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache_q 
+        = vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache
+        [((3U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))
+           ? 0U : (0x1ffU & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos) 
+                             + ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_valid) 
+                                & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_ready)))))];
+    __Vtableidx1 = (((IData)(vlSelfRef.tb_media__DOT__ack) 
+                     << 1U) | (IData)(vlSelfRef.tb_media__DOT__reset));
+    vlSelfRef.tb_media__DOT__dut__DOT__raw_load_ack 
+        = Vtb_media__ConstPool__TABLE_h97bd9a81_0[__Vtableidx1];
+    if (vlSelfRef.tb_media__DOT__reset) {
+        vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__last_swaps = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_name = 0ULL;
+        __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_scan = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__pair_found = 0U;
+        vlSelfRef.tb_media__DOT__dut__DOT__pair_index = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_index = 0U;
+        __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid = 0U;
+    } else {
+        vlSelfRef.tb_media__DOT__dut__DOT__pairing__DOT__last_swaps 
+            = vlSelfRef.tb_media__DOT__frame_swaps;
+        if ((1U & ((~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready)) 
+                   | (vlSelfRef.tb_media__DOT__name 
+                      != vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_name)))) {
+            __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_name 
+                = vlSelfRef.tb_media__DOT__name;
+            __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_scan = 0U;
+            __Vdly__tb_media__DOT__dut__DOT__pair_found = 0U;
+            __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid = 0U;
+        } else {
+            if ((((IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid) 
+                  & (~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__pair_found))) 
+                 & (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_wav_name 
+                    == vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_name))) {
+                __Vdly__tb_media__DOT__dut__DOT__pair_found = 1U;
+                vlSelfRef.tb_media__DOT__dut__DOT__pair_index 
+                    = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_index;
+            }
+            if (vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_issue) {
+                __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid = 1U;
+                __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_scan 
+                    = (0x1fU & ((IData)(1U) + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_scan)));
+                __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_index 
+                    = (0xfU & (IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_scan));
+            } else {
+                __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid = 0U;
+            }
+        }
+    }
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__required_end 
         = ((IData)(vlSelfRef.tb_media__DOT__reset) ? 0ULL
             : (0x1ffffffffULL & (VL_EXTEND_QI(33,32, 
                                               ([&]() {
-                            __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__47__Vfuncout 
+                            __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__76__Vfuncout 
                                 = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                      [0xdU] << 0x18U) 
                                     | (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
@@ -6094,7 +9201,7 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                        [0xbU] << 8U) 
                                       | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                       [0xaU]));
-                        }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__47__Vfuncout)) 
+                        }(), __Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__76__Vfuncout)) 
                                  + ((QData)((IData)(
                                                     (0x1ffcU 
                                                      & ((IData)(3U) 
@@ -6147,14 +9254,354 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
             }
         }
     }
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_index 
+        = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_index;
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid 
+        = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid;
+    __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value 
+        = vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_wav_name_raw;
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffffffffeULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | (IData)((IData)((1U & VL_REDXOR_4((0xeULL 
+                                                & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffffffffdULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_4((0xdULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 1U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffffffffbULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_4((0xbULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 2U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffffffff7ULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_4((7ULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 3U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffffffffefULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_8((0xe0ULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 4U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffffffffdfULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_8((0xd0ULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 5U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffffffffbfULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_8((0xb0ULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 6U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffffffff7fULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_8((0x70ULL 
+                                                 & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 7U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffffffeffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xe00ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 8U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffffffdffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xd00ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 9U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffffffbffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xb00ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0xaU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffffff7ffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0x700ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0xbU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffffffefffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xe000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0xcU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffffffdfffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xd000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0xdU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffffffbfffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0xb000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0xeU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffffff7fffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_16((0x7000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0xfU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffffeffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xe0000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x10U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffffdffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xd0000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x11U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffffbffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xb0000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x12U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffff7ffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0x70000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x13U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffffefffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xe00000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x14U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffffdfffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xd00000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x15U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffffbfffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xb00000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x16U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffff7fffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0x700000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x17U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffeffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xe000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x18U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffdffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xd000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x19U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffffbffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xb000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x1aU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffff7ffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0x7000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x1bU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffefffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xe0000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x1cU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffdfffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xd0000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x1dU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffffbfffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0xb0000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x1eU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffff7fffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_32((0x70000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x1fU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffeffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe00000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x20U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffdffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd00000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x21U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffffbffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb00000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x22U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffff7ffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x700000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x23U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffefffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x24U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffdfffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x25U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffffbfffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x26U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffff7fffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x7000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x27U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffeffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe0000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x28U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffdffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd0000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x29U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffffbffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb0000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x2aU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffff7ffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x70000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x2bU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffefffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe00000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x2cU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffdfffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd00000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x2dU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffffbfffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb00000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x2eU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffff7fffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x700000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x2fU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffeffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x30U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffdffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x31U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfffbffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x32U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfff7ffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x7000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x33U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffefffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe0000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x34U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffdfffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd0000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x35U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xffbfffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb0000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x36U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xff7fffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x70000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x37U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfeffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe00000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x38U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfdffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd00000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x39U));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xfbffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb00000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x3aU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xf7ffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x700000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x3bU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xefffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xe000000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x3cU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xdfffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xd000000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x3dU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0xbfffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0xb000000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x3eU));
+    vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout 
+        = ((0x7fffffffffffffffULL & vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout) 
+           | ((QData)((IData)((1U & VL_REDXOR_64((0x7000000000000000ULL 
+                                                  & __Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__value))))) 
+              << 0x3fU));
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__shared_wav_name 
+        = vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout;
+    vlSelfRef.tb_media__DOT__name = __Vdly__tb_media__DOT__name;
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_name 
+        = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_name;
+    vlSelfRef.tb_media__DOT__dut__DOT__pair_found = __Vdly__tb_media__DOT__dut__DOT__pair_found;
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_scan 
+        = __Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_scan;
+    vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready 
+        = __Vdly__tb_media__DOT__dut__DOT__raw_catalog_ready;
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__sample565 
         = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__inside_x)
             ? (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_q)
             : 0U);
-    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_valid 
-        = ((~ ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__cancel) 
-               | (0U == vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining))) 
-           & (4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)));
+    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos 
+        = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos;
+    if (__VdlySet__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0) {
+        vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache[__VdlyDim0__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0] 
+            = __VdlyVal__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0;
+    }
+    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state 
+        = __Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state;
+    vlSelfRef.tb_media__DOT__ack = __Vdly__tb_media__DOT__ack;
     if (__VdlySet__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header__v0) {
         vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header[__VdlyDim0__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header__v0] 
             = __VdlyVal__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header__v0;
@@ -6173,10 +9620,38 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state;
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__divisor 
         = __Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__divisor;
+    vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__catalog__sd_ready 
+        = ((~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready)) 
+           & (IData)(tb_media__DOT__dut__DOT__img_ready));
+    vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__catalog__sd_done 
+        = ((~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready)) 
+           & (IData)(tb_media__DOT__dut__DOT__img_done));
+    vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__catalog__sd_byte_valid 
+        = ((~ (IData)(vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready)) 
+           & (IData)(tb_media__DOT__dut__DOT__img_bv));
+    vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_issue 
+        = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready) 
+           & ((~ ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase) 
+                  | (IData)(vlSelfRef.tb_media__DOT__dut__DOT__pair_found))) 
+              & ((vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_name 
+                  == vlSelfRef.tb_media__DOT__name) 
+                 & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_scan) 
+                    < (IData)(vlSelfRef.tb_media__DOT__wav_count)))));
+    vlSelfRef.tb_media__DOT__catalog_ready = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready) 
+                                              & ((~ (IData)(vlSelfRef.tb_media__DOT__platform_found)) 
+                                                 | (IData)(vlSelfRef.tb_media__DOT__dut__DOT__boot_finished)));
+    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__stream_busy 
+        = ((0U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)) 
+           & ((9U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)) 
+              & (0xfU != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state))));
+    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_valid 
+        = ((~ ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__cancel) 
+               | (0U == vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__remaining))) 
+           & (4U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state)));
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__abs_height 
         = ((0x80U & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
             [0x19U]) ? ((IData)(1U) + (~ ([&]() {
-                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__43__Vfuncout 
+                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__72__Vfuncout 
                             = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                  [0x19U] << 0x18U) 
                                 | (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
@@ -6185,9 +9660,9 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                                    [0x17U] << 8U) | 
                                   vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                   [0x16U]));
-                    }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__43__Vfuncout)))
+                    }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__72__Vfuncout)))
             : ([&]() {
-                vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__44__Vfuncout 
+                vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__73__Vfuncout 
                     = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                          [0x19U] << 0x18U) | (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                               [0x18U] 
@@ -6195,10 +9670,10 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                        | ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                            [0x17U] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                           [0x16U]));
-            }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__44__Vfuncout));
+            }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__73__Vfuncout));
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__raw_width 
         = (0x7ffU & ([&]() {
-                vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__45__Vfuncout 
+                vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__74__Vfuncout 
                     = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                          [0x15U] << 0x18U) | (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                               [0x14U] 
@@ -6206,24 +9681,64 @@ VL_INLINE_OPT void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root
                        | ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                            [0x13U] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                           [0x12U]));
-            }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__45__Vfuncout));
+            }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__74__Vfuncout));
+    vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__byte_ready 
+        = ((3U != (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__state)) 
+           & ((1U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state)) 
+              | (6U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state))));
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__trial 
         = (((QData)((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__rem)) 
             << 1U) | (QData)((IData)((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__shift 
                                       >> 0x1fU))));
+    vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_ready 
+        = ((IData)(tb_media__DOT__dut__DOT__img_ready) 
+           & (IData)(vlSelfRef.tb_media__DOT__catalog_ready));
+    vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_done 
+        = ((IData)(tb_media__DOT__dut__DOT__img_done) 
+           & (IData)(vlSelfRef.tb_media__DOT__catalog_ready));
+    vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__images__sd_byte_valid 
+        = ((IData)(tb_media__DOT__dut__DOT__img_bv) 
+           & (IData)(vlSelfRef.tb_media__DOT__catalog_ready));
+    vlSelfRef.tb_media__DOT__image_error = ((0U == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__cat_error))
+                                             ? (((IData)(vlSelfRef.tb_media__DOT__catalog_ready) 
+                                                 & (0U 
+                                                    == (IData)(vlSelfRef.tb_media__DOT__count)))
+                                                 ? 5U
+                                                 : (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decode_error))
+                                             : (IData)(vlSelfRef.tb_media__DOT__dut__DOT__cat_error));
+    if (vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready) {
+        vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__arbiter__image_start 
+            = ((IData)(vlSelfRef.tb_media__DOT__catalog_ready)
+                ? (IData)(vlSelfRef.tb_media__DOT__dut__DOT__img_start)
+                : (IData)(vlSelfRef.tb_media__DOT__dut__DOT__config_start));
+        tb_media__DOT__dut__DOT____VdfgRegularize_h3b018e90_0_1 
+            = (1U & (~ (IData)(vlSelfRef.tb_media__DOT__catalog_ready)));
+    } else {
+        vlSelfRef.tb_media__DOT__dut__DOT____Vcellinp__arbiter__image_start 
+            = vlSelfRef.tb_media__DOT__dut__DOT__cat_start;
+        tb_media__DOT__dut__DOT____VdfgRegularize_h3b018e90_0_1 = 0U;
+    }
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_bytes 
         = (0x1fffU & ((0x20U == ([&]() {
-                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__46__Vfuncout 
+                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__75__Vfuncout 
                             = ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                 [0x1dU] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                [0x1cU]);
-                    }(), (IData)(vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__46__Vfuncout)))
+                    }(), (IData)(vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__75__Vfuncout)))
                        ? VL_SHIFTL_III(13,13,32, (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__raw_width), 2U)
                        : ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__raw_width) 
                           + VL_SHIFTL_III(13,13,32, (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__raw_width), 1U))));
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__take 
         = (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__trial 
            >= (QData)((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__divisor)));
+    vlSelfRef.tb_media__DOT__dut__DOT__config_sd_ready 
+        = ((IData)(tb_media__DOT__dut__DOT__img_ready) 
+           & (IData)(tb_media__DOT__dut__DOT____VdfgRegularize_h3b018e90_0_1));
+    vlSelfRef.tb_media__DOT__dut__DOT__config_sd_done 
+        = ((IData)(tb_media__DOT__dut__DOT__img_done) 
+           & (IData)(tb_media__DOT__dut__DOT____VdfgRegularize_h3b018e90_0_1));
+    vlSelfRef.tb_media__DOT__dut__DOT__config_bv = 
+        ((IData)(tb_media__DOT__dut__DOT__img_bv) & (IData)(tb_media__DOT__dut__DOT____VdfgRegularize_h3b018e90_0_1));
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__next_shift 
         = ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__shift 
             << 1U) | (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__take));

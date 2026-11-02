@@ -18,7 +18,7 @@ Vtb_system_control__Syms::Vtb_system_control__Syms(VerilatedContext* contextp, c
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(305);
+        Verilated::stackCheck(356);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
     _vm_contextp__->timeprecision(-12);

@@ -1,0 +1,603 @@
+{
+  "date": "2026-10-31",
+  "feature": "same short basename BMP/WAV pairing; restart after completed picture commit",
+  "simulation_passed": true,
+  "build_passed": true,
+  "setup_ns": 1.768,
+  "hold_ns": 0.032,
+  "hardware_tested": false,
+  "downloaded": false,
+  "default_mode": "background",
+  "enable_control": "KEY10/W toggle; explicit WAV menu exits",
+  "limitation": "SD drain and prefill add audible gap; not sample/frame simultaneous start",
+  "bit_sha256": "6C2B1EB043FE8B656E0C375C581ADA3CA1041098E9B0B7F98CDEDF52F7637339",
+  "evidence": [
+    "docs/pair_sim_result.txt",
+    "docs/media_paired_result.txt",
+    "docs/media_sim_result.txt",
+    "docs/media_multiwav_result.txt",
+    "docs/system_build_log.txt"
+  ],
+  "source_hashes": [
+    {
+      "path": "rtl\\dmz_p0_top.v",
+      "sha256": "54D62062389D8D76631CAA91528BBE285313D5602BDCC428B86DFA284FD26556"
+    },
+    {
+      "path": "rtl\\audio_test\\dmz_av_test_top.sv",
+      "sha256": "B50B4665A3267C8C94DA76B0875148CEC826E8F338530D3E7D60B81CB5C56547"
+    },
+    {
+      "path": "rtl\\audio_test\\dmz_uart_rx.sv",
+      "sha256": "28FC18C44E2F0AE353C1029C5678A09672EA7B0600C8536C9D172C02DF150DF4"
+    },
+    {
+      "path": "rtl\\media\\dmz_bmp_decoder.sv",
+      "sha256": "2A7EE694B04FB873B64F840B52AB93B556A6C5159E32978C1878F62B06633408"
+    },
+    {
+      "path": "rtl\\media\\dmz_fat_catalog.sv",
+      "sha256": "73C0A3762372AE6966DECA5D5252D6181732DFC12962EB2B131DA3BDF8757F74"
+    },
+    {
+      "path": "rtl\\media\\dmz_fat_stream.sv",
+      "sha256": "844250B732A17561F29FE87556E47C28C08CA67DC3A6E97A7B152152E595B67D"
+    },
+    {
+      "path": "rtl\\media\\dmz_image_player.sv",
+      "sha256": "8E8698FB7B4667C24C4B2AF118C120780B6EA385B4E8CF87F1E091E124B7A2D2"
+    },
+    {
+      "path": "rtl\\media\\dmz_media_storage.sv",
+      "sha256": "96294DE695BDA6E539A53778251955A7D93E7F86017DEB39BD79855C195263F8"
+    },
+    {
+      "path": "rtl\\media\\dmz_pair_control.sv",
+      "sha256": "5DF3CE66FF61557FEFA799E2AE21AF77EE1159EBC98D5E977956734C4A0338DB"
+    },
+    {
+      "path": "rtl\\media\\dmz_sd_arbiter.sv",
+      "sha256": "8F4DF88DC31CFC284141D057E31620162CD9F88B5E056C5BDC839B1671216A95"
+    },
+    {
+      "path": "rtl\\media\\dmz_udiv32.sv",
+      "sha256": "4C203BE0989A3D4BA8EA608C181124FAD650EB9CC9F4440E5E31028715C016FA"
+    },
+    {
+      "path": "rtl\\media\\dmz_wav_decoder.sv",
+      "sha256": "2804AD1CD4481CCF90AF568B4C0E59FF0B8E51BB4477BB25DCF10418B2FE7100"
+    },
+    {
+      "path": "rtl\\media\\dmz_wav_player.sv",
+      "sha256": "45DF5D82778E0E783608E046C918A086EBABA40C4AF1A96435BFFD20A875BD34"
+    },
+    {
+      "path": "rtl\\p1\\dmz_p1_top.sv",
+      "sha256": "F46358C81DE7B35DFDCBD83FEC1830CC69E4623D693C774B98C9C9556B11DAEC"
+    },
+    {
+      "path": "rtl\\p1\\dmz_tone.sv",
+      "sha256": "A67917A4F171074BD1BE9EBAA6DB0FD9788044313BC31606FA4AE0433AD21E30"
+    },
+    {
+      "path": "rtl\\p1\\dmz_video_pll.v",
+      "sha256": "50D4C009C716FAA16EBB2B19275FC83F8BBB620EA3241BC5095D04E03EF08661"
+    },
+    {
+      "path": "rtl\\p1\\serializer.sv",
+      "sha256": "42FAF5B8CE12B9DBE19125AAA7F87142A60ABE21A257CA6B4536AC36C58815E8"
+    },
+    {
+      "path": "rtl\\p1\\hdmi_core\\audio_clock_regeneration_packet.sv",
+      "sha256": "F8FBD93E203DBEAEAA93A30D30A2BA5FB2CC6809692560546FB06ACC8E9ABC7D"
+    },
+    {
+      "path": "rtl\\p1\\hdmi_core\\audio_info_frame.sv",
+      "sha256": "4766EAD71005D4659180F23FF810C6545A56F342BF0703B84A5F146591F7F300"
+    },
+    {
+      "path": "rtl\\p1\\hdmi_core\\audio_sample_packet.sv",
+      "sha256": "2117D6139E259E081A8500A68EF6AB9C8233224B3DBF359F8819B58756E3D41C"
+    },
+    {
+      "path": "rtl\\p1\\hdmi_core\\auxiliary_video_information_info_frame.sv",
+      "sha256": "AD549402B46D6B824D8A2CFFE35B96943ADD581D4D5DC266A5EA33CD161B5D99"
+    },
+    {
+      "path": "rtl\\p1\\hdmi_core\\hdmi.sv",
+      "sha256": "8DB8E29BF36C02E3F5D83135EBC6545DF979A2844703311E2DD040D9743C9732"
+    },
+    {
+      "path": "rtl\\p1\\hdmi_core\\packet_assembler.sv",
+      "sha256": "0B31287E145D59D9B053E354C6B7B145F546BB33B2E099165D0113BD00F79E63"
+    },
+    {
+      "path": "rtl\\p1\\hdmi_core\\packet_picker.sv",
+      "sha256": "612076A9FB9B1BB2591C8509B2CF1BC41B0E3CD77D9D4E4CC5EBDEBD8E8A093E"
+    },
+    {
+      "path": "rtl\\p1\\hdmi_core\\source_product_description_info_frame.sv",
+      "sha256": "1B35D31AAFDA97CAAC8AFD6335F6E62BC290EC65A8A0570F206AC7D9395C2951"
+    },
+    {
+      "path": "rtl\\p1\\hdmi_core\\tmds_channel.sv",
+      "sha256": "CA606C6FACEBF0CC4A4A0310C9D4E1CA6196919D6565177957D83DCF574CD8F1"
+    },
+    {
+      "path": "rtl\\p2\\dmz_framebuffer.sv",
+      "sha256": "24D0F9D5EFD55BDC08E347427114D1A2A9B4820E2723D1945CFCCE379FC0666E"
+    },
+    {
+      "path": "rtl\\p2\\dmz_p2_pll.v",
+      "sha256": "8D2AB2C3893AA0E3FB60F4EFA9C4A6F874BC1C08AF94C9C79D9E2B10CB8FA210"
+    },
+    {
+      "path": "rtl\\p2\\dmz_p2_top.sv",
+      "sha256": "3FC52DF22F6D61F2043158963AAA7A0690E86C147AEB62994A2500AEEEE61DC4"
+    },
+    {
+      "path": "rtl\\p2\\dmz_pixel_fifo.sv",
+      "sha256": "D55CE31FCE935780CD51ABA96A7D2110ED13A22831EC37B7849FDCFE13C5264E"
+    },
+    {
+      "path": "rtl\\p2\\dmz_sdram_bist.sv",
+      "sha256": "0414B6014CD42C7855FD7011A4BD2BED6A8DFD64CAAA0B294F0103A2CA8CD0F6"
+    },
+    {
+      "path": "rtl\\p2\\dmz_sdram_ctrl.sv",
+      "sha256": "0FD7FBEF1F42ADCA0DD33FF886171BD6C3ECB1221ECCFEA7530156AD3F8C0178"
+    },
+    {
+      "path": "rtl\\p2\\dmz_status_uart.sv",
+      "sha256": "23CC453916E753CE52901DD9B4642C7B815AE48D25BBE3D515A4F6A5B5609693"
+    },
+    {
+      "path": "rtl\\p3\\dmz_bmp_loader.sv",
+      "sha256": "A314C374236AA80EBD7919260224A8590BC2F08A056E557B83F505777809AD5B"
+    },
+    {
+      "path": "rtl\\p3\\dmz_image_framebuffer.sv",
+      "sha256": "18185C10F448ABEBBE7BD8B5F3B4C76FD1E1C06B3902B18F6AB915EAD3ABBD46"
+    },
+    {
+      "path": "rtl\\p3\\dmz_p3_top.sv",
+      "sha256": "D71A97F284A31560419D15F7C8A57088ABFCB3423629C45314CFE900D79AD8A8"
+    },
+    {
+      "path": "rtl\\p3\\dmz_sd_reader.sv",
+      "sha256": "BD5FC4B7E936019DAE2A7C86D08CEF45D568B0B75E9BBCF4107D8C76D0AF587C"
+    },
+    {
+      "path": "rtl\\p3\\dmz_spi_byte.sv",
+      "sha256": "863A302A5F119CA9B0DEC813B0C5AA17E6EC13E037F781BFA27FD68F95638565"
+    },
+    {
+      "path": "rtl\\system\\dmz_audio_visual.sv",
+      "sha256": "0629A638668ED77B934945142D0A1F1519BF777B5DEEFAA22CB8D8A8C69C8115"
+    },
+    {
+      "path": "rtl\\system\\dmz_board_commands.sv",
+      "sha256": "D3CB2EB8DD6AF59710C22250C7B7029CD7645742CC4133E4B1CF64EFFE0C310A"
+    },
+    {
+      "path": "rtl\\system\\dmz_display_control.sv",
+      "sha256": "13B1FCC8DF2CD5CE6720DC70B7CBB5949B1519B671FE57DE22AEEF0932B6A388"
+    },
+    {
+      "path": "rtl\\system\\dmz_file_menu.sv",
+      "sha256": "DCB4597F0C231C78CD5A9DA0313DDAB749D179AA8763872B04C7246B16B1A6E9"
+    },
+    {
+      "path": "rtl\\system\\dmz_gallery_control.sv",
+      "sha256": "417D1CF305BDD85065FBFCB16394E439DD0B90E6E9AED2460DE76F2F043E2616"
+    },
+    {
+      "path": "rtl\\system\\dmz_matrix_keys.sv",
+      "sha256": "2C0D85A40770D567C4F3963FCCFCDD19218B537133598637447B9CB0A2A805CF"
+    },
+    {
+      "path": "rtl\\system\\dmz_media_control.sv",
+      "sha256": "84997C5B9684A7D654B9C160E2725B48DCDDFD356465A7B6108B57093DFD4592"
+    },
+    {
+      "path": "rtl\\system\\dmz_osd.sv",
+      "sha256": "52394FFEBBFB6B9FC06A85D918F81B9765EFDBC72A32044B58C74AB2F7C25BF3"
+    },
+    {
+      "path": "rtl\\system\\dmz_picture_adjust.sv",
+      "sha256": "7F551346DACCDFE8F22D4A9E44202524E1868A86CC561475DE4CD2A82017BA80"
+    },
+    {
+      "path": "rtl\\system\\dmz_scene_control.sv",
+      "sha256": "B69ABD7DB20063E5523138030BA63BBC99CD22509242310E18E7DD95D9DFF7BF"
+    },
+    {
+      "path": "rtl\\system\\dmz_status_cdc.sv",
+      "sha256": "189A004AD4FDD0C62E669C77105840DD2411F4077263F21F5429A1C474ABA2E1"
+    },
+    {
+      "path": "rtl\\system\\dmz_track1_top.sv",
+      "sha256": "57123018F39EA3FE0988265505828E52866C9BCF022A3268845FE69599431206"
+    },
+    {
+      "path": "constraints\\dmz_p0.adc",
+      "sha256": "3F68FF25D31BC2E475AAF9DA345702D667310ACFA16E0C852A7D27AF026BF820"
+    },
+    {
+      "path": "constraints\\dmz_p0.sdc",
+      "sha256": "C10D0B78C9891A919DD891A94B7692127EA3A715A3B862A1D0B41D65D2F1CD7C"
+    },
+    {
+      "path": "constraints\\dmz_p1.adc",
+      "sha256": "EE2F71075EBF335CE5B4387D2D751199A01FFD397A32C8AE430BCD91F682E882"
+    },
+    {
+      "path": "constraints\\dmz_p1.sdc",
+      "sha256": "0B4EA51581B08B03A579B1B3541D0BE4D4604791C491D3DA1A53DDAE66110AB1"
+    },
+    {
+      "path": "constraints\\dmz_p2.adc",
+      "sha256": "573E60917BA0EB4B155D11469EEDE81FF4A68D1E42F904BA66F64C85504042E5"
+    },
+    {
+      "path": "constraints\\dmz_p2.sdc",
+      "sha256": "8E3EB2CF57802EA5233570D19129514807AA35E1D6F7C0FCDF186BCDA95FE028"
+    },
+    {
+      "path": "constraints\\dmz_p3.adc",
+      "sha256": "DD7FD0E769B699BB15244E8BF2AC0C9158FE027080512E4F264AC5F525A330AE"
+    },
+    {
+      "path": "constraints\\dmz_p3.sdc",
+      "sha256": "47826C6F0CBCCE9583F47762E3ABB2670F9AA0E3143B1F5557E6C5F655A569F5"
+    },
+    {
+      "path": "scripts\\build_audio_test.ps1",
+      "sha256": "F2F7B0F19DBBD4E6394D39B09B24A72252B99F7C7D546CDA5E71F3B445FB768C"
+    },
+    {
+      "path": "scripts\\build_audio_test.tcl",
+      "sha256": "069C7F58AA856D694C299604DD04613A7368F3F17E671173D07AB35C47F3894F"
+    },
+    {
+      "path": "scripts\\build_p1.ps1",
+      "sha256": "315A247309FF1C6268529957FC79659EFCCB4B134B612648DCFCAA645DF5FBFB"
+    },
+    {
+      "path": "scripts\\build_p1.tcl",
+      "sha256": "3583E50C750C74C38A0B164ED37767C518FE66A9EAB33F69DDF2CD508B8F5C71"
+    },
+    {
+      "path": "scripts\\build_p2.ps1",
+      "sha256": "E3CA704B8390E86AAB777B85202E6EAAFEE32D9E1E84D770CBC7FADBD6C8C801"
+    },
+    {
+      "path": "scripts\\build_p2.tcl",
+      "sha256": "BCDE9FAE6A55F51BBFA3B256B49760BE69F6DB4A55CE04185AEF68D43CEA3B8A"
+    },
+    {
+      "path": "scripts\\build_p3.ps1",
+      "sha256": "B885A3D9D986EB4B472F18D278351314A599B7CCE1A3DCA59D87AE791DB7114B"
+    },
+    {
+      "path": "scripts\\build_p3.tcl",
+      "sha256": "8EE0ED752ABFE9822D6DF3754D9B9B49619CA454B2D2A2ECA1047CC4E450A4E9"
+    },
+    {
+      "path": "scripts\\build_system.ps1",
+      "sha256": "075CB1199719E2CF7CE821C22C95F1D6B0056EC05FA600FE65D4A2CF12DC0A1A"
+    },
+    {
+      "path": "scripts\\build_system.tcl",
+      "sha256": "B97BCFE9BA901FE6E5C29A5468A44263B89B0B1B3567A1378DEC067645643111"
+    },
+    {
+      "path": "scripts\\build.ps1",
+      "sha256": "3AD82DA26EB0D4971DCFDEE91FEFC3B92372A685DF85ED5710A1B0EF3BA73A2F"
+    },
+    {
+      "path": "scripts\\build.tcl",
+      "sha256": "6E5DEE24D450F1AA2FF69A5AAFBD3A2AB65C71BCF31EFBB70543E3675A159A2A"
+    },
+    {
+      "path": "scripts\\download_audio_test.tcl",
+      "sha256": "7AE7A3586E7090B92CC74530621B99BEE8B944493EEAD29EF55304D5B6A53B2F"
+    },
+    {
+      "path": "scripts\\download_p1.tcl",
+      "sha256": "4B73E9A69C5566FF773743F5C1BAD415AF780C694DF3FA6DEA7A43AF0FD8BDA8"
+    },
+    {
+      "path": "scripts\\download_p2.tcl",
+      "sha256": "8162E5E2A0FB26959309729ACC53A619F613236AF83A92E0791CAFF10E7EE88D"
+    },
+    {
+      "path": "scripts\\download_p3.tcl",
+      "sha256": "A9B4FC9365EDEF823B1E8AA4FAA8A1D91829EE1C5C9D84F68D3E3C43D9862871"
+    },
+    {
+      "path": "scripts\\download_system.ps1",
+      "sha256": "30C5CCD4F749FF95AF83DD40E5EF7905F0AE67908C11CF510A9C0D3617C4FFF1"
+    },
+    {
+      "path": "scripts\\download_system.tcl",
+      "sha256": "356EE73E41944C8B28D45C75D316ED854262D3999F6C1399D64A263D8D8FE743"
+    },
+    {
+      "path": "scripts\\inspect_p1.tcl",
+      "sha256": "1AF932B4B003A36F50A4F32047A7529E353AF9E1E09EF10BAC5152F6ADBF2B5D"
+    },
+    {
+      "path": "scripts\\project.ps1",
+      "sha256": "5F3A271EBC2A7FD5F94E56DEF09A95A5D635C991C115526FF28DF31D9C32529D"
+    },
+    {
+      "path": "scripts\\read_audio_status.ps1",
+      "sha256": "A08E6F65AC56254E67356BA0EC07AC51D47CB7C4197DA0847FA3988B347454BD"
+    },
+    {
+      "path": "scripts\\read_p2_status.ps1",
+      "sha256": "3F8FE37FF1751C2536A9B690F59EAC6E9CD16DCB7327CE56781165B138D89BD8"
+    },
+    {
+      "path": "scripts\\read_p3_status.ps1",
+      "sha256": "962D0654B4F8313ADAA4456B9A47CE499B9188E05A16C68A13CECB4B51A99FA6"
+    },
+    {
+      "path": "scripts\\restore_baseline.tcl",
+      "sha256": "EF3D6471EA0CC9B2CBCB86368DB8B2CEFA2F6133EB211222417CAB140DCC14B5"
+    },
+    {
+      "path": "scripts\\restore_gallery.tcl",
+      "sha256": "2C2628D2EEF71D22EC72EAD64E1BCACA334229594321AB1A361FCA698F9DE740"
+    },
+    {
+      "path": "scripts\\set_audio_mode.ps1",
+      "sha256": "965203138EC48018C473C8BB65BBB544D3C43A8290BBB85C9735FD4FD8939D9E"
+    },
+    {
+      "path": "scripts\\system_console.ps1",
+      "sha256": "9D04BC1CD8278AFE2035536275B09E2D70427A315FD1A6468D6F0DC2FD629756"
+    },
+    {
+      "path": "scripts\\td_help.tcl",
+      "sha256": "4CCD16512953273171ED8080708E67ADF4718D3AE4EC6D5360E326113A744BBB"
+    },
+    {
+      "path": "scripts\\test_av_board.ps1",
+      "sha256": "F220BC5EDACE8E816827198820EB27512B6729EFFAD83FAB8C4B46BF9D488217"
+    },
+    {
+      "path": "scripts\\test_board_keys.ps1",
+      "sha256": "C55CFEFCAF6E58A0022C31942979375D36BE23B6F1017E0244A7093406BD9BC1"
+    },
+    {
+      "path": "scripts\\test_command_fifo.ps1",
+      "sha256": "7C8A95F3ADB9BD4DE9FA361A9D0CE490906806F46323D8AE04996300DDD281AA"
+    },
+    {
+      "path": "scripts\\test_display.ps1",
+      "sha256": "1C9D8E05A64D596FEE55B5B2E7D579063CBACA5A0AF7D60F127C2A8BCE621237"
+    },
+    {
+      "path": "scripts\\test_gallery.ps1",
+      "sha256": "CEDBC3F8BF9877830FD19A6A738C68D445E77C2A481BDACEB4C3BC4C860AC583"
+    },
+    {
+      "path": "scripts\\test_media.ps1",
+      "sha256": "B4CDF30848C512CEF89004D90869B8D2B72B4A38B204E7E1F04B3B38FBB8B741"
+    },
+    {
+      "path": "scripts\\test_osd_board.ps1",
+      "sha256": "D3D010ADA248795C81C3A23B3E34E5E366B2AAD8CA887D6A5B701FC49A8D023E"
+    },
+    {
+      "path": "scripts\\test_osd_menu.ps1",
+      "sha256": "75E775C0B932CAC0945508BCF3E5E02108B6348541AA2781D7EB2899CEBDB40D"
+    },
+    {
+      "path": "scripts\\test_p1.ps1",
+      "sha256": "6849D47E7BF4FE22E1DD105BB6D47A2FD13474A50D98E0F2EEE86AD5859CEFCA"
+    },
+    {
+      "path": "scripts\\test_p2.ps1",
+      "sha256": "AB5ACE429CCB36F915DF23660C4B172E781FD579CDE6DCE3852D31AC10FDD2E7"
+    },
+    {
+      "path": "scripts\\test_p3.ps1",
+      "sha256": "29051B89544BF30C964201C08389FD664F4068029CD18A10F29D52B6337FD6A8"
+    },
+    {
+      "path": "scripts\\test_p7_board.ps1",
+      "sha256": "F0AB26C6AA0263A2A8EEC65F78C67F6141CD89163FD22AB919C3E0842A262909"
+    },
+    {
+      "path": "scripts\\test_pair.ps1",
+      "sha256": "B2487F4122EF27C10A7FA6B6EECBBA88457EE214A795BF47CF1D29D75AF909B9"
+    },
+    {
+      "path": "scripts\\test_scaler.ps1",
+      "sha256": "A1F155C4CE768E6722975905523F5CB3C1D51AA48DD6173AEBD5D162B25B59FA"
+    },
+    {
+      "path": "scripts\\test_scene_visual.ps1",
+      "sha256": "1B7F59D10DF5DE480EB0130B32A17C3019BFE52A4E59AD317602C4634EEE7C2F"
+    },
+    {
+      "path": "scripts\\test_status_uart.ps1",
+      "sha256": "4050C772E88C38CD7F458E26BC97D4A52A272BBAE6BCF9970691EB5467439486"
+    },
+    {
+      "path": "scripts\\test_system_control.ps1",
+      "sha256": "99387522B4E1BCD96709E034C329B527129955A29B59EDFE7BC3BBA23C8EAF48"
+    },
+    {
+      "path": "scripts\\test_system_integration.ps1",
+      "sha256": "47A7CA02B11D871E96E06EEFAD896796A83760CF4381DD0BC544FF5525344E62"
+    },
+    {
+      "path": "scripts\\test_uart.ps1",
+      "sha256": "AF39FBA75ED2FF4692576001EA816697F12CDF1AF8DEA2EF34D63680CC8F7FA9"
+    },
+    {
+      "path": "scripts\\test_wav.ps1",
+      "sha256": "178F9B6E9016B80548D653912A73EAF8A8A574FFD1D465D08501B50E5E0C0471"
+    },
+    {
+      "path": "scripts\\test_wipe.ps1",
+      "sha256": "FFF611A6D0B69D5C63202676052B3FFAB6D053941C803B4B3923D03D65ADF92D"
+    },
+    {
+      "path": "scripts\\write_system_manifest.ps1",
+      "sha256": "0830CC8A2693C6CDBFC544041418C9F269A003AE8BE5F730C97E18FB08454883"
+    },
+    {
+      "path": "sim\\audio_test\\tb_uart_rx.sv",
+      "sha256": "CB76751AE1D6918118D383FBCD7BFB0494400A07135FEADADDEF5178BD591B1C"
+    },
+    {
+      "path": "sim\\media\\av_fixture.svh",
+      "sha256": "00B8BD82FF0AEF9A493B05CD48C044DD85DF367BB7CC0807A114F0DA8E4E36E6"
+    },
+    {
+      "path": "sim\\media\\media_main.cpp",
+      "sha256": "5D518C35B15F6EF91913591ABD23D228A6B0B63433099D07D7C24C3F1032A4D6"
+    },
+    {
+      "path": "sim\\media\\pair_main.cpp",
+      "sha256": "BBF651D35098F19054B3FCC6D34DC61570CF2422CC0835311C634534070804D8"
+    },
+    {
+      "path": "sim\\media\\scaler_main.cpp",
+      "sha256": "F9688B81240A5618831D67B761805ADC2BA11B8B13DFBA77AA02BD6288CA0997"
+    },
+    {
+      "path": "sim\\media\\status_main.cpp",
+      "sha256": "8553B589D3AE1F73C7F4B5AC9880D47F4C04F3CEC8EEBE0B015C85D5F62503B2"
+    },
+    {
+      "path": "sim\\media\\tb_media.sv",
+      "sha256": "3171F101C63BBCF330FC21AF5CF90CA0BBFB6C83A31C7CAB66D246FB0E1C3369"
+    },
+    {
+      "path": "sim\\media\\tb_pair.sv",
+      "sha256": "A79C47D801787055B4F5FFC7EFCBAA33CA4E4908DE3C54BEE525246F21640A3C"
+    },
+    {
+      "path": "sim\\media\\tb_scaler.sv",
+      "sha256": "A1F93F03268E5581A24FCCC4AEF6E7E71D5F486875339C3A5DDCD62795ED7FD2"
+    },
+    {
+      "path": "sim\\media\\tb_status_uart.sv",
+      "sha256": "E3EEB7C8B1D2ADB3EDB64581F3C9948EDEA6E6C6141098AEEB7C8E3EE5B5B342"
+    },
+    {
+      "path": "sim\\media\\tb_wav.sv",
+      "sha256": "C5E5843C22829D3D3776F096802F075B7F1D3635F9D9FA2B076003BB92E52057"
+    },
+    {
+      "path": "sim\\media\\wav_main.cpp",
+      "sha256": "31094AC6EB026B25D9FFF9107F80D8C8F672EEEECF8E54205164CABD9BEF58B5"
+    },
+    {
+      "path": "sim\\p1\\phy_models.sv",
+      "sha256": "C809574FCEB07A15C29F324D388521B8B3CB913DC6048B917716AD5B2CD42344"
+    },
+    {
+      "path": "sim\\p1\\tb_p1.sv",
+      "sha256": "A5E5574620B2E6C65C70D9320C852BEC55AFBC5FA1B61BB0FB3C10A53C4032F9"
+    },
+    {
+      "path": "sim\\p2\\sdram_model.sv",
+      "sha256": "DB2ADFFBC7C8C5BE0B67523B68D063FAA180E2A1E5D1951904F41DC47C6862A9"
+    },
+    {
+      "path": "sim\\p2\\tb_p2.sv",
+      "sha256": "10F17761884EF24CCC162D212A2FCA65F8850769CFA054169186E1AA6DEA92E1"
+    },
+    {
+      "path": "sim\\p3\\tb_bmp.sv",
+      "sha256": "0515E7DF9F9925FC19B1EA863930720B7EE485CC96871EBC706987DFE8DF3850"
+    },
+    {
+      "path": "sim\\p3\\tb_sd.sv",
+      "sha256": "57D717D0F71D921661B334BC196D2EF8A49ED907E7F88F94FE55F2368566BC61"
+    },
+    {
+      "path": "sim\\system\\command_main.cpp",
+      "sha256": "86DFB90DDF5E073B502C0C9A80FCBACCE9701D37483CB07666FDC9A7EBB3C0F6"
+    },
+    {
+      "path": "sim\\system\\display_main.cpp",
+      "sha256": "992D15F0242CEC978B0194E865AAA96B1174A8BF77B3EAADC70D4CE9E7DCB7EF"
+    },
+    {
+      "path": "sim\\system\\gallery_fixture.svh",
+      "sha256": "EC50BBE81DED384F2183F10EF51617D75AC7E015861087DDA1730FD7A4C04606"
+    },
+    {
+      "path": "sim\\system\\gallery_main.cpp",
+      "sha256": "7BE66AA7BC74ACA63B27CDFCFE0699F76F181C47C867C3D156CCCF1C9BE1E04D"
+    },
+    {
+      "path": "sim\\system\\keys_main.cpp",
+      "sha256": "CE1532019879792BE2EC515482AA0CDB2309F24B2716604FD5AC9E2C3518F550"
+    },
+    {
+      "path": "sim\\system\\media_fixture.svh",
+      "sha256": "AEC16E6F36AF7124A4979303C78EE35D753BC188A70E000D116FA8DB3A3E5F11"
+    },
+    {
+      "path": "sim\\system\\osd_main.cpp",
+      "sha256": "100A61227132D28A6A5FCA19A9E005BE9567B4A84016E1AC4D6D262CBFE522A3"
+    },
+    {
+      "path": "sim\\system\\scene_main.cpp",
+      "sha256": "F542BF33B977D0F4D654F0C973CBE965C314845468B8DD48412ADC630BE9ED4D"
+    },
+    {
+      "path": "sim\\system\\system_sd_model.sv",
+      "sha256": "9103FCBFCE91A3F81EB98F8180697B71F23D31E40CBE95EA983F0E76C0E19C49"
+    },
+    {
+      "path": "sim\\system\\tb_board_keys.sv",
+      "sha256": "141A02C4C1B6EEE9B70979204B6CA9A70D32AAADB54EF070EC3B7F585FD07E5C"
+    },
+    {
+      "path": "sim\\system\\tb_command_fifo.sv",
+      "sha256": "74B29E810968AF64CA25557F9404032AFD4360BF438AFA4E287582687E0E97C6"
+    },
+    {
+      "path": "sim\\system\\tb_display.sv",
+      "sha256": "B8F6F24DB30738E955D35893B3A31B4EBACE5FFD40D92A199284B462DB8A0F14"
+    },
+    {
+      "path": "sim\\system\\tb_gallery.sv",
+      "sha256": "1A5FDBF38CA51CC39217B88E01C2EED38DE464C721841CBE43D2CD87DB82F434"
+    },
+    {
+      "path": "sim\\system\\tb_osd_menu.sv",
+      "sha256": "4EF66AF6D0B76D485DF4BB09F01DD72B78D719CC29FE127D75330E69E984C14A"
+    },
+    {
+      "path": "sim\\system\\tb_scene_visual.sv",
+      "sha256": "EB6E41516F5273E9B222E73E5B9C04709D4B581B1C7D6F1A2AF5D3EBFA4E2BEB"
+    },
+    {
+      "path": "sim\\system\\tb_system_control.sv",
+      "sha256": "71102F78F3DCE2997FD0195082C871895A788D680DEA415B515F09D992A8F5C4"
+    },
+    {
+      "path": "sim\\system\\tb_system.sv",
+      "sha256": "91AE16A811B87AD137C6A33221410C9262F3C5222526C8560F3543FB31E5D203"
+    },
+    {
+      "path": "sim\\system\\tb_wipe.sv",
+      "sha256": "AE9DEDB83702534C21887AC4AFB37CBE5214AEDEEAE73EC87C140A65FE0D17C5"
+    },
+    {
+      "path": "sim\\system\\wipe_main.cpp",
+      "sha256": "7DD57D20AF10008BC15073F3F97160D77D6EFBFDDBF5765944CEB7871511EECB"
+    }
+  ]
+}

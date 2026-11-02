@@ -1,0 +1,4 @@
+REAL SD PAGE 0 complete frames=1 audio samples=0
+REAL SD PAGE 1 complete frames=2 audio samples=0
+PASS 2048-pair asynchronous audio FIFO, 48kHz consumption, 12.5Mbit/s card data + 100us token delays, concurrent composed image load, zero audio underruns (110180 pairs)
+- sim/platform\tb_platform_media.sv:82: Verilog $finish

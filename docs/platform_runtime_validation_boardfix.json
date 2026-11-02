@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-02",
+  "stage": "configured_course_boardfix",
+  "bitstream_sha256": "25e1fc49f83a81bdd24e7bcb0c524005cb3921b735ecee7b4adb6d472b03cba9",
+  "setup_slack_ns": 0.266,
+  "hold_slack_ns": 0.03,
+  "route_legal": true,
+  "source_project": "build_system/dmz_track1.al",
+  "lut": 16089,
+  "registers": 8844,
+  "bram9k": 62,
+  "dsp": 20,
+  "checks": {
+    "platform_media_result.txt": {
+      "passed": true,
+      "sha256": "f5e67826fa0c5e22f4d563acda97df5d2342ee857bdabce799939c39d80e3cec",
+      "last_modified": "2026-11-02T14:28:12.539137"
+    },
+    "media_sim_result.txt": {
+      "passed": true,
+      "sha256": "f42990ece375a54158473766524fe95504f5fbb03bd6d4cb0b515bd452dd34af",
+      "last_modified": "2026-11-02T13:29:57.174829"
+    },
+    "media_fat16_mbr_result.txt": {
+      "passed": true,
+      "sha256": "f42990ece375a54158473766524fe95504f5fbb03bd6d4cb0b515bd452dd34af",
+      "last_modified": "2026-11-02T13:30:14.528202"
+    },
+    "media_rgba_top_result.txt": {
+      "passed": true,
+      "sha256": "f42990ece375a54158473766524fe95504f5fbb03bd6d4cb0b515bd452dd34af",
+      "last_modified": "2026-11-02T13:30:32.946583"
+    },
+    "media_paired_result.txt": {
+      "passed": true,
+      "sha256": "530edf052002688d75e97f3bf5e7add4b29e9284c5fc58d1e3561f9a7f2ddb95",
+      "last_modified": "2026-11-02T13:31:56.853331"
+    },
+    "media_platform_result.txt": {
+      "passed": true,
+      "sha256": "5f19f0acec785145081f14d2d6a40a117a9093bb040f8ab39309cefef6ae469c",
+      "last_modified": "2026-11-02T13:32:11.506654"
+    },
+    "media_platform_invalid_result.txt": {
+      "passed": true,
+      "sha256": "5f19f0acec785145081f14d2d6a40a117a9093bb040f8ab39309cefef6ae469c",
+      "last_modified": "2026-11-02T13:32:26.772825"
+    },
+    "scene_runtime_result.txt": {
+      "passed": true,
+      "sha256": "8abc59a59b8278a868a9a22cf0c9a65f9e154198b20a1b9db9488b5f4495d681",
+      "last_modified": "2026-11-02T14:27:18.393171"
+    },
+    "page_compositor_result.txt": {
+      "passed": true,
+      "sha256": "3a1d73ec2472933e9142d54a14c830faab87ae25bf6f7526e5d6c9c75c76c5f0",
+      "last_modified": "2026-11-02T14:27:26.779511"
+    },
+    "audio_completion_result.txt": {
+      "passed": true,
+      "sha256": "c7d673165b794c5cef744666aaf20f7eba48f1932383141d780525e061caff9b",
+      "last_modified": "2026-11-02T14:27:32.702322"
+    },
+    "ui_keys_result.txt": {
+      "passed": true,
+      "sha256": "077b9a9d85297e074a33111fa9b2620ed016909ca8520a6dc4c7e20a7d251192",
+      "last_modified": "2026-11-01T23:31:40.670877"
+    },
+    "display_sim_result.txt": {
+      "passed": true,
+      "sha256": "f57a7ce998e4d7d263690cf8d6ec737a0eda8470ca8d7b2a824adbc085f1e811",
+      "last_modified": "2026-11-02T14:05:52.207666"
+    },
+    "scene_visual_sim_result.txt": {
+      "passed": true,
+      "sha256": "3682f558d05ca48c661de6ebcd7a07cdb0d0eae2342e175656838ea6cffbe4e4",
+      "last_modified": "2026-11-02T14:15:17.516256"
+    },
+    "scene_runtime_badmeta_result.txt": {
+      "passed": true,
+      "sha256": "f83cff4cc8d524807f8fa3f552da55f18c19704a962c3fabef5733ca19e38f64",
+      "last_modified": "2026-11-02T14:27:47.992846"
+    }
+  },
+  "hardware_report": "docs/platform_v2_board_validation.json",
+  "production_status": "32-byte T1ST v5; packet/sample/FIFO occupancy counters unavailable",
+  "flash_programmed": false,
+  "notes": "Each test artifact includes its actual modification time. Course/media regressions include the cache changes; unrelated tests are retained evidence. User visible/speaker/key acceptance remains separate.",
+  "resolved_user_issue": "Blue/red false-color problem corrected by unsigned channel math and neutral RGB bypass; muted playback restored; user confirmed alert, repeated narration, all three sound sources, waveform and back key.",
+  "recovery_evidence": "docs/system_recovery_validation.json"
+}

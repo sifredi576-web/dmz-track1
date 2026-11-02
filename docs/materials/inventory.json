@@ -1,0 +1,547 @@
+[
+  {
+    "path": "backgrounds_bmp24\\ALERT.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\COURSE.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\EXPL01.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\EXPL02.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\EXPL03.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\LESSON01.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\LESSON02.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\LESSON03.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\NOTICE.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\OBSERVE.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\QUIZ01.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\QUIZ02.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\QUIZ03.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\RESULT.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\WAIT01.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "backgrounds_bmp24\\WAIT02.bmp",
+    "bytes": 921654,
+    "size": [
+      640,
+      480
+    ],
+    "mode": "RGB"
+  },
+  {
+    "path": "BGM01.WAV",
+    "bytes": 4608044,
+    "channels": 2,
+    "rate": 48000,
+    "bits": 16,
+    "frames": 1152000,
+    "seconds": 24.0
+  },
+  {
+    "path": "LECT01.WAV",
+    "bytes": 1209092,
+    "channels": 2,
+    "rate": 48000,
+    "bits": 16,
+    "frames": 302262,
+    "seconds": 6.297125
+  },
+  {
+    "path": "LECT02.WAV",
+    "bytes": 1611828,
+    "channels": 2,
+    "rate": 48000,
+    "bits": 16,
+    "frames": 402946,
+    "seconds": 8.394708333333334
+  },
+  {
+    "path": "LECT03.WAV",
+    "bytes": 1421452,
+    "channels": 2,
+    "rate": 48000,
+    "bits": 16,
+    "frames": 355352,
+    "seconds": 7.4031666666666665
+  },
+  {
+    "path": "PIANO01.WAV",
+    "bytes": 768044,
+    "channels": 2,
+    "rate": 48000,
+    "bits": 16,
+    "frames": 192000,
+    "seconds": 4.0
+  },
+  {
+    "path": "TONE01.WAV",
+    "bytes": 768044,
+    "channels": 2,
+    "rate": 48000,
+    "bits": 16,
+    "frames": 192000,
+    "seconds": 4.0
+  },
+  {
+    "path": "ui\\bases\\BTN_BASE.png",
+    "bytes": 360,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\bases\\BTN_BASE.svg",
+    "bytes": 170
+  },
+  {
+    "path": "ui\\bases\\OPT_BASE.png",
+    "bytes": 392,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\bases\\OPT_BASE.svg",
+    "bytes": 170
+  },
+  {
+    "path": "ui\\labels\\LBL_BACK.png",
+    "bytes": 1028,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_BACK.svg",
+    "bytes": 246
+  },
+  {
+    "path": "ui\\labels\\LBL_BROWSE.png",
+    "bytes": 2227,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_BROWSE.svg",
+    "bytes": 252
+  },
+  {
+    "path": "ui\\labels\\LBL_CONT.png",
+    "bytes": 1475,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_CONT.svg",
+    "bytes": 246
+  },
+  {
+    "path": "ui\\labels\\LBL_NEXT.png",
+    "bytes": 827,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_NEXT.svg",
+    "bytes": 249
+  },
+  {
+    "path": "ui\\labels\\LBL_OK.png",
+    "bytes": 1218,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_OK.svg",
+    "bytes": 246
+  },
+  {
+    "path": "ui\\labels\\LBL_PIANO.png",
+    "bytes": 1243,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_PIANO.svg",
+    "bytes": 246
+  },
+  {
+    "path": "ui\\labels\\LBL_PREV.png",
+    "bytes": 742,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_PREV.svg",
+    "bytes": 249
+  },
+  {
+    "path": "ui\\labels\\LBL_REPLAY.png",
+    "bytes": 2312,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_REPLAY.svg",
+    "bytes": 252
+  },
+  {
+    "path": "ui\\labels\\LBL_RETRY.png",
+    "bytes": 1913,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_RETRY.svg",
+    "bytes": 252
+  },
+  {
+    "path": "ui\\labels\\LBL_START.png",
+    "bytes": 1848,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_START.svg",
+    "bytes": 252
+  },
+  {
+    "path": "ui\\labels\\LBL_TONE.png",
+    "bytes": 1027,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_TONE.svg",
+    "bytes": 246
+  },
+  {
+    "path": "ui\\labels\\LBL_VOICE.png",
+    "bytes": 784,
+    "size": [
+      160,
+      48
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\LBL_VOICE.svg",
+    "bytes": 246
+  },
+  {
+    "path": "ui\\labels\\QUIZ01_A.png",
+    "bytes": 2247,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ01_A.svg",
+    "bytes": 213
+  },
+  {
+    "path": "ui\\labels\\QUIZ01_B.png",
+    "bytes": 2173,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ01_B.svg",
+    "bytes": 213
+  },
+  {
+    "path": "ui\\labels\\QUIZ01_C.png",
+    "bytes": 2051,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ01_C.svg",
+    "bytes": 213
+  },
+  {
+    "path": "ui\\labels\\QUIZ01_D.png",
+    "bytes": 2080,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ01_D.svg",
+    "bytes": 213
+  },
+  {
+    "path": "ui\\labels\\QUIZ02_A.png",
+    "bytes": 1906,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ02_A.svg",
+    "bytes": 213
+  },
+  {
+    "path": "ui\\labels\\QUIZ02_B.png",
+    "bytes": 1740,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ02_B.svg",
+    "bytes": 213
+  },
+  {
+    "path": "ui\\labels\\QUIZ02_C.png",
+    "bytes": 1434,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ02_C.svg",
+    "bytes": 213
+  },
+  {
+    "path": "ui\\labels\\QUIZ02_D.png",
+    "bytes": 1583,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ02_D.svg",
+    "bytes": 213
+  },
+  {
+    "path": "ui\\labels\\QUIZ03_A.png",
+    "bytes": 1889,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ03_A.svg",
+    "bytes": 213
+  },
+  {
+    "path": "ui\\labels\\QUIZ03_B.png",
+    "bytes": 1933,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ03_B.svg",
+    "bytes": 213
+  },
+  {
+    "path": "ui\\labels\\QUIZ03_C.png",
+    "bytes": 1002,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ03_C.svg",
+    "bytes": 207
+  },
+  {
+    "path": "ui\\labels\\QUIZ03_D.png",
+    "bytes": 1621,
+    "size": [
+      272,
+      44
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "path": "ui\\labels\\QUIZ03_D.svg",
+    "bytes": 213
+  },
+  {
+    "path": "VOICE01.WAV",
+    "bytes": 768044,
+    "channels": 2,
+    "rate": 48000,
+    "bits": 16,
+    "frames": 192000,
+    "seconds": 4.0
+  }
+]

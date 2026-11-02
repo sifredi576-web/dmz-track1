@@ -16,6 +16,10 @@ reg [1:0] channel,padding,pad_left;reg [7:0] blue,green;
 reg rgba,top_down,width_limited,blank_row,input_finished;
 reg [3:0] burst_pixel;reg [15:0] low_pixel;reg [15:0] row_q;wire [15:0] sample565=inside_x?row_q:16'd0;
 reg [15:0] row_cache[0:2047]; /* fehdl force_ram=1, ram_style="bram" */
+// Source and scaled reads share this invertible physical row address map.
+function automatic [10:0] row_addr(input [10:0] a);
+ reg [10:0] g;begin g=(a>>1)^a;g[10]=g[10]^g[0];row_addr=g;end
+endfunction
 function automatic [15:0] h16(input integer i);h16={header[i+1],header[i]};endfunction
 function automatic [31:0] h32(input integer i);h32={header[i+3],header[i+2],header[i+1],header[i]};endfunction
 wire [31:0] abs_height=header[25][7]?(~h32(22)+1'b1):h32(22);
@@ -35,9 +39,9 @@ wire [15:0] incoming={byte_data[7:3],green[7:2],blue[7:3]};
 assign byte_ready=(state==HEADER||state==PARSE)&&!start;
 assign load_valid=state==EMIT;assign status={3'd0,state};
 always @(posedge clk) begin
- row_q<=row_cache[sample_x];
+ row_q<=row_cache[row_addr(sample_x)];
  if(!reset&&!start&&state==PARSE&&byte_valid&&position>=offset&&pad_left==0&&channel==2)
-  row_cache[source_x]<=incoming;
+  row_cache[row_addr(source_x)]<=incoming;
 end
 always @(posedge clk) begin
  if(reset||start) begin

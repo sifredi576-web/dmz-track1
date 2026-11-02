@@ -1,0 +1,2 @@
+PASS CRC failure aborts staging and drains accepted memory transaction without activation
+- sim/platform\tb_scene_runtime.sv:53: Verilog $finish

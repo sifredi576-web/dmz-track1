@@ -1,5 +1,5 @@
-param(
- [ValidateSet('Build','Test','Download','Status','Mute','Tone','Beep','Switches','Reload','Smoke','Soak','Next','Previous','Auto','Pause','AudioPlay','AudioPause','AudioResume','VolumeUp','VolumeDown','Menu','MenuPrevious','MenuNext','MenuType','MenuSelect')][string]$Action='Status',
+﻿param(
+ [ValidateSet('Build','Test','Download','Status','Mute','Tone','Beep','Switches','Reload','Smoke','Soak','Next','Previous','Auto','Pause','AudioPlay','Replay','AudioPause','AudioResume','VolumeUp','VolumeDown','Menu','MenuPrevious','MenuNext','MenuType','MenuSelect')][string]$Action='Status',
  [string]$Port='', [int]$Seconds=10, [string]$TdRoot='D:/ANLU')
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
@@ -11,6 +11,11 @@ try {
    & ./scripts/test_board_keys.ps1
    & ./scripts/test_osd_menu.ps1
    & ./scripts/test_scene_visual.ps1
+   & ./scripts/test_pair.ps1
+   & ./scripts/test_platform.ps1
+   & ./scripts/test_ui.ps1
+   & ./scripts/test_runtime.ps1
+   & ./scripts/test_runtime.ps1 -Media
    & ./scripts/test_display.ps1
    & ./scripts/test_scaler.ps1
    & ./scripts/test_wipe.ps1
@@ -27,7 +32,7 @@ try {
   }
   Download { & ./scripts/download_system.ps1 -TdRoot $TdRoot }
   default {
-   $commands=@{Status='Status';Mute='M';Tone='T';Beep='B';Switches='S';Reload='R';Smoke='Smoke';Soak='Soak';Next='N';Previous='P';Auto='A';Pause='H';AudioPlay='W';AudioPause='K';AudioResume='L';VolumeUp='+';VolumeDown='-';Menu='F';MenuPrevious='I';MenuNext='O';MenuType='V';MenuSelect='E'}
+   $commands=@{Status='Status';Mute='M';Tone='T';Beep='B';Switches='S';Reload='R';Smoke='Smoke';Soak='Soak';Next='N';Previous='P';Auto='A';Pause='H';AudioPlay='W';Replay='J';AudioPause='K';AudioResume='L';VolumeUp='+';VolumeDown='-';Menu='F';MenuPrevious='I';MenuNext='O';MenuType='V';MenuSelect='E'}
    $output=if($Action -eq 'Soak'){'docs/system_soak_latest.json'}elseif($Action -eq 'Smoke'){'docs/system_smoke_latest.json'}else{'docs/system_hardware_status.json'}
    & ./scripts/system_console.ps1 -Command $commands[$Action] -Port $Port -Seconds $Seconds -Output $output
   }

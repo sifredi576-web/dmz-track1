@@ -1,0 +1,2 @@
+PASS generic focus, disabled skip, commit boundary, choice/submit, first-score lock, home/back, restart, bounds, request handshake and notice dispatch
+- sim/platform\tb_ui_controller.sv:71: Verilog $finish

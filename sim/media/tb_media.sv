@@ -2,6 +2,7 @@
 module tb_media;
 reg clk=0,reset=1,select_request=0;always #10 clk=~clk;
 reg [4:0] requested=0;wire [4:0] selected;
+reg paired=0;reg [31:0] frame_swaps=0;
 reg audio_select=0;reg [3:0] audio_requested=0;wire [3:0] audio_selected;wire audio_flush;
 reg [5:0] browse_query=0;wire [5:0] browse_tag;wire [63:0] browse_name;wire browse_valid;wire [4:0] wav_count;
 wire catalog_ready;wire [5:0] count;wire [63:0] name;
@@ -15,9 +16,13 @@ wire pcm_ready=cycle%103==0;
 function automatic [31:0] audio_expected(input integer index);
  reg [15:0] left;begin left=16'((index%4096)*17-32768);audio_expected={~left,left};end
 endfunction
+reg [7:0] config_image[0:3423];
+initial if($test$plusargs("platform")) $readmemh("../../sim/platform/course.hex",config_image);
+wire platform_found,platform_ready;wire [7:0] platform_error;
 `include "sim/media/av_fixture.svh"
 dmz_media_storage dut(.clk(clk),.reset(reset),.enable(1'b1),.audio_urgent(cycle%1000<500),
- .audio_select_request(audio_select),.audio_requested_index(audio_requested),.audio_selected_index(audio_selected),.audio_flushing(audio_flush),.wav_count(wav_count),
+ .platform_found(platform_found),.platform_ready(platform_ready),.platform_error(platform_error),
+ .pair_enable(paired),.frame_swaps(frame_swaps),.audio_select_request(audio_select),.audio_requested_index(audio_requested),.audio_selected_index(audio_selected),.audio_flushing(audio_flush),.wav_count(wav_count),
  .browse_query(browse_query),.browse_tag(browse_tag),.browse_name(browse_name),.browse_valid(browse_valid),
  .select_request(select_request),.requested_index(requested),.selected_index(selected),.catalog_ready(catalog_ready),.image_count(count),.image_name(name),
  .image_busy(image_busy),.image_done(image_done),.image_error(image_error),.image_status(image_state),.image_pixels(pixels),
@@ -59,6 +64,11 @@ task choose(input [4:0] slot);
 endtask
 initial begin
  #100;reset=0;wait(image_done);
+ if($test$plusargs("platform")) begin
+  if(!platform_found||platform_ready==$test$plusargs("configcrcerror")||platform_error!=($test$plusargs("configcrcerror")?7:0))
+   $fatal(1,"configuration bootstrap found=%0d valid=%0d error=%0d",platform_found,platform_ready,platform_error);
+  $display("PASS configuration read before media, CRC and fallback");
+ end
  if(count!=2||wav_found==$test$plusargs("nowav")||(!$test$plusargs("nowav")&&wav_bytes!=16428)||bursts!=19200) $fatal(1,"catalog/image count=%0d wav=%0d bursts=%0d",count,wav_found,bursts);
  choose(1);if(bursts!=19200||pixels!=307200) $fatal(1,"second image frame incomplete");
  choose(0);if(bursts!=19200||image_reads==0) $fatal(1,"image reload progress");
@@ -66,6 +76,15 @@ initial begin
  else if($test$plusargs("shortchain")) begin if(wav_error!=135||pcm_count>1013) $fatal(1,"short FAT chain must stop audio");end
  else if($test$plusargs("nowav")) begin if(audio_reads!=0||pcm_count!=0) $fatal(1,"missing WAV must not read audio");end
  else if(loops<2||total!=4096||audio_reads==0) $fatal(1,"loop/concurrent progress");
+ if($test$plusargs("paired")) begin
+  paired=1;repeat(50) @(negedge clk);
+  if(!dut.pair_found||dut.pair_index!=0) $fatal(1,"first filename match");
+  choose(1);repeat(50) @(negedge clk);
+  if(audio_selected!=0||!dut.pair_found||dut.pair_index!=1) $fatal(1,"precommit or filename match");
+  frame_swaps=1;wait(audio_flush);wait(!audio_flush);wait(audio_selected==1&&pcm_count>4500);
+  choose(0);frame_swaps=2;wait(audio_flush);wait(!audio_flush);wait(audio_selected==0&&pcm_count>4500);
+  $display("PASS paired FAT lookup, commit gating, both track directions, exact PCM after flush");$finish;
+ end
  if($test$plusargs("multiwav")) begin
   if(wav_count!=2) $fatal(1,"WAV index count");
   browse_query=33;repeat(5) @(negedge clk);

@@ -5,6 +5,7 @@
 #include "Vtb_media__pch.h"
 #include "Vtb_media___024root.h"
 
+VL_ATTR_COLD void Vtb_media___024root___eval_initial__TOP(Vtb_media___024root* vlSelf);
 VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__0(Vtb_media___024root* vlSelf);
 VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__1(Vtb_media___024root* vlSelf);
 VlCoroutine Vtb_media___024root___eval_initial__TOP__Vtiming__2(Vtb_media___024root* vlSelf);
@@ -14,6 +15,7 @@ void Vtb_media___024root___eval_initial(Vtb_media___024root* vlSelf) {
     Vtb_media__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
+    Vtb_media___024root___eval_initial__TOP(vlSelf);
     Vtb_media___024root___eval_initial__TOP__Vtiming__0(vlSelf);
     Vtb_media___024root___eval_initial__TOP__Vtiming__1(vlSelf);
     Vtb_media___024root___eval_initial__TOP__Vtiming__2(vlSelf);
@@ -40,7 +42,7 @@ void Vtb_media___024root___eval_act(Vtb_media___024root* vlSelf) {
     Vtb_media__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if ((0x1feULL & vlSelfRef.__VactTriggered.word(0U))) {
+    if ((0xffeULL & vlSelfRef.__VactTriggered.word(0U))) {
         Vtb_media___024root___act_comb__TOP__0(vlSelf);
     }
 }
@@ -51,10 +53,11 @@ VL_INLINE_OPT void Vtb_media___024root___act_comb__TOP__0(Vtb_media___024root* v
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.tb_media__DOT__dut__DOT__audio_change 
-        = ((IData)(vlSelfRef.tb_media__DOT__audio_select) 
-           & ((IData)(vlSelfRef.tb_media__DOT__catalog_ready) 
-              & ((IData)(vlSelfRef.tb_media__DOT__audio_requested) 
-                 < (IData)(vlSelfRef.tb_media__DOT__wav_count))));
+        = ((IData)(vlSelfRef.tb_media__DOT__catalog_ready) 
+           & ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__pair_request) 
+              | ((IData)(vlSelfRef.tb_media__DOT__audio_select) 
+                 & ((IData)(vlSelfRef.tb_media__DOT__audio_requested) 
+                    < (IData)(vlSelfRef.tb_media__DOT__wav_count)))));
     vlSelfRef.tb_media__DOT__audio_flush = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio_change) 
                                             | ((5U 
                                                 == (IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__state)) 
@@ -99,7 +102,7 @@ void Vtb_media___024root___eval_nba(Vtb_media___024root* vlSelf) {
     if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vtb_media___024root___nba_sequent__TOP__0(vlSelf);
     }
-    if ((0x1ffULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+    if ((0xfffULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vtb_media___024root___act_comb__TOP__0(vlSelf);
     }
 }
@@ -122,18 +125,30 @@ void Vtb_media___024root___timing_resume(Vtb_media___024root* vlSelf) {
                                                    "@( ((3'h5 != tb_media.dut.images.state) & (3'h6 != tb_media.dut.images.state)))");
     }
     if ((0x20ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        vlSelfRef.__VtrigSched_h2ec6dfc1__0.resume(
-                                                   "@( (4'h3 == tb_media.dut.audio.file_stream.state))");
+        vlSelfRef.__VtrigSched_he9dec02e__0.resume(
+                                                   "@( tb_media.audio_flush)");
     }
     if ((0x40ULL & vlSelfRef.__VactTriggered.word(0U))) {
         vlSelfRef.__VtrigSched_hb0d36602__0.resume(
                                                    "@( (~ tb_media.audio_flush))");
     }
     if ((0x80ULL & vlSelfRef.__VactTriggered.word(0U))) {
+        vlSelfRef.__VtrigSched_h8dcd73a7__0.resume(
+                                                   "@( ((4'h1 == tb_media.audio_selected) & (32'sh1194 < tb_media.pcm_count)))");
+    }
+    if ((0x100ULL & vlSelfRef.__VactTriggered.word(0U))) {
+        vlSelfRef.__VtrigSched_h8c9c9318__0.resume(
+                                                   "@( ((4'h0 == tb_media.audio_selected) & (32'sh1194 < tb_media.pcm_count)))");
+    }
+    if ((0x200ULL & vlSelfRef.__VactTriggered.word(0U))) {
+        vlSelfRef.__VtrigSched_h2ec6dfc1__0.resume(
+                                                   "@( (4'h3 == tb_media.dut.audio.file_stream.state))");
+    }
+    if ((0x400ULL & vlSelfRef.__VactTriggered.word(0U))) {
         vlSelfRef.__VtrigSched_h69bb0bc8__0.resume(
                                                    "@( ((32'sh1 <= tb_media.loops) & (32'sh1194 < tb_media.pcm_count)))");
     }
-    if ((0x100ULL & vlSelfRef.__VactTriggered.word(0U))) {
+    if ((0x800ULL & vlSelfRef.__VactTriggered.word(0U))) {
         vlSelfRef.__VtrigSched_h357ffed8__0.resume(
                                                    "@( (tb_media.pcm_valid & (32'sh0 != (tb_media.cycle % 32'sh67))))");
     }
@@ -160,18 +175,30 @@ void Vtb_media___024root___timing_commit(Vtb_media___024root* vlSelf) {
                                                    "@( ((3'h5 != tb_media.dut.images.state) & (3'h6 != tb_media.dut.images.state)))");
     }
     if ((! (0x20ULL & vlSelfRef.__VactTriggered.word(0U)))) {
-        vlSelfRef.__VtrigSched_h2ec6dfc1__0.commit(
-                                                   "@( (4'h3 == tb_media.dut.audio.file_stream.state))");
+        vlSelfRef.__VtrigSched_he9dec02e__0.commit(
+                                                   "@( tb_media.audio_flush)");
     }
     if ((! (0x40ULL & vlSelfRef.__VactTriggered.word(0U)))) {
         vlSelfRef.__VtrigSched_hb0d36602__0.commit(
                                                    "@( (~ tb_media.audio_flush))");
     }
     if ((! (0x80ULL & vlSelfRef.__VactTriggered.word(0U)))) {
+        vlSelfRef.__VtrigSched_h8dcd73a7__0.commit(
+                                                   "@( ((4'h1 == tb_media.audio_selected) & (32'sh1194 < tb_media.pcm_count)))");
+    }
+    if ((! (0x100ULL & vlSelfRef.__VactTriggered.word(0U)))) {
+        vlSelfRef.__VtrigSched_h8c9c9318__0.commit(
+                                                   "@( ((4'h0 == tb_media.audio_selected) & (32'sh1194 < tb_media.pcm_count)))");
+    }
+    if ((! (0x200ULL & vlSelfRef.__VactTriggered.word(0U)))) {
+        vlSelfRef.__VtrigSched_h2ec6dfc1__0.commit(
+                                                   "@( (4'h3 == tb_media.dut.audio.file_stream.state))");
+    }
+    if ((! (0x400ULL & vlSelfRef.__VactTriggered.word(0U)))) {
         vlSelfRef.__VtrigSched_h69bb0bc8__0.commit(
                                                    "@( ((32'sh1 <= tb_media.loops) & (32'sh1194 < tb_media.pcm_count)))");
     }
-    if ((! (0x100ULL & vlSelfRef.__VactTriggered.word(0U)))) {
+    if ((! (0x800ULL & vlSelfRef.__VactTriggered.word(0U)))) {
         vlSelfRef.__VtrigSched_h357ffed8__0.commit(
                                                    "@( (tb_media.pcm_valid & (32'sh0 != (tb_media.cycle % 32'sh67))))");
     }
@@ -184,7 +211,7 @@ bool Vtb_media___024root___eval_phase__act(Vtb_media___024root* vlSelf) {
     Vtb_media__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Init
-    VlTriggerVec<9> __VpreTriggered;
+    VlTriggerVec<12> __VpreTriggered;
     CData/*0:0*/ __VactExecute;
     // Body
     Vtb_media___024root___eval_triggers__act(vlSelf);

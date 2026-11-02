@@ -1,0 +1,141 @@
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_audio_completion.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_audio_completion(input clk,reset,input [41:0] params,input flushing,pop,
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       sim/platform\tb_scene_runtime.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_runtime;
+      |        ^~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_cfg_writer.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_cfg_writer(input clk,reset,start,abort,
+      |        ^~~~~~~~~~~~~~
+                       sim/platform\tb_scene_runtime.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_runtime;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_mem_mux.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_mem_mux #(parameter N=2)(input clk,reset,
+      |        ^~~~~~~~~~~
+                       sim/platform\tb_scene_runtime.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_runtime;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_page_compositor.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module dmz_page_compositor(input clk,reset,enabled,page_begin,input [3:0] widget_count,
+      |        ^~~~~~~~~~~~~~~~~~~
+                       sim/platform\tb_scene_runtime.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_runtime;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_platform_boot.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_platform_boot #(parameter STORE_CONFIG=0)(input clk,reset,catalog_ready,found,
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/platform\tb_scene_runtime.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_runtime;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_loader.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_scene_loader(
+      |        ^~~~~~~~~~~~~~~~
+                       sim/platform\tb_scene_runtime.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_runtime;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_scene_runtime #(parameter MS_CYCLES=50000)(input clk,reset,start,
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/platform\tb_scene_runtime.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_runtime;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_ui_controller.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_ui_controller #(parameter COMPACT_NEIGHBORS=0)(input clk,reset,config_ready,input [4:0] entry_page,
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/platform\tb_scene_runtime.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_runtime;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_ui_keys.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_ui_keys(input clk,reset,key_valid,input [3:0] key_code,
+      |        ^~~~~~~~~~~
+                       sim/platform\tb_scene_runtime.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_runtime;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_ui_overlay.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_ui_overlay(input [9:0] x,y,input [159:0] status,
+      |        ^~~~~~~~~~~~~~
+                       sim/platform\tb_scene_runtime.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_runtime;
+      |        ^~~~~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_ui_controller.sv:23:38: Bit extraction of var[255:0] requires 8 bit index, not 7 bits.
+                                                                                                                                      : ... note: In instance 'tb_scene_runtime.dut.ui'
+   23 | wire [3:0] compact_neighbor=neighbors[{candidate,direction,2'b00}+:4];
+      |                                      ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_loader.sv:26:20: Operator ASSIGNW expects 20 bits on the Assign RHS, but Assign RHS's SUB generates 21 bits.
+                                                                                                                                    : ... note: In instance 'tb_scene_runtime.loader'
+   26 | assign staging_addr=position-21'd32;
+      |                    ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:220:13: Operator NEQ expects 8 bits on the RHS, but RHS's VARREF 'pi' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'tb_scene_runtime.dut'
+  220 |     if(rb(0)!=pi||rb(1)>=resource_count||
+      |             ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:220:24: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'tb_scene_runtime.dut'
+  220 |     if(rb(0)!=pi||rb(1)>=resource_count||
+      |                        ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:221:26: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'tb_scene_runtime.dut'
+  221 |       (rb(2)!=255&&(rb(2)>=resource_count))||
+      |                          ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:222:43: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'tb_scene_runtime.dut'
+  222 |       (rb(3)&8'hf8)!=0||(rb(4)!=255&&rb(4)>=page_count)||rb(5)!=0||rb(9)>8||
+      |                                           ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:223:74: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'tb_scene_runtime.dut'
+  223 |       {1'b0,rb(8)}+{1'b0,rb(9)}>{1'b0,widget_total}||(rb(10)!=255&&rb(10)>=page_count)||
+      |                                                                          ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:240:13: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'tb_scene_runtime.dut'
+  240 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
+      |             ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:240:41: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'tb_scene_runtime.dut'
+  240 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
+      |                                         ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:240:64: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'tb_scene_runtime.dut'
+  240 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
+      |                                                                ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:244:39: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+                                                                                                                                       : ... note: In instance 'tb_scene_runtime.dut'
+  244 |        ((rb(12)==1||rb(12)==9)&&rb(13)>=page_count)||
+      |                                       ^~
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:245:27: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+                                                                                                                                       : ... note: In instance 'tb_scene_runtime.dut'
+  245 |        (rb(12)==2&&(rb(13)>=resource_count))||
+      |                           ^~
+%Warning-WIDTHTRUNC: sim/platform\tb_scene_runtime.sv:37:20: Bit extraction of array[32767:0] requires 15 bit index, not 21 bits.
+                                                           : ... note: In instance 'tb_scene_runtime'
+   37 |    if(pwrite)memory[(address-21'h80000)>>3]<=write_data;else memory_data<=memory[(address-21'h80000)>>3];
+      |                    ^
+%Warning-WIDTHTRUNC: sim/platform\tb_scene_runtime.sv:37:81: Bit extraction of array[32767:0] requires 15 bit index, not 21 bits.
+                                                           : ... note: In instance 'tb_scene_runtime'
+   37 |    if(pwrite)memory[(address-21'h80000)>>3]<=write_data;else memory_data<=memory[(address-21'h80000)>>3];
+      |                                                                                 ^
+%Warning-WIDTHEXPAND: sim/platform\tb_scene_runtime.sv:65:30: Operator NEQ expects 32 bits on the LHS, but LHS's SEL generates 5 bits.
+                                                            : ... note: In instance 'tb_scene_runtime'
+   65 |  wait_idle();if(status[15:11]!=wanted)$fatal(1,"page wanted %0d got %0d",wanted,status[15:11]);
+      |                              ^~
+%Warning-WIDTHEXPAND: sim/platform\tb_scene_runtime.sv:72:20: Operator NEQ expects 32 bits on the LHS, but LHS's SEL generates 3 bits.
+                                                            : ... note: In instance 'tb_scene_runtime'
+   72 |  while(status[10:8]!=wanted)begin
+      |                    ^~
+%Warning-WIDTHEXPAND: sim/platform\tb_scene_runtime.sv:75:10: Operator FUNCREF 'route' expects 32 bits on the Function Argument, but Function Argument's SEL generates 5 bits.
+                                                            : ... note: In instance 'tb_scene_runtime'
+   75 |   action=route(status[15:11],status[10:8],wanted);send_event(action);wait_idle();
+      |          ^~~~~
+%Warning-WIDTHEXPAND: sim/platform\tb_scene_runtime.sv:75:10: Operator FUNCREF 'route' expects 32 bits on the Function Argument, but Function Argument's SEL generates 3 bits.
+                                                            : ... note: In instance 'tb_scene_runtime'
+   75 |   action=route(status[15:11],status[10:8],wanted);send_event(action);wait_idle();
+      |          ^~~~~
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.384 MB sources in 13 modules, into 3.683 MB in 10 C++ files needing 0.001 MB
+- Verilator: Walltime 0.334 s (elab=0.010, cvt=0.223, bld=0.000); cpu 0.266 s on 1 threads; alloced 43.086 MB

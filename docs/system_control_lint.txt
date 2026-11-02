@@ -35,5 +35,5 @@
    35 |      "R","r":begin mode<=2'(DEFAULT_MODE);wav_source<=1'(DEFAULT_WAV);audio_paused<=0;restart_count<=RESTART_CYCLES;restart<=1;end
       |                                                                                                    ^~
 - V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
-- Verilator: Built from 0.072 MB sources in 5 modules, into 0.465 MB in 7 C++ files needing 0.000 MB
-- Verilator: Walltime 0.105 s (elab=0.001, cvt=0.063, bld=0.000); cpu 0.078 s on 1 threads; alloced 25.293 MB
+- Verilator: Built from 0.073 MB sources in 5 modules, into 0.591 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.136 s (elab=0.003, cvt=0.095, bld=0.000); cpu 0.000 s on 1 threads; alloced 30.090 MB

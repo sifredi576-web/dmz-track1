@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-02",
+  "bitstream_sha256": "25e1fc49f83a81bdd24e7bcb0c524005cb3921b735ecee7b4adb6d472b03cba9",
+  "sram_download_passed": true,
+  "flash_programmed": false,
+  "port": "COM9",
+  "setup_slack_ns": 0.266,
+  "hold_slack_ns": 0.03,
+  "route_legal": true,
+  "confirmed_from_board": {
+    "pll_locked": true,
+    "bist_passed": true,
+    "display_valid": true,
+    "platform_active": true,
+    "page_count": 16,
+    "current_page": 5,
+    "score": 2,
+    "total": 3,
+    "image_count": 16,
+    "wav_count": 7,
+    "sd_error": 0,
+    "image_error": 0,
+    "wav_error": 0,
+    "tone_muted": false,
+    "audio_paused": false
+  },
+  "automatic_course_state_checks_passed": true,
+  "course_acceptance_passed": true,
+  "physical_key_tested": true,
+  "user_screen_speaker_confirmation": "passed targeted checks on colorfix bitstream",
+  "pending": [
+    "visible mute/pause/track-complete state indicators",
+    "second configuration on real TF card",
+    "Flash programming and cold boot",
+    "measured AV boundary and worst-case TF latency"
+  ],
+  "evidence": [
+    "docs/platform_colorfix_boot.json",
+    "docs/platform_colorfix_course.json",
+    "docs/platform_colorfix_final.json",
+    "docs/system_recovery_validation.json",
+    "docs/system_recovery_log.txt",
+    "docs/system_download_log.txt",
+    "build_system/dmz_track1_Runs/phy_1/recovered_timing.rpt"
+  ],
+  "fixed": "TD generate-scope implicit configuration count nets; short BRAM data/address paths and dense routing",
+  "user_feedback_20261102": {
+    "rendering": "boxed region and ripples beside central warning triangle show corrupted pixels",
+    "audio": "user still needs to test and confirm",
+    "keys_and_back": "some key functions and return behavior uncertain"
+  },
+  "user_feedback_photos": {
+    "date": "2026-11-02",
+    "rendering": "All photographed course pages have red/pink cast instead of blue; ALERT dark gradients show abrupt false-color contours. No random line-loss evident in supplied stills.",
+    "audio_initial_board_status": {
+      "page": 6,
+      "mode": 2,
+      "muted": true,
+      "paused": false
+    },
+    "diagnostic_actions": [
+      "D reset picture controls",
+      "W enable WAV/unmute/resume"
+    ],
+    "user_after_actions": "Sound restored, picture remains red.",
+    "pending": "New unsigned picture adjustment + neutral RGB bypass requires build, timing, download and user visual confirmation."
+  },
+  "gray_diagnostic": {
+    "commands": "D then C five times (contrast=0), then D restored neutral",
+    "user_observation": "uniform middle gray",
+    "scope": "Confirms known constant-gray output is visibly neutral; narrows but does not alone prove whether original corruption occurs in BMP data or channel arithmetic.",
+    "evidence": [
+      "docs/platform_gray_diagnostic.json",
+      "docs/platform_gray_diagnostic_restore.json"
+    ]
+  },
+  "previous_bitstream_sha256": "e4492ed921a4ee4184a8c7af3906159ee5e6f6f51439f3c71f961f5df2e63190",
+  "user_confirmations_colorfix": {
+    "blue_background": "已恢复蓝色，颜色正常",
+    "alert_and_physical_exit": "红色页正常，退出恢复正常",
+    "replay_button_twice": "有声音，两次都能重播",
+    "three_audio_sources": "三个声音都可以",
+    "waveform_and_back_key": "波形正常，返回第三讲正常"
+  },
+  "physical_key_scope": "User confirmed KEY5/KEY4 priority enter/exit, KEY10 replay twice and three sound sources, KEY8 back to lesson3. Not every key or every page was manually swept.",
+  "recovery": "Positive routed STA and legal routing; TD export_db reported error but wrote valid file. Fresh TD import rechecked STA and bitgen succeeded. Exact-source hash proof required for accepting this export-only failure."
+}

@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-01",
+  "stage": "prepared; waiting for hardware connection",
+  "bit": "releases/paired_20261031/dmz_track1.bit",
+  "sha256": "6C2B1EB043FE8B656E0C375C581ADA3CA1041098E9B0B7F98CDEDF52F7637339",
+  "validated_release": "paired_20261031",
+  "manual": "DMZ board manual: Program Flash, then remove USB and power on again",
+  "programmed": false,
+  "power_cycle_verified": false,
+  "connection": "TD No hardware; no CH340/JTAG device detected",
+  "current_development_candidate": "releases/ui_keys_20261101/dmz_track1.bit; software checks passed, not downloaded or hardware-validated"
+}

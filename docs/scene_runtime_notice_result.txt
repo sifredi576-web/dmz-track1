@@ -1,0 +1,5 @@
+PAGE 0 score=0 focus=0
+PAGE 1 score=0 focus=0
+PAGE 0 score=0 focus=0
+PASS second scene, same runtime RTL, alternate backgrounds/widgets/resource count, optional notice absent
+- sim/platform\tb_scene_runtime.sv:232: Verilog $finish

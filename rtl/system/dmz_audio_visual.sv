@@ -3,6 +3,9 @@
 module dmz_audio_visual(input clk,reset,sample_ce,frame_tick,enabled,input [15:0] left,right,input [9:0] x,y,
  output reg ink,shade,output reg [23:0] color,output reg [4:0] level_l,level_r,peak_l,peak_r);
 reg [7:0] wave[0:255]; /* fehdl force_ram=1, ram_style="bram" */
+function automatic [7:0] physical_wave(input [7:0] a);
+ reg [7:0] g;begin g=(a>>1)^a;g[7]=g[7]^g[0];physical_wave=g;end
+endfunction
 reg front,page_ready;reg [6:0] wp;reg [3:0] decimate;reg [7:0] wave_q;
 reg [15:0] maximum_l,maximum_r;
 wire [15:0] mag_l=left[15]?(~left+16'd1):left;
@@ -13,8 +16,8 @@ wire [9:0] ax=x>=798?x-798:x+2;
 wire [9:0] ay=x>=798?(y==524?10'd0:y+1'b1):y;
 wire [9:0] local_x=ax-64;
 always @(posedge clk) begin
- wave_q<=wave[{front,local_x[8:2]}];
- if(!reset&&sample_ce&&!page_ready&&decimate==15) wave[{~front,wp}]<=left[15:8];
+ wave_q<=wave[physical_wave({front,local_x[8:2]})];
+ if(!reset&&sample_ce&&!page_ready&&decimate==15) wave[physical_wave({~front,wp})]<=left[15:8];
 end
 always @(posedge clk) begin
  if(reset) begin front<=0;page_ready<=0;wp<=0;decimate<=0;maximum_l<=0;maximum_r<=0;level_l<=0;level_r<=0;peak_l<=0;peak_r<=0;end

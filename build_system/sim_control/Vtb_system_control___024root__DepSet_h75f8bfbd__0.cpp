@@ -151,6 +151,36 @@ VL_INLINE_OPT VlCoroutine Vtb_system_control___024root___eval_initial__TOP__Vtim
     __Vtask_tb_system_control__DOT__send__13__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0;
     IData/*31:0*/ __Vtask_tb_system_control__DOT__send__13__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2;
     __Vtask_tb_system_control__DOT__send__13__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 = 0;
+    CData/*7:0*/ __Vtask_tb_system_control__DOT__send__14__b;
+    __Vtask_tb_system_control__DOT__send__14__b = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0;
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__14__unnamedblk1__DOT__j;
+    __Vtask_tb_system_control__DOT__send__14__unnamedblk1__DOT__j = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1;
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2;
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 = 0;
+    CData/*7:0*/ __Vtask_tb_system_control__DOT__send__15__b;
+    __Vtask_tb_system_control__DOT__send__15__b = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0;
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__15__unnamedblk1__DOT__j;
+    __Vtask_tb_system_control__DOT__send__15__unnamedblk1__DOT__j = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1;
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2;
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 = 0;
+    CData/*7:0*/ __Vtask_tb_system_control__DOT__send__16__b;
+    __Vtask_tb_system_control__DOT__send__16__b = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0;
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__16__unnamedblk1__DOT__j;
+    __Vtask_tb_system_control__DOT__send__16__unnamedblk1__DOT__j = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1;
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0;
+    IData/*31:0*/ __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2;
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 = 0;
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x30d40ULL, 
                                          nullptr, "sim/system\tb_system_control.sv", 
@@ -2515,8 +2545,462 @@ VL_INLINE_OPT VlCoroutine Vtb_system_control___024root___eval_initial__TOP__Vtim
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
         VL_STOP_MT("sim/system\\tb_system_control.sv", 36, "", false);
     }
-    VL_WRITEF_NX("PASS serial control/CDC, WAV/tone selection, volume, independent and linked pause/resume, registered restart\n",0);
-    VL_FINISH_MT("sim/system\\tb_system_control.sv", 37, "");
+    __Vtask_tb_system_control__DOT__send__14__b = 0x4dU;
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
+    __Vtask_tb_system_control__DOT__send__14__unnamedblk1__DOT__j = 0;
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0;
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 = 0;
+    co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_system_control.clk)", 
+                                                         "sim/system\tb_system_control.sv", 
+                                                         20);
+    vlSelfRef.tb_system_control__DOT__rx = 0U;
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 
+            = (__Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 
+               - (IData)(1U));
+    }
+    vlSelfRef.tb_system_control__DOT__rx = (1U & (IData)(__Vtask_tb_system_control__DOT__send__14__b));
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__14__unnamedblk1__DOT__j = 1U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__14__b) 
+                                                  >> 1U));
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__14__unnamedblk1__DOT__j = 2U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__14__b) 
+                                                  >> 2U));
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__14__unnamedblk1__DOT__j = 3U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__14__b) 
+                                                  >> 3U));
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__14__unnamedblk1__DOT__j = 4U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__14__b) 
+                                                  >> 4U));
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__14__unnamedblk1__DOT__j = 5U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__14__b) 
+                                                  >> 5U));
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__14__unnamedblk1__DOT__j = 6U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__14__b) 
+                                                  >> 6U));
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__14__unnamedblk1__DOT__j = 7U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__14__b) 
+                                                  >> 7U));
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__14__unnamedblk1__DOT__j = 8U;
+    vlSelfRef.tb_system_control__DOT__rx = 1U;
+    __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 = 0xe6U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 
+            = (__Vtask_tb_system_control__DOT__send__14__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__15__b = 0x4bU;
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
+    __Vtask_tb_system_control__DOT__send__15__unnamedblk1__DOT__j = 0;
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0;
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 = 0;
+    co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_system_control.clk)", 
+                                                         "sim/system\tb_system_control.sv", 
+                                                         20);
+    vlSelfRef.tb_system_control__DOT__rx = 0U;
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 
+            = (__Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 
+               - (IData)(1U));
+    }
+    vlSelfRef.tb_system_control__DOT__rx = (1U & (IData)(__Vtask_tb_system_control__DOT__send__15__b));
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__15__unnamedblk1__DOT__j = 1U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__15__b) 
+                                                  >> 1U));
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__15__unnamedblk1__DOT__j = 2U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__15__b) 
+                                                  >> 2U));
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__15__unnamedblk1__DOT__j = 3U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__15__b) 
+                                                  >> 3U));
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__15__unnamedblk1__DOT__j = 4U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__15__b) 
+                                                  >> 4U));
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__15__unnamedblk1__DOT__j = 5U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__15__b) 
+                                                  >> 5U));
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__15__unnamedblk1__DOT__j = 6U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__15__b) 
+                                                  >> 6U));
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__15__unnamedblk1__DOT__j = 7U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__15__b) 
+                                                  >> 7U));
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__15__unnamedblk1__DOT__j = 8U;
+    vlSelfRef.tb_system_control__DOT__rx = 1U;
+    __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 = 0xe6U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 
+            = (__Vtask_tb_system_control__DOT__send__15__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__16__b = 0x4aU;
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
+    __Vtask_tb_system_control__DOT__send__16__unnamedblk1__DOT__j = 0;
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0;
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 = 0;
+    co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_system_control.clk)", 
+                                                         "sim/system\tb_system_control.sv", 
+                                                         20);
+    vlSelfRef.tb_system_control__DOT__rx = 0U;
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 
+            = (__Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_1__DOT____Vrepeat0 
+               - (IData)(1U));
+    }
+    vlSelfRef.tb_system_control__DOT__rx = (1U & (IData)(__Vtask_tb_system_control__DOT__send__16__b));
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__16__unnamedblk1__DOT__j = 1U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__16__b) 
+                                                  >> 1U));
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__16__unnamedblk1__DOT__j = 2U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__16__b) 
+                                                  >> 2U));
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__16__unnamedblk1__DOT__j = 3U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__16__b) 
+                                                  >> 3U));
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__16__unnamedblk1__DOT__j = 4U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__16__b) 
+                                                  >> 4U));
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__16__unnamedblk1__DOT__j = 5U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__16__b) 
+                                                  >> 5U));
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__16__unnamedblk1__DOT__j = 6U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__16__b) 
+                                                  >> 6U));
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__16__unnamedblk1__DOT__j = 7U;
+    vlSelfRef.tb_system_control__DOT__rx = (1U & ((IData)(__Vtask_tb_system_control__DOT__send__16__b) 
+                                                  >> 7U));
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 = 0xd9U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+            = (__Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1__DOT__unnamedblk1_2__DOT____Vrepeat1 
+               - (IData)(1U));
+    }
+    __Vtask_tb_system_control__DOT__send__16__unnamedblk1__DOT__j = 8U;
+    vlSelfRef.tb_system_control__DOT__rx = 1U;
+    __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 = 0xe6U;
+    while (VL_LTS_III(32, 0U, __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2)) {
+        co_await vlSelfRef.__VtrigSched_h623af98b__0.trigger(0U, 
+                                                             nullptr, 
+                                                             "@(negedge tb_system_control.clk)", 
+                                                             "sim/system\tb_system_control.sv", 
+                                                             20);
+        __Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 
+            = (__Vtask_tb_system_control__DOT__send__16__tb_system_control__DOT__unnamedblk1_3__DOT____Vrepeat2 
+               - (IData)(1U));
+    }
+    if (VL_UNLIKELY(((1U & (((((~ ((IData)(vlSelfRef.tb_system_control__DOT__restart) 
+                                   | ((2U == (IData)(vlSelfRef.tb_system_control__DOT__mode)) 
+                                      | (((~ (IData)(vlSelfRef.tb_system_control__DOT__phase)) 
+                                          & (3U == (IData)(vlSelfRef.tb_system_control__DOT__mode))) 
+                                         | ((0U == (IData)(vlSelfRef.tb_system_control__DOT__mode)) 
+                                            & (((IData)(vlSelfRef.tb_system_control__DOT__control__DOT__ms) 
+                                                >> 1U) 
+                                               | ((~ 
+                                                   ((IData)(vlSelfRef.tb_system_control__DOT__control__DOT__cs) 
+                                                    >> 1U)) 
+                                                  & (~ (IData)(vlSelfRef.tb_system_control__DOT__phase))))))))) 
+                               | (IData)(vlSelfRef.tb_system_control__DOT__audio_paused)) 
+                              | (~ (IData)(vlSelfRef.tb_system_control__DOT__wav_source))) 
+                             | (0x4aU != (IData)(vlSelfRef.tb_system_control__DOT__last))) 
+                            | (0x10U != (IData)(vlSelfRef.tb_system_control__DOT__count))))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_system_control.sv:37: Assertion failed in %Ntb_system_control: Replay must resume without unmuting\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_system_control.sv", 37, "", false);
+    }
+    VL_WRITEF_NX("PASS replay preserves mute; serial control/CDC, WAV/tone selection, volume, independent and linked pause/resume, registered restart\n",0);
+    VL_FINISH_MT("sim/system\\tb_system_control.sv", 38, "");
 }
 
 VL_INLINE_OPT VlCoroutine Vtb_system_control___024root___eval_initial__TOP__Vtiming__1(Vtb_system_control___024root* vlSelf) {
@@ -2526,10 +3010,10 @@ VL_INLINE_OPT VlCoroutine Vtb_system_control___024root___eval_initial__TOP__Vtim
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x12a05f200ULL, 
                                          nullptr, "sim/system\tb_system_control.sv", 
-                                         39);
-    VL_WRITEF_NX("[%0t] %%Fatal: tb_system_control.sv:39: Assertion failed in %Ntb_system_control: control test timeout\n",0,
+                                         40);
+    VL_WRITEF_NX("[%0t] %%Fatal: tb_system_control.sv:40: Assertion failed in %Ntb_system_control: control test timeout\n",0,
                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-    VL_STOP_MT("sim/system\\tb_system_control.sv", 39, "", false);
+    VL_STOP_MT("sim/system\\tb_system_control.sv", 40, "", false);
 }
 
 #ifdef VL_DEBUG

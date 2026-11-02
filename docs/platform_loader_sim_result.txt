@@ -1,0 +1,10 @@
+PASS loader scenario 0
+PASS loader scenario 1
+PASS loader scenario 2
+PASS loader scenario 3
+PASS loader scenario 4
+PASS loader scenario 5
+PASS loader scenario 6
+PASS loader scenario 7
+PASS platform loader: both real configs, stalls, version, bounds, CRC, truncation, excess, reserved, I/O error
+- sim/platform\tb_scene_loader.sv:62: Verilog $finish

@@ -9,7 +9,7 @@ wire [31:0] refreshes,errors,checked,expected,actual;wire [20:0] bad;wire [7:0] 
 // Ideal pin model uses wait=2; DMZ hard-macro integration is board-calibrated to 1.
 dmz_sdram_ctrl #(.READ_WAIT_CYCLES(2)) ctrl(.clk(clk),.reset(reset),.req_valid(done?fv:bv),.req_write(done?fw:bw),.req_addr(done?fa_req:ba_req),.req_wdata(done?fd:bd),.req_ready(req_ready),.rsp_valid(rsp_valid),.rsp_rdata(rd),.init_done(init_done),.refresh_count(refreshes),.ras_n(ras),.cas_n(cas),.we_n(we),.addr(sa),.ba(bank),.dq_out(dout),.dq_oe(oe),.dq_in(din));
 sdram_model mem(.clk(~clk),.reset(reset),.ras_n(ras),.cas_n(cas),.we_n(we),.addr(sa),.ba(bank),.dq_out(dout),.dq_oe(oe),.dq_in(din));
-dmz_sdram_bist #(.WORD_COUNT(BIST_WORDS),.HOLD_CYCLES(5000)) bist(.clk(clk),.reset(reset),.init_done(init_done),.req_valid(bv),.req_write(bw),.req_addr(ba_req),.req_wdata(bd),.req_ready(req_ready&&!done),.rsp_valid(rsp_valid&&!done),.rsp_rdata(rd),.done(done),.passed(passed),.errors(errors),.checked_words(checked),.first_bad_addr(bad),.first_expected(expected),.first_actual(actual),.status(status));
+dmz_sdram_bist #(.WORD_COUNT(BIST_WORDS),.PARALLEL_CHECK(1),.COUNT_ERRORS(0),.HOLD_CYCLES(5000)) bist(.clk(clk),.reset(reset),.init_done(init_done),.req_valid(bv),.req_write(bw),.req_addr(ba_req),.req_wdata(bd),.req_ready(req_ready&&!done),.rsp_valid(rsp_valid&&!done),.rsp_rdata(rd),.done(done),.passed(passed),.errors(errors),.checked_words(checked),.first_bad_addr(bad),.first_expected(expected),.first_actual(actual),.status(status));
 reg [9:0] x=0,y=0;reg ft=0;
 always @(posedge pclk) if(reset) begin x<=0;y<=0;ft<=0;end else begin
  if(x==799) begin x<=0;if(y==524) y<=0;else y<=y+1'b1;end else x<=x+1'b1;
@@ -46,7 +46,7 @@ initial begin
  #200;reset=0;
  wait(done);
  if($test$plusargs("fault")) begin
-  if(passed||errors!=4||bad!=23) $fatal(1,"fault detection errors=%0d addr=%0d",errors,bad);
+  if(passed||errors!=1||bad!=23) $fatal(1,"fault detection errors=%0d addr=%0d",errors,bad);
   $display("PASS injected fault: errors=%0d first_addr=%0d",errors,bad);$finish;
  end
  if(!$test$plusargs("fault")) begin

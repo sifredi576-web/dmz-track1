@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-02",
+  "bitstream_sha256": "e4492ed921a4ee4184a8c7af3906159ee5e6f6f51439f3c71f961f5df2e63190",
+  "sram_download_passed": true,
+  "flash_programmed": false,
+  "port": "COM9",
+  "setup_slack_ns": 0.723,
+  "hold_slack_ns": 0.095,
+  "route_legal": true,
+  "confirmed_from_board": {
+    "pll_locked": true,
+    "bist_passed": true,
+    "display_valid": true,
+    "image_count": 16,
+    "wav_count": 7,
+    "sd_error": 0,
+    "image_error": 0,
+    "wav_error": 0,
+    "platform_active": true,
+    "page_count": 16,
+    "current_page": 13,
+    "score": 2,
+    "total": 3
+  },
+  "automatic_course_state_checks_passed": true,
+  "course_acceptance_passed": false,
+  "physical_key_tested": false,
+  "user_screen_speaker_confirmation": "pending",
+  "pending": [
+    "user screen/speaker and physical key confirmation",
+    "second configuration on real TF card",
+    "Flash programming and cold boot",
+    "measured AV boundary and worst-case TF latency"
+  ],
+  "evidence": [
+    "docs/platform_v2_board_fixed_boot.json",
+    "docs/platform_v2_board_course.json",
+    "docs/system_download_log.txt",
+    "build_system/dmz_track1_Runs/phy_1/dmz_track1_pr.timing",
+    "docs/platform_v2_board_physical_observation.json"
+  ],
+  "fixed": "TD generate-scope implicit configuration count nets; short BRAM data/address paths and dense routing",
+  "physical_observation": "45-second passive observation remained at result page 13, focus 0, score 2/3. No physical key event observed in this window; user confirmation pending."
+}

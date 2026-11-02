@@ -1,0 +1,4 @@
+Deleted: build, build_audio_test, build_p1, build_p2, build_p3
+Deleted releases: av_20261028, baseline_20261027, display_20261028, gallery_20261027, keys_20261028, osd_20261028, p6_20261028
+Preserved: build_system, rtl, constraints, scripts, sim, vendor, releases/p7_20261028, releases/paired_20261031
+Trimmed obsolete historical sections from README and AI handoff.

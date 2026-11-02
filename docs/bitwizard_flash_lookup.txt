@@ -1,0 +1,1667 @@
+TangDynasty® BitWizard 使用指南
+
+
+
+    上海安路信息科技股份有限公司
+
+
+
+    SWUG_110（v1.1）2024 年 12 月
+                                                       TangDynasty® BitWizard 使用指南
+
+                                      目 录
+
+    目 录 ...................................................... 1
+
+    1 工具简介 ................................................. 4
+
+    2 下载电缆 ................................................. 5
+
+      2.1 AL-Link ................................................................... 5
+
+      2.2 AL-Link FT ................................................................ 5
+
+
+    3 位流文件配置与生成 ....................................... 6
+
+      3.1 General Option ............................................................ 6
+
+      3.2 Control Option ............................................................ 7
+
+      3.3 Startup Option ............................................................ 8
+
+      3.4 Attribute Option .......................................................... 8
+
+      3.5 文件格式 .................................................................. 9
+
+
+    4 BitWriter 介绍 ........................................... 10
+
+      4.1 器件/下载器信息栏 ........................................................ 11
+
+      4.2 工具栏 ................................................................... 12
+
+          4.2.1 Create Flash File .................................................. 13
+
+          4.2.2 Encrypt ............................................................ 14
+
+              4.2.2.1 Generate encrypt bit ......................................... 14
+
+              4.2.2.2 Program encrypt key .......................................... 16
+
+          4.2.3 Merge Dualboot Bit ................................................. 17
+
+      4.3 下载模式栏 ............................................................... 18
+
+          4.3.1 Program SRAM ....................................................... 18
+
+          4.3.2 Verify SRAM ........................................................ 19
+
+          4.3.3 Program Flash ...................................................... 19
+
+SWUG110                           www.anlogic.com                                   1
+
+2024.12
+                                                       TangDynasty® BitWizard 使用指南
+          4.3.4 Dual Boot .......................................................... 19
+
+          4.3.5 Multi Boot ......................................................... 20
+
+          4.3.6 Program SPIBIN ..................................................... 20
+
+          4.3.7 Flash Read ......................................................... 20
+
+          4.3.8 Verify Flash ....................................................... 21
+
+          4.3.9 Erase Flash ........................................................ 21
+
+          4.3.10 Read Save SRAM .................................................... 21
+
+      4.4 文件选择栏 ............................................................... 22
+
+      4.5 控制/信息栏 .............................................................. 22
+
+      4.6 状态栏 ................................................................... 23
+
+
+    5 ChipLinker 介绍 .......................................... 24
+
+      5.1 器件/下载器信息栏 ........................................................ 25
+
+      5.2 工具栏 ................................................................... 25
+
+          5.2.1 Speed .............................................................. 26
+
+          5.2.2 Program SVF ........................................................ 26
+
+          5.2.3 Merge SVF .......................................................... 26
+
+          5.2.4 Add Flash .......................................................... 27
+
+      5.3 文件选择与 Create SVF ..................................................... 29
+
+          5.3.1 File Option ........................................................ 29
+
+          5.3.2 Create SVF ......................................................... 30
+
+              5.3.2.1 SVF for SRAM ................................................. 30
+
+              5.3.2.2 SVF for SPI .................................................. 31
+
+              5.3.2.3 Verify SPI Only .............................................. 32
+
+              5.3.2.4 Erase SPI(4k) ................................................ 33
+
+              5.3.2.5 Check Device ................................................. 34
+
+              5.3.2.6 Refresh ...................................................... 34
+
+
+SWUG110                           www.anlogic.com                                   2
+
+2024.12
+                                                       TangDynasty® BitWizard 使用指南
+              5.3.2.7 Erase SRAM ................................................... 35
+
+              5.3.2.8 Check Status Done ............................................ 35
+
+              5.3.2.9 Check Status Lock ............................................ 36
+
+              5.3.2.10 SVF for User Data ........................................... 36
+
+      5.4 Device Chains ............................................................ 38
+
+      5.5 控制/信息栏 .............................................................. 38
+
+      5.6 SVF 应用场景介绍 .......................................................... 39
+
+          5.6.1 SRAM 编程 ........................................................... 39
+
+          5.6.2 Flash 编程 .......................................................... 39
+
+          5.6.3 其他 ............................................................... 40
+
+
+    6 AJE 功能 ................................................ 41
+
+      6.1 界面生成 AJE 文件 ......................................................... 41
+
+      6.2 命令行生成 AJE 文件 ....................................................... 42
+
+
+    7 常见问题 ................................................ 44
+
+      7.1 AL-LINK 驱动安装 ......................................................... 44
+
+          7.1.1 Windows ............................................................ 44
+
+          7.1.2 Linux .............................................................. 45
+
+
+    版本信息 .................................................. 46
+
+    免责声明 .................................................. 46
+
+
+
+
+SWUG110                           www.anlogic.com                                   3
+
+2024.12
+                                                    TangDynasty® BitWizard 使用指南
+
+1 工具简介
+
+   Anlogic TD 软件将原 Download 工具，升级为 BitWriter 工具；将原 Device Chain 工具，升级为
+ChipLinker 工具。
+
+   同时，推出独立于 TD 环境的 BitWizard 工具，集成 BitWriter、ChipLinker 等工具。
+
+   在使用 BitWizard，需对原 AL-Link 工具固件进行升级，否则，可能存在稳定性问题。
+
+                                表 1-1 名词解释
+
+    -             名词                               说明
+    1            AL-Link           在线编程器，支持 TD(TangDynasty)软件。
+    2       AL-Link-Pro                           离线编程器。
+    3        AL-Link-FT    在线编程器，支持 TD(TangDynasty)和 FD(FutureDynasty)软件。
+
+
+
+
+SWUG110                         www.anlogic.com                               4
+
+2024.12
+                                              TangDynasty® BitWizard 使用指南
+
+2 下载电缆
+
+2.1 AL-Link
+
+   AL-LINK 最新在线下载器型号为 AL-LINK-V3.0，是基于上海安路信息科技股份有限公司全系列
+CPLD/FPGA 器件，结合公司自研的 TD 软件，可实现在线 JTAG 固件下载、ChipWatcher 在线调试、FLASH
+读写、级联模式烧录。下载器配合 USB Type-B 数据线、2.54mm 间距 10 针扁平线使用，实物如下图所
+示。
+
+
+
+
+                        图 2-1 AL-LINK 在线下载器
+
+
+2.2 AL-Link FT
+          R
+          ○
+   ANFPGA -LINK-FT(以下简称 AL-LINK-FT)是安路科技最新的在线调试器，支持上海安路信息科技股
+                 R
+                 ○
+份有限公司全系列 FPSoC 器件。结合公司自研的 TD 软件和 FD 软件，可实现在线 PL 部分的 JTAG 固件
+下载、ChipWatcher 在线调试，FLASH、EMMC、NAND 等 NVM 的烧录和校验，以及 PS 部分的 C 程序片上调
+试、UART 串口通信等操作。调试器配合 USB Type-B 数据线、2.54mm 间距 10 针扁平线使用，实物如图
+2-2 所示。
+
+
+
+
+                           图 2-2 AL-Link FT
+
+
+
+
+SWUG110                    www.anlogic.com                              5
+
+2024.12
+                                                      TangDynasty® BitWizard 使用指南
+
+3 位流文件配置与生成
+
+    位流文件的生成，可通过 TD Properties Configuration 进行相关配置。
+
+    Configuration 显示的是 Properties → Generate Bitstream 中的 Control Option、 Startup
+Option 和 Attribute Option 的相关信息分栏显示了对应 option 的 Current Value 及 Default。
+
+    当对其中的某个或某些 option 进行了更改并保存设置后，Current Value 会显示相应设置的
+option 值。
+
+
+3.1 General Option
+
+    选项相关描述如图 3-1 所示：
+
+
+
+
+                               图 3-1 General Option
+
+   bin：bin 文件或 rbf 文件二进制文件生成；
+
+   bin_compress：bin 文件压缩开关，以 Huffman 算法实现对位流进行软压缩（通过 CPU 平台，读取
+                       ；
+    bin 文件，进行解压，对器件进行配置）
+
+   compress：位流压缩开关，开启后，将产生压缩位流；
+
+   gen_mask：产生校验 FPGA ERAM 文件罩；
+
+   header：bin 文件头信息，用于 AL-Link Pro 下载器；
+
+   id：2 个字节的 ID 信息，供用户使用；
+
+   max_stream：器件位流最大 Size，打开此开关后，位流文件大小不会随资源使用多少变化而变化；
+
+SWUG110                          www.anlogic.com                                6
+
+2024.12
+                                                   TangDynasty® BitWizard 使用指南
+   time_info：在位流中增加时间戳信息；
+
+   unused_io_status：未使用 IO 状态；
+
+   version：位流文件版本。
+
+
+3.2 Control Option
+
+    Control Option 界面选项如图 3-2 所示：
+
+
+
+
+                            图 3-2 Control Option
+
+   cascade_mode：若使用级联，则需要配置此选项，配置后，done pin 将在所有级联器件加载完成
+    后拉高；
+
+   mclk_freq：MSPI 模式下，加载频率，即读取 Flash 时钟频率；
+
+   osc_clk_disable：进入用户模式后，是否关闭 OSC Clock；
+
+   security：禁止回读配置 RAM 数据；
+
+   stateholdio：使用 Statehold IO 功能，配置 RAM 初始化。
+
+
+
+
+SWUG110                       www.anlogic.com                                7
+
+2024.12
+                                                     TangDynasty® BitWizard 使用指南
+
+3.3 Startup Option
+
+    Startup Option 界面选项如图 3-3 所示。此界面的参数调整，可参考器件配置手册，推荐配置默
+认值。
+
+
+
+
+                             图 3-3 Startup Option
+
+
+3.4 Attribute Option
+
+    Attribute Option 界面选项如图 3-4 所示：
+
+
+
+
+                            图 3-4 Attribute Option
+
+   boot_mode：将 MSPI 配置成 X1，X2 或 X4 模式；
+
+    对于不同系列的器件，此界面可能会有其他的选项。
+
+
+SWUG110                        www.anlogic.com                                 8
+
+2024.12
+                                                  TangDynasty® BitWizard 使用指南
+
+3.5 文件格式
+
+  在工程目录下，根据用户配置，其 best_result 文件夹中，生成文件格式如表 3-1 所示，若器件
+支持位流压缩功能，则包含_compress 命名的相关配置文件。
+
+                              表 3-1 生成文件格式
+
+          格式                                     备注
+.bit                二进制配置文件，包含头信息等。此文件通常应用于
+                    BitWriter/ChipLinker，结合下载器，下载至目标器件
+.bin                二进制配置文件，不包含头信息等。此文件通常应用于 BitWriter 结合下
+                    载器，下载至目标器件；也可用于用户自定义配置方案；
+.rbf                相较于 bin 文件格式，每四个字节为一组，按字节翻转，如下：
+                    *.bin 文件：DD BB 66 22
+                    *.rbf 文件：22 66 BB DD
+*_byteReverse.bin   相较于 bin 文件格式，每个字节为一组，按位翻转，如下：
+                    *.bin 文件：DD BB 66 22
+                    *_byteReverse.bin 文件：BB DD 66 44
+*.SVF               Serial Vector File，串行向量格式文件。
+                    可通过 ChipLinker 工具生成。
+
+
+
+
+SWUG110                        www.anlogic.com                              9
+
+2024.12
+                                              TangDynasty® BitWizard 使用指南
+
+4 BitWriter 介绍
+
+   在 TD 界面工具栏点击     按钮，或在 Tools->BitWriter，启动 BitWriter 功能，软件启动后，
+BitWriter 界面如图 4-1 所示。
+
+
+
+
+                         图 4-1 BitWriter 界面
+
+   在 TD 安装目录下，~\bin\，也可用过 bw.exe 工具单独启动，如图 4-2 所示。
+
+
+
+
+                         图 4-2 BitWizard 界面
+
+
+
+
+SWUG110                    www.anlogic.com                             10
+
+2024.12
+                                              TangDynasty® BitWizard 使用指南
+
+4.1 器件/下载器信息栏
+
+    器件、下载器信息栏如图 4-3 所示。
+
+
+                             器件/下载器信息栏
+
+
+
+
+                        图 4-3 器件/下载器信息栏界面
+
+   Refresh：刷新按钮，点击后，BitWriter 将通过下载器下发读器件 ID 指令，若 ID 返回值有效，
+    则会显示器件型号；
+
+   Bit Version：显示位流版本信息；
+
+   Debug Server：下载器显示型号，AL-LINK。
+
+
+
+
+SWUG110                     www.anlogic.com                            11
+
+2024.12
+                                        TangDynasty® BitWizard 使用指南
+
+4.2 工具栏
+
+     工具栏如图 4-4 所示。
+
+
+
+
+    工具栏
+
+
+
+
+                      图 4-4 工具栏界面
+
+    Run：运行按钮；
+
+    Stop：停止按钮；
+
+    Add：增加文件按钮；
+
+    Delete：删除文件按钮。
+
+
+
+
+SWUG110               www.anlogic.com                            12
+
+2024.12
+                                                   TangDynasty® BitWizard 使用指南
+
+4.2.1 Create Flash File
+
+    Create Flash File 工具，可实现位流文件合并，如图 4-5 所示。
+
+
+
+
+                          图 4-5 Create Flash File 界面
+
+                        ；
+    Absolute address：绝对地址，
+
+   Relative address：相对地址；
+
+   Set Start Address：指定起始地址；
+
+   Hex File：选择待合并文件。
+
+
+
+
+SWUG110                        www.anlogic.com                              13
+
+2024.12
+                                                    TangDynasty® BitWizard 使用指南
+
+4.2.2 Encrypt
+
+   Encrypt 界面如图 4-6 所示，通过此界面，可生成加密位流、密钥，以及相关的 SVF 文件。打开
+Encrypt，有 Generate encrypt bit、Program encrypt key 功能选项。
+
+
+
+
+                               图 4-6 Encrypt 界面
+
+
+4.2.2.1 Generate encrypt bit
+
+   在 Generate encrypt bit 界面如图 4-7 所示。
+
+
+
+
+                          图 4-7 Generate encrypt bit 界面
+
+
+SWUG110                          www.anlogic.com                             14
+
+2024.12
+                                                      TangDynasty® BitWizard 使用指南
+    界面上选项功能说明如下：
+
+   Source bit file：待加密位流文件选项，Device、Encrypt mode（AES128/AES256/SM4）将通过位
+    流文件获取；
+
+   Key Settings 包含
+
+   Hkey file：Hmac 秘钥文件，此功能需配合 AES256/SM4 加密模式；
+
+   Key file：秘钥明文文件；
+
+   Key number：秘钥明文显示；
+
+
+
+    Generate files 包含
+
+   Key exp file：生成加密秘钥文件；
+
+   Encrypt bit file：生成加密位流文件，bit 格式；
+
+   Encrypt bin file：生成加密位流文件，bin 格式；
+
+   Encrypt key svf file：生成加密秘钥 SVF 文件；
+
+   Offline download cable：生成加密秘钥二进制文件，供 AL-Link Pro 离线下载器使用；
+
+   Generate program key file with key lock enabled：Lock 使能；
+
+注：
+
+若 efuse 烧录包含 Lock 功能，则在烧录后 efuse 既不能执行写操作，也不能支持回读操作。
+
+    相关配置设定后，点击 Generate Encrypt Bit 按钮。
+
+
+
+
+SWUG110                           www.anlogic.com                              15
+
+2024.12
+                                                     TangDynasty® BitWizard 使用指南
+
+4.2.2.2 Program encrypt key
+
+    在 Program encrypt key 界面如图 4-8 所示。
+
+
+
+
+                           图 4-8 Program encrypt key 界面
+
+    界面上选项功能说明如下：
+
+   Encrypt bit file：待加密位流文件选择框；其中 Device 信息将从位流文件获取；
+
+   Key exp file：待烧录秘钥密文文件；
+
+   Auto Option：
+
+       Auto programing encrypt key into effuse，烧录位流时，将自动烧录 key 到 efuse 中；
+
+       Auto programing encrypt key lock，烧录位流时，将自动烧录 Lock 到 efuse 中，此选项谨
+        慎使用，加密功能如果 lock 后，后续工具将不再对 efuse 访问权限（包括烧录、回读）
+
+   Speed：为确保 efuse 烧录正常，速率必须限制在 1MHz；
+
+    按钮包含：
+
+   Program Encrypt Key Into effuse，单独烧录 key 到 efuse；
+
+   Program Encrypt Key Lock，单独烧录 Lock 到 efuse；
+
+   Download Encrypt File，烧录加密位流。
+
+
+
+
+SWUG110                          www.anlogic.com                              16
+
+2024.12
+                                                     TangDynasty® BitWizard 使用指南
+
+4.2.3 Merge Dualboot Bit
+
+    Merge Dual boot 工具界面如图 4-9 所示，可合并生成 Dual boot 位流文件。
+
+
+
+
+                             图 4-9 Merge Dual boot
+
+   Default Bit File：选择主区位流文件；其中 Device 型号从位流文件获取
+
+   Start Address：Dual boot 加载地址；
+
+   Golden Bit File：选择备区位流文件；
+
+   Merge Bit File：待生成 Dual boot 位流文件。
+
+
+
+
+SWUG110                        www.anlogic.com                                17
+
+2024.12
+                                               TangDynasty® BitWizard 使用指南
+
+4.3 下载模式栏
+
+   下载模式栏如图 4-10 所示。
+
+
+
+
+                       下载模式栏
+
+
+
+
+                        图 4-10 下载模式栏界面
+
+   对于 AL-Link，在 BitWriter 中，下载速率显示如下：
+
+          界面显示速率                               备注
+           16MHz      设置 TCK 频率为 16MHz。
+            8MHz      设置 TCK 频率为 8MHz。
+            5MHz      设置 TCK 频率为 5MHz,默认速率。
+            3MHz      设置 TCK 频率为 3MHz。
+            2MHz      设置 TCK 频率为 2MHz。
+            1MHz      设置 TCK 频率为 1MHz。
+           500kHz     设置 TCK 频率为 500kHz。
+           200kHz     设置 TCK 频率为 200kHz。
+
+4.3.1 Program SRAM
+
+   SRAM 下载：如图 4-11 所示，可通过 program sram 选项将位流文件下载到配置 RAM 上，掉电丢失。
+
+
+
+
+                         图 4-11 Program SRAM
+
+   此模式一般可用于调试阶段，实现功能快速上板验证。
+
+
+SWUG110                   www.anlogic.com                               18
+
+2024.12
+                                                 TangDynasty® BitWizard 使用指南
+
+4.3.2 Verify SRAM
+
+   回读校验 SRAM：如图 4-12 所示，可通过 Verify SRAM，回读配置 RAM 上数据，需软件生成。
+
+
+
+
+                           图 4-12 Verify SRAM
+
+   此模式可用于配置 RAM 数据（不包含用户 ERAM 数据）的校验。
+
+
+4.3.3 Program Flash
+
+   下载 Flash：如图 4-13 所示，可通过 program flash 选项将位流文件下载到 Flash，掉电不丢失。
+
+
+
+
+                          图 4-13 Program Flash
+
+   此模式下，可将位流文件烧写到 Flash 中。不同器件应根据其位流大小及其需求，选择合适的 Flash
+容量。
+
+
+4.3.4 Dual Boot
+
+   Dual boot 下载：如图 4-14 所示，可通过 Dual boot 选项将主区(Default)位流、备区(Golden)位
+流，指定 StartAddress，一起烧录到 Flash，掉电不丢失。
+
+
+
+
+                            图 4-14 Dual Boot
+
+
+
+
+SWUG110                     www.anlogic.com                               19
+
+2024.12
+                                                 TangDynasty® BitWizard 使用指南
+
+4.3.5 Multi Boot
+
+   Multi Boot 下载：如图 4-15 所示，可通过 Multi boot 选项将主区(Default)位流、跳转位流，指
+定 StartAddress 须和 dynamic_addr 相同，一起烧录到 Flash，掉电不丢失。
+
+
+
+
+                          图 4-15 Multi Boot
+
+   此模式下，可将位流文件烧写到 Flash 中。不同器件应根据其位流大小及其需求，选择合适的 Flash
+容量。
+
+
+4.3.6 Program SPIBIN
+
+   下载 SPI Bin 文件：如图 4-16 所示，可通过 Program Spibin 选项将二进制(.bin)文件下载到
+Flash 指定的区域；
+
+
+
+
+                         图 4-16 Program SPIBIN
+
+   此模式下可将 bin 文件下载至指定的 Flash 偏移地址。
+
+
+4.3.7 Flash Read
+
+   回读 Flash：如图 4-17 所示，可通过 Flash Read，回读 Flash 数据，可指定回读地址、长度以及
+保存文件。
+
+
+
+
+                          图 4-17 Flash Read
+
+   此模式下，用户可从 Flash 中读取数据并保存成二进制文件，如有需要，可与原位流文件(.bin 格
+式)进行比对。
+
+
+
+
+SWUG110                    www.anlogic.com                                20
+
+2024.12
+                                                  TangDynasty® BitWizard 使用指南
+
+4.3.8 Verify Flash
+
+   校验 Flash：如图 4-18 所示，可通过 Verify Flash，校验写入 Flash 数据。
+
+
+
+
+                           图 4-18 Verify Flash
+
+   此模式下可用于配置 Flash 数据的校验。
+
+
+4.3.9 Erase Flash
+
+                                                              。
+   擦除 Flash：如图 4-19 所示，可通过 Erase Flash，对 Flash 进行擦除（Chip erase）
+
+
+
+
+                           图 4-19 Erase Flash
+
+   此模式下，将对 Flash 器件进行整片擦除。
+
+
+4.3.10 Read Save SRAM
+
+   读取并保存 SRAM：如图 4-20 所示，可通过 Read Save Sram 选项，将配置 RAM 的数据回读保存成
+文件。
+
+
+
+
+                          图 4-20 Read Save SRAM
+
+   此模式下，可将位流数据从配置 RAM 读上来，按帧格式方式，保存成文件。
+
+
+
+
+SWUG110                     www.anlogic.com                                21
+
+2024.12
+                                        TangDynasty® BitWizard 使用指南
+
+4.4 文件选择栏
+
+  文件选择栏，如图 4-21 所示，支持位流(bit)文件、二进制(bin)文件、SVF 文件等相关文件的选
+择与烧录。
+
+
+
+
+                            文件选择栏
+
+
+
+
+                    图 4-21 文件选择栏界面
+
+
+4.5 控制/信息栏
+
+  控制/信息栏，如图 4-22 所示，支持使用过程中相关信息的提示；同时，也支持 TD 相关命令的运
+行。
+
+
+
+
+                        控制/信息栏
+
+
+
+
+                    图 4-22 控制/信息栏界面
+
+SWUG110               www.anlogic.com                            22
+
+2024.12
+                                      TangDynasty® BitWizard 使用指南
+
+4.6 状态栏
+
+  状态栏，如图 4-23 所示，支持编程、回读等操作的状态进度指示。
+
+
+
+
+                            状态栏
+
+
+
+
+                    图 4-23 状态栏
+
+
+
+
+SWUG110             www.anlogic.com                            23
+
+2024.12
+                                                TangDynasty® BitWizard 使用指南
+
+5 ChipLinker 介绍
+
+   在 TD Tools->ChipLinker，启动 ChipLinker 功能， ChipLinker 工具，方便用户将位流文件生成
+SVF(Serial Vector File)文件。软件启动后，ChipLinker 界面如图 5-1 所示。
+
+
+
+
+                          图 5-1 ChipLinker 界面
+
+   在 TD 安装目录下，~\bin\，也可用过 bw.exe 工具单独启动
+
+
+
+
+                           图 5-2 BitWizard 界面
+
+
+
+
+SWUG110                     www.anlogic.com                              24
+
+2024.12
+                                               TangDynasty® BitWizard 使用指南
+
+5.1 器件/下载器信息栏
+
+    下载模式栏如图 5-3 所示。
+
+
+                             器件/下载器信息栏
+
+
+
+
+                           图 5-3 下载模式栏界面
+
+   Refresh：枚举 Cable，Cable 枚举的序号；
+
+   Debug Server：下载器显示型号，AL-LINK。
+
+
+5.2 工具栏
+
+    工具栏如图 5-4 所示，相关功能描述如下。
+
+
+
+
+     工具栏
+
+
+
+
+                            图 5-4 工具栏界面
+
+
+SWUG110                      www.anlogic.com                            25
+
+2024.12
+                                                     TangDynasty® BitWizard 使用指南
+   Program：下载工具默认生成的 SVF 文件，此文件为 ChipLinker 默认生成的 SVF 文件；
+
+   Add：添加位流文件，供生成 SVF 文件用；
+
+   Delete：删除位流文件。
+
+
+5.2.1 Speed
+
+                                         SVF 文件生成的参考时钟为 1MHz，
+    下载速度可配置范围为 200kHz～16MHz，默认 1MHz；通常情况下，
+建议使用默认值，如图 5-5 所示。
+
+
+
+
+                             图 5-5   Program Speed
+
+    在 ChipLinker 环境下，生成 SVF 文件默认频率为 1MHz，因此在使用 Program SVF 功能时，建议
+Program Speed 使用 1MHz（默认）。
+
+
+5.2.2 Program SVF
+
+    下载指定的 SVF 文件，如图 5-6 所示，此功能支持用户可选择自定义的 SVF 文件，进行下载。
+
+
+
+
+                              图 5-6 Program SVF
+
+
+5.2.3 Merge SVF
+
+    SVF 文件合并，如图 5-7 所示，此功能支持多个 SVF 文件合并。
+
+
+
+
+                               图 5-7 Merge SVF
+
+
+SWUG110                        www.anlogic.com                                26
+
+2024.12
+                                                   TangDynasty® BitWizard 使用指南
+
+5.2.4 Add Flash
+
+    Add Flash Wizard 工具，如图 5-8 所示，通过此工具，支持自定义 Flash 器件烧录。
+
+
+
+
+                              图 5-8 Add Flash 界面
+
+    Device Information 配置：
+
+   Vendor Name：Flash 器件厂商名字，如 Winbond、Cypress；
+
+   Device Name：器件型号，如 W25Q16；
+
+   Manufacture /Device ID：厂商/器件 ID；
+
+   Volumn：Flash 容量。
+
+    Enable QE 配置：
+
+   Command：使能 QE 命令；
+
+   Data：配置值；
+
+   Delay：配置等时长。
+
+    Quad Enable 位，用于 MSPIX4 模式配置。
+
+    以 GD25 系列为例，QE 所在的 Status Register 位如图 5-9 所示：
+
+
+
+
+                             图 5-9 GD25 系列 QE 位置
+
+    对于 QE 的配置，不能影响其他位域的值，否则可能影响 Flash 器件的其他功能。
+
+SWUG110                         www.anlogic.com                             27
+
+2024.12
+                                                TangDynasty® BitWizard 使用指南
+    Maximum Time 配置：
+
+   4KB Sector Erase：4K 擦除等待时长；
+
+   32KB Sector Erase：32K 擦除等待时长；
+
+   64KB Sector Erase：64K 擦除等待时长；
+
+   Chip Erase：整片擦除等待时长；
+
+   Page Program：页编程等待时长。
+
+
+
+
+SWUG110                       www.anlogic.com                            28
+
+2024.12
+                                                    TangDynasty® BitWizard 使用指南
+
+5.3 文件选择与 Create SVF
+
+5.3.1 File Option
+
+    在文件选择栏中，可通过工具栏中的 Add，添加位流至文件选择栏，如图 5-10 所示。
+
+
+
+
+                                 文件选择栏
+
+
+
+
+                            图 5-10 File Option 界面
+
+   File：已选择的位流文件；
+
+   Device：位流文件对应的器件信息；
+
+   Package：位流文件对应的器件封装信息；
+
+   File Info：位流文件时间信息；
+
+   Bit Version：位流版本信息；
+
+   Level：器件级联级数；
+
+   Option：Create SVF；
+
+   SVF File：生成保存 SVF 文件的信息；
+
+   Bypass：JTAG Bypasss 指令长度。
+
+
+
+
+SWUG110                         www.anlogic.com                              29
+
+2024.12
+                                                    TangDynasty® BitWizard 使用指南
+
+5.3.2 Create SVF
+
+5.3.2.1 SVF for SRAM
+
+    SVF For SRAM，将生成用于将位流文件下载到配置 RAM 上的 SVF 文件，如图 5-11 所示。
+
+
+
+
+                              图 5-11 SVF For SRAM
+
+    其中 Option 如下：
+
+   Add Comments：增加注释；
+
+   Enable Header：增加 SVF 文件头，含有时间戳信息；
+
+   Frequency：生成 SVF 文件参考频率，范围 100kHz~10MHz；
+
+   Enable TIR/TDR/HIR/HDR：使能 TIR/TDR/HIR/HDR 缩减 SVF 文件的大小；
+
+   Enable Statehold IO：使能 IO 保持功能；
+
+                                              。
+    Generate Aje File：生成支持压缩、非压缩的 aje 文件（推荐压缩模式）
+
+
+
+
+SWUG110                         www.anlogic.com                              30
+
+2024.12
+                                                   TangDynasty® BitWizard 使用指南
+
+5.3.2.2 SVF for SPI
+
+    SVF For SPI，将生成用于将位流文件下载到 Flash 的 SVF 文件，如图 5-12 所示。
+
+
+
+
+                              图 5-12 SVF for SPI
+
+    其中 Option 如下：
+
+   Add Comments：增加注释；
+
+   Enable Header：增加 SVF 文件头，含有时间戳信息；
+
+   Jtag Studio：使能支持 JTAG Studio 工具；
+
+   Length mode：使能 Normal/ Short 长度的 JTAG 指令，默认为 Normal；
+
+   Frequency：生成 SVF 文件参考频率，范围 100kHz~10MHz；
+
+   Flash Vendor：Flash 厂商，适用于外置 Flash 器件，可自定义；
+
+   Flash Name：Flash 型号，适用于外置 Flash 器件，可自定义；
+
+   Start Address(Hex)：指定 Flash 烧录位置；
+
+   Golden Lock：Golden 区（备区）lock 功能；
+
+   bg_mode：背景模式，此模式下升级，需掉电后才生效；
+
+   rf_mode：刷新模式，此模式下升级，即时生效；
+
+   Verify：生成带回读校验 Flash 功能的 SVF 文件；
+
+   Enable Loop：针对嵌入式配置平台使用。当使能时，擦除 Flash，通过查询 Flash BUSY 位，以节
+
+SWUG110                        www.anlogic.com                              31
+
+2024.12
+                                                      TangDynasty® BitWizard 使用指南
+    约擦除时间；当不使能时，擦除 Flash，将根据 Flash 数据手册，按典型值，进行等待；
+
+   Enable TIR/TDR/HIR/HDR：使能 TIR/TDR/HIR/HDR 缩减 SVF 文件的大小；
+
+   Generate Aje File：生成支持压缩、非压缩的 aje 文件（推荐压缩模式）。
+
+
+5.3.2.3 Verify SPI Only
+
+    Verify SPI Only，将生成用于回读校验 Flash 的 SVF 文件，如图 5-13 所示。
+
+
+
+
+                             图 5-13 Verify SPI Only
+
+    其中 Option 如下：
+
+   Add Comments：增加注释；
+
+   Enable Header：增加 SVF 文件头，含有时间戳信息；
+
+   Jtag Studio：使能支持 JTAG Studio 工具；
+
+   Flash Vendor：Flash 厂商，适用于外置 Flash 器件，可自定义；
+
+   Flash Name：Flash 型号，适用于外置 Flash 器件，可自定义；
+
+   Start Address(Hex)：指定 Flash 烧录位置；
+
+   bg_mode：背景模式，此模式下升级，需掉电后才生效；
+
+   Enable TIR/TDR/HIR/HDR：使能 TIR/TDR/HIR/HDR 缩减 SVF 文件的大小；
+
+       Generate Aje File：生成支持压缩、非压缩的 aje 文件（推荐压缩模式）。
+
+SWUG110                         www.anlogic.com                                32
+
+2024.12
+                                                     TangDynasty® BitWizard 使用指南
+
+5.3.2.4 Erase SPI(4k)
+
+    Erase SPI(4K)，将生成用于 Flash Sector Erase 操作的 SVF 文件，如图 5-14 所示。
+
+
+
+
+                              图 5-14 Erase SPI(4K)
+
+    其中 Option 如下：
+
+   Add Comments：增加注释；
+
+   Enable Header：增加 SVF 文件头，含有时间戳信息；
+
+   Jtag Studio：使能支持 JTAG Studio 工具；
+
+   Frequency：生成 SVF 文件参考频率，范围 100kHz~10MHz；
+
+   Flash Vendor：Flash 厂商，适用于外置 Flash 器件，可自定义；
+
+   Flash Name：Flash 型号，适用于外置 Flash 器件，可自定义；
+
+   Start Address(Hex)：指定 Flash 烧录位置；
+
+   Erase Area：擦除模式支持，all-全部擦除、primary-主区擦除、golden-备区擦除；此选项针对
+    部分器件有效；
+
+   bg_mode：背景模式，此模式下升级，需掉电后才生效；
+
+   Enable Loop：针对嵌入式配置平台使用。当使能时，擦除 Flash，通过查询 Flash BUSY 位，以节
+    约擦除时间；当不使能时，擦除 Flash，将根据 Flash 数据手册，按典型值，进行等待；
+
+   Enable TIR/TDR/HIR/HDR：使能 TIR/TDR/HIR/HDR 缩减 SVF 文件的大小；
+
+   Generate Aje File：生成支持压缩、非压缩的 aje 文件（推荐压缩模式）。
+
+
+
+
+SWUG110                         www.anlogic.com                               33
+
+2024.12
+                                                    TangDynasty® BitWizard 使用指南
+
+5.3.2.5 Check Device
+
+    Check Device，将生成用于读取器件 ID 的 SVF 文件，如图 5-15 所示。
+
+
+
+
+                              图 5-15 Check Device
+
+    其中 Option 如下：
+
+   Add Comments：增加注释；
+
+   Enable Header：增加 SVF 文件头，含有时间戳信息；
+
+   Enable TIR/TDR/HIR/HDR：使能 TIR/TDR/HIR/HDR 缩减 SVF 文件的大小；
+
+   Generate Aje File：生成支持压缩、非压缩的 aje 文件（推荐压缩模式）。
+
+
+5.3.2.6 Refresh
+
+    Refresh，将生成用于器件刷新的 SVF 文件，如图 5-16 所示。
+
+
+
+
+                                图 5-16 Refresh
+
+    其中 Option 如下：
+
+   Add Comments：增加注释；
+
+   Enable Header：增加 SVF 文件头，含有时间戳信息；
+
+   Enable TIR/TDR/HIR/HDR：使能 TIR/TDR/HIR/HDR 缩减 SVF 文件的大小；
+
+   Generate Aje File：生成支持压缩、非压缩的 aje 文件（推荐压缩模式）。
+
+
+SWUG110                         www.anlogic.com                              34
+
+2024.12
+                                                       TangDynasty® BitWizard 使用指南
+
+5.3.2.7 Erase SRAM
+
+    Erase SRAM，将生成用于擦除配置 RAM 的 SVF 文件，如图 5-17 所示。
+
+
+
+
+                               图 5-17 Erase SRAM
+
+    其中 Option 如下：
+
+   Add Comments：增加注释；
+
+   Enable Header：增加 SVF 文件头，含有时间戳信息；
+
+   Enable TIR/TDR/HIR/HDR：使能 TIR/TDR/HIR/HDR 缩减 SVF 文件的大小；
+
+   Generate Aje File：生成支持压缩、非压缩的 aje 文件（推荐压缩模式）。
+
+
+5.3.2.8 Check Status Done
+
+    Check Status Done，将生成用于读取器件 Done Status 的 SVF 文件，如图 5-18 所示。
+
+
+
+
+                            图 5-18 Check Status Done
+
+    其中 Option 如下：
+
+   Add Comments：增加注释；
+
+   Enable Header：增加 SVF 文件头，含有时间戳信息；
+
+   Enable TIR/TDR/HIR/HDR：使能 TIR/TDR/HIR/HDR 缩减 SVF 文件的大小；
+
+   Generate Aje File：生成支持压缩、非压缩的 aje 文件（推荐压缩模式）。
+
+
+SWUG110                         www.anlogic.com                                 35
+
+2024.12
+                                                       TangDynasty® BitWizard 使用指南
+
+5.3.2.9 Check Status Lock
+
+    Check Status Lock，将生成用于校验 Golden 区域是否已 Lock 的 SVF 文件，如图 5-19 所示。
+
+
+
+
+                            图 5-19 Check Status Lock
+
+    其中 Option 如下：
+
+   Add Comments：增加注释；
+
+   Enable Header：增加 SVF 文件头，含有时间戳信息；
+
+   Enable TIR/TDR/HIR/HDR：使能 TIR/TDR/HIR/HDR 缩减 SVF 文件的大小；
+
+   Generate Aje File：生成支持压缩、非压缩的 aje 文件（推荐压缩模式）。
+
+    此功能选项，仅针对部分器件。
+
+
+5.3.2.10 SVF for User Data
+
+    SVF for User Data，将生成用于烧录用户数据的 SVF 文件，如图 5-20 所示。
+
+
+
+
+                            图 5-20 SVF for User Data
+
+    其中 Option 如下：
+
+   Add Comments：增加注释；
+
+
+SWUG110                         www.anlogic.com                                 36
+
+2024.12
+                                                  TangDynasty® BitWizard 使用指南
+   Enable Header：增加 SVF 文件头，含有时间戳信息；
+
+   Flash Vendor：Flash 厂商，适用于外置 Flash 器件，可自定义；
+
+   Flash Name：Flash 型号，适用于外置 Flash 器件，可自定义；
+
+   User Data File：指定待转换的用户数据文件；
+
+   User Data Address：指定烧录地址；
+
+   Enable Loop：针对嵌入式配置平台使用。当使能时，擦除 Flash，通过查询 Flash BUSY 位，以节
+    约擦除时间；当不使能时，擦除 Flash，将根据 Flash 数据手册，按典型值，进行等待；
+
+   Enable TIR/TDR/HIR/HDR：使能 TIR/TDR/HIR/HDR 缩减 SVF 文件的大小；
+
+   Generate Aje File：生成支持压缩、非压缩的 aje 文件（推荐压缩模式）。
+
+
+
+
+SWUG110                         www.anlogic.com                            37
+
+2024.12
+                                               TangDynasty® BitWizard 使用指南
+
+5.4 Device Chains
+
+   Device Chains，通过文件选择，或者扫链，支持多级器件级联。
+
+
+
+
+                             Device Chains
+
+
+
+
+                      图 5-21 Device Chain 界面
+
+   打开 ChipLinker，支持自动扫链功能，若有多级器件级联，器件读取成功后，在 Device Chains 显
+示。
+
+
+5.5 控制/信息栏
+
+   控制、信息栏，如图 5-22 所示，支持使用过程中相关信息的提示；同时，也支持 TD 相关命令的
+运行。
+
+
+
+
+           控制/信息栏
+
+
+
+                      图 5-22 控制/信息栏界面
+
+SWUG110                  www.anlogic.com                                38
+
+2024.12
+                                                  TangDynasty® BitWizard 使用指南
+
+5.6 SVF 应用场景介绍
+
+    SVF 文件，Serial Vector Format，串行向量格式文件。使用 SVF 文件格式，无须关心位流格式，
+可通过第三方编程工具，对目标器件编程。根据应用需求，可通过 ChipLinker 生成多种 SVF 文件。
+
+
+5.6.1 SRAM 编程
+
+    可通过 SVF For SRAM 界面，生成 SVF 文件，此文件可将位流下载至配置 RAM 上，掉电丢失。
+
+
+5.6.2 Flash 编程
+
+    针对 Flash 烧录，支持位流数据和用户数据烧录，可通过 SVF For Flash、SVF for User Data 界
+面，生成 SVF 文件，如图 5-23 所示。
+
+
+
+
+                               图 5-23 Merge SVF
+
+    典型组合示例如下：
+
+   rf_mode：刷新模式，此选项生成的 SVF 文件，在烧录前，将对正运行的功能（若有）进行复位，
+    然后，对 Flash 进行烧录操作，烧录后，器件将从 flash 加载烧录后版本；
+
+   bg_mode：背景模式，此选项生成的 SVF 文件，在烧录时，对正运行的功能（若有），不影响；烧录
+    后，若需要加载新的版本，则需掉电，或者外部复位(programn)；
+
+                                                  ，不影响；烧录
+    bg_mode + rf_mode：此选项生成的 SVF 文件，在烧录时，对正运行的功能（若有）
+    后；烧录后，器件将从 flash 加载烧录后的版本；
+
+   Verify：此选项将生成回读校验 Flash 数据操作，可结合 bg_mode、rf_mode 功能进行组合；在
+    bg_mode/rf_mode 基础上，使能此功能，将会增减烧录时长；
+
+   Enable loop：此选项生成带查询 Flash Busy 位的 SVF 文件，在对 Flash 进行 Erase、Page Program
+    操作时，若使能此选项，将有效缩短整体烧录时间；此选项对嵌入式配置 AJE 方案有效，AL-Link、
+    AL-Link FT 不支持此指令。
+
+SWUG110                        www.anlogic.com                             39
+
+2024.12
+                                              TangDynasty® BitWizard 使用指南
+  若烧录用户数据，则可通过 SVF for User Data 界面。
+
+
+5.6.3 其他
+
+  ChipLinker 界面还有 Check Status Done、Check Device 等功能，描述如下：
+
+  Check Status Done：此选项生成的 SVF 文件，用于 Status Done 寄存器检测；通过此文件，可检
+  测器件是否进入工作模式，即 Done 为高；
+                                                    。
+  Check Device：此选项生成的 SVF 文件，生成用于检测器件是否为指定的器件（包含封装信息）
+
+
+
+
+SWUG110                     www.anlogic.com                            40
+
+2024.12
+                                                  TangDynasty® BitWizard 使用指南
+
+6 AJE 功能
+
+  AJE，Anlogic JTAG Embedded，用于生成嵌入式平台配置 FPGA 器件的文件，其加载平台与目标器
+件关系，如图 6-1 所示。
+
+
+                            GPIO           TCK
+
+                            GPIO           TMS Anlogic
+
+                      CPU   GPIO           TDI   FPGA
+
+                            GPIO           TDO
+
+
+
+
+                         图 6-1 AJE2JTAG 验证平台
+
+  将 AJE2JTAG 系统代码嵌入到 MCU/CPU 中，可使 CPU/MCU GPIO 模拟 JTAG 时序，通过 JTAG 接口对
+外部可编程器件进行配置。AJE 文件生成可通过界面、命令行工具生成。
+
+
+6.1 界面生成 AJE 文件
+
+  在 ChipLinker 中，生成 SVF 文件界面，使能 Generate AJE File 选项，SVF 文件生成的同时，将
+自动生成相对应的 AJE 文件。
+
+
+
+
+                            图 6-2 生成 AJE 文件
+
+
+
+
+SWUG110                      www.anlogic.com                               41
+
+2024.12
+                                                        TangDynasty® BitWizard 使用指南
+
+6.2 命令行生成 AJE 文件
+
+  在 TD 安装目录下，可通过 svf2aje 工具，手动生成 aje 文件，svf2aje 工具使用帮助如图 6-3 所
+示。
+
+
+
+
+                              图 6-3 命令行生成 AJE 文件
+
+  默认产生的.aje 文件为压缩版本，命令如下：
+
+  svf2aje.exe -svffile    V.svf -ajefile    file.aje
+
+  若需产生的非压缩.aje 文件版本，命令如下：
+
+  svf2aje.exe -svffile    V.svf -ajefile    file.aje -full
+
+  工具所在目录下，会保存用户产生的*.aje 文件，工具运行无误，如图 6-4 所示：
+
+
+
+
+                             图 6-4 svf2aje 产生 AJE 文件
+
+  如果将.aje 还原成.svf 文件，可通过下述指令，进行转换，会保存用户产生的*.svf 文件，工具
+运行无误，如图 6-5 所示：
+
+  svf2aje.exe -ajefile file.aje -svffile file4.svf -r
+
+
+
+
+SWUG110                           www.anlogic.com                                42
+
+2024.12
+                                                       TangDynasty® BitWizard 使用指南
+
+
+
+
+                               图 6-5 svf2aje 恢复 SVF 文件
+
+  SRAM 配置，可通过下述命令对指令长度进行限定：
+
+  svf2aje.exe -svffile PH4Led_L1SRAM.svf -ajefile PH4LedSRAM.aje -max_size 64
+
+  其中 size 为 1、2、4、8、16、32、64，默认值为 64(max_size*1000)。
+
+
+
+
+SWUG110                           www.anlogic.com                               43
+
+2024.12
+                                          TangDynasty® BitWizard 使用指南
+
+7 常见问题
+
+7.1 AL-LINK 驱动安装
+
+7.1.1 Windows
+
+                              计算机首次用 USB Type-B 数据线连接下载器，
+   计算机首次连接 AL-LINK 在线下载器需要安装驱动，
+在计算机设备管理器的其它设备中可显示“AL-LINK”设备，如图 7-1 所示。
+
+
+
+
+                     图 7-1 Windows 安装步骤
+
+
+SWUG110                www.anlogic.com                             44
+
+2024.12
+                                                        TangDynasty® BitWizard 使用指南
+
+7.1.2 Linux
+
+   在 Linux 环境下，AL-LINK 免驱，使用时，可能需要获取权限，可先获取 USB 设备信息。
+
+   [root@root bin]$ lsusb
+
+   Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+   Bus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+
+   Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+   Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+
+   Bus 003 Device 002: ID 0e0f:0003 VMware, Inc. Virtual Mouse
+
+   Bus 003 Device 006: ID 336c:1001
+
+   Bus 003 Device 004: ID 0e0f:0002 VMware, Inc. Virtual USB Hub
+
+   Bus 003 Device 005: ID 0e0f:0002 VMware, Inc. Virtual USB Hub
+
+   [root@root bin]$
+
+   获取设备权限并运行 TD 软件
+
+   chmod 0666 /dev/bus/usb/003/006
+
+   ./td.sh -gui &
+
+   打开 Bitwriter 后，可正常识别到器件。
+
+
+
+
+SWUG110                               www.anlogic.com                            45
+
+2024.12
+                                                TangDynasty® BitWizard 使用指南
+
+版本信息
+
+    日期        版本                               修订信息
+                    首次发布正式版
+ 2024/11/28   1.0
+                    将 Download 更新为 BitWriter，DeviceChain 更新为 ChipLinker。
+ 2024/12/06   1.1   全文描述更新和优化
+
+
+
+
+版权所有©2024 上海安路信息科技股份有限公司
+
+未经本公司书面许可，任何单位和个人都不得擅自摘抄、复制、翻译本文档内容的部分或全部，并不得
+以任何形式传播。
+
+
+免责声明
+
+本文档并未授予任何知识产权的许可，并未以明示或暗示，或以禁止发言或其他方式授予任何知识产权
+许可；本文档仅为向用户提供使用器件的参考，协助用户正确地使用安路科技产品之用，其著作权归安
+路科技所有；本文档所展示的任何产品信息均不构成安路科技对所涉产品或服务作出任何明示或默示
+的声明或保证。
+
+安路科技将不定期地对本文档进行更新、修订。用户如需获取最新版本的文档，可通过安路科技的官方
+网站（网址为：https://www.anlogic.com）自行查询下载，也可联系安路科技的销售人员咨询获取。
+
+
+SWUG110                      www.anlogic.com                               46
+
+2024.12
+

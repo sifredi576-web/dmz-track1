@@ -1,0 +1,78 @@
+[
+  {
+    "file": "TRACK01.BMP",
+    "bytes": 921654,
+    "signature": "BM",
+    "width": 640,
+    "height": 480,
+    "bits": 24,
+    "compression": 0
+  },
+  {
+    "file": "TRACK01.WAV",
+    "bytes": 12192044,
+    "channels": 2,
+    "rate": 48000,
+    "bits": 16,
+    "compression": "NONE",
+    "frames": 3048000,
+    "seconds": 63.5
+  },
+  {
+    "file": "TRACK02.BMP",
+    "bytes": 921654,
+    "signature": "BM",
+    "width": 640,
+    "height": 480,
+    "bits": 24,
+    "compression": 0
+  },
+  {
+    "file": "TRACK02.WAV",
+    "bytes": 10373096,
+    "channels": 2,
+    "rate": 48000,
+    "bits": 16,
+    "compression": "NONE",
+    "frames": 2593263,
+    "seconds": 54.0263125
+  },
+  {
+    "file": "TRACK03.BMP",
+    "bytes": 921654,
+    "signature": "BM",
+    "width": 640,
+    "height": 480,
+    "bits": 24,
+    "compression": 0
+  },
+  {
+    "file": "TRACK03.WAV",
+    "bytes": 9257184,
+    "channels": 2,
+    "rate": 48000,
+    "bits": 16,
+    "compression": "NONE",
+    "frames": 2314285,
+    "seconds": 48.21427083333333
+  },
+  {
+    "file": "TRACK04.BMP",
+    "bytes": 921654,
+    "signature": "BM",
+    "width": 640,
+    "height": 480,
+    "bits": 24,
+    "compression": 0
+  },
+  {
+    "file": "TRACK04.WAV",
+    "bytes": 13671768,
+    "channels": 2,
+    "rate": 48000,
+    "bits": 16,
+    "compression": "NONE",
+    "frames": 3417931,
+    "seconds": 71.20689583333333
+  }
+]

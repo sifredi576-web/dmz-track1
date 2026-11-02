@@ -26,6 +26,7 @@ VL_ATTR_COLD void Vtb_status_uart___024root___eval_static__TOP(Vtb_status_uart__
     vlSelfRef.tb_status_uart__DOT__reset = 1U;
     vlSelfRef.tb_status_uart__DOT__seen64 = 0U;
     vlSelfRef.tb_status_uart__DOT__seen96 = 0U;
+    vlSelfRef.tb_status_uart__DOT__seen32 = 0U;
 }
 
 VL_ATTR_COLD void Vtb_status_uart___024root___eval_final(Vtb_status_uart___024root* vlSelf) {
@@ -95,6 +96,7 @@ VL_ATTR_COLD void Vtb_status_uart___024root___ctor_var_reset(Vtb_status_uart___0
     // Body
     vlSelf->tb_status_uart__DOT__clk = VL_RAND_RESET_I(1);
     vlSelf->tb_status_uart__DOT__reset = VL_RAND_RESET_I(1);
+    VL_RAND_RESET_W(256, vlSelf->tb_status_uart__DOT__status32);
     VL_RAND_RESET_W(512, vlSelf->tb_status_uart__DOT__status64);
     VL_RAND_RESET_W(768, vlSelf->tb_status_uart__DOT__status96);
     vlSelf->tb_status_uart__DOT__tx64 = VL_RAND_RESET_I(1);
@@ -105,20 +107,24 @@ VL_ATTR_COLD void Vtb_status_uart___024root___ctor_var_reset(Vtb_status_uart___0
     vlSelf->tb_status_uart__DOT__b96 = VL_RAND_RESET_I(8);
     vlSelf->tb_status_uart__DOT__seen64 = VL_RAND_RESET_I(32);
     vlSelf->tb_status_uart__DOT__seen96 = VL_RAND_RESET_I(32);
-    vlSelf->tb_status_uart__DOT____Vlvbound_hc7a8f01d__0 = VL_RAND_RESET_I(8);
-    vlSelf->tb_status_uart__DOT____Vlvbound_h6648b4d0__0 = VL_RAND_RESET_I(8);
-    vlSelf->tb_status_uart__DOT__t64__DOT__interval = VL_RAND_RESET_I(32);
+    vlSelf->tb_status_uart__DOT__seen32 = VL_RAND_RESET_I(32);
+    vlSelf->tb_status_uart__DOT__tx32 = VL_RAND_RESET_I(1);
+    vlSelf->tb_status_uart__DOT__v32 = VL_RAND_RESET_I(1);
+    vlSelf->tb_status_uart__DOT__b32 = VL_RAND_RESET_I(8);
+    vlSelf->tb_status_uart__DOT____Vlvbound_h55b53ae0__0 = VL_RAND_RESET_I(8);
+    vlSelf->tb_status_uart__DOT____Vlvbound_h2ba612df__0 = VL_RAND_RESET_I(8);
+    vlSelf->tb_status_uart__DOT__t64__DOT__interval = VL_RAND_RESET_I(16);
     VL_RAND_RESET_W(512, vlSelf->tb_status_uart__DOT__t64__DOT__snapshot);
     vlSelf->tb_status_uart__DOT__t64__DOT__index = VL_RAND_RESET_I(6);
     vlSelf->tb_status_uart__DOT__t64__DOT__bitnum = VL_RAND_RESET_I(4);
-    vlSelf->tb_status_uart__DOT__t64__DOT__baud = VL_RAND_RESET_I(16);
+    vlSelf->tb_status_uart__DOT__t64__DOT__baud = VL_RAND_RESET_I(5);
     vlSelf->tb_status_uart__DOT__t64__DOT__shift = VL_RAND_RESET_I(10);
     vlSelf->tb_status_uart__DOT__t64__DOT__busy = VL_RAND_RESET_I(1);
-    vlSelf->tb_status_uart__DOT__t96__DOT__interval = VL_RAND_RESET_I(32);
+    vlSelf->tb_status_uart__DOT__t96__DOT__interval = VL_RAND_RESET_I(16);
     VL_RAND_RESET_W(768, vlSelf->tb_status_uart__DOT__t96__DOT__snapshot);
     vlSelf->tb_status_uart__DOT__t96__DOT__index = VL_RAND_RESET_I(7);
     vlSelf->tb_status_uart__DOT__t96__DOT__bitnum = VL_RAND_RESET_I(4);
-    vlSelf->tb_status_uart__DOT__t96__DOT__baud = VL_RAND_RESET_I(16);
+    vlSelf->tb_status_uart__DOT__t96__DOT__baud = VL_RAND_RESET_I(5);
     vlSelf->tb_status_uart__DOT__t96__DOT__shift = VL_RAND_RESET_I(10);
     vlSelf->tb_status_uart__DOT__t96__DOT__busy = VL_RAND_RESET_I(1);
     vlSelf->tb_status_uart__DOT__r64__DOT__r1 = VL_RAND_RESET_I(1);
@@ -133,6 +139,19 @@ VL_ATTR_COLD void Vtb_status_uart___024root___ctor_var_reset(Vtb_status_uart___0
     vlSelf->tb_status_uart__DOT__r96__DOT__count = VL_RAND_RESET_I(16);
     vlSelf->tb_status_uart__DOT__r96__DOT__bitno = VL_RAND_RESET_I(3);
     vlSelf->tb_status_uart__DOT__r96__DOT__shift = VL_RAND_RESET_I(8);
+    vlSelf->tb_status_uart__DOT__t32__DOT__interval = VL_RAND_RESET_I(16);
+    VL_RAND_RESET_W(256, vlSelf->tb_status_uart__DOT__t32__DOT__snapshot);
+    vlSelf->tb_status_uart__DOT__t32__DOT__index = VL_RAND_RESET_I(5);
+    vlSelf->tb_status_uart__DOT__t32__DOT__bitnum = VL_RAND_RESET_I(4);
+    vlSelf->tb_status_uart__DOT__t32__DOT__baud = VL_RAND_RESET_I(5);
+    vlSelf->tb_status_uart__DOT__t32__DOT__shift = VL_RAND_RESET_I(10);
+    vlSelf->tb_status_uart__DOT__t32__DOT__busy = VL_RAND_RESET_I(1);
+    vlSelf->tb_status_uart__DOT__r32__DOT__r1 = VL_RAND_RESET_I(1);
+    vlSelf->tb_status_uart__DOT__r32__DOT__r2 = VL_RAND_RESET_I(1);
+    vlSelf->tb_status_uart__DOT__r32__DOT__state = VL_RAND_RESET_I(2);
+    vlSelf->tb_status_uart__DOT__r32__DOT__count = VL_RAND_RESET_I(16);
+    vlSelf->tb_status_uart__DOT__r32__DOT__bitno = VL_RAND_RESET_I(3);
+    vlSelf->tb_status_uart__DOT__r32__DOT__shift = VL_RAND_RESET_I(8);
     vlSelf->__Vtrigprevexpr___TOP__tb_status_uart__DOT__clk__0 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr_h02066bdf__1 = VL_RAND_RESET_I(1);
     vlSelf->__VactDidInit = 0;

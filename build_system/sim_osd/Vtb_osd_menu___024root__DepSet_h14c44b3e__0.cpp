@@ -6,6 +6,8 @@
 #include "Vtb_osd_menu__Syms.h"
 #include "Vtb_osd_menu___024root.h"
 
+extern const VlWide<9>/*287:0*/ Vtb_osd_menu__ConstPool__CONST_hf0fa5d71_0;
+
 VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0(Vtb_osd_menu___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0\n"); );
     Vtb_osd_menu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
@@ -49,54 +51,130 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0
     __Vtask_tb_osd_menu__DOT__send__15__b = 0;
     CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__16__b;
     __Vtask_tb_osd_menu__DOT__send__16__b = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__17__px;
-    __Vtask_tb_osd_menu__DOT__pixel__17__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__17__py;
-    __Vtask_tb_osd_menu__DOT__pixel__17__py = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__18__px;
-    __Vtask_tb_osd_menu__DOT__pixel__18__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__18__py;
-    __Vtask_tb_osd_menu__DOT__pixel__18__py = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__19__px;
-    __Vtask_tb_osd_menu__DOT__pixel__19__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__19__py;
-    __Vtask_tb_osd_menu__DOT__pixel__19__py = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__20__px;
-    __Vtask_tb_osd_menu__DOT__pixel__20__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__20__py;
-    __Vtask_tb_osd_menu__DOT__pixel__20__py = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__21__px;
-    __Vtask_tb_osd_menu__DOT__pixel__21__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__21__py;
-    __Vtask_tb_osd_menu__DOT__pixel__21__py = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__22__px;
-    __Vtask_tb_osd_menu__DOT__pixel__22__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__22__py;
-    __Vtask_tb_osd_menu__DOT__pixel__22__py = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__23__px;
-    __Vtask_tb_osd_menu__DOT__pixel__23__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__23__py;
-    __Vtask_tb_osd_menu__DOT__pixel__23__py = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__24__px;
-    __Vtask_tb_osd_menu__DOT__pixel__24__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__24__py;
-    __Vtask_tb_osd_menu__DOT__pixel__24__py = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__25__px;
-    __Vtask_tb_osd_menu__DOT__pixel__25__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__25__py;
-    __Vtask_tb_osd_menu__DOT__pixel__25__py = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__26__px;
-    __Vtask_tb_osd_menu__DOT__pixel__26__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__26__py;
-    __Vtask_tb_osd_menu__DOT__pixel__26__py = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__27__px;
-    __Vtask_tb_osd_menu__DOT__pixel__27__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__27__py;
-    __Vtask_tb_osd_menu__DOT__pixel__27__py = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__28__px;
-    __Vtask_tb_osd_menu__DOT__pixel__28__px = 0;
-    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__28__py;
-    __Vtask_tb_osd_menu__DOT__pixel__28__py = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__17__b;
+    __Vtask_tb_osd_menu__DOT__send__17__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__18__b;
+    __Vtask_tb_osd_menu__DOT__send__18__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__19__b;
+    __Vtask_tb_osd_menu__DOT__send__19__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__20__b;
+    __Vtask_tb_osd_menu__DOT__send__20__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__21__b;
+    __Vtask_tb_osd_menu__DOT__send__21__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__22__b;
+    __Vtask_tb_osd_menu__DOT__send__22__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__23__b;
+    __Vtask_tb_osd_menu__DOT__send__23__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__24__b;
+    __Vtask_tb_osd_menu__DOT__send__24__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__25__b;
+    __Vtask_tb_osd_menu__DOT__send__25__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__26__b;
+    __Vtask_tb_osd_menu__DOT__send__26__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__27__b;
+    __Vtask_tb_osd_menu__DOT__send__27__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__28__b;
+    __Vtask_tb_osd_menu__DOT__send__28__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__29__b;
+    __Vtask_tb_osd_menu__DOT__send__29__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__30__b;
+    __Vtask_tb_osd_menu__DOT__send__30__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__31__b;
+    __Vtask_tb_osd_menu__DOT__send__31__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__32__b;
+    __Vtask_tb_osd_menu__DOT__send__32__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__33__b;
+    __Vtask_tb_osd_menu__DOT__send__33__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__34__b;
+    __Vtask_tb_osd_menu__DOT__send__34__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__35__b;
+    __Vtask_tb_osd_menu__DOT__send__35__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__36__b;
+    __Vtask_tb_osd_menu__DOT__send__36__b = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__37__px;
+    __Vtask_tb_osd_menu__DOT__pixel__37__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__37__py;
+    __Vtask_tb_osd_menu__DOT__pixel__37__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__38__px;
+    __Vtask_tb_osd_menu__DOT__pixel__38__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__38__py;
+    __Vtask_tb_osd_menu__DOT__pixel__38__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__39__px;
+    __Vtask_tb_osd_menu__DOT__pixel__39__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__39__py;
+    __Vtask_tb_osd_menu__DOT__pixel__39__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__40__px;
+    __Vtask_tb_osd_menu__DOT__pixel__40__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__40__py;
+    __Vtask_tb_osd_menu__DOT__pixel__40__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__41__px;
+    __Vtask_tb_osd_menu__DOT__pixel__41__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__41__py;
+    __Vtask_tb_osd_menu__DOT__pixel__41__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__42__px;
+    __Vtask_tb_osd_menu__DOT__pixel__42__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__42__py;
+    __Vtask_tb_osd_menu__DOT__pixel__42__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__43__px;
+    __Vtask_tb_osd_menu__DOT__pixel__43__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__43__py;
+    __Vtask_tb_osd_menu__DOT__pixel__43__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__44__px;
+    __Vtask_tb_osd_menu__DOT__pixel__44__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__44__py;
+    __Vtask_tb_osd_menu__DOT__pixel__44__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__45__px;
+    __Vtask_tb_osd_menu__DOT__pixel__45__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__45__py;
+    __Vtask_tb_osd_menu__DOT__pixel__45__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__46__px;
+    __Vtask_tb_osd_menu__DOT__pixel__46__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__46__py;
+    __Vtask_tb_osd_menu__DOT__pixel__46__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__47__px;
+    __Vtask_tb_osd_menu__DOT__pixel__47__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__47__py;
+    __Vtask_tb_osd_menu__DOT__pixel__47__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__48__px;
+    __Vtask_tb_osd_menu__DOT__pixel__48__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__48__py;
+    __Vtask_tb_osd_menu__DOT__pixel__48__py = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__49__b;
+    __Vtask_tb_osd_menu__DOT__send__49__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__50__b;
+    __Vtask_tb_osd_menu__DOT__send__50__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__51__b;
+    __Vtask_tb_osd_menu__DOT__send__51__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__52__b;
+    __Vtask_tb_osd_menu__DOT__send__52__b = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__53__px;
+    __Vtask_tb_osd_menu__DOT__pixel__53__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__53__py;
+    __Vtask_tb_osd_menu__DOT__pixel__53__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__54__px;
+    __Vtask_tb_osd_menu__DOT__pixel__54__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__54__py;
+    __Vtask_tb_osd_menu__DOT__pixel__54__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__55__px;
+    __Vtask_tb_osd_menu__DOT__pixel__55__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__55__py;
+    __Vtask_tb_osd_menu__DOT__pixel__55__py = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__56__px;
+    __Vtask_tb_osd_menu__DOT__pixel__56__px = 0;
+    IData/*31:0*/ __Vtask_tb_osd_menu__DOT__pixel__56__py;
+    __Vtask_tb_osd_menu__DOT__pixel__56__py = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__57__b;
+    __Vtask_tb_osd_menu__DOT__send__57__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__58__b;
+    __Vtask_tb_osd_menu__DOT__send__58__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__59__b;
+    __Vtask_tb_osd_menu__DOT__send__59__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__60__b;
+    __Vtask_tb_osd_menu__DOT__send__60__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__61__b;
+    __Vtask_tb_osd_menu__DOT__send__61__b = 0;
+    CData/*7:0*/ __Vtask_tb_osd_menu__DOT__send__62__b;
+    __Vtask_tb_osd_menu__DOT__send__62__b = 0;
     VlWide<7>/*223:0*/ __Vtemp_1;
     VlWide<7>/*223:0*/ __Vtemp_5;
     // Body
@@ -485,43 +563,390 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
         VL_STOP_MT("sim/system\\tb_osd_menu.sv", 40, "", false);
     }
-    __Vtask_tb_osd_menu__DOT__pixel__17__py = 0x1e0U;
-    __Vtask_tb_osd_menu__DOT__pixel__17__px = 0U;
+    __Vtask_tb_osd_menu__DOT__send__17__b = 0x46U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__17__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__18__b = 0x56U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__18__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__19__b = 0x56U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__19__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY(((2U != (IData)(vlSelfRef.tb_osd_menu__DOT__section))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:42: Assertion failed in %Ntb_osd_menu: Display tab\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 42, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__20__b = 0x7bU;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__20__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY(((0x5bU != (IData)(vlSelfRef.tb_osd_menu__DOT__cb))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:43: Assertion failed in %Ntb_osd_menu: Brightness decrease\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 43, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__21__b = 0x7dU;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__21__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY(((0x5dU != (IData)(vlSelfRef.tb_osd_menu__DOT__cb))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:44: Assertion failed in %Ntb_osd_menu: Brightness increase\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 44, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__22__b = 0x4fU;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__22__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY((((1U != (IData)(vlSelfRef.tb_osd_menu__DOT__cursor)) 
+                      | (0x4fU != (IData)(vlSelfRef.tb_osd_menu__DOT__cb)))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:45: Assertion failed in %Ntb_osd_menu: Settings cursor leaked adjustment\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 45, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__23__b = 0x7bU;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__23__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY(((0x63U != (IData)(vlSelfRef.tb_osd_menu__DOT__cb))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:46: Assertion failed in %Ntb_osd_menu: Contrast decrease\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 46, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__24__b = 0x7dU;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__24__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY(((0x43U != (IData)(vlSelfRef.tb_osd_menu__DOT__cb))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:47: Assertion failed in %Ntb_osd_menu: Contrast increase\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 47, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__25__b = 0x4fU;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__25__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__26__b = 0x45U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__26__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY(((1U & ((0x44U != (IData)(vlSelfRef.tb_osd_menu__DOT__cb)) 
+                            | (~ (IData)(vlSelfRef.tb_osd_menu__DOT__opened))))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:48: Assertion failed in %Ntb_osd_menu: Defaults apply\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 48, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__27__b = 0x56U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__27__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY(((3U != (IData)(vlSelfRef.tb_osd_menu__DOT__section))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:49: Assertion failed in %Ntb_osd_menu: System tab\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 49, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__28__b = 0x45U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__28__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY((((0x57U != (IData)(vlSelfRef.tb_osd_menu__DOT__cb)) 
+                      | (IData)(vlSelfRef.tb_osd_menu__DOT__opened))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:49: Assertion failed in %Ntb_osd_menu: Pair mode action\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 49, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__29__b = 0x46U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__29__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__30__b = 0x4fU;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__30__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__31__b = 0x45U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__31__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY(((((0x52U != (IData)(vlSelfRef.tb_osd_menu__DOT__cb)) 
+                       | (IData)(vlSelfRef.tb_osd_menu__DOT__opened)) 
+                      | (0U != (IData)(vlSelfRef.tb_osd_menu__DOT__section)))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:50: Assertion failed in %Ntb_osd_menu: Reload from system\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 50, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__32__b = 0x46U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__32__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__33__b = 0x51U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__33__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY((((IData)(vlSelfRef.tb_osd_menu__DOT__opened) 
+                      | (0x51U != (IData)(vlSelfRef.tb_osd_menu__DOT__cb)))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:51: Assertion failed in %Ntb_osd_menu: Priority closes menu\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 51, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__34__b = 0x46U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__34__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__35__b = 0x80U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__35__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY((((IData)(vlSelfRef.tb_osd_menu__DOT__opened) 
+                      | (0x80U != (IData)(vlSelfRef.tb_osd_menu__DOT__cb)))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:52: Assertion failed in %Ntb_osd_menu: Home closes menu\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 52, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__36__b = 0x52U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__36__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__pixel__37__py = 0x1e0U;
+    __Vtask_tb_osd_menu__DOT__pixel__37__px = 0U;
     co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__17__px);
-    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__17__py);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__37__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__37__py);
     co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    __Vtask_tb_osd_menu__DOT__pixel__18__py = 0x20cU;
-    __Vtask_tb_osd_menu__DOT__pixel__18__px = 0x31eU;
+    __Vtask_tb_osd_menu__DOT__pixel__38__py = 0x20cU;
+    __Vtask_tb_osd_menu__DOT__pixel__38__px = 0x31eU;
     co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__18__px);
-    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__18__py);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__38__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__38__py);
     co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    __Vtask_tb_osd_menu__DOT__pixel__19__py = 0x20cU;
-    __Vtask_tb_osd_menu__DOT__pixel__19__px = 0x31fU;
+    __Vtask_tb_osd_menu__DOT__pixel__39__py = 0x20cU;
+    __Vtask_tb_osd_menu__DOT__pixel__39__px = 0x31fU;
     co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__19__px);
-    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__19__py);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__39__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__39__py);
     co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge tb_osd_menu.clk)", 
@@ -542,9 +967,9 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0
     while (VL_GTS_III(32, 0x20dU, tb_osd_menu__DOT__py)) {
         vlSelfRef.tb_osd_menu__DOT__px = 0U;
         while (VL_GTS_III(32, 0x320U, vlSelfRef.tb_osd_menu__DOT__px)) {
-            __Vtask_tb_osd_menu__DOT__pixel__20__py 
+            __Vtask_tb_osd_menu__DOT__pixel__40__py 
                 = tb_osd_menu__DOT__py;
-            __Vtask_tb_osd_menu__DOT__pixel__20__px 
+            __Vtask_tb_osd_menu__DOT__pixel__40__px 
                 = vlSelfRef.tb_osd_menu__DOT__px;
             co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                                  nullptr, 
@@ -552,9 +977,9 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0
                                                                  "sim/system\tb_osd_menu.sv", 
                                                                  22);
             vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU 
-                                             & __Vtask_tb_osd_menu__DOT__pixel__20__px);
+                                             & __Vtask_tb_osd_menu__DOT__pixel__40__px);
             vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU 
-                                             & __Vtask_tb_osd_menu__DOT__pixel__20__py);
+                                             & __Vtask_tb_osd_menu__DOT__pixel__40__py);
             co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                                  nullptr, 
                                                                  "@(posedge tb_osd_menu.clk)", 
@@ -564,58 +989,58 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0
                                & (0U == tb_osd_menu__DOT__py)) 
                               & ((~ (IData)(vlSelfRef.tb_osd_menu__DOT__ink)) 
                                  | (~ (IData)(vlSelfRef.tb_osd_menu__DOT__shade))))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:46: Assertion failed in %Ntb_osd_menu: First glyph/alignment\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:59: Assertion failed in %Ntb_osd_menu: First glyph/alignment\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 46, "", false);
+                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 59, "", false);
             }
             if (VL_UNLIKELY(((((0x64U == vlSelfRef.tb_osd_menu__DOT__px) 
                                & (0x46U == tb_osd_menu__DOT__py)) 
                               & ((IData)(vlSelfRef.tb_osd_menu__DOT__ink) 
                                  | (IData)(vlSelfRef.tb_osd_menu__DOT__shade)))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:47: Assertion failed in %Ntb_osd_menu: OSD changed image outside panels\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:60: Assertion failed in %Ntb_osd_menu: OSD changed image outside panels\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 47, "", false);
+                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 60, "", false);
             }
             if (VL_UNLIKELY(((((0x40U == vlSelfRef.tb_osd_menu__DOT__px) 
                                & (0x60U == tb_osd_menu__DOT__py)) 
                               & (~ (IData)(vlSelfRef.tb_osd_menu__DOT__shade)))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:48: Assertion failed in %Ntb_osd_menu: Menu left edge alignment\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:61: Assertion failed in %Ntb_osd_menu: Menu left edge alignment\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 48, "", false);
+                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 61, "", false);
             }
             if (VL_UNLIKELY(((((0x3fU == vlSelfRef.tb_osd_menu__DOT__px) 
                                & (0x60U == tb_osd_menu__DOT__py)) 
                               & (IData)(vlSelfRef.tb_osd_menu__DOT__shade))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:49: Assertion failed in %Ntb_osd_menu: Menu leaked left edge\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:62: Assertion failed in %Ntb_osd_menu: Menu leaked left edge\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 49, "", false);
+                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 62, "", false);
             }
             if (VL_UNLIKELY(((((0x23fU == vlSelfRef.tb_osd_menu__DOT__px) 
                                & (0x60U == tb_osd_menu__DOT__py)) 
                               & (~ (IData)(vlSelfRef.tb_osd_menu__DOT__shade)))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:50: Assertion failed in %Ntb_osd_menu: Menu right edge alignment\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:63: Assertion failed in %Ntb_osd_menu: Menu right edge alignment\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 50, "", false);
+                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 63, "", false);
             }
             if (VL_UNLIKELY(((((0x240U == vlSelfRef.tb_osd_menu__DOT__px) 
                                & (0x60U == tb_osd_menu__DOT__py)) 
                               & (IData)(vlSelfRef.tb_osd_menu__DOT__shade))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:51: Assertion failed in %Ntb_osd_menu: Menu leaked right edge\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:64: Assertion failed in %Ntb_osd_menu: Menu leaked right edge\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 51, "", false);
+                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 64, "", false);
             }
             if (VL_UNLIKELY(((VL_LTES_III(32, 0x280U, vlSelfRef.tb_osd_menu__DOT__px) 
                               & (IData)(vlSelfRef.tb_osd_menu__DOT__ink))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:52: Assertion failed in %Ntb_osd_menu: Text in blanking\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:65: Assertion failed in %Ntb_osd_menu: Text in blanking\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 52, "", false);
+                VL_STOP_MT("sim/system\\tb_osd_menu.sv", 65, "", false);
             }
             if (VL_UNLIKELY(((VL_GTS_III(32, 0x280U, vlSelfRef.tb_osd_menu__DOT__px) 
                               & VL_GTS_III(32, 0x1e0U, tb_osd_menu__DOT__py))))) {
@@ -638,43 +1063,43 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0
         tb_osd_menu__DOT__py = ((IData)(1U) + tb_osd_menu__DOT__py);
     }
     VL_FCLOSE_I(tb_osd_menu__DOT__fd); vlSelfRef.tb_osd_menu__DOT__show_menu = 0U;
-    __Vtask_tb_osd_menu__DOT__pixel__21__py = 0x1e0U;
-    __Vtask_tb_osd_menu__DOT__pixel__21__px = 0U;
+    __Vtask_tb_osd_menu__DOT__pixel__41__py = 0x1e0U;
+    __Vtask_tb_osd_menu__DOT__pixel__41__px = 0U;
     co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__21__px);
-    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__21__py);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__41__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__41__py);
     co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    __Vtask_tb_osd_menu__DOT__pixel__22__py = 0x20cU;
-    __Vtask_tb_osd_menu__DOT__pixel__22__px = 0x31eU;
+    __Vtask_tb_osd_menu__DOT__pixel__42__py = 0x20cU;
+    __Vtask_tb_osd_menu__DOT__pixel__42__px = 0x31eU;
     co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__22__px);
-    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__22__py);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__42__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__42__py);
     co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    __Vtask_tb_osd_menu__DOT__pixel__23__py = 0x20cU;
-    __Vtask_tb_osd_menu__DOT__pixel__23__px = 0x31fU;
+    __Vtask_tb_osd_menu__DOT__pixel__43__py = 0x20cU;
+    __Vtask_tb_osd_menu__DOT__pixel__43__px = 0x31fU;
     co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__23__px);
-    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__23__py);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__43__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__43__py);
     co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge tb_osd_menu.clk)", 
@@ -682,15 +1107,15 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0
                                                          22);
     vlSelfRef.tb_osd_menu__DOT__px = 0U;
     while (VL_GTES_III(32, 0x41U, vlSelfRef.tb_osd_menu__DOT__px)) {
-        __Vtask_tb_osd_menu__DOT__pixel__24__py = 0x60U;
-        __Vtask_tb_osd_menu__DOT__pixel__24__px = vlSelfRef.tb_osd_menu__DOT__px;
+        __Vtask_tb_osd_menu__DOT__pixel__44__py = 0x60U;
+        __Vtask_tb_osd_menu__DOT__pixel__44__px = vlSelfRef.tb_osd_menu__DOT__px;
         co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(negedge tb_osd_menu.clk)", 
                                                              "sim/system\tb_osd_menu.sv", 
                                                              22);
-        vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__24__px);
-        vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__24__py);
+        vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__44__px);
+        vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__44__py);
         co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(posedge tb_osd_menu.clk)", 
@@ -701,54 +1126,54 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0
     }
     if (VL_UNLIKELY((((3U != (IData)(vlSelfRef.tb_osd_menu__DOT__osd__DOT__scroll)) 
                       | (0x12345U != vlSelfRef.tb_osd_menu__DOT__osd__DOT__tm))))) {
-        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:61: Assertion failed in %Ntb_osd_menu: Scroll/time frame snapshot\n",0,
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:74: Assertion failed in %Ntb_osd_menu: Scroll/time frame snapshot\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 61, "", false);
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 74, "", false);
     }
     if (VL_UNLIKELY((((IData)(vlSelfRef.tb_osd_menu__DOT__shade) 
                       | (IData)(vlSelfRef.tb_osd_menu__DOT__ink))))) {
-        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:62: Assertion failed in %Ntb_osd_menu: Closed menu remains visible\n",0,
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:75: Assertion failed in %Ntb_osd_menu: Closed menu remains visible\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 62, "", false);
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 75, "", false);
     }
     vlSelfRef.tb_osd_menu__DOT__show_alert = 1U;
-    __Vtask_tb_osd_menu__DOT__pixel__25__py = 0x1e0U;
-    __Vtask_tb_osd_menu__DOT__pixel__25__px = 0U;
+    __Vtask_tb_osd_menu__DOT__pixel__45__py = 0x1e0U;
+    __Vtask_tb_osd_menu__DOT__pixel__45__px = 0U;
     co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__25__px);
-    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__25__py);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__45__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__45__py);
     co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    __Vtask_tb_osd_menu__DOT__pixel__26__py = 0x20cU;
-    __Vtask_tb_osd_menu__DOT__pixel__26__px = 0x31eU;
+    __Vtask_tb_osd_menu__DOT__pixel__46__py = 0x20cU;
+    __Vtask_tb_osd_menu__DOT__pixel__46__px = 0x31eU;
     co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__26__px);
-    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__26__py);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__46__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__46__py);
     co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    __Vtask_tb_osd_menu__DOT__pixel__27__py = 0x20cU;
-    __Vtask_tb_osd_menu__DOT__pixel__27__px = 0x31fU;
+    __Vtask_tb_osd_menu__DOT__pixel__47__py = 0x20cU;
+    __Vtask_tb_osd_menu__DOT__pixel__47__px = 0x31fU;
     co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_osd_menu.clk)", 
                                                          "sim/system\tb_osd_menu.sv", 
                                                          22);
-    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__27__px);
-    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__27__py);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__47__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__47__py);
     co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge tb_osd_menu.clk)", 
@@ -769,9 +1194,9 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0
     while (VL_GTS_III(32, 0x20dU, tb_osd_menu__DOT__py)) {
         vlSelfRef.tb_osd_menu__DOT__px = 0U;
         while (VL_GTS_III(32, 0x320U, vlSelfRef.tb_osd_menu__DOT__px)) {
-            __Vtask_tb_osd_menu__DOT__pixel__28__py 
+            __Vtask_tb_osd_menu__DOT__pixel__48__py 
                 = tb_osd_menu__DOT__py;
-            __Vtask_tb_osd_menu__DOT__pixel__28__px 
+            __Vtask_tb_osd_menu__DOT__pixel__48__px 
                 = vlSelfRef.tb_osd_menu__DOT__px;
             co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
                                                                  nullptr, 
@@ -779,9 +1204,9 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0
                                                                  "sim/system\tb_osd_menu.sv", 
                                                                  22);
             vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU 
-                                             & __Vtask_tb_osd_menu__DOT__pixel__28__px);
+                                             & __Vtask_tb_osd_menu__DOT__pixel__48__px);
             vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU 
-                                             & __Vtask_tb_osd_menu__DOT__pixel__28__py);
+                                             & __Vtask_tb_osd_menu__DOT__pixel__48__py);
             co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
                                                                  nullptr, 
                                                                  "@(posedge tb_osd_menu.clk)", 
@@ -807,12 +1232,272 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__0
     VL_FCLOSE_I(tb_osd_menu__DOT__fd); if (VL_UNLIKELY((
                                                         (1U 
                                                          & (~ (IData)(vlSelfRef.tb_osd_menu__DOT__osd__DOT__alert)))))) {
-        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:72: Assertion failed in %Ntb_osd_menu: Emergency text state\n",0,
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:85: Assertion failed in %Ntb_osd_menu: Emergency text state\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 72, "", false);
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 85, "", false);
+    }
+    vlSelfRef.tb_osd_menu__DOT__show_alert = 0U;
+    vlSelfRef.tb_osd_menu__DOT__show_menu = 1U;
+    __Vtask_tb_osd_menu__DOT__send__49__b = 0x52U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__49__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__50__b = 0x46U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__50__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__51__b = 0x56U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__51__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__52__b = 0x56U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__52__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__pixel__53__py = 0x1e0U;
+    __Vtask_tb_osd_menu__DOT__pixel__53__px = 0U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         22);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__53__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__53__py);
+    co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(posedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         22);
+    __Vtask_tb_osd_menu__DOT__pixel__54__py = 0x20cU;
+    __Vtask_tb_osd_menu__DOT__pixel__54__px = 0x31eU;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         22);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__54__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__54__py);
+    co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(posedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         22);
+    __Vtask_tb_osd_menu__DOT__pixel__55__py = 0x20cU;
+    __Vtask_tb_osd_menu__DOT__pixel__55__px = 0x31fU;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         22);
+    vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__55__px);
+    vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU & __Vtask_tb_osd_menu__DOT__pixel__55__py);
+    co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(posedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         22);
+    tb_osd_menu__DOT__fd = VL_FOPEN_NN(VL_CVT_PACK_STR_NW(9, Vtb_osd_menu__ConstPool__CONST_hf0fa5d71_0)
+                                       , std::string{"w"});
+    ;
+    VL_FWRITEF_NX(tb_osd_menu__DOT__fd,"P3\n640 480\n255\n",0);
+    tb_osd_menu__DOT__py = 0U;
+    while (VL_GTS_III(32, 0x20dU, tb_osd_menu__DOT__py)) {
+        vlSelfRef.tb_osd_menu__DOT__px = 0U;
+        while (VL_GTS_III(32, 0x320U, vlSelfRef.tb_osd_menu__DOT__px)) {
+            __Vtask_tb_osd_menu__DOT__pixel__56__py 
+                = tb_osd_menu__DOT__py;
+            __Vtask_tb_osd_menu__DOT__pixel__56__px 
+                = vlSelfRef.tb_osd_menu__DOT__px;
+            co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                                 nullptr, 
+                                                                 "@(negedge tb_osd_menu.clk)", 
+                                                                 "sim/system\tb_osd_menu.sv", 
+                                                                 22);
+            vlSelfRef.tb_osd_menu__DOT__x = (0x3ffU 
+                                             & __Vtask_tb_osd_menu__DOT__pixel__56__px);
+            vlSelfRef.tb_osd_menu__DOT__y = (0x3ffU 
+                                             & __Vtask_tb_osd_menu__DOT__pixel__56__py);
+            co_await vlSelfRef.__VtrigSched_hd4d191cf__0.trigger(0U, 
+                                                                 nullptr, 
+                                                                 "@(posedge tb_osd_menu.clk)", 
+                                                                 "sim/system\tb_osd_menu.sv", 
+                                                                 22);
+            if (VL_UNLIKELY(((VL_GTS_III(32, 0x280U, vlSelfRef.tb_osd_menu__DOT__px) 
+                              & VL_GTS_III(32, 0x1e0U, tb_osd_menu__DOT__py))))) {
+                vlSelfRef.tb_osd_menu__DOT__rgb = ((IData)(vlSelfRef.tb_osd_menu__DOT__ink)
+                                                    ? vlSelfRef.tb_osd_menu__DOT__color
+                                                    : 
+                                                   ((IData)(vlSelfRef.tb_osd_menu__DOT__shade)
+                                                     ? 0x182838U
+                                                     : 0x305070U));
+                VL_FWRITEF_NX(tb_osd_menu__DOT__fd,"%0# %0# %0#\n",0,
+                              8,(0xffU & (vlSelfRef.tb_osd_menu__DOT__rgb 
+                                          >> 0x10U)),
+                              8,(0xffU & (vlSelfRef.tb_osd_menu__DOT__rgb 
+                                          >> 8U)),8,
+                              (0xffU & vlSelfRef.tb_osd_menu__DOT__rgb));
+            }
+            vlSelfRef.tb_osd_menu__DOT__px = ((IData)(1U) 
+                                              + vlSelfRef.tb_osd_menu__DOT__px);
+        }
+        tb_osd_menu__DOT__py = ((IData)(1U) + tb_osd_menu__DOT__py);
+    }
+    VL_FCLOSE_I(tb_osd_menu__DOT__fd); if (VL_UNLIKELY((
+                                                        (2U 
+                                                         != (IData)(vlSelfRef.tb_osd_menu__DOT__osd__DOT__section))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:93: Assertion failed in %Ntb_osd_menu: Display tab snapshot\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 93, "", false);
+    }
+    vlSelfRef.tb_osd_menu__DOT__course = 1U;
+    __Vtask_tb_osd_menu__DOT__send__57__b = 0x46U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__57__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__58__b = 0x46U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__58__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY(((1U & ((2U != (IData)(vlSelfRef.tb_osd_menu__DOT__section)) 
+                            | (~ (IData)(vlSelfRef.tb_osd_menu__DOT__opened))))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:94: Assertion failed in %Ntb_osd_menu: course opens display menu\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 94, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__59__b = 0x56U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__59__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY(((3U != (IData)(vlSelfRef.tb_osd_menu__DOT__section))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:95: Assertion failed in %Ntb_osd_menu: course system tab\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 95, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__60__b = 0x45U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__60__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY((((0x4aU != (IData)(vlSelfRef.tb_osd_menu__DOT__cb)) 
+                      | (IData)(vlSelfRef.tb_osd_menu__DOT__opened))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:95: Assertion failed in %Ntb_osd_menu: course replay closes settings\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 95, "", false);
+    }
+    __Vtask_tb_osd_menu__DOT__send__61__b = 0x46U;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__61__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    __Vtask_tb_osd_menu__DOT__send__62__b = 0x4aU;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 1U;
+    vlSelfRef.tb_osd_menu__DOT__rb = __Vtask_tb_osd_menu__DOT__send__62__b;
+    co_await vlSelfRef.__VtrigSched_hd4d1918e__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_osd_menu.clk)", 
+                                                         "sim/system\tb_osd_menu.sv", 
+                                                         14);
+    vlSelfRef.tb_osd_menu__DOT__rv = 0U;
+    if (VL_UNLIKELY((vlSelfRef.tb_osd_menu__DOT__opened))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:96: Assertion failed in %Ntb_osd_menu: replay shortcut closes settings\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
+        VL_STOP_MT("sim/system\\tb_osd_menu.sv", 96, "", false);
     }
     VL_WRITEF_NX("PASS menu indexed BMP/WAV, wrap, empty/stale guards, OSD raster/font/borders/blanking and closed transparency\n",0);
-    VL_FINISH_MT("sim/system\\tb_osd_menu.sv", 73, "");
+    VL_FINISH_MT("sim/system\\tb_osd_menu.sv", 97, "");
 }
 
 VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__1(Vtb_osd_menu___024root* vlSelf) {
@@ -822,10 +1507,10 @@ VL_INLINE_OPT VlCoroutine Vtb_osd_menu___024root___eval_initial__TOP__Vtiming__1
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x4a817c800ULL, 
                                          nullptr, "sim/system\tb_osd_menu.sv", 
-                                         75);
-    VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:75: Assertion failed in %Ntb_osd_menu: OSD timeout\n",0,
+                                         99);
+    VL_WRITEF_NX("[%0t] %%Fatal: tb_osd_menu.sv:99: Assertion failed in %Ntb_osd_menu: OSD timeout\n",0,
                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-    VL_STOP_MT("sim/system\\tb_osd_menu.sv", 75, "", false);
+    VL_STOP_MT("sim/system\\tb_osd_menu.sv", 99, "", false);
 }
 
 #ifdef VL_DEBUG
