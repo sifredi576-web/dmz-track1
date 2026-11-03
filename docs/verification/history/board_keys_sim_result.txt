@@ -1,2 +1,0 @@
-PASS 16-key coordinates, debounce, no repeat, ghost lockout, reset-held lockout, media toggles, volume and UART collision
-- sim/system\tb_board_keys.sv:69: Verilog $finish

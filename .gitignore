@@ -19,3 +19,6 @@ desktop.ini
 # Python build caches
 __pycache__/
 *.py[cod]
+
+# Rebuildable TF deliverable, generated from assets/course.json
+/release/current/tf/

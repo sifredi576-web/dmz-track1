@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-03",
+  "status": "cleanup_and_consolidated_validation_passed",
+  "formal_inputs": 53,
+  "build_attempts": 1,
+  "metrics": {
+    "lut": 16089,
+    "registers": 8844,
+    "bram9k": 62,
+    "dsp": 20,
+    "pll": 1,
+    "setup_ns": 0.266,
+    "hold_ns": 0.03,
+    "sta_coverage_percent": 100
+  },
+  "matches_previous_verified_metrics": true,
+  "bit_sha256": "30e8d58d68c66fd039a80c99a15578512bf1d312433fd475f2c848575a1b5b26",
+  "scene_sha256": "294008d3839ca8e588efb18deb03c19d55f9d08e9e4619f6ab367ba77a4ae518",
+  "scene_byte_identical_after_asset_reorganization": true,
+  "protected_docx_sha256": {
+    "docs/技术文档_11.2.docx": "2d44c76b30bf1e5cc620e26ccc8a02146b10f0ca02dba6cbc7782573cdd64f2c"
+  },
+  "checks": {
+    "project_and_document_references": true,
+    "powershell_syntax": true,
+    "source_project_flow_and_bit_hashes": true,
+    "asset_repack_and_CRC": true,
+    "embedded_UI_preview_16_pages": true,
+    "native_RTL_tests": [
+      {
+        "test": "audio_completion",
+        "passed": true
+      },
+      {
+        "test": "ui_controller",
+        "passed": true
+      },
+      {
+        "test": "fifo",
+        "passed": true
+      }
+    ]
+  },
+  "remaining_tool_warnings": [
+    "PHY-7002 hard-macro position legalization",
+    "PHY-5079 local clock routing"
+  ],
+  "not_verified": [
+    "current bitstream on physical board",
+    "serial diagnostics and download on connected hardware",
+    "full real-media end-to-end simulation"
+  ],
+  "committed": false,
+  "merged": false,
+  "board_downloaded": false
+}

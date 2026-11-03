@@ -1,0 +1,983 @@
+{
+  "title": "声音与音色",
+  "entry": "WAIT01",
+  "resources": [
+    {
+      "id": "ALERT",
+      "kind": "bmp",
+      "source": "media/ALERT.BMP"
+    },
+    {
+      "id": "COURSE",
+      "kind": "bmp",
+      "source": "media/COURSE.BMP"
+    },
+    {
+      "id": "EXPL01",
+      "kind": "bmp",
+      "source": "media/EXPL01.BMP"
+    },
+    {
+      "id": "EXPL02",
+      "kind": "bmp",
+      "source": "media/EXPL02.BMP"
+    },
+    {
+      "id": "EXPL03",
+      "kind": "bmp",
+      "source": "media/EXPL03.BMP"
+    },
+    {
+      "id": "LESSON01",
+      "kind": "bmp",
+      "source": "media/LESSON01.BMP"
+    },
+    {
+      "id": "LESSON02",
+      "kind": "bmp",
+      "source": "media/LESSON02.BMP"
+    },
+    {
+      "id": "LESSON03",
+      "kind": "bmp",
+      "source": "media/LESSON03.BMP"
+    },
+    {
+      "id": "NOTICE",
+      "kind": "bmp",
+      "source": "media/NOTICE.BMP"
+    },
+    {
+      "id": "OBSERVE",
+      "kind": "bmp",
+      "source": "media/OBSERVE.BMP"
+    },
+    {
+      "id": "QUIZ01",
+      "kind": "bmp",
+      "source": "media/QUIZ01.BMP"
+    },
+    {
+      "id": "QUIZ02",
+      "kind": "bmp",
+      "source": "media/QUIZ02.BMP"
+    },
+    {
+      "id": "QUIZ03",
+      "kind": "bmp",
+      "source": "media/QUIZ03.BMP"
+    },
+    {
+      "id": "RESULT",
+      "kind": "bmp",
+      "source": "media/RESULT.BMP"
+    },
+    {
+      "id": "WAIT01",
+      "kind": "bmp",
+      "source": "media/WAIT01.BMP"
+    },
+    {
+      "id": "WAIT02",
+      "kind": "bmp",
+      "source": "media/WAIT02.BMP"
+    },
+    {
+      "id": "BGM01",
+      "kind": "wav",
+      "source": "media/BGM01.WAV"
+    },
+    {
+      "id": "LECT01",
+      "kind": "wav",
+      "source": "media/LECT01.WAV"
+    },
+    {
+      "id": "LECT02",
+      "kind": "wav",
+      "source": "media/LECT02.WAV"
+    },
+    {
+      "id": "LECT03",
+      "kind": "wav",
+      "source": "media/LECT03.WAV"
+    },
+    {
+      "id": "PIANO01",
+      "kind": "wav",
+      "source": "media/PIANO01.WAV"
+    },
+    {
+      "id": "TONE01",
+      "kind": "wav",
+      "source": "media/TONE01.WAV"
+    },
+    {
+      "id": "VOICE01",
+      "kind": "wav",
+      "source": "media/VOICE01.WAV"
+    },
+    {
+      "id": "BTN_BASE",
+      "kind": "sprite",
+      "source": "ui/btn_base.png"
+    },
+    {
+      "id": "OPT_BASE",
+      "kind": "sprite",
+      "source": "ui/opt_base.png"
+    },
+    {
+      "id": "LBL_BACK",
+      "kind": "sprite",
+      "source": "ui/lbl_back.png"
+    },
+    {
+      "id": "LBL_BROWSE",
+      "kind": "sprite",
+      "source": "ui/lbl_browse.png"
+    },
+    {
+      "id": "LBL_CONT",
+      "kind": "sprite",
+      "source": "ui/lbl_cont.png"
+    },
+    {
+      "id": "LBL_NEXT",
+      "kind": "sprite",
+      "source": "ui/lbl_next.png"
+    },
+    {
+      "id": "LBL_OK",
+      "kind": "sprite",
+      "source": "ui/lbl_ok.png"
+    },
+    {
+      "id": "LBL_PIANO",
+      "kind": "sprite",
+      "source": "ui/lbl_piano.png"
+    },
+    {
+      "id": "LBL_PREV",
+      "kind": "sprite",
+      "source": "ui/lbl_prev.png"
+    },
+    {
+      "id": "LBL_REPLAY",
+      "kind": "sprite",
+      "source": "ui/lbl_replay.png"
+    },
+    {
+      "id": "LBL_RETRY",
+      "kind": "sprite",
+      "source": "ui/lbl_retry.png"
+    },
+    {
+      "id": "LBL_START",
+      "kind": "sprite",
+      "source": "ui/lbl_start.png"
+    },
+    {
+      "id": "LBL_TONE",
+      "kind": "sprite",
+      "source": "ui/lbl_tone.png"
+    },
+    {
+      "id": "LBL_VOICE",
+      "kind": "sprite",
+      "source": "ui/lbl_voice.png"
+    },
+    {
+      "id": "QUIZ01_A",
+      "kind": "sprite",
+      "source": "ui/quiz01_a.png"
+    },
+    {
+      "id": "QUIZ01_B",
+      "kind": "sprite",
+      "source": "ui/quiz01_b.png"
+    },
+    {
+      "id": "QUIZ01_C",
+      "kind": "sprite",
+      "source": "ui/quiz01_c.png"
+    },
+    {
+      "id": "QUIZ01_D",
+      "kind": "sprite",
+      "source": "ui/quiz01_d.png"
+    },
+    {
+      "id": "QUIZ02_A",
+      "kind": "sprite",
+      "source": "ui/quiz02_a.png"
+    },
+    {
+      "id": "QUIZ02_B",
+      "kind": "sprite",
+      "source": "ui/quiz02_b.png"
+    },
+    {
+      "id": "QUIZ02_C",
+      "kind": "sprite",
+      "source": "ui/quiz02_c.png"
+    },
+    {
+      "id": "QUIZ02_D",
+      "kind": "sprite",
+      "source": "ui/quiz02_d.png"
+    },
+    {
+      "id": "QUIZ03_A",
+      "kind": "sprite",
+      "source": "ui/quiz03_a.png"
+    },
+    {
+      "id": "QUIZ03_B",
+      "kind": "sprite",
+      "source": "ui/quiz03_b.png"
+    },
+    {
+      "id": "QUIZ03_C",
+      "kind": "sprite",
+      "source": "ui/quiz03_c.png"
+    },
+    {
+      "id": "QUIZ03_D",
+      "kind": "sprite",
+      "source": "ui/quiz03_d.png"
+    }
+  ],
+  "pages": [
+    {
+      "id": "WAIT01",
+      "background": "WAIT01",
+      "widgets": [
+        {
+          "label": "LBL_START",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "WAIT02"
+        }
+      ],
+      "loop": true,
+      "audio": "BGM01"
+    },
+    {
+      "id": "WAIT02",
+      "background": "WAIT02",
+      "widgets": [
+        {
+          "label": "LBL_CONT",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "COURSE"
+        }
+      ],
+      "back": "WAIT01"
+    },
+    {
+      "id": "COURSE",
+      "background": "COURSE",
+      "widgets": [
+        {
+          "label": "LBL_START",
+          "base": "BTN_BASE",
+          "rect": [
+            32,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "LESSON01"
+        },
+        {
+          "label": "LBL_BROWSE",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "OBSERVE"
+        },
+        {
+          "label": "LBL_BACK",
+          "base": "BTN_BASE",
+          "rect": [
+            448,
+            416,
+            160,
+            48
+          ],
+          "action": "back",
+          "arg": 0
+        }
+      ],
+      "back": "WAIT02"
+    },
+    {
+      "id": "LESSON01",
+      "background": "LESSON01",
+      "widgets": [
+        {
+          "label": "LBL_PREV",
+          "base": "BTN_BASE",
+          "rect": [
+            32,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "COURSE"
+        },
+        {
+          "label": "LBL_REPLAY",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "audio",
+          "arg": 0,
+          "target": "LECT01"
+        },
+        {
+          "label": "LBL_NEXT",
+          "base": "BTN_BASE",
+          "rect": [
+            448,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "LESSON02"
+        }
+      ],
+      "audio": "LECT01",
+      "back": "COURSE"
+    },
+    {
+      "id": "LESSON02",
+      "background": "LESSON02",
+      "widgets": [
+        {
+          "label": "LBL_PREV",
+          "base": "BTN_BASE",
+          "rect": [
+            32,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "LESSON01"
+        },
+        {
+          "label": "LBL_REPLAY",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "audio",
+          "arg": 0,
+          "target": "LECT02"
+        },
+        {
+          "label": "LBL_NEXT",
+          "base": "BTN_BASE",
+          "rect": [
+            448,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "LESSON03"
+        }
+      ],
+      "audio": "LECT02",
+      "back": "LESSON01"
+    },
+    {
+      "id": "LESSON03",
+      "background": "LESSON03",
+      "widgets": [
+        {
+          "label": "LBL_PREV",
+          "base": "BTN_BASE",
+          "rect": [
+            32,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "LESSON02"
+        },
+        {
+          "label": "LBL_REPLAY",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "audio",
+          "arg": 0,
+          "target": "LECT03"
+        },
+        {
+          "label": "LBL_NEXT",
+          "base": "BTN_BASE",
+          "rect": [
+            448,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "OBSERVE"
+        }
+      ],
+      "audio": "LECT03",
+      "back": "LESSON02"
+    },
+    {
+      "id": "OBSERVE",
+      "background": "OBSERVE",
+      "widgets": [
+        {
+          "label": "LBL_TONE",
+          "base": "BTN_BASE",
+          "rect": [
+            32,
+            304,
+            160,
+            48
+          ],
+          "action": "audio",
+          "arg": 0,
+          "target": "TONE01"
+        },
+        {
+          "label": "LBL_PIANO",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            304,
+            160,
+            48
+          ],
+          "action": "audio",
+          "arg": 0,
+          "target": "PIANO01"
+        },
+        {
+          "label": "LBL_VOICE",
+          "base": "BTN_BASE",
+          "rect": [
+            448,
+            304,
+            160,
+            48
+          ],
+          "action": "audio",
+          "arg": 0,
+          "target": "VOICE01"
+        },
+        {
+          "label": "LBL_BACK",
+          "base": "BTN_BASE",
+          "rect": [
+            32,
+            416,
+            160,
+            48
+          ],
+          "action": "back",
+          "arg": 0
+        },
+        {
+          "label": "LBL_NEXT",
+          "base": "BTN_BASE",
+          "rect": [
+            448,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "QUIZ01"
+        }
+      ],
+      "visual": true,
+      "back": "LESSON03"
+    },
+    {
+      "id": "QUIZ01",
+      "background": "QUIZ01",
+      "widgets": [
+        {
+          "label": "QUIZ01_A",
+          "base": "OPT_BASE",
+          "rect": [
+            24,
+            208,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 0,
+          "neighbors": [
+            1,
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "label": "QUIZ01_B",
+          "base": "OPT_BASE",
+          "rect": [
+            344,
+            208,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 1,
+          "neighbors": [
+            0,
+            0,
+            4,
+            3
+          ]
+        },
+        {
+          "label": "QUIZ01_C",
+          "base": "OPT_BASE",
+          "rect": [
+            24,
+            268,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 2,
+          "neighbors": [
+            3,
+            3,
+            0,
+            4
+          ]
+        },
+        {
+          "label": "QUIZ01_D",
+          "base": "OPT_BASE",
+          "rect": [
+            344,
+            268,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 3,
+          "neighbors": [
+            2,
+            2,
+            1,
+            4
+          ]
+        },
+        {
+          "label": "LBL_OK",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "submit",
+          "arg": 0,
+          "target": "EXPL01",
+          "neighbors": [
+            4,
+            4,
+            2,
+            0
+          ]
+        }
+      ],
+      "question": 0,
+      "correct": 0,
+      "back": "OBSERVE"
+    },
+    {
+      "id": "EXPL01",
+      "background": "EXPL01",
+      "widgets": [
+        {
+          "label": "LBL_NEXT",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "QUIZ02"
+        }
+      ],
+      "back": "QUIZ01"
+    },
+    {
+      "id": "QUIZ02",
+      "background": "QUIZ02",
+      "widgets": [
+        {
+          "label": "QUIZ02_A",
+          "base": "OPT_BASE",
+          "rect": [
+            24,
+            208,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 0,
+          "neighbors": [
+            1,
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "label": "QUIZ02_B",
+          "base": "OPT_BASE",
+          "rect": [
+            344,
+            208,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 1,
+          "neighbors": [
+            0,
+            0,
+            4,
+            3
+          ]
+        },
+        {
+          "label": "QUIZ02_C",
+          "base": "OPT_BASE",
+          "rect": [
+            24,
+            268,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 2,
+          "neighbors": [
+            3,
+            3,
+            0,
+            4
+          ]
+        },
+        {
+          "label": "QUIZ02_D",
+          "base": "OPT_BASE",
+          "rect": [
+            344,
+            268,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 3,
+          "neighbors": [
+            2,
+            2,
+            1,
+            4
+          ]
+        },
+        {
+          "label": "LBL_OK",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "submit",
+          "arg": 0,
+          "target": "EXPL02",
+          "neighbors": [
+            4,
+            4,
+            2,
+            0
+          ]
+        }
+      ],
+      "question": 1,
+      "correct": 1,
+      "back": "EXPL01"
+    },
+    {
+      "id": "EXPL02",
+      "background": "EXPL02",
+      "widgets": [
+        {
+          "label": "LBL_NEXT",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "QUIZ03"
+        }
+      ],
+      "back": "QUIZ02"
+    },
+    {
+      "id": "QUIZ03",
+      "background": "QUIZ03",
+      "widgets": [
+        {
+          "label": "QUIZ03_A",
+          "base": "OPT_BASE",
+          "rect": [
+            24,
+            208,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 0,
+          "neighbors": [
+            1,
+            1,
+            4,
+            2
+          ]
+        },
+        {
+          "label": "QUIZ03_B",
+          "base": "OPT_BASE",
+          "rect": [
+            344,
+            208,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 1,
+          "neighbors": [
+            0,
+            0,
+            4,
+            3
+          ]
+        },
+        {
+          "label": "QUIZ03_C",
+          "base": "OPT_BASE",
+          "rect": [
+            24,
+            268,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 2,
+          "neighbors": [
+            3,
+            3,
+            0,
+            4
+          ]
+        },
+        {
+          "label": "QUIZ03_D",
+          "base": "OPT_BASE",
+          "rect": [
+            344,
+            268,
+            272,
+            44
+          ],
+          "action": "answer",
+          "arg": 3,
+          "neighbors": [
+            2,
+            2,
+            1,
+            4
+          ]
+        },
+        {
+          "label": "LBL_OK",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "submit",
+          "arg": 0,
+          "target": "EXPL03",
+          "neighbors": [
+            4,
+            4,
+            2,
+            0
+          ]
+        }
+      ],
+      "question": 2,
+      "correct": 2,
+      "back": "EXPL02"
+    },
+    {
+      "id": "EXPL03",
+      "background": "EXPL03",
+      "widgets": [
+        {
+          "label": "LBL_NEXT",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "RESULT"
+        }
+      ],
+      "back": "QUIZ03"
+    },
+    {
+      "id": "RESULT",
+      "background": "RESULT",
+      "widgets": [
+        {
+          "label": "LBL_RETRY",
+          "base": "BTN_BASE",
+          "rect": [
+            32,
+            416,
+            160,
+            48
+          ],
+          "action": "restart",
+          "arg": 0
+        },
+        {
+          "label": "LBL_BACK",
+          "base": "BTN_BASE",
+          "rect": [
+            448,
+            416,
+            160,
+            48
+          ],
+          "action": "goto",
+          "arg": 0,
+          "target": "WAIT01"
+        }
+      ],
+      "back": "COURSE",
+      "show_score": true
+    },
+    {
+      "id": "NOTICE",
+      "background": "NOTICE",
+      "widgets": [
+        {
+          "label": "LBL_BACK",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "back",
+          "arg": 0
+        }
+      ],
+      "priority": 1
+    },
+    {
+      "id": "ALERT",
+      "background": "ALERT",
+      "widgets": [
+        {
+          "label": "LBL_BACK",
+          "base": "BTN_BASE",
+          "rect": [
+            240,
+            416,
+            160,
+            48
+          ],
+          "action": "back",
+          "arg": 0
+        }
+      ],
+      "priority": 2
+    }
+  ]
+}

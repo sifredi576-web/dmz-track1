@@ -1,4 +1,3 @@
-rtl/common/dmz_contract_pkg.sv
 rtl/storage/dmz_mem_mux.sv
 rtl/storage/dmz_cfg_writer.sv
 rtl/control/dmz_scene_runtime.sv
@@ -19,7 +18,7 @@ rtl/video/dmz_image_player.sv
 rtl/audio/dmz_wav_decoder.sv
 rtl/audio/dmz_wav_player.sv
 rtl/control/dmz_media_pipeline.sv
-rtl/platform/dmz_p2_pll.v
+rtl/platform/dmz_clocking.v
 rtl/storage/dmz_sdram_ctrl.sv
 rtl/storage/dmz_sdram_bist.sv
 rtl/common/dmz_pixel_fifo.sv
@@ -27,7 +26,6 @@ rtl/common/dmz_status_uart.sv
 rtl/video/dmz_image_framebuffer.sv
 rtl/top/dmz_track1_top.sv
 rtl/control/dmz_matrix_keys.sv
-rtl/control/dmz_board_commands.sv
 rtl/control/dmz_file_menu.sv
 rtl/video/dmz_osd.sv
 rtl/control/dmz_scene_control.sv

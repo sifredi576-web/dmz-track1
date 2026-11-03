@@ -1,23 +1,14 @@
-param(
- [ValidateSet('Build','Test','Download','Status','Mute','Tone','Beep','Switches','Reload','Smoke','Soak','Next','Previous','Auto','Pause','AudioPlay','AudioPause','AudioResume','VolumeUp','VolumeDown','Menu','MenuPrevious','MenuNext','MenuType','MenuSelect')][string]$Action='Status',
- [string]$Port='', [int]$Seconds=10, [string]$TdRoot='D:/ANLU',
- [ValidateSet('Auto','ModelSim','Verilator')][string]$Simulator='Auto',
- [ValidateSet('Base','Full')][string]$Profile='Base')
+param([ValidateSet('Build','Test','Package','Download','Status')][string]$Action='Status',
+ [string]$TdRoot='', [string]$ModelSimRoot='', [string]$Port='',[string]$Python='python')
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
-New-Item -ItemType Directory -Force (Join-Path $root "build/reports") | Out-Null
 Push-Location $root
-try {
+try{
  switch($Action){
-  Build { & ./scripts/build/build_system.ps1 -TdRoot $TdRoot }
-  Test {
-   & ./scripts/test/run.ps1 -Simulator $Simulator -Profile $Profile
-  }
-  Download { & ./scripts/board/download_system.ps1 -TdRoot $TdRoot }
-  default {
-   $commands=@{Status='Status';Mute='M';Tone='T';Beep='B';Switches='S';Reload='R';Smoke='Smoke';Soak='Soak';Next='N';Previous='P';Auto='A';Pause='H';AudioPlay='W';AudioPause='K';AudioResume='L';VolumeUp='+';VolumeDown='-';Menu='F';MenuPrevious='I';MenuNext='O';MenuType='V';MenuSelect='E'}
-   $output=if($Action -eq 'Soak'){'build/reports/system_soak_latest.json'}elseif($Action -eq 'Smoke'){'build/reports/system_smoke_latest.json'}else{'build/reports/system_hardware_status.json'}
-   & ./scripts/board/system_console.ps1 -Command $commands[$Action] -Port $Port -Seconds $Seconds -Output $output
-  }
+  Build {if(!$TdRoot){throw 'Specify -TdRoot'};& ./scripts/build/build_system.ps1 -TdRoot $TdRoot}
+  Test {if(!$ModelSimRoot){throw 'Specify -ModelSimRoot'};& ./scripts/test/run.ps1 -ModelSimRoot $ModelSimRoot}
+  Package {& $Python ./scripts/assets/pack_platform.py assets/course.json --materials assets --output release/current/tf;if($LASTEXITCODE -ne 0){throw 'Package failed'}}
+  Download {if(!$TdRoot){throw 'Specify -TdRoot'};& ./scripts/board/download_system.ps1 -TdRoot $TdRoot}
+  Status {if(!$Port){throw 'Specify -Port'};& ./scripts/board/platform_console.ps1 -Port $Port}
  }
 }finally{Pop-Location}

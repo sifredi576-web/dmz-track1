@@ -1,2 +1,0 @@
-PASS command FIFO: 300 commands in consecutive bursts, shifted clocks, exact order and data
-- sim/system\tb_command_fifo.sv:22: Verilog $finish

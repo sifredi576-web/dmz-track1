@@ -1,3 +1,0 @@
-PASS multi-WAV metadata, exact new-track samples, outstanding SD cancellation, backpressure switching and same-file restart
-PASS shared FAT/SD: catalog BMP+WAV, 3 complete images/921600 pixels, fragmented WAV loops and exact stereo samples, concurrent arbitration/backpressure
-- sim/media\tb_media.sv:85: Verilog $finish

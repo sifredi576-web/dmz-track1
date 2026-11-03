@@ -13,7 +13,7 @@ wire emergency,visual_enabled,alert_on;wire visual_ink,visual_shade;wire [23:0] 
 wire [4:0] level_l,level_r,peak_l,peak_r;
 wire command_valid;wire [7:0] command_byte;
 wire pixel_clk,serial_clk,mem_clk,sdram_clk,locked;
-dmz_p2_pll pll(.refclk(clk_50m),.reset(~run_n),.clk0_out(pixel_clk),.clk1_out(serial_clk),.mem_clk(mem_clk),.sdram_clk(sdram_clk),.locked(locked));
+dmz_clocking pll(.refclk(clk_50m),.reset(~run_n),.clk0_out(pixel_clk),.clk1_out(serial_clk),.mem_clk(mem_clk),.sdram_clk(sdram_clk),.locked(locked));
 wire ar=~run_n|~locked;
 reg [3:0] mr,pr;
 always @(posedge mem_clk or posedge ar) if(ar) mr<=15;else mr<={mr[2:0],1'b0};

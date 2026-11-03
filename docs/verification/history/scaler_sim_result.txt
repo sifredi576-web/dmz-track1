@@ -1,2 +1,0 @@
-PASS aspect-fit BMP 321x241/24 top=0 padding, offset, black bars, 307200 exact pixels, backpressure
-- sim/media\tb_scaler.sv:48: Verilog $finish

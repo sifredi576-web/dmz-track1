@@ -76,7 +76,8 @@ def compile_scene(scene, material_root):
                 width, height = rgba.size
                 check(0 < width <= 272 and 0 < height <= 64, "Sprite exceeds 272x64")
                 pixels = bytearray()
-                flattened = rgba.get_flattened_data() if hasattr(rgba, "get_flattened_data") else rgba.getdata()
+                raw_rgba = rgba.tobytes()
+                flattened = zip(raw_rgba[0::4], raw_rgba[1::4], raw_rgba[2::4], raw_rgba[3::4])
                 for red, green, blue, alpha in flattened:
                     pixels += struct.pack("<H", ((alpha >= 128) << 15) | ((red >> 3) << 10)
                                           | ((green >> 3) << 5) | (blue >> 3))
@@ -186,6 +187,10 @@ def compile_scene(scene, material_root):
     struct.pack_into("<HHII", header, 4, 2, 32, len(payload), zlib.crc32(payload))
     header[16:20] = bytes((len(resources), len(pages), len(widgets), pid[scene["entry"]]))
     outputs["SCENE.BIN"] = bytes(header) + payload
+    # Runtime UI pixels are embedded; emit only actual TF inputs.
+    for resource_info in info:
+        if resource_info["kind"] == "sprite":
+            outputs.pop(resource_info["file"])
     return outputs, dict(version=2, title=scene["title"], entry=scene["entry"], resources=info,
                          pages={p["id"]: i for i, p in enumerate(pages)}, widgets=len(widgets),
                          config_bytes=len(header)+len(payload), media_bytes=sum(map(len, outputs.values())),

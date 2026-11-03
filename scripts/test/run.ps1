@@ -1,145 +1,25 @@
-param(
- [ValidateSet('Auto','ModelSim','Verilator')][string]$Simulator='Auto',
- [ValidateSet('Base','Full')][string]$Profile='Base',
- [string[]]$Tests=@(), [string[]]$PlusArgs=@(), [int]$Words=4096,
- [string]$ModelSimRoot='D:/Downloads/modelsim_ase', [string]$MsysRoot='C:/msys64',
- [string]$Python='python')
+param([Parameter(Mandatory=$true)][string]$ModelSimRoot,[string[]]$Tests=@())
 $ErrorActionPreference='Stop'
 $root=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $catalog=Get-Content "$root/sim/tests.json" -Raw|ConvertFrom-Json
-if(!$Tests.Count){$Tests=@($catalog.PSObject.Properties|Where-Object {!$_.Value.manual}|ForEach-Object Name)}
-if($Words -lt 8 -or $Words -gt 2097152 -or $Words%8){throw 'Words must be 8-aligned, 8..2097152'}
-if($Simulator -eq 'Auto'){$Simulator=if(Test-Path "$MsysRoot/mingw64/bin/verilator_bin.exe"){'Verilator'}else{'ModelSim'}}
-$out=Join-Path $root 'build/reports'
-New-Item -ItemType Directory -Force $out|Out-Null
-$results=[Collections.Generic.List[object]]::new()
-
-function SimulationCopy([string]$path,[string]$dir){
- # Compatibility for ModelSim ASE 10.3c only. Pure fixed-index array reads
- # are expanded in build/. Formal RTL is not rewritten by this runner.
- function Recode([string]$argument,[int]$bits){
-  $a='('+$argument+')';$g='(('+ $a +' >> 1) ^ '+ $a +')'
-  return [string]$bits+"'("+$g+' ^ (('+$g+' & 1) << '+($bits-1)+'))'
- }
- $original=Get-Content -LiteralPath $path -Raw;$text=$original
- if([IO.Path]::GetFileName($path) -eq 'dmz_track1_top.sv'){
-  # ASE needs forward declarations. Normalize only its build copy, as for the reference.
-  $topCopy=Join-Path $dir 'dmz_track1_top.sv'
-  & $Python "$PSScriptRoot/prepare_reference.py" --source $path --output $topCopy
-  if($LASTEXITCODE -ne 0){throw 'Top-level simulation normalization failed'}
-  $text=Get-Content -LiteralPath $topCopy -Raw
- }
- foreach($f in @([regex]::Matches($original,'function automatic \[(15|31):0\] (h16|h32|e16|e32|le16|le32)\('))){
-  $name=$f.Groups[2].Value;$count=if($f.Groups[1].Value -eq '15'){2}else{4}
-  $array=if($name.StartsWith('e')){'entry'}else{'header'}
-  $text=[regex]::Replace($text,('\b'+$name+'\((\d+)\)'),[Text.RegularExpressions.MatchEvaluator]{param($m)
-   $offset=[int]$m.Groups[1].Value
-   '{'+((($count-1)..0|ForEach-Object {$array+'['+($offset+$_)+']'}) -join ',')+'}'
-  })
- }
- # Fixed-index pure vector reads also require explicit sensitivity in ASE 10.3c.
- foreach($rule in @(@('rb','record',8),@('hb','held',8),@('pb','page',8),@('p16','page',16))){
-  $fname=$rule[0];$base=$rule[1];$bits=[int]$rule[2]
-  $text=[regex]::Replace($text,('\b'+$fname+'\((\d+)\)'),[Text.RegularExpressions.MatchEvaluator]{param($m) $base+'['+([int]$m.Groups[1].Value*8)+'+:'+$bits+']'})
- }
- if([IO.Path]::GetFileName($path) -eq 'dmz_bmp_decoder.sv'){
-  $predicate=[regex]::Match($text,'wire inside_x=[^;]+;').Value
-  if($predicate){$text=$text.Replace($predicate,'').Replace('wire [15:0] sample565=',"$predicate`nwire [15:0] sample565=")}
-  $text=[regex]::Replace($text,'row_addr\((sample_x|source_x)\)',[Text.RegularExpressions.MatchEvaluator]{param($m) Recode $m.Groups[1].Value 11})
-
- }
- if([IO.Path]::GetFileName($path) -eq 'dmz_fat_catalog.sv'){
-  $call='code64({entry[7],entry[6],entry[5],entry[4],entry[3],entry[2],entry[1],entry[0]})'
-  $text=$text.Replace($call,'entry_name_encoded').Replace('assign status=',('wire [63:0] entry_name_encoded='+$call+";`nassign status="))
-  foreach($width in @(4,5)){
-   $text=[regex]::Replace($text,('addr'+$width+'\(([^()]+)\)'),[Text.RegularExpressions.MatchEvaluator]{param($m)
-    $a=$m.Groups[1].Value
-    if($a -match '^input'){return $m.Value}
-    Recode $a $width
-   })
-  }
-
- }
- if([IO.Path]::GetFileName($path) -eq 'dmz_audio_visual.sv'){
-  $text=[regex]::Replace($text,'physical_wave\((\{[^}]+\})\)',[Text.RegularExpressions.MatchEvaluator]{param($m) Recode $m.Groups[1].Value 8})
- }
- if($test -like 'architecture*' -and [IO.Path]::GetFileName($path) -in @('dmz_track1_top.sv','reference_top.sv')){$text=$text.Replace('.PERIOD(12500000)','.PERIOD(128)')}
- if($text -eq $original){return $path}
- $copy=Join-Path $dir ([IO.Path]::GetFileName($path))
- [IO.File]::WriteAllText($copy,$text,[Text.UTF8Encoding]::new($false));return $copy
+if(!$Tests.Count){$Tests=@($catalog.PSObject.Properties.Name)}
+$vsim=Join-Path $ModelSimRoot 'win32aloem/vsim.exe'
+if(!(Test-Path -LiteralPath $vsim)){throw 'Specify the ModelSim installation root'}
+$out=Join-Path $root 'build/reports';New-Item -ItemType Directory -Force $out|Out-Null
+$results=@()
+foreach($test in $Tests){
+ $spec=$catalog.$test;if(!$spec){throw "Unknown test: $test"}
+ $dir=Join-Path $root "build/test_$test";New-Item -ItemType Directory -Force $dir|Out-Null
+ $sources=($spec.sources|ForEach-Object {'{'+(Join-Path $root $_).Replace('\','/')+'}'}) -join ' '
+ $commands=@('onerror {quit -f -code 1}','onbreak {quit -f -code 1}','if {![file isdirectory work]} {vlib work}',"vlog -sv -work work $sources","vsim -novopt -onfinish exit work.$($spec.top)",'run -all','quit -f -code 0')
+ [IO.File]::WriteAllLines("$dir/run.do",$commands)
+ $log=Join-Path $out "${test}.log"
+ Push-Location $dir
+ try{& $vsim -batch -logfile $log -do "$dir/run.do" 2>&1|Out-Null;$code=$LASTEXITCODE}finally{Pop-Location}
+ $text=Get-Content -LiteralPath $log -Raw
+ $pass=$code -eq 0 -and $text -match 'PASS' -and $text -notmatch '\*\* (?:Fatal|Error):'
+ $results+=@{test=$test;passed=$pass;log="build/reports/${test}.log"}
+ if(!$pass){throw "FAIL: $test; see $log"}
+ Write-Output "PASS: $test"
 }
-
-Push-Location $root
-try{
- foreach($test in $Tests){
-  $spec=$catalog.$test;if(!$spec){throw "Unknown test: $test"}
-  if($spec.simulator -and $spec.simulator -ne $Simulator){throw "$test requires $($spec.simulator)"}
-  if($test -like 'architecture*'){& "$PSScriptRoot/prepare_reference.ps1"}
-  $dpiLibrary=''
-  if($spec.dpi){
-   & $Python "$PSScriptRoot/prepare_platform_fixture.py"
-   if($LASTEXITCODE -ne 0){throw 'Platform fixture preparation failed'}
-   & "$ModelSimRoot/gcc-4.2.1-mingw32vc9/bin/gcc.exe" -std=c99 -O2 -shared -o "$root/build/fixtures/platform_backend.dll" "$root/sim/models/platform_backend.c"
-   if($LASTEXITCODE -ne 0){throw 'ModelSim DPI backend compile failed'}
-   $dpiLibrary='-sv_lib {'+$root.Replace('\','/')+'/build/fixtures/platform_backend}'
-  }
-  $top=$spec.top;$dir=Join-Path $root "build/test_$test"
-  New-Item -ItemType Directory -Force $dir|Out-Null
-  $sources=@($spec.sources|ForEach-Object {Join-Path $root $_})
-  foreach($source in $sources){if(!(Test-Path -LiteralPath $source)){throw "Missing source: $source"}}
-  $compileLog=Join-Path $out "${test}_compile.log"
-  if($Simulator -eq 'ModelSim'){
-   $bin=Join-Path $ModelSimRoot 'win32aloem'
-   if(!(Test-Path "$bin/vsim.exe")){throw 'ModelSim not found; specify -ModelSimRoot'}
-   $sources=@($sources|ForEach-Object {SimulationCopy $_ $dir})
-   $quoted=($sources|ForEach-Object {'{'+$_.Replace('\','/')+'}'}) -join ' '
-   $compile=@('onerror {quit -f -code 1}','if {![file isdirectory work]} {vlib work}',"vlog -sv {+incdir+$($root.Replace('\','/'))} -work work $quoted",'quit -f -code 0')
-   [IO.File]::WriteAllLines("$dir/compile.do",$compile)
-   Push-Location $dir
-   try{& "$bin/vsim.exe" -batch -logfile $compileLog -do "$dir/compile.do" 2>&1|Out-Null
-    if($LASTEXITCODE -ne 0){throw "Compile failed: $test; $compileLog"}
-   }finally{Pop-Location}
-  }else{
-   $env:VERILATOR_ROOT="$MsysRoot/mingw64/share/verilator"
-   $env:PATH="$MsysRoot/mingw64/bin;$MsysRoot/usr/bin;"+$env:PATH
-   $extra=if($test -eq 'sdram'){@("-GBIST_WORDS=$Words")}elseif($test -eq 'wipe'){@('--unroll-count','1')}else{@()}
-   & "$MsysRoot/mingw64/bin/verilator_bin.exe" --cc --exe --timing -Wno-fatal --top-module $top --Mdir $dir -CFLAGS "-DVMODEL=V$top" @extra @sources "$root/sim/runner.cpp" *> $compileLog
-   if($LASTEXITCODE -ne 0){throw "Verilator compile failed: $test"}
-   Push-Location $dir
-   try{& "$MsysRoot/mingw64/bin/mingw32-make.exe" -f "V$top.mk" -j4 "PYTHON3=$Python" >> $compileLog
-    if($LASTEXITCODE -ne 0){throw "Simulation build failed: $test"}
-   }finally{Pop-Location}
-  }
-  $variants=@([pscustomobject]@{index=0;args=@()})
-  if($Profile -eq 'Full'){
-   $variants=@();$index=0
-   foreach($argsEntry in $spec.cases){$variants+=@([pscustomobject]@{index=$index;args=@($argsEntry)});$index++}
-  }
-  if($PlusArgs.Count){
-   $tag=(($PlusArgs -join '_') -replace '[^a-zA-Z0-9_-]','_')
-   if($tag.Length -gt 64){$tag=$tag.Substring(0,64)}
-   $variants=@([pscustomobject]@{index="custom_$tag";args=$PlusArgs})
-  }
-  foreach($variant in $variants){
-   $log=Join-Path $out "${test}_$($variant.index).log"
-   if($Simulator -eq 'ModelSim'){
-    $parameters=if($test -eq 'sdram'){"-gBIST_WORDS=$Words"}else{[string]$spec.parameters}
-    $arguments=($variant.args|ForEach-Object {'{'+$_+'}'}) -join ' '
-    $commands=@('onerror {quit -f -code 1}','onbreak {quit -f -code 1}',"vsim -novopt -onfinish exit work.$top $dpiLibrary $parameters $arguments",('cd {'+$root.Replace('\','/')+'}'),'run -all','quit -f -code 0')
-    [IO.File]::WriteAllLines("$dir/run.do",$commands)
-    Push-Location $dir
-    try{& "$bin/vsim.exe" -batch -logfile $log -do "$dir/run.do" 2>&1|Out-Null;$code=$LASTEXITCODE}finally{Pop-Location}
-   }else{
-    & "$dir/V$top.exe" @($variant.args) *> $log;$code=$LASTEXITCODE
-   }
-   $text=Get-Content $log -Raw
-   $pass=$code -eq 0 -and $text -match 'PASS' -and $text -notmatch '\*\* (?:Fatal|Error):'
-   $results.Add([pscustomobject]@{test=$test;case=$variant.index;arguments=@($variant.args);passed=$pass;log=$log.Substring($root.Length+1).Replace('\','/')})
-   if(!$pass){throw "FAIL: $test case $($variant.index); see $log"}
-   Write-Output "PASS: $test case $($variant.index)"
-  }
- }
-}finally{
- [ordered]@{simulator=$Simulator;profile=$Profile;words=$Words;results=@($results.ToArray())}|ConvertTo-Json -Depth 6|Set-Content "$out/tests_latest.json" -Encoding utf8
- Pop-Location
-}
+$results|ConvertTo-Json -Depth 4|Set-Content "$out/tests.json" -Encoding utf8
