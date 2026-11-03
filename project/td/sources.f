@@ -19,6 +19,8 @@ rtl/audio/dmz_wav_decoder.sv
 rtl/audio/dmz_wav_player.sv
 rtl/control/dmz_media_pipeline.sv
 rtl/platform/dmz_clocking.v
+rtl/platform/dmz_wide_pll.v
+rtl/video/dmz_wide_mapper.sv
 rtl/storage/dmz_sdram_ctrl.sv
 rtl/storage/dmz_sdram_bist.sv
 rtl/common/dmz_pixel_fifo.sv
@@ -28,10 +30,12 @@ rtl/top/dmz_track1_top.sv
 rtl/control/dmz_matrix_keys.sv
 rtl/control/dmz_file_menu.sv
 rtl/video/dmz_osd.sv
+rtl/video/dmz_status_panel.sv
 rtl/control/dmz_scene_control.sv
 rtl/audio/dmz_audio_visual.sv
 rtl/video/dmz_display_control.sv
 rtl/video/dmz_picture_adjust.sv
+rtl/video/dmz_picture_pipe.sv
 rtl/common/dmz_uart_rx.sv
 rtl/control/dmz_media_control.sv
 rtl/control/dmz_gallery_control.sv

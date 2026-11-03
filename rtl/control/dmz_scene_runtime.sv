@@ -30,7 +30,19 @@ reg [6:0] ri;reg [5:0] pi;reg [7:0] wi;
 reg [4:0] resolved[0:63]; /* fehdl force_ram=1, ram_style="bram" */
 reg [7:0] requested_resource;
 reg [4:0] resolved_q;
-wire [4:0] image_resolved_q=resolved_q,audio_resolved_q=resolved_q;
+function automatic [4:0] encode_index(input [4:0] value);
+ begin encode_index={^value,value[3]^value[4],value[2]^value[3],value[1]^value[2],value[0]^value[1]};end
+endfunction
+function automatic [4:0] decode_index(input [4:0] value);
+ reg t;begin
+  t=value[4]^value[0]^value[2];
+  decode_index[4]=t;decode_index[3]=value[3]^t;
+  decode_index[2]=value[2]^value[3]^t;
+  decode_index[1]=value[1]^value[2]^value[3]^t;
+  decode_index[0]=value[0]^value[1]^value[2]^value[3]^t;
+ end
+endfunction
+wire [4:0] image_resolved_q=decode_index(resolved_q),audio_resolved_q=decode_index(resolved_q);
 // Image launch and audio descriptor handling are mutually exclusive FSM phases.
 // Share one synchronous read port instead of duplicating the index BRAM.
 wire [5:0] resolved_address=(state==IMAGE_LOOKUP||state==IMAGE_START)?page[13:8]:requested_resource[5:0];
@@ -211,7 +223,7 @@ always @(posedge clk)begin
     else if(browse_valid&&browse_tag==lookup_query)begin
      if(browse_name==record[63:0])begin
       if(browse_bytes!=rlength)fail(8'h15);
-      else begin resolved[ri[5:0]]<=lookup_query[4:0];ri<=ri+1'b1;state<=RESOURCE_GET;end
+      else begin resolved[ri[5:0]]<=encode_index(lookup_query[4:0]);ri<=ri+1'b1;state<=RESOURCE_GET;end
      end else if(({1'b0,lookup_query[4:0]}+1)>=(lookup_query[5]?{1'b0,wav_count}:image_count))fail(8'h14);
      else begin lookup_query[4:0]<=lookup_query[4:0]+1'b1;settle<=8;end
     end

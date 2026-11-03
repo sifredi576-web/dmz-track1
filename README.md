@@ -1,6 +1,8 @@
 # FPGA声音课件展示系统
 
-硬件：DMZ_EG4S20 / EG4S20BG256，单板，HDMI 640×480，PCM 48kHz/16位双声道。当前包含图文讲解、三音源观察、答题计分、通知插播、图片等比缩放、擦除转场、显示参数与PCM可视化。
+当前源码已从main 11ead39迁入宽屏、常驻中文状态栏、波形插值/触发及配套时序处理；保留zyr整理后的目录、唯一工程与素材工具。仅移除未提供实现的屏幕触发按钮绘图引用，KEY4及UART触发控制保留。**本轮只做功能移植和工程适配，未构建、仿真或验证。**
+
+硬件：DMZ_EG4S20 / EG4S20BG256，单板。源码目标为1280×720、约60.606Hz；中央960×720等比显示640×480课件，右侧状态栏常驻。PCM仍为48kHz/16位双声道。现有位流、时序和原通过记录属于移植前版本。
 
 - TD唯一工程：[project/td/dmz_track1.al](project/td/dmz_track1.al)，输入清单：[sources.f](project/td/sources.f)。
 - 课件源：[assets/course.json](assets/course.json)，媒体和UI各保留一份，见[素材说明](assets/README.md)。

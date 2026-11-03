@@ -5,6 +5,13 @@ module serializer #(parameter integer NUM_CHANNELS=3, parameter real VIDEO_RATE=
  output wire [2:0] tmds, output wire tmds_clock);
 reg toggle;
 reg meta, sync;
+// Assert immediately, release only on the serializer clock. The pixel-clock
+// reset must not directly drive recovery timing on the 375 MHz output cells.
+(* ASYNC_REG="TRUE" *) reg [2:0] serial_reset_sync;
+always @(posedge clk_pixel_x5 or posedge reset)
+ if(reset)serial_reset_sync<=3'b111;
+ else serial_reset_sync<={serial_reset_sync[1:0],1'b0};
+wire serial_reset=serial_reset_sync[2];
 wire [9:0] words [3:0];
 assign words[0]=tmds_internal[0];
 assign words[1]=tmds_internal[1];
@@ -12,8 +19,8 @@ assign words[2]=tmds_internal[2];
 assign words[3]=10'b0000011111;
 always @(posedge clk_pixel or posedge reset)
  if(reset) toggle<=0; else toggle<=~toggle;
-always @(posedge clk_pixel_x5 or posedge reset)
- if(reset) begin meta<=0; sync<=0; end
+always @(posedge clk_pixel_x5 or posedge serial_reset)
+ if(serial_reset) begin meta<=0; sync<=0; end
  else begin meta<=toggle; sync<=meta; end
 wire [3:0] serial;
 assign tmds=serial[2:0];
@@ -21,10 +28,10 @@ assign tmds_clock=serial[3];
 genvar ch;
 generate for(ch=0;ch<4;ch=ch+1) begin: lane
  reg [9:0] shift;
- always @(posedge clk_pixel_x5 or posedge reset)
-  if(reset) shift<=0;
+ always @(posedge clk_pixel_x5 or posedge serial_reset)
+  if(serial_reset) shift<=0;
   else if(meta ^ sync) shift<=words[ch];
   else shift<={2'b00,shift[9:2]};
- EG_LOGIC_ODDR ddr(.clk(clk_pixel_x5),.rst(reset),.d0(shift[0]),.d1(shift[1]),.q(serial[ch]));
+ EG_LOGIC_ODDR ddr(.clk(clk_pixel_x5),.rst(serial_reset),.d0(shift[0]),.d1(shift[1]),.q(serial[ch]));
 end endgenerate
 endmodule

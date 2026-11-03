@@ -4,6 +4,7 @@
 module packet_picker
 #(
     parameter int VIDEO_ID_CODE = 4,
+    parameter int AVI_VIDEO_ID_CODE = VIDEO_ID_CODE,
     parameter real VIDEO_RATE = 25000000.0,
     parameter bit IT_CONTENT = 1'b0,
     parameter int AUDIO_BIT_WIDTH = 16,
@@ -152,7 +153,7 @@ audio_sample_packet #(.SAMPLING_FREQUENCY(SAMPLING_FREQUENCY), .WORD_LENGTH({{WO
 
 
 auxiliary_video_information_info_frame #(
-    .VIDEO_ID_CODE(7'(VIDEO_ID_CODE)),
+    .VIDEO_ID_CODE(7'(AVI_VIDEO_ID_CODE)),
     .IT_CONTENT(IT_CONTENT)
 ) auxiliary_video_information_info_frame(.header(headers[130]), .sub(subs[130]));
 

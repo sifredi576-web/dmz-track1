@@ -25,7 +25,7 @@ $phy=Join-Path $root 'project/td/dmz_track1_Runs/phy_1'
 $bit=Get-Item "$phy/dmz_track1.bit"
 if(!$bit.Length -or $bit.LastWriteTime -lt $start){throw 'No fresh bitstream'}
 $timing=Get-Content "$phy/dmz_track1_pr.timing" -Raw
-if($timing -match '(?:S|H)WNS:\s*-' -or $timing -notmatch 'Timing details for EG_PHY_SDRAM_2M_32' -or $timing -notmatch '125.000' -or $timing -notmatch 'STA coverage\s*:\s*100.00%'){throw 'Timing/SDRAM coverage check failed'}
+if($timing -match '(?:S|H)WNS:\s*-' -or $timing -notmatch 'Timing details for EG_PHY_SDRAM_2M_32' -or $timing -notmatch '375\.000' -or $timing -notmatch 'STA coverage\s*:\s*100.00%'){throw 'Timing/SDRAM coverage check failed'}
 $hashes=[ordered]@{}
 foreach($file in Get-Content "$root/project/td/sources.f"){$hashes[$file]=(Get-FileHash (Join-Path $root $file)).Hash}
 [ordered]@{generated=(Get-Date).ToString('o');project='project/td/dmz_track1.al';source_sha256=$hashes;bit_sha256=(Get-FileHash $bit.FullName).Hash;flow_sha256=(Get-FileHash "$root/scripts/build/td_flow.tcl").Hash;project_sha256=(Get-FileHash "$root/project/td/dmz_track1.al").Hash;board_tested=$false}|ConvertTo-Json -Depth 4|Set-Content "$out/build_manifest.json" -Encoding utf8

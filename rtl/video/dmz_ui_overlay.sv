@@ -22,7 +22,7 @@ always @* begin
  ink=0;color=24'hffe56d;
  if(active&&x<10'd640&&y<10'd480)begin
   if(status[4]&&status[5]&&sw!=0&&sh!=0&&x>=sx&&y>={1'b0,sy}&&srx<{1'b0,sw}&&sry<{3'd0,sh}&&
-    (srx<10'd3||srx>={1'b0,sw}-10'd3||sry<10'd3||sry>={3'd0,sh}-10'd3))begin
+    ((srx>=10'd4&&srx<10'd7)||(srx+10'd7>={1'b0,sw}&&srx+10'd4<{1'b0,sw})||(sry>=10'd4&&sry<10'd7)||(sry+10'd7>={3'd0,sh}&&sry+10'd4<{3'd0,sh})))begin
    ink=1;color=status[6]?(status[7]?24'h40ff80:24'hff6060):24'h40e8ff;
   end
   if(fw!=0&&fh!=0&&x>=fx&&y>={1'b0,fy}&&frx<{1'b0,fw}&&fry<{3'd0,fh}&&

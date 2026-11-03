@@ -9,7 +9,9 @@ module dmz_page_compositor(input clk,reset,enabled,page_begin,input [3:0] widget
  input out_ready,out_ack,
  output wire mem_valid,output wire [20:0] mem_addr,input mem_ready,mem_response,input [255:0] mem_data,
  output wire busy);
-localparam IDLE=0,SETUP=1,WIDGET_WAIT=2,WIDGET_CHECK=3,PIXEL=4,READ_ACCEPT=5,READ_RESPONSE=6,OUTPUT=7,ACK=8;
+localparam IDLE=0,SETUP=1,WIDGET_WAIT=2,WIDGET_CHECK=3,PIXEL=4,READ_ACCEPT=5,READ_RESPONSE=6,OUTPUT=7,ACK=8,WIDGET_CAPTURE=9;
+reg [98:0] widget_q;
+always @(posedge clk)if(state==WIDGET_CAPTURE)widget_q<=widget;
 reg [3:0] state;reg [1:0] layer;reg plane;
 reg [9:0] x;reg [8:0] y;reg first;
 reg [17:0] address,previous_addr;reg [255:0] buffer;reg final_burst;
@@ -60,14 +62,15 @@ always @(posedge clk)begin
     widget_index<=0;layer<=0;state<=SETUP;
    end
    SETUP:state<=widget_count==0?OUTPUT:WIDGET_WAIT;
-   WIDGET_WAIT:state<=WIDGET_CHECK;
+   WIDGET_WAIT:state<=WIDGET_CAPTURE;
+   WIDGET_CAPTURE:state<=WIDGET_CHECK;
    WIDGET_CHECK:begin
-    if(!widget[38]||widget[36:35]!=layer||y<widget[18:10]||
-       {1'b0,y}>={1'b0,widget[18:10]}+{3'd0,widget[34:28]}||
-       x+15<widget[9:0]||{1'b0,x}>={1'b0,widget[9:0]}+{2'd0,widget[27:19]})advance();
-    else begin row_offset<=16'(y-widget[18:10])*{7'd0,widget[27:19]};
-     wx<=widget[9:0];wy<=widget[18:10];ww<=widget[27:19];wh<=widget[34:28];
-     dim<=!widget[37];base<=widget[78:59];label<=widget[98:79];p<=0;plane<=0;state<=PIXEL;end
+    if(!widget_q[38]||widget_q[36:35]!=layer||y<widget_q[18:10]||
+       {1'b0,y}>={1'b0,widget_q[18:10]}+{3'd0,widget_q[34:28]}||
+       x+15<widget_q[9:0]||{1'b0,x}>={1'b0,widget_q[9:0]}+{2'd0,widget_q[27:19]})advance();
+    else begin row_offset<=16'(y-widget_q[18:10])*{7'd0,widget_q[27:19]};
+     wx<=widget_q[9:0];wy<=widget_q[18:10];ww<=widget_q[27:19];wh<=widget_q[34:28];
+     dim<=!widget_q[37];base<=widget_q[78:59];label<=widget_q[98:79];p<=0;plane<=0;state<=PIXEL;end
    end
    PIXEL:if(!pixel_inside)begin
     if(p==15)begin if(!plane)begin plane<=1;p<=0;end else advance();end else p<=p+1'b1;

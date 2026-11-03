@@ -1,6 +1,6 @@
 // Two-cycle look-ahead overlay: top retains its original one-cycle RGB latency.
 // Controls/metadata latch in vertical blank; no frame-buffer writes for OSD.
-module dmz_osd(input clk,reset,input emergency,visual_enabled,input [23:0] time_bcd,input [3:0] brightness,contrast,input [9:0] x,y,
+module dmz_osd #(parameter EXTERNAL_COORDS=0)(input clk,reset,input frame_tick,input emergency,visual_enabled,input [23:0] time_bcd,input [3:0] brightness,contrast,input [9:0] x,y,
  input [1:0] menu_section,setting_cursor,input paired_mode,
  input course_mode,input menu_open,input [5:0] query,browse_tag,input [63:0] browse_name,input browse_valid,catalog_ready,
  input [5:0] image_count,input [4:0] displayed_image,input [4:0] wav_count,input [3:0] wav_index,volume,
@@ -14,14 +14,14 @@ reg [63:0] name;reg [7:0] se,ie,we;
 always @(posedge clk) begin
  if(reset) begin course<=0;section<=0;cursor<=0;paired<=0;alert<=0;vis<=1;opened<=0;valid<=0;ready<=0;paused<=0;muted<=0;source<=1;auto_mode<=1;
   tm<=0;bri<=4;con<=4;scroll<=0;q<=0;tag<=0;ic<=0;img<=0;wc<=0;wi<=0;vol<=8;name<=0;se<=0;ie<=0;we<=0;end
- else if(x==0&&y==480) begin course<=course_mode;section<=menu_section;cursor<=setting_cursor;paired<=paired_mode;alert<=emergency;vis<=visual_enabled;opened<=menu_open;valid<=browse_valid;ready<=catalog_ready;
+ else if(EXTERNAL_COORDS?frame_tick:(x==0&&y==480)) begin course<=course_mode;section<=menu_section;cursor<=setting_cursor;paired<=paired_mode;alert<=emergency;vis<=visual_enabled;opened<=menu_open;valid<=browse_valid;ready<=catalog_ready;
   tm<=time_bcd;bri<=brightness;con<=contrast;scroll<=scroll+1'b1;
   paused<=audio_paused;muted<=tone_muted;source<=wav_source;auto_mode<=autoplay;
   q<=query;tag<=browse_tag;ic<=image_count;img<=displayed_image;wc<=wav_count;wi<=wav_index;vol<=volume;
   name<=browse_name;se<=sd_error;ie<=image_error;we<=wav_error;end
 end
-wire [9:0] ahead_x=x>=797?x-797:x+3;
-wire [9:0] ahead_y=x>=797?(y==524?10'd0:y+1'b1):y;
+wire [9:0] ahead_x=EXTERNAL_COORDS?x:(x>=797?x-797:x+3);
+wire [9:0] ahead_y=EXTERNAL_COORDS?y:(x>=797?(y==524?10'd0:y+1'b1):y);
 wire [5:0] col=ahead_x[9:4];wire [4:0] row=ahead_y[8:4];
 wire [5:0] total=q[5]?{1'b0,wc}:ic;
 function automatic [7:0] digit(input [5:0] n);digit=8'd48+8'(n);endfunction
