@@ -1,0 +1,1 @@
+PASS all 1024 y coordinates: original and optimized button text bands equivalent

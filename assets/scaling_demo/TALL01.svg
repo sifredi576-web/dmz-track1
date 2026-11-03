@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="640" viewBox="0 0 360 640">
+<rect width="360" height="640" fill="#062452"/>
+<text x="24" y="42" font-family="Microsoft YaHei" font-size="17" fill="#35e5ee" dominant-baseline="text-before-edge">02 / 校园声音实验</text>
+<text x="24" y="77" font-family="Microsoft YaHei" font-size="28" fill="#f1f8ff" dominant-baseline="text-before-edge">看见音叉的振动</text>
+<text x="24" y="120" font-family="Microsoft YaHei" font-size="18" fill="#b3d2ee" dominant-baseline="text-before-edge">轻敲音叉，观察水面。</text>
+<rect x="22" y="162" width="316" height="198" rx="16" fill="#0b3568" stroke="none" stroke-width="2"/>
+<polyline points="154,182 154,245 161,258 180,265 199,258 206,245 206,182" fill="none" stroke="#f1f8ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="180,265 180,316" fill="none" stroke="#f1f8ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="100,325 260,325 247,346 114,346 100,325" fill="none" stroke="#35e5ee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="115,334 137,330 160,335 180,330 205,335 228,330 248,333" fill="none" stroke="#35e5ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="132,220 108,220" fill="none" stroke="#35e5ee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="119.40857330457484,213.76746799814535 108,220 119.40857330457484,226.23253200185465" fill="none" stroke="#35e5ee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="228,220 252,220" fill="none" stroke="#35e5ee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="240.59142669542516,226.23253200185465 252,220 240.59142669542516,213.76746799814535" fill="none" stroke="#35e5ee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="136.0" y="368" font-family="Microsoft YaHei" font-size="22" fill="#35e5ee" dominant-baseline="text-before-edge">实验步骤</text>
+<ellipse cx="36.0" cy="417.0" rx="12.0" ry="12.0" fill="#35e5ee" stroke="none" stroke-width="3"/>
+<text x="31.5" y="408" font-family="Microsoft YaHei" font-size="15" fill="#062452" dominant-baseline="text-before-edge">1</text>
+<text x="60" y="407" font-family="Microsoft YaHei" font-size="19" fill="#f1f8ff" dominant-baseline="text-before-edge">轻敲音叉，使其振动</text>
+<ellipse cx="36.0" cy="458.0" rx="12.0" ry="12.0" fill="#35e5ee" stroke="none" stroke-width="3"/>
+<text x="31.5" y="449" font-family="Microsoft YaHei" font-size="15" fill="#062452" dominant-baseline="text-before-edge">2</text>
+<text x="60" y="448" font-family="Microsoft YaHei" font-size="19" fill="#f1f8ff" dominant-baseline="text-before-edge">叉脚轻触水面</text>
+<ellipse cx="36.0" cy="499.0" rx="12.0" ry="12.0" fill="#35e5ee" stroke="none" stroke-width="3"/>
+<text x="31.5" y="490" font-family="Microsoft YaHei" font-size="15" fill="#062452" dominant-baseline="text-before-edge">3</text>
+<text x="60" y="489" font-family="Microsoft YaHei" font-size="19" fill="#f1f8ff" dominant-baseline="text-before-edge">观察水花与振动现象</text>
+<ellipse cx="42.0" cy="556.0" rx="16.0" ry="16.0" fill="none" stroke="#35e5ee" stroke-width="2"/>
+<rect x="75" y="540" width="32" height="32" rx="0" fill="none" stroke="#ffca64" stroke-width="2"/>
+<text x="124" y="541" font-family="Microsoft YaHei" font-size="17" fill="#b3d2ee" dominant-baseline="text-before-edge">保持圆形与正方形</text>
+<text x="24" y="588" font-family="Microsoft YaHei" font-size="16" fill="#35e5ee" dominant-baseline="text-before-edge">原图 360 × 640 / 竖图等比适配</text>
+</svg>

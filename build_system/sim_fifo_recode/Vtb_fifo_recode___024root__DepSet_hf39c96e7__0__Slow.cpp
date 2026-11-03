@@ -486,9 +486,6 @@ VL_ATTR_COLD void Vtb_fifo_recode___024root___ctor_var_reset(Vtb_fifo_recode___0
     vlSelf->tb_fifo_recode__DOT__data1 = VL_RAND_RESET_I(32);
     vlSelf->tb_fifo_recode__DOT__input_data = VL_RAND_RESET_I(32);
     vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__rdata_raw = VL_RAND_RESET_I(32);
-    for (int __Vi0 = 0; __Vi0 < 2048; ++__Vi0) {
-        vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);
-    }
     vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__wp = VL_RAND_RESET_I(12);
     vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__rp = VL_RAND_RESET_I(12);
     vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__wgray = VL_RAND_RESET_I(12);
@@ -500,11 +497,11 @@ VL_ATTR_COLD void Vtb_fifo_recode___024root___ctor_var_reset(Vtb_fifo_recode___0
     vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__push = VL_RAND_RESET_I(1);
     vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__rn = VL_RAND_RESET_I(12);
     vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__wn = VL_RAND_RESET_I(12);
+    for (int __Vi0 = 0; __Vi0 < 2048; ++__Vi0) {
+        vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);
+    }
     vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT____Vlvbound_hd6d3ee30__0 = VL_RAND_RESET_I(1);
     vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT__rdata_raw = VL_RAND_RESET_I(32);
-    for (int __Vi0 = 0; __Vi0 < 2048; ++__Vi0) {
-        vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);
-    }
     vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT__wp = VL_RAND_RESET_I(12);
     vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT__rp = VL_RAND_RESET_I(12);
     vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT__wgray = VL_RAND_RESET_I(12);
@@ -518,18 +515,21 @@ VL_ATTR_COLD void Vtb_fifo_recode___024root___ctor_var_reset(Vtb_fifo_recode___0
     vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT__wn = VL_RAND_RESET_I(12);
     vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT__write_addr = VL_RAND_RESET_I(11);
     vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT__read_addr = VL_RAND_RESET_I(11);
+    for (int __Vi0 = 0; __Vi0 < 2048; ++__Vi0) {
+        vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);
+    }
     vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 = VL_RAND_RESET_I(1);
     vlSelf->__Vfunc_tb_fifo_recode__DOT__reference_fifo__DOT__binary__3__Vfuncout = VL_RAND_RESET_I(12);
     vlSelf->__Vfunc_tb_fifo_recode__DOT__reference_fifo__DOT__binary__3__g = VL_RAND_RESET_I(12);
     vlSelf->__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout = VL_RAND_RESET_I(12);
     vlSelf->__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g = VL_RAND_RESET_I(12);
     vlSelf->__Vdly__tb_fifo_recode__DOT__writes = VL_RAND_RESET_I(32);
-    vlSelf->__VdlyVal__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0 = VL_RAND_RESET_I(32);
-    vlSelf->__VdlyDim0__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0 = VL_RAND_RESET_I(11);
-    vlSelf->__VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0 = 0;
-    vlSelf->__VdlyVal__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 = VL_RAND_RESET_I(32);
-    vlSelf->__VdlyDim0__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 = VL_RAND_RESET_I(11);
-    vlSelf->__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 = 0;
+    vlSelf->__VdlyVal__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0 = VL_RAND_RESET_I(32);
+    vlSelf->__VdlyDim0__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0 = VL_RAND_RESET_I(11);
+    vlSelf->__VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0 = 0;
+    vlSelf->__VdlyVal__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0 = VL_RAND_RESET_I(32);
+    vlSelf->__VdlyDim0__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0 = VL_RAND_RESET_I(11);
+    vlSelf->__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0 = 0;
     vlSelf->__Vtrigprevexpr___TOP__tb_fifo_recode__DOT__wclk__0 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr___TOP__tb_fifo_recode__DOT__rclk__0 = VL_RAND_RESET_I(1);
 }

@@ -19,4 +19,4 @@ PAGE 12 score=2 focus=0
 PAGE 13 score=2 focus=0
 PAGE 0 score=0 focus=0
 PASS real v2 CRC+SDRAM staging, shuffled catalog binding, full course, first-attempt score, notifications and restart
-- sim/platform\tb_scene_runtime.sv:253: Verilog $finish
+- sim/platform\tb_scene_runtime.sv:278: Verilog $finish

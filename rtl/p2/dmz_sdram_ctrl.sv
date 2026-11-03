@@ -6,7 +6,7 @@ module dmz_sdram_ctrl #(parameter integer INIT_CYCLES=10000,REFRESH_CYCLES=390,R
  output wire req_ready,output reg rsp_valid,output reg [255:0] rsp_rdata,
  output reg init_done,output reg [31:0] refresh_count,
  output reg ras_n,cas_n,we_n,output reg [10:0] addr,output reg [1:0] ba,
- output wire [31:0] dq_out,output wire dq_oe,input wire [31:0] dq_in);
+ output wire [31:0] dq_out,output reg dq_oe,input wire [31:0] dq_in);
 localparam POWER=0,IPRE=1,IPWAIT=2,IREF=3,IRWAIT=4,MRS=5,MRWAIT=6,
  IDLE=7,ACT=8,RCD=9,READ=10,RWAIT=11,RDATA=12,WRITE=13,WDATA=14,RECOVER=15,REFRESH=16,RFWAIT=17;
 // Capture SDRAM return data on the falling controller edge, then consume
@@ -21,7 +21,12 @@ reg [20:0] transaction_addr;
 reg transaction_write;
 reg [255:0] write_data;
 assign req_ready=(state==IDLE && refresh_age<REFRESH_CYCLES);
-assign dq_oe=(state==WRITE || state==WDATA);
+// Register the next-state write enable: identical bus cycles, no state decode
+// between the output register and the SDRAM bidirectional pad enable.
+always @(posedge clk)begin
+ if(reset)dq_oe<=0;
+ else dq_oe<=(state==RCD&&wait_count==0&&transaction_write)||state==WRITE||(state==WDATA&&beat!=7);
+end
 // Shift the BL8 payload instead of putting an 8-way mux on package DQ.
 assign dq_out=write_data[31:0];
 always @* begin

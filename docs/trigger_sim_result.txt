@@ -1,0 +1,2 @@
+PASS rising-zero trigger, repeated acquisitions=8 frame swaps=10, silence AUTO fallback and free-running toggle
+- sim/system\tb_trigger.sv:32: Verilog $finish

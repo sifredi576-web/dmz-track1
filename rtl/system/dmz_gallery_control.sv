@@ -27,6 +27,7 @@ always @(posedge clk) begin
    "N","n":begin pending<=1;autoplay<=0;end
    "P","p":begin pending<=2;autoplay<=0;end
    "A","a":begin autoplay<=1;timer<=0;end
+   "G","g":begin autoplay<=~autoplay;timer<=0;pending<=0;end
    "H","h","F","f":begin autoplay<=0;pending<=0;timer<=0;end
    default:if(command_byte[7:5]==3'b100&&{1'b0,command_byte[4:0]}<file_count) begin
     pending<=3;direct_index<=command_byte[4:0];autoplay<=0;

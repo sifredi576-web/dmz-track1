@@ -24,16 +24,17 @@ endtask
 integer before_commands,before_events;
 initial begin
  repeat(3)@(negedge clk);reset=0;
- press(0,"+",-1);press(1,"-",-1);press(2,"H",-1);press(3,"M",-1);
+ press(0,"+",-1);press(1,"-",-1);press(2,-1,9);press(3,"M",-1);
  press(4,-1,12);press(5,-1,11);press(6,-1,2);press(7,-1,10);
  press(8,-1,6);press(9,-1,4);press(10,-1,5);press(11,-1,3);
  press(12,"F",-1);press(13,-1,8);press(14,-1,1);press(15,-1,7);
- paused=1;muted=1;press(2,"A",-1);press(3,"U",-1);paused=0;muted=0;
+ paused=1;muted=1;press(2,-1,9);press(3,"U",-1);paused=0;muted=0;
  menu=1;
+ press(2,-1,-1);
  press(4,-1,12);press(5,-1,11);press(6,"O",-1);press(7,-1,-1);
  press(8,"F",-1);press(9,"}",-1);press(10,"E",-1);press(11,"{",-1);
  press(12,"V",-1);press(13,"J",-1);press(14,"I",-1);press(15,128,-1);
- menu=0;active=0;press(4,"X",-1);press(5,"Q",-1);press(13,"J",-1);press(15,128,-1);
+ menu=0;active=0;press(2,"G",-1);press(4,"X",-1);press(5,"Q",-1);press(13,"J",-1);press(15,128,-1);
  active=1;
  // UART wins now; one queued key follows once, with no legacy control leak.
  @(negedge clk);before_commands=commands;before_events=events;uv=1;ub="M";kv=1;key=10;

@@ -1,4 +1,4 @@
-﻿param(
+param(
  [ValidateSet('Status','M','U','B','S','R','Smoke','Soak','N','P','A','H','W','J','T','K','L','+','-','F','E','V','I','O','C','D','[',']','Q','X','Z')][string]$Command='Status',
  [string]$Port='', [int]$Seconds=10, [int]$RestartCycles=3,
  [string]$Output='docs/system_hardware_status.json')
@@ -45,6 +45,7 @@ function Read-Frame([int]$TimeoutSeconds=4){
      emergency=[bool]($w[5]-band 2);visual_enabled=[bool]($w[5]-band 1)
      choice_valid=[bool]($w[2]-band 16);quiz=[bool]($w[2]-band 32);answered=[bool]($w[2]-band 64);correct=[bool]($w[2]-band 128);platform_active=[bool]($w[2]-band 1);page_loading=[bool]($w[2]-band 2);focus=($w[2]-shr 8)-band 7;current_page=($w[2]-shr 11)-band 31
      page_count=($w[2]-shr 16)-band 63;score=($w[2]-shr 22)-band 15;total=($w[2]-shr 26)-band 15
+     course_autoplay=[bool]($w[3]-band 4194304);course_autoplay_paused=[bool]($w[3]-band 8388608);page_auto_link=[bool]($w[3]-band 16777216)
      platform_config_error=($w[3]-shr 8)-band 255;notice_priority=($w[3]-shr 16)-band 3
      sd_error=($w[4]-shr 24)-band 255;image_error=($w[4]-shr 16)-band 255;wav_error=($w[4]-shr 8)-band 255
      command_count=($w[5]-shr 16);last_command=($w[5]-shr 8)-band 255;menu_open=[bool]($w[6]-band 1)

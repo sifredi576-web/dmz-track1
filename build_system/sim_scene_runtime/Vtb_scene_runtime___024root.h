@@ -49,6 +49,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_runtime___024root final : public Ve
         CData/*5:0*/ tb_scene_runtime__DOT__query;
         CData/*5:0*/ tb_scene_runtime__DOT__tag;
         CData/*0:0*/ tb_scene_runtime__DOT__valid;
+        CData/*0:0*/ tb_scene_runtime__DOT__menu;
+        CData/*0:0*/ tb_scene_runtime__DOT__paused;
         CData/*0:0*/ tb_scene_runtime__DOT__ev;
         CData/*3:0*/ tb_scene_runtime__DOT__action;
         CData/*0:0*/ tb_scene_runtime__DOT__image_busy;
@@ -56,6 +58,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_runtime___024root final : public Ve
         CData/*0:0*/ tb_scene_runtime__DOT__audio_select;
         CData/*3:0*/ tb_scene_runtime__DOT__audio_index;
         CData/*7:0*/ tb_scene_runtime__DOT__params_ack;
+        CData/*0:0*/ tb_scene_runtime__DOT__ctrl;
+        CData/*7:0*/ tb_scene_runtime__DOT__ctrl_byte;
         CData/*0:0*/ tb_scene_runtime__DOT__pending;
         CData/*0:0*/ tb_scene_runtime__DOT__pwrite;
         CData/*0:0*/ tb_scene_runtime__DOT__loader__DOT__busy;
@@ -77,12 +81,12 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_runtime___024root final : public Ve
         CData/*7:0*/ tb_scene_runtime__DOT__dut__DOT__requested_resource;
         CData/*4:0*/ tb_scene_runtime__DOT__dut__DOT__resolved_q;
         CData/*4:0*/ tb_scene_runtime__DOT__dut__DOT__audio_resolved_q;
+    };
+    struct {
         CData/*3:0*/ tb_scene_runtime__DOT__dut__DOT__settle;
         CData/*4:0*/ tb_scene_runtime__DOT__dut__DOT__target_page;
         CData/*2:0*/ tb_scene_runtime__DOT__dut__DOT__slot;
         CData/*2:0*/ tb_scene_runtime__DOT__dut__DOT__focus;
-    };
-    struct {
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__cache_write;
         CData/*2:0*/ tb_scene_runtime__DOT__dut__DOT__cache_write_index;
         CData/*2:0*/ tb_scene_runtime__DOT__dut__DOT__cache_tag;
@@ -92,6 +96,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_runtime___024root final : public Ve
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__first_image;
         CData/*7:0*/ tb_scene_runtime__DOT__dut__DOT__ticket;
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__auto_fired;
+        CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__autoplay_mode;
+        CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__autoplay_hold;
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__force_valid;
         CData/*7:0*/ tb_scene_runtime__DOT__dut__DOT__force_target;
         CData/*1:0*/ tb_scene_runtime__DOT__dut__DOT__notice;
@@ -123,6 +129,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_runtime___024root final : public Ve
         CData/*4:0*/ tb_scene_runtime__DOT__dut__DOT__core_page;
         CData/*4:0*/ tb_scene_runtime__DOT__dut__DOT__core_current_page;
         CData/*5:0*/ tb_scene_runtime__DOT__dut__DOT__core_audio;
+        CData/*1:0*/ tb_scene_runtime__DOT__dut__DOT__core_control;
+        CData/*7:0*/ tb_scene_runtime__DOT__dut__DOT__core_arg;
         CData/*7:0*/ tb_scene_runtime__DOT__dut__DOT__core_error;
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__page_accept;
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__page_loaded;
@@ -131,6 +139,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_runtime___024root final : public Ve
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__notice_request;
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__notice_exit;
         CData/*1:0*/ tb_scene_runtime__DOT__dut__DOT__notice_priority;
+        CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__autoplay_event;
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__core_event;
         CData/*3:0*/ tb_scene_runtime__DOT__dut__DOT__core_event_action;
         CData/*1:0*/ tb_scene_runtime__DOT__dut__DOT__requested_notice;
@@ -138,6 +147,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_runtime___024root final : public Ve
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT____Vlvbound_hc8fc4ac6__0;
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT____Vlvbound_h3f146728__0;
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT____Vlvbound_h3f0a2e13__0;
+    };
+    struct {
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__ui__DOT__configured;
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__ui__DOT__waiting;
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__ui__DOT__moving;
@@ -147,25 +158,25 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_runtime___024root final : public Ve
         CData/*7:0*/ tb_scene_runtime__DOT__dut__DOT__ui__DOT__choices_valid;
         CData/*7:0*/ tb_scene_runtime__DOT__dut__DOT__ui__DOT__available;
         CData/*7:0*/ tb_scene_runtime__DOT__dut__DOT__ui__DOT__neighbor;
-    };
-    struct {
         CData/*0:0*/ tb_scene_runtime__DOT__dut__DOT__ui__DOT__first;
-        CData/*4:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__decode_index__581__Vfuncout;
-        CData/*4:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__decode_index__582__Vfuncout;
-        CData/*7:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__pb__586__Vfuncout;
-        CData/*7:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__pb__587__Vfuncout;
-        CData/*7:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__pb__588__Vfuncout;
+        CData/*4:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__decode_index__775__Vfuncout;
+        CData/*4:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__decode_index__776__Vfuncout;
+        CData/*7:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__pb__780__Vfuncout;
+        CData/*7:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__pb__781__Vfuncout;
+        CData/*7:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__pb__782__Vfuncout;
+        CData/*7:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__pb__787__Vfuncout;
         CData/*0:0*/ __VstlFirstIteration;
         CData/*0:0*/ __Vtrigprevexpr___TOP__tb_scene_runtime__DOT__clk__0;
         CData/*0:0*/ __VactContinue;
+        SData/*8:0*/ tb_scene_runtime__DOT__finished;
         SData/*9:0*/ tb_scene_runtime__DOT__loader__DOT__count_sum;
         SData/*15:0*/ tb_scene_runtime__DOT__dut__DOT__ms_clock;
         SData/*15:0*/ tb_scene_runtime__DOT__dut__DOT__elapsed_ms;
         SData/*15:0*/ tb_scene_runtime__DOT__dut__DOT__ui__DOT__choices;
-        SData/*15:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__p16__589__Vfuncout;
-        SData/*15:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__p16__590__Vfuncout;
-        SData/*15:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__p16__591__Vfuncout;
-        SData/*15:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__p16__592__Vfuncout;
+        SData/*15:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__p16__783__Vfuncout;
+        SData/*15:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__p16__784__Vfuncout;
+        SData/*15:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__p16__785__Vfuncout;
+        SData/*15:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__p16__786__Vfuncout;
         IData/*20:0*/ tb_scene_runtime__DOT__length;
         IData/*20:0*/ tb_scene_runtime__DOT__ra;
         IData/*20:0*/ tb_scene_runtime__DOT__ma;
@@ -201,11 +212,13 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_runtime___024root final : public Ve
         IData/*31:0*/ tb_scene_runtime__DOT__dut__DOT__last_swaps;
         IData/*20:0*/ tb_scene_runtime__DOT__dut__DOT__table_bytes;
         IData/*31:0*/ tb_scene_runtime__DOT__dut__DOT__sprite_length_q;
-        IData/*31:0*/ __Vtask_tb_scene_runtime__DOT__focus_to__126__wanted;
-        IData/*31:0*/ __Vtask_tb_scene_runtime__DOT__focus_to__273__wanted;
-        IData/*31:0*/ __Vtask_tb_scene_runtime__DOT__focus_to__392__wanted;
-        IData/*31:0*/ __Vtask_tb_scene_runtime__DOT__focus_to__510__wanted;
-        VlWide<4>/*98:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__decode_widget__583__Vfuncout;
+        IData/*31:0*/ __Vtask_tb_scene_runtime__DOT__ticks__351__tb_scene_runtime__DOT__unnamedblk1_1__DOT____Vrepeat0;
+    };
+    struct {
+        IData/*31:0*/ __Vtask_tb_scene_runtime__DOT__focus_to__488__wanted;
+        IData/*31:0*/ __Vtask_tb_scene_runtime__DOT__focus_to__607__wanted;
+        IData/*31:0*/ __Vtask_tb_scene_runtime__DOT__focus_to__725__wanted;
+        VlWide<4>/*98:0*/ __Vfunc_tb_scene_runtime__DOT__dut__DOT__decode_widget__777__Vfuncout;
         IData/*31:0*/ __VactIterCount;
         QData/*63:0*/ tb_scene_runtime__DOT__name;
         QData/*41:0*/ tb_scene_runtime__DOT__params;
@@ -213,8 +226,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_runtime___024root final : public Ve
         VlUnpacked<CData/*7:0*/, 514272> tb_scene_runtime__DOT__scene;
         VlUnpacked<QData/*63:0*/, 64> tb_scene_runtime__DOT__names;
         VlUnpacked<IData/*31:0*/, 64> tb_scene_runtime__DOT__sizes;
-    };
-    struct {
         VlUnpacked<CData/*7:0*/, 32> tb_scene_runtime__DOT__loader__DOT__header;
         VlUnpacked<CData/*4:0*/, 64> tb_scene_runtime__DOT__dut__DOT__resolved;
         VlUnpacked<VlWide<4>/*98:0*/, 8> tb_scene_runtime__DOT__dut__DOT__cache;

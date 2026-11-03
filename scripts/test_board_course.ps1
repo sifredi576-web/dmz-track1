@@ -1,4 +1,4 @@
-param([string]$Port='COM9',[string]$Output='docs/platform_v2_board_course.json',[switch]$ObservationOnly)
+param([string]$Port='COM9',[string]$Output='docs/platform_v2_board_course.json',[switch]$ObservationOnly,[switch]$HoldAutoplay)
 # Development harness only. Runtime page/answer/audio work remains in FPGA.
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
@@ -54,6 +54,7 @@ function Focus([int]$wanted){
 function Choose([int]$slot){Focus $slot;Event 5;$null=Sample}
 try{
  $serial.Open();$serial.DiscardInBuffer();$null=Sample;Event 7;Page 0 0
+ if($HoldAutoplay -and !$script:state.course_autoplay_paused){Event 9;$null=Sample;if(!$script:state.course_autoplay_paused -or $script:state.audio_paused){throw 'Could not hold autoplay independently of audio'}}
  Choose 0;Page 1 0;Choose 0;Page 2 0;Choose 0;Page 3 0
  Focus 2;Event 10;Page 14 0;Event 11;Page 15 0;Event 12;Page 3 0
  if($script:state.focus -ne 2){throw 'Notice did not restore focus'}

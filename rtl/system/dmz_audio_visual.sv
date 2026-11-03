@@ -78,22 +78,29 @@ always @(posedge clk)begin start_q<=line_start;end_q<=line_end;px_q<=px;py_q<=py
 wire [8:0] ls=PIPELINED?start_q:line_start,le=PIPELINED?end_q:line_end;
 wire [9:0] rx=PIPELINED?px_q:px,ry=PIPELINED?py_q:py;
 wire re=PIPELINED?en_q:en,rv=PIPELINED?valid_q:valid_page;
+// Calculate level/border hits alongside interpolation, rather than chaining
+// threshold addition, coordinate comparisons and colour priority in one cycle.
+wire level_row=py>=276&&py<284;
+wire left_hit=level_row&&px>=64&&px<312&&px<64+{level_l,3'b000};
+wire right_hit=level_row&&px>=328&&px<576&&px<328+{level_r,3'b000};
+wire peak_hit=level_row&&((px>=64&&px<312&&px==63+{peak_l,3'b000})||(px>=328&&px<576&&px==327+{peak_r,3'b000}));
+wire region_hit=en&&px>=64&&px<576&&py>=128&&py<288;
+reg left_q,right_q,peak_q,region_q,center_q;
+always @(posedge clk)begin
+ left_q<=left_hit;right_q<=right_hit;peak_q<=peak_hit;
+ region_q<=region_hit;center_q<=py==200;
+end
+wire region=PIPELINED?region_q:region_hit;
+wire lh=PIPELINED?left_q:left_hit,rh=PIPELINED?right_q:right_hit,ph=PIPELINED?peak_q:peak_hit;
+wire center=PIPELINED?center_q:py==200;
+wire wh=rv&&ry<272&&((ls==le&&ry=={1'b0,ls})||(ls<le&&ry>={1'b0,ls}&&ry<{1'b0,le})||(ls>le&&ry<={1'b0,ls}&&ry>{1'b0,le}));
 always @(posedge clk) begin
  if(reset) begin px<=0;py<=0;en<=0;valid_page<=0;ink<=0;shade<=0;color<=0;end
  else begin
   px<=ax;py<=ay;en<=enabled;valid_page<=has_page;
-  shade<=re&&rx>=64&&rx<576&&ry>=128&&ry<288;
-  ink<=0;color<=24'h304050;
-  if(re&&rx>=64&&rx<576&&ry>=128&&ry<288) begin
-   if(ry==200) begin ink<=1;color<=24'h405060;end
-   if(rv&&ry<272&&((ls==le&&ry=={1'b0,ls})||(ls<le&&ry>={1'b0,ls}&&ry<{1'b0,le})||(ls>le&&ry<={1'b0,ls}&&ry>{1'b0,le}))) begin ink<=1;color<=24'h50ffff;end
-   if(ry>=276&&ry<284) begin
-    if(rx>=64&&rx<312&&rx<64+{level_l,3'b000}) begin ink<=1;color<=24'h40df70;end
-    if(rx>=328&&rx<576&&rx<328+{level_r,3'b000}) begin ink<=1;color<=24'hffb050;end
-    if((rx>=64&&rx<312&&rx==63+{peak_l,3'b000})||(rx>=328&&rx<576&&rx==327+{peak_r,3'b000})) begin ink<=1;color<=24'hffffff;end
-   end
-  end
+  shade<=region;
+  ink<=region&&(center||wh||lh||rh||ph);
+  color<=!region?24'h304050:ph?24'hffffff:rh?24'hffb050:lh?24'h40df70:wh?24'h50ffff:center?24'h405060:24'h304050;
  end
 end
 endmodule
-

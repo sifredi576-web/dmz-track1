@@ -291,6 +291,22 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
     __Vtask_tb_ui_keys__DOT__press__33__ui = 0;
     IData/*31:0*/ __Vtask_tb_ui_keys__DOT__press__33__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0;
     __Vtask_tb_ui_keys__DOT__press__33__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
+    IData/*31:0*/ __Vtask_tb_ui_keys__DOT__press__34__k;
+    __Vtask_tb_ui_keys__DOT__press__34__k = 0;
+    IData/*31:0*/ __Vtask_tb_ui_keys__DOT__press__34__command;
+    __Vtask_tb_ui_keys__DOT__press__34__command = 0;
+    IData/*31:0*/ __Vtask_tb_ui_keys__DOT__press__34__ui;
+    __Vtask_tb_ui_keys__DOT__press__34__ui = 0;
+    IData/*31:0*/ __Vtask_tb_ui_keys__DOT__press__34__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0;
+    __Vtask_tb_ui_keys__DOT__press__34__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
+    IData/*31:0*/ __Vtask_tb_ui_keys__DOT__press__35__k;
+    __Vtask_tb_ui_keys__DOT__press__35__k = 0;
+    IData/*31:0*/ __Vtask_tb_ui_keys__DOT__press__35__command;
+    __Vtask_tb_ui_keys__DOT__press__35__command = 0;
+    IData/*31:0*/ __Vtask_tb_ui_keys__DOT__press__35__ui;
+    __Vtask_tb_ui_keys__DOT__press__35__ui = 0;
+    IData/*31:0*/ __Vtask_tb_ui_keys__DOT__press__35__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0;
+    __Vtask_tb_ui_keys__DOT__press__35__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     // Body
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -430,8 +446,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                      32,__Vtask_tb_ui_keys__DOT__press__1__k);
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
-    __Vtask_tb_ui_keys__DOT__press__2__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__2__command = 0x48U;
+    __Vtask_tb_ui_keys__DOT__press__2__ui = 9U;
+    __Vtask_tb_ui_keys__DOT__press__2__command = 0xffffffffU;
     __Vtask_tb_ui_keys__DOT__press__2__k = 2U;
     __Vtask_tb_ui_keys__DOT__press__2__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
@@ -1284,10 +1300,9 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                      32,__Vtask_tb_ui_keys__DOT__press__15__k);
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
-    vlSelfRef.tb_ui_keys__DOT__paused = 1U;
     vlSelfRef.tb_ui_keys__DOT__muted = 1U;
-    __Vtask_tb_ui_keys__DOT__press__16__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__16__command = 0x41U;
+    __Vtask_tb_ui_keys__DOT__press__16__ui = 9U;
+    __Vtask_tb_ui_keys__DOT__press__16__command = 0xffffffffU;
     __Vtask_tb_ui_keys__DOT__press__16__k = 2U;
     __Vtask_tb_ui_keys__DOT__press__16__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
@@ -1408,12 +1423,11 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                      32,__Vtask_tb_ui_keys__DOT__press__17__k);
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
-    vlSelfRef.tb_ui_keys__DOT__paused = 0U;
     vlSelfRef.tb_ui_keys__DOT__muted = 0U;
     vlSelfRef.tb_ui_keys__DOT__menu = 1U;
-    __Vtask_tb_ui_keys__DOT__press__18__ui = 0xcU;
+    __Vtask_tb_ui_keys__DOT__press__18__ui = 0xffffffffU;
     __Vtask_tb_ui_keys__DOT__press__18__command = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__18__k = 4U;
+    __Vtask_tb_ui_keys__DOT__press__18__k = 2U;
     __Vtask_tb_ui_keys__DOT__press__18__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -1472,9 +1486,9 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                      32,__Vtask_tb_ui_keys__DOT__press__18__k);
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
-    __Vtask_tb_ui_keys__DOT__press__19__ui = 0xbU;
+    __Vtask_tb_ui_keys__DOT__press__19__ui = 0xcU;
     __Vtask_tb_ui_keys__DOT__press__19__command = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__19__k = 5U;
+    __Vtask_tb_ui_keys__DOT__press__19__k = 4U;
     __Vtask_tb_ui_keys__DOT__press__19__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -1533,9 +1547,9 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                      32,__Vtask_tb_ui_keys__DOT__press__19__k);
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
-    __Vtask_tb_ui_keys__DOT__press__20__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__20__command = 0x4fU;
-    __Vtask_tb_ui_keys__DOT__press__20__k = 6U;
+    __Vtask_tb_ui_keys__DOT__press__20__ui = 0xbU;
+    __Vtask_tb_ui_keys__DOT__press__20__command = 0xffffffffU;
+    __Vtask_tb_ui_keys__DOT__press__20__k = 5U;
     __Vtask_tb_ui_keys__DOT__press__20__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -1595,8 +1609,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
     __Vtask_tb_ui_keys__DOT__press__21__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__21__command = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__21__k = 7U;
+    __Vtask_tb_ui_keys__DOT__press__21__command = 0x4fU;
+    __Vtask_tb_ui_keys__DOT__press__21__k = 6U;
     __Vtask_tb_ui_keys__DOT__press__21__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -1656,8 +1670,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
     __Vtask_tb_ui_keys__DOT__press__22__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__22__command = 0x46U;
-    __Vtask_tb_ui_keys__DOT__press__22__k = 8U;
+    __Vtask_tb_ui_keys__DOT__press__22__command = 0xffffffffU;
+    __Vtask_tb_ui_keys__DOT__press__22__k = 7U;
     __Vtask_tb_ui_keys__DOT__press__22__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -1717,8 +1731,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
     __Vtask_tb_ui_keys__DOT__press__23__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__23__command = 0x7dU;
-    __Vtask_tb_ui_keys__DOT__press__23__k = 9U;
+    __Vtask_tb_ui_keys__DOT__press__23__command = 0x46U;
+    __Vtask_tb_ui_keys__DOT__press__23__k = 8U;
     __Vtask_tb_ui_keys__DOT__press__23__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -1778,8 +1792,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
     __Vtask_tb_ui_keys__DOT__press__24__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__24__command = 0x45U;
-    __Vtask_tb_ui_keys__DOT__press__24__k = 0xaU;
+    __Vtask_tb_ui_keys__DOT__press__24__command = 0x7dU;
+    __Vtask_tb_ui_keys__DOT__press__24__k = 9U;
     __Vtask_tb_ui_keys__DOT__press__24__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -1839,8 +1853,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
     __Vtask_tb_ui_keys__DOT__press__25__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__25__command = 0x7bU;
-    __Vtask_tb_ui_keys__DOT__press__25__k = 0xbU;
+    __Vtask_tb_ui_keys__DOT__press__25__command = 0x45U;
+    __Vtask_tb_ui_keys__DOT__press__25__k = 0xaU;
     __Vtask_tb_ui_keys__DOT__press__25__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -1900,8 +1914,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
     __Vtask_tb_ui_keys__DOT__press__26__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__26__command = 0x56U;
-    __Vtask_tb_ui_keys__DOT__press__26__k = 0xcU;
+    __Vtask_tb_ui_keys__DOT__press__26__command = 0x7bU;
+    __Vtask_tb_ui_keys__DOT__press__26__k = 0xbU;
     __Vtask_tb_ui_keys__DOT__press__26__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -1961,8 +1975,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
     __Vtask_tb_ui_keys__DOT__press__27__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__27__command = 0x4aU;
-    __Vtask_tb_ui_keys__DOT__press__27__k = 0xdU;
+    __Vtask_tb_ui_keys__DOT__press__27__command = 0x56U;
+    __Vtask_tb_ui_keys__DOT__press__27__k = 0xcU;
     __Vtask_tb_ui_keys__DOT__press__27__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -2022,8 +2036,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
     __Vtask_tb_ui_keys__DOT__press__28__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__28__command = 0x49U;
-    __Vtask_tb_ui_keys__DOT__press__28__k = 0xeU;
+    __Vtask_tb_ui_keys__DOT__press__28__command = 0x4aU;
+    __Vtask_tb_ui_keys__DOT__press__28__k = 0xdU;
     __Vtask_tb_ui_keys__DOT__press__28__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -2083,8 +2097,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
     __Vtask_tb_ui_keys__DOT__press__29__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__29__command = 0x80U;
-    __Vtask_tb_ui_keys__DOT__press__29__k = 0xfU;
+    __Vtask_tb_ui_keys__DOT__press__29__command = 0x49U;
+    __Vtask_tb_ui_keys__DOT__press__29__k = 0xeU;
     __Vtask_tb_ui_keys__DOT__press__29__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -2143,11 +2157,9 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                      32,__Vtask_tb_ui_keys__DOT__press__29__k);
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
-    vlSelfRef.tb_ui_keys__DOT__menu = 0U;
-    vlSelfRef.tb_ui_keys__DOT__active = 0U;
     __Vtask_tb_ui_keys__DOT__press__30__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__30__command = 0x58U;
-    __Vtask_tb_ui_keys__DOT__press__30__k = 4U;
+    __Vtask_tb_ui_keys__DOT__press__30__command = 0x80U;
+    __Vtask_tb_ui_keys__DOT__press__30__k = 0xfU;
     __Vtask_tb_ui_keys__DOT__press__30__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -2206,9 +2218,11 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                      32,__Vtask_tb_ui_keys__DOT__press__30__k);
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
+    vlSelfRef.tb_ui_keys__DOT__menu = 0U;
+    vlSelfRef.tb_ui_keys__DOT__active = 0U;
     __Vtask_tb_ui_keys__DOT__press__31__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__31__command = 0x51U;
-    __Vtask_tb_ui_keys__DOT__press__31__k = 5U;
+    __Vtask_tb_ui_keys__DOT__press__31__command = 0x47U;
+    __Vtask_tb_ui_keys__DOT__press__31__k = 2U;
     __Vtask_tb_ui_keys__DOT__press__31__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -2268,8 +2282,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
     __Vtask_tb_ui_keys__DOT__press__32__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__32__command = 0x4aU;
-    __Vtask_tb_ui_keys__DOT__press__32__k = 0xdU;
+    __Vtask_tb_ui_keys__DOT__press__32__command = 0x58U;
+    __Vtask_tb_ui_keys__DOT__press__32__k = 4U;
     __Vtask_tb_ui_keys__DOT__press__32__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -2329,8 +2343,8 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
     __Vtask_tb_ui_keys__DOT__press__33__ui = 0xffffffffU;
-    __Vtask_tb_ui_keys__DOT__press__33__command = 0x80U;
-    __Vtask_tb_ui_keys__DOT__press__33__k = 0xfU;
+    __Vtask_tb_ui_keys__DOT__press__33__command = 0x51U;
+    __Vtask_tb_ui_keys__DOT__press__33__k = 5U;
     __Vtask_tb_ui_keys__DOT__press__33__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
@@ -2389,12 +2403,134 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                      32,__Vtask_tb_ui_keys__DOT__press__33__k);
         VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
     }
+    __Vtask_tb_ui_keys__DOT__press__34__ui = 0xffffffffU;
+    __Vtask_tb_ui_keys__DOT__press__34__command = 0x4aU;
+    __Vtask_tb_ui_keys__DOT__press__34__k = 0xdU;
+    __Vtask_tb_ui_keys__DOT__press__34__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
+    co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_ui_keys.clk)", 
+                                                         "sim/platform\tb_ui_keys.sv", 
+                                                         17);
+    tb_ui_keys__DOT__press__Vstatic__c = vlSelfRef.tb_ui_keys__DOT__commands;
+    tb_ui_keys__DOT__press__Vstatic__e = vlSelfRef.tb_ui_keys__DOT__events;
+    vlSelfRef.tb_ui_keys__DOT__key = (0xfU & __Vtask_tb_ui_keys__DOT__press__34__k);
+    vlSelfRef.tb_ui_keys__DOT__kv = 1U;
+    co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_ui_keys.clk)", 
+                                                         "sim/platform\tb_ui_keys.sv", 
+                                                         18);
+    vlSelfRef.tb_ui_keys__DOT__kv = 0U;
+    co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_ui_keys.clk)", 
+                                                         "sim/platform\tb_ui_keys.sv", 
+                                                         18);
+    __Vtask_tb_ui_keys__DOT__press__34__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 1U;
+    co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_ui_keys.clk)", 
+                                                         "sim/platform\tb_ui_keys.sv", 
+                                                         18);
+    __Vtask_tb_ui_keys__DOT__press__34__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0U;
+    if (VL_UNLIKELY((((vlSelfRef.tb_ui_keys__DOT__commands 
+                       != (tb_ui_keys__DOT__press__Vstatic__c 
+                           + (VL_LTES_III(32, 0U, __Vtask_tb_ui_keys__DOT__press__34__command)
+                               ? 1U : 0U))) | (vlSelfRef.tb_ui_keys__DOT__events 
+                                               != (tb_ui_keys__DOT__press__Vstatic__e 
+                                                   + 
+                                                   (VL_LTES_III(32, 0U, __Vtask_tb_ui_keys__DOT__press__34__ui)
+                                                     ? 1U
+                                                     : 0U))))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:19: Assertion failed in %Ntb_ui_keys.press: key %0d destination/count\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
+                     32,__Vtask_tb_ui_keys__DOT__press__34__k);
+        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 19, "", false);
+    }
+    if (VL_UNLIKELY(((VL_LTES_III(32, 0U, __Vtask_tb_ui_keys__DOT__press__34__command) 
+                      & ((IData)(vlSelfRef.tb_ui_keys__DOT__last_command) 
+                         != (0xffU & __Vtask_tb_ui_keys__DOT__press__34__command)))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:20: Assertion failed in %Ntb_ui_keys.press: key %0d wrong command\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
+                     32,__Vtask_tb_ui_keys__DOT__press__34__k);
+        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 20, "", false);
+    }
+    if (VL_UNLIKELY(((VL_LTES_III(32, 0U, __Vtask_tb_ui_keys__DOT__press__34__ui) 
+                      & ((IData)(vlSelfRef.tb_ui_keys__DOT__last_action) 
+                         != (0xfU & __Vtask_tb_ui_keys__DOT__press__34__ui)))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:21: Assertion failed in %Ntb_ui_keys.press: key %0d wrong UI event\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
+                     32,__Vtask_tb_ui_keys__DOT__press__34__k);
+        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
+    }
+    __Vtask_tb_ui_keys__DOT__press__35__ui = 0xffffffffU;
+    __Vtask_tb_ui_keys__DOT__press__35__command = 0x80U;
+    __Vtask_tb_ui_keys__DOT__press__35__k = 0xfU;
+    __Vtask_tb_ui_keys__DOT__press__35__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
+    co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_ui_keys.clk)", 
+                                                         "sim/platform\tb_ui_keys.sv", 
+                                                         17);
+    tb_ui_keys__DOT__press__Vstatic__c = vlSelfRef.tb_ui_keys__DOT__commands;
+    tb_ui_keys__DOT__press__Vstatic__e = vlSelfRef.tb_ui_keys__DOT__events;
+    vlSelfRef.tb_ui_keys__DOT__key = (0xfU & __Vtask_tb_ui_keys__DOT__press__35__k);
+    vlSelfRef.tb_ui_keys__DOT__kv = 1U;
+    co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_ui_keys.clk)", 
+                                                         "sim/platform\tb_ui_keys.sv", 
+                                                         18);
+    vlSelfRef.tb_ui_keys__DOT__kv = 0U;
+    co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_ui_keys.clk)", 
+                                                         "sim/platform\tb_ui_keys.sv", 
+                                                         18);
+    __Vtask_tb_ui_keys__DOT__press__35__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 1U;
+    co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(negedge tb_ui_keys.clk)", 
+                                                         "sim/platform\tb_ui_keys.sv", 
+                                                         18);
+    __Vtask_tb_ui_keys__DOT__press__35__tb_ui_keys__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0U;
+    if (VL_UNLIKELY((((vlSelfRef.tb_ui_keys__DOT__commands 
+                       != (tb_ui_keys__DOT__press__Vstatic__c 
+                           + (VL_LTES_III(32, 0U, __Vtask_tb_ui_keys__DOT__press__35__command)
+                               ? 1U : 0U))) | (vlSelfRef.tb_ui_keys__DOT__events 
+                                               != (tb_ui_keys__DOT__press__Vstatic__e 
+                                                   + 
+                                                   (VL_LTES_III(32, 0U, __Vtask_tb_ui_keys__DOT__press__35__ui)
+                                                     ? 1U
+                                                     : 0U))))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:19: Assertion failed in %Ntb_ui_keys.press: key %0d destination/count\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
+                     32,__Vtask_tb_ui_keys__DOT__press__35__k);
+        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 19, "", false);
+    }
+    if (VL_UNLIKELY(((VL_LTES_III(32, 0U, __Vtask_tb_ui_keys__DOT__press__35__command) 
+                      & ((IData)(vlSelfRef.tb_ui_keys__DOT__last_command) 
+                         != (0xffU & __Vtask_tb_ui_keys__DOT__press__35__command)))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:20: Assertion failed in %Ntb_ui_keys.press: key %0d wrong command\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
+                     32,__Vtask_tb_ui_keys__DOT__press__35__k);
+        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 20, "", false);
+    }
+    if (VL_UNLIKELY(((VL_LTES_III(32, 0U, __Vtask_tb_ui_keys__DOT__press__35__ui) 
+                      & ((IData)(vlSelfRef.tb_ui_keys__DOT__last_action) 
+                         != (0xfU & __Vtask_tb_ui_keys__DOT__press__35__ui)))))) {
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:21: Assertion failed in %Ntb_ui_keys.press: key %0d wrong UI event\n",0,
+                     64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name(),
+                     32,__Vtask_tb_ui_keys__DOT__press__35__k);
+        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 21, "", false);
+    }
     vlSelfRef.tb_ui_keys__DOT__active = 1U;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         39);
+                                                         40);
     tb_ui_keys__DOT__before_commands = vlSelfRef.tb_ui_keys__DOT__commands;
     tb_ui_keys__DOT__before_events = vlSelfRef.tb_ui_keys__DOT__events;
     vlSelfRef.tb_ui_keys__DOT__uv = 1U;
@@ -2405,49 +2541,49 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         40);
+                                                         41);
     vlSelfRef.tb_ui_keys__DOT__kv = 0U;
     vlSelfRef.tb_ui_keys__DOT__ub = 0x55U;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         41);
+                                                         42);
     vlSelfRef.tb_ui_keys__DOT__uv = 0U;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         42);
+                                                         43);
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         42);
+                                                         43);
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         42);
+                                                         43);
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         42);
+                                                         43);
     if (VL_UNLIKELY(((((vlSelfRef.tb_ui_keys__DOT__commands 
                         != ((IData)(2U) + tb_ui_keys__DOT__before_commands)) 
                        | (vlSelfRef.tb_ui_keys__DOT__events 
                           != ((IData)(1U) + tb_ui_keys__DOT__before_events))) 
                       | (5U != (IData)(vlSelfRef.tb_ui_keys__DOT__last_action)))))) {
-        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:43: Assertion failed in %Ntb_ui_keys: UART arbitration\n",0,
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:44: Assertion failed in %Ntb_ui_keys: UART arbitration\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 43, "", false);
+        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 44, "", false);
     }
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         45);
+                                                         46);
     tb_ui_keys__DOT__before_commands = vlSelfRef.tb_ui_keys__DOT__commands;
     tb_ui_keys__DOT__before_events = vlSelfRef.tb_ui_keys__DOT__events;
     vlSelfRef.tb_ui_keys__DOT__uv = 1U;
@@ -2456,37 +2592,37 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         46);
+                                                         47);
     vlSelfRef.tb_ui_keys__DOT__uv = 0U;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         46);
+                                                         47);
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         46);
+                                                         47);
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         46);
+                                                         47);
     if (VL_UNLIKELY(((((vlSelfRef.tb_ui_keys__DOT__commands 
                         != tb_ui_keys__DOT__before_commands) 
                        | (vlSelfRef.tb_ui_keys__DOT__events 
                           != ((IData)(1U) + tb_ui_keys__DOT__before_events))) 
                       | (5U != (IData)(vlSelfRef.tb_ui_keys__DOT__last_action)))))) {
-        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:47: Assertion failed in %Ntb_ui_keys: UART UI injection isolation\n",0,
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:48: Assertion failed in %Ntb_ui_keys: UART UI injection isolation\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 47, "", false);
+        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 48, "", false);
     }
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         49);
+                                                         50);
     vlSelfRef.tb_ui_keys__DOT__uv = 1U;
     vlSelfRef.tb_ui_keys__DOT__kv = 1U;
     vlSelfRef.tb_ui_keys__DOT__key = 0xfU;
@@ -2494,7 +2630,7 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         49);
+                                                         50);
     vlSelfRef.tb_ui_keys__DOT__reset = 1U;
     vlSelfRef.tb_ui_keys__DOT__uv = 0U;
     vlSelfRef.tb_ui_keys__DOT__kv = 0U;
@@ -2502,42 +2638,42 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__0(
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         50);
+                                                         51);
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         50);
+                                                         51);
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         50);
+                                                         51);
     vlSelfRef.tb_ui_keys__DOT__reset = 0U;
     tb_ui_keys__DOT__before_events = vlSelfRef.tb_ui_keys__DOT__events;
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         50);
+                                                         51);
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         50);
+                                                         51);
     co_await vlSelfRef.__VtrigSched_h3a50ad45__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(negedge tb_ui_keys.clk)", 
                                                          "sim/platform\tb_ui_keys.sv", 
-                                                         50);
+                                                         51);
     if (VL_UNLIKELY(((vlSelfRef.tb_ui_keys__DOT__events 
                       != tb_ui_keys__DOT__before_events)))) {
-        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:51: Assertion failed in %Ntb_ui_keys: reset queued event leak\n",0,
+        VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:52: Assertion failed in %Ntb_ui_keys: reset queued event leak\n",0,
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 51, "", false);
+        VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 52, "", false);
     }
     VL_WRITEF_NX("PASS all 16 new keys, resource menu routing, playback state, fallback, exclusive dispatch, UART and reset\n",0);
-    VL_FINISH_MT("sim/platform\\tb_ui_keys.sv", 52, "");
+    VL_FINISH_MT("sim/platform\\tb_ui_keys.sv", 53, "");
 }
 
 VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__1(Vtb_ui_keys___024root* vlSelf) {
@@ -2547,10 +2683,10 @@ VL_INLINE_OPT VlCoroutine Vtb_ui_keys___024root___eval_initial__TOP__Vtiming__1(
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x5f5e100ULL, 
                                          nullptr, "sim/platform\tb_ui_keys.sv", 
-                                         54);
-    VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:54: Assertion failed in %Ntb_ui_keys: timeout\n",0,
+                                         55);
+    VL_WRITEF_NX("[%0t] %%Fatal: tb_ui_keys.sv:55: Assertion failed in %Ntb_ui_keys: timeout\n",0,
                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-    VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 54, "", false);
+    VL_STOP_MT("sim/platform\\tb_ui_keys.sv", 55, "", false);
 }
 
 #ifdef VL_DEBUG

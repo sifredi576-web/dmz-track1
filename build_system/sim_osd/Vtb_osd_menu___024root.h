@@ -83,10 +83,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_osd_menu___024root final : public Verilat
         CData/*7:0*/ tb_osd_menu__DOT__osd__DOT____Vlvbound_h0a0eb560__0;
     };
     struct {
-        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__63__Vfuncout;
-        CData/*5:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__63__n;
-        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__64__Vfuncout;
-        CData/*5:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__64__n;
         CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__65__Vfuncout;
         CData/*5:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__65__n;
         CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__66__Vfuncout;
@@ -125,10 +121,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_osd_menu___024root final : public Verilat
         CData/*5:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__82__n;
         CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__83__Vfuncout;
         CData/*5:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__83__n;
-        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__84__Vfuncout;
-        CData/*3:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__84__n;
-        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__85__Vfuncout;
-        CData/*3:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__85__n;
+        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__84__Vfuncout;
+        CData/*5:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__84__n;
+        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__85__Vfuncout;
+        CData/*5:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__85__n;
         CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__86__Vfuncout;
         CData/*3:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__86__n;
         CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__87__Vfuncout;
@@ -137,20 +133,22 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_osd_menu___024root final : public Verilat
         CData/*3:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__88__n;
         CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__89__Vfuncout;
         CData/*3:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__89__n;
-        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__91__Vfuncout;
-        CData/*5:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__91__n;
-        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__92__Vfuncout;
-        CData/*5:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__92__n;
+        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__90__Vfuncout;
+        CData/*3:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__90__n;
+        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__91__Vfuncout;
+        CData/*3:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__hexchar__91__n;
+        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__93__Vfuncout;
+        CData/*5:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__93__n;
+        CData/*7:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__94__Vfuncout;
+        CData/*5:0*/ __Vfunc_tb_osd_menu__DOT__osd__DOT__digit__94__n;
         CData/*0:0*/ __VstlFirstIteration;
         CData/*0:0*/ __Vtrigprevexpr___TOP__tb_osd_menu__DOT__clk__0;
         CData/*0:0*/ __VactContinue;
         SData/*9:0*/ tb_osd_menu__DOT__x;
         SData/*9:0*/ tb_osd_menu__DOT__y;
-        SData/*9:0*/ tb_osd_menu__DOT__osd__DOT__scroll;
+        SData/*9:0*/ tb_osd_menu__DOT__osd__DOT__ahead_y;
     };
     struct {
-        SData/*9:0*/ tb_osd_menu__DOT__osd__DOT__ahead_y;
-        SData/*9:0*/ tb_osd_menu__DOT__osd__DOT__ticker_x;
         SData/*15:0*/ tb_osd_menu__DOT__osd__DOT____VdfgExtracted_h1af66735__0;
         IData/*31:0*/ tb_osd_menu__DOT__swaps;
         IData/*31:0*/ tb_osd_menu__DOT__selections;

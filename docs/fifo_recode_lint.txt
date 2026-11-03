@@ -1,5 +1,5 @@
 %Warning-TIMESCALEMOD: rtl/p2\dmz_pixel_fifo.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
-    2 | module dmz_pixel_fifo #(parameter AW=11,RECODE_ADDR=0,DATA_CODE=0)(
+    2 | module dmz_pixel_fifo #(parameter AW=11,RECODE_ADDR=0,DATA_CODE=0,USE_BRAM32=0)(
       |        ^~~~~~~~~~~~~~
                        sim/platform\tb_fifo_recode.sv:2:8: ... Location of module with timescale
     2 | module tb_fifo_recode;
@@ -29,5 +29,5 @@
    12 | wire [AW:0] rn=rp+pop,wn=wp+push;
       |                            ^
 - V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
-- Verilator: Built from 0.082 MB sources in 5 modules, into 0.118 MB in 7 C++ files needing 0.000 MB
-- Verilator: Walltime 0.043 s (elab=0.002, cvt=0.013, bld=0.000); cpu 0.016 s on 1 threads; alloced 14.164 MB
+- Verilator: Built from 0.083 MB sources in 5 modules, into 0.118 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.050 s (elab=0.002, cvt=0.015, bld=0.000); cpu 0.000 s on 1 threads; alloced 14.367 MB

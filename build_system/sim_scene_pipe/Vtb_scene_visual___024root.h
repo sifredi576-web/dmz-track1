@@ -39,18 +39,27 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_visual___024root final : public Ver
         CData/*1:0*/ tb_scene_visual__DOT__scene__DOT__vs;
         CData/*0:0*/ tb_scene_visual__DOT__scene__DOT__soft_alert;
         CData/*0:0*/ tb_scene_visual__DOT__scene__DOT__soft_visual;
+        CData/*0:0*/ tb_scene_visual__DOT__scene__DOT__alert_phase;
         CData/*2:0*/ tb_scene_visual__DOT__scene__DOT__tick;
         CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__front;
         CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__page_ready;
         CData/*6:0*/ tb_scene_visual__DOT__visual__DOT__wp;
         CData/*2:0*/ tb_scene_visual__DOT__visual__DOT__decimate;
+        CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__trigger_mode_q;
+        CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__take_sample;
         CData/*4:0*/ tb_scene_visual__DOT__visual__DOT__live_l;
         CData/*4:0*/ tb_scene_visual__DOT__visual__DOT__live_r;
         CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__en;
         CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__valid_page;
         CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__has_page;
-        CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__en_q;
         CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__valid_q;
+        CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__level_row;
+        CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__left_q;
+        CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__right_q;
+        CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__peak_q;
+        CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__region_q;
+        CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__center_q;
+        CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__wh;
         CData/*0:0*/ __VstlFirstIteration;
         CData/*0:0*/ __Vtrigprevexpr___TOP__tb_scene_visual__DOT__clk__0;
         CData/*0:0*/ __VactContinue;
@@ -70,9 +79,11 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_visual___024root final : public Ver
         SData/*8:0*/ tb_scene_visual__DOT__visual__DOT__line_end;
         SData/*8:0*/ tb_scene_visual__DOT__visual__DOT__start_q;
         SData/*8:0*/ tb_scene_visual__DOT__visual__DOT__end_q;
-        SData/*9:0*/ tb_scene_visual__DOT__visual__DOT__px_q;
         SData/*9:0*/ tb_scene_visual__DOT__visual__DOT__py_q;
         IData/*23:0*/ tb_scene_visual__DOT__color;
+    };
+    struct {
+        IData/*31:0*/ tb_scene_visual__DOT__reference_tick;
         IData/*31:0*/ tb_scene_visual__DOT__highs;
         IData/*31:0*/ tb_scene_visual__DOT__lows;
         IData/*31:0*/ tb_scene_visual__DOT__row;
@@ -81,8 +92,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scene_visual___024root final : public Ver
         IData/*31:0*/ tb_scene_visual__DOT__ya;
         IData/*31:0*/ tb_scene_visual__DOT__yb;
         IData/*31:0*/ tb_scene_visual__DOT__ys;
-    };
-    struct {
         IData/*31:0*/ tb_scene_visual__DOT__ye;
         IData/*23:0*/ tb_scene_visual__DOT__visual__DOT__wave_q;
         IData/*31:0*/ __VactIterCount;

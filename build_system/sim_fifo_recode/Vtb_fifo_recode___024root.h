@@ -31,8 +31,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_fifo_recode___024root final : public Veri
         CData/*0:0*/ tb_fifo_recode__DOT__reference_fifo__DOT____Vlvbound_hd6d3ee30__0;
         CData/*0:0*/ tb_fifo_recode__DOT__recoded_fifo__DOT__push;
         CData/*0:0*/ tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0;
-        CData/*0:0*/ __VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0;
-        CData/*0:0*/ __VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0;
+        CData/*0:0*/ __VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0;
+        CData/*0:0*/ __VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0;
         CData/*0:0*/ __VstlFirstIteration;
         CData/*0:0*/ __Vtrigprevexpr___TOP__tb_fifo_recode__DOT__wclk__0;
         CData/*0:0*/ __Vtrigprevexpr___TOP__tb_fifo_recode__DOT__rclk__0;
@@ -67,8 +67,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_fifo_recode___024root final : public Veri
         SData/*11:0*/ __Vfunc_tb_fifo_recode__DOT__reference_fifo__DOT__binary__3__g;
         SData/*11:0*/ __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout;
         SData/*11:0*/ __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g;
-        SData/*10:0*/ __VdlyDim0__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0;
-        SData/*10:0*/ __VdlyDim0__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0;
+        SData/*10:0*/ __VdlyDim0__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0;
+        SData/*10:0*/ __VdlyDim0__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0;
         IData/*31:0*/ tb_fifo_recode__DOT__phase;
         IData/*31:0*/ tb_fifo_recode__DOT__writes;
         IData/*31:0*/ tb_fifo_recode__DOT__reads;
@@ -77,13 +77,13 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_fifo_recode___024root final : public Veri
         IData/*31:0*/ tb_fifo_recode__DOT__reference_fifo__DOT__rdata_raw;
         IData/*31:0*/ tb_fifo_recode__DOT__recoded_fifo__DOT__rdata_raw;
         IData/*31:0*/ __Vdly__tb_fifo_recode__DOT__writes;
-        IData/*31:0*/ __VdlyVal__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0;
-        IData/*31:0*/ __VdlyVal__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0;
+        IData/*31:0*/ __VdlyVal__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0;
+        IData/*31:0*/ __VdlyVal__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0;
         IData/*31:0*/ __VactIterCount;
-        VlUnpacked<IData/*31:0*/, 2048> tb_fifo_recode__DOT__reference_fifo__DOT__mem;
+        VlUnpacked<IData/*31:0*/, 2048> tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem;
     };
     struct {
-        VlUnpacked<IData/*31:0*/, 2048> tb_fifo_recode__DOT__recoded_fifo__DOT__mem;
+        VlUnpacked<IData/*31:0*/, 2048> tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem;
     };
     VlDelayScheduler __VdlySched;
     VlTriggerScheduler __VtrigSched_h085ef395__0;

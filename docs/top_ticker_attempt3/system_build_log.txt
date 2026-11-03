@@ -1,0 +1,332 @@
+============================================================
+   Tang Dynasty, V6.2.168116
+   Copyright (c) 2012-2025 Anlogic Inc.
+   Executable = D:/ANLU/bin/td_commands_prompt.exe
+   Built at =   16:32:07 Jun 12 2025
+   Run by =     fushenghe
+   Run Date =   Tue Nov  3 22:42:06 2026
+
+   Run on =     LAPTOP-6RN9ARE0
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package EG4S20BG256"
+RUN-1001 : Using default speed grade: NA
+ARC-1001 : Device Initialization.
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :            OPTION            |          IO          |   SETTING   
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  T3/R11/T10/P10/S11  |    gpio    
+ARC-1001 :             done             |         P13          |    gpio    
+ARC-1001 :           program_b          |          T2          |  dedicate  
+ARC-1001 :        tdi/tms/tck/tdo       |   C12/A15/C14/E14    |  dedicate  
+ARC-1001 : ------------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "open_project dmz_track1.al"
+RUN-1002 : start command "commit_param -step design"
+RUN-1001 : Print Global Property
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   Parameters   |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------
+RUN-1001 :   enable_seed  |    off     |       off        |        
+RUN-1001 :     message    |  standard  |     standard     |        
+RUN-1001 :   qor_monitor  |     on     |        on        |        
+RUN-1001 :   syn_ip_flow  |    off     |       off        |        
+RUN-1001 :     thread     |    auto    |       auto       |        
+RUN-1001 : --------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :       Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : ----------------------------------------------------------------
+RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
+RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
+RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file ../rtl/p2/dmz_p2_pll.v
+HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in ../rtl/p2/dmz_p2_pll.v(83)
+HDL-1007 : analyze verilog file ../rtl/p2/dmz_sdram_ctrl.sv
+HDL-1007 : analyze verilog file ../rtl/p2/dmz_sdram_bist.sv
+HDL-1007 : analyze verilog file ../rtl/p2/dmz_pixel_fifo.sv
+HDL-5373 WARNING: identifier 'rp' is used before its declaration in ../rtl/p2/dmz_pixel_fifo.sv(6)
+HDL-1007 : analyze verilog file ../rtl/p2/dmz_status_uart.sv
+HDL-1007 : analyze verilog file ../rtl/p3/dmz_bmp_loader.sv
+HDL-5373 WARNING: identifier 'fat16' is used before its declaration in ../rtl/p3/dmz_bmp_loader.sv(15)
+HDL-5373 WARNING: identifier 'state' is used before its declaration in ../rtl/p3/dmz_bmp_loader.sv(16)
+HDL-5373 WARNING: identifier 'state' is used before its declaration in ../rtl/p3/dmz_bmp_loader.sv(16)
+HDL-5373 WARNING: identifier 'dir_pos' is used before its declaration in ../rtl/p3/dmz_bmp_loader.sv(23)
+HDL-5373 WARNING: identifier 'byte_pos' is used before its declaration in ../rtl/p3/dmz_bmp_loader.sv(23)
+HDL-1007 : analyze verilog file ../rtl/p3/dmz_image_framebuffer.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_track1_top.sv
+HDL-5373 WARNING: identifier 'mem_command_valid' is used before its declaration in ../rtl/system/dmz_track1_top.sv(67)
+HDL-5373 WARNING: identifier 'mem_command' is used before its declaration in ../rtl/system/dmz_track1_top.sv(67)
+HDL-5373 WARNING: identifier 'mem_command' is used before its declaration in ../rtl/system/dmz_track1_top.sv(67)
+HDL-5373 WARNING: identifier 'wav_error' is used before its declaration in ../rtl/system/dmz_track1_top.sv(90)
+HDL-5373 WARNING: identifier 'audio_active' is used before its declaration in ../rtl/system/dmz_track1_top.sv(255)
+HDL-1007 : analyze verilog file ../rtl/audio_test/dmz_uart_rx.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_media_control.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_status_cdc.sv
+HDL-1007 : analyze verilog file ../rtl/p3/dmz_sd_reader.sv
+HDL-1007 : analyze verilog file ../rtl/p3/dmz_spi_byte.sv
+HDL-1007 : analyze verilog file ../rtl/p1/serializer.sv
+HDL-1007 : analyze verilog file ../rtl/p1/dmz_tone.sv
+HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/audio_clock_regeneration_packet.sv
+HDL-5341 WARNING: non-net output port 'clk_audio_counter_wrap' cannot be initialized at declaration in SystemVerilog mode in ../rtl/p1/hdmi_core/audio_clock_regeneration_packet.sv(14)
+HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/audio_info_frame.sv
+HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/audio_sample_packet.sv
+HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/auxiliary_video_information_info_frame.sv
+HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/hdmi.sv
+HDL-5341 WARNING: non-net output port 'cx' cannot be initialized at declaration in SystemVerilog mode in ../rtl/p1/hdmi_core/hdmi.sv(90)
+HDL-5341 WARNING: non-net output port 'cy' cannot be initialized at declaration in SystemVerilog mode in ../rtl/p1/hdmi_core/hdmi.sv(91)
+HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/packet_assembler.sv
+HDL-5341 WARNING: non-net output port 'counter' cannot be initialized at declaration in SystemVerilog mode in ../rtl/p1/hdmi_core/packet_assembler.sv(11)
+HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/packet_picker.sv
+HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/source_product_description_info_frame.sv
+HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/tmds_channel.sv
+HDL-5341 WARNING: non-net output port 'tmds' cannot be initialized at declaration in SystemVerilog mode in ../rtl/p1/hdmi_core/tmds_channel.sv(16)
+HDL-1007 : analyze verilog file ../rtl/system/dmz_gallery_control.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_fat_catalog.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_fat_stream.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_sd_arbiter.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_bmp_decoder.sv
+HDL-5373 WARNING: identifier 'inside_x' is used before its declaration in ../rtl/media/dmz_bmp_decoder.sv(17)
+HDL-1007 : analyze verilog file ../rtl/media/dmz_image_player.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_wav_decoder.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_wav_player.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_media_storage.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_matrix_keys.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_board_commands.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_file_menu.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_osd.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_display_control.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_picture_adjust.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_udiv32.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_scene_control.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_audio_visual.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_pair_control.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_scene_loader.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_platform_boot.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_ui_keys.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_ui_controller.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_mem_mux.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_cfg_writer.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_scene_runtime.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_page_compositor.sv
+HDL-5373 WARNING: identifier 'state' is used before its declaration in ../rtl/platform/dmz_page_compositor.sv(14)
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_ui_overlay.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_audio_completion.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_status_panel.sv
+HDL-1007 : analyze verilog file ../rtl/p2/dmz_wide_pll.v
+HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in ../rtl/p2/dmz_wide_pll.v(64)
+HDL-1007 : analyze verilog file ../rtl/system/dmz_wide_mapper.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_picture_pipe.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_trigger_button.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_top_ticker.sv
+PRJ-1401 : Successfully analyzed 59 source files.
+RUN-1002 : start command "reset_runs phy_1"
+PRJ-1412 : reset_run phy_1.
+RUN-1002 : start command "top_module dmz_track1_top"
+PRJ-1501 : Current top model is dmz_track1_top.
+RUN-1002 : start command "add_files ../rtl/platform/dmz_mem_mux.sv"
+PRJ-6603 WARNING: File ../rtl/platform/dmz_mem_mux.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/platform/dmz_cfg_writer.sv"
+PRJ-6603 WARNING: File ../rtl/platform/dmz_cfg_writer.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/platform/dmz_scene_runtime.sv"
+PRJ-6603 WARNING: File ../rtl/platform/dmz_scene_runtime.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/platform/dmz_page_compositor.sv"
+PRJ-6603 WARNING: File ../rtl/platform/dmz_page_compositor.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/platform/dmz_ui_overlay.sv"
+PRJ-6603 WARNING: File ../rtl/platform/dmz_ui_overlay.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/platform/dmz_audio_completion.sv"
+PRJ-6603 WARNING: File ../rtl/platform/dmz_audio_completion.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/platform/dmz_ui_keys.sv"
+PRJ-6603 WARNING: File ../rtl/platform/dmz_ui_keys.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/platform/dmz_ui_controller.sv"
+PRJ-6603 WARNING: File ../rtl/platform/dmz_ui_controller.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/platform/dmz_scene_loader.sv"
+PRJ-6603 WARNING: File ../rtl/platform/dmz_scene_loader.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/platform/dmz_platform_boot.sv"
+PRJ-6603 WARNING: File ../rtl/platform/dmz_platform_boot.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/media/dmz_pair_control.sv"
+PRJ-6603 WARNING: File ../rtl/media/dmz_pair_control.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/media/dmz_fat_catalog.sv"
+PRJ-6603 WARNING: File ../rtl/media/dmz_fat_catalog.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/media/dmz_fat_stream.sv"
+PRJ-6603 WARNING: File ../rtl/media/dmz_fat_stream.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/media/dmz_sd_arbiter.sv"
+PRJ-6603 WARNING: File ../rtl/media/dmz_sd_arbiter.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/media/dmz_udiv32.sv"
+PRJ-6603 WARNING: File ../rtl/media/dmz_udiv32.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/media/dmz_bmp_decoder.sv"
+PRJ-6603 WARNING: File ../rtl/media/dmz_bmp_decoder.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/media/dmz_image_player.sv"
+PRJ-6603 WARNING: File ../rtl/media/dmz_image_player.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/media/dmz_wav_decoder.sv"
+PRJ-6603 WARNING: File ../rtl/media/dmz_wav_decoder.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/media/dmz_wav_player.sv"
+PRJ-6603 WARNING: File ../rtl/media/dmz_wav_player.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/media/dmz_media_storage.sv"
+PRJ-6603 WARNING: File ../rtl/media/dmz_media_storage.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p2/dmz_p2_pll.v"
+PRJ-6603 WARNING: File ../rtl/p2/dmz_p2_pll.v already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p2/dmz_wide_pll.v"
+PRJ-6603 WARNING: File ../rtl/p2/dmz_wide_pll.v already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_wide_mapper.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_wide_mapper.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p2/dmz_sdram_ctrl.sv"
+PRJ-6603 WARNING: File ../rtl/p2/dmz_sdram_ctrl.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p2/dmz_sdram_bist.sv"
+PRJ-6603 WARNING: File ../rtl/p2/dmz_sdram_bist.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p2/dmz_pixel_fifo.sv"
+PRJ-6603 WARNING: File ../rtl/p2/dmz_pixel_fifo.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p2/dmz_status_uart.sv"
+PRJ-6603 WARNING: File ../rtl/p2/dmz_status_uart.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p3/dmz_image_framebuffer.sv"
+PRJ-6603 WARNING: File ../rtl/p3/dmz_image_framebuffer.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_track1_top.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_track1_top.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_matrix_keys.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_matrix_keys.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_board_commands.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_board_commands.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_file_menu.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_file_menu.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_osd.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_osd.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_top_ticker.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_top_ticker.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_trigger_button.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_trigger_button.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_status_panel.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_status_panel.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_scene_control.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_scene_control.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_audio_visual.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_audio_visual.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_display_control.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_display_control.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_picture_adjust.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_picture_adjust.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_picture_pipe.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_picture_pipe.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/audio_test/dmz_uart_rx.sv"
+PRJ-6603 WARNING: File ../rtl/audio_test/dmz_uart_rx.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_media_control.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_media_control.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_gallery_control.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_gallery_control.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/system/dmz_status_cdc.sv"
+PRJ-6603 WARNING: File ../rtl/system/dmz_status_cdc.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p3/dmz_sd_reader.sv"
+PRJ-6603 WARNING: File ../rtl/p3/dmz_sd_reader.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p3/dmz_spi_byte.sv"
+PRJ-6603 WARNING: File ../rtl/p3/dmz_spi_byte.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p1/serializer.sv"
+PRJ-6603 WARNING: File ../rtl/p1/serializer.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p1/dmz_tone.sv"
+PRJ-6603 WARNING: File ../rtl/p1/dmz_tone.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p1/hdmi_core/audio_clock_regeneration_packet.sv"
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/audio_clock_regeneration_packet.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p1/hdmi_core/audio_info_frame.sv"
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/audio_info_frame.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p1/hdmi_core/audio_sample_packet.sv"
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/audio_sample_packet.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p1/hdmi_core/auxiliary_video_information_info_frame.sv"
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/auxiliary_video_information_info_frame.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p1/hdmi_core/hdmi.sv"
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/hdmi.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p1/hdmi_core/packet_assembler.sv"
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/packet_assembler.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p1/hdmi_core/packet_picker.sv"
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/packet_picker.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p1/hdmi_core/source_product_description_info_frame.sv"
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/source_product_description_info_frame.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../rtl/p1/hdmi_core/tmds_channel.sv"
+PRJ-6603 WARNING: File ../rtl/p1/hdmi_core/tmds_channel.sv already exists. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../constraints/dmz_p3.adc"
+PRJ-6604 WARNING: File ../constraints/dmz_p3.adc already exists in file set constraint_1. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "add_files ../constraints/dmz_p3.sdc"
+PRJ-6604 WARNING: File ../constraints/dmz_p3.sdc already exists in file set constraint_1. It will be ignored.
+PRJ-1202 : Add files success.
+RUN-1002 : start command "non_default_params -revert -run phy_1"
+RUN-1002 : start command "set_param -run phy_1 flow thread auto"
+PRJ-1105 : Update param phy_1 flow::thread::auto succeed.
+RUN-1002 : start command "set_param -run phy_1 place fix_hold off"
+PRJ-1105 : Update param phy_1 place::fix_hold::off succeed.
+RUN-1002 : start command "set_param -run phy_1 place seed 0"
+PRJ-1105 : Update param phy_1 place::seed::0 succeed.
+RUN-1002 : start command "set_param -run phy_1 route swap_pin on"
+PRJ-1105 : Update param phy_1 route::swap_pin::on succeed.
+RUN-1002 : start command "set_param place seed 11 -run phy_1"
+PRJ-1105 : Update param phy_1 place::seed::11 succeed.
+RUN-1002 : start command "set_param flow thread 1 -run phy_1"
+PRJ-1105 : Update param phy_1 flow::thread::1 succeed.
+RUN-1002 : start command "set_param route effort routability -run phy_1"
+PRJ-1105 : Update param phy_1 route::effort::routability succeed.
+RUN-1002 : start command "set_param place fix_hold on -run phy_1"
+PRJ-1105 : Update param phy_1 place::fix_hold::on succeed.
+RUN-1002 : start command "set_param place effort high -run phy_1"
+PRJ-1105 : Update param phy_1 place::effort::high succeed.
+RUN-1002 : start command "set_param route swap_pin off -run phy_1"
+PRJ-1105 : Update param phy_1 route::swap_pin::off succeed.
+RUN-1002 : start command "launch_runs phy_1"
+PRJ-1403 : phy_1 is launched.
+PRJ-1404 : Run log file is D:/QQdownload/HX4S20_Contest_202606.zip/HX4S20_Contest_202606/dmz_track1/build_system/dmz_track1_Runs/phy_1/run.log.
+RUN-1002 : start command "wait_run phy_1 -quiet"
+PRJ-1405 : Waiting for run phy_1 to finish.
+PRJ-1409 : launch_runs phy_1  -jobs 1.

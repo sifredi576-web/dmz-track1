@@ -26,7 +26,6 @@ VL_ATTR_COLD void Vtb_ui_keys___024root___eval_static__TOP(Vtb_ui_keys___024root
     vlSelfRef.tb_ui_keys__DOT__kv = 0U;
     vlSelfRef.tb_ui_keys__DOT__menu = 0U;
     vlSelfRef.tb_ui_keys__DOT__active = 1U;
-    vlSelfRef.tb_ui_keys__DOT__paused = 0U;
     vlSelfRef.tb_ui_keys__DOT__muted = 0U;
     vlSelfRef.tb_ui_keys__DOT__uv = 0U;
     vlSelfRef.tb_ui_keys__DOT__key = 0U;
@@ -169,7 +168,6 @@ VL_ATTR_COLD void Vtb_ui_keys___024root___ctor_var_reset(Vtb_ui_keys___024root* 
     vlSelf->tb_ui_keys__DOT__kv = VL_RAND_RESET_I(1);
     vlSelf->tb_ui_keys__DOT__menu = VL_RAND_RESET_I(1);
     vlSelf->tb_ui_keys__DOT__active = VL_RAND_RESET_I(1);
-    vlSelf->tb_ui_keys__DOT__paused = VL_RAND_RESET_I(1);
     vlSelf->tb_ui_keys__DOT__muted = VL_RAND_RESET_I(1);
     vlSelf->tb_ui_keys__DOT__uv = VL_RAND_RESET_I(1);
     vlSelf->tb_ui_keys__DOT__key = VL_RAND_RESET_I(4);

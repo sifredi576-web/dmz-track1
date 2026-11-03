@@ -69,8 +69,9 @@ VL_INLINE_OPT VlCoroutine Vtb_wipe___024root___eval_initial__TOP__Vtiming__0(Vtb
                                                          "@(posedge tb_wipe.clk)", 
                                                          "sim/system\tb_wipe.sv", 
                                                          21);
-    while ((1U & (~ ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__video_req)) 
-                     & (IData)(vlSelfRef.tb_wipe__DOT__req))))) {
+    while ((1U & (~ ((IData)(vlSelfRef.tb_wipe__DOT__req) 
+                     & ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__video_req)) 
+                        & (0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state))))))) {
         co_await vlSelfRef.__VtrigSched_hedfbcd30__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(posedge tb_wipe.clk)", 
@@ -163,8 +164,9 @@ VL_INLINE_OPT VlCoroutine Vtb_wipe___024root___eval_initial__TOP__Vtiming__0(Vtb
                                                          "@(posedge tb_wipe.clk)", 
                                                          "sim/system\tb_wipe.sv", 
                                                          21);
-    while ((1U & (~ ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__video_req)) 
-                     & (IData)(vlSelfRef.tb_wipe__DOT__req))))) {
+    while ((1U & (~ ((IData)(vlSelfRef.tb_wipe__DOT__req) 
+                     & ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__video_req)) 
+                        & (0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state))))))) {
         co_await vlSelfRef.__VtrigSched_hedfbcd30__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(posedge tb_wipe.clk)", 
@@ -268,8 +270,9 @@ VL_INLINE_OPT VlCoroutine Vtb_wipe___024root___eval_initial__TOP__Vtiming__0(Vtb
                 = (__Vtask_tb_wipe__DOT__cycles__11__tb_wipe__DOT__unnamedblk1_1__DOT____Vrepeat0 
                    - (IData)(1U));
         }
-        if (VL_UNLIKELY((((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__video_req)) 
-                          & (IData)(vlSelfRef.tb_wipe__DOT__req))))) {
+        if (VL_UNLIKELY((((IData)(vlSelfRef.tb_wipe__DOT__req) 
+                          & ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__video_req)) 
+                             & (0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state))))))) {
             VL_WRITEF_NX("[%0t] %%Fatal: tb_wipe.sv:28: Assertion failed in %Ntb_wipe: Back frame overwritten during transition\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
@@ -422,6 +425,8 @@ VL_INLINE_OPT void Vtb_wipe___024root___nba_sequent__TOP__0(Vtb_wipe___024root* 
     __Vdly__tb_wipe__DOT__dut__DOT__dma_reads = 0;
     CData/*0:0*/ __Vdly__tb_wipe__DOT__dut__DOT__transaction_last;
     __Vdly__tb_wipe__DOT__dut__DOT__transaction_last = 0;
+    CData/*0:0*/ __Vdly__tb_wipe__DOT__dut__DOT__prefetched;
+    __Vdly__tb_wipe__DOT__dut__DOT__prefetched = 0;
     // Body
     __Vdly__tb_wipe__DOT__dut__DOT__last_frame = vlSelfRef.tb_wipe__DOT__dut__DOT__last_frame;
     __Vdly__tb_wipe__DOT__dut__DOT__beat = vlSelfRef.tb_wipe__DOT__dut__DOT__beat;
@@ -431,6 +436,7 @@ VL_INLINE_OPT void Vtb_wipe___024root___nba_sequent__TOP__0(Vtb_wipe___024root* 
     __Vdly__tb_wipe__DOT__dut__DOT__dma_reads = vlSelfRef.tb_wipe__DOT__dut__DOT__dma_reads;
     __Vdly__tb_wipe__DOT__dut__DOT__transaction_last 
         = vlSelfRef.tb_wipe__DOT__dut__DOT__transaction_last;
+    __Vdly__tb_wipe__DOT__dut__DOT__prefetched = vlSelfRef.tb_wipe__DOT__dut__DOT__prefetched;
     __Vdly__tb_wipe__DOT__dut__DOT__transition_active 
         = vlSelfRef.tb_wipe__DOT__dut__DOT__transition_active;
     __Vdly__tb_wipe__DOT__dut__DOT__wipe_words = vlSelfRef.tb_wipe__DOT__dut__DOT__wipe_words;
@@ -443,7 +449,9 @@ VL_INLINE_OPT void Vtb_wipe___024root___nba_sequent__TOP__0(Vtb_wipe___024root* 
     __Vdly__tb_wipe__DOT__display = vlSelfRef.tb_wipe__DOT__display;
     __Vdly__tb_wipe__DOT__dut__DOT__rd_addr = vlSelfRef.tb_wipe__DOT__dut__DOT__rd_addr;
     if ((((IData)(vlSelfRef.tb_wipe__DOT__monitor) 
-          & (IData)(vlSelfRef.tb_wipe__DOT__req)) & (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__video_req))) {
+          & (IData)(vlSelfRef.tb_wipe__DOT__req)) & 
+         (~ ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__video_req)) 
+             & (0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state)))))) {
         vlSelfRef.tb_wipe__DOT__expected_bank = ((0xbU 
                                                   == vlSelfRef.tb_wipe__DOT__step)
                                                   ? 0U
@@ -495,8 +503,13 @@ VL_INLINE_OPT void Vtb_wipe___024root___nba_sequent__TOP__0(Vtb_wipe___024root* 
         vlSelfRef.tb_wipe__DOT__fault = 0U;
         vlSelfRef.tb_wipe__DOT__ack = 0U;
         __Vdly__tb_wipe__DOT__dut__DOT__transaction_last = 0U;
+        __Vdly__tb_wipe__DOT__dut__DOT__prefetched = 0U;
     } else {
         vlSelfRef.tb_wipe__DOT__ack = 0U;
+        if (((2U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state)) 
+             & (IData)(vlSelfRef.tb_wipe__DOT__req))) {
+            __Vdly__tb_wipe__DOT__dut__DOT__prefetched = 1U;
+        }
         if (((IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__ft2) 
              != (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__last_frame))) {
             __Vdly__tb_wipe__DOT__dut__DOT__last_frame 
@@ -511,6 +524,7 @@ VL_INLINE_OPT void Vtb_wipe___024root___nba_sequent__TOP__0(Vtb_wipe___024root* 
         if (((0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state)) 
              & (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__frame_pending))) {
             __Vdly__tb_wipe__DOT__dut__DOT__frame_pending = 0U;
+            __Vdly__tb_wipe__DOT__dut__DOT__prefetched = 0U;
             if (vlSelfRef.tb_wipe__DOT__dut__DOT__enabled) {
                 if (vlSelfRef.tb_wipe__DOT__dut__DOT__back_ready) {
                     if ((1U & ((~ (IData)(vlSelfRef.tb_wipe__DOT__display)) 
@@ -548,20 +562,24 @@ VL_INLINE_OPT void Vtb_wipe___024root___nba_sequent__TOP__0(Vtb_wipe___024root* 
             }
         } else if ((1U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state))) {
             if (vlSelfRef.tb_wipe__DOT__rsp) {
-                __Vdly__tb_wipe__DOT__dut__DOT__rd_addr 
-                    = (0x3ffffU & ((IData)(8U) + vlSelfRef.tb_wipe__DOT__dut__DOT__rd_addr));
                 __Vdly__tb_wipe__DOT__dut__DOT__rd_x 
                     = ((0x138U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__rd_x))
                         ? 0U : (0x1ffU & ((IData)(8U) 
                                           + (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__rd_x))));
                 __Vdly__tb_wipe__DOT__dut__DOT__dma_reads 
                     = ((IData)(1U) + vlSelfRef.tb_wipe__DOT__dut__DOT__dma_reads);
+                __Vdly__tb_wipe__DOT__dut__DOT__rd_addr 
+                    = (0x3ffffU & ((IData)(8U) + vlSelfRef.tb_wipe__DOT__dut__DOT__rd_addr));
                 __Vdly__tb_wipe__DOT__dut__DOT__beat = 0U;
                 __Vdly__tb_wipe__DOT__dut__DOT__state = 2U;
             }
         } else if ((2U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state))) {
             if ((7U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__beat))) {
-                __Vdly__tb_wipe__DOT__dut__DOT__state = 0U;
+                __Vdly__tb_wipe__DOT__dut__DOT__state 
+                    = (((IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__prefetched) 
+                        | (IData)(vlSelfRef.tb_wipe__DOT__req))
+                        ? 1U : 0U);
+                __Vdly__tb_wipe__DOT__dut__DOT__prefetched = 0U;
             } else {
                 __Vdly__tb_wipe__DOT__dut__DOT__beat 
                     = (7U & ((IData)(1U) + (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__beat)));
@@ -588,17 +606,18 @@ VL_INLINE_OPT void Vtb_wipe___024root___nba_sequent__TOP__0(Vtb_wipe___024root* 
     vlSelfRef.tb_wipe__DOT__dut__DOT__dma_reads = __Vdly__tb_wipe__DOT__dut__DOT__dma_reads;
     vlSelfRef.tb_wipe__DOT__dut__DOT__transaction_last 
         = __Vdly__tb_wipe__DOT__dut__DOT__transaction_last;
+    vlSelfRef.tb_wipe__DOT__dut__DOT__prefetched = __Vdly__tb_wipe__DOT__dut__DOT__prefetched;
     vlSelfRef.tb_wipe__DOT__swaps = __Vdly__tb_wipe__DOT__swaps;
     vlSelfRef.tb_wipe__DOT__dut__DOT__rd_x = __Vdly__tb_wipe__DOT__dut__DOT__rd_x;
     vlSelfRef.tb_wipe__DOT__dut__DOT__transition_active 
         = __Vdly__tb_wipe__DOT__dut__DOT__transition_active;
     vlSelfRef.tb_wipe__DOT__dut__DOT__wipe_words = __Vdly__tb_wipe__DOT__dut__DOT__wipe_words;
     vlSelfRef.tb_wipe__DOT__front = __Vdly__tb_wipe__DOT__front;
-    vlSelfRef.tb_wipe__DOT__dut__DOT__state = __Vdly__tb_wipe__DOT__dut__DOT__state;
     vlSelfRef.tb_wipe__DOT__dut__DOT__frame_pending 
         = __Vdly__tb_wipe__DOT__dut__DOT__frame_pending;
     vlSelfRef.tb_wipe__DOT__dut__DOT__flush = __Vdly__tb_wipe__DOT__dut__DOT__flush;
     vlSelfRef.tb_wipe__DOT__dut__DOT__back_ready = __Vdly__tb_wipe__DOT__dut__DOT__back_ready;
+    vlSelfRef.tb_wipe__DOT__dut__DOT__state = __Vdly__tb_wipe__DOT__dut__DOT__state;
     vlSelfRef.tb_wipe__DOT__display = __Vdly__tb_wipe__DOT__display;
     vlSelfRef.tb_wipe__DOT__dut__DOT__rd_addr = __Vdly__tb_wipe__DOT__dut__DOT__rd_addr;
     vlSelfRef.tb_wipe__DOT__dut__DOT__enabled = (1U 

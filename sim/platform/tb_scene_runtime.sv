@@ -8,7 +8,7 @@ wire [1:0] ready,response;wire [20:0] ra,ma;wire [255:0] unused,md;wire rv,mv,mw
 reg [255:0] memory[0:32767];reg [7:0] scene[0:514271];
 wire active;wire [7:0] error;wire lookup;wire [5:0] query;reg [5:0] tag=0;reg valid=0;reg [63:0] name=0;reg [31:0] bytes=0;
 reg [63:0] names[0:63];reg [31:0] sizes[0:63];
-reg ev=0;reg [3:0] action=0;reg physical=0;reg [31:0] swaps=0;reg image_busy=0;wire image_select,page_begin;wire [4:0] image_index;
+reg menu=0,paused=0;reg ev=0;reg [3:0] action=0;reg physical=0;reg [31:0] swaps=0;reg image_busy=0;wire image_select,page_begin;wire [4:0] image_index;
 wire audio_select,audio_stop;wire [3:0] audio_index;wire [41:0] params;reg [7:0] params_ack=0;reg [8:0] finished=0;
 wire ctrl;wire [7:0] ctrl_byte;wire [3:0] count;wire [98:0] widget;wire [4:0] displayed;wire [159:0] status;
 integer length_bytes=514272;integer cycle=0,delay=0,imgdelay=0;reg pending=0,pwrite;reg [20:0] address;reg [255:0] write_data;
@@ -21,7 +21,7 @@ dmz_mem_mux #(.N(2)) mux(.clk(clk),.reset(reset),.valid({rv,wvalid}),.write(2'b0
 dmz_scene_runtime #(.MS_CYCLES(16)) dut(.clk(clk),.reset(reset),.start(sv&&wd),.version(version),.payload_length(length),.resource_count(resources),.page_count(pages),.widget_total(widgets),.entry_page(entry),
  .active(active),.error(error),.mem_valid(rv),.mem_write(),.mem_addr(ra),.mem_wdata(unused),.mem_ready(ready[1]),.mem_response(response[1]),.mem_data(memory_data),
  .lookup_enable(lookup),.lookup_query(query),.browse_tag(tag),.browse_valid(valid),.browse_name(name),.browse_bytes(bytes),.image_count(6'd16),.wav_count(5'd7),
- .event_valid(ev),.event_action(action),.menu_open(1'b0),.paused(1'b0),.muted(1'b0),.physical_alert(physical),.swaps(swaps),.image_busy(image_busy),.image_error(8'd0),
+ .event_valid(ev),.event_action(action),.menu_open(menu),.paused(paused),.muted(1'b0),.physical_alert(physical),.swaps(swaps),.image_busy(image_busy),.image_error(8'd0),
  .image_select(image_select),.image_index(image_index),.page_begin(page_begin),.audio_select(audio_select),.audio_stop(audio_stop),.audio_index(audio_index),.audio_params(params),.audio_params_ack(params_ack),.audio_finished(finished),
  .control_valid(ctrl),.control_byte(ctrl_byte),.control_count(count),.compositor_busy(1'b0),.compositor_index(3'd0),.compositor_widget(widget),.displayed_image(displayed),.status(status));
 always @(posedge clk)begin
@@ -40,6 +40,7 @@ always @(posedge clk)begin
  end
  tag<=query;name<=names[query];bytes<=sizes[query];valid<=1;
  params_ack<=params[41:34];
+ if(ctrl&&ctrl_byte=="H")paused<=1;else if(ctrl&&ctrl_byte=="A")paused<=0;
  if(image_select)begin
   if(image_busy)$fatal(1,"page issued while image busy");image_busy<=1;imgdelay<=35;
  end
@@ -232,6 +233,30 @@ names[38]=64'h20202031304d4742;sizes[38]=4608044;
   $display("PASS second scene, same runtime RTL, alternate backgrounds/widgets/resource count, optional notice absent");$finish;
  end
  land(0);click(0);land(1);click(0);land(2);click(0);land(3);
+ if($test$plusargs("autoplay"))begin
+  finished={1'b1,params[41:34]};ticks(80);land(3); // Manual default never follows optional link.
+  finished=0;send_event(9);wait_idle();if(!status[150]||status[151]||paused)$fatal(1,"enable autoplay");
+  finished={1'b1,params[41:34]-8'd1};ticks(80);land(3); // Ignore obsolete audio end.
+  send_event(9);wait_idle();if(!status[151]||paused)$fatal(1,"pause autoplay without pausing audio");
+  finished={1'b1,params[41:34]};ticks(100);land(3);
+  send_event(9);ticks(600);land(4);finished=0;if(paused)$fatal(1,"resume autoplay must not change audio pause");
+  // Menus and notices suppress advance even after the matching audio ends.
+  menu=1;finished={1'b1,params[41:34]};ticks(100);land(4);menu=0;ticks(600);land(5);finished=0;
+  send_event(10);land(14);finished={1'b1,params[41:34]};ticks(100);land(14);send_event(12);land(5);
+  finished={1'b1,params[41:34]};ticks(600);land(6);finished=0;
+  if(!params[33]||audio_index!=1)$fatal(1,"observation default pure tone");
+  finished={1'b1,params[41:34]};ticks(600);land(7);ticks(2000);land(7);
+  if(status[4]||status[6]||status[25:22]!=0)$fatal(1,"autoplay answered quiz");
+  click(0);click(4);land(8);ticks(70000);land(9); // Explanation dwell then next quiz.
+  send_event(7);land(0);if(status[150]||status[151]||paused)$fatal(1,"Home exits autoplay");
+  click(0);land(1);click(0);land(2);ticks(70000);land(2);
+  // Starting on the millisecond boundary must win over the old dwell increment.
+  while(dut.ms_clock!=15)ticks(1);
+  ev=1;action=9;ticks(1);ev=0;ticks(100);
+  land(2);if(!status[150]||status[151]||dut.elapsed_ms>10)$fatal(1,"autoplay start must restart page dwell");
+  ticks(32000);land(3);
+  $display("PASS optional course autoplay, exact audio ticket, KEY2 pause/resume, menu/notice, observation tone, quiz stop, explanation dwell and Home exit");$finish;
+ end
  // Normal notice, priority escalation, exact context/focus restoration.
  focus_to(2);send_event(10);land(14);send_event(11);land(15);send_event(12);land(3);
  if(status[10:8]!=2)$fatal(1,"notice focus restoration");

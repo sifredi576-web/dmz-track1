@@ -24,6 +24,7 @@ VlCoroutine Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__0__1(Vtb_s
 VlCoroutine Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__0__2(Vtb_scene_runtime___024root* vlSelf);
 VlCoroutine Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__0__3(Vtb_scene_runtime___024root* vlSelf);
 VlCoroutine Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__0__4(Vtb_scene_runtime___024root* vlSelf);
+VlCoroutine Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__0__5(Vtb_scene_runtime___024root* vlSelf);
 
 VL_INLINE_OPT VlCoroutine Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__0(Vtb_scene_runtime___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__0\n"); );
@@ -35,6 +36,7 @@ VL_INLINE_OPT VlCoroutine Vtb_scene_runtime___024root___eval_initial__TOP__Vtimi
     co_await Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__0__2(vlSelf);
     co_await Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__0__3(vlSelf);
     co_await Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__0__4(vlSelf);
+    co_await Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__0__5(vlSelf);
 }
 
 VL_INLINE_OPT VlCoroutine Vtb_scene_runtime___024root___eval_initial__TOP__Vtiming__2(Vtb_scene_runtime___024root* vlSelf) {
@@ -76,6 +78,12 @@ VL_INLINE_OPT void Vtb_scene_runtime___024root___act_sequent__TOP__0(Vtb_scene_r
                                            & ((IData)(vlSelfRef.tb_scene_runtime__DOT__loader__DOT__header_done) 
                                               & ((IData)(vlSelfRef.tb_scene_runtime__DOT__bv) 
                                                  & (IData)(vlSelfRef.tb_scene_runtime__DOT__wr))));
+    vlSelfRef.tb_scene_runtime__DOT__dut__DOT__autoplay_event 
+        = ((IData)(vlSelfRef.tb_scene_runtime__DOT__active) 
+           & ((IData)(vlSelfRef.tb_scene_runtime__DOT__ev) 
+              & ((~ (IData)(vlSelfRef.tb_scene_runtime__DOT__menu)) 
+                 & ((9U == (IData)(vlSelfRef.tb_scene_runtime__DOT__action)) 
+                    & (0U == (IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__notice))))));
     tb_scene_runtime__DOT__dut__DOT__exit_key = ((0U 
                                                   != (IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__notice)) 
                                                  & ((6U 
@@ -97,11 +105,13 @@ VL_INLINE_OPT void Vtb_scene_runtime___024root___act_sequent__TOP__0(Vtb_scene_r
         = ((IData)(vlSelfRef.tb_scene_runtime__DOT__active) 
            & ((IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__force_valid) 
               | ((IData)(vlSelfRef.tb_scene_runtime__DOT__ev) 
-                 & ((0xaU <= (IData)(vlSelfRef.tb_scene_runtime__DOT__action)) 
-                    | ((IData)(tb_scene_runtime__DOT__dut__DOT__exit_key) 
-                       | ((0xbU == (IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__state)) 
-                          & ((IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__cache_tag) 
-                             == (IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__focus))))))));
+                 & ((9U != (IData)(vlSelfRef.tb_scene_runtime__DOT__action)) 
+                    & ((0xaU <= (IData)(vlSelfRef.tb_scene_runtime__DOT__action)) 
+                       | ((IData)(tb_scene_runtime__DOT__dut__DOT__exit_key) 
+                          | ((0xbU == (IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__state)) 
+                             & ((~ (IData)(vlSelfRef.tb_scene_runtime__DOT__menu)) 
+                                & ((IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__cache_tag) 
+                                   == (IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__focus))))))))));
 }
 
 void Vtb_scene_runtime___024root___nba_sequent__TOP__0(Vtb_scene_runtime___024root* vlSelf);
@@ -141,6 +151,12 @@ VL_INLINE_OPT void Vtb_scene_runtime___024root___nba_comb__TOP__0(Vtb_scene_runt
                                                                      == 
                                                                      (0x780U 
                                                                       & vlSelfRef.tb_scene_runtime__DOT__dut__DOT__cache_q[1U])))))));
+    vlSelfRef.tb_scene_runtime__DOT__dut__DOT__autoplay_event 
+        = ((IData)(vlSelfRef.tb_scene_runtime__DOT__active) 
+           & ((IData)(vlSelfRef.tb_scene_runtime__DOT__ev) 
+              & ((~ (IData)(vlSelfRef.tb_scene_runtime__DOT__menu)) 
+                 & ((9U == (IData)(vlSelfRef.tb_scene_runtime__DOT__action)) 
+                    & (0U == (IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__notice))))));
     vlSelfRef.tb_scene_runtime__DOT__sw = ((IData)(vlSelfRef.tb_scene_runtime__DOT__loader__DOT__busy) 
                                            & ((IData)(vlSelfRef.tb_scene_runtime__DOT__loader__DOT__header_done) 
                                               & ((IData)(vlSelfRef.tb_scene_runtime__DOT__bv) 
@@ -153,11 +169,13 @@ VL_INLINE_OPT void Vtb_scene_runtime___024root___nba_comb__TOP__0(Vtb_scene_runt
         = ((IData)(vlSelfRef.tb_scene_runtime__DOT__active) 
            & ((IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__force_valid) 
               | ((IData)(vlSelfRef.tb_scene_runtime__DOT__ev) 
-                 & ((0xaU <= (IData)(vlSelfRef.tb_scene_runtime__DOT__action)) 
-                    | ((IData)(tb_scene_runtime__DOT__dut__DOT__exit_key) 
-                       | ((0xbU == (IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__state)) 
-                          & ((IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__cache_tag) 
-                             == (IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__focus))))))));
+                 & ((9U != (IData)(vlSelfRef.tb_scene_runtime__DOT__action)) 
+                    & ((0xaU <= (IData)(vlSelfRef.tb_scene_runtime__DOT__action)) 
+                       | ((IData)(tb_scene_runtime__DOT__dut__DOT__exit_key) 
+                          | ((0xbU == (IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__state)) 
+                             & ((~ (IData)(vlSelfRef.tb_scene_runtime__DOT__menu)) 
+                                & ((IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__cache_tag) 
+                                   == (IData)(vlSelfRef.tb_scene_runtime__DOT__dut__DOT__focus))))))))));
 }
 
 void Vtb_scene_runtime___024root___timing_resume(Vtb_scene_runtime___024root* vlSelf) {

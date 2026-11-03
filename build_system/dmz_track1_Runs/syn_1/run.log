@@ -4,7 +4,7 @@
    Executable = D:/ANLU/bin/run.exe
    Built at =   16:32:07 Jun 12 2025
    Run by =     fushenghe
-   Run Date =   Tue Nov  3 16:24:36 2026
+   Run Date =   Tue Nov  3 23:46:56 2026
 
    Run on =     LAPTOP-6RN9ARE0
 ============================================================
@@ -52,7 +52,7 @@ HDL-5373 WARNING: identifier 'mem_command_valid' is used before its declaration 
 HDL-5373 WARNING: identifier 'mem_command' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(67)
 HDL-5373 WARNING: identifier 'mem_command' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(67)
 HDL-5373 WARNING: identifier 'wav_error' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(90)
-HDL-5373 WARNING: identifier 'audio_active' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(241)
+HDL-5373 WARNING: identifier 'audio_active' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(252)
 HDL-1007 : analyze verilog file ../../../rtl/audio_test/dmz_uart_rx.sv
 HDL-1007 : analyze verilog file ../../../rtl/system/dmz_media_control.sv
 HDL-1007 : analyze verilog file ../../../rtl/system/dmz_status_cdc.sv
@@ -110,7 +110,9 @@ HDL-1007 : analyze verilog file ../../../rtl/p2/dmz_wide_pll.v
 HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in ../../../rtl/p2/dmz_wide_pll.v(64)
 HDL-1007 : analyze verilog file ../../../rtl/system/dmz_wide_mapper.sv
 HDL-1007 : analyze verilog file ../../../rtl/system/dmz_picture_pipe.sv
-PRJ-1401 : Successfully analyzed 56 source files.
+HDL-1007 : analyze verilog file ../../../rtl/system/dmz_trigger_button.sv
+HDL-1007 : analyze verilog file ../../../rtl/system/dmz_top_ticker.sv
+PRJ-1401 : Successfully analyzed 58 source files.
 RUN-1002 : start command "commit_param -step design"
 RUN-1001 : Print Global Property
 RUN-1001 : --------------------------------------------------------
@@ -146,7 +148,7 @@ HDL-1007 : elaborate module dmz_spi_byte in ../../../rtl/p3/dmz_spi_byte.sv(2)
 HDL-1007 : elaborate module dmz_status_cdc(WIDTH=160,INTERVAL=32) in ../../../rtl/system/dmz_status_cdc.sv(3)
 HDL-1007 : elaborate module dmz_status_cdc(WIDTH=3,INTERVAL=32) in ../../../rtl/system/dmz_status_cdc.sv(3)
 HDL-1007 : elaborate module dmz_pixel_fifo(AW=2) in ../../../rtl/p2/dmz_pixel_fifo.sv(2)
-HDL-1007 : extracting RAM for identifier 'mem' in ../../../rtl/p2/dmz_pixel_fifo.sv(7)
+HDL-1007 : extracting RAM for identifier 'mem' in ../../../rtl/p2/dmz_pixel_fifo.sv(43)
 HDL-1007 : elaborate module dmz_status_cdc(WIDTH=42,INTERVAL=16) in ../../../rtl/system/dmz_status_cdc.sv(3)
 HDL-1007 : elaborate module dmz_status_cdc(WIDTH=8,INTERVAL=16) in ../../../rtl/system/dmz_status_cdc.sv(3)
 HDL-1007 : elaborate module dmz_status_cdc(WIDTH=9,INTERVAL=32) in ../../../rtl/system/dmz_status_cdc.sv(3)
@@ -156,7 +158,7 @@ HDL-1007 : elaborate module dmz_status_cdc(WIDTH=116) in ../../../rtl/system/dmz
 HDL-1007 : elaborate module dmz_gallery_control in ../../../rtl/system/dmz_gallery_control.sv(3)
 HDL-1007 : elaborate module dmz_media_storage(RT_PLATFORM=1) in ../../../rtl/media/dmz_media_storage.sv(2)
 HDL-1007 : elaborate module dmz_mem_mux(N=3) in ../../../rtl/platform/dmz_mem_mux.sv(2)
-HDL-1007 : elaborate module dmz_scene_runtime in ../../../rtl/platform/dmz_scene_runtime.sv(3)
+HDL-1007 : elaborate module dmz_scene_runtime(AUTOPLAY_ON_RESET=1) in ../../../rtl/platform/dmz_scene_runtime.sv(3)
 HDL-1007 : extracting RAM for identifier 'resolved' in ../../../rtl/platform/dmz_scene_runtime.sv(30)
 HDL-1007 : extracting RAM for identifier 'cache' in ../../../rtl/platform/dmz_scene_runtime.sv(52)
 HDL-1007 : extracting RAM for identifier 'answer_rect' in ../../../rtl/platform/dmz_scene_runtime.sv(57)
@@ -187,15 +189,19 @@ HDL-1007 : extracting RAM for identifier 'header' in ../../../rtl/media/dmz_wav_
 HDL-1007 : elaborate module dmz_sd_arbiter in ../../../rtl/media/dmz_sd_arbiter.sv(3)
 HDL-1007 : elaborate module dmz_image_framebuffer(WIDE_MODE=1) in ../../../rtl/p3/dmz_image_framebuffer.sv(3)
 HDL-1007 : elaborate module dmz_pixel_fifo(RECODE_ADDR=1) in ../../../rtl/p2/dmz_pixel_fifo.sv(2)
-HDL-1007 : extracting RAM for identifier 'mem' in ../../../rtl/p2/dmz_pixel_fifo.sv(7)
+HDL-1007 : extracting RAM for identifier 'mem' in ../../../rtl/p2/dmz_pixel_fifo.sv(43)
 HDL-1007 : elaborate module dmz_display_control(SECOND_CYCLES=75000000) in ../../../rtl/system/dmz_display_control.sv(1)
 HDL-1007 : elaborate module dmz_picture_pipe in ../../../rtl/system/dmz_picture_pipe.sv(2)
 HDL-1007 : elaborate module dmz_ui_overlay in ../../../rtl/platform/dmz_ui_overlay.sv(2)
 HDL-1007 : elaborate module dmz_osd(EXTERNAL_COORDS=1) in ../../../rtl/system/dmz_osd.sv(3)
-HDL-1007 : extracting RAM for identifier 'text_rom' in ../../../rtl/system/dmz_osd.sv(168)
-HDL-1007 : extracting RAM for identifier 'font_rom' in ../../../rtl/system/dmz_osd.sv(963)
-HDL-5314 WARNING: net 'text_rom' does not have a driver in ../../../rtl/system/dmz_osd.sv(168)
-HDL-5314 WARNING: net 'font_rom' does not have a driver in ../../../rtl/system/dmz_osd.sv(963)
+HDL-1007 : extracting RAM for identifier 'text_rom' in ../../../rtl/system/dmz_osd.sv(165)
+HDL-1007 : extracting RAM for identifier 'font_rom' in ../../../rtl/system/dmz_osd.sv(960)
+HDL-5314 WARNING: net 'text_rom' does not have a driver in ../../../rtl/system/dmz_osd.sv(165)
+HDL-5314 WARNING: net 'font_rom' does not have a driver in ../../../rtl/system/dmz_osd.sv(960)
+HDL-1007 : elaborate module dmz_trigger_button in ../../../rtl/system/dmz_trigger_button.sv(1)
+HDL-1007 : elaborate module dmz_top_ticker in ../../../rtl/system/dmz_top_ticker.sv(3)
+HDL-1007 : extracting RAM for identifier 'font_rom' in ../../../rtl/system/dmz_top_ticker.sv(17)
+HDL-5314 WARNING: net 'font_rom' does not have a driver in ../../../rtl/system/dmz_top_ticker.sv(17)
 HDL-1007 : elaborate module dmz_matrix_keys(SLOT_CYCLES=37500) in ../../../rtl/system/dmz_matrix_keys.sv(2)
 HDL-1007 : elaborate module dmz_uart_rx(DIVISOR=651) in ../../../rtl/audio_test/dmz_uart_rx.sv(2)
 HDL-1007 : elaborate module dmz_ui_keys in ../../../rtl/platform/dmz_ui_keys.sv(3)
@@ -204,13 +210,13 @@ HDL-1007 : elaborate module dmz_media_control(DEFAULT_MODE=1,DEFAULT_WAV=1,SECON
 HDL-1007 : elaborate module dmz_scene_control(HALF_SECOND=37500000) in ../../../rtl/system/dmz_scene_control.sv(1)
 HDL-1007 : elaborate module dmz_tone(CLOCK_HZ=75000000) in ../../../rtl/p1/dmz_tone.sv(1)
 HDL-1007 : elaborate module dmz_audio_completion in ../../../rtl/platform/dmz_audio_completion.sv(3)
-HDL-1007 : elaborate module dmz_pixel_fifo(RECODE_ADDR=1,DATA_CODE=1) in ../../../rtl/p2/dmz_pixel_fifo.sv(2)
-HDL-1007 : extracting RAM for identifier 'mem' in ../../../rtl/p2/dmz_pixel_fifo.sv(7)
-HDL-5007 WARNING: actual bit length 13 differs from formal bit length 12 for port 'used' in ../../../rtl/system/dmz_track1_top.sv(247)
+HDL-1007 : elaborate module dmz_pixel_fifo(RECODE_ADDR=1,DATA_CODE=1,USE_BRAM32=1) in ../../../rtl/p2/dmz_pixel_fifo.sv(2)
+HDL-1007 : extracting RAM for identifier 'mem' in ../../../rtl/p2/dmz_pixel_fifo.sv(39)
+HDL-5007 WARNING: actual bit length 13 differs from formal bit length 12 for port 'used' in ../../../rtl/system/dmz_track1_top.sv(258)
 HDL-1007 : elaborate module dmz_status_panel(CANVAS_W=1650,CANVAS_H=750,ORIGIN_X=1136,ORIGIN_Y=192,SCALE_SHIFT=1) in ../../../rtl/system/dmz_status_panel.sv(2)
 HDL-1007 : extracting RAM for identifier 'font_rom' in ../../../rtl/system/dmz_status_panel.sv(59)
 HDL-5314 WARNING: net 'font_rom' does not have a driver in ../../../rtl/system/dmz_status_panel.sv(59)
-HDL-1007 : elaborate module dmz_audio_visual(EXTERNAL_COORDS=1,PIPELINED=1) in ../../../rtl/system/dmz_audio_visual.sv(3)
+HDL-1007 : elaborate module dmz_audio_visual(EXTERNAL_COORDS=1,PIPELINED=1,TRIGGER_SUPPORT=1) in ../../../rtl/system/dmz_audio_visual.sv(3)
 HDL-1007 : extracting RAM for identifier 'wave' in ../../../rtl/system/dmz_audio_visual.sv(5)
 HDL-1007 : elaborate module hdmi(VIDEO_ID_CODE=4,AVI_VIDEO_ID_CODE=4,RGB_PIPELINE_DELAY=3,EXTERNAL_SERIAL_RESET=1'b1,VIDEO_REFRESH_RATE=60.6060606061,PIXEL_RATE_OVERRIDE=75000000.0,AUDIO_RATE=48000,VENDOR_NAME="DMZ     ",PRODUCT_DESCRIPTION="DMZ Track1      ") in ../../../rtl/p1/hdmi_core/hdmi.sv(4)
 HDL-1007 : elaborate module packet_picker(AVI_VIDEO_ID_CODE=4,VIDEO_RATE=75000000.0,IT_CONTENT=1'b1,VENDOR_NAME="DMZ     ",PRODUCT_DESCRIPTION="DMZ Track1      ",SOURCE_DEVICE_INFORMATION=8'b0) in ../../../rtl/p1/hdmi_core/packet_picker.sv(4)
@@ -243,10 +249,10 @@ HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been re
 HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
 HDL-5001 Similar messages will be suppressed.
 HDL-1200 : Current top model is dmz_track1_top
-HDL-1100 : Inferred 22 RAMs.
-RUN-1003 : finish command "elaborate -top dmz_track1_top" in  1.645885s wall, 1.531250s user + 0.093750s system = 1.625000s CPU (98.7%)
+HDL-1100 : Inferred 23 RAMs.
+RUN-1003 : finish command "elaborate -top dmz_track1_top" in  2.188568s wall, 2.062500s user + 0.093750s system = 2.156250s CPU (98.5%)
 
-RUN-1004 : used memory is 545 MB, reserved memory is 536 MB, peak memory is 545 MB
+RUN-1004 : used memory is 539 MB, reserved memory is 530 MB, peak memory is 539 MB
 RUN-1002 : start command "read_adc ../../../constraints/dmz_p3.adc"
 RUN-1002 : start command "set_pin_assignment  clk_50m   LOCATION = R7; IOSTANDARD = LVCMOS33; "
 RUN-1002 : start command "set_pin_assignment  run_n   LOCATION = A9; IOSTANDARD = LVCMOS33; "
@@ -333,20 +339,20 @@ RUN-1002 : start command "optimize_rtl"
 RUN-1001 : Open license file D:/ANLU/license/Anlogic.lic
 SYN-1001 : Stage 1 | Optimize RTL
 SYN-1001 : Stage 1.1 | Check Design Sanity
-SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.015929s wall, 0.000000s user + 0.015625s system = 0.015625s CPU (98.1%); Memory(MB): used = 570, reserved = 672, peak = 570;
+SYN-1001 : End Stage 1.1 | Check Design Sanity; Time: 0.017716s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (88.2%); Memory(MB): used = 564, reserved = 666, peak = 564;
 
-SYN-1079 : finish stage Check Design Sanity. Total instances: 118321, Total nets: 208801.
+SYN-1079 : finish stage Check Design Sanity. Total instances: 117968, Total nets: 209020.
 
 SYN-1001 : Stage 1.2 | Initialize Design
-SYN-1001 : End Stage 1.2 | Initialize Design; Time: 2.866034s wall, 2.843750s user + 0.000000s system = 2.843750s CPU (99.2%); Memory(MB): used = 570, reserved = 672, peak = 570;
+SYN-1001 : End Stage 1.2 | Initialize Design; Time: 3.307852s wall, 3.046875s user + 0.171875s system = 3.218750s CPU (97.3%); Memory(MB): used = 564, reserved = 666, peak = 564;
 
-SYN-1079 : finish stage Initialize Design. Total instances: 13807, Total nets: 100028.
+SYN-1079 : finish stage Initialize Design. Total instances: 14079, Total nets: 100731.
 
 SYN-1001 : Stage 1.3 | Flatten Module
 SYN-1011 : Flatten model dmz_track1_top
-SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.393062s wall, 0.343750s user + 0.031250s system = 0.375000s CPU (95.4%); Memory(MB): used = 571, reserved = 672, peak = 571;
+SYN-1001 : End Stage 1.3 | Flatten Module; Time: 0.500841s wall, 0.453125s user + 0.015625s system = 0.468750s CPU (93.6%); Memory(MB): used = 564, reserved = 666, peak = 564;
 
-SYN-1079 : finish stage Flatten Module. Total instances: 14209, Total nets: 87853.
+SYN-1079 : finish stage Flatten Module. Total instances: 14479, Total nets: 88478.
 
 SYN-1001 : Stage 1.4 | Uniform Instance
 SYN-5013 WARNING: Undriven net: model "dmz_track1_top" / net "bist/read_data[255]" in ../../../rtl/p2/dmz_sdram_bist.sv(15)
@@ -371,9 +377,9 @@ SYN-5013 WARNING: Undriven net: model "dmz_track1_top" / net "bist/read_data[246
 		the net's pin: pin "i7[22]" in ../../../rtl/p2/dmz_sdram_bist.sv(33)
 SYN-5013 Similar messages will be suppressed.
 SYN-5025 WARNING: Using 0 for all undriven pins and nets
-SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.054560s wall, 0.062500s user + 0.000000s system = 0.062500s CPU (114.6%); Memory(MB): used = 559, reserved = 660, peak = 571;
+SYN-1001 : End Stage 1.4 | Uniform Instance; Time: 0.065816s wall, 0.062500s user + 0.000000s system = 0.062500s CPU (95.0%); Memory(MB): used = 552, reserved = 654, peak = 564;
 
-SYN-1079 : finish stage Uniform Instance. Total instances: 13013, Total nets: 86396.
+SYN-1079 : finish stage Uniform Instance. Total instances: 13287, Total nets: 87024.
 
 SYN-1001 : Stage 1.5 | Optimize Design
 SYN-1066 : Inferred FSM for state register 'bist/state_reg' in module 'dmz_track1_top'
@@ -488,14 +494,14 @@ SYN-1067 : encoded FSM with state register 'storage/platform_boot/stream/state_r
 SYN-1057 : Inferred 7 FSM(s)
 SYN-1001 : Optimize 1 less-than instances
 SYN-1001 : Optimize 12 less-than instances
-SYN-1032 : 76676/261 useful/useless nets, 12545/1 useful/useless insts
+SYN-1032 : 77303/261 useful/useless nets, 12817/1 useful/useless insts
 SYN-1001 : Bypass 5 mux instances
 SYN-1021 : Optimized 46 onehot mux instances.
-SYN-1068 : Optimized 81 binary mux instances.
-SYN-1019 : Optimized 11 mux instances.
+SYN-1068 : Optimized 82 binary mux instances.
+SYN-1019 : Optimized 10 mux instances.
 SYN-1021 : Optimized 8 onehot mux instances.
 SYN-1001 : Optimize 75 less-than instances
-SYN-1016 : Merged 6902 instances.
+SYN-1016 : Merged 6928 instances.
 SYN-1025 : Merged 10 RAM ports.
 SYN-1026 : Infer Logic BRAM(audio_fifo/ramread0_syn_4)
 	 port mode: single dual port
@@ -577,23 +583,23 @@ SYN-1026 : Infer Logic BRAM(visualizer/ramread0_syn_4)
 	 port a size: 256 x 24	 write mode: NORMAL
 	 port b size: 256 x 24	 write mode: READBEFOREWRITE
 SYN-1025 : Merged 6 RAM ports.
-SYN-1023 : Infer 7 Logic DRAMs, 20 Logic BRAMs.
-SYN-1016 : Merged 1221 instances.
-SYN-1001 : End Stage 1.5 | Optimize Design; Time: 9.224953s wall, 8.953125s user + 0.140625s system = 9.093750s CPU (98.6%); Memory(MB): used = 733, reserved = 718, peak = 733;
+SYN-1023 : Infer 7 Logic DRAMs, 21 Logic BRAMs.
+SYN-1016 : Merged 1220 instances.
+SYN-1001 : End Stage 1.5 | Optimize Design; Time: 10.696547s wall, 10.015625s user + 0.468750s system = 10.484375s CPU (98.0%); Memory(MB): used = 734, reserved = 719, peak = 734;
 
-SYN-1079 : finish stage Optimize Design. Total instances: 28982, Total nets: 33854.
+SYN-1079 : finish stage Optimize Design. Total instances: 29079, Total nets: 33963.
 
 SYN-1001 : Stage 1.6 | Optimize Iteratively
 SYN-1018 : Transformed 1 mux instances.
 SYN-1019 : Optimized 19 mux instances.
-SYN-1021 : Optimized 138 onehot mux instances.
+SYN-1021 : Optimized 140 onehot mux instances.
 SYN-1014 : Optimize round 1
-SYN-1044 : Optimized 76 inv instances.
+SYN-1044 : Optimized 74 inv instances.
 SYN-1017 : Remove 28 const input seq instances
-SYN-1019 : Optimized 614 mux instances.
-SYN-1020 : Optimized 1586 distributor mux.
-SYN-1001 : Optimize 121 less-than instances
-SYN-1019 : Optimized 39 mux instances.
+SYN-1019 : Optimized 616 mux instances.
+SYN-1020 : Optimized 1633 distributor mux.
+SYN-1001 : Optimize 130 less-than instances
+SYN-1019 : Optimized 38 mux instances.
 SYN-2595 : bram inst: audio_fifo/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
 SYN-2595 : bram inst: fifo/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
 SYN-2595 : bram inst: storage/audio/file_stream/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
@@ -612,52 +618,52 @@ SYN-2595 : bram inst: storage/platform_boot/stream/ramread0_syn_4 is set to PDPW
 SYN-2595 : bram inst: tx/true_hdmi_output$packet_picker/ramread0_syn_5 is set to PDPW/SP from DP for resource saving
 SYN-2595 : bram inst: visualizer/ramread0_syn_4 is set to PDPW/SP from DP for resource saving
 SYN-2593 : bram inst: osd/ramread0_syn_4 will be optimized to a new one with A-width 7 due to unused data out
-SYN-1016 : Merged 5025 instances.
-SYN-1015 : Optimize round 1, 15871 better
+SYN-1016 : Merged 5119 instances.
+SYN-1015 : Optimize round 1, 16123 better
 SYN-1014 : Optimize round 2
-SYN-1044 : Optimized 81 inv instances.
+SYN-1044 : Optimized 80 inv instances.
 SYN-1017 : Remove 2 const input seq instances
-SYN-1019 : Optimized 21 mux instances.
-SYN-1020 : Optimized 12 distributor mux.
+SYN-1019 : Optimized 18 mux instances.
+SYN-1020 : Optimized 13 distributor mux.
 SYN-1001 : Optimize 2 less-than instances
 SYN-1019 : Optimized 71 mux instances.
-SYN-1016 : Merged 51 instances.
-SYN-1015 : Optimize round 2, 392 better
-SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "osd/ramread0_syn_4" in ../../../rtl/system/dmz_osd.sv(972) / pin "bea[0]"
-SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "osd/ramread0_syn_4" in ../../../rtl/system/dmz_osd.sv(972) / pin "beb[0]"
+SYN-1016 : Merged 52 instances.
+SYN-1015 : Optimize round 2, 405 better
+SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "osd/ramread0_syn_4" in ../../../rtl/system/dmz_osd.sv(969) / pin "bea[0]"
+SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "osd/ramread0_syn_4" in ../../../rtl/system/dmz_osd.sv(969) / pin "beb[0]"
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "storage/catalog/ramread0_syn_4" in ../../../rtl/media/dmz_fat_catalog.sv(76) / pin "bea[0]"
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "storage/catalog/ramread0_syn_4" in ../../../rtl/media/dmz_fat_catalog.sv(76) / pin "beb[0]"
 SYN-5025 WARNING: Using 0 for all undriven pins and nets
-SYN-3010 : Optimized 112 DFF(s)
+SYN-3010 : Optimized 109 DFF(s)
 SYN-1014 : Optimize round 1
-SYN-1020 : Optimized 36 distributor mux.
-SYN-1019 : Optimized 6 mux instances.
-SYN-1016 : Merged 215 instances.
-SYN-1015 : Optimize round 1, 308 better
+SYN-1020 : Optimized 35 distributor mux.
+SYN-1019 : Optimized 7 mux instances.
+SYN-1016 : Merged 224 instances.
+SYN-1015 : Optimize round 1, 317 better
 SYN-1014 : Optimize round 2
 SYN-1044 : Optimized 2 inv instances.
-SYN-1019 : Optimized 2 mux instances.
-SYN-1020 : Optimized 10 distributor mux.
-SYN-1016 : Merged 25 instances.
-SYN-1015 : Optimize round 2, 39 better
+SYN-1019 : Optimized 1 mux instances.
+SYN-1020 : Optimized 11 distributor mux.
+SYN-1016 : Merged 27 instances.
+SYN-1015 : Optimize round 2, 41 better
 SYN-1014 : Optimize round 3
 SYN-1015 : Optimize round 3, 0 better
-SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 16.422118s wall, 16.234375s user + 0.062500s system = 16.296875s CPU (99.2%); Memory(MB): used = 640, reserved = 634, peak = 739;
+SYN-1001 : End Stage 1.6 | Optimize Iteratively; Time: 16.562333s wall, 16.171875s user + 0.250000s system = 16.421875s CPU (99.2%); Memory(MB): used = 641, reserved = 635, peak = 735;
 
-SYN-1079 : finish stage Optimize Iteratively. Total instances: 33375, Total nets: 37970.
+SYN-1079 : finish stage Optimize Iteratively. Total instances: 33446, Total nets: 38054.
 
 SYN-1001 : Stage 1.7 | Check Design
-SYN-1001 : End Stage 1.7 | Check Design; Time: 0.007228s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (216.2%); Memory(MB): used = 640, reserved = 634, peak = 739;
+SYN-1001 : End Stage 1.7 | Check Design; Time: 0.006272s wall, 0.015625s user + 0.000000s system = 0.015625s CPU (249.1%); Memory(MB): used = 641, reserved = 635, peak = 735;
 
-SYN-1079 : finish stage Check Design. Total instances: 33375, Total nets: 37970.
+SYN-1079 : finish stage Check Design. Total instances: 33446, Total nets: 38054.
 
-SYN-1001 : End Stage 1 | Optimize RTL; Time: 28.987247s wall, 28.453125s user + 0.265625s system = 28.718750s CPU (99.1%); Memory(MB): used = 640, reserved = 634, peak = 739;
+SYN-1001 : End Stage 1 | Optimize RTL; Time: 31.160954s wall, 29.781250s user + 0.906250s system = 30.687500s CPU (98.5%); Memory(MB): used = 641, reserved = 635, peak = 735;
 
-SYN-1079 : finish stage Optimize RTL. Total instances: 33375, Total nets: 37970.
+SYN-1079 : finish stage Optimize RTL. Total instances: 33446, Total nets: 38054.
 
-RUN-1003 : finish command "optimize_rtl" in  28.996053s wall, 28.453125s user + 0.265625s system = 28.718750s CPU (99.0%)
+RUN-1003 : finish command "optimize_rtl" in  31.170125s wall, 29.796875s user + 0.906250s system = 30.703125s CPU (98.5%)
 
-RUN-1004 : used memory is 640 MB, reserved memory is 634 MB, peak memory is 739 MB
+RUN-1004 : used memory is 641 MB, reserved memory is 635 MB, peak memory is 735 MB
 RUN-1002 : start command "report_area -file dmz_track1_rtl.area"
 RUN-1001 : standard
 ***Report Model: dmz_track1_top Device: EG4S20BG256***
@@ -669,25 +675,25 @@ IO Statistics
   #inout                    4
 
 Gate Statistics
-#Basic gates            25864
-  #and                   5686
+#Basic gates            26031
+  #and                   5741
   #nand                     0
-  #or                    4500
+  #or                    4538
   #nor                      0
-  #xor                   1610
+  #xor                   1614
   #xnor                    18
   #buf                      0
-  #not                   1411
+  #not                   1454
   #bufif1                  36
-  #MX21                  3167
+  #MX21                  3129
   #FADD                     0
-  #DFF                   9436
+  #DFF                   9501
   #LATCH                    0
-#MACRO_ADD                675
-#MACRO_EQ                 590
+#MACRO_ADD                687
+#MACRO_EQ                 610
 #MACRO_MULT                17
-#MACRO_MUX               5606
-#MACRO_OTHERS              32
+#MACRO_MUX               5478
+#MACRO_OTHERS              33
 
 RUN-1002 : start command "export_db dmz_track1_rtl.db"
 RUN-1001 : Exported flow parameters
@@ -733,21 +739,21 @@ RUN-1002 : start command "optimize_gate -packarea dmz_track1_gate.area"
 RUN-1001 : Open license file D:/ANLU/license/Anlogic.lic
 SYN-1001 : Stage 2 | Optimize Gate
 SYN-1001 : Stage 2.1 | Map Reg
-SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.584325s wall, 0.562500s user + 0.015625s system = 0.578125s CPU (98.9%); Memory(MB): used = 663, reserved = 766, peak = 739;
+SYN-1001 : End Stage 2.1 | Map Reg; Time: 0.604092s wall, 0.609375s user + 0.000000s system = 0.609375s CPU (100.9%); Memory(MB): used = 659, reserved = 762, peak = 735;
 
-SYN-1079 : finish stage Map Reg. Total instances: 33375, Total nets: 37970.
+SYN-1079 : finish stage Map Reg. Total instances: 33446, Total nets: 38054.
 
 SYN-1001 : Stage 2.2 | Map IO
 SYN-2002 : EG_PHY_SDRAM_2M_32 instance memory.
 SYN-2001 : Map 87 IOs to PADs of model 'dmz_track1_top'
-SYN-1001 : End Stage 2.2 | Map IO; Time: 0.254501s wall, 0.265625s user + 0.000000s system = 0.265625s CPU (104.4%); Memory(MB): used = 664, reserved = 767, peak = 739;
+SYN-1001 : End Stage 2.2 | Map IO; Time: 0.321519s wall, 0.328125s user + 0.000000s system = 0.328125s CPU (102.1%); Memory(MB): used = 660, reserved = 764, peak = 735;
 
 SYN-1001 : Stage 2.3 | Map Macro
 RUN-1002 : start command "update_pll_param -module dmz_track1_top"
 SYN-2501 : Processed 0 LOGIC_BUF instances.
 SYN-2501 : 2 BUFG to GCLK
-SYN-6562 WARNING: The init value of "audio_fifo/ramread0_syn_4(../../../rtl/p2/dmz_pixel_fifo.sv(36))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "fifo/ramread0_syn_4(../../../rtl/p2/dmz_pixel_fifo.sv(36))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "audio_fifo/ramread0_syn_4(../../../rtl/p2/dmz_pixel_fifo.sv(41))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "fifo/ramread0_syn_4(../../../rtl/p2/dmz_pixel_fifo.sv(45))" will be ignored since gate eram_init is set to off
 SYN-6562 WARNING: The init value of "storage/audio/file_stream/ramread0_syn_4(../../../rtl/media/dmz_fat_stream.sv(16))" will be ignored since gate eram_init is set to off
 SYN-6562 WARNING: The init value of "storage/catalog/ramread0_syn_4(../../../rtl/media/dmz_fat_catalog.sv(76))" will be ignored since gate eram_init is set to off
 SYN-6562 WARNING: The init value of "storage/catalog/ramread1_syn_4(../../../rtl/media/dmz_fat_catalog.sv(77))" will be ignored since gate eram_init is set to off
@@ -755,31 +761,31 @@ SYN-6562 WARNING: The init value of "storage/catalog/ramread2_syn_4(../../../rtl
 SYN-6562 WARNING: The init value of "storage/catalog/ramread3_syn_4(../../../rtl/media/dmz_fat_catalog.sv(81))" will be ignored since gate eram_init is set to off
 SYN-6562 WARNING: The init value of "storage/catalog/ramread5_syn_4(../../../rtl/media/dmz_fat_catalog.sv(83))" will be ignored since gate eram_init is set to off
 SYN-6562 WARNING: The init value of "storage/catalog/ramread6_syn_4(../../../rtl/media/dmz_fat_catalog.sv(86))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "storage/configured_ui$runtime/ramread0_syn_4(../../../rtl/platform/dmz_scene_runtime.sv(136))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "storage/configured_ui$runtime/ramread0_syn_4(../../../rtl/platform/dmz_scene_runtime.sv(138))" will be ignored since gate eram_init is set to off
 SYN-6562 Similar messages will be suppressed.
 SYN-2571 : Map 17 macro multiplier
 SYN-2571 : Optimize after map_dsp, round 1
-SYN-1016 : Merged 108 instances.
-SYN-2571 : Optimize after map_dsp, round 1, 108 better
+SYN-1016 : Merged 113 instances.
+SYN-2571 : Optimize after map_dsp, round 1, 113 better
 SYN-2571 : Optimize after map_dsp, round 2
 SYN-2571 : Optimize after map_dsp, round 2, 0 better
-SYN-1001 : Throwback 1114 control mux instances
+SYN-1001 : Throwback 1134 control mux instances
 SYN-1001 : Generate 40 bigger adders
 SYN-1001 : Convert 9 adder
-SYN-1001 : Optimize 83 adders
+SYN-1001 : Optimize 86 adders
 SYN-2501 : Optimize round 1
-SYN-1016 : Merged 1680 instances.
-SYN-2501 : Optimize round 1, 6335 better
+SYN-1016 : Merged 1777 instances.
+SYN-2501 : Optimize round 1, 6591 better
 SYN-2501 : Optimize round 2
 SYN-2501 : Optimize round 2, 0 better
 SYN-2501 : Optimize round 1
-SYN-1016 : Merged 2 instances.
-SYN-2501 : Optimize round 1, 2 better
+SYN-1016 : Merged 4 instances.
+SYN-2501 : Optimize round 1, 4 better
 SYN-2501 : Optimize round 2
 SYN-2501 : Optimize round 2, 0 better
-SYN-2501 : Map 653 macro adder(s)
-SYN-1019 : Optimized 853 mux instances.
-SYN-1016 : Merged 1619 instances.
+SYN-2501 : Map 665 macro adder(s)
+SYN-1019 : Optimized 863 mux instances.
+SYN-1016 : Merged 1608 instances.
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "command_rx/r1_reg" in ../../../rtl/audio_test/dmz_uart_rx.sv(5) / pin "clk"
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "alert_mem_reg[0]" in ../../../rtl/system/dmz_track1_top.sv(54) / pin "clk"
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "controls/cs_reg[0]" in ../../../rtl/system/dmz_media_control.sv(17) / pin "clk"
@@ -788,28 +794,28 @@ SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "keys/col_meta_reg
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "keys/col_meta_reg[1]" in ../../../rtl/system/dmz_matrix_keys.sv(15) / pin "clk"
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "keys/col_meta_reg[2]" in ../../../rtl/system/dmz_matrix_keys.sv(15) / pin "clk"
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "keys/col_meta_reg[3]" in ../../../rtl/system/dmz_matrix_keys.sv(15) / pin "clk"
-SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "scene/vs_reg[0]" in ../../../rtl/system/dmz_scene_control.sv(7) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "scene/vs_reg[0]" in ../../../rtl/system/dmz_scene_control.sv(9) / pin "clk"
 SYN-5025 WARNING: Using 0 for all undriven pins and nets
-SYN-1001 : End Stage 2.3 | Map Macro; Time: 7.149963s wall, 7.140625s user + 0.015625s system = 7.156250s CPU (100.1%); Memory(MB): used = 737, reserved = 831, peak = 739;
+SYN-1001 : End Stage 2.3 | Map Macro; Time: 8.968340s wall, 8.609375s user + 0.109375s system = 8.718750s CPU (97.2%); Memory(MB): used = 738, reserved = 832, peak = 738;
 
-SYN-1079 : finish stage Map Macro. Total instances: 47306, Total nets: 51571.
+SYN-1079 : finish stage Map Macro. Total instances: 47565, Total nets: 51865.
 
 SYN-1001 : Stage 2.4 | Map Gate
-SYN-3001 : Collect 10035 PI 5101 PO (101 timing unconstrained) for mapping
-SYN-2581 : Mapping with K=5, #lut = 11223 (3.48), #lev = 14 (3.87), #crit_level = 12
+SYN-3001 : Collect 10126 PI 5160 PO (101 timing unconstrained) for mapping
+SYN-2581 : Mapping with K=5, #lut = 11361 (3.48), #lev = 15 (3.86), #crit_level = 13
 SYN-2551 : Post LUT mapping optimization.
-SYN-2581 : Mapping with K=5, #lut = 10554 (3.50), #lev = 14 (4.01), #crit_level = 0
-SYN-3001 : Logic optimization opt = 4.61 sec, map = 1.44 sec, post map opt = 4.58 sec.
-SYN-1001 : End Stage 2.4 | Map Gate; Time: 16.659816s wall, 16.515625s user + 0.093750s system = 16.609375s CPU (99.7%); Memory(MB): used = 762, reserved = 855, peak = 763;
+SYN-2581 : Mapping with K=5, #lut = 10766 (3.51), #lev = 15 (4.09), #crit_level = 0
+SYN-3001 : Logic optimization opt = 5.13 sec, map = 1.46 sec, post map opt = 5.02 sec.
+SYN-1001 : End Stage 2.4 | Map Gate; Time: 19.743220s wall, 18.750000s user + 0.468750s system = 19.218750s CPU (97.3%); Memory(MB): used = 758, reserved = 848, peak = 758;
 
 SYN-1001 : Packing model "dmz_track1_top" ...
 SYN-4010 : Pack lib has 58 rtl pack models with 26 top pack blocks
 SYN-1014 : Optimize round 1
 SYN-1015 : Optimize round 1, 0 better
-SYN-4002 : Packing 9332 DFF/LATCH to SEQ ...
-SYN-4009 : Pack 180 carry chain into lslice
-SYN-4007 : Packing 3488 adder to BLE ...
-SYN-4008 : Packed 3488 adder and 15 SEQ to BLE.
+SYN-4002 : Packing 9371 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 181 carry chain into lslice
+SYN-4007 : Packing 3529 adder to BLE ...
+SYN-4008 : Packed 3529 adder and 15 SEQ to BLE.
 SYN-4007 : Packing 0 gate4 to BLE ...
 SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
 SYN-4013 : Packed 96 DRAM and 52 SEQ.
@@ -819,25 +825,25 @@ RUN-1002 : start command "start_timer"
 | QoR metrics               |         value               |
 -----------------------------------------------------------
 | Timing                    |                             |
-|     Setup WNS             |        -1440                |
-|     Setup TNS             |       -27609                |
-|     Num of violated S-EP  |           51                |
+|     Setup WNS             |        -1876                |
+|     Setup TNS             |        -8737                |
+|     Num of violated S-EP  |           14                |
 |     Hold WNS              |          471                |
 |     Hold TNS              |            0                |
 |     Num of violated H-EP  |            0                |
 -----------------------------------------------------------
 | Utilization               |                             |
-|     #registers            |         9265                |
-|     #luts                 |        10554                |
-|     #lut1                 |           81                |
-|     #lut1(~A)             |           81                |
-|     #slices               |         2954                |
-|     slices percentage     |       30.14%                |
-|     #RAMs                 |           64                |
-|     #DSPs                 |           20                |
+|     #registers            |         9304                |
+|     #luts                 |        10766                |
+|     #lut1                 |           85                |
+|     #lut1(~A)             |           85                |
+|     #slices               |         2980                |
+|     slices percentage     |       30.41%                |
+|     #RAMs                 |           57                |
+|     #DSPs                 |           21                |
 |     #f7mux                |        0.00%                |
-|     #MACROs               |          523                |
-|     #insts in MACRO       |         2954                |
+|     #MACROs               |          529                |
+|     #insts in MACRO       |         2980                |
 -----------------------------------------------------------
 | kept_net                  |                             |
 |     #syn_keep             |            0                |
@@ -847,8 +853,8 @@ RUN-1002 : start command "start_timer"
 |     #max_fanout_keep      |            0                |
 |     #async_reg            |          287                |
 -----------------------------------------------------------
-| Top 10% datanet fanout#   |        35.84                |
-| dff(single fanout)->dff   |          892                |
+| Top 10% datanet fanout#   |        36.39                |
+| dff(single fanout)->dff   |          872                |
 | dff(single fanout)->dram  |            0                |
 -----------------------------------------------------------
 | Over-quota path num*      |                             |
@@ -864,27 +870,27 @@ Note**: Rent shows the rent exponent value of the modules whose rent value excee
         Only modules under top are reported, and the threshold is defined as 0.7.
 
 Logic Level Distribution
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Clock                       |  Period            |  0     |  1     |  2     |  3     |  4     |  5     |  6     |  7    |  8     |  9    |  10   |  11   |  12   |  13   |  14   |  15  |  16  |  17
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  clk_50m                     |  20.000ns (50MHz)  |  0     |  0     |  0     |  0     |  0     |  0     |  0     |  0    |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0   |  0
-  pll/pll_inst.clkc[0]        |  40.000ns (25MHz)  |  0     |  0     |  0     |  0     |  0     |  0     |  0     |  0    |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0   |  0
-  pll/pll_inst.clkc[2]        |  20.000ns (50MHz)  |  3807  |  3328  |  2000  |  1382  |  1746  |  869   |  943   |  600  |  1087  |  590  |  286  |  894  |  117  |  284  |  126  |  13  |  6   |  7
-  pll/pll_inst.clkc[3]        |  20.000ns (50MHz)  |  0     |  0     |  35    |  9     |  4     |  0     |  0     |  0    |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0   |  0
-  video_pll/pll_inst.clkc[0]  |  13.333ns (75MHz)  |  1924  |  952   |  796   |  408   |  393   |  480   |  181   |  102  |  114   |  57   |  35   |  20   |  19   |  2    |  3    |  0   |  0   |  0
-  video_pll/pll_inst.clkc[1]  |  2.666ns (375MHz)  |  47    |  33    |  0     |  0     |  0     |  0     |  0     |  0    |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0   |  0
-  Total                       |  NA                |  5778  |  4313  |  2831  |  1799  |  2143  |  1349  |  1124  |  702  |  1201  |  647  |  321  |  914  |  136  |  286  |  129  |  13  |  6   |  7
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Note: The table count the worst 100000 paths, each endpoint count only one time.(23699 paths analyzed)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Clock                       |  Period            |  0     |  1     |  2     |  3     |  4     |  5     |  6     |  7    |  8    |  9    |  10   |  11   |  12   |  13  |  14   |  15  |  16  |  17  |  18
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  clk_50m                     |  20.000ns (50MHz)  |  0     |  0     |  0     |  0     |  0     |  0     |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0    |  0   |  0   |  0   |  0
+  pll/pll_inst.clkc[0]        |  40.000ns (25MHz)  |  0     |  0     |  0     |  0     |  0     |  0     |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0    |  0   |  0   |  0   |  0
+  pll/pll_inst.clkc[2]        |  20.000ns (50MHz)  |  3808  |  3355  |  1891  |  1516  |  2000  |  1010  |  1013  |  540  |  588  |  854  |  323  |  400  |  571  |  67  |  148  |  13  |  21  |  1   |  1
+  pll/pll_inst.clkc[3]        |  20.000ns (50MHz)  |  0     |  32    |  3     |  12    |  1     |  0     |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0    |  0   |  0   |  0   |  0
+  video_pll/pll_inst.clkc[0]  |  13.333ns (75MHz)  |  1934  |  948   |  782   |  359   |  454   |  502   |  207   |  105  |  93   |  58   |  35   |  36   |  16   |  1   |  2    |  1   |  0   |  0   |  0
+  video_pll/pll_inst.clkc[1]  |  2.666ns (375MHz)  |  47    |  33    |  0     |  0     |  0     |  0     |  0     |  0    |  0    |  0    |  0    |  0    |  0    |  0   |  0    |  0   |  0   |  0   |  0
+  Total                       |  NA                |  5789  |  4368  |  2676  |  1887  |  2455  |  1512  |  1220  |  645  |  681  |  912  |  358  |  436  |  587  |  68  |  150  |  14  |  21  |  1   |  1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note: The table count the worst 100000 paths, each endpoint count only one time.(23781 paths analyzed)
 
 Hierarchical Rent Exponent Report
 +-----------------------------------------------------------------------+
 |Inst      |Model                |Rent     |Cell     |Pin     |Term     |
 +-----------------------------------------------------------------------+
-|top       |dmz_track1_top       |0.15     |23523    |103445  |19       |
-|  ctrl    |dmz_sdram_ctrl_12    |0.78     |1336     |6166    |1271     |
-|  storage |dmz_media_storage_31 |0.64     |12572    |56956   |1848     |
-|  tx      |hdmi_33              |0.45     |1213     |5657    |115      |
+|top       |dmz_track1_top       |0.15     |23794    |104579  |19       |
+|  ctrl    |dmz_sdram_ctrl_12    |0.78     |1334     |6156    |1271     |
+|  storage |dmz_media_storage_31 |0.64     |12638    |57199   |1831     |
+|  tx      |hdmi_35              |0.46     |1199     |5598    |118      |
 +-----------------------------------------------------------------------+
 Note: Cell represents total number of cells inside module; Pin represents total number of pins
       which have net connection inside module; Term represents total number of PIs and POs of module.
@@ -893,9 +899,9 @@ Note: Cell represents total number of cells inside module; Pin represents total 
 Report gate stage QoR done.
 
 SYN-1001 : The design has 2 dangling async_reg insts.
-RUN-1003 : finish command "report_qor -step gate -file gate.qor" in  3.218616s wall, 3.109375s user + 0.031250s system = 3.140625s CPU (97.6%)
+RUN-1003 : finish command "report_qor -step gate -file gate.qor" in  4.206320s wall, 3.984375s user + 0.093750s system = 4.078125s CPU (97.0%)
 
-RUN-1004 : used memory is 763 MB, reserved memory is 855 MB, peak memory is 763 MB
+RUN-1004 : used memory is 758 MB, reserved memory is 848 MB, peak memory is 758 MB
 RUN-1002 : start command "report_area -file dmz_track1_gate.area"
 RUN-1001 : standard
 ***Report Model: dmz_track1_top Device: EG4S20BG256***
@@ -907,21 +913,21 @@ IO Statistics
   #inout                    4
 
 LUT Statistics
-#Total_luts             10554
-  #lut4                  8928
-  #lut5                  1626
+#Total_luts             10766
+  #lut4                  9078
+  #lut5                  1688
   #lut6                     0
   #lut5_mx41                0
   #lut4_alu1b               0
 
 Utilization Statistics
-#lut                    16462   out of  19600   83.99%
-#reg                     9332   out of  19600   47.61%
-#bram                      64   out of     64  100.00%
-  #bram9k                  64
+#lut                    16726   out of  19600   85.34%
+#reg                     9371   out of  19600   47.81%
+#bram                      54   out of     64   84.38%
+  #bram9k                  54
   #fifo9k                   0
-#bram32k                    0   out of     16    0.00%
-#dsp                       20   out of     29   68.97%
+#bram32k                    3   out of     16   18.75%
+#dsp                       21   out of     29   72.41%
 #pad                       36   out of    188   19.15%
   #ireg                    10
   #oreg                    11
@@ -929,21 +935,21 @@ Utilization Statistics
 #pll                        2   out of      4   50.00%
 #gclk                       2   out of     16   12.50%
 
-SYN-1001 : End Stage 2 | Optimize Gate; Time: 30.681453s wall, 28.265625s user + 2.296875s system = 30.562500s CPU (99.6%); Memory(MB): used = 763, reserved = 855, peak = 763;
+SYN-1001 : End Stage 2 | Optimize Gate; Time: 37.580527s wall, 33.078125s user + 3.515625s system = 36.593750s CPU (97.4%); Memory(MB): used = 759, reserved = 848, peak = 759;
 
-RUN-1003 : finish command "optimize_gate -packarea dmz_track1_gate.area" in  30.689894s wall, 28.265625s user + 2.296875s system = 30.562500s CPU (99.6%)
+RUN-1003 : finish command "optimize_gate -packarea dmz_track1_gate.area" in  37.589560s wall, 33.078125s user + 3.515625s system = 36.593750s CPU (97.4%)
 
-RUN-1004 : used memory is 763 MB, reserved memory is 855 MB, peak memory is 763 MB
+RUN-1004 : used memory is 759 MB, reserved memory is 848 MB, peak memory is 759 MB
 RUN-1002 : start command "legalize_phy_inst"
 SYN-1001 : Stage 3 | Legalize Phy Inst
 SYN-1011 : Flatten model dmz_track1_top
-SYN-1001 : End Stage 3 | Legalize Phy Inst; Time: 0.065402s wall, 0.062500s user + 0.000000s system = 0.062500s CPU (95.6%); Memory(MB): used = 763, reserved = 855, peak = 763;
+SYN-1001 : End Stage 3 | Legalize Phy Inst; Time: 0.088411s wall, 0.093750s user + 0.000000s system = 0.093750s CPU (106.0%); Memory(MB): used = 759, reserved = 848, peak = 759;
 
 RUN-1002 : start command "update_timing"
 RUN-1002 : start command "start_timer"
-RUN-1003 : finish command "update_timing" in  1.504667s wall, 1.515625s user + 0.000000s system = 1.515625s CPU (100.7%)
+RUN-1003 : finish command "update_timing" in  2.035450s wall, 1.968750s user + 0.000000s system = 1.968750s CPU (96.7%)
 
-RUN-1004 : used memory is 763 MB, reserved memory is 855 MB, peak memory is 763 MB
+RUN-1004 : used memory is 758 MB, reserved memory is 848 MB, peak memory is 759 MB
 RUN-1002 : start command "report_timing_status -file dmz_track1_gate.ts"
 RUN-1002 : start command "report_timing_summary -file dmz_track1_gate.timing"
 RUN-1002 : start command "flow_status -file flow.status"
@@ -955,7 +961,7 @@ Device           : EG4S20BG256
 Speed            : NA
 
 Timing Mode      : basic
-Setup            : WNS -1440ps  TNS   -27609ps  NUM_FEPS    51
+Setup            : WNS -1876ps  TNS    -8737ps  NUM_FEPS    14
 Hold             : WNS   471ps  TNS        0ps  NUM_FEPS     0
 
 Flow Statistics  :
@@ -963,13 +969,13 @@ RUN-1001 : Flow Statistics:
 RUN-1001 : --------------------------------------------------------------------------------------------------
 RUN-1001 :      command     |  #calls  |  wall time  |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
 RUN-1001 : --------------------------------------------------------------------------------------------------
-RUN-1001 :   optimize_gate  |    1     |  30s(51%)   |    30(51%)    |        763        |        763        
-RUN-1001 :   optimize_rtl   |    1     |  28s(48%)   |    28(48%)    |        640        |        739        
+RUN-1001 :   optimize_gate  |    1     |  37s(54%)   |    36(55%)    |        759        |        759        
+RUN-1001 :   optimize_rtl   |    1     |  31s(45%)   |    29(44%)    |        641        |        735        
 RUN-1001 :   import_device  |    1     |   0s(0%)    |     0(0%)     |        83         |        83         
-RUN-1001 :     read_adc     |    1     |   0s(0%)    |     0(0%)     |        545        |        545        
-RUN-1001 :     read_sdc     |    1     |   0s(0%)    |     0(0%)     |        545        |        545        
+RUN-1001 :     read_adc     |    1     |   0s(0%)    |     0(0%)     |        539        |        539        
+RUN-1001 :     read_sdc     |    1     |   0s(0%)    |     0(0%)     |        539        |        539        
 RUN-1001 : --------------------------------------------------------------------------------------------------
-RUN-1001 :       total      |    5     |     58s     |      58       |        763        |        763        
+RUN-1001 :       total      |    5     |    1m8s     |      65       |        759        |        759        
 RUN-1001 : --------------------------------------------------------------------------------------------------
 RUN-1002 : start command "export_db dmz_track1_gate.db"
 RUN-1001 : Exported flow parameters
@@ -1001,18 +1007,18 @@ Device           : EG4S20BG256
 Speed            : NA
 
 Timing Mode      : basic
-Setup            : WNS -1440ps  TNS   -27609ps  NUM_FEPS    51
+Setup            : WNS -1876ps  TNS    -8737ps  NUM_FEPS    14
 Hold             : WNS   471ps  TNS        0ps  NUM_FEPS     0
 
 RUN-1001 : Flow Statistics:
 RUN-1001 : --------------------------------------------------------------------------------------------------
 RUN-1001 :      command     |  #calls  |  wall time  |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
 RUN-1001 : --------------------------------------------------------------------------------------------------
-RUN-1001 :   optimize_gate  |    1     |  30s(51%)   |    30(51%)    |        763        |        763        
-RUN-1001 :   optimize_rtl   |    1     |  28s(48%)   |    28(48%)    |        640        |        739        
+RUN-1001 :   optimize_gate  |    1     |  37s(54%)   |    36(55%)    |        759        |        759        
+RUN-1001 :   optimize_rtl   |    1     |  31s(45%)   |    29(44%)    |        641        |        735        
 RUN-1001 :   import_device  |    1     |   0s(0%)    |     0(0%)     |        83         |        83         
-RUN-1001 :     read_adc     |    1     |   0s(0%)    |     0(0%)     |        545        |        545        
-RUN-1001 :     read_sdc     |    1     |   0s(0%)    |     0(0%)     |        545        |        545        
+RUN-1001 :     read_adc     |    1     |   0s(0%)    |     0(0%)     |        539        |        539        
+RUN-1001 :     read_sdc     |    1     |   0s(0%)    |     0(0%)     |        539        |        539        
 RUN-1001 : --------------------------------------------------------------------------------------------------
-RUN-1001 :       total      |    5     |     58s     |      58       |        763        |        763        
+RUN-1001 :       total      |    5     |    1m8s     |      65       |        759        |        759        
 RUN-1001 : --------------------------------------------------------------------------------------------------

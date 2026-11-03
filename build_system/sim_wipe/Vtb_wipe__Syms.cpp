@@ -18,7 +18,7 @@ Vtb_wipe__Syms::Vtb_wipe__Syms(VerilatedContext* contextp, const char* namep, Vt
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(154);
+        Verilated::stackCheck(156);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
     _vm_contextp__->timeprecision(-12);

@@ -40,6 +40,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_page_compositor___024root final : public 
     CData/*0:0*/ __VactContinue;
     SData/*9:0*/ tb_page_compositor__DOT__dut__DOT__x;
     SData/*8:0*/ tb_page_compositor__DOT__dut__DOT__y;
+    SData/*15:0*/ tb_page_compositor__DOT__dut__DOT__pixel_write_mask;
+    SData/*15:0*/ tb_page_compositor__DOT__dut__DOT__pixel_write_data;
     SData/*15:0*/ tb_page_compositor__DOT__dut__DOT__row_offset;
     SData/*9:0*/ tb_page_compositor__DOT__dut__DOT__wx;
     SData/*8:0*/ tb_page_compositor__DOT__dut__DOT__ww;

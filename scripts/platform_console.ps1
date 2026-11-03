@@ -1,5 +1,5 @@
-﻿param(
- [ValidateSet('Status','Up','Down','Left','Right','Confirm','Back','Home','Replay','Notice','Priority','ExitNotice')][string]$Action='Status',
+param(
+ [ValidateSet('Status','Up','Down','Left','Right','Confirm','Back','Home','Replay','Autoplay','Notice','Priority','ExitNotice')][string]$Action='Status',
  [string]$Port='COM9',[int]$Seconds=2,[string]$Output='docs/platform_board_action.json')
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
@@ -16,7 +16,7 @@ try{
  $serial.Open();$serial.DiscardInBuffer();$before=Read-Frame
  if($before.version -ne 5){throw 'Platform console needs production v5 status'}
  if($Action -ne 'Status'){
-  $code=@{Up=1;Down=2;Left=3;Right=4;Confirm=5;Back=6;Home=7;Replay=8;Notice=10;Priority=11;ExitNotice=12}[$Action]
+  $code=@{Up=1;Down=2;Left=3;Right=4;Confirm=5;Back=6;Home=7;Replay=8;Autoplay=9;Notice=10;Priority=11;ExitNotice=12}[$Action]
   [byte[]]$command=@(0xd0+$code);$serial.Write($command,0,1)
  }
  $until=$watch.Elapsed.TotalSeconds+$Seconds

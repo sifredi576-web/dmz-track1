@@ -124,9 +124,9 @@ VL_ATTR_COLD void Vtb_wipe___024root___stl_sequent__TOP__0(Vtb_wipe___024root* v
                                         ((~ (IData)(vlSelfRef.tb_wipe__DOT__front)) 
                                          << 0x12U)));
     vlSelfRef.tb_wipe__DOT__req = ((~ (IData)(vlSelfRef.tb_wipe__DOT__fault)) 
-                                   & ((0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state)) 
-                                      & ((0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__flush)) 
-                                         & ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__frame_pending)) 
+                                   & ((0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__flush)) 
+                                      & ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__frame_pending)) 
+                                         & ((0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state)) 
                                             & ((IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__video_req) 
                                                | ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__back_ready)) 
                                                   & (IData)(vlSelfRef.tb_wipe__DOT__lv)))))));
@@ -235,6 +235,7 @@ VL_ATTR_COLD void Vtb_wipe___024root___ctor_var_reset(Vtb_wipe___024root* vlSelf
     vlSelf->tb_wipe__DOT__dut__DOT__beat = VL_RAND_RESET_I(3);
     vlSelf->tb_wipe__DOT__dut__DOT__video_req = VL_RAND_RESET_I(1);
     vlSelf->tb_wipe__DOT__dut__DOT__transaction_last = VL_RAND_RESET_I(1);
+    vlSelf->tb_wipe__DOT__dut__DOT__prefetched = VL_RAND_RESET_I(1);
     vlSelf->tb_wipe__DOT__dut__DOT__enabled = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr___TOP__tb_wipe__DOT__clk__0 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr___TOP__tb_wipe__DOT__ack__0 = VL_RAND_RESET_I(1);

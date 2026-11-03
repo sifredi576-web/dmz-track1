@@ -34,6 +34,7 @@ VL_ATTR_COLD void Vtb_scene_visual___024root___eval_static__TOP(Vtb_scene_visual
     vlSelfRef.tb_scene_visual__DOT__right = 0U;
     vlSelfRef.tb_scene_visual__DOT__x = 0x46U;
     vlSelfRef.tb_scene_visual__DOT__y = 0x108U;
+    vlSelfRef.tb_scene_visual__DOT__reference_tick = 0U;
     vlSelfRef.tb_scene_visual__DOT__highs = 0U;
     vlSelfRef.tb_scene_visual__DOT__lows = 0U;
 }
@@ -108,6 +109,12 @@ VL_ATTR_COLD void Vtb_scene_visual___024root___stl_sequent__TOP__0(Vtb_scene_vis
     Vtb_scene_visual__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Init
+    SData/*8:0*/ tb_scene_visual__DOT__visual__DOT__line_start;
+    tb_scene_visual__DOT__visual__DOT__line_start = 0;
+    SData/*8:0*/ tb_scene_visual__DOT__visual__DOT__line_end;
+    tb_scene_visual__DOT__visual__DOT__line_end = 0;
+    CData/*0:0*/ tb_scene_visual__DOT__visual__DOT__level_row;
+    tb_scene_visual__DOT__visual__DOT__level_row = 0;
     SData/*8:0*/ __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__77__Vfuncout;
     __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__77__Vfuncout = 0;
     SData/*11:0*/ __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__77__a;
@@ -158,6 +165,19 @@ VL_ATTR_COLD void Vtb_scene_visual___024root___stl_sequent__TOP__0(Vtb_scene_vis
         = ((0x8000U & (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__maximum_r))
             ? 0x1fU : (0x1fU & ((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__maximum_r) 
                                 >> 0xaU)));
+    vlSelfRef.tb_scene_visual__DOT__visual__DOT__take_sample 
+        = ((IData)(vlSelfRef.tb_scene_visual__DOT__ce) 
+           & ((~ (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__page_ready)) 
+              & (7U == (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__decimate))));
+    vlSelfRef.tb_scene_visual__DOT__visual__DOT__region_hit 
+        = ((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__en) 
+           & ((0x40U <= (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px)) 
+              & ((0x240U > (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px)) 
+                 & ((0x80U <= (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__py)) 
+                    & (0x120U > (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__py))))));
+    tb_scene_visual__DOT__visual__DOT__level_row = 
+        ((0x114U <= (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__py)) 
+         & (0x11cU > (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__py)));
     __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__77__t 
         = (3U & (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px));
     __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__77__b 
@@ -188,8 +208,7 @@ VL_ATTR_COLD void Vtb_scene_visual___024root___stl_sequent__TOP__0(Vtb_scene_vis
     __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__77__Vfuncout 
         = (0x1ffU & ((IData)(0x108U) - (0x7fU & ((IData)(__Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__77__n) 
                                                  >> 7U))));
-    vlSelfRef.tb_scene_visual__DOT__visual__DOT__line_start 
-        = __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__77__Vfuncout;
+    tb_scene_visual__DOT__visual__DOT__line_start = __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__77__Vfuncout;
     __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__78__t 
         = (7U & ((IData)(1U) + (3U & (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px))));
     __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__78__b 
@@ -220,8 +239,52 @@ VL_ATTR_COLD void Vtb_scene_visual___024root___stl_sequent__TOP__0(Vtb_scene_vis
     __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__78__Vfuncout 
         = (0x1ffU & ((IData)(0x108U) - (0x7fU & ((IData)(__Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__78__n) 
                                                  >> 7U))));
-    vlSelfRef.tb_scene_visual__DOT__visual__DOT__line_end 
-        = __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__78__Vfuncout;
+    tb_scene_visual__DOT__visual__DOT__line_end = __Vfunc_tb_scene_visual__DOT__visual__DOT__interpolate__78__Vfuncout;
+    vlSelfRef.tb_scene_visual__DOT__visual__DOT__left_hit 
+        = ((IData)(tb_scene_visual__DOT__visual__DOT__level_row) 
+           & ((0x40U <= (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px)) 
+              & ((0x138U > (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px)) 
+                 & ((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px) 
+                    < ((IData)(0x40U) + ((IData)(vlSelfRef.tb_scene_visual__DOT__ll) 
+                                         << 3U))))));
+    vlSelfRef.tb_scene_visual__DOT__visual__DOT__right_hit 
+        = ((IData)(tb_scene_visual__DOT__visual__DOT__level_row) 
+           & ((0x148U <= (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px)) 
+              & ((0x240U > (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px)) 
+                 & ((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px) 
+                    < ((IData)(0x148U) + ((IData)(vlSelfRef.tb_scene_visual__DOT__rr) 
+                                          << 3U))))));
+    vlSelfRef.tb_scene_visual__DOT__visual__DOT__peak_hit 
+        = ((IData)(tb_scene_visual__DOT__visual__DOT__level_row) 
+           & (((0x40U <= (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px)) 
+               & ((0x138U > (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px)) 
+                  & ((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px) 
+                     == ((IData)(0x3fU) + ((IData)(vlSelfRef.tb_scene_visual__DOT__pl) 
+                                           << 3U))))) 
+              | ((0x148U <= (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px)) 
+                 & ((0x240U > (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px)) 
+                    & ((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__px) 
+                       == ((IData)(0x147U) + ((IData)(vlSelfRef.tb_scene_visual__DOT__pr) 
+                                              << 3U)))))));
+    vlSelfRef.tb_scene_visual__DOT__visual__DOT__wh 
+        = ((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__valid_page) 
+           & ((0x110U > (IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__py)) 
+              & ((((IData)(tb_scene_visual__DOT__visual__DOT__line_end) 
+                   == (IData)(tb_scene_visual__DOT__visual__DOT__line_start)) 
+                  & ((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__py) 
+                     == (IData)(tb_scene_visual__DOT__visual__DOT__line_start))) 
+                 | ((((IData)(tb_scene_visual__DOT__visual__DOT__line_start) 
+                      < (IData)(tb_scene_visual__DOT__visual__DOT__line_end)) 
+                     & (((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__py) 
+                         >= (IData)(tb_scene_visual__DOT__visual__DOT__line_start)) 
+                        & ((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__py) 
+                           < (IData)(tb_scene_visual__DOT__visual__DOT__line_end)))) 
+                    | (((IData)(tb_scene_visual__DOT__visual__DOT__line_start) 
+                        > (IData)(tb_scene_visual__DOT__visual__DOT__line_end)) 
+                       & (((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__py) 
+                           <= (IData)(tb_scene_visual__DOT__visual__DOT__line_start)) 
+                          & ((IData)(vlSelfRef.tb_scene_visual__DOT__visual__DOT__py) 
+                             > (IData)(tb_scene_visual__DOT__visual__DOT__line_end))))))));
 }
 
 VL_ATTR_COLD void Vtb_scene_visual___024root___eval_triggers__stl(Vtb_scene_visual___024root* vlSelf);
@@ -251,10 +314,10 @@ VL_ATTR_COLD void Vtb_scene_visual___024root___dump_triggers__act(Vtb_scene_visu
         VL_DBG_MSGF("         No triggers active\n");
     }
     if ((1ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        VL_DBG_MSGF("         'act' region trigger index 0 is active: @(posedge tb_scene_visual.clk)\n");
+        VL_DBG_MSGF("         'act' region trigger index 0 is active: @(negedge tb_scene_visual.clk)\n");
     }
     if ((2ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        VL_DBG_MSGF("         'act' region trigger index 1 is active: @(negedge tb_scene_visual.clk)\n");
+        VL_DBG_MSGF("         'act' region trigger index 1 is active: @(posedge tb_scene_visual.clk)\n");
     }
     if ((4ULL & vlSelfRef.__VactTriggered.word(0U))) {
         VL_DBG_MSGF("         'act' region trigger index 2 is active: @([true] __VdlySched.awaitingCurrentTime())\n");
@@ -272,10 +335,10 @@ VL_ATTR_COLD void Vtb_scene_visual___024root___dump_triggers__nba(Vtb_scene_visu
         VL_DBG_MSGF("         No triggers active\n");
     }
     if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        VL_DBG_MSGF("         'nba' region trigger index 0 is active: @(posedge tb_scene_visual.clk)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 0 is active: @(negedge tb_scene_visual.clk)\n");
     }
     if ((2ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        VL_DBG_MSGF("         'nba' region trigger index 1 is active: @(negedge tb_scene_visual.clk)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 1 is active: @(posedge tb_scene_visual.clk)\n");
     }
     if ((4ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         VL_DBG_MSGF("         'nba' region trigger index 2 is active: @([true] __VdlySched.awaitingCurrentTime())\n");
@@ -310,6 +373,7 @@ VL_ATTR_COLD void Vtb_scene_visual___024root___ctor_var_reset(Vtb_scene_visual__
     vlSelf->tb_scene_visual__DOT__rr = VL_RAND_RESET_I(5);
     vlSelf->tb_scene_visual__DOT__pl = VL_RAND_RESET_I(5);
     vlSelf->tb_scene_visual__DOT__pr = VL_RAND_RESET_I(5);
+    vlSelf->tb_scene_visual__DOT__reference_tick = VL_RAND_RESET_I(32);
     for (int __Vi0 = 0; __Vi0 < 128; ++__Vi0) {
         vlSelf->tb_scene_visual__DOT__tone_samples[__Vi0] = VL_RAND_RESET_I(16);
     }
@@ -327,6 +391,7 @@ VL_ATTR_COLD void Vtb_scene_visual___024root___ctor_var_reset(Vtb_scene_visual__
     vlSelf->tb_scene_visual__DOT__scene__DOT__vs = VL_RAND_RESET_I(2);
     vlSelf->tb_scene_visual__DOT__scene__DOT__soft_alert = VL_RAND_RESET_I(1);
     vlSelf->tb_scene_visual__DOT__scene__DOT__soft_visual = VL_RAND_RESET_I(1);
+    vlSelf->tb_scene_visual__DOT__scene__DOT__alert_phase = VL_RAND_RESET_I(1);
     vlSelf->tb_scene_visual__DOT__scene__DOT__tick = VL_RAND_RESET_I(3);
     for (int __Vi0 = 0; __Vi0 < 256; ++__Vi0) {
         vlSelf->tb_scene_visual__DOT__visual__DOT__wave[__Vi0] = VL_RAND_RESET_I(24);
@@ -337,6 +402,8 @@ VL_ATTR_COLD void Vtb_scene_visual___024root___ctor_var_reset(Vtb_scene_visual__
     vlSelf->tb_scene_visual__DOT__visual__DOT__decimate = VL_RAND_RESET_I(3);
     vlSelf->tb_scene_visual__DOT__visual__DOT__wave_q = VL_RAND_RESET_I(24);
     vlSelf->tb_scene_visual__DOT__visual__DOT__previous_sample = VL_RAND_RESET_I(12);
+    vlSelf->tb_scene_visual__DOT__visual__DOT__trigger_mode_q = VL_RAND_RESET_I(1);
+    vlSelf->tb_scene_visual__DOT__visual__DOT__take_sample = VL_RAND_RESET_I(1);
     vlSelf->tb_scene_visual__DOT__visual__DOT__maximum_l = VL_RAND_RESET_I(16);
     vlSelf->tb_scene_visual__DOT__visual__DOT__maximum_r = VL_RAND_RESET_I(16);
     vlSelf->tb_scene_visual__DOT__visual__DOT__mag_l = VL_RAND_RESET_I(16);
@@ -349,7 +416,10 @@ VL_ATTR_COLD void Vtb_scene_visual___024root___ctor_var_reset(Vtb_scene_visual__
     vlSelf->tb_scene_visual__DOT__visual__DOT__en = VL_RAND_RESET_I(1);
     vlSelf->tb_scene_visual__DOT__visual__DOT__valid_page = VL_RAND_RESET_I(1);
     vlSelf->tb_scene_visual__DOT__visual__DOT__has_page = VL_RAND_RESET_I(1);
-    vlSelf->tb_scene_visual__DOT__visual__DOT__line_start = VL_RAND_RESET_I(9);
-    vlSelf->tb_scene_visual__DOT__visual__DOT__line_end = VL_RAND_RESET_I(9);
+    vlSelf->tb_scene_visual__DOT__visual__DOT__left_hit = VL_RAND_RESET_I(1);
+    vlSelf->tb_scene_visual__DOT__visual__DOT__right_hit = VL_RAND_RESET_I(1);
+    vlSelf->tb_scene_visual__DOT__visual__DOT__peak_hit = VL_RAND_RESET_I(1);
+    vlSelf->tb_scene_visual__DOT__visual__DOT__region_hit = VL_RAND_RESET_I(1);
+    vlSelf->tb_scene_visual__DOT__visual__DOT__wh = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr___TOP__tb_scene_visual__DOT__clk__0 = VL_RAND_RESET_I(1);
 }

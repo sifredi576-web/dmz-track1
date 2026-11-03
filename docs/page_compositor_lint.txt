@@ -89,5 +89,5 @@
    29 |   row=bottom_up?479-y:y;while(!ir)ticks(1);ia=row*320+col*8;il=y==479&&col==39;iv=1;ticks(1);iv=0;
       |                                              ^
 - V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
-- Verilator: Built from 0.379 MB sources in 13 modules, into 0.477 MB in 8 C++ files needing 0.000 MB
-- Verilator: Walltime 0.057 s (elab=0.003, cvt=0.019, bld=0.000); cpu 0.000 s on 1 threads; alloced 18.977 MB
+- Verilator: Built from 0.387 MB sources in 13 modules, into 0.484 MB in 8 C++ files needing 0.000 MB
+- Verilator: Walltime 0.069 s (elab=0.003, cvt=0.027, bld=0.000); cpu 0.000 s on 1 threads; alloced 19.344 MB

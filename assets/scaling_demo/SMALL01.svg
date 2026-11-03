@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="240" viewBox="0 0 320 240">
+<rect width="320" height="240" fill="#062452"/>
+<text x="18" y="20" font-family="Microsoft YaHei" font-size="13" fill="#35e5ee" dominant-baseline="text-before-edge">03 / 校园声音小卡片</text>
+<text x="18" y="49" font-family="Microsoft YaHei" font-size="25" fill="#f1f8ff" dominant-baseline="text-before-edge">振动产生声音</text>
+<text x="18" y="85" font-family="Microsoft YaHei" font-size="16" fill="#b3d2ee" dominant-baseline="text-before-edge">小图放大，比例保持。</text>
+<rect x="16" y="118" width="288" height="64" rx="12" fill="#0b3568" stroke="none" stroke-width="2"/>
+<ellipse cx="46.0" cy="149.0" rx="17.0" ry="17.0" fill="none" stroke="#35e5ee" stroke-width="2"/>
+<rect x="78" y="132" width="34" height="34" rx="0" fill="none" stroke="#ffca64" stroke-width="2"/>
+<polyline points="132,149 143,149 152,131 164,166 176,137 187,158 198,141 208,149 228,149" fill="none" stroke="#35e5ee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="241" y="141" font-family="Microsoft YaHei" font-size="14" fill="#b3d2ee" dominant-baseline="text-before-edge">示意</text>
+<text x="18" y="193" font-family="Microsoft YaHei" font-size="15" fill="#35e5ee" dominant-baseline="text-before-edge">320 × 240 → 640 × 480</text>
+</svg>

@@ -45,10 +45,10 @@ void Vtb_ui_keys___024root___eval_act(Vtb_ui_keys___024root* vlSelf) {
     }
 }
 
-extern const VlUnpacked<CData/*0:0*/, 256> Vtb_ui_keys__ConstPool__TABLE_h9335bfdc_0;
-extern const VlUnpacked<CData/*0:0*/, 256> Vtb_ui_keys__ConstPool__TABLE_h5c1e1fad_0;
-extern const VlUnpacked<CData/*7:0*/, 256> Vtb_ui_keys__ConstPool__TABLE_h5ca429ef_0;
-extern const VlUnpacked<CData/*3:0*/, 256> Vtb_ui_keys__ConstPool__TABLE_hadf6aee6_0;
+extern const VlUnpacked<CData/*0:0*/, 128> Vtb_ui_keys__ConstPool__TABLE_h6e2510c1_0;
+extern const VlUnpacked<CData/*0:0*/, 128> Vtb_ui_keys__ConstPool__TABLE_h41507263_0;
+extern const VlUnpacked<CData/*7:0*/, 128> Vtb_ui_keys__ConstPool__TABLE_hfa98e2b4_0;
+extern const VlUnpacked<CData/*3:0*/, 128> Vtb_ui_keys__ConstPool__TABLE_h021b5c5d_0;
 
 VL_INLINE_OPT void Vtb_ui_keys___024root___act_sequent__TOP__0(Vtb_ui_keys___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_ui_keys___024root___act_sequent__TOP__0\n"); );
@@ -61,7 +61,7 @@ VL_INLINE_OPT void Vtb_ui_keys___024root___act_sequent__TOP__0(Vtb_ui_keys___024
     tb_ui_keys__DOT__dut__DOT__mapped = 0;
     CData/*0:0*/ tb_ui_keys__DOT__dut__DOT__is_ui;
     tb_ui_keys__DOT__dut__DOT__is_ui = 0;
-    CData/*7:0*/ __Vtableidx1;
+    CData/*6:0*/ __Vtableidx1;
     __Vtableidx1 = 0;
     // Body
     vlSelfRef.tb_ui_keys__DOT__dut__DOT__uart_ui = 
@@ -70,40 +70,30 @@ VL_INLINE_OPT void Vtb_ui_keys___024root___act_sequent__TOP__0(Vtb_ui_keys___024
                                                             == 
                                                             (0xf0U 
                                                              & (IData)(vlSelfRef.tb_ui_keys__DOT__ub))) 
-                                                           & (((1U 
-                                                                <= 
-                                                                (0xfU 
-                                                                 & (IData)(vlSelfRef.tb_ui_keys__DOT__ub))) 
-                                                               & (8U 
-                                                                  >= 
-                                                                  (0xfU 
-                                                                   & (IData)(vlSelfRef.tb_ui_keys__DOT__ub)))) 
-                                                              | ((0xaU 
-                                                                  <= 
-                                                                  (0xfU 
-                                                                   & (IData)(vlSelfRef.tb_ui_keys__DOT__ub))) 
-                                                                 & (0xcU 
-                                                                    >= 
-                                                                    (0xfU 
-                                                                     & (IData)(vlSelfRef.tb_ui_keys__DOT__ub))))))));
+                                                           & ((1U 
+                                                               <= 
+                                                               (0xfU 
+                                                                & (IData)(vlSelfRef.tb_ui_keys__DOT__ub))) 
+                                                              & (0xcU 
+                                                                 >= 
+                                                                 (0xfU 
+                                                                  & (IData)(vlSelfRef.tb_ui_keys__DOT__ub)))))));
     tb_ui_keys__DOT__dut__DOT__physical = ((IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__pending) 
                                            | (IData)(vlSelfRef.tb_ui_keys__DOT__kv));
-    __Vtableidx1 = ((((IData)(vlSelfRef.tb_ui_keys__DOT__menu) 
-                      << 7U) | ((IData)(vlSelfRef.tb_ui_keys__DOT__active) 
-                                << 6U)) | (((IData)(vlSelfRef.tb_ui_keys__DOT__muted) 
-                                            << 5U) 
-                                           | (((IData)(vlSelfRef.tb_ui_keys__DOT__paused) 
-                                               << 4U) 
-                                              | ((IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__pending)
-                                                  ? (IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__held)
-                                                  : (IData)(vlSelfRef.tb_ui_keys__DOT__key)))));
-    tb_ui_keys__DOT__dut__DOT__mapped = Vtb_ui_keys__ConstPool__TABLE_h9335bfdc_0
+    __Vtableidx1 = (((IData)(vlSelfRef.tb_ui_keys__DOT__muted) 
+                     << 6U) | (((IData)(vlSelfRef.tb_ui_keys__DOT__menu) 
+                                << 5U) | (((IData)(vlSelfRef.tb_ui_keys__DOT__active) 
+                                           << 4U) | 
+                                          ((IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__pending)
+                                            ? (IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__held)
+                                            : (IData)(vlSelfRef.tb_ui_keys__DOT__key)))));
+    tb_ui_keys__DOT__dut__DOT__mapped = Vtb_ui_keys__ConstPool__TABLE_h6e2510c1_0
         [__Vtableidx1];
-    tb_ui_keys__DOT__dut__DOT__is_ui = Vtb_ui_keys__ConstPool__TABLE_h5c1e1fad_0
+    tb_ui_keys__DOT__dut__DOT__is_ui = Vtb_ui_keys__ConstPool__TABLE_h41507263_0
         [__Vtableidx1];
     vlSelfRef.tb_ui_keys__DOT__dut__DOT__command = 
-        Vtb_ui_keys__ConstPool__TABLE_h5ca429ef_0[__Vtableidx1];
-    vlSelfRef.tb_ui_keys__DOT__dut__DOT__action = Vtb_ui_keys__ConstPool__TABLE_hadf6aee6_0
+        Vtb_ui_keys__ConstPool__TABLE_hfa98e2b4_0[__Vtableidx1];
+    vlSelfRef.tb_ui_keys__DOT__dut__DOT__action = Vtb_ui_keys__ConstPool__TABLE_h021b5c5d_0
         [__Vtableidx1];
     vlSelfRef.tb_ui_keys__DOT__cv = ((~ (IData)(vlSelfRef.tb_ui_keys__DOT__reset)) 
                                      & (((~ (IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__uart_ui)) 
@@ -151,22 +141,14 @@ VL_INLINE_OPT void Vtb_ui_keys___024root___nba_sequent__TOP__1(Vtb_ui_keys___024
                                                             == 
                                                             (0xf0U 
                                                              & (IData)(vlSelfRef.tb_ui_keys__DOT__ub))) 
-                                                           & (((1U 
-                                                                <= 
-                                                                (0xfU 
-                                                                 & (IData)(vlSelfRef.tb_ui_keys__DOT__ub))) 
-                                                               & (8U 
-                                                                  >= 
-                                                                  (0xfU 
-                                                                   & (IData)(vlSelfRef.tb_ui_keys__DOT__ub)))) 
-                                                              | ((0xaU 
-                                                                  <= 
-                                                                  (0xfU 
-                                                                   & (IData)(vlSelfRef.tb_ui_keys__DOT__ub))) 
-                                                                 & (0xcU 
-                                                                    >= 
-                                                                    (0xfU 
-                                                                     & (IData)(vlSelfRef.tb_ui_keys__DOT__ub))))))));
+                                                           & ((1U 
+                                                               <= 
+                                                               (0xfU 
+                                                                & (IData)(vlSelfRef.tb_ui_keys__DOT__ub))) 
+                                                              & (0xcU 
+                                                                 >= 
+                                                                 (0xfU 
+                                                                  & (IData)(vlSelfRef.tb_ui_keys__DOT__ub)))))));
 }
 
 VL_INLINE_OPT void Vtb_ui_keys___024root___nba_comb__TOP__0(Vtb_ui_keys___024root* vlSelf) {
@@ -180,27 +162,25 @@ VL_INLINE_OPT void Vtb_ui_keys___024root___nba_comb__TOP__0(Vtb_ui_keys___024roo
     tb_ui_keys__DOT__dut__DOT__mapped = 0;
     CData/*0:0*/ tb_ui_keys__DOT__dut__DOT__is_ui;
     tb_ui_keys__DOT__dut__DOT__is_ui = 0;
-    CData/*7:0*/ __Vtableidx1;
+    CData/*6:0*/ __Vtableidx1;
     __Vtableidx1 = 0;
     // Body
     tb_ui_keys__DOT__dut__DOT__physical = ((IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__pending) 
                                            | (IData)(vlSelfRef.tb_ui_keys__DOT__kv));
-    __Vtableidx1 = ((((IData)(vlSelfRef.tb_ui_keys__DOT__menu) 
-                      << 7U) | ((IData)(vlSelfRef.tb_ui_keys__DOT__active) 
-                                << 6U)) | (((IData)(vlSelfRef.tb_ui_keys__DOT__muted) 
-                                            << 5U) 
-                                           | (((IData)(vlSelfRef.tb_ui_keys__DOT__paused) 
-                                               << 4U) 
-                                              | ((IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__pending)
-                                                  ? (IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__held)
-                                                  : (IData)(vlSelfRef.tb_ui_keys__DOT__key)))));
-    tb_ui_keys__DOT__dut__DOT__mapped = Vtb_ui_keys__ConstPool__TABLE_h9335bfdc_0
+    __Vtableidx1 = (((IData)(vlSelfRef.tb_ui_keys__DOT__muted) 
+                     << 6U) | (((IData)(vlSelfRef.tb_ui_keys__DOT__menu) 
+                                << 5U) | (((IData)(vlSelfRef.tb_ui_keys__DOT__active) 
+                                           << 4U) | 
+                                          ((IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__pending)
+                                            ? (IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__held)
+                                            : (IData)(vlSelfRef.tb_ui_keys__DOT__key)))));
+    tb_ui_keys__DOT__dut__DOT__mapped = Vtb_ui_keys__ConstPool__TABLE_h6e2510c1_0
         [__Vtableidx1];
-    tb_ui_keys__DOT__dut__DOT__is_ui = Vtb_ui_keys__ConstPool__TABLE_h5c1e1fad_0
+    tb_ui_keys__DOT__dut__DOT__is_ui = Vtb_ui_keys__ConstPool__TABLE_h41507263_0
         [__Vtableidx1];
     vlSelfRef.tb_ui_keys__DOT__dut__DOT__command = 
-        Vtb_ui_keys__ConstPool__TABLE_h5ca429ef_0[__Vtableidx1];
-    vlSelfRef.tb_ui_keys__DOT__dut__DOT__action = Vtb_ui_keys__ConstPool__TABLE_hadf6aee6_0
+        Vtb_ui_keys__ConstPool__TABLE_hfa98e2b4_0[__Vtableidx1];
+    vlSelfRef.tb_ui_keys__DOT__dut__DOT__action = Vtb_ui_keys__ConstPool__TABLE_h021b5c5d_0
         [__Vtableidx1];
     vlSelfRef.tb_ui_keys__DOT__cv = ((~ (IData)(vlSelfRef.tb_ui_keys__DOT__reset)) 
                                      & (((~ (IData)(vlSelfRef.tb_ui_keys__DOT__dut__DOT__uart_ui)) 

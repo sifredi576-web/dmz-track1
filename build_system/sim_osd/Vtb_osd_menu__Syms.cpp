@@ -18,7 +18,7 @@ Vtb_osd_menu__Syms::Vtb_osd_menu__Syms(VerilatedContext* contextp, const char* n
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(436);
+        Verilated::stackCheck(308);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
     _vm_contextp__->timeprecision(-12);

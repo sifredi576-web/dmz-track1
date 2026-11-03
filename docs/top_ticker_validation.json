@@ -1,0 +1,38 @@
+{
+  "finished": "2026-11-03T23:22:36.953292+08:00",
+  "text": "本项目是安路科技赛道一项目，内容为校园交互终端演示，课件仅作演示使用，实际应用场景可更换调整",
+  "trailing_fullwidth_spaces": 18,
+  "band_pixels": [
+    0,
+    0,
+    1280,
+    40
+  ],
+  "direction": "right_to_left",
+  "pixels_per_two_frames": 2,
+  "loop_pixels": 2048,
+  "setup_slack_ns": 0.033,
+  "hold_slack_ns": 0.076,
+  "resources": {
+    "lut": 17805,
+    "registers": 9357,
+    "bram9k": 54,
+    "bram32k": 3,
+    "dsp": 21
+  },
+  "layout_seed": 11,
+  "bit_sha256": "e79658252c3955b0948917c324eed1c176b85e6bb52d14e853cfa7a092c01313",
+  "tests": {
+    "ticker_raster_and_wrap": true,
+    "osd_regression": true,
+    "button_coordinate_equivalence": true,
+    "final_timing": true,
+    "sram_download": true,
+    "board_autoplay_and_key2": true
+  },
+  "tf_files_changed": false,
+  "flash_written": false,
+  "physical_key_press_tested": false,
+  "visual_hardware_confirmation": "pending user observation; UART cannot confirm displayed glyphs",
+  "board_test": "docs/top_ticker_board_test.json"
+}

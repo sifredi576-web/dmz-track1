@@ -176,8 +176,6 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
     vlSelfRef.tb_widescreen__DOT__we = 1U;
     vlSelfRef.tb_widescreen__DOT__last = (0x257f8U 
                                           == vlSelfRef.tb_widescreen__DOT__load_addr);
-    vlSelfRef.tb_widescreen__DOT__oe = ((0xdU == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)) 
-                                        | (0xeU == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)));
     vlSelfRef.tb_widescreen__DOT__sa = 0U;
     if ((1U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
         vlSelfRef.tb_widescreen__DOT__ras = 0U;
@@ -248,9 +246,9 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
     vlSelfRef.tb_widescreen__DOT__actual = (0xffffU 
                                             & ((1U 
                                                 & (IData)(vlSelfRef.tb_widescreen__DOT__sx))
-                                                ? (vlSelfRef.tb_widescreen__DOT__fo 
+                                                ? (vlSelfRef.tb_widescreen__DOT__fifo__DOT__rdata_raw 
                                                    >> 0x10U)
-                                                : vlSelfRef.tb_widescreen__DOT__fo));
+                                                : vlSelfRef.tb_widescreen__DOT__fifo__DOT__rdata_raw));
     vlSelfRef.tb_widescreen__DOT__freset = (1U & ((~ 
                                                    ((IData)(vlSelfRef.tb_widescreen__DOT__display_valid) 
                                                     & (0U 
@@ -771,7 +769,6 @@ VL_ATTR_COLD void Vtb_widescreen___024root___ctor_var_reset(Vtb_widescreen___024
     vlSelf->tb_widescreen__DOT__display_valid = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__front = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__fault = VL_RAND_RESET_I(1);
-    vlSelf->tb_widescreen__DOT__fo = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__swaps = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__written = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__reads = VL_RAND_RESET_I(32);
@@ -844,9 +841,7 @@ VL_ATTR_COLD void Vtb_widescreen___024root___ctor_var_reset(Vtb_widescreen___024
     vlSelf->tb_widescreen__DOT__fb__DOT__transaction_last = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__fb__DOT__prefetched = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__fb__DOT__enabled = VL_RAND_RESET_I(1);
-    for (int __Vi0 = 0; __Vi0 < 2048; ++__Vi0) {
-        vlSelf->tb_widescreen__DOT__fifo__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);
-    }
+    vlSelf->tb_widescreen__DOT__fifo__DOT__rdata_raw = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__fifo__DOT__wp = VL_RAND_RESET_I(12);
     vlSelf->tb_widescreen__DOT__fifo__DOT__rp = VL_RAND_RESET_I(12);
     vlSelf->tb_widescreen__DOT__fifo__DOT__wgray = VL_RAND_RESET_I(12);
@@ -860,8 +855,11 @@ VL_ATTR_COLD void Vtb_widescreen___024root___ctor_var_reset(Vtb_widescreen___024
     vlSelf->tb_widescreen__DOT__fifo__DOT__wn = VL_RAND_RESET_I(12);
     vlSelf->tb_widescreen__DOT__fifo__DOT__write_addr = VL_RAND_RESET_I(11);
     vlSelf->tb_widescreen__DOT__fifo__DOT__read_addr = VL_RAND_RESET_I(11);
+    for (int __Vi0 = 0; __Vi0 < 2048; ++__Vi0) {
+        vlSelf->tb_widescreen__DOT__fifo__DOT__ram9__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);
+    }
     vlSelf->tb_widescreen__DOT__fifo__DOT____Vlvbound_hd6d3ee30__0 = VL_RAND_RESET_I(1);
-    vlSelf->tb_widescreen__DOT__audio__DOT__accumulator = VL_RAND_RESET_I(26);
+    vlSelf->tb_widescreen__DOT__audio__DOT__accumulator = VL_RAND_RESET_I(27);
     vlSelf->tb_widescreen__DOT__audio__DOT__phase = VL_RAND_RESET_I(6);
     vlSelf->__Vfunc_tb_widescreen__DOT__fifo__DOT__binary__6__Vfuncout = VL_RAND_RESET_I(12);
     vlSelf->__Vfunc_tb_widescreen__DOT__fifo__DOT__binary__6__g = VL_RAND_RESET_I(12);

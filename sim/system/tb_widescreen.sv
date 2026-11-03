@@ -30,7 +30,8 @@ dmz_image_framebuffer #(.WIDE_MODE(1)) fb(.clk(mclk),.reset(reset),.bist_done(in
 reg [2:0] fr=7;reg [1:0] dv=0;
 always @(posedge pclk or posedge freset)if(freset)fr<=7;else fr<={fr[1:0],1'b0};
 always @(posedge pclk)if(reset)dv<=0;else dv<={dv[0],display_valid};
-dmz_pixel_fifo #(.RECODE_ADDR(1)) fifo(.wclk(mclk),.wreset(freset),.wpush(push),.wdata(fi),.full(full),.used(used),.rclk(pclk),.rreset(fr[2]),.rpop(pop&&dv[1]&&!fr[2]),.rdata(fo),.empty(empty));
+
+dmz_pixel_fifo #(.AW(11),.RECODE_ADDR(1)) fifo(.wclk(mclk),.wreset(freset),.wpush(push),.wdata(fi),.full(full),.used(used),.rclk(pclk),.rreset(fr[2]),.rpop(pop&&dv[1]&&!fr[2]),.rdata(fo),.empty(empty));
 wire [15:0] actual=sx[0]?fo[31:16]:fo[15:0];
 wire sample_ce;wire [15:0] sample;
 dmz_tone #(.CLOCK_HZ(75000000)) audio(.clk(pclk),.reset(reset),.mute(1'b0),.sample_ce(sample_ce),.sample(sample));

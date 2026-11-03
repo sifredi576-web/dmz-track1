@@ -111,7 +111,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_widescreen___024root final : public Veril
         IData/*31:0*/ tb_widescreen__DOT__refreshes;
         IData/*17:0*/ tb_widescreen__DOT__load_addr;
         VlWide<8>/*255:0*/ tb_widescreen__DOT__payload;
-        IData/*31:0*/ tb_widescreen__DOT__fo;
         IData/*31:0*/ tb_widescreen__DOT__swaps;
         IData/*31:0*/ tb_widescreen__DOT__written;
         IData/*31:0*/ tb_widescreen__DOT__reads;
@@ -137,7 +136,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_widescreen___024root final : public Veril
         IData/*17:0*/ tb_widescreen__DOT__fb__DOT__rd_addr;
         IData/*17:0*/ tb_widescreen__DOT__fb__DOT__row_base;
         VlWide<8>/*255:0*/ tb_widescreen__DOT__fb__DOT__read_buffer;
-        IData/*25:0*/ tb_widescreen__DOT__audio__DOT__accumulator;
+        IData/*31:0*/ tb_widescreen__DOT__fifo__DOT__rdata_raw;
+        IData/*26:0*/ tb_widescreen__DOT__audio__DOT__accumulator;
         IData/*31:0*/ __Vintraval_he798b52a__0;
         IData/*31:0*/ __VdlyVal__tb_widescreen__DOT__din__v0;
         IData/*31:0*/ __VactIterCount;
@@ -146,7 +146,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_widescreen___024root final : public Veril
         VlUnpacked<CData/*0:0*/, 4> tb_widescreen__DOT__mem__DOT__open_bank;
         VlUnpacked<IData/*31:0*/, 4> tb_widescreen__DOT__mem__DOT__last_active;
         VlUnpacked<IData/*31:0*/, 4> tb_widescreen__DOT__mem__DOT__closed_at;
-        VlUnpacked<IData/*31:0*/, 2048> tb_widescreen__DOT__fifo__DOT__mem;
+        VlUnpacked<IData/*31:0*/, 2048> tb_widescreen__DOT__fifo__DOT__ram9__DOT__mem;
     };
     VlDelayScheduler __VdlySched;
     VlTriggerScheduler __VtrigSched_hd6bf6cc8__0;

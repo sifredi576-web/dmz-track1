@@ -1,0 +1,31 @@
+{
+  "route": [
+    "WIDE01",
+    "TALL01",
+    "SMALL01",
+    "WAIT01",
+    "WAIT02",
+    "COURSE",
+    "LESSON01",
+    "LESSON02",
+    "LESSON03",
+    "OBSERVE",
+    "QUIZ01"
+  ],
+  "dwell_ms": 7000,
+  "native_dimensions": {
+    "WIDE01": [
+      1280,
+      720
+    ],
+    "TALL01": [
+      360,
+      640
+    ],
+    "SMALL01": [
+      320,
+      240
+    ]
+  },
+  "note": "PC reference preview; not an FPGA screenshot"
+}

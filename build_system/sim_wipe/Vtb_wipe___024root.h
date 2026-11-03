@@ -38,6 +38,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_wipe___024root final : public VerilatedMo
     CData/*2:0*/ tb_wipe__DOT__dut__DOT__beat;
     CData/*0:0*/ tb_wipe__DOT__dut__DOT__video_req;
     CData/*0:0*/ tb_wipe__DOT__dut__DOT__transaction_last;
+    CData/*0:0*/ tb_wipe__DOT__dut__DOT__prefetched;
     CData/*0:0*/ tb_wipe__DOT__dut__DOT__enabled;
     CData/*0:0*/ __VstlFirstIteration;
     CData/*0:0*/ __Vtrigprevexpr___TOP__tb_wipe__DOT__clk__0;

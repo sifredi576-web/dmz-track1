@@ -223,8 +223,8 @@ VL_INLINE_OPT void Vtb_fifo_recode___024root___nba_sequent__TOP__0(Vtb_fifo_reco
     __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g = 0;
     // Body
     vlSelfRef.__Vdly__tb_fifo_recode__DOT__writes = vlSelfRef.tb_fifo_recode__DOT__writes;
-    vlSelfRef.__VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0 = 0U;
-    vlSelfRef.__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 = 0U;
+    vlSelfRef.__VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0 = 0U;
+    vlSelfRef.__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0 = 0U;
     if (vlSelfRef.tb_fifo_recode__DOT__wrst) {
         vlSelfRef.__Vdly__tb_fifo_recode__DOT__writes = 0U;
     } else {
@@ -246,20 +246,20 @@ VL_INLINE_OPT void Vtb_fifo_recode___024root___nba_sequent__TOP__0(Vtb_fifo_reco
     }
     if (((IData)(vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__push) 
          & (~ (IData)(vlSelfRef.tb_fifo_recode__DOT__wrst)))) {
-        vlSelfRef.__VdlyVal__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0 
+        vlSelfRef.__VdlyVal__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0 
             = vlSelfRef.tb_fifo_recode__DOT__input_data;
-        vlSelfRef.__VdlyDim0__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0 
+        vlSelfRef.__VdlyDim0__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0 
             = (0x7ffU & (IData)(vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__wp));
-        vlSelfRef.__VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0 = 1U;
+        vlSelfRef.__VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0 = 1U;
     }
     if (((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__push) 
          & (~ (IData)(vlSelfRef.tb_fifo_recode__DOT__wrst)))) {
-        vlSelfRef.__VdlyVal__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 
+        vlSelfRef.__VdlyVal__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0 
             = (vlSelfRef.tb_fifo_recode__DOT__input_data 
                ^ (- (IData)((1U & (IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wp)))));
-        vlSelfRef.__VdlyDim0__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 
+        vlSelfRef.__VdlyDim0__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0 
             = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__write_addr;
-        vlSelfRef.__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 = 1U;
+        vlSelfRef.__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0 = 1U;
     }
     if (vlSelfRef.tb_fifo_recode__DOT__wrst) {
         vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rg2 = 0U;
@@ -582,11 +582,11 @@ VL_INLINE_OPT void Vtb_fifo_recode___024root___nba_sequent__TOP__1(Vtb_fifo_reco
             = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wgray;
     }
     vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rdata_raw 
-        = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__mem
+        = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem
         [vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__read_addr];
     vlSelfRef.tb_fifo_recode__DOT__reads = __Vdly__tb_fifo_recode__DOT__reads;
     vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rdata_raw 
-        = vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__mem
+        = vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem
         [(0x7ffU & (IData)(vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rn))];
     vlSelfRef.tb_fifo_recode__DOT__data1 = (vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rdata_raw 
                                             ^ (- (IData)(

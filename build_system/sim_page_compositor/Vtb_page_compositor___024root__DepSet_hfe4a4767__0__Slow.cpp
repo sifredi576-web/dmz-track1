@@ -249,6 +249,8 @@ VL_ATTR_COLD void Vtb_page_compositor___024root___ctor_var_reset(Vtb_page_compos
     vlSelf->tb_page_compositor__DOT__dut__DOT__address = VL_RAND_RESET_I(18);
     vlSelf->tb_page_compositor__DOT__dut__DOT__previous_addr = VL_RAND_RESET_I(18);
     VL_RAND_RESET_W(256, vlSelf->tb_page_compositor__DOT__dut__DOT__buffer);
+    vlSelf->tb_page_compositor__DOT__dut__DOT__pixel_write_mask = VL_RAND_RESET_I(16);
+    vlSelf->tb_page_compositor__DOT__dut__DOT__pixel_write_data = VL_RAND_RESET_I(16);
     vlSelf->tb_page_compositor__DOT__dut__DOT__p = VL_RAND_RESET_I(4);
     vlSelf->tb_page_compositor__DOT__dut__DOT__row_offset = VL_RAND_RESET_I(16);
     vlSelf->tb_page_compositor__DOT__dut__DOT__wx = VL_RAND_RESET_I(10);

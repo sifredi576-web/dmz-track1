@@ -18,7 +18,7 @@ Vtb_scaler__Syms::Vtb_scaler__Syms(VerilatedContext* contextp, const char* namep
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(458);
+        Verilated::stackCheck(482);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
     _vm_contextp__->timeprecision(-12);

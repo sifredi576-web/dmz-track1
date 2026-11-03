@@ -149,13 +149,13 @@ VL_INLINE_OPT void Vtb_fifo_recode___024root___nba_sequent__TOP__4(Vtb_fifo_reco
     __Vfunc_tb_fifo_recode__DOT__expected__0__i = 0;
     // Body
     vlSelfRef.tb_fifo_recode__DOT__writes = vlSelfRef.__Vdly__tb_fifo_recode__DOT__writes;
-    if (vlSelfRef.__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0) {
-        vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__mem[vlSelfRef.__VdlyDim0__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0] 
-            = vlSelfRef.__VdlyVal__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0;
+    if (vlSelfRef.__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0) {
+        vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem[vlSelfRef.__VdlyDim0__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0] 
+            = vlSelfRef.__VdlyVal__tb_fifo_recode__DOT__recoded_fifo__DOT__ram32__DOT__mem__v0;
     }
-    if (vlSelfRef.__VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0) {
-        vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__mem[vlSelfRef.__VdlyDim0__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0] 
-            = vlSelfRef.__VdlyVal__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0;
+    if (vlSelfRef.__VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0) {
+        vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem[vlSelfRef.__VdlyDim0__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0] 
+            = vlSelfRef.__VdlyVal__tb_fifo_recode__DOT__reference_fifo__DOT__ram9__DOT__mem__v0;
     }
     __Vfunc_tb_fifo_recode__DOT__expected__0__i = vlSelfRef.tb_fifo_recode__DOT__writes;
     __Vfunc_tb_fifo_recode__DOT__expected__0__Vfuncout 

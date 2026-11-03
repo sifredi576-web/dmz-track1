@@ -68,9 +68,9 @@ VL_INLINE_OPT void Vtb_wipe___024root___act_comb__TOP__0(Vtb_wipe___024root* vlS
                                         ((~ (IData)(vlSelfRef.tb_wipe__DOT__front)) 
                                          << 0x12U)));
     vlSelfRef.tb_wipe__DOT__req = ((~ (IData)(vlSelfRef.tb_wipe__DOT__fault)) 
-                                   & ((0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state)) 
-                                      & ((0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__flush)) 
-                                         & ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__frame_pending)) 
+                                   & ((0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__flush)) 
+                                      & ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__frame_pending)) 
+                                         & ((0U == (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__state)) 
                                             & ((IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__video_req) 
                                                | ((~ (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__back_ready)) 
                                                   & (IData)(vlSelfRef.tb_wipe__DOT__lv)))))));

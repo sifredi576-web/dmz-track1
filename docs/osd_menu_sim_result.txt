@@ -1,2 +1,2 @@
 PASS menu indexed BMP/WAV, wrap, empty/stale guards, OSD raster/font/borders/blanking and closed transparency
-- sim/system\tb_osd_menu.sv:97: Verilog $finish
+- sim/system\tb_osd_menu.sv:100: Verilog $finish

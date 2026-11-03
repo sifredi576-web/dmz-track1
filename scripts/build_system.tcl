@@ -40,8 +40,9 @@ add_files ../rtl/system/dmz_matrix_keys.sv
 add_files ../rtl/system/dmz_board_commands.sv
 add_files ../rtl/system/dmz_file_menu.sv
 add_files ../rtl/system/dmz_osd.sv
-add_files ../rtl/system/dmz_status_panel.sv
+add_files ../rtl/system/dmz_top_ticker.sv
 add_files ../rtl/system/dmz_trigger_button.sv
+add_files ../rtl/system/dmz_status_panel.sv
 add_files ../rtl/system/dmz_scene_control.sv
 add_files ../rtl/system/dmz_audio_visual.sv
 add_files ../rtl/system/dmz_display_control.sv
@@ -69,9 +70,9 @@ add_files ../constraints/dmz_p3.sdc
 # Compact neighbour table reduces pressure; use default physical parameters.
 # Revert prior experimental congestion knobs for reproducible normal routing.
 non_default_params -revert -run phy_1
-set_param place seed 14 -run phy_1
+set_param place seed 11 -run phy_1
 set_param flow thread 1 -run phy_1
-set_param route effort high -run phy_1
+set_param route effort routability -run phy_1
 set_param place fix_hold on -run phy_1
 set_param place effort high -run phy_1
 set_param route swap_pin off -run phy_1
@@ -80,6 +81,10 @@ wait_run syn_1 -quiet
 wait_run phy_1 -quiet
 close_project
 exit
+
+
+
+
 
 
 

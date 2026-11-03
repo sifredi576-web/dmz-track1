@@ -4,6 +4,13 @@ reg clk=0;always #5 clk=~clk;
 reg reset=1,frame=0,es=0,hide=0,cv=0,ce=0,en=1;reg [7:0] cmd=0;
 reg [15:0] left=0,right=0;reg [9:0] x=70,y=264;
 wire emergency,visible,alarm,ink,shade;wire [23:0] color;wire [4:0] ll,rr,pl,pr;
+integer reference_tick=0;
+always @(posedge clk)begin
+ if(reset||!emergency||reference_tick==7)reference_tick<=0;
+ else reference_tick<=reference_tick+1;
+end
+always @(negedge clk)if(!reset&&alarm!==(emergency&&(reference_tick<4)))
+ $fatal(1,"alert phase differs from original timer comparison");
 dmz_scene_control #(.HALF_SECOND(4)) scene(.clk(clk),.reset(reset),.frame_tick(frame),.emergency_switch(es),.visual_hide_switch(hide),
  .command_valid(cv),.command_byte(cmd),.emergency(emergency),.visual_enabled(visible),.alert_on(alarm));
 dmz_audio_visual #(.PIPELINED(PIPELINED)) visual(.clk(clk),.reset(reset),.sample_ce(ce),.frame_tick(frame),.enabled(en),.left(left),.right(right),.x(x),.y(y),

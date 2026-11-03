@@ -20,7 +20,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_ui_keys___024root final : public Verilate
     CData/*0:0*/ tb_ui_keys__DOT__kv;
     CData/*0:0*/ tb_ui_keys__DOT__menu;
     CData/*0:0*/ tb_ui_keys__DOT__active;
-    CData/*0:0*/ tb_ui_keys__DOT__paused;
     CData/*0:0*/ tb_ui_keys__DOT__muted;
     CData/*0:0*/ tb_ui_keys__DOT__uv;
     CData/*3:0*/ tb_ui_keys__DOT__key;

@@ -1,0 +1,16 @@
+{
+  "board_test.json": "6e27935c3bf72bfe52227f6432292c5466da997181da89e39463ef32d66007ad",
+  "build_inputs.json": "28cf1e71adbfb6b2f7be8ad10ed1b2c5a165a2948fa57ed7b8d9a2b175cb729a",
+  "build_log.txt": "c5070cc35a97d509b2c5597cfb387cf4657e86b1a0fa4670f7e1afb68d27d0fe",
+  "button_equivalence.txt": "7557df7948a944b5c89e79ebb564c4b8c883f4e869f2ac69f81987f9b77cc907",
+  "dmz_track1.bit": "e79658252c3955b0948917c324eed1c176b85e6bb52d14e853cfa7a092c01313",
+  "download_log.txt": "d815705501810738534a8cc07585f62d5365b8c0e6c1e4991214be2165321b10",
+  "osd_sim_result.txt": "d3a3ca34923c71046e7f2ed10043fdc3ced49f6c0e546fb5fab21ae6054fd1e6",
+  "resources.rpt": "4f88425f55b788618ac3a9a4dc83d265223edee014e66df8388eb8619bf6cf60",
+  "source.zip": "e6fa0af3c006282989f5b880226518711bce7bfb6fef9fb9775fa5223e0b24ef",
+  "SUBTITLE_DESIGN.md": "5e41be629aaa07842fbd0f646c56fdfe78ac0247acb8f9988cf311672929b77d",
+  "ticker_sim_result.txt": "28dab746e5916d51e4d752bdae307f3c542cc1fa5cd44ae1ac9db25a76b7b978",
+  "timing.rpt": "d1830e794a08d54daed5231da7141efb2267dbb4cdf3a6e9dc87274726d02f8d",
+  "top_ticker_strip.png": "18adc0afe0f2e306358b9b3e0e2e6cdb935f2d4332dfc6aecb0e906c0d68317f",
+  "validation.json": "29c526955781143b6b3a34c53aafc6e672d429f5b23709be2159850b323399da"
+}

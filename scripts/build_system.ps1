@@ -43,7 +43,8 @@ try {
   # constant propagation. These exact reviewed objects are not runtime inputs.
   ($_ -notmatch "net 'read_data\[255\]'.*dmz_sdram_bist\.sv") -and
   ($_ -notmatch "net '(text_rom|font_rom)'.*dmz_osd\.sv") -and
-  ($_ -notmatch "net 'font_rom'.*dmz_status_panel\.sv")
+  ($_ -notmatch "net 'font_rom'.*dmz_status_panel\.sv") -and
+  ($_ -notmatch "net 'font_rom'.*dmz_top_ticker\.sv")
  }
  if($badNets){throw ('Undeclared or undriven HDL net: '+($badNets -join '; '))}
  # Known hard-macro relocation and single-destination internal clock pad warnings.

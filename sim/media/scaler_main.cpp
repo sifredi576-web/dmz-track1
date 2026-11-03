@@ -8,7 +8,7 @@ int main(int argc, char** argv) {
     // Return failures to the runner; avoid a Windows CRT abort dialog on $fatal.
     context->fatalOnError(false);
     auto top = std::make_unique<Vtb_scaler>(context.get(), "");
-    while (!context->gotFinish()) {
+    while (!context->gotFinish() && !context->gotError()) {
         top->eval();
         if (!top->eventsPending()) break;
         context->time(top->nextTimeSlot());

@@ -1,0 +1,18 @@
+AUTO PAGE 0
+PAGE 0 score=0 focus=0
+AUTO PAGE 1
+AUTO PAGE 2
+AUTO PAGE 3
+AUTO PAGE 4
+AUTO PAGE 5
+AUTO PAGE 6
+PAGE 6 score=0 focus=0
+AUTO PAGE 7
+PAGE 7 score=0 focus=0
+AUTO PAGE 8
+AUTO PAGE 9
+AUTO PAGE 10
+PAGE 10 score=0 focus=0
+AUTO PAGE 0
+PASS real 19-page package: boot autoplay, three native-size pictures, full automatic chain, KEY2 hold/resume, stale audio ticket, menu suppression, quiz wait and Home restart
+- sim/platform\tb_scaling_course.sv:252: Verilog $finish

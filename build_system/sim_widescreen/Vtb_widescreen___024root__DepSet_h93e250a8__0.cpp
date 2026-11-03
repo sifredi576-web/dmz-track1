@@ -13,14 +13,14 @@ VL_INLINE_OPT VlCoroutine Vtb_widescreen___024root___eval_initial__TOP__Vtiming_
     // Body
     co_await vlSelfRef.__VdlySched.delay(0x30d40ULL, 
                                          nullptr, "sim/system\tb_widescreen.sv", 
-                                         62);
+                                         63);
     vlSelfRef.tb_widescreen__DOT__reset = 0U;
     co_await vlSelfRef.__VdlySched.delay(0x2e90edd000ULL, 
                                          nullptr, "sim/system\tb_widescreen.sv", 
-                                         62);
-    VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:62: Assertion failed in %Ntb_widescreen: wide test timeout\n",0,
+                                         63);
+    VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:63: Assertion failed in %Ntb_widescreen: wide test timeout\n",0,
                  64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
-    VL_STOP_MT("sim/system\\tb_widescreen.sv", 62, "", false);
+    VL_STOP_MT("sim/system\\tb_widescreen.sv", 63, "", false);
 }
 
 VlCoroutine Vtb_widescreen___024root___eval_initial__TOP__Vtiming__3____Vfork_1__1(Vtb_widescreen___024root* vlSelf);
@@ -348,7 +348,7 @@ VL_INLINE_OPT void Vtb_widescreen___024root___nba_sequent__TOP__0(Vtb_widescreen
     __Vdly__tb_widescreen__DOT__sy = 0;
     CData/*1:0*/ __Vdly__tb_widescreen__DOT__mapper__DOT__vy;
     __Vdly__tb_widescreen__DOT__mapper__DOT__vy = 0;
-    IData/*25:0*/ __Vdly__tb_widescreen__DOT__audio__DOT__accumulator;
+    IData/*26:0*/ __Vdly__tb_widescreen__DOT__audio__DOT__accumulator;
     __Vdly__tb_widescreen__DOT__audio__DOT__accumulator = 0;
     CData/*5:0*/ __Vdly__tb_widescreen__DOT__audio__DOT__phase;
     __Vdly__tb_widescreen__DOT__audio__DOT__phase = 0;
@@ -368,14 +368,14 @@ VL_INLINE_OPT void Vtb_widescreen___024root___nba_sequent__TOP__0(Vtb_widescreen
                                                 + vlSelfRef.tb_widescreen__DOT__cycles);
         if (vlSelfRef.tb_widescreen__DOT__sample_ce) {
             if (VL_UNLIKELY(((((0U != vlSelfRef.tb_widescreen__DOT__last_sample) 
-                               & (0x30dU != (vlSelfRef.tb_widescreen__DOT__cycles 
+                               & (0x61aU != (vlSelfRef.tb_widescreen__DOT__cycles 
                                              - vlSelfRef.tb_widescreen__DOT__last_sample))) 
-                              & (0x30eU != (vlSelfRef.tb_widescreen__DOT__cycles 
+                              & (0x61bU != (vlSelfRef.tb_widescreen__DOT__cycles 
                                             - vlSelfRef.tb_widescreen__DOT__last_sample)))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:41: Assertion failed in %Ntb_widescreen: 48kHz spacing\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:42: Assertion failed in %Ntb_widescreen: 48kHz spacing\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/system\\tb_widescreen.sv", 41, "", false);
+                VL_STOP_MT("sim/system\\tb_widescreen.sv", 42, "", false);
             }
             vlSelfRef.tb_widescreen__DOT__samples = 
                 ((IData)(1U) + vlSelfRef.tb_widescreen__DOT__samples);
@@ -390,14 +390,14 @@ VL_INLINE_OPT void Vtb_widescreen___024root___nba_sequent__TOP__0(Vtb_widescreen
                               | ((IData)(vlSelfRef.tb_widescreen__DOT__sy) 
                                  != VL_DIV_III(32, 
                                                VL_SHIFTL_III(32,32,32, (IData)(vlSelfRef.tb_widescreen__DOT__y), 1U), (IData)(3U))))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:45: Assertion failed in %Ntb_widescreen: mapper x=%0# y=%0# sx=%0# sy=%0#\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:46: Assertion failed in %Ntb_widescreen: mapper x=%0# y=%0# sx=%0# sy=%0#\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name(),11,
                              (IData)(vlSelfRef.tb_widescreen__DOT__x),
                              10,vlSelfRef.tb_widescreen__DOT__y,
                              10,(IData)(vlSelfRef.tb_widescreen__DOT__sx),
                              10,vlSelfRef.tb_widescreen__DOT__sy);
-                VL_STOP_MT("sim/system\\tb_widescreen.sv", 45, "", false);
+                VL_STOP_MT("sim/system\\tb_widescreen.sv", 46, "", false);
             }
             if (VL_UNLIKELY((((0x45dU > (IData)(vlSelfRef.tb_widescreen__DOT__x)) 
                               & (((0x3ffU & ((IData)(vlSelfRef.tb_widescreen__DOT__sx) 
@@ -415,22 +415,22 @@ VL_INLINE_OPT void Vtb_widescreen___024root___nba_sequent__TOP__0(Vtb_widescreen
                                                   VL_SHIFTL_III(32,32,32, 
                                                                 ((IData)(vlSelfRef.tb_widescreen__DOT__x) 
                                                                  - (IData)(0x9dU)), 1U), (IData)(3U)))))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:46: Assertion failed in %Ntb_widescreen: lookahead mapping\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:47: Assertion failed in %Ntb_widescreen: lookahead mapping\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/system\\tb_widescreen.sv", 46, "", false);
+                VL_STOP_MT("sim/system\\tb_widescreen.sv", 47, "", false);
             }
             if ((IData)((((IData)(vlSelfRef.tb_widescreen__DOT__dv) 
                           >> 1U) & (~ ((IData)(vlSelfRef.tb_widescreen__DOT__fr) 
                                        >> 2U))))) {
                 if (VL_UNLIKELY((vlSelfRef.tb_widescreen__DOT__empty))) {
-                    VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:48: Assertion failed in %Ntb_widescreen: wide FIFO underrun x=%0# y=%0# reads=%0#\n",0,
+                    VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:49: Assertion failed in %Ntb_widescreen: wide FIFO underrun x=%0# y=%0# reads=%0#\n",0,
                                  64,VL_TIME_UNITED_Q(1000),
                                  -9,vlSymsp->name(),
                                  11,(IData)(vlSelfRef.tb_widescreen__DOT__x),
                                  10,vlSelfRef.tb_widescreen__DOT__y,
                                  32,vlSelfRef.tb_widescreen__DOT__reads);
-                    VL_STOP_MT("sim/system\\tb_widescreen.sv", 48, "", false);
+                    VL_STOP_MT("sim/system\\tb_widescreen.sv", 49, "", false);
                 }
                 vlSelfRef.tb_widescreen__DOT__pixels 
                     = ((IData)(1U) + vlSelfRef.tb_widescreen__DOT__pixels);
@@ -449,7 +449,7 @@ VL_INLINE_OPT void Vtb_widescreen___024root___nba_sequent__TOP__0(Vtb_widescreen
                                                & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__2__row) 
                                                   + __Vfunc_tb_widescreen__DOT__pixel__2__col));
                                     }(), (IData)(__Vfunc_tb_widescreen__DOT__pixel__2__Vfuncout)))))) {
-                    VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:49: Assertion failed in %Ntb_widescreen: wide pixel x=%0# y=%0# sx=%0# sy=%0# actual=%x expected=%x\n",0,
+                    VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:50: Assertion failed in %Ntb_widescreen: wide pixel x=%0# y=%0# sx=%0# sy=%0# actual=%x expected=%x\n",0,
                                  64,VL_TIME_UNITED_Q(1000),
                                  -9,vlSymsp->name(),
                                  11,(IData)(vlSelfRef.tb_widescreen__DOT__x),
@@ -467,7 +467,7 @@ VL_INLINE_OPT void Vtb_widescreen___024root___nba_sequent__TOP__0(Vtb_widescreen
                                            & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__3__row) 
                                               + __Vfunc_tb_widescreen__DOT__pixel__3__col));
                                 }(), (IData)(__Vfunc_tb_widescreen__DOT__pixel__3__Vfuncout)));
-                    VL_STOP_MT("sim/system\\tb_widescreen.sv", 49, "", false);
+                    VL_STOP_MT("sim/system\\tb_widescreen.sv", 50, "", false);
                 }
             }
         }
@@ -481,25 +481,25 @@ VL_INLINE_OPT void Vtb_widescreen___024root___nba_sequent__TOP__0(Vtb_widescreen
                                != VL_MULS_III(32, (IData)(0xa8c00U), vlSelfRef.tb_widescreen__DOT__frames)) 
                               | (vlSelfRef.tb_widescreen__DOT__pops 
                                  != VL_MULS_III(32, (IData)(0x38400U), vlSelfRef.tb_widescreen__DOT__frames)))))) {
-                VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:55: Assertion failed in %Ntb_widescreen: frame size mismatch\n",0,
+                VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:56: Assertion failed in %Ntb_widescreen: frame size mismatch\n",0,
                              64,VL_TIME_UNITED_Q(1000),
                              -9,vlSymsp->name());
-                VL_STOP_MT("sim/system\\tb_widescreen.sv", 55, "", false);
+                VL_STOP_MT("sim/system\\tb_widescreen.sv", 56, "", false);
             }
             if (VL_UNLIKELY(((2U == vlSelfRef.tb_widescreen__DOT__frames)))) {
                 if (VL_UNLIKELY(((((IData)(vlSelfRef.tb_widescreen__DOT__fault) 
                                    | (0x64U > vlSelfRef.tb_widescreen__DOT__refreshes)) 
                                   | VL_GTS_III(32, 0x3e8U, vlSelfRef.tb_widescreen__DOT__samples))))) {
-                    VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:57: Assertion failed in %Ntb_widescreen: refresh/audio coverage missing\n",0,
+                    VL_WRITEF_NX("[%0t] %%Fatal: tb_widescreen.sv:58: Assertion failed in %Ntb_widescreen: refresh/audio coverage missing\n",0,
                                  64,VL_TIME_UNITED_Q(1000),
                                  -9,vlSymsp->name());
-                    VL_STOP_MT("sim/system\\tb_widescreen.sv", 57, "", false);
+                    VL_STOP_MT("sim/system\\tb_widescreen.sv", 58, "", false);
                 }
                 VL_WRITEF_NX("PASS widescreen: %0d pixels, %0d packed pairs, two 1280x720 frames; actual SDRAM refresh + FIFO no underrun; 48kHz samples=%0d\n",0,
                              32,vlSelfRef.tb_widescreen__DOT__pixels,
                              32,vlSelfRef.tb_widescreen__DOT__pops,
                              32,vlSelfRef.tb_widescreen__DOT__samples);
-                VL_FINISH_MT("sim/system\\tb_widescreen.sv", 58, "");
+                VL_FINISH_MT("sim/system\\tb_widescreen.sv", 59, "");
             }
         }
     }
@@ -567,10 +567,10 @@ VL_INLINE_OPT void Vtb_widescreen___024root___nba_sequent__TOP__0(Vtb_widescreen
                 = (1U & (~ (IData)(vlSelfRef.tb_widescreen__DOT__ft)));
         }
         vlSelfRef.tb_widescreen__DOT__sample_ce = 0U;
-        if ((0x23b78e0U <= vlSelfRef.tb_widescreen__DOT__audio__DOT__accumulator)) {
+        if ((0x477ad40U <= vlSelfRef.tb_widescreen__DOT__audio__DOT__accumulator)) {
             __Vdly__tb_widescreen__DOT__audio__DOT__accumulator 
-                = (0x3ffffffU & (vlSelfRef.tb_widescreen__DOT__audio__DOT__accumulator 
-                                 - (IData)(0x23b78e0U)));
+                = (0x7ffffffU & (vlSelfRef.tb_widescreen__DOT__audio__DOT__accumulator 
+                                 - (IData)(0x477ad40U)));
             __Vfunc_tb_widescreen__DOT__audio__DOT__sine__7__index 
                 = vlSelfRef.tb_widescreen__DOT__audio__DOT__phase;
             vlSelfRef.tb_widescreen__DOT__sample_ce = 1U;
@@ -579,10 +579,11 @@ VL_INLINE_OPT void Vtb_widescreen___024root___nba_sequent__TOP__0(Vtb_widescreen
                     ? 0U : (0x3fU & ((IData)(1U) + (IData)(vlSelfRef.tb_widescreen__DOT__audio__DOT__phase))));
         } else {
             __Vdly__tb_widescreen__DOT__audio__DOT__accumulator 
-                = (0x3ffffffU & ((IData)(0xbb80U) + vlSelfRef.tb_widescreen__DOT__audio__DOT__accumulator));
+                = (0x7ffffffU & ((IData)(0xbb80U) + vlSelfRef.tb_widescreen__DOT__audio__DOT__accumulator));
         }
     }
-    vlSelfRef.tb_widescreen__DOT__fo = vlSelfRef.tb_widescreen__DOT__fifo__DOT__mem
+    vlSelfRef.tb_widescreen__DOT__fifo__DOT__rdata_raw 
+        = vlSelfRef.tb_widescreen__DOT__fifo__DOT__ram9__DOT__mem
         [vlSelfRef.tb_widescreen__DOT__fifo__DOT__read_addr];
     if ((4U & (IData)(vlSelfRef.tb_widescreen__DOT__fr))) {
         vlSelfRef.tb_widescreen__DOT__fifo__DOT__rp = 0U;
@@ -610,9 +611,9 @@ VL_INLINE_OPT void Vtb_widescreen___024root___nba_sequent__TOP__0(Vtb_widescreen
     vlSelfRef.tb_widescreen__DOT__actual = (0xffffU 
                                             & ((1U 
                                                 & (IData)(vlSelfRef.tb_widescreen__DOT__sx))
-                                                ? (vlSelfRef.tb_widescreen__DOT__fo 
+                                                ? (vlSelfRef.tb_widescreen__DOT__fifo__DOT__rdata_raw 
                                                    >> 0x10U)
-                                                : vlSelfRef.tb_widescreen__DOT__fo));
+                                                : vlSelfRef.tb_widescreen__DOT__fifo__DOT__rdata_raw));
     vlSelfRef.tb_widescreen__DOT__audio__DOT__accumulator 
         = __Vdly__tb_widescreen__DOT__audio__DOT__accumulator;
     vlSelfRef.tb_widescreen__DOT__audio__DOT__phase 

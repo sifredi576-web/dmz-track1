@@ -12,23 +12,23 @@
                        sim/media\tb_scaler.sv:2:8: ... Location of module with timescale
     2 | module tb_scaler;
       |        ^~~~~~~~~
-%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:106:52: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'draw_w' generates 10 bits.
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:110:52: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'draw_w' generates 10 bits.
                                                          : ... note: In instance 'tb_scaler.dut'
-  106 |   X_STEP:if(x_error>=draw_w) begin x_error<=x_error-draw_w;sample_x<=sample_x+1'b1;end else state<=FETCH;
+  110 |   X_STEP:if(x_error>=draw_w) begin x_error<=x_error-draw_w;sample_x<=sample_x+1'b1;end else state<=FETCH;
       |                                                    ^
                       ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
                       ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
-%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:106:20: Operator GTE expects 12 bits on the RHS, but RHS's VARREF 'draw_w' generates 10 bits.
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:110:20: Operator GTE expects 12 bits on the RHS, but RHS's VARREF 'draw_w' generates 10 bits.
                                                          : ... note: In instance 'tb_scaler.dut'
-  106 |   X_STEP:if(x_error>=draw_w) begin x_error<=x_error-draw_w;sample_x<=sample_x+1'b1;end else state<=FETCH;
+  110 |   X_STEP:if(x_error>=draw_w) begin x_error<=x_error-draw_w;sample_x<=sample_x+1'b1;end else state<=FETCH;
       |                    ^~
-%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:123:52: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:127:52: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
                                                          : ... note: In instance 'tb_scaler.dut'
-  123 |   Y_STEP:if(y_error>=draw_h) begin y_error<=y_error-draw_h;wanted_y<=wanted_y+1'b1;end
+  127 |   Y_STEP:if(y_error>=draw_h) begin y_error<=y_error-draw_h;wanted_y<=wanted_y+1'b1;end
       |                                                    ^
-%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:123:20: Operator GTE expects 12 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:127:20: Operator GTE expects 12 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
                                                          : ... note: In instance 'tb_scaler.dut'
-  123 |   Y_STEP:if(y_error>=draw_h) begin y_error<=y_error-draw_h;wanted_y<=wanted_y+1'b1;end
+  127 |   Y_STEP:if(y_error>=draw_h) begin y_error<=y_error-draw_h;wanted_y<=wanted_y+1'b1;end
       |                    ^~
 %Warning-WIDTHTRUNC: sim/media\tb_scaler.sv:14:7: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'top' generates 32 bits.
                                                 : ... note: In instance 'tb_scaler'
@@ -69,5 +69,5 @@
    44 |  lx=(640-dw)/2;py0=top?(480-dh)/2:480-dh-(480-dh)/2;
       |                       ^
 - V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
-- Verilator: Built from 0.065 MB sources in 4 modules, into 0.227 MB in 8 C++ files needing 0.000 MB
-- Verilator: Walltime 0.045 s (elab=0.002, cvt=0.015, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.629 MB
+- Verilator: Built from 0.066 MB sources in 4 modules, into 0.229 MB in 8 C++ files needing 0.000 MB
+- Verilator: Walltime 0.059 s (elab=0.000, cvt=0.025, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.527 MB

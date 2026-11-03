@@ -1,6 +1,6 @@
 {
   "title": "声音与音色",
-  "entry": "WAIT01",
+  "entry": "WIDE01",
   "resources": [
     {
       "id": "ALERT",
@@ -246,9 +246,141 @@
       "id": "QUIZ03_D",
       "kind": "sprite",
       "source": "ui/labels/QUIZ03_D.png"
+    },
+    {
+      "id": "WIDE01",
+      "kind": "bmp",
+      "source": "scaling_demo/WIDE01.BMP"
+    },
+    {
+      "id": "TALL01",
+      "kind": "bmp",
+      "source": "scaling_demo/TALL01.BMP"
+    },
+    {
+      "id": "SMALL01",
+      "kind": "bmp",
+      "source": "scaling_demo/SMALL01.BMP"
+    },
+    {
+      "id": "SCL_BASE",
+      "kind": "sprite",
+      "source": "scaling_demo/ui/SCL_BASE.png"
+    },
+    {
+      "id": "SCL_PREV",
+      "kind": "sprite",
+      "source": "scaling_demo/ui/SCL_PREV.png"
+    },
+    {
+      "id": "SCL_NEXT",
+      "kind": "sprite",
+      "source": "scaling_demo/ui/SCL_NEXT.png"
     }
   ],
   "pages": [
+    {
+      "id": "WIDE01",
+      "background": "WIDE01",
+      "auto_target": "TALL01",
+      "dwell_ms": 7000,
+      "auto_optional": true,
+      "back": "WIDE01",
+      "widgets": [
+        {
+          "label": "SCL_PREV",
+          "base": "SCL_BASE",
+          "rect": [
+            24,
+            424,
+            112,
+            32
+          ],
+          "action": "goto",
+          "target": "WIDE01"
+        },
+        {
+          "label": "SCL_NEXT",
+          "base": "SCL_BASE",
+          "rect": [
+            504,
+            424,
+            112,
+            32
+          ],
+          "action": "goto",
+          "target": "TALL01"
+        }
+      ]
+    },
+    {
+      "id": "TALL01",
+      "background": "TALL01",
+      "auto_target": "SMALL01",
+      "dwell_ms": 7000,
+      "auto_optional": true,
+      "back": "WIDE01",
+      "widgets": [
+        {
+          "label": "SCL_PREV",
+          "base": "SCL_BASE",
+          "rect": [
+            24,
+            424,
+            112,
+            32
+          ],
+          "action": "goto",
+          "target": "WIDE01"
+        },
+        {
+          "label": "SCL_NEXT",
+          "base": "SCL_BASE",
+          "rect": [
+            504,
+            424,
+            112,
+            32
+          ],
+          "action": "goto",
+          "target": "SMALL01"
+        }
+      ]
+    },
+    {
+      "id": "SMALL01",
+      "background": "SMALL01",
+      "auto_target": "WAIT01",
+      "dwell_ms": 7000,
+      "auto_optional": true,
+      "back": "TALL01",
+      "widgets": [
+        {
+          "label": "SCL_PREV",
+          "base": "SCL_BASE",
+          "rect": [
+            24,
+            424,
+            112,
+            32
+          ],
+          "action": "goto",
+          "target": "TALL01"
+        },
+        {
+          "label": "SCL_NEXT",
+          "base": "SCL_BASE",
+          "rect": [
+            504,
+            424,
+            112,
+            32
+          ],
+          "action": "goto",
+          "target": "WAIT01"
+        }
+      ]
+    },
     {
       "id": "WAIT01",
       "background": "WAIT01",
@@ -268,7 +400,11 @@
         }
       ],
       "loop": true,
-      "audio": "BGM01"
+      "audio": "BGM01",
+      "auto_target": "WAIT02",
+      "auto_optional": true,
+      "dwell_ms": 4000,
+      "back": "SMALL01"
     },
     {
       "id": "WAIT02",
@@ -288,7 +424,10 @@
           "target": "COURSE"
         }
       ],
-      "back": "WAIT01"
+      "back": "WAIT01",
+      "auto_target": "COURSE",
+      "auto_optional": true,
+      "dwell_ms": 4000
     },
     {
       "id": "COURSE",
@@ -333,7 +472,10 @@
           "arg": 0
         }
       ],
-      "back": "WAIT02"
+      "back": "WAIT02",
+      "auto_target": "LESSON01",
+      "auto_optional": true,
+      "dwell_ms": 2000
     },
     {
       "id": "LESSON01",
@@ -380,7 +522,10 @@
         }
       ],
       "audio": "LECT01",
-      "back": "COURSE"
+      "back": "COURSE",
+      "auto_target": "LESSON02",
+      "auto_optional": true,
+      "loop": false
     },
     {
       "id": "LESSON02",
@@ -427,7 +572,10 @@
         }
       ],
       "audio": "LECT02",
-      "back": "LESSON01"
+      "back": "LESSON01",
+      "auto_target": "LESSON03",
+      "auto_optional": true,
+      "loop": false
     },
     {
       "id": "LESSON03",
@@ -474,7 +622,10 @@
         }
       ],
       "audio": "LECT03",
-      "back": "LESSON02"
+      "back": "LESSON02",
+      "auto_target": "OBSERVE",
+      "auto_optional": true,
+      "loop": false
     },
     {
       "id": "OBSERVE",
@@ -546,7 +697,11 @@
         }
       ],
       "visual": true,
-      "back": "LESSON03"
+      "back": "LESSON03",
+      "auto_target": "QUIZ01",
+      "auto_optional": true,
+      "audio": "TONE01",
+      "loop": false
     },
     {
       "id": "QUIZ01",
@@ -666,7 +821,10 @@
           "target": "QUIZ02"
         }
       ],
-      "back": "QUIZ01"
+      "back": "QUIZ01",
+      "auto_target": "QUIZ02",
+      "auto_optional": true,
+      "dwell_ms": 4000
     },
     {
       "id": "QUIZ02",
@@ -786,7 +944,10 @@
           "target": "QUIZ03"
         }
       ],
-      "back": "QUIZ02"
+      "back": "QUIZ02",
+      "auto_target": "QUIZ03",
+      "auto_optional": true,
+      "dwell_ms": 4000
     },
     {
       "id": "QUIZ03",
@@ -906,7 +1067,10 @@
           "target": "RESULT"
         }
       ],
-      "back": "QUIZ03"
+      "back": "QUIZ03",
+      "auto_target": "RESULT",
+      "auto_optional": true,
+      "dwell_ms": 4000
     },
     {
       "id": "RESULT",

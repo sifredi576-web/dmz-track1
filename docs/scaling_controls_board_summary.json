@@ -1,0 +1,242 @@
+{
+  "passed": true,
+  "finished": "2026-11-04T00:20:13.718304+08:00",
+  "port": "COM9",
+  "bit_sha256": "00413304fd8bc92d1dbd98ed5b72c0f747363bb259dff88731a391873af9d811",
+  "page_count_observed": 19,
+  "image_count_observed": 19,
+  "automatic_page_sequence_without_input": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "test_segments": [
+    "scaling_controls_part1.json",
+    "scaling_controls_part2.json",
+    "scaling_controls_part3.json"
+  ],
+  "harness_corrections": [
+    {
+      "issue": "initial volume expectation used maximum 15",
+      "resolution": "RTL specifies 0..8; decrease/increase/restore and upper clamp subsequently passed"
+    },
+    {
+      "issue": "initial global replay expectation used current selected track",
+      "resolution": "documented KEY13 requests page default; repeat-confirm selected voice and KEY13 default-tone selection subsequently passed"
+    }
+  ],
+  "steps": [
+    {
+      "elapsed": 4.8898584,
+      "page": 0,
+      "check": "automatic_page_without_input"
+    },
+    {
+      "elapsed": 12.9456405,
+      "page": 1,
+      "check": "automatic_page_without_input"
+    },
+    {
+      "elapsed": 20.4708749,
+      "page": 2,
+      "check": "automatic_page_without_input"
+    },
+    {
+      "elapsed": 28.5150698,
+      "page": 3,
+      "check": "automatic_page_without_input"
+    },
+    {
+      "elapsed": 34.0456016,
+      "page": 4,
+      "check": "automatic_page_without_input"
+    },
+    {
+      "elapsed": 39.575491,
+      "page": 5,
+      "check": "automatic_page_without_input"
+    },
+    {
+      "elapsed": 42.5918967,
+      "page": 6,
+      "check": "automatic_page_without_input"
+    },
+    {
+      "elapsed": 50.6370408,
+      "page": 7,
+      "check": "automatic_page_without_input"
+    },
+    {
+      "elapsed": 60.1903434,
+      "page": 8,
+      "check": "automatic_page_without_input"
+    },
+    {
+      "elapsed": 69.2389749,
+      "page": 9,
+      "check": "automatic_page_without_input"
+    },
+    {
+      "elapsed": 74.2674902,
+      "page": 10,
+      "check": "automatic_page_without_input"
+    },
+    {
+      "elapsed": 80.3032707,
+      "score": 0,
+      "focus": 0,
+      "page": 10,
+      "check": "boot-to-first-quiz without any injected navigation; quiz waits"
+    },
+    {
+      "elapsed": 81.8090402,
+      "score": 0,
+      "focus": 4,
+      "page": 10,
+      "check": "submit without answer is rejected"
+    },
+    {
+      "elapsed": 90.8581892,
+      "score": 1,
+      "focus": 0,
+      "page": 11,
+      "check": "answer selection, submit, back, answer lock and no duplicate score"
+    },
+    {
+      "elapsed": 100.9154127,
+      "score": 2,
+      "focus": 0,
+      "page": 16,
+      "check": "wrong/correct answers and final result 2/3"
+    },
+    {
+      "elapsed": 104.4337691,
+      "score": 0,
+      "focus": 0,
+      "page": 0,
+      "check": "restart button clears score and returns to first scaling picture"
+    },
+    {
+      "elapsed": 117.5052792,
+      "score": 0,
+      "focus": 0,
+      "page": 0,
+      "check": "open settings menu blocks automatic advance"
+    },
+    {
+      "elapsed": 120.0190122,
+      "score": 0,
+      "focus": 0,
+      "page": 0,
+      "check": "settings cursor and brightness/contrast/default command routing"
+    },
+    {
+      "page": 0,
+      "focus": 0,
+      "elapsed": 2.9420854,
+      "check": "volume up/down and mute/unmute feedback",
+      "score": 0
+    },
+    {
+      "page": 2,
+      "focus": 0,
+      "elapsed": 22.044313,
+      "check": "KEY2 holds over dwell, resumes to next image, audio remains unpaused",
+      "score": 0
+    },
+    {
+      "page": 2,
+      "focus": 0,
+      "elapsed": 30.5919989,
+      "check": "new-image previous/next buttons, focus and Back action",
+      "score": 0
+    },
+    {
+      "page": 2,
+      "focus": 1,
+      "elapsed": 35.1178882,
+      "check": "normal/priority notice and context restoration",
+      "score": 0
+    },
+    {
+      "replay_observability": "confirm repeats selected button; KEY13 requests page default tone; PCM restart position unavailable",
+      "indexes": [
+        3,
+        2,
+        4
+      ],
+      "check": "three_audio_buttons_and_replay"
+    },
+    {
+      "page": 10,
+      "focus": 0,
+      "score": 0,
+      "elapsed": 15.4056697,
+      "check": "final first quiz waits with autoplay enabled and fresh answers"
+    }
+  ],
+  "record_count": 364,
+  "hardware_media_errors": 0,
+  "final_state": {
+    "time": "2026-11-04T00:19:03.0651260+08:00",
+    "elapsed": 15.4041787,
+    "version": 5,
+    "compact": true,
+    "init": true,
+    "bist_done": true,
+    "bist_passed": true,
+    "display_valid": true,
+    "fifo_fault": false,
+    "fb_fault": false,
+    "pll_locked": true,
+    "audio_mode": 1,
+    "tone_muted": false,
+    "audio_paused": false,
+    "volume": 8,
+    "emergency": false,
+    "visual_enabled": true,
+    "choice_valid": false,
+    "quiz": true,
+    "answered": false,
+    "correct": false,
+    "platform_active": true,
+    "page_loading": false,
+    "focus": 0,
+    "current_page": 10,
+    "page_count": 19,
+    "score": 0,
+    "total": 3,
+    "course_autoplay": true,
+    "course_autoplay_paused": false,
+    "page_auto_link": false,
+    "platform_config_error": 0,
+    "notice_priority": 0,
+    "sd_error": 0,
+    "image_error": 0,
+    "wav_error": 0,
+    "command_count": 13,
+    "last_command": 70,
+    "menu_open": false,
+    "image_count": 19,
+    "displayed_image": 0,
+    "wav_count": 7,
+    "selected_wav": 3,
+    "unavailable_counters": [
+      "HDMI packet counters",
+      "FIFO occupancy",
+      "exact sample and sector counters"
+    ]
+  },
+  "physical_key_presses_tested": false,
+  "screen_or_speaker_observed": false,
+  "brightness_contrast_scope": "command routing acknowledged, not numeric/readback or visual effect",
+  "replay_scope": "audio selection/healthy response; compact telemetry has no PCM playback position"
+}

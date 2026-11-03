@@ -38,6 +38,29 @@ class PlatformPackageTests(unittest.TestCase):
                 original = next(x for x in self.scene["resources"] if x["id"] == r["id"])
                 self.assertEqual(self.files[r["file"]], (self.materials/original["source"]).read_bytes())
 
+    def test_course_autoplay_package_preserves_media(self):
+        autoplay_dir = ROOT/"assets/platform/tf_course_autoplay"
+        baseline_dir = ROOT/"assets/platform/tf_course_v2"
+        for name, data in self.files.items():
+            self.assertEqual((autoplay_dir/name).read_bytes(), data)
+            self.assertEqual((baseline_dir/name).read_bytes(), data)
+            if name != "SCENE.BIN":
+                self.assertEqual((autoplay_dir/name).read_bytes(), (baseline_dir/name).read_bytes())
+
+        sim_scene = bytes(int(value, 16) for value in
+                          (ROOT/"sim/platform/course_v2.hex").read_text(encoding="ascii").split())
+        self.assertEqual(sim_scene, self.files["SCENE.BIN"])
+
+        page_base = 32 + 32*len(self.scene["resources"])
+        page_ids = self.info["pages"]
+        for page_index, page in enumerate(self.scene["pages"]):
+            record = self.files["SCENE.BIN"][page_base+32*page_index:page_base+32*(page_index+1)]
+            self.assertEqual(bool(record[3] & 8), page.get("auto_optional", False))
+            target = page.get("auto_target")
+            self.assertEqual(record[4], page_ids[target] if target else 255)
+            if page.get("question", 255) != 255 or page.get("priority", 0):
+                self.assertIsNone(target)
+
     def test_sprite_header_alpha_and_size(self):
         for r in self.info["resources"]:
             if r["kind"] == "sprite":

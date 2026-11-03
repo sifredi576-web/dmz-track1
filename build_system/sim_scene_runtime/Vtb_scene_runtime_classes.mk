@@ -29,6 +29,7 @@ VM_CLASSES_FAST += \
 	Vtb_scene_runtime___024root__DepSet_h88e67e51__0 \
 	Vtb_scene_runtime___024root__DepSet_h88e67e51__1 \
 	Vtb_scene_runtime___024root__DepSet_h88e67e51__2 \
+	Vtb_scene_runtime___024root__DepSet_h88e67e51__3 \
 	Vtb_scene_runtime___024root__DepSet_h0df881e7__0 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization

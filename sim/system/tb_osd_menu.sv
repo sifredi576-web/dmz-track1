@@ -23,6 +23,8 @@ task pixel(input integer px,py);begin @(negedge clk);x=10'(px);y=10'(py);@(posed
 integer fd,px,py;reg [23:0] rgb;
 initial begin
  repeat(4) @(negedge clk);reset=0;swaps=1;repeat(3) @(negedge clk);
+ send("G");repeat(2)@(negedge clk);if(autoplay)$fatal(1,"KEY2 gallery pause");
+ send("G");repeat(2)@(negedge clk);if(!autoplay)$fatal(1,"KEY2 gallery resume");
  send("F");if(!opened||cb!="F") $fatal(1,"Open menu");
  send("I");if(query!=3) $fatal(1,"Previous wrap");
  send("E");if(!opened||cb!="E") $fatal(1,"Stale metadata committed");
@@ -58,6 +60,7 @@ initial begin
   pixel(px,py);
   if(px==2&&py==0&&(!ink||!shade)) $fatal(1,"First glyph/alignment");
   if(px==100&&py==70&&(ink||shade)) $fatal(1,"OSD changed image outside panels");
+  if(px<640&&py>=432&&py<448&&(ink||shade)) $fatal(1,"Obsolete bottom ticker remains visible");
   if(px==64&&py==96&&!shade) $fatal(1,"Menu left edge alignment");
   if(px==63&&py==96&&shade) $fatal(1,"Menu leaked left edge");
   if(px==575&&py==96&&!shade) $fatal(1,"Menu right edge alignment");
@@ -71,7 +74,7 @@ initial begin
  $fclose(fd);
  show_menu=0;pixel(0,480);pixel(798,524);pixel(799,524);
  for(px=0;px<=65;px=px+1) pixel(px,96);
- if(osd.scroll!=3||osd.tm!=24'h012345) $fatal(1,"Scroll/time frame snapshot");
+ if(osd.tm!=24'h012345) $fatal(1,"Time frame snapshot");
  if(shade||ink) $fatal(1,"Closed menu remains visible");
  show_alert=1;pixel(0,480);pixel(798,524);pixel(799,524);
  fd=$fopen("docs/emergency_preview.ppm","w");$fwrite(fd,"P3\n640 480\n255\n");
@@ -98,4 +101,5 @@ initial begin
 end
 initial begin #20000000;$fatal(1,"OSD timeout");end
 endmodule
+
 

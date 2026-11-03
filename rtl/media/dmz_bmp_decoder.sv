@@ -15,7 +15,7 @@ reg [11:0] x_error,y_error;
 reg [1:0] channel,padding,pad_left;reg [7:0] blue,green;
 reg rgba,top_down,width_limited,blank_row,input_finished;
 reg [3:0] burst_pixel;reg [15:0] low_pixel;reg [15:0] row_q;wire [15:0] sample565=inside_x?row_q:16'd0;
-reg [15:0] row_cache[0:2047]; /* fehdl force_ram=1, ram_style="bram" */
+reg [15:0] row_cache[0:2047]; //synthesis ram_style = bram_32k
 // Source and scaled reads share this invertible physical row address map.
 function automatic [10:0] row_addr(input [10:0] a);
  reg [10:0] g;begin g=(a>>1)^a;g[10]=g[10]^g[0];row_addr=g;end

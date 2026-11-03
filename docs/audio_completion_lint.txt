@@ -61,5 +61,5 @@
     2 | module tb_audio_completion;
       |        ^~~~~~~~~~~~~~~~~~~
 - V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
-- Verilator: Built from 0.378 MB sources in 13 modules, into 0.061 MB in 6 C++ files needing 0.000 MB
-- Verilator: Walltime 0.049 s (elab=0.002, cvt=0.006, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.035 MB
+- Verilator: Built from 0.385 MB sources in 13 modules, into 0.061 MB in 6 C++ files needing 0.000 MB
+- Verilator: Walltime 0.034 s (elab=0.011, cvt=0.005, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.352 MB

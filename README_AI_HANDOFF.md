@@ -135,3 +135,18 @@ KEY2仍负责音频暂停/恢复，也会暂停课件自动跳转计时；图库
 用户确认约30.303Hz宽屏候选黑屏，因此该版本仅STA通过，现场显示验收失败，不得标记为稳定宽屏版。正在恢复75MHz/约60.606Hz、AVI VIC4，并增加三拍颜色流水、相应HDMI控制/数据岛对齐、音频寄存与波形插值流水；以最终新报告和用户观察为准。
 
 2026-11-03 用户现场验收通过：宽屏与每页常驻状态栏正常、不遮挡课件。下一项波形触发稳定尚未开始，须先确认执行。
+
+当前继续任务：波形触发稳定与左侧KEY4开关已实现，软件仿真通过，TD布线仍在优化，未上板/未验收。详见docs/WAVE_TRIGGER.md。自动连播/淡入淡出/字幕已获用户授权，但必须等待触发验收通过。
+
+
+## 2026-11-03 触发验收与RAM策略（本节优先于旧进度）
+触发观察版已上板且用户确认“正确”，视觉功能已通过；正式时序仍待收尾，不要再次要求同样的观察验收，也不要将观察bit称为稳定版。最新触发行为及资源见docs/WAVE_TRIGGER.md。
+用户要求尽快收尾，并建议使用空闲BRAM32K。已验证Anlogic ram_style=bram_32k实际生效；当前将音频FIFO与BMP行缓存迁入3块32Kb RAM，综合52/64 BRAM9K、3/16 BRAM32K、16635 LUT。已恢复宽屏时序合格源码基线，仅保留触发与RAM映射调整，视频FIFO恢复2048字。上轮RAM32双FIFO/复杂优化候选布线冲突，源快照releases/trigger_ram32_failed_source_20261103.zip，不可发布。
+本轮scripts/build_system.ps1严格检查布线/最终STA/新bit；通过后download_system.ps1，随后COM9运行test_board_course.ps1必要检查。自动连播、淡入淡出与字幕尚未实现；字幕方案docs/SUBTITLE_DESIGN.md。
+
+
+## 2026-11-03 最终收尾结果（优先级最高）
+正式触发版已经完整构建通过、严格STA通过、下载SRAM成功、COM9完整课件检查通过。setup +0.119ns、hold +0.012ns，无路由冲突；正式归档releases/trigger_stable_20261103。bit SHA256 2c7ce88b27a7f872cb322f873f5ff141655a3e04788600d74860e867fe59014a。
+保留已验收宽屏源码基线，最小接入触发/KEY4左侧按钮，音频FIFO与BMP行缓存映射3块BRAM32K；视频FIFO恢复2048字。根据真实违例对SDRAM写使能做等价寄存化（下一状态预测），将电平条/峰值/区域判断并入现有波形插值流水级，像素总延迟不变；对应真实SDRAM与逐像素仿真通过。详细见docs/WAVE_TRIGGER.md、docs/trigger_validation.json。
+最终物理17106 LUT、9306 REG、52/64 BRAM9K、3/16 BRAM32K、21DSP、2PLL。脚本seed14、4线程、high route/place effort、fix_hold on、swap_pin off，已通过，不要无理由继续换参数。
+用户此前已确认触发ON视觉正确；本轮程序只检查板端状态，不代表新bit现场听音/按键验收。自动连播（KEY2控制、答题页停）、淡入淡出、字幕尚未开发；字幕方案docs/SUBTITLE_DESIGN.md。保持逐项交付，勿重复未受影响基础测试或宣称目标已完成。

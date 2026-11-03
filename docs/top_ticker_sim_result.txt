@@ -1,0 +1,2 @@
+PASS Chinese ticker: full raster, padding, right/left edges, blanking, frame pacing, trailing 18 spaces and complete wrap
+- sim/system\tb_top_ticker.sv:57: Verilog $finish

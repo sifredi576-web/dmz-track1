@@ -469,6 +469,22 @@
                     <Attr Name="CompileOrder" Val="57"/>
                 </FileInfo>
             </File>
+            <File Path="../rtl/system/dmz_trigger_button.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="58"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/system/dmz_top_ticker.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="59"/>
+                </FileInfo>
+            </File>
         </System_Verilog>
         <ADC_FILE>
             <File Path="../constraints/dmz_p3.adc">
@@ -525,9 +541,10 @@
                     <fix_hold>on</fix_hold>
                     <opt_timing>high</opt_timing>
                     <post_place_opt>high</post_place_opt>
-                    <seed>14</seed>
+                    <seed>11</seed>
                 </PlaceProperty>
                 <RouteProperty>
+                    <effort>routability</effort>
                     <swap_pin>off</swap_pin>
                 </RouteProperty>
             </Strategy>
