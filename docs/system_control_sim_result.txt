@@ -1,5 +1,5 @@
 PASS replay preserves mute; serial control/CDC, WAV/tone selection, volume, independent and linked pause/resume, registered restart
 - sim/system\tb_system_control.sv:38: Verilog $finish
 - S i m u l a t i o n   R e p o r t: Verilator 5.036 2025-04-27
-- Verilator: $finish at 2ms; walltime 0.046 s; speed 0.000 s/s
+- Verilator: $finish at 2ms; walltime 0.044 s; speed 0.000 s/s
 - Verilator: cpu 0.000 s on 1 threads; alloced 5 MB

@@ -93,6 +93,7 @@ VL_INLINE_OPT void Vtb_media___024root___act_comb__TOP__0(Vtb_media___024root* v
 }
 
 void Vtb_media___024root___nba_sequent__TOP__0(Vtb_media___024root* vlSelf);
+void Vtb_media___024root___nba_sequent__TOP__1(Vtb_media___024root* vlSelf);
 
 void Vtb_media___024root___eval_nba(Vtb_media___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_media___024root___eval_nba\n"); );
@@ -101,6 +102,7 @@ void Vtb_media___024root___eval_nba(Vtb_media___024root* vlSelf) {
     // Body
     if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vtb_media___024root___nba_sequent__TOP__0(vlSelf);
+        Vtb_media___024root___nba_sequent__TOP__1(vlSelf);
     }
     if ((0xfffULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vtb_media___024root___act_comb__TOP__0(vlSelf);

@@ -1,0 +1,149 @@
+Confidential
+Technical Note TN007
+TN007_1.0 www.anlogic.com 1
+2018.8 Confidential
+LVDS.IP 设计概述
+1 术语/缩略词
+LVDS ：Low-Voltage Differential Signaling 低电压差分信号
+VESA ：Video Electronics Standards Association)视频电子标准协会
+JEIDA ：JapanElectronic Industry Development Association 日本电子产业发展协会
+TTL ：transistor-transistor logic 晶体管-晶体管逻辑电平
+RSDS ：reduced swing differential signal 低摆幅差分信号
+MIPI ：Mobile Industry Processor Interface 移动产业处理器接口
+2 关于本手册
+本文描述了 FPGA 在液晶屏 LVDS 驱动方向的应用，并给出了详细的设计方案。
+3 背景介绍
+LVDS(Low-Voltage Differential Signaling)低电压差分信号，使用一对信号线进行差分传输，能
+有效的抑制外界噪声，极大的提升了传输速率。LVDS 是一种信号传输方式，本文所涉及的 LVDS，若无
+特殊说明，默认指 LVDS 在液晶屏上的传输方式。
+液晶屏的数据传输方式有 TTL、LVDS、RSDS、MIPI 等，其中 LVDS 具有高速传输、低功耗、抗干扰
+能力强，协议简单等优势，在液晶屏上具有广泛的应用。
+得益于 FPGA 的可编程灵活性、IO 多电平标准支持、高速串行接口支持等因素，FPGA 在液晶屏驱动、
+传输协议转换等方面也有着广泛的应用。
+4 功能需求
+1.支持 VSEA 标准协议。
+2.支持 JEIDA 标准协议。
+3.支持用户自定义协议。
+4.支持 6bit、8bit、10bit 数据模式。
+5.支持单路、双路、四路传输方式。
+6.支持自适应接收：数据包边界自动识别、数据采样位置自动对准。
+5 性能需求
+1.LVDS 单路带宽达到 3.2Gbps，可传输 1280*720@60Hz 视频，或同等带宽视频。
+LVDS.IP 设计概述 安路科技
+TN007_1.0 www.anlogic.com 2
+2019.4 Confidential
+2.LVDS 双路带宽达到 6.4Gbps，可传输 1920*1080@60Hz 视频，或同等带宽视频。
+3.LVDS 四路带宽达到 12.8Gbps，可传输 2K@60Hz 或者 4K@30Hz 视频，或同等带宽视频。
+6 协议介绍
+LVDS 在液晶显示应用方面，有两个标准协议，VESA(Video Electronics Standards Association)
+视频电子标准协会,JEIDA(JAPANELECTRONIC INDUSTRY DEVELOPMENT ASSOCIATION)日本电子产业发展协
+会。
+VESA 协议如图 1 所示。
+图 1 VESA 协议图
+JEIDA 协议如图 2 所示。
+图 2 JEIDA 协议图
+7 LVDS 发送接口
+LVDS.IP 设计概述 安路科技
+TN007_1.0 www.anlogic.com 3
+2019.4 Confidential
+图 3 LVDS 发送接口
+管脚说明如表 1 所示。
+表 1 LVDS 发送接口说明表
+管脚名 方向 位宽 说明
+CLK input 1 视频像素时钟
+VS input 1 视频场同步信号
+HS input 1 视频行同步信号
+DE input 1 视频像素使能信号
+RGB input 18-30 视频像素信号
+LVDS_TX_CLK output 1 LVDS 发送时钟
+LVDS_TX_LINE0 output 3-5 LVDS 发送通道 0
+LVDS_TX_LINE1 output 3-5 LVDS 发送通道 1
+LVDS_TX_LINE2 output 3-5 LVDS 发送通道 2
+LVDS_TX_LINE3 output 3-5 LVDS 发送通道 3
+8 LVDS 接收接口
+LVDS.IP 设计概述 安路科技
+TN007_1.0 www.anlogic.com 4
+2019.4 Confidential
+图 4 LVDS 接收接口
+管脚说明如表 2 所示。
+表 2 LVDS 接收接口说明表
+管脚名 方向 位宽 说明
+CLK output 1 视频像素时钟
+VS output 1 视频场同步信号
+HS output 1 视频行同步信号
+DE output 1 视频像素使能信号
+RGB output 18-30 视频像素信号
+LVDS_RX_CLK input 1 LVDS 发送时钟
+LVDS_RX_LINE0 input 3-5 LVDS 发送通道 0
+LVDS_RX_LINE1 input 3-5 LVDS 发送通道 1
+LVDS_RX_LINE2 input 3-5 LVDS 发送通道 2
+LVDS_RX_LINE3 input 3-5 LVDS 发送通道 3
+9 LVDS 发送框图
+LVDS.IP 设计概述 安路科技
+TN007_1.0 www.anlogic.com 5
+2019.4 Confidential
+图 5 LVDS 发送框图
+LVDS 发送比较简单，视频时钟接入锁相环，产生一个 3.5 倍的时钟，用 3.5 倍时钟处理数据并串
+转换，然后通过 ODDR 的方式输出。
+相位同步模块：保证输出的 LVDS 数据和 LVDS 时钟满足 VESA 协议和 JEIDA 协议的相位要求。
+协议处理模块：可以选择 VESA 协议、JEIDA 协议，把视频数据映射为并行数据。
+宏定义模块：实现整个 LVDS 发送的配置，通过宏定义，可选择 VESA 协议、JEIDA 协议、用户自定
+义协议；6bit 模式、8bit 模式、10bit 模式；单通道模式、双通道模式、四通道模式。
+所有代码配置通过宏定义选择，代码内部做条件编译处理。
+10 LVDS 接收框图
+图 6 LVDS 接收框图
+LVDS 接收模块：实现数据时钟恢复、采样位置自适应调节、数据包边界自适应识别、VESA 协议和
+JEIDA 协议解析等功能。
+相位跟踪、相位同步、误码率统计、采样相位调节这 4 个模块，是实现 LVDS 自适应接收的关键。
+LVDS.IP 设计概述 安路科技
+TN007_1.0 www.anlogic.com 6
+2019.4 Confidential
+宏定义模块：实现整个 LVDS 接收的配置，通过宏定义，可选择 VESA 协议、JEIDA 协议、用户自定
+义协议；6bit 模式、8bit 模式、10bit 模式；单通道模式、双通道模式、四通道模式；手动采样相位、
+自适应调节相位。
+11 LVDS 自适应接收原理
+LVDS 自适应接收前提条件：
+1. LVDS 时钟和数据延时相等。
+2. 数据最高速率 < 1/(IO 寄存器建立时间+IO 寄存器保持时间+时钟抖动+数据抖动)。
+时钟、数据采样关系如图 7 所示。
+图 7 数据时钟采样关系
+以 VESA 协议为例，说明自适应接收的原理，下图红色的时钟为 LVDS 接收时钟的 3.5 倍频。
+图 8 VESA 协议与恢复时钟采样关系
+LVDS.IP 设计概述 安路科技
+TN007_1.0 www.anlogic.com 7
+2019.4 Confidential
+LVDS_CLK 属于先验知识，为高低电平 4:3 的信号。若用 LVDS_CLK 的 7 倍时钟进行单边沿采样，或
+者用 LVDS_CLK 的 3.5 倍时钟进行双边沿采样，那么时钟的采样结果为 1100011 以及 1100011 的各种移
+位情况。
+若是 LVDS_CLK_3P5X 对 LVDS_CLK 进行采样，采样结果不是 1100011 以及 1100011 的各种移位情况，
+那么采样时钟没有对齐数据的安全采样区间，需要对锁相环输出采样时钟进行移相，直到 LVDS_CLK 的
+采样结果永远是 1100011 以及 1100011 的各种移位情况。
+LVDS_CLK_3P5X 对 LVDS_CLK 进行采样，采样结果刚好是 1100011，那么此时的采样时刻对应数据包
+的起始位置。
+12 LVDS 发送模块与软件接口
+软件通过宏定义，配置 LVDS 发送模块，配置参数如图 9 所示。
+图 9 LVDS 发送配置接口
+13 LVDS 接收模块与软件接口
+软件通过宏定义，配置 LVDS 接收模块，配置参数如图 10 所示。
+图 10 LVDS 接收配置接口
+LVDS.IP 设计概述 安路科技
+TN007_1.0 www.anlogic.com 8
+2019.4 Confidential
+Ps:LVDS7 个相位可配置
+PLL 可选内置/外部
+LVDS.IP 设计概述 安路科技
+TN007_1.0 www.anlogic.com 9
+2018.8 Confidential
+版本信息
+日期 版本 说明
+2019/04/17 1.0 初版建立
+版权所有©2021 上海安路信息科技股份有限公司
+未经本公司书面许可，任何单位和个人都不得擅自摘抄、复制、翻译本文档内容的部分或全 部，并不
+得以任何形式传播。
+免责声明
+本文档并未授予任何知识产权的许可，并未以明示或暗示，或以禁止发言或其它方式授予任 何知识产
+权许可。除安路科技在其产品的销售条款和条件中声明的责任之外，安路科技概不承担任何法律或非法
+律责任。安路科技对安路科技产品的销售和/或使用不作任何明示或暗示的担保，包括对产品的特定用
+途适用性、适销性或对任何专利权、版权或其它知识产权的侵权责任等，均不作担保。安路科技对文档
+中包含的文字、图片及其它内容的准确性和完整性不承担任何法律或非法律责任，安路科技保留修改文
+档中任何内容的权利，恕不另行通知。安路科技不承诺对这些文档进行适时的更新。

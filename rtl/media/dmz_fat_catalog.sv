@@ -57,6 +57,9 @@ function automatic [63:0] code64(input [63:0] value);
  end
 endfunction
 
+function automatic [31:0] code32(input [31:0] v);
+ reg [63:0] tmp;begin tmp=code64({32'd0,v});code32=tmp[31:0];end
+endfunction
 wire [63:0] shared_image_name=code64(shared_image_name_raw);
 wire [63:0] shared_wav_name=code64(shared_wav_name_raw);
 wire [63:0] pair_lookup_name=shared_wav_name;
@@ -78,7 +81,7 @@ always @(posedge clk) begin
  wav_cluster_q<=wav_clusters[addr4(wav_index)];
  shared_image_bytes<=sizes[addr5(name_phase?browse_query[4:0]:image_index)];
  shared_wav_bytes<=wav_sizes[addr4(name_phase?browse_query[3:0]:wav_index)];
- if(!name_phase_q)begin image_bytes_q<=shared_image_bytes;wav_bytes_q<=shared_wav_bytes;end
+ if(!name_phase_q)begin image_bytes_q<=code32(shared_image_bytes);wav_bytes_q<=code32(shared_wav_bytes);end
 end
 always @(posedge clk)cache_q<=cache[cache_addr];
 always @(posedge clk) begin
@@ -94,14 +97,14 @@ integer i;
 always @(posedge clk) begin
  if(name_phase_q)begin
   browse_tag<=browse_query_q;
-  browse_bytes<=browse_query_q[5]?shared_wav_bytes:shared_image_bytes;
+  browse_bytes<=browse_query_q[5]?code32(shared_wav_bytes):code32(shared_image_bytes);
   browse_valid<=ready&&(browse_query_q[5]?({1'b0,browse_query_q[4:0]}<{1'b0,wav_count}):({1'b0,browse_query_q[4:0]}<image_count));
   browse_name<=browse_query_q[5]?shared_wav_name:shared_image_name;
  end
  if(reset) begin wav_cluster<=0;wav_bytes<=0;browse_valid<=0;browse_tag<=0;end
- else if({1'b0,wav_index}<wav_count) begin wav_cluster<=wav_cluster_q;wav_bytes<=wav_bytes_q;end
+ else if({1'b0,wav_index}<wav_count) begin wav_cluster<=code32(wav_cluster_q);wav_bytes<=wav_bytes_q;end
  if(reset) begin image_cluster<=0;image_bytes<=0;image_name<=0;end
- else if({1'b0,image_index}<image_count) begin image_cluster<=image_cluster_q;image_bytes<=image_bytes_q;image_name<=image_name_q;end
+ else if({1'b0,image_index}<image_count) begin image_cluster<=code32(image_cluster_q);image_bytes<=image_bytes_q;image_name<=image_name_q;end
  else begin image_cluster<=0;image_bytes<=0;image_name<=0;end
  if(sd_byte_valid) begin
   cache[sd_byte_index]<=sd_byte_data;
@@ -154,13 +157,13 @@ always @(posedge clk) begin
        config_found<=1;config_cluster<=entry_cluster;config_bytes<=e32(28);
       end
       if(upper(entry[8])=="B"&&upper(entry[9])=="M"&&upper(entry[10])=="P"&&image_count<32) begin
-       clusters[addr5(image_count[4:0])]<=entry_cluster;sizes[addr5(image_count[4:0])]<=e32(28);
+       clusters[addr5(image_count[4:0])]<=code32(entry_cluster);sizes[addr5(image_count[4:0])]<=code32(e32(28));
        names[addr5(image_count[4:0])]<=code64({entry[7],entry[6],entry[5],entry[4],entry[3],entry[2],entry[1],entry[0]});
        image_count<=image_count+1'b1;
       end
       if(upper(entry[8])=="W"&&upper(entry[9])=="A"&&upper(entry[10])=="V"&&wav_count<16) begin
        wav_found<=1;wav_count<=wav_count+1'b1;
-       wav_clusters[addr4(wav_count[3:0])]<=entry_cluster;wav_sizes[addr4(wav_count[3:0])]<=e32(28);
+       wav_clusters[addr4(wav_count[3:0])]<=code32(entry_cluster);wav_sizes[addr4(wav_count[3:0])]<=code32(e32(28));
        wav_names[addr4(wav_count[3:0])]<=code64({entry[7],entry[6],entry[5],entry[4],entry[3],entry[2],entry[1],entry[0]});
       end
      end

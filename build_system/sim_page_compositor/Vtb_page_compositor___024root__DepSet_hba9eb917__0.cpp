@@ -5512,11 +5512,11 @@ VL_INLINE_OPT void Vtb_page_compositor___024root___nba_sequent__TOP__0(Vtb_page_
         if (((((((((0U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state)) 
                    | (1U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) 
                   | (2U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) 
-                 | (3U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) 
-                | (4U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) 
-               | (5U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) 
-              | (6U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) 
-             | (7U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state)))) {
+                 | (9U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) 
+                | (3U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) 
+               | (4U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) 
+              | (5U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) 
+             | (6U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state)))) {
             if ((0U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) {
                 if (vlSelfRef.tb_page_compositor__DOT__iv) {
                     if (vlSelfRef.tb_page_compositor__DOT__dut__DOT__first) {
@@ -5552,32 +5552,34 @@ VL_INLINE_OPT void Vtb_page_compositor___024root___nba_sequent__TOP__0(Vtb_page_
             } else if ((1U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) {
                 __Vdly__tb_page_compositor__DOT__dut__DOT__state = 2U;
             } else if ((2U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) {
+                __Vdly__tb_page_compositor__DOT__dut__DOT__state = 9U;
+            } else if ((9U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) {
                 __Vdly__tb_page_compositor__DOT__dut__DOT__state = 3U;
             } else if ((3U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) {
-                if ((1U & ((((((~ (vlSelfRef.tb_page_compositor__DOT__widget[1U] 
+                if ((1U & ((((((~ (vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[1U] 
                                    >> 6U)) | ((3U & 
-                                               (vlSelfRef.tb_page_compositor__DOT__widget[1U] 
+                                               (vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[1U] 
                                                 >> 3U)) 
                                               != (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__layer))) 
                               | ((IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__y) 
-                                 < (0x1ffU & (vlSelfRef.tb_page_compositor__DOT__widget[0U] 
+                                 < (0x1ffU & (vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[0U] 
                                               >> 0xaU)))) 
                              | ((IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__y) 
                                 >= (0x3ffU & ((0x1ffU 
-                                               & (vlSelfRef.tb_page_compositor__DOT__widget[0U] 
+                                               & (vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[0U] 
                                                   >> 0xaU)) 
                                               + (0x7fU 
-                                                 & ((vlSelfRef.tb_page_compositor__DOT__widget[1U] 
+                                                 & ((vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[1U] 
                                                      << 4U) 
-                                                    | (vlSelfRef.tb_page_compositor__DOT__widget[0U] 
+                                                    | (vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[0U] 
                                                        >> 0x1cU))))))) 
                             | (((IData)(0xfU) + (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__x)) 
-                               < (0x3ffU & vlSelfRef.tb_page_compositor__DOT__widget[0U]))) 
+                               < (0x3ffU & vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[0U]))) 
                            | ((IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__x) 
                               >= (0x7ffU & ((0x3ffU 
-                                             & vlSelfRef.tb_page_compositor__DOT__widget[0U]) 
+                                             & vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[0U]) 
                                             + (0x1ffU 
-                                               & (vlSelfRef.tb_page_compositor__DOT__widget[0U] 
+                                               & (vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[0U] 
                                                   >> 0x13U)))))))) {
                     if ((5U > ((IData)(1U) + (IData)(vlSelfRef.tb_page_compositor__DOT__index)))) {
                         __Vdly__tb_page_compositor__DOT__index 
@@ -5596,27 +5598,27 @@ VL_INLINE_OPT void Vtb_page_compositor___024root___nba_sequent__TOP__0(Vtb_page_
                         = (0xffffU & ((0xffffU & ((IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__y) 
                                                   - 
                                                   (0x1ffU 
-                                                   & (vlSelfRef.tb_page_compositor__DOT__widget[0U] 
+                                                   & (vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[0U] 
                                                       >> 0xaU)))) 
                                       * (0x1ffU & (
-                                                   vlSelfRef.tb_page_compositor__DOT__widget[0U] 
+                                                   vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[0U] 
                                                    >> 0x13U))));
                     vlSelfRef.tb_page_compositor__DOT__dut__DOT__wx 
-                        = (0x3ffU & vlSelfRef.tb_page_compositor__DOT__widget[0U]);
+                        = (0x3ffU & vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[0U]);
                     vlSelfRef.tb_page_compositor__DOT__dut__DOT__ww 
-                        = (0x1ffU & (vlSelfRef.tb_page_compositor__DOT__widget[0U] 
+                        = (0x1ffU & (vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[0U] 
                                      >> 0x13U));
                     vlSelfRef.tb_page_compositor__DOT__dut__DOT__dim 
-                        = (1U & (~ (vlSelfRef.tb_page_compositor__DOT__widget[1U] 
+                        = (1U & (~ (vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[1U] 
                                     >> 5U)));
                     vlSelfRef.tb_page_compositor__DOT__dut__DOT__base 
-                        = (0xfffffU & ((vlSelfRef.tb_page_compositor__DOT__widget[2U] 
-                                        << 5U) | (vlSelfRef.tb_page_compositor__DOT__widget[1U] 
+                        = (0xfffffU & ((vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[2U] 
+                                        << 5U) | (vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[1U] 
                                                   >> 0x1bU)));
                     vlSelfRef.tb_page_compositor__DOT__dut__DOT__label 
-                        = (0xfffffU & ((vlSelfRef.tb_page_compositor__DOT__widget[3U] 
+                        = (0xfffffU & ((vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[3U] 
                                         << 0x11U) | 
-                                       (vlSelfRef.tb_page_compositor__DOT__widget[2U] 
+                                       (vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[2U] 
                                         >> 0xfU)));
                     __Vdly__tb_page_compositor__DOT__dut__DOT__p = 0U;
                     __Vdly__tb_page_compositor__DOT__dut__DOT__plane = 0U;
@@ -5682,14 +5684,14 @@ VL_INLINE_OPT void Vtb_page_compositor___024root___nba_sequent__TOP__0(Vtb_page_
                 if (vlSelfRef.tb_page_compositor__DOT__mr) {
                     __Vdly__tb_page_compositor__DOT__dut__DOT__state = 6U;
                 }
-            } else if ((6U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) {
-                if (vlSelfRef.tb_page_compositor__DOT__mrsp) {
-                    __Vdly__tb_page_compositor__DOT__dut__DOT__cache_tag 
-                        = (0xfffffU & vlSelfRef.tb_page_compositor__DOT__dut__DOT__source_byte);
-                    __Vdly__tb_page_compositor__DOT__dut__DOT__cache_valid = 1U;
-                    __Vdly__tb_page_compositor__DOT__dut__DOT__state = 4U;
-                }
-            } else if (vlSelfRef.tb_page_compositor__DOT__ordy) {
+            } else if (vlSelfRef.tb_page_compositor__DOT__mrsp) {
+                __Vdly__tb_page_compositor__DOT__dut__DOT__cache_tag 
+                    = (0xfffffU & vlSelfRef.tb_page_compositor__DOT__dut__DOT__source_byte);
+                __Vdly__tb_page_compositor__DOT__dut__DOT__cache_valid = 1U;
+                __Vdly__tb_page_compositor__DOT__dut__DOT__state = 4U;
+            }
+        } else if ((7U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) {
+            if (vlSelfRef.tb_page_compositor__DOT__ordy) {
                 __Vdly__tb_page_compositor__DOT__dut__DOT__state = 8U;
             }
         } else if ((8U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) {
@@ -5725,8 +5727,6 @@ VL_INLINE_OPT void Vtb_page_compositor___024root___nba_sequent__TOP__0(Vtb_page_
     vlSelfRef.tb_page_compositor__DOT__mr = __Vdly__tb_page_compositor__DOT__mr;
     vlSelfRef.tb_page_compositor__DOT__mrsp = __Vdly__tb_page_compositor__DOT__mrsp;
     vlSelfRef.tb_page_compositor__DOT__ordy = __Vdly__tb_page_compositor__DOT__ordy;
-    vlSelfRef.tb_page_compositor__DOT__dut__DOT__state 
-        = __Vdly__tb_page_compositor__DOT__dut__DOT__state;
     vlSelfRef.tb_page_compositor__DOT__dut__DOT__plane 
         = __Vdly__tb_page_compositor__DOT__dut__DOT__plane;
     vlSelfRef.tb_page_compositor__DOT__dut__DOT__x 
@@ -5736,18 +5736,16 @@ VL_INLINE_OPT void Vtb_page_compositor___024root___nba_sequent__TOP__0(Vtb_page_
     tb_page_compositor__DOT__dut__DOT__px = (0x3ffU 
                                              & ((IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__x) 
                                                 + (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__p)));
-    vlSelfRef.tb_page_compositor__DOT__widget[0U] = 
-        vlSelfRef.tb_page_compositor__DOT__descriptors
-        [vlSelfRef.tb_page_compositor__DOT__index][0U];
-    vlSelfRef.tb_page_compositor__DOT__widget[1U] = 
-        vlSelfRef.tb_page_compositor__DOT__descriptors
-        [vlSelfRef.tb_page_compositor__DOT__index][1U];
-    vlSelfRef.tb_page_compositor__DOT__widget[2U] = 
-        vlSelfRef.tb_page_compositor__DOT__descriptors
-        [vlSelfRef.tb_page_compositor__DOT__index][2U];
-    vlSelfRef.tb_page_compositor__DOT__widget[3U] = 
-        vlSelfRef.tb_page_compositor__DOT__descriptors
-        [vlSelfRef.tb_page_compositor__DOT__index][3U];
+    if ((9U == (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__state))) {
+        vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[0U] 
+            = vlSelfRef.tb_page_compositor__DOT__widget[0U];
+        vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[1U] 
+            = vlSelfRef.tb_page_compositor__DOT__widget[1U];
+        vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[2U] 
+            = vlSelfRef.tb_page_compositor__DOT__widget[2U];
+        vlSelfRef.tb_page_compositor__DOT__dut__DOT__widget_q[3U] 
+            = vlSelfRef.tb_page_compositor__DOT__widget[3U];
+    }
     vlSelfRef.tb_page_compositor__DOT__dut__DOT__pixel_inside 
         = (((IData)(tb_page_compositor__DOT__dut__DOT__px) 
             >= (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__wx)) 
@@ -5763,5 +5761,19 @@ VL_INLINE_OPT void Vtb_page_compositor___024root___nba_sequent__TOP__0(Vtb_page_
                                                       + 
                                                       ((IData)(tb_page_compositor__DOT__dut__DOT__px) 
                                                        - (IData)(vlSelfRef.tb_page_compositor__DOT__dut__DOT__wx)))), 1U)));
+    vlSelfRef.tb_page_compositor__DOT__dut__DOT__state 
+        = __Vdly__tb_page_compositor__DOT__dut__DOT__state;
+    vlSelfRef.tb_page_compositor__DOT__widget[0U] = 
+        vlSelfRef.tb_page_compositor__DOT__descriptors
+        [vlSelfRef.tb_page_compositor__DOT__index][0U];
+    vlSelfRef.tb_page_compositor__DOT__widget[1U] = 
+        vlSelfRef.tb_page_compositor__DOT__descriptors
+        [vlSelfRef.tb_page_compositor__DOT__index][1U];
+    vlSelfRef.tb_page_compositor__DOT__widget[2U] = 
+        vlSelfRef.tb_page_compositor__DOT__descriptors
+        [vlSelfRef.tb_page_compositor__DOT__index][2U];
+    vlSelfRef.tb_page_compositor__DOT__widget[3U] = 
+        vlSelfRef.tb_page_compositor__DOT__descriptors
+        [vlSelfRef.tb_page_compositor__DOT__index][3U];
     vlSelfRef.tb_page_compositor__DOT__index = __Vdly__tb_page_compositor__DOT__index;
 }

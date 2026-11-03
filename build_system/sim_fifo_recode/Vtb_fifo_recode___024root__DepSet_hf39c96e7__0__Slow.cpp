@@ -122,6 +122,10 @@ VL_ATTR_COLD void Vtb_fifo_recode___024root___stl_sequent__TOP__0(Vtb_fifo_recod
     SData/*10:0*/ __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__5__g;
     __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__5__g = 0;
     // Body
+    vlSelfRef.tb_fifo_recode__DOT__data1 = (vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rdata_raw 
+                                            ^ (- (IData)(
+                                                         (1U 
+                                                          & (IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rp)))));
     __Vfunc_tb_fifo_recode__DOT__expected__0__i = vlSelfRef.tb_fifo_recode__DOT__writes;
     __Vfunc_tb_fifo_recode__DOT__expected__0__Vfuncout 
         = (0x5432abcdU ^ ((IData)(0x10203U) * __Vfunc_tb_fifo_recode__DOT__expected__0__i));
@@ -479,9 +483,9 @@ VL_ATTR_COLD void Vtb_fifo_recode___024root___ctor_var_reset(Vtb_fifo_recode___0
     vlSelf->tb_fifo_recode__DOT__empty1 = VL_RAND_RESET_I(1);
     vlSelf->tb_fifo_recode__DOT__used0 = VL_RAND_RESET_I(12);
     vlSelf->tb_fifo_recode__DOT__used1 = VL_RAND_RESET_I(12);
-    vlSelf->tb_fifo_recode__DOT__data0 = VL_RAND_RESET_I(32);
     vlSelf->tb_fifo_recode__DOT__data1 = VL_RAND_RESET_I(32);
     vlSelf->tb_fifo_recode__DOT__input_data = VL_RAND_RESET_I(32);
+    vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__rdata_raw = VL_RAND_RESET_I(32);
     for (int __Vi0 = 0; __Vi0 < 2048; ++__Vi0) {
         vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);
     }
@@ -497,6 +501,7 @@ VL_ATTR_COLD void Vtb_fifo_recode___024root___ctor_var_reset(Vtb_fifo_recode___0
     vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__rn = VL_RAND_RESET_I(12);
     vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT__wn = VL_RAND_RESET_I(12);
     vlSelf->tb_fifo_recode__DOT__reference_fifo__DOT____Vlvbound_hd6d3ee30__0 = VL_RAND_RESET_I(1);
+    vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT__rdata_raw = VL_RAND_RESET_I(32);
     for (int __Vi0 = 0; __Vi0 < 2048; ++__Vi0) {
         vlSelf->tb_fifo_recode__DOT__recoded_fifo__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);
     }

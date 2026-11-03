@@ -1,0 +1,2 @@
+PASS 122880 Chinese panel pixels: play/pause/mute/end/load/no-audio/fault, volume, parameter values/arrows/bars, 120-frame highlight expiry, reset defaults, frame coherence, clipping and disable
+- sim/system\tb_status_panel_wide.sv:73: Verilog $finish

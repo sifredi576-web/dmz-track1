@@ -1,0 +1,9 @@
+{
+  "action": "Status",
+  "port": "COM9",
+  "passed": false,
+  "failure": "No valid T1ST diagnostic frame on COM9 within 4 seconds",
+  "before": null,
+  "records": [],
+  "finished": "2026-11-03T12:43:21.7568950+08:00"
+}

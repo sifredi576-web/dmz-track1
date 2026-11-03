@@ -1,4 +1,4 @@
-param([string]$Port='COM9',[string]$Output='docs/platform_v2_board_course.json')
+param([string]$Port='COM9',[string]$Output='docs/platform_v2_board_course.json',[switch]$ObservationOnly)
 # Development harness only. Runtime page/answer/audio work remains in FPGA.
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
@@ -61,6 +61,7 @@ try{
  $observed=@();foreach($slot in 0,1,2){Choose $slot;$r=Sample;$observed+=@($r.selected_wav)}
  if(@($observed|Sort-Object -Unique).Count -ne 3){throw 'Observation samples did not select three audio resources'}
  $steps.Add(@{check='observation_audio_indexes';indexes=$observed})
+ if($ObservationOnly){Choose 0;$passed=$true;Write-Output 'PASS teaching/navigation/notices and three audio selections; stopped at observation, pure tone playing';return}
  Choose 4;Page 7 0
  Choose 4;if($script:state.current_page -ne 7 -or $script:state.platform_config_error -ne 5 -or $script:state.score -ne 0){throw 'Submit-without-choice guard'}
  Choose 2;Choose 0;if(!$script:state.choice_valid -or $script:state.answered){throw 'Provisional selection state'}

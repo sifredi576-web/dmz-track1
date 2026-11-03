@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-02",
+  "stage": "enlarged waveform v2",
+  "bitstream_sha256": "65ca8b7ea17e0925cfae19ce129e4ecc35815be2b80f5f6ed8f9a3a369dbedcc",
+  "baseline_bitstream_sha256": "b6477a0475c89544b7ee975eda69f1c28bb0fcca7e0253c5aa62189182da7330",
+  "enlargement_authorized": true,
+  "sram_download_passed": true,
+  "flash_programmed": false,
+  "recovery_used": false,
+  "setup_slack_ns": 1.829,
+  "hold_slack_ns": 0.086,
+  "lut": 16250,
+  "registers": 8815,
+  "bram9k": 62,
+  "dsp": 20,
+  "viewport": [
+    64,
+    128,
+    512,
+    160
+  ],
+  "wave_center_y": 200,
+  "wave_range_y": [
+    137,
+    264
+  ],
+  "sampling_unchanged": true,
+  "audio_gain_unchanged": true,
+  "render_change": "half-open segments remove duplicate endpoint pixels; previous amplitude clamp22 removed; magnitude/2 display mapping",
+  "software_check": {
+    "passed": true,
+    "raster_pixels": 73728,
+    "artifact": "docs/wave_v2_sim_result.txt",
+    "sha256": "2a04a2d924d56c9abf33aa2fc95e3a3a5a677e0fb0bc570fc4c77a0fba085f6a"
+  },
+  "board_check": {
+    "port": "COM3",
+    "page": 6,
+    "page_count": 16,
+    "config_sd_bmp_wav_errors": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fifo_fault": false,
+    "fb_fault": false
+  },
+  "evidence": [
+    "docs/wave_v2_boot.json",
+    "docs/wave_v2_nav_4.json",
+    "docs/system_download_log.txt"
+  ],
+  "user_observation": "大小合适，建议峰顶与连续性继续优化",
+  "layout_note": "Fixed viewport ignores SCENE visual origin for this preview; source buttons and page actions unchanged.",
+  "next_scope": "Only peak and continuity optimization authorized. Trigger stabilization with left controls and right status panel must be separate later tasks after acceptance and renewed instruction."
+}

@@ -7,6 +7,9 @@ module hdmi
     // See README.md or CEA-861-D for enumeration of video id codes.
     // Pixel repetition, interlaced scans and other special output modes are not implemented (yet).
     parameter int VIDEO_ID_CODE = 1,
+    parameter int AVI_VIDEO_ID_CODE = VIDEO_ID_CODE,
+    parameter int RGB_PIPELINE_DELAY = 0,
+    parameter bit EXTERNAL_SERIAL_RESET = 0,
 
     // The IT content bit indicates that image samples are generated in an ad-hoc
     // manner (e.g. directly from values in a framebuffer, as by a PC video
@@ -33,6 +36,7 @@ module hdmi
 
     // Specify the refresh rate in Hz you are using for audio calculations
     parameter real VIDEO_REFRESH_RATE = 59.94,
+    parameter real PIXEL_RATE_OVERRIDE = 0,
 
     // As specified in Section 7.3, the minimal audio requirements are met: 16-bit or more L-PCM audio at 32 kHz, 44.1 kHz, or 48 kHz.
     // See Table 7-4 or README.md for an enumeration of sampling frequencies supported by HDMI.
@@ -68,6 +72,7 @@ module hdmi
     input logic clk_audio, // DMZ: one-cycle sample enable, NOT a clock
     // synchronous reset back to 0,0
     input logic reset,
+    input wire serializer_ar,
     input logic [23:0] rgb,
     input logic [AUDIO_BIT_WIDTH-1:0] audio_sample_word [1:0],
 
@@ -204,7 +209,7 @@ always_comb begin
         vsync <= invert ^ (cy >= screen_height + vsync_pulse_start && cy < screen_height + vsync_pulse_start + vsync_pulse_size);
 end
 
-localparam real VIDEO_RATE = (VIDEO_ID_CODE == 1 ? 25.2E6
+localparam real VIDEO_RATE = PIXEL_RATE_OVERRIDE > 0 ? PIXEL_RATE_OVERRIDE : (VIDEO_ID_CODE == 1 ? 25.2E6
     : VIDEO_ID_CODE == 2 || VIDEO_ID_CODE == 3 ? 27.027E6
     : VIDEO_ID_CODE == 4 ? 74.25E6
     : VIDEO_ID_CODE == 16 ? 148.5E6
@@ -309,7 +314,7 @@ generate
         assign video_field_end = cx == screen_width - 1'b1 && cy == screen_height - 1'b1;
         logic [4:0] packet_pixel_counter;
         packet_picker #(
-            .VIDEO_ID_CODE(VIDEO_ID_CODE),
+            .VIDEO_ID_CODE(VIDEO_ID_CODE),.AVI_VIDEO_ID_CODE(AVI_VIDEO_ID_CODE),
             .VIDEO_RATE(VIDEO_RATE),
             .IT_CONTENT(IT_CONTENT),
             .AUDIO_RATE(AUDIO_RATE),
@@ -387,15 +392,26 @@ endgenerate
 
 // All logic below relates to the production and output of the 10-bit TMDS code.
 logic [9:0] tmds_internal [NUM_CHANNELS-1:0] /* verilator public_flat */ ;
+wire [2:0] aligned_mode;wire [5:0] aligned_control;wire [11:0] aligned_island;
+generate if(RGB_PIPELINE_DELAY>0)begin: rgb_alignment
+ reg [20:0] q[0:RGB_PIPELINE_DELAY-1];integer j;
+ always @(posedge clk_pixel)begin
+  if(reset)for(j=0;j<RGB_PIPELINE_DELAY;j=j+1)q[j]<=0;
+  else begin q[0]<={mode,control_data,data_island_data};for(j=1;j<RGB_PIPELINE_DELAY;j=j+1)q[j]<=q[j-1];end
+ end
+ assign {aligned_mode,aligned_control,aligned_island}=q[RGB_PIPELINE_DELAY-1];
+end else begin
+ assign {aligned_mode,aligned_control,aligned_island}={mode,control_data,data_island_data};
+end endgenerate
 genvar i;
 generate
     // TMDS code production.
     for (i = 0; i < NUM_CHANNELS; i++)
     begin: tmds_gen
-        tmds_channel #(.CN(i)) tmds_channel (.clk_pixel(clk_pixel), .video_data(video_data[i*8+7:i*8]), .data_island_data(data_island_data[i*4+3:i*4]), .control_data(control_data[i*2+1:i*2]), .mode(mode), .tmds(tmds_internal[i]));
+        tmds_channel #(.CN(i)) tmds_channel (.clk_pixel(clk_pixel), .video_data(video_data[i*8+7:i*8]), .data_island_data(aligned_island[i*4+3:i*4]), .control_data(aligned_control[i*2+1:i*2]), .mode(aligned_mode), .tmds(tmds_internal[i]));
     end
 endgenerate
 
-serializer #(.NUM_CHANNELS(NUM_CHANNELS), .VIDEO_RATE(VIDEO_RATE)) serializer(.clk_pixel(clk_pixel), .clk_pixel_x5(clk_pixel_x5), .reset(reset), .tmds_internal(tmds_internal), .tmds(tmds), .tmds_clock(tmds_clock));
+serializer #(.NUM_CHANNELS(NUM_CHANNELS), .VIDEO_RATE(VIDEO_RATE)) serializer(.clk_pixel(clk_pixel), .clk_pixel_x5(clk_pixel_x5), .reset(EXTERNAL_SERIAL_RESET?serializer_ar:reset), .tmds_internal(tmds_internal), .tmds(tmds), .tmds_clock(tmds_clock));
 
 endmodule

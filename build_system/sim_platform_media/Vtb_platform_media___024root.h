@@ -237,6 +237,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         CData/*7:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__wi;
         CData/*7:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__requested_resource;
         CData/*4:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__resolved_q;
+        CData/*4:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__image_resolved_q;
+        CData/*4:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__audio_resolved_q;
         CData/*3:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__settle;
         CData/*4:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__target_page;
         CData/*2:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__slot;
@@ -277,10 +279,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         CData/*1:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__choice;
         CData/*0:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__core_page_request;
         CData/*0:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__core_audio_request;
-        CData/*0:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__core_control_request;
-        CData/*0:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__core_busy;
     };
     struct {
+        CData/*0:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__core_control_request;
+        CData/*0:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__core_busy;
         CData/*4:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__core_page;
         CData/*4:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__core_current_page;
         CData/*5:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__core_audio;
@@ -310,9 +312,15 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         CData/*3:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__ui__DOT__compact_neighbor;
         CData/*7:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__ui__DOT__neighbor;
         CData/*0:0*/ tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__ui__DOT__first;
-        CData/*7:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__pb__164__Vfuncout;
-        CData/*7:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__pb__165__Vfuncout;
+        CData/*4:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__decode_index__161__Vfuncout;
+        CData/*4:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__decode_index__161__value;
+        CData/*0:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__decode_index__161__t;
+        CData/*4:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__decode_index__162__Vfuncout;
+        CData/*4:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__decode_index__162__value;
+        CData/*0:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__decode_index__162__t;
         CData/*7:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__pb__166__Vfuncout;
+        CData/*7:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__pb__167__Vfuncout;
+        CData/*7:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__pb__168__Vfuncout;
         CData/*0:0*/ __Vdly__tb_platform_media__DOT__lack;
         CData/*0:0*/ __Vdly__tb_platform_media__DOT__lr;
         CData/*3:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__compositor__DOT__state;
@@ -337,6 +345,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         CData/*0:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__top_down;
         CData/*0:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__width_limited;
         CData/*0:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__blank_row;
+    };
+    struct {
         CData/*0:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__input_finished;
         CData/*3:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__burst_pixel;
         CData/*0:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__raw_load_last;
@@ -345,8 +355,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         CData/*3:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state;
         CData/*0:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__aud_start;
         CData/*5:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__state;
-    };
-    struct {
         CData/*0:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__page_begin;
         CData/*7:0*/ __VdlyVal__tb_platform_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0;
         CData/*0:0*/ __VdlySet__tb_platform_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0;
@@ -403,6 +411,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         SData/*10:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__source_y;
         SData/*10:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__wanted_y;
         SData/*10:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__sample_x;
+    };
+    struct {
         SData/*9:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__draw_w;
         SData/*9:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__draw_h;
         SData/*9:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__left_pad;
@@ -411,8 +421,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         SData/*9:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__dest_row;
         SData/*9:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__drawn_rows;
         SData/*11:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__x_error;
-    };
-    struct {
         SData/*11:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__y_error;
         SData/*15:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__low_pixel;
         SData/*15:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_q;
@@ -431,10 +439,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         SData/*15:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__catalog__DOT__e16__72__Vfuncout;
         SData/*15:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__catalog__DOT__e16__73__Vfuncout;
         SData/*15:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__125__Vfuncout;
-        SData/*15:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__p16__167__Vfuncout;
-        SData/*15:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__p16__168__Vfuncout;
         SData/*15:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__p16__169__Vfuncout;
         SData/*15:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__p16__170__Vfuncout;
+        SData/*15:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__p16__171__Vfuncout;
+        SData/*15:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__p16__172__Vfuncout;
         SData/*9:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__compositor__DOT__x;
         SData/*8:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__compositor__DOT__y;
         SData/*8:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos;
@@ -469,6 +477,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         IData/*31:0*/ tb_platform_media__DOT__underruns;
         IData/*31:0*/ tb_platform_media__DOT__token_wait;
         IData/*31:0*/ tb_platform_media__DOT__sindex;
+    };
+    struct {
         IData/*31:0*/ tb_platform_media__DOT__ldelay;
         IData/*31:0*/ tb_platform_media__DOT__mdelay;
         IData/*31:0*/ tb_platform_media__DOT__samples;
@@ -477,8 +487,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         IData/*31:0*/ tb_platform_media__DOT__slba;
         IData/*20:0*/ tb_platform_media__DOT__maddr;
         VlWide<8>/*255:0*/ tb_platform_media__DOT__mdata;
-    };
-    struct {
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__image_pixels;
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__wav_bytes;
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__loop_count;
@@ -535,6 +543,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__catalog__DOT__image_bytes_q;
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__catalog__DOT__wav_cluster_q;
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__catalog__DOT__wav_bytes_q;
+    };
+    struct {
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__catalog__DOT__shared_image_bytes;
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__catalog__DOT__shared_wav_bytes;
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__bytes_read;
@@ -543,8 +553,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cluster_lba;
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__file_stream__DOT__fat_cached;
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__file_stream__DOT__next_cluster;
-    };
-    struct {
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__position;
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__length;
         IData/*31:0*/ tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__offset;
@@ -592,7 +600,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         IData/*31:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__124__Vfuncout;
         IData/*31:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__144__Vfuncout;
         IData/*31:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__145__Vfuncout;
-        VlWide<4>/*98:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__decode_widget__161__Vfuncout;
+        VlWide<4>/*98:0*/ __Vfunc_tb_platform_media__DOT__dut__DOT__configured_ui__DOT__runtime__DOT__decode_widget__163__Vfuncout;
         VlWide<8>/*255:0*/ __Vdly__tb_platform_media__DOT__ard;
         IData/*17:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__compositor__DOT__previous_addr;
         IData/*19:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__compositor__DOT__cache_tag;
@@ -601,6 +609,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         IData/*31:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__cat_lba;
         IData/*31:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__img_lba;
         IData/*31:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__position;
+    };
+    struct {
         IData/*31:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__length;
         IData/*31:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__images__DOT__decoder__DOT__offset;
         IData/*17:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__raw_load_addr;
@@ -609,8 +619,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_platform_media___024root final : public V
         IData/*31:0*/ __Vdly__tb_platform_media__DOT__dut__DOT__aud_lba;
         IData/*31:0*/ __VactIterCount;
         QData/*41:0*/ tb_platform_media__DOT__params;
-    };
-    struct {
         QData/*63:0*/ tb_platform_media__DOT__dut__DOT__browse_name;
         QData/*63:0*/ tb_platform_media__DOT__dut__DOT__image_name;
         QData/*63:0*/ tb_platform_media__DOT__dut__DOT__catalog__DOT__pair_name;

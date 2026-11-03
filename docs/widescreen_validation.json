@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-03",
+  "stage": "1280x720 persistent sidebar, pipelined video",
+  "timing_passed": true,
+  "setup_ns": 0.13,
+  "hold_ns": 0.037,
+  "sram_download_passed": true,
+  "flash_programmed": false,
+  "pixel_hz": 75000000,
+  "serial_hz": 375000000,
+  "refresh_hz": 60.6060606061,
+  "avi_vic": 4,
+  "exact_standard_60hz": false,
+  "canvas": [
+    1280,
+    720
+  ],
+  "course": [
+    160,
+    0,
+    960,
+    720
+  ],
+  "sidebar": [
+    1136,
+    192,
+    128,
+    320
+  ],
+  "sidebar_all_course_pages": true,
+  "visual_acceptance": "passed: user confirmed widescreen and persistent sidebar on result and ordinary pages",
+  "wave_trigger": "not implemented; user confirmed phase movement and double image",
+  "bit_sha256": "ed15c4d030db1dc47c801dbd1cf49d36102000afca90371e7d3f84d4a34c32ed",
+  "board_full_course_passed": true,
+  "board_result": "2/3, page 13",
+  "persistent_sidebar_visual_acceptance": "passed",
+  "user_acceptance_date": "2026-11-03"
+}

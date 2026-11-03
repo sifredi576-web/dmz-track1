@@ -10,3 +10,4 @@ set_false_path -from [get_ports {key_col[*]}]
 set_false_path -to [get_ports {key_row[*]}]
 
 set_false_path -from [get_ports {emergency_switch visual_hide_switch}]
+

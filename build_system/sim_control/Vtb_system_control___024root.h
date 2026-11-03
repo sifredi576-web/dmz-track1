@@ -52,12 +52,12 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_system_control___024root final : public V
     CData/*0:0*/ __VactContinue;
     SData/*15:0*/ tb_system_control__DOT__count;
     SData/*15:0*/ tb_system_control__DOT__uart__DOT__count;
-    SData/*15:0*/ tb_system_control__DOT__control__DOT__restart_count;
+    SData/*12:0*/ tb_system_control__DOT__control__DOT__second_count;
+    SData/*9:0*/ tb_system_control__DOT__control__DOT__restart_count;
     SData/*15:0*/ tb_system_control__DOT__cdc__DOT__interval_count;
     IData/*31:0*/ tb_system_control__DOT__seq;
     VlWide<4>/*127:0*/ tb_system_control__DOT__captured;
     IData/*31:0*/ tb_system_control__DOT__snapshots;
-    IData/*24:0*/ tb_system_control__DOT__control__DOT__second_count;
     VlWide<4>/*127:0*/ tb_system_control__DOT__cdc__DOT__held;
     IData/*31:0*/ __VactIterCount;
     VlDelayScheduler __VdlySched;

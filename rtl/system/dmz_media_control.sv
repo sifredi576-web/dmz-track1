@@ -9,8 +9,8 @@ module dmz_media_control #(parameter integer DEFAULT_MODE=2,DEFAULT_WAV=0,SECOND
  output wire switch_mute,switch_continuous,
  output reg wav_source,audio_paused,output reg [3:0] volume);
 (* ASYNC_REG="TRUE" *) reg [1:0] ms,cs;
-reg [24:0] second_count;
-reg [15:0] restart_count;
+reg [$clog2(SECOND_CYCLES)-1:0] second_count;
+reg [$clog2(RESTART_CYCLES+1)-1:0] restart_count;
 assign switch_mute=ms[1];assign switch_continuous=cs[1];
 assign tone_muted=restart||(mode==2)||(mode==3&&!beep_phase)||
  (mode==0&&(ms[1]||(!cs[1]&&!beep_phase)));

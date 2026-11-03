@@ -8,7 +8,7 @@ wire full0,full1,empty0,empty1;wire [11:0] used0,used1;wire [31:0] data0,data1;
 function automatic [31:0] expected(input integer i);expected=(32'(i)*32'h010203)^32'h5432abcd;endfunction
 wire [31:0] input_data=expected(writes);
 dmz_pixel_fifo #(.AW(11),.RECODE_ADDR(0)) reference_fifo(wclk,wrst,push,input_data,full0,used0,rclk,rrst,pop,data0,empty0);
-dmz_pixel_fifo #(.AW(11),.RECODE_ADDR(1)) recoded_fifo(wclk,wrst,push,input_data,full1,used1,rclk,rrst,pop,data1,empty1);
+dmz_pixel_fifo #(.AW(11),.RECODE_ADDR(1),.DATA_CODE(1)) recoded_fifo(wclk,wrst,push,input_data,full1,used1,rclk,rrst,pop,data1,empty1);
 always @(negedge wclk)begin
  ws={ws[14:0],ws[15]^ws[13]^ws[12]^ws[10]};
  push=phase==0?1:phase==1?(ws[0]||ws[2]):0;

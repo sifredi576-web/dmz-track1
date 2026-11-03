@@ -53,6 +53,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_page_compositor___024root final : public 
     IData/*31:0*/ tb_page_compositor__DOT__received;
     IData/*20:0*/ tb_page_compositor__DOT__address;
     IData/*31:0*/ tb_page_compositor__DOT__frame_send__Vstatic__row;
+    VlWide<4>/*98:0*/ tb_page_compositor__DOT__dut__DOT__widget_q;
     IData/*17:0*/ tb_page_compositor__DOT__dut__DOT__address;
     IData/*17:0*/ tb_page_compositor__DOT__dut__DOT__previous_addr;
     VlWide<8>/*255:0*/ tb_page_compositor__DOT__dut__DOT__buffer;

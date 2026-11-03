@@ -169,7 +169,7 @@ VL_ATTR_COLD void Vtb_display___024root___ctor_var_reset(Vtb_display___024root* 
     vlSelf->tb_display__DOT__out = VL_RAND_RESET_I(24);
     vlSelf->tb_display__DOT__k = VL_RAND_RESET_I(32);
     vlSelf->tb_display__DOT__expected = VL_RAND_RESET_I(32);
-    vlSelf->tb_display__DOT__ctrl__DOT__ticks = VL_RAND_RESET_I(25);
+    vlSelf->tb_display__DOT__ctrl__DOT__ticks = VL_RAND_RESET_I(1);
     vlSelf->tb_display__DOT__ctrl__DOT__wanted_b = VL_RAND_RESET_I(4);
     vlSelf->tb_display__DOT__ctrl__DOT__wanted_c = VL_RAND_RESET_I(4);
     vlSelf->__Vfunc_tb_display__DOT__reference_channel__0__Vfuncout = VL_RAND_RESET_I(8);

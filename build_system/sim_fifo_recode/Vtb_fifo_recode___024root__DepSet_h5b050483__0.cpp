@@ -222,17 +222,9 @@ VL_INLINE_OPT void Vtb_fifo_recode___024root___nba_sequent__TOP__0(Vtb_fifo_reco
     SData/*10:0*/ __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g;
     __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g = 0;
     // Body
-    vlSelfRef.__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 = 0U;
     vlSelfRef.__Vdly__tb_fifo_recode__DOT__writes = vlSelfRef.tb_fifo_recode__DOT__writes;
     vlSelfRef.__VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0 = 0U;
-    if (((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__push) 
-         & (~ (IData)(vlSelfRef.tb_fifo_recode__DOT__wrst)))) {
-        vlSelfRef.__VdlyVal__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 
-            = vlSelfRef.tb_fifo_recode__DOT__input_data;
-        vlSelfRef.__VdlyDim0__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 
-            = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__write_addr;
-        vlSelfRef.__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 = 1U;
-    }
+    vlSelfRef.__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 = 0U;
     if (vlSelfRef.tb_fifo_recode__DOT__wrst) {
         vlSelfRef.__Vdly__tb_fifo_recode__DOT__writes = 0U;
     } else {
@@ -260,28 +252,22 @@ VL_INLINE_OPT void Vtb_fifo_recode___024root___nba_sequent__TOP__0(Vtb_fifo_reco
             = (0x7ffU & (IData)(vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__wp));
         vlSelfRef.__VdlySet__tb_fifo_recode__DOT__reference_fifo__DOT__mem__v0 = 1U;
     }
-    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wp 
-        = ((IData)(vlSelfRef.tb_fifo_recode__DOT__wrst)
-            ? 0U : (IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wn));
-    __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__address 
-        = (0x7ffU & (IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wp));
-    __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g 
-        = (0x7ffU & (VL_SHIFTR_III(11,11,32, (IData)(__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__address), 1U) 
-                     ^ (IData)(__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__address)));
-    __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g 
-        = ((0x3ffU & (IData)(__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g)) 
-           | (0x400U & ((0xfffffc00U & (IData)(__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g)) 
-                        ^ ((IData)(__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g) 
-                           << 0xaU))));
-    __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__Vfuncout 
-        = __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g;
-    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__write_addr 
-        = __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__Vfuncout;
+    if (((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__push) 
+         & (~ (IData)(vlSelfRef.tb_fifo_recode__DOT__wrst)))) {
+        vlSelfRef.__VdlyVal__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 
+            = (vlSelfRef.tb_fifo_recode__DOT__input_data 
+               ^ (- (IData)((1U & (IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wp)))));
+        vlSelfRef.__VdlyDim0__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 
+            = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__write_addr;
+        vlSelfRef.__VdlySet__tb_fifo_recode__DOT__recoded_fifo__DOT__mem__v0 = 1U;
+    }
     if (vlSelfRef.tb_fifo_recode__DOT__wrst) {
         vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rg2 = 0U;
         vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rg2 = 0U;
         vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__wp = 0U;
+        vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wp = 0U;
         vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rg1 = 0U;
+        vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rg1 = 0U;
     } else {
         vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rg2 
             = vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rg1;
@@ -289,107 +275,13 @@ VL_INLINE_OPT void Vtb_fifo_recode___024root___nba_sequent__TOP__0(Vtb_fifo_reco
             = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rg1;
         vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__wp 
             = vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__wn;
+        vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wp 
+            = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wn;
         vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rg1 
             = vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rgray;
+        vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rg1 
+            = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rgray;
     }
-    vlSelfRef.tb_fifo_recode__DOT__used1 = (0xfffU 
-                                            & ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wp) 
-                                               - ([&]() {
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g 
-                        = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rg2;
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0x7ffU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | (0x800U & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g)));
-                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
-                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
-                                  >> 0xbU) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
-                                              >> 0xaU)));
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0xbffU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
-                              << 0xaU));
-                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
-                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
-                                  >> 0xaU) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
-                                              >> 9U)));
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0xdffU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
-                              << 9U));
-                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
-                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
-                                  >> 9U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
-                                            >> 8U)));
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0xeffU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
-                              << 8U));
-                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
-                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
-                                  >> 8U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
-                                            >> 7U)));
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0xf7fU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
-                              << 7U));
-                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
-                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
-                                  >> 7U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
-                                            >> 6U)));
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0xfbfU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
-                              << 6U));
-                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
-                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
-                                  >> 6U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
-                                            >> 5U)));
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0xfdfU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
-                              << 5U));
-                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
-                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
-                                  >> 5U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
-                                            >> 4U)));
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0xfefU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
-                              << 4U));
-                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
-                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
-                                  >> 4U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
-                                            >> 3U)));
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0xff7U & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
-                              << 3U));
-                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
-                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
-                                  >> 3U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
-                                            >> 2U)));
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0xffbU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
-                              << 2U));
-                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
-                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
-                                  >> 2U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
-                                            >> 1U)));
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0xffdU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
-                              << 1U));
-                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
-                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
-                                  >> 1U) ^ (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g)));
-                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
-                        = ((0xffeU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
-                           | (IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0));
-                }(), (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout))));
-    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rg1 
-        = ((IData)(vlSelfRef.tb_fifo_recode__DOT__wrst)
-            ? 0U : (IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rgray));
     vlSelfRef.tb_fifo_recode__DOT__used0 = (0xfffU 
                                             & ((IData)(vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__wp) 
                                                - ([&]() {
@@ -485,6 +377,115 @@ VL_INLINE_OPT void Vtb_fifo_recode___024root___nba_sequent__TOP__0(Vtb_fifo_reco
                         = ((0xffeU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__reference_fifo__DOT__binary__3__Vfuncout)) 
                            | (IData)(vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT____Vlvbound_hd6d3ee30__0));
                 }(), (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__reference_fifo__DOT__binary__3__Vfuncout))));
+    __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__address 
+        = (0x7ffU & (IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wp));
+    __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g 
+        = (0x7ffU & (VL_SHIFTR_III(11,11,32, (IData)(__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__address), 1U) 
+                     ^ (IData)(__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__address)));
+    __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g 
+        = ((0x3ffU & (IData)(__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g)) 
+           | (0x400U & ((0xfffffc00U & (IData)(__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g)) 
+                        ^ ((IData)(__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g) 
+                           << 0xaU))));
+    __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__Vfuncout 
+        = __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__g;
+    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__write_addr 
+        = __Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__physical_addr__4__Vfuncout;
+    vlSelfRef.tb_fifo_recode__DOT__used1 = (0xfffU 
+                                            & ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wp) 
+                                               - ([&]() {
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g 
+                        = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rg2;
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0x7ffU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | (0x800U & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g)));
+                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
+                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
+                                  >> 0xbU) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
+                                              >> 0xaU)));
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0xbffU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
+                              << 0xaU));
+                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
+                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
+                                  >> 0xaU) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
+                                              >> 9U)));
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0xdffU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
+                              << 9U));
+                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
+                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
+                                  >> 9U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
+                                            >> 8U)));
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0xeffU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
+                              << 8U));
+                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
+                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
+                                  >> 8U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
+                                            >> 7U)));
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0xf7fU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
+                              << 7U));
+                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
+                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
+                                  >> 7U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
+                                            >> 6U)));
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0xfbfU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
+                              << 6U));
+                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
+                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
+                                  >> 6U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
+                                            >> 5U)));
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0xfdfU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
+                              << 5U));
+                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
+                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
+                                  >> 5U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
+                                            >> 4U)));
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0xfefU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
+                              << 4U));
+                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
+                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
+                                  >> 4U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
+                                            >> 3U)));
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0xff7U & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
+                              << 3U));
+                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
+                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
+                                  >> 3U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
+                                            >> 2U)));
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0xffbU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
+                              << 2U));
+                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
+                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
+                                  >> 2U) ^ ((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g) 
+                                            >> 1U)));
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0xffdU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0) 
+                              << 1U));
+                    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0 
+                        = (1U & (((IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout) 
+                                  >> 1U) ^ (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__g)));
+                    vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout 
+                        = ((0xffeU & (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout)) 
+                           | (IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT____Vlvbound_hd6d3ee30__0));
+                }(), (IData)(vlSelfRef.__Vfunc_tb_fifo_recode__DOT__recoded_fifo__DOT__binary__6__Vfuncout))));
 }
 
 VL_INLINE_OPT void Vtb_fifo_recode___024root___nba_sequent__TOP__1(Vtb_fifo_recode___024root* vlSelf) {
@@ -515,7 +516,7 @@ VL_INLINE_OPT void Vtb_fifo_recode___024root___nba_sequent__TOP__1(Vtb_fifo_reco
             VL_STOP_MT("sim/platform\\tb_fifo_recode.sv", 30, "", false);
         }
         if (VL_UNLIKELY((((~ (IData)(vlSelfRef.tb_fifo_recode__DOT__empty1)) 
-                          & ((vlSelfRef.tb_fifo_recode__DOT__data0 
+                          & ((vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rdata_raw 
                               != vlSelfRef.tb_fifo_recode__DOT__data1) 
                              | (vlSelfRef.tb_fifo_recode__DOT__data1 
                                 != ([&]() {
@@ -580,11 +581,17 @@ VL_INLINE_OPT void Vtb_fifo_recode___024root___nba_sequent__TOP__1(Vtb_fifo_reco
         vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wg1 
             = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__wgray;
     }
-    vlSelfRef.tb_fifo_recode__DOT__reads = __Vdly__tb_fifo_recode__DOT__reads;
-    vlSelfRef.tb_fifo_recode__DOT__data0 = vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__mem
-        [(0x7ffU & (IData)(vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rn))];
-    vlSelfRef.tb_fifo_recode__DOT__data1 = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__mem
+    vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rdata_raw 
+        = vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__mem
         [vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__read_addr];
+    vlSelfRef.tb_fifo_recode__DOT__reads = __Vdly__tb_fifo_recode__DOT__reads;
+    vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rdata_raw 
+        = vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__mem
+        [(0x7ffU & (IData)(vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rn))];
+    vlSelfRef.tb_fifo_recode__DOT__data1 = (vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rdata_raw 
+                                            ^ (- (IData)(
+                                                         (1U 
+                                                          & (IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rp)))));
     vlSelfRef.tb_fifo_recode__DOT__empty0 = ((IData)(vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__rgray) 
                                              == (IData)(vlSelfRef.tb_fifo_recode__DOT__reference_fifo__DOT__wg2));
     vlSelfRef.tb_fifo_recode__DOT__empty1 = ((IData)(vlSelfRef.tb_fifo_recode__DOT__recoded_fifo__DOT__rgray) 

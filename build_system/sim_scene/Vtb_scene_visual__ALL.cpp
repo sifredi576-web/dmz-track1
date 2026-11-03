@@ -3,6 +3,7 @@
 #include "Vtb_scene_visual.cpp"
 #include "Vtb_scene_visual___024root__DepSet_he1427870__0.cpp"
 #include "Vtb_scene_visual___024root__DepSet_he0e2d62d__0.cpp"
+#include "Vtb_scene_visual__ConstPool_0.cpp"
 #include "Vtb_scene_visual___024root__Slow.cpp"
 #include "Vtb_scene_visual___024root__DepSet_he1427870__0__Slow.cpp"
 #include "Vtb_scene_visual___024root__DepSet_he0e2d62d__0__Slow.cpp"

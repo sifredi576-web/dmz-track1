@@ -1,5 +1,5 @@
 %Warning-TIMESCALEMOD: rtl/p2\dmz_pixel_fifo.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
-    2 | module dmz_pixel_fifo #(parameter AW=11,RECODE_ADDR=0)(
+    2 | module dmz_pixel_fifo #(parameter AW=11,RECODE_ADDR=0,DATA_CODE=0)(
       |        ^~~~~~~~~~~~~~
                        sim/platform\tb_ui_keys.sv:2:8: ... Location of module with timescale
     2 | module tb_ui_keys;
@@ -13,11 +13,11 @@
     2 | module tb_ui_keys;
       |        ^~~~~~~~~~
 %Warning-TIMESCALEMOD: rtl/platform\dmz_ui_controller.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
-    3 | module dmz_ui_controller(input clk,reset,config_ready,input [4:0] entry_page,
+    3 | module dmz_ui_controller #(parameter COMPACT_NEIGHBORS=0)(input clk,reset,config_ready,input [4:0] entry_page,
       |        ^~~~~~~~~~~~~~~~~
                        sim/platform\tb_ui_keys.sv:2:8: ... Location of module with timescale
     2 | module tb_ui_keys;
       |        ^~~~~~~~~~
 - V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
-- Verilator: Built from 0.081 MB sources in 5 modules, into 0.227 MB in 8 C++ files needing 0.001 MB
-- Verilator: Walltime 0.060 s (elab=0.002, cvt=0.015, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.777 MB
+- Verilator: Built from 0.082 MB sources in 5 modules, into 0.227 MB in 8 C++ files needing 0.001 MB
+- Verilator: Walltime 0.048 s (elab=0.001, cvt=0.017, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.742 MB

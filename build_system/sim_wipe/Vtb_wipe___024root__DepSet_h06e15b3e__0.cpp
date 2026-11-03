@@ -200,7 +200,7 @@ VL_INLINE_OPT VlCoroutine Vtb_wipe___024root___eval_initial__TOP__Vtiming__0(Vtb
     }
     vlSelfRef.tb_wipe__DOT__used = 0U;
     vlSelfRef.tb_wipe__DOT__step = 1U;
-    while (VL_GTES_III(32, 0x14U, vlSelfRef.tb_wipe__DOT__step)) {
+    while (VL_GTES_III(32, 0xaU, vlSelfRef.tb_wipe__DOT__step)) {
         VL_WRITEF_NX("FRAME begin step=%0d t=%0t\n",0,
                      32,vlSelfRef.tb_wipe__DOT__step,
                      64,VL_TIME_UNITED_Q(1000),-9);
@@ -279,7 +279,7 @@ VL_INLINE_OPT VlCoroutine Vtb_wipe___024root___eval_initial__TOP__Vtiming__0(Vtb
         vlSelfRef.tb_wipe__DOT__step = ((IData)(1U) 
                                         + vlSelfRef.tb_wipe__DOT__step);
     }
-    vlSelfRef.tb_wipe__DOT__step = 0x15U;
+    vlSelfRef.tb_wipe__DOT__step = 0xbU;
     VL_WRITEF_NX("FRAME begin step=%0d t=%0t\n",0,32,
                  vlSelfRef.tb_wipe__DOT__step,64,VL_TIME_UNITED_Q(1000),
                  -9);
@@ -330,7 +330,7 @@ VL_INLINE_OPT VlCoroutine Vtb_wipe___024root___eval_initial__TOP__Vtiming__0(Vtb
                      64,VL_TIME_UNITED_Q(1000),-9,vlSymsp->name());
         VL_STOP_MT("sim/system\\tb_wipe.sv", 30, "", false);
     }
-    VL_WRITEF_NX("PASS 20-step frame-boundary wipe, per-burst old/new bank selection, no early commit or back-frame overwrite\n",0);
+    VL_WRITEF_NX("PASS 10-step frame-boundary wipe, per-burst old/new bank selection, no early commit or back-frame overwrite\n",0);
     VL_FINISH_MT("sim/system\\tb_wipe.sv", 31, "");
 }
 
@@ -444,7 +444,7 @@ VL_INLINE_OPT void Vtb_wipe___024root___nba_sequent__TOP__0(Vtb_wipe___024root* 
     __Vdly__tb_wipe__DOT__dut__DOT__rd_addr = vlSelfRef.tb_wipe__DOT__dut__DOT__rd_addr;
     if ((((IData)(vlSelfRef.tb_wipe__DOT__monitor) 
           & (IData)(vlSelfRef.tb_wipe__DOT__req)) & (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__video_req))) {
-        vlSelfRef.tb_wipe__DOT__expected_bank = ((0x15U 
+        vlSelfRef.tb_wipe__DOT__expected_bank = ((0xbU 
                                                   == vlSelfRef.tb_wipe__DOT__step)
                                                   ? 0U
                                                   : 
@@ -453,7 +453,7 @@ VL_INLINE_OPT void Vtb_wipe___024root___nba_sequent__TOP__0(Vtb_wipe___024root* 
                                                                     (0x3ffffU 
                                                                      & vlSelfRef.tb_wipe__DOT__addr), (IData)(0x140U)) 
                                                       < 
-                                                      VL_SHIFTL_III(32,32,32, vlSelfRef.tb_wipe__DOT__step, 4U)))
+                                                      VL_SHIFTL_III(32,32,32, vlSelfRef.tb_wipe__DOT__step, 5U)))
                                                    ? 0U
                                                    : 1U));
         if (VL_UNLIKELY((((1U & (vlSelfRef.tb_wipe__DOT__addr 
@@ -526,11 +526,11 @@ VL_INLINE_OPT void Vtb_wipe___024root___nba_sequent__TOP__0(Vtb_wipe___024root* 
                         __Vdly__tb_wipe__DOT__dut__DOT__back_ready = 0U;
                     } else if (vlSelfRef.tb_wipe__DOT__dut__DOT__transition_active) {
                         __Vdly__tb_wipe__DOT__dut__DOT__wipe_words 
-                            = (0x1ffU & ((IData)(0x10U) 
+                            = (0x1ffU & ((IData)(0x20U) 
                                          + (IData)(vlSelfRef.tb_wipe__DOT__dut__DOT__wipe_words)));
                     } else {
                         __Vdly__tb_wipe__DOT__dut__DOT__transition_active = 1U;
-                        __Vdly__tb_wipe__DOT__dut__DOT__wipe_words = 0x10U;
+                        __Vdly__tb_wipe__DOT__dut__DOT__wipe_words = 0x20U;
                     }
                 }
                 __Vdly__tb_wipe__DOT__dut__DOT__flush = 0x1fU;

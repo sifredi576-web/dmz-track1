@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-02",
+  "stage": "continuous thin waveform v1",
+  "bitstream_sha256": "b6477a0475c89544b7ee975eda69f1c28bb0fcca7e0253c5aa62189182da7330",
+  "baseline_bitstream_sha256": "bd838306db90772a8c426e3d49cb6a1a6186a16caadc6162b1a0b51d8a22b7d2",
+  "sram_download_passed": true,
+  "flash_programmed": false,
+  "setup_slack_ns": 0.108,
+  "hold_slack_ns": 0.023,
+  "lut": 16244,
+  "registers": 8855,
+  "bram9k": 62,
+  "dsp": 20,
+  "window_unchanged": true,
+  "window_size": [
+    512,
+    64
+  ],
+  "sampling_unchanged": true,
+  "gain_unchanged": true,
+  "user_observation": "pending",
+  "enlargement_authorized": false,
+  "software_check": {
+    "artifact": "docs/scene_visual_sim_result.txt",
+    "passed": true,
+    "sha256": "9b06d600a6020b35b7b9a48ae2771ee3f7388e6c659db0178551e20397213dfe",
+    "scope": "24576 raster pixels, continuous interpolated strokes incl. clipped slopes and sample boundaries; PCM, mute, peak decay and overlay controls"
+  },
+  "board_check": {
+    "port": "COM3",
+    "page_count": 16,
+    "page": 6,
+    "config_sd_bmp_wav_errors": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fb_fault": false,
+    "fifo_fault": false
+  },
+  "evidence": [
+    "docs/wave_line_boot.json",
+    "docs/wave_line_nav_4.json",
+    "docs/system_download_log.txt",
+    "docs/scene_visual_sim_result.txt"
+  ],
+  "pending": [
+    "user observation of first thin-line revision",
+    "only after observation consult user about enlarging frame and waveform without considering background"
+  ]
+}

@@ -8,93 +8,96 @@ IO Statistics
   #inout                    4
 
 Gate Statistics
-#Basic gates            24806
-  #and                   5638
+#Basic gates            25864
+  #and                   5686
   #nand                     0
-  #or                    4493
+  #or                    4500
   #nor                      0
-  #xor                   1192
+  #xor                   1610
   #xnor                    18
   #buf                      0
-  #not                   1373
+  #not                   1411
   #bufif1                  36
-  #MX21                  3136
+  #MX21                  3167
   #FADD                     0
-  #DFF                   8920
+  #DFF                   9436
   #LATCH                    0
-#MACRO_ADD                637
-#MACRO_EQ                 568
+#MACRO_ADD                675
+#MACRO_EQ                 590
 #MACRO_MULT                17
-#MACRO_MUX               5447
-#MACRO_OTHERS              30
+#MACRO_MUX               5606
+#MACRO_OTHERS              32
 
 Report Hierarchy Area:
 +-----------------------------------------------------------------------------------------------+
 |Instance                              |Module                          |gates  |seq    |macros |
 +-----------------------------------------------------------------------------------------------+
-|top                                   |dmz_track1_top                  |15886  |8920   |1252   |
-|  adjust_picture                      |dmz_picture_adjust              |10     |0      |17     |
+|top                                   |dmz_track1_top                  |16428  |9436   |1314   |
+|  adjust_picture                      |dmz_picture_pipe                |0      |98     |15     |
 |  audio_diag                          |dmz_status_cdc                  |10     |24     |4      |
-|  audio_fifo                          |dmz_pixel_fifo                  |51     |94     |6      |
-|  bist                                |dmz_sdram_bist                  |69     |59     |22     |
-|  board_commands                      |dmz_ui_keys                     |120    |5      |6      |
+|  audio_fifo                          |dmz_pixel_fifo                  |115    |94     |6      |
+|  bist                                |dmz_sdram_bist                  |70     |59     |22     |
+|  board_commands                      |dmz_ui_keys                     |122    |5      |6      |
+|  canvas                              |dmz_wide_mapper                 |8      |22     |11     |
 |  command_fifo                        |dmz_pixel_fifo                  |10     |30     |5      |
 |  command_rx                          |dmz_uart_rx                     |28     |42     |3      |
 |  completion                          |dmz_audio_completion            |28     |43     |7      |
 |  completion_to_memory                |dmz_status_cdc                  |11     |32     |4      |
-|  controls                            |dmz_media_control               |173    |78     |65     |
+|  controls                            |dmz_media_control               |175    |82     |65     |
 |  ctrl                                |dmz_sdram_ctrl                  |1786   |625    |9      |
-|  display_controls                    |dmz_display_control             |40     |65     |21     |
-|  fb                                  |dmz_image_framebuffer           |84     |332    |13     |
+|  display_controls                    |dmz_display_control             |40     |67     |21     |
+|  fb                                  |dmz_image_framebuffer           |85     |357    |19     |
 |  fifo                                |dmz_pixel_fifo                  |51     |94     |6      |
-|  file_menu                           |dmz_file_menu                   |171    |20     |19     |
+|  file_menu                           |dmz_file_menu                   |182    |20     |19     |
 |  gallery                             |dmz_gallery_control             |83     |80     |16     |
-|  keys                                |dmz_matrix_keys                 |164    |68     |11     |
-|  memory_clients                      |dmz_mem_mux                     |20     |2      |0      |
+|  keys                                |dmz_matrix_keys                 |164    |70     |11     |
+|  memory_clients                      |dmz_mem_mux                     |18     |2      |0      |
 |  menu_reply_cdc                      |dmz_status_cdc                  |11     |226    |4      |
 |  menu_request_cdc                    |dmz_status_cdc                  |11     |36     |4      |
-|  osd                                 |dmz_osd                         |762    |192    |74     |
+|  osd                                 |dmz_osd                         |725    |192    |69     |
 |  params_ack                          |dmz_status_cdc                  |11     |29     |4      |
 |  params_to_pixel                     |dmz_status_cdc                  |13     |97     |4      |
 |  pll                                 |dmz_p2_pll                      |0      |0      |1      |
-|  production_diagnostics$telemetry    |dmz_status_uart                 |21     |221    |8      |
-|  scene                               |dmz_scene_control               |13     |33     |3      |
-|  sd                                  |dmz_sd_reader                   |325    |228    |59     |
-|    spi                               |dmz_spi_byte                    |23     |29     |4      |
+|  production_diagnostics$telemetry    |dmz_status_uart                 |21     |225    |8      |
+|  scene                               |dmz_scene_control               |13     |35     |3      |
+|  sd                                  |dmz_sd_reader                   |323    |228    |59     |
+|    spi                               |dmz_spi_byte                    |22     |29     |4      |
 |  snapshot                            |dmz_status_cdc                  |10     |24     |4      |
-|  storage                             |dmz_media_storage               |9737   |5085   |597    |
+|  status_panel                        |dmz_status_panel                |134    |63     |44     |
+|  storage                             |dmz_media_storage               |10119  |5179   |595    |
 |    arbiter                           |dmz_sd_arbiter                  |25     |101    |0      |
-|    audio                             |dmz_wav_player                  |2470   |403    |75     |
-|      decoder                         |dmz_wav_decoder                 |293    |204    |45     |
-|      file_stream                     |dmz_fat_stream                  |2157   |191    |25     |
+|    audio                             |dmz_wav_player                  |2477   |403    |75     |
+|      decoder                         |dmz_wav_decoder                 |298    |204    |45     |
+|      file_stream                     |dmz_fat_stream                  |2159   |191    |25     |
 |    auxiliary                         |dmz_mem_mux                     |17     |3      |3      |
-|    catalog                           |dmz_fat_catalog                 |634    |1216   |85     |
-|    compositor                        |dmz_page_compositor             |125    |416    |33     |
-|    configured_ui$runtime             |dmz_scene_runtime               |1209   |1250   |220    |
-|      ui                              |dmz_ui_controller               |336    |88     |29     |
-|    images                            |dmz_image_player                |2677   |924    |109    |
+|    catalog                           |dmz_fat_catalog                 |972    |1248   |85     |
+|    compositor                        |dmz_page_compositor             |134    |495    |33     |
+|    configured_ui$runtime             |dmz_scene_runtime               |1233   |1233   |218    |
+|      ui                              |dmz_ui_controller               |344    |88     |29     |
+|    images                            |dmz_image_player                |2679   |924    |109    |
 |      decoder                         |dmz_bmp_decoder                 |448    |718    |82     |
 |        divider                       |dmz_udiv32                      |4      |114    |4      |
-|      file_stream                     |dmz_fat_stream                  |2158   |191    |23     |
+|      file_stream                     |dmz_fat_stream                  |2160   |191    |23     |
 |    pairing                           |dmz_pair_control                |15     |44     |3      |
-|    platform_boot                     |dmz_platform_boot               |2536   |724    |65     |
+|    platform_boot                     |dmz_platform_boot               |2538   |724    |65     |
 |      parser                          |dmz_scene_loader                |351    |246    |37     |
-|      stream                          |dmz_fat_stream                  |2155   |191    |23     |
+|      stream                          |dmz_fat_stream                  |2157   |191    |23     |
 |      writer                          |dmz_cfg_writer                  |15     |284    |3      |
-|  tone                                |dmz_tone                        |2      |38     |5      |
-|  tx                                  |hdmi                            |1085   |290    |123    |
-|    serializer                        |serializer                      |2      |36     |4      |
+|  tone                                |dmz_tone                        |2      |40     |5      |
+|  tx                                  |hdmi                            |1082   |345    |120    |
+|    serializer                        |serializer                      |2      |39     |4      |
 |    tmds_gen[0]$tmds_channel          |tmds_channel                    |101    |14     |29     |
 |    tmds_gen[1]$tmds_channel          |tmds_channel                    |96     |14     |25     |
 |    tmds_gen[2]$tmds_channel          |tmds_channel                    |95     |14     |25     |
 |    true_hdmi_output$packet_assembler |packet_assembler                |30     |45     |4      |
-|    true_hdmi_output$packet_picker    |packet_picker                   |728    |100    |13     |
+|    true_hdmi_output$packet_picker    |packet_picker                   |726    |100    |13     |
 |      audio_clock_regeneration_packet |audio_clock_regeneration_packet |2      |46     |3      |
 |      audio_sample_packet             |audio_sample_packet             |197    |0      |3      |
 |  ui_commands                         |dmz_pixel_fifo                  |10     |30     |5      |
 |  ui_events                           |dmz_pixel_fifo                  |13     |42     |4      |
 |  ui_flags                            |dmz_status_cdc                  |11     |20     |4      |
-|  ui_overlay                          |dmz_ui_overlay                  |64     |0      |49     |
-|  ui_snapshot                         |dmz_status_cdc                  |20     |312    |4      |
-|  visualizer                          |dmz_audio_visual                |133    |98     |40     |
+|  ui_overlay                          |dmz_ui_overlay                  |70     |0      |56     |
+|  ui_snapshot                         |dmz_status_cdc                  |18     |278    |4      |
+|  video_pll                           |dmz_wide_pll                    |0      |0      |1      |
+|  visualizer                          |dmz_audio_visual                |137    |150    |49     |
 +-----------------------------------------------------------------------------------------------+

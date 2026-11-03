@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-02",
+  "stage": "right status and parameter panel",
+  "bitstream_sha256": "d1eec884b32a5521e14e3946f1e8972da5bf857967441fedc7958adf79fd043f",
+  "baseline_bitstream_sha256": "1cb47619a95d7bec2105c59780d03ded79d0a28a2cf512e8f4d5bd12178c1123",
+  "sram_download_passed": true,
+  "flash_programmed": false,
+  "recovery_used": false,
+  "setup_slack_ns": 1.792,
+  "hold_slack_ns": 0.03,
+  "lut": 16553,
+  "registers": 8888,
+  "bram9k": 64,
+  "dsp": 20,
+  "panel_bounds": [
+    576,
+    128,
+    64,
+    160
+  ],
+  "font": {
+    "glyphs": 32,
+    "cell": [
+      16,
+      16
+    ],
+    "bitmap_width": 14,
+    "bram9k": 1
+  },
+  "visibility": "Normal course observation page, or open settings menu; hidden during notices/emergency. Other normal course pages remain unobstructed.",
+  "states": [
+    "playing",
+    "paused",
+    "muted",
+    "finished",
+    "loading",
+    "no audio",
+    "fault"
+  ],
+  "parameters": [
+    "volume 0..8",
+    "brightness 0..8",
+    "contrast 0..8"
+  ],
+  "feedback": "New brightness/contrast values highlighted with numerical-direction arrows for 120 video frames; two progress bars",
+  "trigger_implemented": false,
+  "accepted": true,
+  "user_state_confirmation": "文字清晰，播放和各状态均正常",
+  "user_parameter_confirmation": "调节、数值、变化提示及恢复默认均正常",
+  "software_check": {
+    "passed": true,
+    "raster_pixels": 122880,
+    "artifact": "docs/status_panel_verified_sim.txt",
+    "sha256": "2e2c025526ee88b7b8af5bcad9575ba25d61f242c1207a878b1a7a475f0aba77",
+    "covers": "All labels/status states, volume, brightness/contrast values, direction arrows, change highlight and expiry, defaults, frame coherence, boundary clipping and disable"
+  },
+  "board_check": {
+    "port": "COM3",
+    "page": 6,
+    "page_count": 16,
+    "config_sd_bmp_wav_errors": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fb_fault": false,
+    "fifo_fault": false
+  },
+  "evidence": [
+    "docs/status_panel_boot.json",
+    "docs/status_panel_nav_4.json",
+    "docs/system_download_log.txt",
+    "docs/status_panel_final.json"
+  ],
+  "remaining": [
+    "Ask separately whether to implement trigger stabilization with left-side controls; no authorization for automatic continuation"
+  ],
+  "final_board_state": {
+    "current_page": 6,
+    "page_count": 16,
+    "volume": 5,
+    "tone_muted": false,
+    "audio_paused": false,
+    "menu_open": false,
+    "sd_error": 0,
+    "image_error": 0,
+    "wav_error": 0,
+    "fifo_fault": false,
+    "fb_fault": false
+  }
+}

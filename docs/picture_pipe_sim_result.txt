@@ -1,0 +1,2 @@
+PASS 20736 mixed RGB/brightness/contrast combinations, exact three-cycle pipeline
+- sim/system\tb_picture_pipe.sv:16: Verilog $finish

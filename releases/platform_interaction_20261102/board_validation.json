@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-02",
+  "bitstream_sha256": "bd838306db90772a8c426e3d49cb6a1a6186a16caadc6162b1a0b51d8a22b7d2",
+  "download": "SRAM success",
+  "flash_programmed": false,
+  "port": "COM3",
+  "setup_slack_ns": 1.566,
+  "hold_slack_ns": 0.105,
+  "automated_checks": {
+    "focus_and_choice_overlay": "passed",
+    "10_step_frame_boundary_wipe": "passed",
+    "visualizer": "passed",
+    "complete_course_runtime": "passed",
+    "real_media_pixel_and_pcm": "passed",
+    "boot_16_pages_no_errors": "passed"
+  },
+  "user_visual_acceptance": "pending",
+  "limitations": [
+    "Current course auto advance is page-configured; no new independent course autoplay toggle was added.",
+    "Wipe duration is reduced; TF image read and composition latency are not measured on this bitstream."
+  ],
+  "evidence": [
+    "docs/overlay_test_result.txt",
+    "docs/wipe_sim_result.txt",
+    "docs/scene_visual_sim_result.txt",
+    "docs/scene_runtime_result.txt",
+    "docs/platform_media_result.txt",
+    "docs/platform_interaction_board_boot.json",
+    "docs/system_download_log.txt"
+  ]
+}

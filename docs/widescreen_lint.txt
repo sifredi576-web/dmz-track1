@@ -1,0 +1,103 @@
+%Warning-TIMESCALEMOD: rtl/system\dmz_wide_mapper.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_wide_mapper(input clk,reset,input [10:0] x,input [9:0] y,
+      |        ^~~~~~~~~~~~~~~
+                       sim/p2\sdram_model.sv:5:8: ... Location of module with timescale
+    5 | module sdram_model(input clk,reset,input ras_n,cas_n,we_n,input [10:0] addr,input [1:0] ba,
+      |        ^~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: rtl/p3\dmz_image_framebuffer.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_image_framebuffer #(parameter WIDE_MODE=0)(
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       sim/p2\sdram_model.sv:5:8: ... Location of module with timescale
+    5 | module sdram_model(input clk,reset,input ras_n,cas_n,we_n,input [10:0] addr,input [1:0] ba,
+      |        ^~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p2\dmz_pixel_fifo.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_pixel_fifo #(parameter AW=11,RECODE_ADDR=0)(
+      |        ^~~~~~~~~~~~~~
+                       sim/p2\sdram_model.sv:5:8: ... Location of module with timescale
+    5 | module sdram_model(input clk,reset,input ras_n,cas_n,we_n,input [10:0] addr,input [1:0] ba,
+      |        ^~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p2\dmz_sdram_ctrl.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_sdram_ctrl #(parameter integer INIT_CYCLES=10000,REFRESH_CYCLES=390,READ_WAIT_CYCLES=1)(
+      |        ^~~~~~~~~~~~~~
+                       sim/p2\sdram_model.sv:5:8: ... Location of module with timescale
+    5 | module sdram_model(input clk,reset,input ras_n,cas_n,we_n,input [10:0] addr,input [1:0] ba,
+      |        ^~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/p1\dmz_tone.sv:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    1 | module dmz_tone #(parameter integer CLOCK_HZ=25000000)(input wire clk, input wire reset, input wire mute,
+      |        ^~~~~~~~
+                       sim/p2\sdram_model.sv:5:8: ... Location of module with timescale
+    5 | module sdram_model(input clk,reset,input ras_n,cas_n,we_n,input [10:0] addr,input [1:0] ba,
+      |        ^~~~~~~~~~~
+%Warning-WIDTHEXPAND: rtl/p1\dmz_tone.sv:66:31: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'accumulator' generates 26 bits.
+                                              : ... note: In instance 'tb_widescreen.audio'
+   66 |    accumulator <= accumulator - (CLOCK_HZ-48000);
+      |                               ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: rtl/p1\dmz_tone.sv:66:16: Operator ASSIGNDLY expects 26 bits on the Assign RHS, but Assign RHS's SUB generates 32 bits.
+                                             : ... note: In instance 'tb_widescreen.audio'
+   66 |    accumulator <= accumulator - (CLOCK_HZ-48000);
+      |                ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: rtl/p1\dmz_tone.sv:65:18: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'accumulator' generates 26 bits.
+                                              : ... note: In instance 'tb_widescreen.audio'
+   65 |   if(accumulator >= (CLOCK_HZ-48000)) begin
+      |                  ^~
+%Warning-WIDTHEXPAND: rtl/p2\dmz_pixel_fifo.sv:10:18: Operator ADD expects 12 bits on the RHS, but RHS's VARREF 'pop' generates 1 bits.
+                                                    : ... note: In instance 'tb_widescreen.fifo'
+   10 | wire [AW:0] rn=rp+pop,wn=wp+push;
+      |                  ^
+%Warning-WIDTHEXPAND: rtl/p2\dmz_pixel_fifo.sv:10:28: Operator ADD expects 12 bits on the RHS, but RHS's VARREF 'push' generates 1 bits.
+                                                    : ... note: In instance 'tb_widescreen.fifo'
+   10 | wire [AW:0] rn=rp+pop,wn=wp+push;
+      |                            ^
+%Warning-WIDTHEXPAND: rtl/p2\dmz_sdram_ctrl.sv:23:45: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'refresh_age' generates 16 bits.
+                                                    : ... note: In instance 'tb_widescreen.ctrl'
+   23 | assign req_ready=(state==IDLE && refresh_age<REFRESH_CYCLES);
+      |                                             ^
+%Warning-WIDTHTRUNC: rtl/p2\dmz_sdram_ctrl.sv:48:26: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's SUB generates 32 bits.
+                                                   : ... note: In instance 'tb_widescreen.ctrl'
+   48 |   state<=POWER;wait_count<=INIT_CYCLES-1;refresh_age<=0;init_refresh<=0;
+      |                          ^~
+%Warning-WIDTHEXPAND: rtl/p2\dmz_sdram_ctrl.sv:63:18: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'refresh_age' generates 16 bits.
+                                                    : ... note: In instance 'tb_widescreen.ctrl'
+   63 |    if(refresh_age>=REFRESH_CYCLES) state<=REFRESH;
+      |                  ^~
+%Warning-WIDTHTRUNC: rtl/p2\dmz_sdram_ctrl.sv:68:37: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'READ_WAIT_CYCLES' generates 32 bits.
+                                                   : ... note: In instance 'tb_widescreen.ctrl'
+   68 |   READ:begin state<=RWAIT;wait_count<=READ_WAIT_CYCLES;end
+      |                                     ^~
+%Warning-WIDTHEXPAND: sim/p2\sdram_model.sv:52:15: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's VARREF 'ba' generates 2 bits.
+                                                 : ... note: In instance 'tb_widescreen.mem'
+   52 |    bank_active=ba;
+      |               ^
+%Warning-WIDTHEXPAND: sim/p2\sdram_model.sv:53:29: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 21 bits.
+                                                 : ... note: In instance 'tb_widescreen.mem'
+   53 |    if(we_n) begin rd_address={ba,rows[ba],addr[7:0]};delay_read=3;end
+      |                             ^
+%Warning-WIDTHEXPAND: sim/p2\sdram_model.sv:56:15: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 21 bits.
+                                                 : ... note: In instance 'tb_widescreen.mem'
+   56 |     wr_address={ba,rows[ba],addr[7:0]};mem[wr_address]=dq_out;wr_address=wr_address+1;wr_left=7;
+      |               ^
+%Warning-WIDTHEXPAND: sim/system\tb_widescreen.sv:45:8: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'sx' generates 10 bits.
+                                                      : ... note: In instance 'tb_widescreen'
+   45 |   if(sx!=(int'(x)-160)*2/3||sy!=int'(y)*2/3)$fatal(1,"mapper x=%0d y=%0d sx=%0d sy=%0d",x,y,sx,sy);
+      |        ^~
+%Warning-WIDTHEXPAND: sim/system\tb_widescreen.sv:45:31: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'sy' generates 10 bits.
+                                                       : ... note: In instance 'tb_widescreen'
+   45 |   if(sx!=(int'(x)-160)*2/3||sy!=int'(y)*2/3)$fatal(1,"mapper x=%0d y=%0d sx=%0d sy=%0d",x,y,sx,sy);
+      |                               ^~
+%Warning-WIDTHEXPAND: sim/system\tb_widescreen.sv:46:17: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'a2' generates 10 bits.
+                                                       : ... note: In instance 'tb_widescreen'
+   46 |   if(x<1117&&(a2!=(int'(x)-158)*2/3||a3!=(int'(x)-157)*2/3))$fatal(1,"lookahead mapping");
+      |                 ^~
+%Warning-WIDTHEXPAND: sim/system\tb_widescreen.sv:46:40: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'a3' generates 10 bits.
+                                                       : ... note: In instance 'tb_widescreen'
+   46 |   if(x<1117&&(a2!=(int'(x)-158)*2/3||a3!=(int'(x)-157)*2/3))$fatal(1,"lookahead mapping");
+      |                                        ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.156 MB sources in 8 modules, into 0.212 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.047 s (elab=0.004, cvt=0.015, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.852 MB

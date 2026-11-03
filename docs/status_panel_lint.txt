@@ -1,0 +1,49 @@
+%Warning-TIMESCALEMOD: rtl/system\dmz_status_panel.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_status_panel #(parameter CANVAS_W=800,CANVAS_H=525,ORIGIN_X=576,ORIGIN_Y=128,SCALE_SHIFT=0)(input clk,reset,frame_tick,enabled,
+      |        ^~~~~~~~~~~~~~~~
+                       sim/system\tb_status_panel.sv:2:8: ... Location of module with timescale
+    2 | module tb_status_panel;
+      |        ^~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: rtl/system\dmz_status_panel.sv:19:35: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'physical_x' generates 11 bits.
+                                                          : ... note: In instance 'tb_status_panel.dut'
+   19 | wire [9:0] ax=10'(576+((physical_x-ORIGIN_X)>>SCALE_SHIFT));
+      |                                   ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: rtl/system\dmz_status_panel.sv:20:35: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'physical_y' generates 10 bits.
+                                                          : ... note: In instance 'tb_status_panel.dut'
+   20 | wire [9:0] ay=10'(128+((physical_y-ORIGIN_Y)>>SCALE_SHIFT));
+      |                                   ^
+%Warning-WIDTHEXPAND: rtl/system\dmz_status_panel.sv:21:22: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'ay' generates 10 bits.
+                                                          : ... note: In instance 'tb_status_panel.dut'
+   21 | wire [3:0] row=4'((ay-128)>>4);wire [1:0] col=ax[5:4];
+      |                      ^
+%Warning-WIDTHEXPAND: rtl/system\dmz_status_panel.sv:436:43: Operator ADD expects 32 or 10 bits on the LHS, but LHS's REPLICATE generates 8 bits.
+                                                           : ... note: In instance 'tb_status_panel.dut'
+  436 |    if(py<272)color<=(px-584)<{2'd0,b,2'd0}+{4'd0,b,1'b0}?(b_timer!=0?24'hffe56d:24'h50cfff):24'h20344c;
+      |                                           ^
+%Warning-WIDTHEXPAND: rtl/system\dmz_status_panel.sv:437:38: Operator ADD expects 32 or 10 bits on the LHS, but LHS's REPLICATE generates 8 bits.
+                                                           : ... note: In instance 'tb_status_panel.dut'
+  437 |    else color<=(px-584)<{2'd0,c,2'd0}+{4'd0,c,1'b0}?(c_timer!=0?24'hffe56d:24'h50cfff):24'h20344c;
+      |                                      ^
+%Warning-WIDTHEXPAND: sim/system\tb_status_panel.sv:7:246: Input port connection 'x' expects 11 bits on the pin connection, but pin connection's VARREF 'x' generates 10 bits.
+                                                         : ... note: In instance 'tb_status_panel'
+    7 | dmz_status_panel dut(.clk(clk),.reset(reset),.frame_tick(frame),.enabled(en),.muted(muted),.paused(paused),.loading(loading),.audio_enabled(aenabled),.audio_active(active),.ended(ended),.fault(fault),.volume(volume),.brightness(b),.contrast(c),.x(x),.y(y),.ink(ink),.shade(shade),.color(color));
+      |                                                                                                                                                                                                                                                      ^
+%Warning-WIDTHEXPAND: sim/system\tb_status_panel.sv:34:19: Operator FUNCREF 'dg' expects 32 bits on the Function Argument, but Function Argument's VARREF 'volume' generates 4 bits.
+                                                         : ... note: In instance 'tb_status_panel'
+   34 |  3:if(cl==0)label=dg(volume);else if(cl==1)label=29;else if(cl==2)label=28;
+      |                   ^~
+%Warning-WIDTHEXPAND: sim/system\tb_status_panel.sv:36:19: Operator FUNCREF 'dg' expects 32 bits on the Function Argument, but Function Argument's VARREF 'b' generates 4 bits.
+                                                         : ... note: In instance 'tb_status_panel'
+   36 |  5:if(cl==0)label=dg(b);else if(cl==1)label=29;else if(cl==2)label=28;else if(bf)label=bu?30:31;
+      |                   ^~
+%Warning-WIDTHEXPAND: sim/system\tb_status_panel.sv:38:19: Operator FUNCREF 'dg' expects 32 bits on the Function Argument, but Function Argument's VARREF 'c' generates 4 bits.
+                                                         : ... note: In instance 'tb_status_panel'
+   38 |  7:if(cl==0)label=dg(c);else if(cl==1)label=29;else if(cl==2)label=28;else if(cf)label=cu?30:31;
+      |                   ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.063 MB sources in 3 modules, into 0.462 MB in 8 C++ files needing 0.001 MB
+- Verilator: Walltime 0.065 s (elab=0.008, cvt=0.029, bld=0.000); cpu 0.000 s on 1 threads; alloced 18.250 MB

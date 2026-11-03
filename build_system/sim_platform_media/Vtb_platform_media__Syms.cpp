@@ -18,7 +18,7 @@ Vtb_platform_media__Syms::Vtb_platform_media__Syms(VerilatedContext* contextp, c
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(2688);
+        Verilated::stackCheck(2692);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
     _vm_contextp__->timeprecision(-12);

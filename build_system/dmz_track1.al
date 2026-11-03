@@ -18,6 +18,14 @@
                     <Attr Name="CompileOrder" Val="1"/>
                 </FileInfo>
             </File>
+            <File Path="../rtl/p2/dmz_wide_pll.v">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="55"/>
+                </FileInfo>
+            </File>
         </Verilog>
         <System_Verilog>
             <File Path="../rtl/p2/dmz_sdram_ctrl.sv">
@@ -437,6 +445,30 @@
                     <Attr Name="CompileOrder" Val="53"/>
                 </FileInfo>
             </File>
+            <File Path="../rtl/system/dmz_status_panel.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="54"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/system/dmz_wide_mapper.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="56"/>
+                </FileInfo>
+            </File>
+            <File Path="../rtl/system/dmz_picture_pipe.sv">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="57"/>
+                </FileInfo>
+            </File>
         </System_Verilog>
         <ADC_FILE>
             <File Path="../constraints/dmz_p3.adc">
@@ -485,11 +517,19 @@
         </Run>
         <Run Name="phy_1" Type="PhysicalDesign" ConstraintSet="constraint_1" Description="" SynRun="syn_1" Active="true">
             <Strategy Name="Default_PhysicalDesign_Strategy">
+                <GlobalProperty>
+                    <thread>1</thread>
+                </GlobalProperty>
                 <PlaceProperty>
+                    <effort>high</effort>
+                    <fix_hold>on</fix_hold>
                     <opt_timing>high</opt_timing>
                     <post_place_opt>high</post_place_opt>
-                    <seed>3</seed>
+                    <seed>14</seed>
                 </PlaceProperty>
+                <RouteProperty>
+                    <swap_pin>off</swap_pin>
+                </RouteProperty>
             </Strategy>
             <UserParams>
             </UserParams>

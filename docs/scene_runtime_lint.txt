@@ -72,45 +72,45 @@
       |                    ^
                      ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
                      ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
-%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:220:13: Operator NEQ expects 8 bits on the RHS, but RHS's VARREF 'pi' generates 6 bits.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:232:13: Operator NEQ expects 8 bits on the RHS, but RHS's VARREF 'pi' generates 6 bits.
                                                                                                                                        : ... note: In instance 'tb_scene_runtime.dut'
-  220 |     if(rb(0)!=pi||rb(1)>=resource_count||
+  232 |     if(rb(0)!=pi||rb(1)>=resource_count||
       |             ^~
-%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:220:24: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:232:24: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
                                                                                                                                        : ... note: In instance 'tb_scene_runtime.dut'
-  220 |     if(rb(0)!=pi||rb(1)>=resource_count||
+  232 |     if(rb(0)!=pi||rb(1)>=resource_count||
       |                        ^~
-%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:221:26: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:233:26: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
                                                                                                                                        : ... note: In instance 'tb_scene_runtime.dut'
-  221 |       (rb(2)!=255&&(rb(2)>=resource_count))||
+  233 |       (rb(2)!=255&&(rb(2)>=resource_count))||
       |                          ^~
-%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:222:43: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:234:43: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
                                                                                                                                        : ... note: In instance 'tb_scene_runtime.dut'
-  222 |       (rb(3)&8'hf8)!=0||(rb(4)!=255&&rb(4)>=page_count)||rb(5)!=0||rb(9)>8||
+  234 |       (rb(3)&8'hf8)!=0||(rb(4)!=255&&rb(4)>=page_count)||rb(5)!=0||rb(9)>8||
       |                                           ^~
-%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:223:74: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:235:74: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
                                                                                                                                        : ... note: In instance 'tb_scene_runtime.dut'
-  223 |       {1'b0,rb(8)}+{1'b0,rb(9)}>{1'b0,widget_total}||(rb(10)!=255&&rb(10)>=page_count)||
+  235 |       {1'b0,rb(8)}+{1'b0,rb(9)}>{1'b0,widget_total}||(rb(10)!=255&&rb(10)>=page_count)||
       |                                                                          ^~
-%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:240:13: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:252:13: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
                                                                                                                                        : ... note: In instance 'tb_scene_runtime.dut'
-  240 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
+  252 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
       |             ^~
-%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:240:41: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:252:41: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
                                                                                                                                        : ... note: In instance 'tb_scene_runtime.dut'
-  240 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
+  252 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
       |                                         ^~
-%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:240:64: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:252:64: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
                                                                                                                                        : ... note: In instance 'tb_scene_runtime.dut'
-  240 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
+  252 |     if(rb(0)>=page_count||rb(1)>3||rb(2)>=resource_count||rb(3)>=resource_count||
       |                                                                ^~
-%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:244:39: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:256:39: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'page_count' generates 6 bits.
                                                                                                                                        : ... note: In instance 'tb_scene_runtime.dut'
-  244 |        ((rb(12)==1||rb(12)==9)&&rb(13)>=page_count)||
+  256 |        ((rb(12)==1||rb(12)==9)&&rb(13)>=page_count)||
       |                                       ^~
-%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:245:27: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
+%Warning-WIDTHEXPAND: D:\QQdownload\HX4S20_Contest_202606.zip\HX4S20_Contest_202606\dmz_track1\rtl\platform\dmz_scene_runtime.sv:257:27: Operator GTE expects 8 bits on the RHS, but RHS's VARREF 'resource_count' generates 7 bits.
                                                                                                                                        : ... note: In instance 'tb_scene_runtime.dut'
-  245 |        (rb(12)==2&&(rb(13)>=resource_count))||
+  257 |        (rb(12)==2&&(rb(13)>=resource_count))||
       |                           ^~
 %Warning-WIDTHTRUNC: sim/platform\tb_scene_runtime.sv:37:20: Bit extraction of array[32767:0] requires 15 bit index, not 21 bits.
                                                            : ... note: In instance 'tb_scene_runtime'
@@ -137,5 +137,5 @@
    75 |   action=route(status[15:11],status[10:8],wanted);send_event(action);wait_idle();
       |          ^~~~~
 - V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
-- Verilator: Built from 0.384 MB sources in 13 modules, into 3.683 MB in 10 C++ files needing 0.001 MB
-- Verilator: Walltime 0.334 s (elab=0.010, cvt=0.223, bld=0.000); cpu 0.266 s on 1 threads; alloced 43.086 MB
+- Verilator: Built from 0.388 MB sources in 13 modules, into 3.695 MB in 10 C++ files needing 0.001 MB
+- Verilator: Walltime 0.251 s (elab=0.008, cvt=0.168, bld=0.000); cpu 0.219 s on 1 threads; alloced 43.012 MB

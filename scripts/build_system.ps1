@@ -38,17 +38,18 @@ try {
  if($latest.LastWriteTime -gt $bit.LastWriteTime){throw 'RTL or constraints are newer than the bitstream; rebuild before downloading'}
  $badNets=$logs -split "`n" | Where-Object {
   ($_ -match 'undeclared symbol|HDL-5314[^\r\n]*does not have a driver') -and
-  ($_ -notmatch "undeclared symbol 'open'.*dmz_p2_pll\.v") -and
+  ($_ -notmatch "undeclared symbol 'open'.*dmz_(p2|wide)_pll\.v") -and
   # TD reports initialized ROM arrays and the unused serial BIST branch before
   # constant propagation. These exact reviewed objects are not runtime inputs.
   ($_ -notmatch "net 'read_data\[255\]'.*dmz_sdram_bist\.sv") -and
-  ($_ -notmatch "net '(text_rom|font_rom)'.*dmz_osd\.sv")
+  ($_ -notmatch "net '(text_rom|font_rom)'.*dmz_osd\.sv") -and
+  ($_ -notmatch "net 'font_rom'.*dmz_status_panel\.sv")
  }
  if($badNets){throw ('Undeclared or undriven HDL net: '+($badNets -join '; '))}
  # Known hard-macro relocation and single-destination internal clock pad warnings.
  $critical=$logs -split "`n" | Where-Object {$_ -match 'CRITICAL-WARNING' -and $_ -notmatch 'PHY-7002|PHY-5079'}
  if($critical){throw ('Unreviewed critical warning: '+($critical -join '; '))}
  $r=Get-Content build_system/dmz_track1_Runs/phy_1/dmz_track1_pr.timing -Raw
- if($r -match '(?:S|H)WNS:\s*-' -or $r -notmatch 'Timing details for EG_PHY_SDRAM_2M_32' -or $r -notmatch '125.000'){throw 'Timing or SDRAM coverage failed'}
+ if($r -match '(?:S|H)WNS:\s*-' -or $r -notmatch 'Timing details for EG_PHY_SDRAM_2M_32' -or $r -notmatch '375.'){throw 'Timing or SDRAM coverage failed'}
  Write-Output 'PASS: unified system bitstream, reviewed synthesis nets and routed timing including SDRAM hard macro'
 }finally{Pop-Location}

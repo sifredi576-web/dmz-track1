@@ -23,6 +23,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_display___024root final : public Verilate
     CData/*3:0*/ tb_display__DOT__c;
     CData/*3:0*/ tb_display__DOT__bb;
     CData/*3:0*/ tb_display__DOT__cc;
+    CData/*0:0*/ tb_display__DOT__ctrl__DOT__ticks;
     CData/*3:0*/ tb_display__DOT__ctrl__DOT__wanted_b;
     CData/*3:0*/ tb_display__DOT__ctrl__DOT__wanted_c;
     CData/*7:0*/ __Vfunc_tb_display__DOT__reference_channel__0__Vfuncout;
@@ -60,7 +61,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_display___024root final : public Verilate
     IData/*23:0*/ tb_display__DOT__out;
     IData/*31:0*/ tb_display__DOT__k;
     IData/*31:0*/ tb_display__DOT__expected;
-    IData/*24:0*/ tb_display__DOT__ctrl__DOT__ticks;
     IData/*31:0*/ __Vfunc_tb_display__DOT__reference_channel__0__pixel;
     IData/*31:0*/ __Vfunc_tb_display__DOT__reference_channel__0__bv;
     IData/*31:0*/ __Vfunc_tb_display__DOT__reference_channel__0__cv;

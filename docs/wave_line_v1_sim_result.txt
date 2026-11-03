@@ -1,0 +1,3 @@
+PASS 24576-pixel continuous thin-line raster, clipped alternating slopes and sample boundaries
+PASS frame-latched scene/physical priority, 50 percent alert, stereo signed peaks, real PCM page, silence/decay and overlay disable
+- sim/system\tb_scene_visual.sv:56: Verilog $finish

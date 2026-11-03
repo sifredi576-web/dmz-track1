@@ -94,11 +94,11 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
     __Vdly__tb_system_control__DOT__uart__DOT__bitno = 0;
     CData/*7:0*/ __Vdly__tb_system_control__DOT__uart__DOT__shift;
     __Vdly__tb_system_control__DOT__uart__DOT__shift = 0;
-    SData/*15:0*/ __Vdly__tb_system_control__DOT__control__DOT__restart_count;
+    SData/*9:0*/ __Vdly__tb_system_control__DOT__control__DOT__restart_count;
     __Vdly__tb_system_control__DOT__control__DOT__restart_count = 0;
     CData/*3:0*/ __Vdly__tb_system_control__DOT__volume;
     __Vdly__tb_system_control__DOT__volume = 0;
-    IData/*24:0*/ __Vdly__tb_system_control__DOT__control__DOT__second_count;
+    SData/*12:0*/ __Vdly__tb_system_control__DOT__control__DOT__second_count;
     __Vdly__tb_system_control__DOT__control__DOT__second_count = 0;
     CData/*0:0*/ __Vdly__tb_system_control__DOT__phase;
     __Vdly__tb_system_control__DOT__phase = 0;
@@ -173,18 +173,18 @@ VL_INLINE_OPT void Vtb_system_control___024root___nba_sequent__TOP__0(Vtb_system
         vlSelfRef.tb_system_control__DOT__control__DOT__ms 
             = ((2U & ((IData)(vlSelfRef.tb_system_control__DOT__control__DOT__ms) 
                       << 1U)) | (IData)(vlSelfRef.tb_system_control__DOT__ms));
-        if ((0x176fU == vlSelfRef.tb_system_control__DOT__control__DOT__second_count)) {
+        if ((0x176fU == (IData)(vlSelfRef.tb_system_control__DOT__control__DOT__second_count))) {
             __Vdly__tb_system_control__DOT__phase = 
                 (1U & (~ (IData)(vlSelfRef.tb_system_control__DOT__phase)));
             __Vdly__tb_system_control__DOT__control__DOT__second_count = 0U;
         } else {
             __Vdly__tb_system_control__DOT__control__DOT__second_count 
-                = (0x1ffffffU & ((IData)(1U) + vlSelfRef.tb_system_control__DOT__control__DOT__second_count));
+                = (0x1fffU & ((IData)(1U) + (IData)(vlSelfRef.tb_system_control__DOT__control__DOT__second_count)));
         }
         if ((0U != (IData)(vlSelfRef.tb_system_control__DOT__control__DOT__restart_count))) {
             __Vdly__tb_system_control__DOT__control__DOT__restart_count 
-                = (0xffffU & ((IData)(vlSelfRef.tb_system_control__DOT__control__DOT__restart_count) 
-                              - (IData)(1U)));
+                = (0x3ffU & ((IData)(vlSelfRef.tb_system_control__DOT__control__DOT__restart_count) 
+                             - (IData)(1U)));
             if ((1U == (IData)(vlSelfRef.tb_system_control__DOT__control__DOT__restart_count))) {
                 vlSelfRef.tb_system_control__DOT__restart = 0U;
             }

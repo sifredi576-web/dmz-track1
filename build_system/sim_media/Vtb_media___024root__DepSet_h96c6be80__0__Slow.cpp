@@ -251,7 +251,7 @@ VL_ATTR_COLD void Vtb_media___024root___stl_sequent__TOP__0(Vtb_media___024root*
     vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__riff_length 
         = (0x1ffffffffULL & (8ULL + VL_EXTEND_QI(33,32, 
                                                  ([&]() {
-                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__94__Vfuncout 
+                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__114__Vfuncout 
                             = (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                  [7U] << 0x18U) | (
                                                    vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
@@ -260,7 +260,7 @@ VL_ATTR_COLD void Vtb_media___024root___stl_sequent__TOP__0(Vtb_media___024root*
                                | ((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                    [5U] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                   [4U]));
-                    }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__94__Vfuncout))));
+                    }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__114__Vfuncout))));
     vlSelfRef.tb_media__DOT__dut__DOT__aud_ready = 
         (1U & (~ ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__audio_pending) 
                   | ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__arbiter__DOT__active) 
@@ -273,7 +273,7 @@ VL_ATTR_COLD void Vtb_media___024root___stl_sequent__TOP__0(Vtb_media___024root*
         = (0x1ffffffffULL & (((QData)((IData)(vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__offset)) 
                               + VL_EXTEND_QI(33,32, 
                                              ([&]() {
-                            vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__95__Vfuncout 
+                            vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__115__Vfuncout 
                                 = (((vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                      [7U] << 0x18U) 
                                     | (vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
@@ -282,7 +282,7 @@ VL_ATTR_COLD void Vtb_media___024root___stl_sequent__TOP__0(Vtb_media___024root*
                                        [5U] << 8U) 
                                       | vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                       [4U]));
-                        }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__95__Vfuncout))) 
+                        }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__115__Vfuncout))) 
                              + (QData)((IData)((1U 
                                                 & vlSelfRef.tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header
                                                 [4U])))));
@@ -935,7 +935,7 @@ VL_ATTR_COLD void Vtb_media___024root___stl_sequent__TOP__0(Vtb_media___024root*
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__abs_height 
         = ((0x80U & vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
             [0x19U]) ? ((IData)(1U) + (~ ([&]() {
-                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__72__Vfuncout 
+                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__92__Vfuncout 
                             = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                  [0x19U] << 0x18U) 
                                 | (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
@@ -944,9 +944,9 @@ VL_ATTR_COLD void Vtb_media___024root___stl_sequent__TOP__0(Vtb_media___024root*
                                    [0x17U] << 8U) | 
                                   vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                   [0x16U]));
-                    }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__72__Vfuncout)))
+                    }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__92__Vfuncout)))
             : ([&]() {
-                vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__73__Vfuncout 
+                vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__93__Vfuncout 
                     = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                          [0x19U] << 0x18U) | (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                               [0x18U] 
@@ -954,7 +954,7 @@ VL_ATTR_COLD void Vtb_media___024root___stl_sequent__TOP__0(Vtb_media___024root*
                        | ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                            [0x17U] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                           [0x16U]));
-            }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__73__Vfuncout));
+            }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__93__Vfuncout));
     vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__pair_issue 
         = ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__raw_catalog_ready) 
            & ((~ ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__catalog__DOT__name_phase) 
@@ -995,7 +995,7 @@ VL_ATTR_COLD void Vtb_media___024root___stl_sequent__TOP__0(Vtb_media___024root*
                               + (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__left_pad))))));
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__raw_width 
         = (0x7ffU & ([&]() {
-                vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__74__Vfuncout 
+                vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__94__Vfuncout 
                     = (((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                          [0x15U] << 0x18U) | (vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                               [0x14U] 
@@ -1003,7 +1003,7 @@ VL_ATTR_COLD void Vtb_media___024root___stl_sequent__TOP__0(Vtb_media___024root*
                        | ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                            [0x13U] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                           [0x12U]));
-            }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__74__Vfuncout));
+            }(), vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__94__Vfuncout));
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__trial 
         = (((QData)((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__rem)) 
             << 1U) | (QData)((IData)((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__shift 
@@ -1029,11 +1029,11 @@ VL_ATTR_COLD void Vtb_media___024root___stl_sequent__TOP__0(Vtb_media___024root*
             : 0U);
     vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__row_bytes 
         = (0x1fffU & ((0x20U == ([&]() {
-                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__75__Vfuncout 
+                        vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__95__Vfuncout 
                             = ((vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                 [0x1dU] << 8U) | vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header
                                [0x1cU]);
-                    }(), (IData)(vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__75__Vfuncout)))
+                    }(), (IData)(vlSelfRef.__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__95__Vfuncout)))
                        ? VL_SHIFTL_III(13,13,32, (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__raw_width), 2U)
                        : ((IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__raw_width) 
                           + VL_SHIFTL_III(13,13,32, (IData)(vlSelfRef.tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__raw_width), 1U))));
@@ -1586,12 +1586,139 @@ VL_ATTR_COLD void Vtb_media___024root___ctor_var_reset(Vtb_media___024root* vlSe
     vlSelf->__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__e16__23__Vfuncout = VL_RAND_RESET_I(16);
     vlSelf->__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__24__Vfuncout = VL_RAND_RESET_Q(64);
     vlSelf->__Vfunc_tb_media__DOT__dut__DOT__catalog__DOT__code64__25__Vfuncout = VL_RAND_RESET_Q(64);
-    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__72__Vfuncout = VL_RAND_RESET_I(32);
-    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__73__Vfuncout = VL_RAND_RESET_I(32);
-    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__74__Vfuncout = VL_RAND_RESET_I(32);
-    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__75__Vfuncout = VL_RAND_RESET_I(16);
-    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__94__Vfuncout = VL_RAND_RESET_I(32);
-    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__95__Vfuncout = VL_RAND_RESET_I(32);
+    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__92__Vfuncout = VL_RAND_RESET_I(32);
+    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__93__Vfuncout = VL_RAND_RESET_I(32);
+    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h32__94__Vfuncout = VL_RAND_RESET_I(32);
+    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__h16__95__Vfuncout = VL_RAND_RESET_I(16);
+    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__114__Vfuncout = VL_RAND_RESET_I(32);
+    vlSelf->__Vfunc_tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__le32__115__Vfuncout = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__cycle = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__sd_done = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__ack = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__active_lba = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__sd_pos = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__reading = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__sd_ready = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__ack_delay = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__load_ready = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__pcm_count = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__held = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__state = VL_RAND_RESET_I(4);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__pos = VL_RAND_RESET_I(9);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__platform_boot__DOT__parser_busy = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__pairing__DOT__pending = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__pairing__DOT__settle = VL_RAND_RESET_I(5);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_name = VL_RAND_RESET_Q(64);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_scan = VL_RAND_RESET_I(5);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__pair_found = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_index = VL_RAND_RESET_I(4);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__catalog__DOT__pair_lookup_valid = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__wav_bytes = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__image_bytes = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__name = VL_RAND_RESET_Q(64);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__raw_catalog_ready = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__catalog__DOT__dir_pos = VL_RAND_RESET_I(9);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__catalog__DOT__entry_pos = VL_RAND_RESET_I(5);
+    vlSelf->__Vdly__tb_media__DOT__count = VL_RAND_RESET_I(6);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__state = VL_RAND_RESET_I(3);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__lookup_wait = VL_RAND_RESET_I(3);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__state = VL_RAND_RESET_I(4);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__stream_error = VL_RAND_RESET_I(8);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__pos = VL_RAND_RESET_I(9);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__state = VL_RAND_RESET_I(5);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__after_ack = VL_RAND_RESET_I(5);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__position = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__length = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__offset = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__width = VL_RAND_RESET_I(11);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__height = VL_RAND_RESET_I(11);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__source_x = VL_RAND_RESET_I(11);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__source_y = VL_RAND_RESET_I(11);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__wanted_y = VL_RAND_RESET_I(11);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__sample_x = VL_RAND_RESET_I(11);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__draw_w = VL_RAND_RESET_I(10);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__draw_h = VL_RAND_RESET_I(10);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__first_pad = VL_RAND_RESET_I(10);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__out_x = VL_RAND_RESET_I(10);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__dest_row = VL_RAND_RESET_I(10);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__drawn_rows = VL_RAND_RESET_I(10);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__x_error = VL_RAND_RESET_I(12);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__y_error = VL_RAND_RESET_I(12);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__channel = VL_RAND_RESET_I(2);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__padding = VL_RAND_RESET_I(2);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__pad_left = VL_RAND_RESET_I(2);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__rgba = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__top_down = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__width_limited = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__blank_row = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__input_finished = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__burst_pixel = VL_RAND_RESET_I(4);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__low_pixel = VL_RAND_RESET_I(16);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__raw_load_addr = VL_RAND_RESET_I(18);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__raw_load_last = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__pixels = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__busy = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__divisor = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__divider__DOT__count = VL_RAND_RESET_I(6);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__state = VL_RAND_RESET_I(3);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__state = VL_RAND_RESET_I(4);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__aud_start = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__aud_lba = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_error = VL_RAND_RESET_I(8);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__pos = VL_RAND_RESET_I(9);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__state = VL_RAND_RESET_I(4);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__index = VL_RAND_RESET_I(4);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__offset = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__length = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__riff_end = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__remaining = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__chunk_odd = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__format_seen = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__channel_byte = VL_RAND_RESET_I(2);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__assembly = VL_RAND_RESET_I(24);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__decoder_pcm_valid = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__audio__DOT__sample_pairs = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__image_pending = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__audio_pending = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__active = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__read_start = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_media__DOT__image_reads = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__audio_reads = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_media__DOT__dut__DOT__arbiter__DOT__held_image = VL_RAND_RESET_I(32);
+    vlSelf->__VdlyVal__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0 = VL_RAND_RESET_I(8);
+    vlSelf->__VdlyDim0__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0 = VL_RAND_RESET_I(9);
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__platform_boot__DOT__stream__DOT__cache__v0 = 0;
+    vlSelf->__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0 = VL_RAND_RESET_I(8);
+    vlSelf->__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0 = VL_RAND_RESET_I(9);
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__cache__v0 = 0;
+    vlSelf->__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0 = VL_RAND_RESET_I(32);
+    vlSelf->__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0 = VL_RAND_RESET_I(5);
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__clusters__v0 = 0;
+    vlSelf->__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 = VL_RAND_RESET_I(32);
+    vlSelf->__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 = VL_RAND_RESET_I(5);
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__sizes__v0 = 0;
+    vlSelf->__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 = VL_RAND_RESET_Q(64);
+    vlSelf->__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 = VL_RAND_RESET_I(5);
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__names__v0 = 0;
+    vlSelf->__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 = VL_RAND_RESET_I(32);
+    vlSelf->__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 = VL_RAND_RESET_I(4);
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_clusters__v0 = 0;
+    vlSelf->__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 = VL_RAND_RESET_I(32);
+    vlSelf->__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 = VL_RAND_RESET_I(4);
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_sizes__v0 = 0;
+    vlSelf->__VdlyVal__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 = VL_RAND_RESET_Q(64);
+    vlSelf->__VdlyDim0__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 = VL_RAND_RESET_I(4);
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__catalog__DOT__wav_names__v0 = 0;
+    vlSelf->__VdlyVal__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0 = VL_RAND_RESET_I(8);
+    vlSelf->__VdlyDim0__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0 = VL_RAND_RESET_I(9);
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__images__DOT__file_stream__DOT__cache__v0 = 0;
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__images__DOT__decoder__DOT__header__v0 = 0;
+    vlSelf->__VdlyVal__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0 = VL_RAND_RESET_I(8);
+    vlSelf->__VdlyDim0__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0 = VL_RAND_RESET_I(9);
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__audio__DOT__file_stream__DOT__cache__v0 = 0;
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v0 = 0;
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v1 = 0;
+    vlSelf->__VdlySet__tb_media__DOT__dut__DOT__audio__DOT__decoder__DOT__header__v2 = 0;
     vlSelf->__Vtrigprevexpr___TOP__tb_media__DOT__clk__0 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr_hfa9ac863__1 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr_h8eaeeabb__1 = VL_RAND_RESET_I(1);

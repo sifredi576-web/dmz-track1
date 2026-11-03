@@ -1,0 +1,4 @@
+PASS 73728-pixel continuous thin-line raster, clipped alternating slopes and sample boundaries
+PASS 73728 actual TONE01 raster pixels, 12-bit amplitude and 6 kHz capture
+PASS frame-latched scene/physical priority, 50 percent alert, stereo signed peaks, real PCM page, silence/decay and overlay disable
+- sim/system\tb_scene_visual.sv:73: Verilog $finish

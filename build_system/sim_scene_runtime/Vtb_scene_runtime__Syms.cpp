@@ -18,7 +18,7 @@ Vtb_scene_runtime__Syms::Vtb_scene_runtime__Syms(VerilatedContext* contextp, con
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(1360);
+        Verilated::stackCheck(1384);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
     _vm_contextp__->timeprecision(-12);

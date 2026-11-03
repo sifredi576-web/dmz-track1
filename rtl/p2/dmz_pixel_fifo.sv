@@ -1,7 +1,9 @@
 // 2048 x 32 dual-clock FIFO; Gray pointers, registered show-ahead output.
-module dmz_pixel_fifo #(parameter AW=11,RECODE_ADDR=0)(
+module dmz_pixel_fifo #(parameter AW=11,RECODE_ADDR=0,DATA_CODE=0)(
  input wire wclk,wreset,wpush,input wire [31:0] wdata,output wire full,output wire [AW:0] used,
- input wire rclk,rreset,rpop,output reg [31:0] rdata,output wire empty);
+ input wire rclk,rreset,rpop,output wire [31:0] rdata,output wire empty);
+reg [31:0] rdata_raw;
+assign rdata=DATA_CODE?(rdata_raw^{32{rp[0]}}):rdata_raw;
 reg [31:0] mem[0:(1<<AW)-1];
 reg [AW:0] wp,rp,wgray,rgray;
 (* ASYNC_REG="TRUE" *) reg [AW:0] rg1,rg2,wg1,wg2;
@@ -26,11 +28,11 @@ assign empty=(rgray==wg2);
 always @(posedge wclk) begin
  if(wreset) begin wp<=0;wgray<=0;rg1<=0;rg2<=0;end
  else begin wp<=wn;wgray<=wng;rg1<=rgray;rg2<=rg1;end
- if(push && !wreset) mem[write_addr]<=wdata;
+ if(push && !wreset) mem[write_addr]<=DATA_CODE?(wdata^{32{wp[0]}}):wdata;
 end
 always @(posedge rclk) begin
  if(rreset) begin rp<=0;rgray<=0;wg1<=0;wg2<=0;end
  else begin rp<=rn;rgray<=rng;wg1<=wgray;wg2<=wg1;end
- rdata<=mem[read_addr];
+ rdata_raw<=mem[read_addr];
 end
 endmodule

@@ -1,0 +1,17 @@
+%Warning-TIMESCALEMOD: rtl/system\dmz_picture_adjust.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module dmz_picture_adjust(input [23:0] rgb,input [3:0] brightness,contrast,output wire [23:0] adjusted);
+      |        ^~~~~~~~~~~~~~~~~~
+                       sim/system\tb_picture_pipe.sv:2:8: ... Location of module with timescale
+    2 | module tb_picture_pipe;
+      |        ^~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: rtl/system\dmz_picture_pipe.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_picture_pipe(input clk,reset,input [23:0] rgb,input [3:0] brightness,contrast,output [23:0] adjusted);
+      |        ^~~~~~~~~~~~~~~~
+                       sim/system\tb_picture_pipe.sv:2:8: ... Location of module with timescale
+    2 | module tb_picture_pipe;
+      |        ^~~~~~~~~~~~~~~
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.052 MB sources in 4 modules, into 0.423 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.058 s (elab=0.001, cvt=0.032, bld=0.000); cpu 0.016 s on 1 threads; alloced 16.621 MB

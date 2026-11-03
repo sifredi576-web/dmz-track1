@@ -18,7 +18,7 @@ try {
  $bit=Get-Item "$phy/dmz_track1.bit"
  if($bit.LastWriteTime -lt $start -or !$bit.Length){throw 'No fresh recovered bitstream'}
  $timing=Get-Content "$phy/recovered_timing.rpt" -Raw
- if($timing -match '(?:S|H)WNS:\s*-' -or $timing -notmatch 'Timing details for EG_PHY_SDRAM_2M_32' -or $timing -notmatch '125.000'){throw 'Recovered routed STA did not pass'}
+ if($timing -match '(?:S|H)WNS:\s*-' -or $timing -notmatch 'Timing details for EG_PHY_SDRAM_2M_32' -or $timing -notmatch '375.'){throw 'Recovered routed STA did not pass'}
  if($timing -notmatch 'SWNS:\s*([\d.-]+)ns'){throw 'No recovered setup result'};$setup=[double]$Matches[1]
  if($timing -notmatch 'HWNS:\s*([\d.-]+)ns'){throw 'No recovered hold result'};$hold=[double]$Matches[1]
  $paths=$files+@("$phy/dmz_track1.bit","$phy/dmz_track1_pr.db","$phy/recovered_timing.rpt",'docs/system_recovery_log.txt',"$phy/dmz_track1_pr.timing",'build_system/dmz_track1_Runs/syn_1/run.log')

@@ -11,7 +11,7 @@ dmz_image_framebuffer dut(.clk(clk),.reset(reset),.bist_done(1'b1),.bist_passed(
 always @(posedge clk) begin
  rsp<=req;
  if(monitor&&req&&!wr) begin
-  expected_bank=step==21?0:((step>0&&(addr[17:0]%320)<step*16)?0:1);
+  expected_bank=step==11?0:((step>0&&(addr[17:0]%320)<step*32)?0:1);
   if(addr[18]!==expected_bank) $fatal(1,"Wipe bank mismatch step=%0d addr=%h front=%b swaps=%0d active=%b wipe=%0d",step,addr,front,swaps,dut.transition_active,dut.wipe_words);
   reads=reads+1;
  end
@@ -23,12 +23,12 @@ task frame;begin $display("FRAME begin step=%0d t=%0t",step,$time);monitor=0;ft=
 initial begin
  cycles(4);reset=0;load();used=0;frame();if(!display||!front||swaps!=1) $fatal(1,"Initial frame must commit immediately");
  load();used=0;
- for(step=1;step<=20;step=step+1) begin
+ for(step=1;step<=10;step=step+1) begin
   frame();if(swaps!=1||!front) $fatal(1,"Premature frame commit");
   lv=1;cycles(10);if(lr) $fatal(1,"Back frame overwritten during transition");lv=0;
  end
- step=21;frame();if(swaps!=2||front) $fatal(1,"Wipe did not finish");
- $display("PASS 20-step frame-boundary wipe, per-burst old/new bank selection, no early commit or back-frame overwrite");$finish;
+ step=11;frame();if(swaps!=2||front) $fatal(1,"Wipe did not finish");
+ $display("PASS 10-step frame-boundary wipe, per-burst old/new bank selection, no early commit or back-frame overwrite");$finish;
 end
 initial begin #10000000;$fatal(1,"Wipe timeout state=%0d back=%0d display=%0d step=%0d lv=%0d used=%0d addr=%0d",dut.state,dut.back_ready,display,step,lv,used,dut.rd_addr);end
 endmodule

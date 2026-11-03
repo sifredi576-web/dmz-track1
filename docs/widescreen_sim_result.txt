@@ -1,0 +1,2 @@
+PASS widescreen: 1382400 pixels, 460800 packed pairs, two 1280x720 frames; actual SDRAM refresh + FIFO no underrun; 48kHz samples=4688
+- sim/system\tb_widescreen.sv:58: Verilog $finish

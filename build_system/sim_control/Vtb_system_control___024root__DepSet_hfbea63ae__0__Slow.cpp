@@ -146,8 +146,8 @@ VL_ATTR_COLD void Vtb_system_control___024root___ctor_var_reset(Vtb_system_contr
     vlSelf->tb_system_control__DOT__uart__DOT__shift = VL_RAND_RESET_I(8);
     vlSelf->tb_system_control__DOT__control__DOT__ms = VL_RAND_RESET_I(2);
     vlSelf->tb_system_control__DOT__control__DOT__cs = VL_RAND_RESET_I(2);
-    vlSelf->tb_system_control__DOT__control__DOT__second_count = VL_RAND_RESET_I(25);
-    vlSelf->tb_system_control__DOT__control__DOT__restart_count = VL_RAND_RESET_I(16);
+    vlSelf->tb_system_control__DOT__control__DOT__second_count = VL_RAND_RESET_I(13);
+    vlSelf->tb_system_control__DOT__control__DOT__restart_count = VL_RAND_RESET_I(10);
     vlSelf->tb_system_control__DOT__cdc__DOT__request = VL_RAND_RESET_I(1);
     vlSelf->tb_system_control__DOT__cdc__DOT__ack = VL_RAND_RESET_I(1);
     vlSelf->tb_system_control__DOT__cdc__DOT__req_sync = VL_RAND_RESET_I(2);

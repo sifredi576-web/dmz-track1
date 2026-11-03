@@ -1,6 +1,7 @@
-module dmz_tone(input wire clk, input wire reset, input wire mute,
+module dmz_tone #(parameter integer CLOCK_HZ=25000000)(input wire clk, input wire reset, input wire mute,
  output reg sample_ce, output reg signed [15:0] sample);
-reg [24:0] accumulator;
+localparam CW=$clog2(CLOCK_HZ);
+reg [CW-1:0] accumulator;
 reg [5:0] phase;
 function automatic signed [15:0] sine(input [5:0] index);
 begin
@@ -61,8 +62,8 @@ always @(posedge clk) begin
  if(reset) begin accumulator<=0; phase<=0; sample_ce<=0; sample<=0; end
  else begin
   sample_ce<=0;
-  if(accumulator >= 25'd24952000) begin
-   accumulator <= accumulator - 25'd24952000;
+  if(accumulator >= (CLOCK_HZ-48000)) begin
+   accumulator <= accumulator - (CLOCK_HZ-48000);
    sample_ce<=1;
    sample<=mute ? 16'sd0 : sine(phase);
    phase <= phase==47 ? 0 : phase+1'b1;

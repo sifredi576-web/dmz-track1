@@ -1,0 +1,81 @@
+%Warning-TIMESCALEMOD: rtl/system\dmz_scene_control.sv:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    1 | module dmz_scene_control #(parameter integer HALF_SECOND=12500000)(
+      |        ^~~~~~~~~~~~~~~~~
+                       sim/system\tb_scene_visual.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_visual #(parameter PIPELINED=0);
+      |        ^~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: rtl/system\dmz_audio_visual.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_audio_visual #(parameter EXTERNAL_COORDS=0,PIPELINED=0)(input clk,reset,sample_ce,frame_tick,enabled,input [15:0] left,right,input [9:0] x,y,
+      |        ^~~~~~~~~~~~~~~~
+                       sim/system\tb_scene_visual.sv:2:8: ... Location of module with timescale
+    2 | module tb_scene_visual #(parameter PIPELINED=0);
+      |        ^~~~~~~~~~~~~~~
+%Warning-WIDTHTRUNC: rtl/system\dmz_audio_visual.sv:60:17: Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's AND generates 10 bits.
+                                                         : ... note: In instance 'tb_scene_visual.visual'
+   60 | wire [1:0] phase=(px-10'd64)&10'd3;
+      |                 ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: rtl/system\dmz_audio_visual.sv:65:24: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'PIPELINED' generates 32 bits.
+                                                         : ... note: In instance 'tb_scene_visual.visual'
+   65 | wire [8:0] ls=PIPELINED?start_q:line_start,le=PIPELINED?end_q:line_end;
+      |                        ^
+%Warning-WIDTHTRUNC: rtl/system\dmz_audio_visual.sv:65:56: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'PIPELINED' generates 32 bits.
+                                                         : ... note: In instance 'tb_scene_visual.visual'
+   65 | wire [8:0] ls=PIPELINED?start_q:line_start,le=PIPELINED?end_q:line_end;
+      |                                                        ^
+%Warning-WIDTHTRUNC: rtl/system\dmz_audio_visual.sv:66:24: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'PIPELINED' generates 32 bits.
+                                                         : ... note: In instance 'tb_scene_visual.visual'
+   66 | wire [9:0] rx=PIPELINED?px_q:px,ry=PIPELINED?py_q:py;
+      |                        ^
+%Warning-WIDTHTRUNC: rtl/system\dmz_audio_visual.sv:66:45: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'PIPELINED' generates 32 bits.
+                                                         : ... note: In instance 'tb_scene_visual.visual'
+   66 | wire [9:0] rx=PIPELINED?px_q:px,ry=PIPELINED?py_q:py;
+      |                                             ^
+%Warning-WIDTHTRUNC: rtl/system\dmz_audio_visual.sv:67:18: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'PIPELINED' generates 32 bits.
+                                                         : ... note: In instance 'tb_scene_visual.visual'
+   67 | wire re=PIPELINED?en_q:en,rv=PIPELINED?valid_q:valid_page;
+      |                  ^
+%Warning-WIDTHTRUNC: rtl/system\dmz_audio_visual.sv:67:39: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'PIPELINED' generates 32 bits.
+                                                         : ... note: In instance 'tb_scene_visual.visual'
+   67 | wire re=PIPELINED?en_q:en,rv=PIPELINED?valid_q:valid_page;
+      |                                       ^
+%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:78:29: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
+                                                          : ... note: In instance 'tb_scene_visual.visual'
+   78 |     if(rx>=64&&rx<312&&rx<64+{level_l,3'b000}) begin ink<=1;color<=24'h40df70;end
+      |                             ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:79:31: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
+                                                          : ... note: In instance 'tb_scene_visual.visual'
+   79 |     if(rx>=328&&rx<576&&rx<328+{level_r,3'b000}) begin ink<=1;color<=24'hffb050;end
+      |                               ^
+%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:80:31: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
+                                                          : ... note: In instance 'tb_scene_visual.visual'
+   80 |     if((rx>=64&&rx<312&&rx==63+{peak_l,3'b000})||(rx>=328&&rx<576&&rx==327+{peak_r,3'b000})) begin ink<=1;color<=24'hffffff;end
+      |                               ^
+%Warning-WIDTHEXPAND: rtl/system\dmz_audio_visual.sv:80:75: Operator ADD expects 32 or 10 bits on the RHS, but RHS's REPLICATE generates 8 bits.
+                                                          : ... note: In instance 'tb_scene_visual.visual'
+   80 |     if((rx>=64&&rx<312&&rx==63+{peak_l,3'b000})||(rx>=328&&rx<576&&rx==327+{peak_r,3'b000})) begin ink<=1;color<=24'hffffff;end
+      |                                                                           ^
+%Warning-WIDTHEXPAND: rtl/system\dmz_scene_control.sv:6:32: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'tick' generates 3 bits.
+                                                          : ... note: In instance 'tb_scene_visual.scene'
+    6 | assign alert_on=emergency&&tick<HALF_SECOND;
+      |                                ^
+%Warning-WIDTHEXPAND: rtl/system\dmz_scene_control.sv:12:38: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'tick' generates 3 bits.
+                                                           : ... note: In instance 'tb_scene_visual.scene'
+   12 |   if(!emergency) tick<=0;else if(tick==HALF_SECOND*2-1) tick<=0;else tick<=tick+1'b1;
+      |                                      ^~
+%Warning-WIDTHEXPAND: sim/system\tb_scene_visual.sv:62:39: Operator SHIFTR expects 32 bits on the LHS, but LHS's ARRAYSEL generates 16 bits.
+                                                         : ... note: In instance 'tb_scene_visual'
+   62 |   ya=(tone_samples[index==0?0:index-1]>>4)^2048;
+      |                                       ^~
+%Warning-WIDTHEXPAND: sim/system\tb_scene_visual.sv:63:26: Operator SHIFTR expects 32 bits on the LHS, but LHS's ARRAYSEL generates 16 bits.
+                                                         : ... note: In instance 'tb_scene_visual'
+   63 |   yb=(tone_samples[index]>>4)^2048;
+      |                          ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.061 MB sources in 4 modules, into 0.270 MB in 8 C++ files needing 0.001 MB
+- Verilator: Walltime 0.046 s (elab=0.002, cvt=0.016, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.641 MB

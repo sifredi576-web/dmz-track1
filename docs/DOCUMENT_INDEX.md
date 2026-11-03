@@ -97,3 +97,9 @@ releases/p7_20261028保留已实物验证基线；releases/paired_20261031保存
 - [实板修正说明](PLATFORM_BOARD_FIX_NOTES.md)
 - [本版软件与时序证据](platform_runtime_validation_boardfix.json)
 - [本版板端验收记录](platform_v2_board_validation.json)
+
+## 2026-11-02 当前状态界面版
+
+- [右侧状态与参数说明](STATUS_PARAMETER_PANEL.md)：已实物验收，包含扩展(4)参数OSD。
+- [当前验收证据](status_panel_validation.json)。
+- 触发稳定和左侧按钮仍未实现，等待单独执行指令。

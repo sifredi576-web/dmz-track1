@@ -4,25 +4,28 @@
    Executable = D:/ANLU/bin/run.exe
    Built at =   16:32:07 Jun 12 2025
    Run by =     fushenghe
-   Run Date =   Mon Nov  2 14:52:16 2026
+   Run Date =   Tue Nov  3 16:24:36 2026
 
    Run on =     LAPTOP-6RN9ARE0
 ============================================================
-HDL-5373 WARNING: identifier 'mem_command_valid' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(62)
-HDL-5373 WARNING: identifier 'mem_command' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(62)
-HDL-5373 WARNING: identifier 'mem_command' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(62)
-HDL-5373 WARNING: identifier 'wav_error' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(85)
-HDL-5373 WARNING: identifier 'audio_active' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(217)
+HDL-5373 WARNING: identifier 'rp' is used before its declaration in ../../../rtl/p2/dmz_pixel_fifo.sv(6)
+HDL-5373 WARNING: identifier 'mem_command_valid' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(67)
+HDL-5373 WARNING: identifier 'mem_command' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(67)
+HDL-5373 WARNING: identifier 'mem_command' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(67)
+HDL-5373 WARNING: identifier 'wav_error' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(90)
+HDL-5373 WARNING: identifier 'audio_active' is used before its declaration in ../../../rtl/system/dmz_track1_top.sv(241)
 HDL-5341 WARNING: non-net output port 'clk_audio_counter_wrap' cannot be initialized at declaration in SystemVerilog mode in ../../../rtl/p1/hdmi_core/audio_clock_regeneration_packet.sv(14)
-HDL-5341 WARNING: non-net output port 'cx' cannot be initialized at declaration in SystemVerilog mode in ../../../rtl/p1/hdmi_core/hdmi.sv(85)
-HDL-5341 WARNING: non-net output port 'cy' cannot be initialized at declaration in SystemVerilog mode in ../../../rtl/p1/hdmi_core/hdmi.sv(86)
+HDL-5341 WARNING: non-net output port 'cx' cannot be initialized at declaration in SystemVerilog mode in ../../../rtl/p1/hdmi_core/hdmi.sv(90)
+HDL-5341 WARNING: non-net output port 'cy' cannot be initialized at declaration in SystemVerilog mode in ../../../rtl/p1/hdmi_core/hdmi.sv(91)
 HDL-5341 WARNING: non-net output port 'counter' cannot be initialized at declaration in SystemVerilog mode in ../../../rtl/p1/hdmi_core/packet_assembler.sv(11)
 HDL-5341 WARNING: non-net output port 'tmds' cannot be initialized at declaration in SystemVerilog mode in ../../../rtl/p1/hdmi_core/tmds_channel.sv(16)
 HDL-5373 WARNING: identifier 'inside_x' is used before its declaration in ../../../rtl/media/dmz_bmp_decoder.sv(17)
+HDL-5373 WARNING: identifier 'state' is used before its declaration in ../../../rtl/platform/dmz_page_compositor.sv(14)
 HDL-5314 WARNING: net 'read_data[255]' does not have a driver in ../../../rtl/p2/dmz_sdram_bist.sv(15)
 HDL-5314 WARNING: net 'text_rom' does not have a driver in ../../../rtl/system/dmz_osd.sv(168)
 HDL-5314 WARNING: net 'font_rom' does not have a driver in ../../../rtl/system/dmz_osd.sv(963)
-HDL-5007 WARNING: actual bit length 13 differs from formal bit length 12 for port 'used' in ../../../rtl/system/dmz_track1_top.sv(221)
+HDL-5007 WARNING: actual bit length 13 differs from formal bit length 12 for port 'used' in ../../../rtl/system/dmz_track1_top.sv(247)
+HDL-5314 WARNING: net 'font_rom' does not have a driver in ../../../rtl/system/dmz_status_panel.sv(59)
 HDL-5007 WARNING: using initial value of 'CHANNEL_LEFT' since it is never assigned in ../../../rtl/p1/hdmi_core/audio_sample_packet.sv(63)
 HDL-5007 WARNING: using initial value of 'CHANNEL_RIGHT' since it is never assigned in ../../../rtl/p1/hdmi_core/audio_sample_packet.sv(64)
 HDL-5001 WARNING: Contains anonymous inst(s) and/or net(s) that have not been renamed
@@ -551,27 +554,27 @@ SYN-5013 WARNING: Undriven net: model "dmz_track1_top" / net "bist/read_data[0]"
 SYN-5025 WARNING: Using 0 for all undriven pins and nets
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "osd/ramread0_syn_4" in ../../../rtl/system/dmz_osd.sv(972) / pin "bea[0]"
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "osd/ramread0_syn_4" in ../../../rtl/system/dmz_osd.sv(972) / pin "beb[0]"
-SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "storage/catalog/ramread0_syn_4" in ../../../rtl/media/dmz_fat_catalog.sv(73) / pin "bea[0]"
-SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "storage/catalog/ramread0_syn_4" in ../../../rtl/media/dmz_fat_catalog.sv(73) / pin "beb[0]"
+SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "storage/catalog/ramread0_syn_4" in ../../../rtl/media/dmz_fat_catalog.sv(76) / pin "bea[0]"
+SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "storage/catalog/ramread0_syn_4" in ../../../rtl/media/dmz_fat_catalog.sv(76) / pin "beb[0]"
 SYN-5025 WARNING: Using 0 for all undriven pins and nets
-SYN-6562 WARNING: The init value of "audio_fifo/ramread0_syn_4(../../../rtl/p2/dmz_pixel_fifo.sv(34))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "fifo/ramread0_syn_4(../../../rtl/p2/dmz_pixel_fifo.sv(34))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "audio_fifo/ramread0_syn_4(../../../rtl/p2/dmz_pixel_fifo.sv(36))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "fifo/ramread0_syn_4(../../../rtl/p2/dmz_pixel_fifo.sv(36))" will be ignored since gate eram_init is set to off
 SYN-6562 WARNING: The init value of "storage/audio/file_stream/ramread0_syn_4(../../../rtl/media/dmz_fat_stream.sv(16))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "storage/catalog/ramread0_syn_4(../../../rtl/media/dmz_fat_catalog.sv(73))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "storage/catalog/ramread1_syn_4(../../../rtl/media/dmz_fat_catalog.sv(74))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "storage/catalog/ramread2_syn_4(../../../rtl/media/dmz_fat_catalog.sv(77))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "storage/catalog/ramread3_syn_4(../../../rtl/media/dmz_fat_catalog.sv(78))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "storage/catalog/ramread5_syn_4(../../../rtl/media/dmz_fat_catalog.sv(80))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "storage/catalog/ramread6_syn_4(../../../rtl/media/dmz_fat_catalog.sv(83))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "storage/configured_ui$runtime/ramread0_syn_4(../../../rtl/platform/dmz_scene_runtime.sv(124))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "storage/configured_ui$runtime/ramread1_syn_4(../../../rtl/platform/dmz_scene_runtime.sv(127))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "storage/catalog/ramread0_syn_4(../../../rtl/media/dmz_fat_catalog.sv(76))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "storage/catalog/ramread1_syn_4(../../../rtl/media/dmz_fat_catalog.sv(77))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "storage/catalog/ramread2_syn_4(../../../rtl/media/dmz_fat_catalog.sv(80))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "storage/catalog/ramread3_syn_4(../../../rtl/media/dmz_fat_catalog.sv(81))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "storage/catalog/ramread5_syn_4(../../../rtl/media/dmz_fat_catalog.sv(83))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "storage/catalog/ramread6_syn_4(../../../rtl/media/dmz_fat_catalog.sv(86))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "storage/configured_ui$runtime/ramread0_syn_4(../../../rtl/platform/dmz_scene_runtime.sv(136))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "storage/configured_ui$runtime/ramread1_syn_4(../../../rtl/platform/dmz_scene_runtime.sv(139))" will be ignored since gate eram_init is set to off
 SYN-6562 WARNING: The init value of "storage/images/decoder/ramread67_syn_4(../../../rtl/media/dmz_bmp_decoder.sv(42))" will be ignored since gate eram_init is set to off
 SYN-6562 WARNING: The init value of "storage/images/file_stream/ramread0_syn_4(../../../rtl/media/dmz_fat_stream.sv(16))" will be ignored since gate eram_init is set to off
 SYN-6562 WARNING: The init value of "storage/platform_boot/stream/ramread0_syn_4(../../../rtl/media/dmz_fat_stream.sv(16))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "tx/true_hdmi_output$packet_picker/ramread0_syn_5(../../../rtl/p1/hdmi_core/packet_picker.sv(103))" will be ignored since gate eram_init is set to off
-SYN-6562 WARNING: The init value of "visualizer/ramread0_syn_5(../../../rtl/system/dmz_audio_visual.sv(19))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "tx/true_hdmi_output$packet_picker/ramread0_syn_5(../../../rtl/p1/hdmi_core/packet_picker.sv(104))" will be ignored since gate eram_init is set to off
+SYN-6562 WARNING: The init value of "visualizer/ramread0_syn_4(../../../rtl/system/dmz_audio_visual.sv(19))" will be ignored since gate eram_init is set to off
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "command_rx/r1_reg" in ../../../rtl/audio_test/dmz_uart_rx.sv(5) / pin "clk"
-SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "alert_mem_reg[0]" in ../../../rtl/system/dmz_track1_top.sv(49) / pin "clk"
+SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "alert_mem_reg[0]" in ../../../rtl/system/dmz_track1_top.sv(54) / pin "clk"
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "controls/cs_reg[0]" in ../../../rtl/system/dmz_media_control.sv(17) / pin "clk"
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "controls/ms_reg[0]" in ../../../rtl/system/dmz_media_control.sv(17) / pin "clk"
 SYN-5011 WARNING: Undriven pin: model "dmz_track1_top" / inst "keys/col_meta_reg[0]" in ../../../rtl/system/dmz_matrix_keys.sv(15) / pin "clk"

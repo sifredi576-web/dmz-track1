@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-02",
+  "stage": "wave peak and continuity V3 accepted",
+  "bitstream_sha256": "1cb47619a95d7bec2105c59780d03ded79d0a28a2cf512e8f4d5bd12178c1123",
+  "baseline_bitstream_sha256": "65ca8b7ea17e0925cfae19ce129e4ecc35815be2b80f5f6ed8f9a3a369dbedcc",
+  "sram_download_passed": true,
+  "flash_programmed": false,
+  "recovery_used": false,
+  "setup_slack_ns": 0.63,
+  "hold_slack_ns": 0.03,
+  "lut": 16603,
+  "registers": 8813,
+  "bram9k": 63,
+  "dsp": 20,
+  "viewport": [
+    64,
+    128,
+    512,
+    160
+  ],
+  "display_sampling_hz": 6000,
+  "capture_samples": 128,
+  "window_ms": 21.333333333333332,
+  "amplitude_bits": 12,
+  "audio_gain_unchanged": true,
+  "trigger_implemented": false,
+  "status_panel_implemented": false,
+  "user_observation": "峰形改善、声音正常，本项合格",
+  "accepted": true,
+  "software_check": {
+    "passed": true,
+    "synthetic_raster_pixels": 73728,
+    "real_TONE01_raster_pixels": 73728,
+    "artifact": "docs/wave_v3_sim_result.txt",
+    "sha256": "53715c0f81387fff1608cb8e38b01eed7862ffea8f2cc7b48a96465bb66fe96b"
+  },
+  "board_check": {
+    "port": "COM3",
+    "page_count": 16,
+    "page": 6,
+    "config_sd_bmp_wav_errors": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "fb_fault": false,
+    "fifo_fault": false
+  },
+  "evidence": [
+    "docs/wave_v3_boot.json",
+    "docs/wave_v3_nav_4.json",
+    "docs/system_download_log.txt"
+  ],
+  "pending": [
+    "Ask user whether to implement trigger stabilization with left-side controls; do not start until instructed",
+    "Right-side status panel only after trigger task passes acceptance and separate instruction"
+  ]
+}
