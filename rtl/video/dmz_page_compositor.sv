@@ -15,6 +15,8 @@ always @(posedge clk)if(state==WIDGET_CAPTURE)widget_q<=widget;
 reg [3:0] state;reg [1:0] layer;reg plane;
 reg [9:0] x;reg [8:0] y;reg first;
 reg [17:0] address,previous_addr;reg [255:0] buffer;reg final_burst;
+reg [15:0] pixel_write_mask,pixel_write_data;
+wire pixel_write_pending=|pixel_write_mask;
 reg [3:0] p;reg [15:0] row_offset;
 reg [9:0] wx;reg [8:0] wy,ww;reg [6:0] wh;reg dim;
 reg [19:0] base,label,cache_tag;reg cache_valid;reg [15:0] cache;
@@ -28,7 +30,7 @@ wire [15:0] rgb565={rgba[14:10],rgba[9:5],rgba[9],rgba[4:0]};
 wire [15:0] shaded={1'b0,rgb565[15:12],1'b0,rgb565[10:6],1'b0,rgb565[4:1]};
 assign busy=enabled&&state!=IDLE;
 assign in_ready=enabled?(state==IDLE):out_ready;
-assign out_valid=enabled?(state==OUTPUT):in_valid;
+assign out_valid=enabled?(state==OUTPUT&&!pixel_write_pending):in_valid;
 assign out_addr=enabled?address:in_addr;assign out_data=enabled?buffer:in_data;assign out_last=enabled?final_burst:in_last;
 assign mem_valid=enabled&&state==READ_ACCEPT;
 assign mem_addr=21'h080000+{3'd0,wanted_tag[19:5],3'd0};
@@ -39,10 +41,22 @@ task advance;
   else state<=OUTPUT;
  end
 endtask
+// Decode and register the pixel write before driving the 256-bit burst buffer.
+// Drain the final write before presenting the burst to the downstream consumer.
+always @(posedge clk)begin
+ if(reset||page_begin||!enabled)pixel_write_mask<=0;
+ else begin
+  pixel_write_mask<=0;
+  if(state==PIXEL&&pixel_inside&&cache_valid&&cache_tag==wanted_tag&&rgba[15])begin
+   pixel_write_mask<=16'h0001<<p;pixel_write_data<=dim?shaded:rgb565;
+  end
+ end
+end
 always @(posedge clk)begin
  if(!reset&&!page_begin&&enabled)begin
   if(state==IDLE&&in_valid)buffer<=in_data;
-  else if(state==PIXEL&&pixel_inside&&cache_valid&&cache_tag==wanted_tag&&rgba[15])buffer[p*16+:16]<=dim?shaded:rgb565;
+  else for(integer lane=0;lane<16;lane=lane+1)
+   if(pixel_write_mask[lane])buffer[lane*16+:16]<=pixel_write_data;
   if(state==READ_RESPONSE&&mem_response)cache<=mem_data[source_byte[4:1]*16+:16];
  end
 end
@@ -81,7 +95,7 @@ always @(posedge clk)begin
    end
    READ_ACCEPT:if(mem_ready)state<=READ_RESPONSE;
    READ_RESPONSE:if(mem_response)begin cache_tag<=wanted_tag;cache_valid<=1;state<=PIXEL;end
-   OUTPUT:if(out_ready)state<=ACK;
+   OUTPUT:if(out_ready&&!pixel_write_pending)state<=ACK;
    ACK:if(out_ack)begin in_ack<=1;state<=IDLE;end
    default:state<=IDLE;
   endcase

@@ -60,7 +60,7 @@ end
 reg [13:0] font_rom[0:511]; /* fehdl force_ram=1, ram_style="bram" */
 integer i;initial begin
  for(i=0;i<512;i=i+1)font_rom[i]=0;
-  font_rom[18]=14'h00c0;
+ font_rom[18]=14'h00c0;
  font_rom[19]=14'h3fff;
  font_rom[20]=14'h00c0;
  font_rom[21]=14'h0ffe;

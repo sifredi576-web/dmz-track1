@@ -174,7 +174,7 @@ proc opt_place_fun {} {
   set_param flow thread 1
   set_param place effort high
   set_param place fix_hold on
-  set_param place seed 14
+  set_param place seed 11
   place
   update_timing -mode manhattan
   report_timing_summary -file ${prj_name}_place.timing
@@ -195,7 +195,7 @@ proc opt_route_fun {} {
   if { ![info exists singleRun] } { commit_param -step route }
 
 ### Editable zone for opt_route ###
-  set_param route effort high
+  set_param route effort routability
   set_param route swap_pin off
   if { [string equal $arr_filter on] && [string equal $drHoldFix on] } { 
     set_param route fix_hold off
@@ -215,6 +215,9 @@ proc opt_route_fun {} {
   update_timing -mode final
   report_timing_status -file ${prj_name}_phy.ts
   report_timing_summary -file ${prj_name}_pr.timing
+  check_timing -verbose -file timing_checks.rpt
+  report_timing_ignored -file timing_ignored.rpt
+  report_abnormal_timing_target -file timing_abnormal.rpt
   report_timing_exception -file ${prj_name}_exception.timing
   flow_status -file route_flow.status
   report_clock_utilization -file route_clock_utilization.txt

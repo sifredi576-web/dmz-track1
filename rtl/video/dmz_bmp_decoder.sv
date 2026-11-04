@@ -15,16 +15,19 @@ reg [11:0] x_error,y_error;
 reg [1:0] channel,padding,pad_left;reg [7:0] blue,green;
 reg rgba,top_down,width_limited,blank_row,input_finished;
 reg [3:0] burst_pixel;reg [15:0] low_pixel;reg [15:0] row_q;wire [15:0] sample565=inside_x?row_q:16'd0;
-reg [15:0] row_cache[0:2047]; /* fehdl force_ram=1, ram_style="bram" */
+reg [15:0] row_cache[0:2047]; //synthesis ram_style = bram_32k
 // Source and scaled reads share this invertible physical row address map.
 function automatic [10:0] row_addr(input [10:0] a);
  reg [10:0] g;begin g=(a>>1)^a;g[10]=g[10]^g[0];row_addr=g;end
 endfunction
 function automatic [15:0] h16(input integer i);h16={header[i+1],header[i]};endfunction
 function automatic [31:0] h32(input integer i);h32={header[i+3],header[i+2],header[i+1],header[i]};endfunction
-wire [31:0] abs_height=header[25][7]?(~h32(22)+1'b1):h32(22);
-wire [10:0] raw_width=11'(h32(18));
-wire [12:0] row_bytes=(h16(28)==32)?({2'd0,raw_width}<<2):({2'd0,raw_width}+({2'd0,raw_width}<<1));
+// Explicit header dependencies also keep event-driven simulators sensitive to
+// array updates; these are the same bits returned by h32(22) and h32(18).
+wire [31:0] signed_height={header[25],header[24],header[23],header[22]};
+wire [31:0] abs_height=header[25][7]?(~signed_height+1'b1):signed_height;
+wire [10:0] raw_width={header[19][2:0],header[18]};
+wire [12:0] row_bytes=({header[29],header[28]}==16'd32)?({2'd0,raw_width}<<2):({2'd0,raw_width}+({2'd0,raw_width}<<1));
 wire [12:0] stride=(row_bytes+13'd3)&13'h1ffc;
 reg [32:0] required_end;
 always @(posedge clk) if(reset) required_end<=0;else required_end<={1'b0,h32(10)}+({20'd0,stride}*{22'd0,abs_height[10:0]});

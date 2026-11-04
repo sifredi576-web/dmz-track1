@@ -6,7 +6,7 @@ module dmz_track1_top #(parameter FULL_TELEMETRY=0)(
  output wire HDMI_CLK_P,HDMI_D0_P,HDMI_D1_P,HDMI_D2_P);
 wire arb_valid,arb_write;wire [20:0] arb_addr;wire [255:0] arb_data;
 wire ui_key_valid;wire [3:0] ui_key_action;
-wire emergency_screen,audio_pop;
+wire emergency_screen,audio_pop;reg trigger_enabled;
 wire tone_muted,beep_phase,switch_mute,switch_continuous,wav_source,audio_paused;wire [3:0] volume;
 wire [447:0] mem_status,mem_snapshot;
 wire emergency,visual_enabled,alert_on;wire visual_ink,visual_shade;wire [23:0] visual_color;
@@ -175,11 +175,19 @@ dmz_osd #(.EXTERNAL_COORDS(1)) osd(.frame_tick(x==0&&y==720),.course_mode(ui_pix
  .image_count(menu_images),.displayed_image(menu_displayed),.wav_count(menu_wavs),.wav_index(menu_wav_index),.volume(volume),
  .audio_paused(audio_paused),.tone_muted(tone_muted),.wav_source(wav_source),.autoplay(autoplay_pixel[1]),
  .sd_error(menu_sd_error),.image_error(menu_image_error),.wav_error(menu_wav_error),.text_on(osd_text),.shade_on(osd_shade),.color(osd_color));
+wire trigger_button_ink;wire [23:0] trigger_button_color;
+dmz_trigger_button trigger_button(.x(x),.y(y),.enabled(ui_pixel[0]&&ui_pixel[2]&&ui_pixel[145:144]==0),.locked(trigger_enabled),.platform_enabled(ui_pixel[0]),.auto_enabled(ui_pixel[150]),.auto_paused(ui_pixel[151]),.auto_wait(ui_pixel[5]||!ui_pixel[152]),.ink(trigger_button_ink),.color(trigger_button_color));
 reg [25:0] overlay_now;reg [25:0] overlay_q[0:2];integer oi;
+wire ticker_ink,ticker_shade;
+dmz_top_ticker top_ticker(.clk(pixel_clk),.reset(base_pixel_reset),
+ .frame_tick(x==0&&y==720),.x(x),.y(y),.ink(ticker_ink),.shade(ticker_shade));
 always @*begin
  overlay_now=0;
- if(panel_ink)overlay_now={2'b10,panel_color};
+ if(ticker_ink)overlay_now={2'b10,24'hffffff};
+ else if(ticker_shade)overlay_now={2'b10,24'h08182c};
+ else if(panel_ink)overlay_now={2'b10,panel_color};
  else if(panel_shade)overlay_now={2'b10,24'h08182c};
+ else if(trigger_button_ink)overlay_now={2'b10,trigger_button_color};
  else if(!course_area)overlay_now={2'b10,24'h000000};
  else if(osd_text&&legacy_osd)overlay_now={2'b10,osd_color};
  else if(visual_ink)overlay_now={2'b10,visual_color};
@@ -212,7 +220,6 @@ dmz_matrix_keys #(.SLOT_CYCLES(37500)) keys(.clk(pixel_clk),.reset(base_pixel_re
 dmz_uart_rx #(.DIVISOR(651)) command_rx(.clk(pixel_clk),.reset(base_pixel_reset),.rx(uart_rx),.valid(uart_command_valid),.data(uart_command_byte));
 wire trigger_context=ui_pixel[0]&&ui_pixel[2]&&!ui_pixel[1]&&ui_pixel[145:144]==0&&!menu_open;
 wire trigger_key=key_valid&&key_code==4&&trigger_context;
-reg trigger_enabled;
 always @(posedge pixel_clk)if(base_pixel_reset)trigger_enabled<=1;else if(trigger_key||(uart_command_valid&&uart_command_byte==8'h7e))trigger_enabled<=~trigger_enabled;
 dmz_ui_keys board_commands(.clk(pixel_clk),.reset(base_pixel_reset),.key_valid(key_valid&&!trigger_key),.key_code(key_code),
  .menu_open(menu_open),.platform_active(ui_pixel[0]),.audio_paused(audio_paused),.tone_muted(tone_muted),.uart_valid(uart_command_valid),.uart_byte(uart_command_byte),
@@ -248,7 +255,7 @@ reg audio_flushing_mem;
 always @(posedge mem_clk)if(base_mem_reset)audio_flushing_mem<=1;else audio_flushing_mem<=audio_flushing;
 always @(posedge pixel_clk) if(base_pixel_reset) audio_flush_sync<=3;else audio_flush_sync<={audio_flush_sync[0],audio_flushing_mem};
 wire audio_pixel_reset=pixel_reset||audio_flush_sync[1];
-dmz_pixel_fifo #(.AW(11),.RECODE_ADDR(1),.DATA_CODE(1)) audio_fifo(.wclk(mem_clk),.wreset(reset||audio_flushing),.wpush(pcm_valid&&pcm_ready),.wdata(pcm_pair),.full(audio_fifo_full),.used(audio_fifo_used),
+dmz_pixel_fifo #(.AW(11),.RECODE_ADDR(1),.DATA_CODE(1),.USE_BRAM32(1)) audio_fifo(.wclk(mem_clk),.wreset(reset||audio_flushing),.wpush(pcm_valid&&pcm_ready),.wdata(pcm_pair),.full(audio_fifo_full),.used(audio_fifo_used),
  .rclk(pixel_clk),.rreset(audio_pixel_reset),.rpop(audio_pop),.rdata(audio_fifo_data),.empty(audio_fifo_empty));
 reg prefilled;
 always @(posedge mem_clk)if(reset||audio_flushing)prefilled<=0;else prefilled<=(audio_fifo_used>=512)||(wav_done&&audio_fifo_used!=0);

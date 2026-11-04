@@ -1,4 +1,4 @@
-param([ValidateSet('Status','Up','Down','Left','Right','Confirm','Back','Home','Replay','Notice','Priority','ExitNotice','Mute','Unmute','Pause','Resume','VolumeUp','VolumeDown','Menu','Reload','Trigger')][string]$Action='Status',
+param([ValidateSet('Status','Up','Down','Left','Right','Confirm','Back','Home','Replay','AutoToggle','Notice','Priority','ExitNotice','Mute','Unmute','Pause','Resume','VolumeUp','VolumeDown','Menu','Reload','Trigger')][string]$Action='Status',
  [Parameter(Mandatory=$true)][string]$Port,[int]$Seconds=2)
 $ErrorActionPreference='Stop'
 if($Seconds -lt 1 -or $Seconds -gt 3600){throw 'Seconds must be 1..3600'}
@@ -28,7 +28,7 @@ function Read-Frame {
 try{
  $serial.Open();$serial.DiscardInBuffer();$before=Read-Frame
  if($Action -ne 'Status'){
-  $actions=@{Up=1;Down=2;Left=3;Right=4;Confirm=5;Back=6;Home=7;Replay=8;Notice=10;Priority=11;ExitNotice=12}
+  $actions=@{Up=1;Down=2;Left=3;Right=4;Confirm=5;Back=6;Home=7;Replay=8;AutoToggle=9;Notice=10;Priority=11;ExitNotice=12}
   if($actions.ContainsKey($Action)){$command=[byte](0xd0+$actions[$Action])}
   else{$command=[byte][char](@{Mute='M';Unmute='U';Pause='K';Resume='L';VolumeUp='+';VolumeDown='-';Menu='F';Reload='R';Trigger='~'}[$Action])}
   $serial.Write([byte[]]@($command),0,1)

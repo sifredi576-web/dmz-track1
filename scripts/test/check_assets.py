@@ -9,7 +9,7 @@ scene=json.loads((root/"assets/course.json").read_text(encoding="utf-8"))
 outputs,info=packer.compile_scene(scene,root/"assets")
 reference=json.loads((root/"release/current/verification.json").read_text(encoding="utf-8-sig"))
 data=outputs["SCENE.BIN"]
-assert hashlib.sha256(data).hexdigest()==reference["scene_sha256"],"Scene content changed during cleanup"
+assert hashlib.sha256(data).hexdigest()==reference["scene_sha256"],"Scene content differs from recorded current course"
 assert zlib.crc32(data[32:])==struct.unpack_from("<I",data,12)[0]
 assert not any(name.startswith("U") and name.endswith(".BIN") for name in outputs)
 for resource in info["resources"]:
@@ -18,4 +18,4 @@ for resource in info["resources"]:
   assert len(payload)==resource["width"]*resource["height"]*2
   assert hashlib.sha256(payload).hexdigest()==resource["sha256"]
 for name,content in outputs.items():assert (root/"release/current/tf"/name).read_bytes()==content,name
-print("PASS: source assets, CRC, embedded UI and generated TF package; SCENE.BIN identical to verified package")
+print("PASS: source assets, CRC, embedded UI and generated TF package; SCENE.BIN identical to recorded current package")

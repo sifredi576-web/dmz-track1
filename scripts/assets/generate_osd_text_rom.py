@@ -1,5 +1,5 @@
 """Generate current OSD or status-panel ROM source; never runs during playback."""
-import argparse,json
+import argparse,json,re
 from pathlib import Path
 root=Path(__file__).resolve().parents[2]
 
@@ -9,7 +9,7 @@ def replace_region(path,start,end,body):
     path.write_text(text[:a]+start+"\n"+body+"\n"+end+text[b:],encoding="utf-8")
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument("--target",choices=["osd","status","all"],default="osd");args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument("--target",choices=["osd","status","ticker","all"],default="osd");args=parser.parse_args()
     if args.target in ["osd","all"]:
         lines=json.loads((root/"assets/osd_text_lines.json").read_text(encoding="utf-8"))
         text=['reg [7:0] text_rom[0:4095]; /* fehdl force_ram=1, ram_style="bram" */','integer ti;','initial begin',' for(ti=0;ti<4096;ti=ti+1)text_rom[ti]=32;']
@@ -24,6 +24,16 @@ def main():
         text.extend(f" font_rom[{i}]=14'h{value:04x};" for i,value in enumerate(font["rows"]) if value)
         text.append("end")
         replace_region(root/"rtl/video/dmz_status_panel.sv","// BEGIN GENERATED STATUS FONT","// END GENERATED STATUS FONT","\n".join(text))
+    if args.target in ["ticker","all"]:
+        font=json.loads((root/"assets/top_ticker_font.json").read_text(encoding="utf-8"))
+        assert len(font["columns"])==1024
+        body="\n".join(f" font_rom[{i}]=16'h{value:04x};" for i,value in enumerate(font["columns"]))
+        path=root/"rtl/video/dmz_top_ticker.sv"
+        text=path.read_text(encoding="utf-8")
+        pattern=r"(reg \[15:0\] font_rom\[0:1023\];[^\n]*\ninitial begin\n).*?(\nend\nreg \[15:0\] column;)"
+        text,count=re.subn(pattern,lambda m:m[1]+body+m[2],text,flags=re.S)
+        assert count==1,"Ticker ROM region missing"
+        path.write_text(text,encoding="utf-8")
     print("Generated ROM source:",args.target)
 
 if __name__=="__main__":main()

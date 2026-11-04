@@ -9,13 +9,13 @@ module dmz_osd #(parameter EXTERNAL_COORDS=0)(input clk,reset,input frame_tick,i
 reg [1:0] section,cursor;reg paired;
 reg course;reg opened,valid,ready,paused,muted,source,auto_mode,alert,vis;
 reg [5:0] q,tag,ic;reg [4:0] img,wc;reg [3:0] wi,vol;
-reg [23:0] tm;reg [3:0] bri,con;reg [9:0] scroll;
+reg [23:0] tm;reg [3:0] bri,con;
 reg [63:0] name;reg [7:0] se,ie,we;
 always @(posedge clk) begin
  if(reset) begin course<=0;section<=0;cursor<=0;paired<=0;alert<=0;vis<=1;opened<=0;valid<=0;ready<=0;paused<=0;muted<=0;source<=1;auto_mode<=1;
-  tm<=0;bri<=4;con<=4;scroll<=0;q<=0;tag<=0;ic<=0;img<=0;wc<=0;wi<=0;vol<=8;name<=0;se<=0;ie<=0;we<=0;end
+  tm<=0;bri<=4;con<=4;q<=0;tag<=0;ic<=0;img<=0;wc<=0;wi<=0;vol<=8;name<=0;se<=0;ie<=0;we<=0;end
  else if(EXTERNAL_COORDS?frame_tick:(x==0&&y==480)) begin course<=course_mode;section<=menu_section;cursor<=setting_cursor;paired<=paired_mode;alert<=emergency;vis<=visual_enabled;opened<=menu_open;valid<=browse_valid;ready<=catalog_ready;
-  tm<=time_bcd;bri<=brightness;con<=contrast;scroll<=scroll+1'b1;
+  tm<=time_bcd;bri<=brightness;con<=contrast;
   paused<=audio_paused;muted<=tone_muted;source<=wav_source;auto_mode<=autoplay;
   q<=query;tag<=browse_tag;ic<=image_count;img<=displayed_image;wc<=wav_count;wi<=wav_index;vol<=volume;
   name<=browse_name;se<=sd_error;ie<=image_error;we<=wav_error;end
@@ -75,9 +75,6 @@ begin case(c)
  "=":font=64'h00007c007c000000;
  " ":font=0;default:font=64'h3844040810001000;
 endcase end endfunction
-wire [9:0] ticker_x=ahead_x+scroll;
-wire [511:0] ticker="DMZ FPGA MEDIA - TF CARD AUDIO AND PICTURES - WELCOME           ";
-wire [511:0] active_ticker=alert?"EMERGENCY - FOLLOW STAFF INSTRUCTIONS - KEEP EXITS CLEAR        ":ticker;
 reg [5:0] line_id;reg [319:0] dynamic_line;reg [39:0] dynamic_mask;integer j;
 always @* begin
  dynamic_line=0;dynamic_mask=0;
@@ -976,11 +973,11 @@ always @(posedge clk)font_row<=font_rom[{ch[6:0],glyph_pos[5:3]}];
 always @(posedge clk) begin
  if(reset)begin dynamic_used<=1;dynamic_char<=32;glyph_pos<=0;glyph_x<=0;area<=0;shade<=0;selected<=0;area_q<=0;shade_q<=0;selected_q<=0;text_on<=0;shade_on<=0;color<=0;end
  else begin
-  dynamic_used<=row==27||col>=40||(col<40&&dynamic_mask[39-col]);
-  dynamic_char<=row==27?active_ticker[511-ticker_x[9:4]*8-:8]:(col<40?dynamic_line[319-col*8-:8]:8'd32);
-  glyph_pos<={ahead_y[3:1],(row==27?ticker_x[3:1]:ahead_x[3:1])};
+  dynamic_used<=col>=40||(col<40&&dynamic_mask[39-col]);
+  dynamic_char<=col<40?dynamic_line[319-col*8-:8]:8'd32;
+  glyph_pos<={ahead_y[3:1],ahead_x[3:1]};
   area<=ahead_x<640&&ahead_y<480;
-  shade<=row<4||row>=27||(opened&&ahead_x>=64&&ahead_x<576&&ahead_y>=96&&ahead_y<352);
+  shade<=row<4||row>=28||(opened&&ahead_x>=64&&ahead_x<576&&ahead_y>=96&&ahead_y<352);
   selected<=opened&&(row==9||row==11);
   glyph_x<=glyph_pos[2:0];area_q<=area;shade_q<=shade;selected_q<=selected;
   text_on<=area_q&&font_row[7-glyph_x];shade_on<=area_q&&shade_q;
@@ -988,3 +985,4 @@ always @(posedge clk) begin
  end
 end
 endmodule
+

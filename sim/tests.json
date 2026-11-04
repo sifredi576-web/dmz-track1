@@ -19,5 +19,99 @@
       "rtl/common/dmz_pixel_fifo.sv",
       "sim/tb_fifo_recode.sv"
     ]
+  },
+  "ui_keys": {
+    "top": "tb_ui_keys",
+    "sources": [
+      "rtl/control/dmz_ui_keys.sv",
+      "sim/tb_ui_keys.sv"
+    ]
+  },
+  "trigger": {
+    "top": "tb_trigger",
+    "sources": [
+      "rtl/audio/dmz_audio_visual.sv",
+      "sim/tb_trigger.sv"
+    ]
+  },
+  "ticker": {
+    "top": "tb_top_ticker",
+    "sources": [
+      "rtl/video/dmz_top_ticker.sv",
+      "sim/tb_top_ticker.sv"
+    ]
+  },
+  "course": {
+    "top": "tb_scaling_course",
+    "sources": [
+      "rtl/storage/dmz_scene_loader.sv",
+      "rtl/storage/dmz_cfg_writer.sv",
+      "rtl/storage/dmz_mem_mux.sv",
+      "rtl/control/dmz_ui_controller.sv",
+      "rtl/control/dmz_scene_runtime.sv",
+      "sim/tb_scaling_course.sv"
+    ]
+  },
+  "scaler_wide": {
+    "top": "tb_scaler",
+    "sources": [
+      "rtl/common/dmz_udiv32.sv",
+      "rtl/video/dmz_bmp_decoder.sv",
+      "sim/tb_scaler.sv"
+    ],
+    "plusargs": [
+      "+w=1280",
+      "+h=720"
+    ]
+  },
+  "scaler_tall": {
+    "top": "tb_scaler",
+    "sources": [
+      "rtl/common/dmz_udiv32.sv",
+      "rtl/video/dmz_bmp_decoder.sv",
+      "sim/tb_scaler.sv"
+    ],
+    "plusargs": [
+      "+w=360",
+      "+h=640"
+    ]
+  },
+  "scaler_small": {
+    "top": "tb_scaler",
+    "sources": [
+      "rtl/common/dmz_udiv32.sv",
+      "rtl/video/dmz_bmp_decoder.sv",
+      "sim/tb_scaler.sv"
+    ],
+    "plusargs": [
+      "+w=320",
+      "+h=240"
+    ]
+  },
+  "scaler_rgba_top": {
+    "top": "tb_scaler",
+    "sources": [
+      "rtl/common/dmz_udiv32.sv",
+      "rtl/video/dmz_bmp_decoder.sv",
+      "sim/tb_scaler.sv"
+    ],
+    "plusargs": [
+      "+w=321",
+      "+h=241",
+      "+rgba",
+      "+top"
+    ]
+  },
+  "widescreen": {
+    "top": "tb_widescreen",
+    "sources": [
+      "rtl/video/dmz_wide_mapper.sv",
+      "rtl/video/dmz_image_framebuffer.sv",
+      "rtl/common/dmz_pixel_fifo.sv",
+      "rtl/storage/dmz_sdram_ctrl.sv",
+      "rtl/audio/dmz_tone.sv",
+      "sim/sdram_model.sv",
+      "sim/tb_widescreen.sv"
+    ]
   }
 }

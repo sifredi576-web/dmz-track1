@@ -30,6 +30,8 @@ rtl/top/dmz_track1_top.sv
 rtl/control/dmz_matrix_keys.sv
 rtl/control/dmz_file_menu.sv
 rtl/video/dmz_osd.sv
+rtl/video/dmz_top_ticker.sv
+rtl/video/dmz_trigger_button.sv
 rtl/video/dmz_status_panel.sv
 rtl/control/dmz_scene_control.sv
 rtl/audio/dmz_audio_visual.sv

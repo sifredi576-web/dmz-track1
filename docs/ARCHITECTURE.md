@@ -1,32 +1,25 @@
 # 工程架构
 
-唯一顶层rtl/top/dmz_track1_top.sv负责时钟、板级连接、音视频输出组合和状态打包。目录按职责划分：
+唯一顶层为 `rtl/top/dmz_track1_top.sv`，唯一 TD 工程为 `project/td/dmz_track1.al`，59 项输入统一由 sources.f 维护。保持原始顶层集成方式，不增加额外系统封装或阶段工程。
 
-| 目录 | 内容 |
+| 目录 | 职责 |
 |---|---|
-| rtl/platform | 存储时钟dmz_clocking及视频时钟dmz_wide_pll |
-| rtl/storage | SD/SPI、FAT、SDRAM、自检与配置传输 |
-| rtl/control | 课程运行时、UI、按键、菜单及媒体调度 |
-| rtl/video | BMP缩放、帧缓存/擦除、画面参数、控件合成、OSD |
-| rtl/audio | WAV、提示音、实际播放完成及PCM波形 |
-| rtl/common、rtl/hdmi | FIFO/跨时钟/UART和HDMI协议 |
-| assets | 一份课件配置与实际源素材 |
-| project/td、constraints | 唯一TD工程、明确输入及当前板卡约束 |
-| scripts | 构建、素材、最少测试和板端工具 |
-| release/current | 当前可交付位流、最终报告；生成的TF包 |
+| rtl/platform | 存储/视频 PLL |
+| rtl/storage | SD/SPI、FAT、SDRAM、自检、配置加载和内存仲裁 |
+| rtl/control | 场景运行时、按键、UI、菜单、媒体调度 |
+| rtl/video | BMP 缩放、双帧/擦除、图层、画面参数、OSD、侧栏、触发状态和字幕 |
+| rtl/audio | WAV、采样、播放完成判断、波形和电平 |
+| rtl/common、rtl/hdmi | FIFO、跨时钟、UART、HDMI 协议与串行输出 |
+| assets | 当前唯一配置和源素材、字库 |
+| sim、scripts | 12 项直接 RTL 检查及构建/素材工具 |
+| release/current | 最近正式交付和当前验证摘要；TF 包可重新生成 |
 
-图片链路：TF→BMP解析/等比缩放→SDRAM双帧→擦除转场→亮度/对比度→OSD/UI→HDMI。音频链路：TF→WAV→异步FIFO→暂停/音量/静音→HDMI，同时送PCM波形。
+视频：TF → BMP 解析/最近邻适配 → 图层合成 → SDRAM 双帧 → 擦除切换 → 中央宽屏映射 → 亮度/对比度 → OSD/状态/字幕 → HDMI。
 
-当前移植目标为视频像素75MHz、串行375MHz、内存50MHz，双PLL。输出1280×720、约60.606Hz，非精确标准74.25MHz/60Hz。原640×480内部课件经dmz_wide_mapper映射到中央960×720；dmz_image_framebuffer的逐行重复/预取配合供数，不扩展成1280×720存储帧。两帧字节基址为0和0x100000，配置区为0x200000～0x2FFFFF。运行时解析、计分、合成及控制均在FPGA内，无额外处理器。
+音频：TF → WAV → 2048 对异步 FIFO → 音量/静音/暂停 → HDMI；同一实际输出 PCM 送触发波形，消费完成后才能触发课程自动跳转。
 
-保持原始顶层连接，额外四层封装已撤回。FIFO地址重编码、跨时钟握手及共享BRAM属于实际实现，不作为历史兼容层删除。保留当前底层图库回退及可选完整诊断RTL；正式交付和电脑诊断使用默认v5模式。
+50MHz 内存域、75MHz 像素域和375MHz串行域采用双PLL。内部课件 640×480，在 1280×720 画面中央映射到960×720，左右各160像素；状态和字幕按输出坐标叠加。帧缓存不扩展成宽屏帧，字节基址0和0x100000，配置区0x200000～0x2FFFFF。
 
-只保留三个不转换生产源码的原生ModelSim测试：UI计分/控制、音频消费完成、FIFO地址重编码一致性。它们不是完整媒体链路或实板证明。所有编译工作库均为可删除生成物。
+main 最终提交 b393683 的所有已实例化模块均已迁入；仅保留现有 dmz_clocking、dmz_media_pipeline 两个整理后的模块名。新字幕和触发状态绘图模块归入 video。未使用的旧 dmz_board_commands 和 dmz_bmp_loader 不恢复；不带回构建归档、旧测试框架或上游嵌套仓库。
 
-## main功能迁入（未构建/验证）
-
-来源main 11ead39。新增dmz_wide_pll、dmz_wide_mapper、dmz_picture_pipe、dmz_status_panel；原模块更新颜色三拍流水、图层与HDMI协议延迟对齐、串行复位、目录/索引及音频FIFO数据编码、控件描述符寄存和10步擦除。新模块归入现有platform/video目录，不恢复旧阶段工程。
-
-触发采集逻辑仍位于dmz_audio_visual，trigger_enabled与KEY4/UART切换仍位于顶层。只移除了缺失dmz_trigger_button的实例、像素连线和对应叠加分支；不增加替代空模块、不删除触发算法。
-
-工程及脚本统一采用seed14、物理单线程、布局/布线高努力、place保持修复与禁用自动引脚交换；保留高时序/布局后优化。源清单为57项。没有执行prepare、构建、字库生成、测试或下载。
+为直接事件仿真做了两处等价调整：配置长度对齐常量显式32位；BMP组合字段显式引用头字节，计算位宽和算法不变。详细对照、验证边界与资源结果见[技术报告](TECHNICAL_REPORT.md)。

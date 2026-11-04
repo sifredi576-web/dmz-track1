@@ -42,7 +42,7 @@ dmz_mem_mux #(.N(3)) auxiliary(.clk(clk),.reset(reset),.valid(aux_requests),.wri
  .ready(aux_ready_bus),.response(aux_responses),.req_valid(aux_valid),.req_write(aux_write),.req_addr(aux_addr),.req_wdata(aux_data),
  .req_ready(aux_ready),.rsp_valid(aux_response));
 generate if(RT_PLATFORM)begin:configured_ui
- dmz_scene_runtime runtime(.clk(clk),.reset(reset),.start(boot_finished&&platform_mode),.version(config_version),.payload_length(config_length),
+ dmz_scene_runtime #(.AUTOPLAY_ON_RESET(1)) runtime(.clk(clk),.reset(reset),.start(boot_finished&&platform_mode),.version(config_version),.payload_length(config_length),
  .resource_count(config_resources),.page_count(config_pages),.widget_total(config_widgets),.entry_page(config_entry),.active(rt_active),.error(rt_error),
  .mem_valid(aux_requests[2]),.mem_write(),.mem_addr(aux_addresses[62:42]),.mem_wdata(),.mem_ready(aux_ready_bus[2]),.mem_response(aux_responses[2]),.mem_data(aux_rdata),
  .lookup_enable(lookup_enable),.lookup_query(lookup_query),.browse_tag(browse_tag),.browse_valid(browse_valid),.browse_name(browse_name),.browse_bytes(browse_bytes),.image_count(image_count),.wav_count(wav_count),

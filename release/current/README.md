@@ -1,11 +1,14 @@
-# 当前交付
+# 当前交付与候选状态
 
-当前源码已迁入宽屏等功能但未构建/验证；本目录现有bit、manifest和timing仍是移植前版本，不可作为当前源码的交付验收结果。下载入口的源码/工程哈希检查会拦截不匹配的旧位流。
+2026-11-04：main最终版已迁入zyr，12项RTL仿真通过，综合/布局/布线/位流生成完成。但STA为99.99%，且存在与main相同的两路PLL反馈局部布线提示，未通过100%覆盖与critical warning发布门槛。
 
-- dmz_track1.bit：最近一次通过构建的SRAM位流。
-- build_manifest.json：源码、配置及位流SHA256。
-- timing.txt：对应的最终布线时序报告，成功构建后生成。
-- verification.json：当前验证结论及未完成项。
-- tf/：Package从assets生成的唯一TF交付包，生成目录不提交Git。
+| 文件 | 实际状态 |
+|---|---|
+| dmz_track1.bit、build_manifest.json、timing.txt | **仍为此前验证的640×480版本，不对应当前源码**；未以新候选覆盖 |
+| candidate_manifest.json | 本轮1280×720候选的源码/工程/流程/位流哈希及资源结果，release_gate_passed=false |
+| verification.json | 当前移植、12项测试、构建结果、main对照和未完成项 |
+| tf/ | 当前19页课程生成包，与main最终运行文件逐字节一致；不适用于把旧bit冒充当前版本 |
 
-构建尚未通过时，不以旧bit代替新版本。正式下载入口会核对源文件和位流是否属于同一构建。历史P7源码包、位流和多轮试验记录不再随当前项目交付。
+新候选实际文件：`project/td/dmz_track1_Runs/phy_1/dmz_track1.bit`；候选最终时序、检查和详细日志均在TD Runs及build/reports，属于本地生成物。删除生成目录后需要重新构建。
+
+正式Download入口会因源码/工程哈希不匹配而拒绝旧位流。本轮没有执行下载、板测、Flash、提交或合并。后续审查时序覆盖和PLL反馈后再决定发布，不直接复制候选绕过检查。详细报告见[TECHNICAL_REPORT.md](../../docs/TECHNICAL_REPORT.md)。

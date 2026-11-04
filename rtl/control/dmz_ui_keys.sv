@@ -5,10 +5,10 @@ module dmz_ui_keys(input clk,reset,key_valid,input [3:0] key_code,
  input uart_valid,input [7:0] uart_byte,
  output wire command_valid,output wire [7:0] command_byte,
  output wire ui_valid,output wire [3:0] ui_action);
-// Development-only navigation transport: D1..D8, DA..DC carry UI actions.
+// Development-only navigation transport: D1..DC carry UI actions.
 // Runtime operation continues to use exactly the same physical key event path.
 wire uart_ui=uart_valid&&uart_byte[7:4]==4'hd&&
- ((uart_byte[3:0]>=1&&uart_byte[3:0]<=8)||(uart_byte[3:0]>=10&&uart_byte[3:0]<=12));
+ (uart_byte[3:0]>=1&&uart_byte[3:0]<=12);
 reg pending;reg [3:0] held;
 wire [3:0] selected=pending?held:key_code;
 wire physical=pending||key_valid;
@@ -17,7 +17,7 @@ always @* begin
  mapped=1;is_ui=0;command=0;action=0;
  case(selected)
   0:command="+";1:command="-";
-  2:command=audio_paused?"A":"H";3:command=tone_muted?"U":"M";
+  2:if(platform_active)begin if(!menu_open)begin is_ui=1;action=9;end else mapped=0;end else command="G";3:command=tone_muted?"U":"M";
   4:if(platform_active)begin is_ui=1;action=12;end else command="X";
   5:if(platform_active)begin is_ui=1;action=11;end else command="Q";
   7:begin is_ui=1;action=10;end

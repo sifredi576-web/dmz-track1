@@ -103,9 +103,13 @@ def compile_scene(scene, material_root):
         record[0] = i
         record[1] = resource(p["background"], "bmp")
         record[2] = resource(p["audio"], "wav") if p.get("audio") else 255
-        record[3] = (1 if p.get("loop", False) else 0) | (2 if p.get("visual", False) else 0) | (4 if p.get("show_score", False) else 0)
+        record[3] = (1 if p.get("loop", False) else 0) | (2 if p.get("visual", False) else 0) | (4 if p.get("show_score", False) else 0) | (8 if p.get("auto_optional", False) else 0)
         target = p.get("auto_target")
         check(target is None or target in pid, "Invalid auto target")
+        check(not p.get("auto_optional", False) or target is not None, "Optional autoplay requires a target")
+        check(not target or (p.get("question", 255) == 255 and p.get("priority", 0) == 0), "Quiz/notice cannot auto advance")
+        check(not target or p.get("audio") or p.get("dwell_ms", 0) > 0, "Autoplay needs audio or a dwell time")
+        check(not target or p.get("dwell_ms", 0) > 0 or not p.get("loop", False), "Loop audio never completes")
         record[4] = pid[target] if target else 255
         dwell = p.get("dwell_ms", 0)
         check(isinstance(dwell, int) and 0 <= dwell <= 65535, "Invalid dwell time")

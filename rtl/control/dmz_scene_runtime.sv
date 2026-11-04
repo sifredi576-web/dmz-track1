@@ -1,6 +1,6 @@
 // Runtime scene validator, name resolver, page adapter and configured UI host.
 // SCENE payload is immutable in SDRAM at byte 0x200000 after boot CRC commits.
-module dmz_scene_runtime #(parameter MS_CYCLES=50000)(input clk,reset,start,
+module dmz_scene_runtime #(parameter MS_CYCLES=50000,parameter AUTOPLAY_ON_RESET=0)(input clk,reset,start,
  input [1:0] version,input [20:0] payload_length,input [6:0] resource_count,
  input [5:0] page_count,input [7:0] widget_total,input [4:0] entry_page,
  output reg active,output reg [7:0] error,
@@ -59,7 +59,8 @@ reg loading,first_image;reg [31:0] last_swaps;
 reg [7:0] audio_resource;reg [31:0] audio_frames;reg audio_loop;
 reg [7:0] ticket;
 reg [15:0] ms_clock,elapsed_ms;
-reg auto_fired;
+reg auto_fired;reg autoplay_mode,autoplay_hold;
+
 reg force_valid;reg [7:0] force_target;
 reg [1:0] notice,pending_notice;reg [4:0] notice_page,alert_page,context_page;
 reg [2:0] context_focus;
@@ -78,10 +79,11 @@ wire [7:0] core_arg,core_error;
 reg page_accept,page_loaded,audio_accept,control_accept;
 wire notice_request,notice_exit;wire [1:0] notice_priority;
 wire [7:0] qaction={4'd0,cache_q[42:39]};
+wire autoplay_event=active&&event_valid&&event_action==9&&!menu_open&&notice==0&&!physical_alert;
 wire exit_key=notice!=0&&(event_action==6||event_action==7||
  (event_action==5&&qaction==4));
 wire [3:0] adapted_event=exit_key?4'd12:event_action;
-wire core_event=active&&(force_valid||(event_valid&&
+wire core_event=active&&(force_valid||(event_valid&&event_action!=9&&
  (event_action>=10||exit_key||(state==IDLE&&!menu_open&&cache_tag==focus))));
 wire [3:0] core_event_action=force_valid?4'd13:adapted_event;
 wire [1:0] requested_notice=physical_alert?2'd2:
@@ -168,7 +170,7 @@ always @*begin
  status[146]=active&&(notice==2||pending_notice==2||physical_alert);
  status[147]=notice==2&&!loading&&target_page==alert_page&&pending_notice==0;
  status[148]=notice!=0||pending_notice!=0||track_switching;
- status[149]=core_busy;
+ status[149]=core_busy;status[150]=autoplay_mode;status[151]=autoplay_hold;status[152]=pb(4)!=255;
 end
 always @(posedge clk)begin
  if(reset)begin
@@ -179,7 +181,7 @@ always @(posedge clk)begin
   loading<=1;first_image<=1;last_swaps<=0;image_select<=0;image_index<=0;page_begin<=0;displayed_image<=0;
   audio_select<=0;audio_stop<=0;audio_index<=0;audio_params<=0;audio_resource<=255;audio_frames<=0;audio_loop<=0;ticket<=0;
   control_valid<=0;control_byte<=0;page_accept<=0;page_loaded<=0;audio_accept<=0;control_accept<=0;
-  ms_clock<=0;elapsed_ms<=0;auto_fired<=0;force_valid<=0;force_target<=0;
+  autoplay_mode<=AUTOPLAY_ON_RESET;autoplay_hold<=0;ms_clock<=0;elapsed_ms<=0;auto_fired<=0;force_valid<=0;force_target<=0;
   notice<=0;pending_notice<=0;notice_page<=31;alert_page<=31;context_page<=0;context_focus<=0;
   context_valid<=0;returning<=0;exit_pending<=0;exit_home<=0;suppress_audio<=0;last_physical<=0;notice_soft<=0;restore_flag<=0;track_switching<=0;notice_found<=0;alert_found<=0;
   for(k=0;k<4;k=k+1)answer_rect[k]<=0;
@@ -188,6 +190,15 @@ always @(posedge clk)begin
   page_accept<=0;page_loaded<=0;audio_accept<=0;control_accept<=0;cache_write<=0;force_valid<=0;
   if(state==IDLE&&!loading&&!core_busy&&!page_loaded&&!core_page_request)restore_flag<=0;
   if(active)begin
+   // KEY2 starts, pauses, or resumes optional course autoplay only.
+   // Keep this event out of the widget controller; it is not a quiz answer.
+   if(autoplay_event)begin
+    autoplay_mode<=1;autoplay_hold<=autoplay_mode&&!autoplay_hold;
+    if(!autoplay_mode)begin elapsed_ms<=0;auto_fired<=0;end
+   end
+   if(event_valid&&event_action==7&&notice==0&&!physical_alert)begin
+    autoplay_mode<=AUTOPLAY_ON_RESET;autoplay_hold<=0;
+   end
    last_physical<=physical_alert;
    if(notice_request&&notice_priority>notice)pending_notice<=notice_priority;
    if(notice_request&&notice_priority==2)notice_soft<=1;
@@ -195,7 +206,7 @@ always @(posedge clk)begin
    if(event_valid&&event_action==7&&notice!=0)exit_home<=1;
    if(last_physical&&!physical_alert&&notice==2&&!notice_soft)exit_pending<=1;
    if(ms_clock==MS_CYCLES-1)begin ms_clock<=0;
-    if(state==IDLE&&!paused&&notice==0&&elapsed_ms!=65535)elapsed_ms<=elapsed_ms+1'b1;
+    if(state==IDLE&&!paused&&!autoplay_event&&!(page[27]&&autoplay_hold)&&notice==0&&elapsed_ms!=65535)elapsed_ms<=elapsed_ms+1'b1;
    end else ms_clock<=ms_clock+1'b1;
   end else last_physical<=0;
   case(state)
@@ -212,7 +223,7 @@ always @(posedge clk)begin
     else begin
      if(rb(11)==3)begin
       if(rw==0||rw>272||rh==0||rh>64||rlength!=sprite_length_q||roffset<table_bytes||roffset[4:0]!=0||
-         {1'b0,roffset}+{1'b0,((rlength+31)&32'hffffffe0)}>{12'd0,payload_length})fail(8'h13);
+         {1'b0,roffset}+{1'b0,((rlength+32'd31)&32'hffffffe0)}>{12'd0,payload_length})fail(8'h13);
       else begin ri<=ri+1'b1;state<=RESOURCE_GET;end
      end else if((rb(11)==1&&record[87:64]!=24'h504d42)||(rb(11)==2&&record[87:64]!=24'h564157))fail(8'h12);
      else if((rb(11)==1&&image_count==0)||(rb(11)==2&&wav_count==0))fail(8'h14);
@@ -231,7 +242,7 @@ always @(posedge clk)begin
    PAGE_CHECK:begin
     if(rb(0)!=pi||rb(1)>=resource_count||
       (rb(2)!=255&&(rb(2)>=resource_count))||
-      (rb(3)&8'hf8)!=0||(rb(4)!=255&&rb(4)>=page_count)||rb(5)!=0||rb(9)>8||
+      (rb(3)&8'hf0)!=0||(rb(4)!=255&&rb(4)>=page_count)||rb(5)!=0||rb(9)>8||
       {1'b0,rb(8)}+{1'b0,rb(9)}>{1'b0,widget_total}||(rb(10)!=255&&rb(10)>=page_count)||
       (rb(11)!=255&&(rb(11)>7||rb(12)>3||rb(4)!=255))||(rb(11)==255&&rb(12)!=255)||rb(13)>2||
       record[127:112]>128||record[143:128]>420||record[159:144]>480||record[175:160]>448||rb(22)==0||rb(22)>8||
@@ -291,7 +302,8 @@ always @(posedge clk)begin
     end else if(core_control_request)begin
      control_accept<=1;control_valid<=1;state<=DRAIN_ACK;
      control_byte<=core_control==0?(paused?"A":"H"):core_control==1?(muted?"U":"M"):(core_arg[7]?"-":"+");
-    end else if(!core_busy&&!paused&&notice==0&&!auto_fired&&pb(4)!=255&&
+    end else if(!core_busy&&!paused&&!event_valid&&!autoplay_event&&!menu_open&&!track_switching&&!page_quiz&&notice==0&&!auto_fired&&pb(4)!=255&&
+      (!page[27]||(autoplay_mode&&!autoplay_hold))&&
       ((p16(6)!=0&&elapsed_ms>=p16(6))||(p16(6)==0&&audio_finished[8]&&audio_finished[7:0]==ticket)))begin
      force_target<=pb(4);force_valid<=1;loading<=1;auto_fired<=1;
     end
