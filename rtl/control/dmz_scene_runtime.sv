@@ -1,6 +1,6 @@
 // Runtime scene validator, name resolver, page adapter and configured UI host.
-// SCENE payload is immutable in SDRAM at byte 0x200000 after boot CRC commits.
-module dmz_scene_runtime #(parameter MS_CYCLES=50000,parameter AUTOPLAY_ON_RESET=0)(input clk,reset,start,
+// SCENE is immutable after boot CRC commits; CFG_BASE is a word address (HD: byte 0x400000).
+module dmz_scene_runtime #(parameter MS_CYCLES=50000,parameter AUTOPLAY_ON_RESET=0,parameter [20:0] CFG_BASE=21'h080000)(input clk,reset,start,
  input [1:0] version,input [20:0] payload_length,input [6:0] resource_count,
  input [5:0] page_count,input [7:0] widget_total,input [4:0] entry_page,
  output reg active,output reg [7:0] error,
@@ -101,9 +101,9 @@ function automatic [7:0] rb(input integer n);rb=record[n*8+:8];endfunction
 function automatic [7:0] hb(input integer n);hb=held[n*8+:8];endfunction
 function automatic [7:0] pb(input integer n);pb=page[n*8+:8];endfunction
 function automatic [15:0] p16(input integer n);p16=page[n*8+:16];endfunction
-function automatic [20:0] resource_addr(input [7:0] index);resource_addr=21'h080000+{10'd0,index,3'd0};endfunction
-function automatic [20:0] page_addr(input [7:0] index);page_addr=21'h080000+(({14'd0,resource_count}+{13'd0,index})<<3);endfunction
-function automatic [20:0] widget_addr(input [7:0] index);widget_addr=21'h080000+(({14'd0,resource_count}+{15'd0,page_count}+{13'd0,index})<<3);endfunction
+function automatic [20:0] resource_addr(input [7:0] index);resource_addr=CFG_BASE+{10'd0,index,3'd0};endfunction
+function automatic [20:0] page_addr(input [7:0] index);page_addr=CFG_BASE+(({14'd0,resource_count}+{13'd0,index})<<3);endfunction
+function automatic [20:0] widget_addr(input [7:0] index);widget_addr=CFG_BASE+(({14'd0,resource_count}+{15'd0,page_count}+{13'd0,index})<<3);endfunction
 task read_word(input [20:0] address,input [5:0] next_state);
  begin mem_valid<=1;mem_write<=0;mem_addr<=address;return_state<=next_state;state<=ACCEPT;end
 endtask

@@ -217,8 +217,7 @@ def main():
               "Output differs; use a fresh output directory: " + str(destination))
     for name, content in outputs.items():
         (args.output/name).write_bytes(content)
-    (args.output/"PACKAGE.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps({k:v for k,v in report.items() if k != "resources"}, ensure_ascii=False, indent=2))
+    print(f"TF package ready: {len(outputs)} runtime files, {len(report['pages'])} pages, {report['widgets']} widgets")
 
 
 if __name__ == "__main__":

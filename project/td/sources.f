@@ -36,7 +36,6 @@ rtl/video/dmz_status_panel.sv
 rtl/control/dmz_scene_control.sv
 rtl/audio/dmz_audio_visual.sv
 rtl/video/dmz_display_control.sv
-rtl/video/dmz_picture_adjust.sv
 rtl/video/dmz_picture_pipe.sv
 rtl/common/dmz_uart_rx.sv
 rtl/control/dmz_media_control.sv

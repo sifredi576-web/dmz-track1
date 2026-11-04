@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.bit -text
+*.BMP -text
+*.WAV -text
+*.png -text
+*.BIN -text

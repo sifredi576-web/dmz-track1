@@ -1,5 +1,5 @@
-// Pack sequential payload bytes into aligned SDRAM BL8 transactions at byte 0x200000.
-module dmz_cfg_writer(input clk,reset,start,abort,
+// Pack payload bytes into SDRAM BL8 at CFG_BASE (word address; HD selects byte 0x400000).
+module dmz_cfg_writer #(parameter [20:0] CFG_BASE=21'h080000)(input clk,reset,start,abort,
  input valid,last,input [19:0] addr,input [7:0] data,output wire ready,
  output wire mem_valid,output wire [20:0] mem_addr,output wire [255:0] mem_data,
  input mem_ready,mem_response,output wire idle,output reg done);
@@ -14,7 +14,7 @@ always @(posedge clk)begin
  else begin
   if(valid&&ready)begin
 
-   if(count==0)address<=21'h080000+{3'd0,addr[19:2]};
+   if(count==0)address<=CFG_BASE+{3'd0,addr[19:2]};
    if(count==31||last)begin count<=0;pending<=1;final_word<=last;end
    else count<=count+1'b1;
   end

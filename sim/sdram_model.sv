@@ -9,7 +9,7 @@ reg [10:0] rows[4];reg open_bank[4];
 integer cycle=0,last_active[4],closed_at[4],last_refresh=-100,last_mrs=-100;
 integer ref_count=0,delay_read=0,rd_left=0,wr_left=0;
 integer rd_address=0,wr_address=0,bank_active=0;
-reg mode_set=0;
+reg mode_set=0;reg auto_close=1;
 reg inject;
 initial begin inject=$test$plusargs("fault");for(integer i=0;i<4;i=i+1) begin open_bank[i]=0;last_active[i]=-100;closed_at[i]=-100;end end
 always @(posedge clk) begin
@@ -20,14 +20,14 @@ always @(posedge clk) begin
   if(wr_left!=0) begin
    if(!dq_oe) $fatal(1,"missing write data");
    mem[wr_address]=dq_out;wr_address=wr_address+1;wr_left=wr_left-1;
-   if(wr_left==0) begin open_bank[bank_active]=0;closed_at[bank_active]=cycle+1;end
+   if(wr_left==0&&auto_close) begin open_bank[bank_active]=0;closed_at[bank_active]=cycle+1;end
   end
   if(delay_read!=0) begin delay_read=delay_read-1;if(delay_read==0) rd_left=8;end
   if(rd_left!=0) begin
    if(dq_oe) $fatal(1,"DQ contention");
    dq_in <= #6 (mem[rd_address] ^ ((inject&&rd_address==23)?32'd1:32'd0));
    rd_address=rd_address+1;rd_left=rd_left-1;
-   if(rd_left==0) begin open_bank[bank_active]=0;closed_at[bank_active]=cycle;end
+   if(rd_left==0&&auto_close) begin open_bank[bank_active]=0;closed_at[bank_active]=cycle;end
   end
   case({ras_n,cas_n,we_n})
   3'b010:begin
@@ -48,8 +48,8 @@ always @(posedge clk) begin
    rows[ba]=addr;open_bank[ba]=1;last_active[ba]=cycle;
   end
   3'b101,3'b100:begin
-   if(!open_bank[ba] || cycle-last_active[ba]<2 || !addr[10] || addr[2:0]!=0) $fatal(1,"READ/WRITE timing/address");
-   bank_active=ba;
+   if(!open_bank[ba] || cycle-last_active[ba]<2 || addr[2:0]!=0) $fatal(1,"READ/WRITE timing/address");
+   bank_active=ba;auto_close=addr[10];
    if(we_n) begin rd_address={ba,rows[ba],addr[7:0]};delay_read=3;end
    else begin
     if(!dq_oe) $fatal(1,"first write beat");

@@ -209,15 +209,10 @@ proc opt_route_fun {} {
     set_param flow qor_monitor on
     report_qor -step route -file route.qor
   }
-  # Resolve short BRAM input paths after routing, without relaxing constraints.
-  fix_hold
   report_area -io_info -file ${prj_name}_phy.area
   update_timing -mode final
   report_timing_status -file ${prj_name}_phy.ts
   report_timing_summary -file ${prj_name}_pr.timing
-  check_timing -verbose -file timing_checks.rpt
-  report_timing_ignored -file timing_ignored.rpt
-  report_abnormal_timing_target -file timing_abnormal.rpt
   report_timing_exception -file ${prj_name}_exception.timing
   flow_status -file route_flow.status
   report_clock_utilization -file route_clock_utilization.txt

@@ -105,6 +105,7 @@
   "widescreen": {
     "top": "tb_widescreen",
     "sources": [
+      "rtl/storage/dmz_mem_mux.sv",
       "rtl/video/dmz_wide_mapper.sv",
       "rtl/video/dmz_image_framebuffer.sv",
       "rtl/common/dmz_pixel_fifo.sv",

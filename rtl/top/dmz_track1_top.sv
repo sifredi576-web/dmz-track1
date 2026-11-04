@@ -32,7 +32,7 @@ EG_PHY_SDRAM_2M_32 memory(.clk(sdram_clk),.ras_n(ras_n),.cas_n(cas_n),.we_n(we_n
 wire init_done,req_ready,rsp_valid,bist_done,bist_passed;
 wire bvalid,bwrite,fvalid,fwrite;wire [20:0] baddr,faddr;wire [255:0] bwdata,fwdata,rdata;
 wire [31:0] refreshes,errors,checked,first_expected,first_actual;wire [20:0] first_addr;wire [7:0] bist_status;
-dmz_sdram_ctrl ctrl(.clk(mem_clk),.reset(reset),.req_valid(bist_done?arb_valid:bvalid),.req_write(bist_done?arb_write:bwrite),.req_addr(bist_done?arb_addr:baddr),.req_wdata(bist_done?arb_data:bwdata),.req_ready(req_ready),.rsp_valid(rsp_valid),.rsp_rdata(rdata),.init_done(init_done),.refresh_count(refreshes),.ras_n(ras_n),.cas_n(cas_n),.we_n(we_n),.addr(sa),.ba(ba),.dq_out(dq_out),.dq_oe(dq_oe),.dq_in(dq));
+dmz_sdram_ctrl #(.OPEN_PAGE(1)) ctrl(.clk(mem_clk),.reset(reset),.req_valid(bist_done?arb_valid:bvalid),.req_write(bist_done?arb_write:bwrite),.req_addr(bist_done?arb_addr:baddr),.req_wdata(bist_done?arb_data:bwdata),.req_ready(req_ready),.rsp_valid(rsp_valid),.rsp_rdata(rdata),.init_done(init_done),.refresh_count(refreshes),.ras_n(ras_n),.cas_n(cas_n),.we_n(we_n),.addr(sa),.ba(ba),.dq_out(dq_out),.dq_oe(dq_oe),.dq_in(dq));
 dmz_sdram_bist #(.PARALLEL_CHECK(1),.COUNT_ERRORS(FULL_TELEMETRY)) bist(.clk(mem_clk),.reset(reset),.init_done(init_done),.req_valid(bvalid),.req_write(bwrite),.req_addr(baddr),.req_wdata(bwdata),.req_ready(req_ready&&!bist_done),.rsp_valid(rsp_valid&&!bist_done),.rsp_rdata(rdata),.done(bist_done),.passed(bist_passed),.errors(errors),.checked_words(checked),.first_bad_addr(first_addr),.first_expected(first_expected),.first_actual(first_actual),.status(bist_status));
 wire [10:0] x;wire [9:0] y;
 wire [9:0] scene_x,scene_y,scene_ahead1,scene_ahead2,scene_ahead3;wire course_area,wide_pop;
@@ -44,7 +44,7 @@ wire display_valid,front_bank,fb_fault;wire [31:0] swaps,frames_written,dma_read
 wire sd_ready,sd_done,sd_initialized,sd_byte_valid,sd_start;
 wire [31:0] sd_lba,sd_sectors;wire [8:0] sd_index;wire [7:0] sd_byte,sd_error,sd_status;
 dmz_sd_reader sd(.clk(mem_clk),.reset(reset),.read_start(sd_start),.read_lba(sd_lba),.ready(sd_ready),.initialized(sd_initialized),.read_done(sd_done),.byte_valid(sd_byte_valid),.byte_index(sd_index),.byte_data(sd_byte),.error(sd_error),.status(sd_status),.sectors_read(sd_sectors),.sd_cs(SD_CS),.sd_sck(SD_SCK),.sd_mosi(SD_MOSI),.sd_miso(SD_MISO));
-wire load_valid,load_last,load_ready,load_ack,image_done;wire [17:0] load_addr;wire [255:0] load_data;
+wire load_valid,load_last,load_ready,load_ack,image_done;wire [18:0] load_addr;wire [255:0] load_data;
 wire [7:0] image_error,image_status;wire [31:0] image_pixels;wire [63:0] image_name;
 wire catalog_ready,loader_busy,gallery_request,autoplay,gallery_loading;
 wire [5:0] image_count;wire [4:0] selected_image,requested_image,displayed_image;
@@ -121,7 +121,7 @@ always @(posedge mem_clk) begin
   else if(mem_command[7:4]==4'hc) paired_mode<=0;
  end
 end
-dmz_media_pipeline #(.RT_PLATFORM(1)) storage(.clk(mem_clk),.reset(reset),.enable(bist_passed),.audio_urgent(audio_fifo_used<1024),
+dmz_media_pipeline #(.RT_PLATFORM(1),.HD(1)) storage(.clk(mem_clk),.reset(reset),.enable(bist_passed),.audio_urgent(audio_fifo_used<1024),
  .platform_found(platform_found),.platform_ready(platform_ready),.platform_error(platform_error),
  .pair_enable(paired_mode),.frame_swaps(swaps),
  .audio_select_request(mem_command_valid&&(mem_command[7:4]==4'hc||mem_command=="J"||mem_command=="j")),.audio_requested_index((mem_command=="J"||mem_command=="j")?audio_selected_index:mem_command[3:0]),.audio_selected_index(audio_selected_index),
@@ -137,14 +137,14 @@ dmz_media_pipeline #(.RT_PLATFORM(1)) storage(.clk(mem_clk),.reset(reset),.enabl
  .platform_mode(platform_mode),.ui_status(ui_status),.audio_params(audio_params),.audio_params_ack(audio_params_ack),.audio_finished(audio_finished_mem),
  .ui_control_valid(ui_control_valid),.ui_control_byte(ui_control_byte),.aux_valid(aux_valid),.aux_write(aux_write),.aux_addr(aux_addr),.aux_data(aux_data),.aux_ready(aux_ready),.aux_response(aux_response),.aux_rdata(rdata));
 
-dmz_image_framebuffer #(.WIDE_MODE(1)) fb(.load_valid(load_valid),.load_addr(load_addr),.load_data(load_data),.load_last(load_last),.load_ready(load_ready),.load_ack(load_ack),.clk(mem_clk),.reset(reset),.bist_done(bist_done),.bist_passed(bist_passed),.frame_toggle(frame_toggle),.req_valid(fvalid),.req_write(fwrite),.req_addr(faddr),.req_wdata(fwdata),.req_ready(clients_ready[0]),.rsp_valid(clients_response[0]),.rsp_rdata(rdata),.fifo_used(fifo_used),.fifo_full(fifo_full),.fifo_push(fifo_push),.fifo_data(fifo_in),.fifo_reset(fifo_reset),.display_valid(display_valid),.front_bank(front_bank),.swaps(swaps),.frames_written(frames_written),.dma_reads(dma_reads),.fault(fb_fault));
+dmz_image_framebuffer #(.WIDE_MODE(1),.HD(1)) fb(.load_valid(load_valid),.load_addr(load_addr),.load_data(load_data),.load_last(load_last),.load_ready(load_ready),.load_ack(load_ack),.clk(mem_clk),.reset(reset),.bist_done(bist_done),.bist_passed(bist_passed),.frame_toggle(frame_toggle),.req_valid(fvalid),.req_write(fwrite),.req_addr(faddr),.req_wdata(fwdata),.req_ready(clients_ready[0]),.rsp_valid(clients_response[0]),.rsp_rdata(rdata),.fifo_used(fifo_used),.fifo_full(fifo_full),.fifo_push(fifo_push),.fifo_data(fifo_in),.fifo_reset(fifo_reset),.display_valid(display_valid),.front_bank(front_bank),.swaps(swaps),.frames_written(frames_written),.dma_reads(dma_reads),.fault(fb_fault));
 reg [2:0] fr;
 always @(posedge pixel_clk or posedge fifo_reset) if(fifo_reset) fr<=7;else fr<={fr[1:0],1'b0};
 reg [1:0] dv,fail;
 always @(posedge pixel_clk) if(pixel_reset) begin dv<=0;fail<=0;end else begin dv<={dv[0],display_valid};fail<={fail[0],bist_done&&!bist_passed};end
 wire active=course_area;
-wire pop=wide_pop&&dv[1]&&!fr[2];
-dmz_pixel_fifo #(.RECODE_ADDR(1)) fifo(.wclk(mem_clk),.wreset(fifo_reset),.wpush(fifo_push),.wdata(fifo_in),.full(fifo_full),.used(fifo_used),.rclk(pixel_clk),.rreset(fr[2]),.rpop(pop),.rdata(fifo_out),.empty(fifo_empty));
+wire pop=(course_area&&x[0])&&dv[1]&&!fr[2];
+dmz_pixel_fifo #(.RECODE_ADDR(1),.USE_BRAM32(1)) fifo(.wclk(mem_clk),.wreset(fifo_reset),.wpush(fifo_push),.wdata(fifo_in),.full(fifo_full),.used(fifo_used),.rclk(pixel_clk),.rreset(fr[2]),.rpop(pop),.rdata(fifo_out),.empty(fifo_empty));
 reg [31:0] underflow,uf_gray;
 always @(posedge pixel_clk) begin
  if(pixel_reset) begin underflow<=0;uf_gray<=0;end
@@ -154,7 +154,7 @@ end
 always @(posedge mem_clk) if(reset) begin uf1<=0;uf2<=0;end else begin uf1<=uf_gray;uf2<=uf1;end
 function automatic [31:0] fromgray(input [31:0] g);integer k;begin fromgray[31]=g[31];for(k=30;k>=0;k=k-1) fromgray[k]=fromgray[k+1]^g[k];end endfunction
 wire [31:0] underflow_mem=fromgray(uf2);
-wire [15:0] p565=scene_x[0]?fifo_out[31:16]:fifo_out[15:0];
+wire [15:0] p565=x[0]?fifo_out[31:16]:fifo_out[15:0];
 reg [23:0] rgb;
 wire [23:0] base_rgb=fail[1]?24'hff0000:!dv[1]?(menu_image_error!=0?24'hff8000:24'h000040):
  (fifo_empty||fr[2])?24'hff00ff:{p565[15:11],p565[15:13],p565[10:5],p565[10:9],p565[4:0],p565[4:2]};
@@ -293,7 +293,7 @@ assign {HDMI_D2_P,HDMI_D1_P,HDMI_D0_P}=tmds;
 reg [31:0] uptime;always @(posedge mem_clk) if(reset) uptime<=0;else uptime<=uptime+1'b1;
 // Coherent memory-domain diagnostics cross via held-data request/acknowledge.
 
-assign mem_status={wav_bytes,audio_reads,image_reads,wav_loops,decoded_pairs,swaps[12:0],catalog_ready,gallery_loading,autoplay,displayed_image,selected_image,image_count,refreshes,sd_sectors,swaps,checked,{sd_error,image_error,sd_status,image_status},(display_valid?32'd307200:image_pixels),errors,
+assign mem_status={wav_bytes,audio_reads,image_reads,wav_loops,decoded_pairs,swaps[12:0],catalog_ready,gallery_loading,autoplay,displayed_image,selected_image,image_count,refreshes,sd_sectors,swaps,checked,{sd_error,image_error,sd_status,image_status},(display_valid?32'd691200:image_pixels),errors,
  24'd0,fb_fault,(underflow_mem!=0),front_bank,display_valid,bist_passed,bist_done,init_done,sd_initialized};
 dmz_status_cdc #(.WIDTH(448)) snapshot(.src_clk(mem_clk),.src_reset(base_mem_reset),.src_data(mem_status),
  .dst_clk(pixel_clk),.dst_reset(base_pixel_reset),.dst_data(mem_snapshot));

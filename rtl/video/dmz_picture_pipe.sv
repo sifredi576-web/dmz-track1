@@ -1,4 +1,4 @@
-// Three registered stages; arithmetic equals dmz_picture_adjust for b/c 0..8.
+// Three registered stages for brightness/contrast settings in the range 0..8.
 module dmz_picture_pipe(input clk,reset,input [23:0] rgb,input [3:0] brightness,contrast,output [23:0] adjusted);
 genvar k;generate for(k=0;k<3;k=k+1)begin: channel
  reg [11:0] product;reg [3:0] b,c;reg signed [12:0] value;reg [7:0] result;
