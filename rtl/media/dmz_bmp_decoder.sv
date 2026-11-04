@@ -1,8 +1,8 @@
 // Streaming BMP + single source-row cache + aspect-fit nearest-neighbor scaler.
-// Output always contains all 640x480 RGB565 pixels, including black letterbox.
-module dmz_bmp_decoder(input clk,reset,start,input [31:0] file_bytes,input [7:0] stream_error,
+// Output contains all OUT_W x OUT_H RGB565 pixels, including black letterbox.
+module dmz_bmp_decoder #(parameter integer OUT_W=640, OUT_H=480, ADDR_BITS=$clog2(OUT_W*OUT_H/2))(input clk,reset,start,input [31:0] file_bytes,input [7:0] stream_error,
  input byte_valid,output wire byte_ready,input [7:0] byte_data,
- output wire load_valid,output reg [17:0] load_addr,output reg [255:0] load_data,
+ output wire load_valid,output reg [ADDR_BITS-1:0] load_addr,output reg [255:0] load_data,
  output reg load_last,input load_ready,load_ack,
  output reg done,output reg [7:0] error,output wire [7:0] status,output reg [31:0] pixels_loaded);
 localparam IDLE=0,HEADER=1,CHECK=2,DIV_START=3,DIV_WAIT=4,INIT=5,PARSE=6,
@@ -28,12 +28,12 @@ wire [12:0] row_bytes=(h16(28)==32)?({2'd0,raw_width}<<2):({2'd0,raw_width}+({2'
 wire [12:0] stride=(row_bytes+13'd3)&13'h1ffc;
 reg [32:0] required_end;
 always @(posedge clk) if(reset) required_end<=0;else required_end<={1'b0,h32(10)}+({20'd0,stride}*{22'd0,abs_height[10:0]});
-wire fits_width=({21'd0,raw_width}*32'd480 >= {21'd0,abs_height[10:0]}*32'd640);
+wire fits_width=({21'd0,raw_width}*32'(OUT_H) >= {21'd0,abs_height[10:0]}*32'(OUT_W));
 wire divider_done;wire [31:0] scaled;
 dmz_udiv32 divider(.clk(clk),.reset(reset),.start(state==DIV_START),
- .numerator(width_limited?({21'd0,height}*32'd640):({21'd0,width}*32'd480)),
+ .numerator(width_limited?({21'd0,height}*32'(OUT_W)):({21'd0,width}*32'(OUT_H))),
  .denominator(width_limited?{21'd0,width}:{21'd0,height}),.busy(),.done(divider_done),.quotient(scaled));
-wire [9:0] actual_y=top_down?dest_row:10'd479-dest_row;
+wire [9:0] actual_y=top_down?dest_row:10'(OUT_H-1)-dest_row;
 wire inside_x=!blank_row&&out_x>=left_pad&&out_x<left_pad+draw_w;
 wire [15:0] incoming={byte_data[7:3],green[7:2],blue[7:3]};
 assign byte_ready=(state==HEADER||state==PARSE)&&!start;
@@ -64,11 +64,11 @@ always @(posedge clk) begin
     padding<=2'(stride-h32(18)*(h16(28)==32?4:3));width_limited<=fits_width;state<=DIV_START;
    end
   DIV_START:state<=DIV_WAIT;
-  DIV_WAIT:if(divider_done) begin draw_w<=width_limited?10'd640:(scaled==0?10'd1:10'(scaled));draw_h<=width_limited?(scaled==0?10'd1:10'(scaled)):10'd480;state<=INIT;end
+  DIV_WAIT:if(divider_done) begin draw_w<=width_limited?10'(OUT_W):(scaled==0?10'd1:10'(scaled));draw_h<=width_limited?(scaled==0?10'd1:10'(scaled)):10'(OUT_H);state<=INIT;end
   INIT:begin
-   left_pad<=(640-draw_w)>>1;
-   first_pad<=top_down?((480-draw_h)>>1):(480-draw_h-((480-draw_h)>>1));
-   if((top_down?((480-draw_h)>>1):(480-draw_h-((480-draw_h)>>1)))!=0) begin blank_row<=1;state<=ROW_START;end else state<=PARSE;
+   left_pad<=(OUT_W-draw_w)>>1;
+   first_pad<=top_down?((OUT_H-draw_h)>>1):(OUT_H-draw_h-((OUT_H-draw_h)>>1));
+   if((top_down?((OUT_H-draw_h)>>1):(OUT_H-draw_h-((OUT_H-draw_h)>>1)))!=0) begin blank_row<=1;state<=ROW_START;end else state<=PARSE;
   end
   PARSE:if(byte_valid) begin
    position<=position+1'b1;
@@ -93,7 +93,7 @@ always @(posedge clk) begin
    end
   end
   LINE_END:if(drawn_rows<draw_h&&source_y==wanted_y) begin blank_row<=0;state<=ROW_START;end else state<=NEXT_SOURCE;
-  ROW_START:begin out_x<=0;sample_x<=0;x_error<=0;burst_pixel<=0;load_addr<=18'(({22'd0,actual_y}<<8)+({22'd0,actual_y}<<6));state<=FETCH;end
+  ROW_START:begin out_x<=0;sample_x<=0;x_error<=0;burst_pixel<=0;load_addr<=ADDR_BITS'(OUT_W==960?(({22'd0,actual_y}<<9)-({22'd0,actual_y}<<5)):(OUT_W==640?(({22'd0,actual_y}<<8)+({22'd0,actual_y}<<6)):actual_y*(OUT_W/2)));state<=FETCH;end
   FETCH:state<=PACK;
   PACK:begin
    pixels_loaded<=pixels_loaded+1'b1;
@@ -101,10 +101,10 @@ always @(posedge clk) begin
    out_x<=out_x+1'b1;burst_pixel<=burst_pixel+1'b1;
    if(inside_x) x_error<=x_error+width;
    if(burst_pixel==15) begin
-    after_ack<=out_x==639?ROW_END:(inside_x?X_STEP:FETCH);
+    after_ack<=out_x==OUT_W-1?ROW_END:(inside_x?X_STEP:FETCH);
     // Hold the final burst until the complete source stream has been checked.
-    if(dest_row==479&&out_x==639&&!input_finished) begin dest_row<=480;state<=NEXT_SOURCE;end
-    else begin load_last<=dest_row==479&&out_x==639;state<=EMIT;end
+    if(dest_row==OUT_H-1&&out_x==OUT_W-1&&!input_finished) begin dest_row<=OUT_H;state<=NEXT_SOURCE;end
+    else begin load_last<=dest_row==OUT_H-1&&out_x==OUT_W-1;state<=EMIT;end
    end else state<=inside_x?X_STEP:FETCH;
   end
   X_STEP:if(x_error>=draw_w) begin x_error<=x_error-draw_w;sample_x<=sample_x+1'b1;end else state<=FETCH;
@@ -129,7 +129,7 @@ always @(posedge clk) begin
   NEXT_SOURCE:if(source_y+1<height) begin source_y<=source_y+1'b1;state<=PARSE;end
    else begin
     input_finished<=1;
-    if(dest_row==480) begin load_last<=1;state<=EMIT;end
+    if(dest_row==OUT_H) begin load_last<=1;state<=EMIT;end
     else begin blank_row<=1;state<=ROW_START;end
    end
   default:begin error<=255;state<=FAIL;end

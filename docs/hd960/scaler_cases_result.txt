@@ -1,0 +1,15 @@
+
+PASS aspect-fit BMP 960x720/24 top=0 padding, offset, black bars, exact output pixels, backpressure
+- sim/media\tb_scaler.sv:48: Verilog $finish
+PASS aspect-fit BMP 1x1/24 top=0 padding, offset, black bars, exact output pixels, backpressure
+- sim/media\tb_scaler.sv:48: Verilog $finish
+PASS aspect-fit BMP 479x640/24 top=1 padding, offset, black bars, exact output pixels, backpressure
+- sim/media\tb_scaler.sv:48: Verilog $finish
+PASS aspect-fit BMP 1920x1080/24 top=0 padding, offset, black bars, exact output pixels, backpressure
+- sim/media\tb_scaler.sv:48: Verilog $finish
+PASS aspect-fit BMP 637x479/32 top=1 padding, offset, black bars, exact output pixels, backpressure
+- sim/media\tb_scaler.sv:48: Verilog $finish
+PASS aspect-fit BMP 640x479/24 top=1 padding, offset, black bars, exact output pixels, backpressure
+- sim/media\tb_scaler.sv:48: Verilog $finish
+PASS aspect-fit BMP 321x241/24 top=0 padding, offset, black bars, exact output pixels, backpressure
+- sim/media\tb_scaler.sv:48: Verilog $finish

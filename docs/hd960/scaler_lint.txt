@@ -1,0 +1,137 @@
+%Warning-TIMESCALEMOD: rtl/media\dmz_udiv32.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module dmz_udiv32(input clk,reset,start,input [31:0] numerator,denominator,
+      |        ^~~~~~~~~~
+                       sim/media\tb_scaler.sv:2:8: ... Location of module with timescale
+    2 | module tb_scaler #(parameter integer OUT_W=640, OUT_H=480);
+      |        ^~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: rtl/media\dmz_bmp_decoder.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module dmz_bmp_decoder #(parameter integer OUT_W=640, OUT_H=480, ADDR_BITS=$clog2(OUT_W*OUT_H/2))(input clk,reset,start,input [31:0] file_bytes,input [7:0] stream_error,
+      |        ^~~~~~~~~~~~~~~
+                       sim/media\tb_scaler.sv:2:8: ... Location of module with timescale
+    2 | module tb_scaler #(parameter integer OUT_W=640, OUT_H=480);
+      |        ^~~~~~~~~
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:69:20: Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'draw_w' generates 10 bits.
+                                                        : ... note: In instance 'tb_scaler.dut'
+   69 |    left_pad<=(OUT_W-draw_w)>>1;
+      |                    ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: rtl/media\dmz_bmp_decoder.sv:69:12: Operator ASSIGNDLY expects 10 bits on the Assign RHS, but Assign RHS's SHIFTR generates 32 bits.
+                                                       : ... note: In instance 'tb_scaler.dut'
+   69 |    left_pad<=(OUT_W-draw_w)>>1;
+      |            ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:70:31: Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                        : ... note: In instance 'tb_scaler.dut'
+   70 |    first_pad<=top_down?((OUT_H-draw_h)>>1):(OUT_H-draw_h-((OUT_H-draw_h)>>1));
+      |                               ^
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:70:50: Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                        : ... note: In instance 'tb_scaler.dut'
+   70 |    first_pad<=top_down?((OUT_H-draw_h)>>1):(OUT_H-draw_h-((OUT_H-draw_h)>>1));
+      |                                                  ^
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:70:65: Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                        : ... note: In instance 'tb_scaler.dut'
+   70 |    first_pad<=top_down?((OUT_H-draw_h)>>1):(OUT_H-draw_h-((OUT_H-draw_h)>>1));
+      |                                                                 ^
+%Warning-WIDTHTRUNC: rtl/media\dmz_bmp_decoder.sv:70:13: Operator ASSIGNDLY expects 10 bits on the Assign RHS, but Assign RHS's COND generates 32 bits.
+                                                       : ... note: In instance 'tb_scaler.dut'
+   70 |    first_pad<=top_down?((OUT_H-draw_h)>>1):(OUT_H-draw_h-((OUT_H-draw_h)>>1));
+      |             ^~
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:71:24: Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                        : ... note: In instance 'tb_scaler.dut'
+   71 |    if((top_down?((OUT_H-draw_h)>>1):(OUT_H-draw_h-((OUT_H-draw_h)>>1)))!=0) begin blank_row<=1;state<=ROW_START;end else state<=PARSE;
+      |                        ^
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:71:43: Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                        : ... note: In instance 'tb_scaler.dut'
+   71 |    if((top_down?((OUT_H-draw_h)>>1):(OUT_H-draw_h-((OUT_H-draw_h)>>1)))!=0) begin blank_row<=1;state<=ROW_START;end else state<=PARSE;
+      |                                           ^
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:71:58: Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                        : ... note: In instance 'tb_scaler.dut'
+   71 |    if((top_down?((OUT_H-draw_h)>>1):(OUT_H-draw_h-((OUT_H-draw_h)>>1)))!=0) begin blank_row<=1;state<=ROW_START;end else state<=PARSE;
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:104:21: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'out_x' generates 10 bits.
+                                                         : ... note: In instance 'tb_scaler.dut'
+  104 |     after_ack<=out_x==OUT_W-1?ROW_END:(inside_x?X_STEP:FETCH);
+      |                     ^~
+%Warning-WIDTHTRUNC: rtl/media\dmz_bmp_decoder.sv:106:74: Operator ASSIGNDLY expects 10 bits on the Assign RHS, but Assign RHS's VARREF 'OUT_H' generates 32 bits.
+                                                        : ... note: In instance 'tb_scaler.dut'
+  106 |     if(dest_row==OUT_H-1&&out_x==OUT_W-1&&!input_finished) begin dest_row<=OUT_H;state<=NEXT_SOURCE;end
+      |                                                                          ^~
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:107:35: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'dest_row' generates 10 bits.
+                                                         : ... note: In instance 'tb_scaler.dut'
+  107 |     else begin load_last<=dest_row==OUT_H-1&&out_x==OUT_W-1;state<=EMIT;end
+      |                                   ^~
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:107:51: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'out_x' generates 10 bits.
+                                                         : ... note: In instance 'tb_scaler.dut'
+  107 |     else begin load_last<=dest_row==OUT_H-1&&out_x==OUT_W-1;state<=EMIT;end
+      |                                                   ^~
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:106:16: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'dest_row' generates 10 bits.
+                                                         : ... note: In instance 'tb_scaler.dut'
+  106 |     if(dest_row==OUT_H-1&&out_x==OUT_W-1&&!input_finished) begin dest_row<=OUT_H;state<=NEXT_SOURCE;end
+      |                ^~
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:106:32: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'out_x' generates 10 bits.
+                                                         : ... note: In instance 'tb_scaler.dut'
+  106 |     if(dest_row==OUT_H-1&&out_x==OUT_W-1&&!input_finished) begin dest_row<=OUT_H;state<=NEXT_SOURCE;end
+      |                                ^~
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:110:52: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'draw_w' generates 10 bits.
+                                                         : ... note: In instance 'tb_scaler.dut'
+  110 |   X_STEP:if(x_error>=draw_w) begin x_error<=x_error-draw_w;sample_x<=sample_x+1'b1;end else state<=FETCH;
+      |                                                    ^
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:110:20: Operator GTE expects 12 bits on the RHS, but RHS's VARREF 'draw_w' generates 10 bits.
+                                                         : ... note: In instance 'tb_scaler.dut'
+  110 |   X_STEP:if(x_error>=draw_w) begin x_error<=x_error-draw_w;sample_x<=sample_x+1'b1;end else state<=FETCH;
+      |                    ^~
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:127:52: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                         : ... note: In instance 'tb_scaler.dut'
+  127 |   Y_STEP:if(y_error>=draw_h) begin y_error<=y_error-draw_h;wanted_y<=wanted_y+1'b1;end
+      |                                                    ^
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:127:20: Operator GTE expects 12 bits on the RHS, but RHS's VARREF 'draw_h' generates 10 bits.
+                                                         : ... note: In instance 'tb_scaler.dut'
+  127 |   Y_STEP:if(y_error>=draw_h) begin y_error<=y_error-draw_h;wanted_y<=wanted_y+1'b1;end
+      |                    ^~
+%Warning-WIDTHEXPAND: rtl/media\dmz_bmp_decoder.sv:132:16: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'dest_row' generates 10 bits.
+                                                         : ... note: In instance 'tb_scaler.dut'
+  132 |     if(dest_row==OUT_H) begin load_last<=1;state<=EMIT;end
+      |                ^~
+%Warning-WIDTHTRUNC: sim/media\tb_scaler.sv:14:7: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'top' generates 32 bits.
+                                                : ... note: In instance 'tb_scaler'
+   14 |  n=top?-h:h;if(p>=22&&p<26) content=8'(n>>((p-22)*8));
+      |       ^
+%Warning-WIDTHTRUNC: sim/media\tb_scaler.sv:16:56: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'top' generates 32 bits.
+                                                 : ... note: In instance 'tb_scaler'
+   16 |   if(col<w) case(ch) 0:content=8'(col);1:content=8'(top?row:h-1-row);2:content=8'(col^(top?row:h-1-row));3:content=8'hab;endcase
+      |                                                        ^
+%Warning-WIDTHTRUNC: sim/media\tb_scaler.sv:16:91: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'top' generates 32 bits.
+                                                 : ... note: In instance 'tb_scaler'
+   16 |   if(col<w) case(ch) 0:content=8'(col);1:content=8'(top?row:h-1-row);2:content=8'(col^(top?row:h-1-row));3:content=8'hab;endcase
+      |                                                                                           ^
+%Warning-WIDTHTRUNC: sim/media\tb_scaler.sv:21:59: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'top' generates 32 bits.
+                                                 : ... note: In instance 'tb_scaler'
+   21 |  x=(wordaddr%(OUT_W/2))*2+odd;y=wordaddr/(OUT_W/2);ord=top?y:OUT_H-1-y;expected=0;
+      |                                                           ^
+%Warning-WIDTHTRUNC: sim/media\tb_scaler.sv:23:39: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'top' generates 32 bits.
+                                                 : ... note: In instance 'tb_scaler'
+   23 |   fx=(x-lx)*w/dw;fy=(ord-py0)*h/dh;if(!top) fy=h-1-fy;
+      |                                       ^
+%Warning-WIDTHEXPAND: sim/media\tb_scaler.sv:32:139: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'addr' generates 19 bits.
+                                                   : ... note: In instance 'tb_scaler'
+   32 |   for(integer j=0;j<8;j=j+1) if(data[j*32+:32]!=={expected(addr+j,1),expected(addr+j,0)}) $fatal(1,"Scaled pixel mismatch %0d got %h",addr+j,data[j*32+:32]);
+      |                                                                                                                                           ^
+%Warning-WIDTHEXPAND: sim/media\tb_scaler.sv:32:64: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'addr' generates 19 bits.
+                                                  : ... note: In instance 'tb_scaler'
+   32 |   for(integer j=0;j<8;j=j+1) if(data[j*32+:32]!=={expected(addr+j,1),expected(addr+j,0)}) $fatal(1,"Scaled pixel mismatch %0d got %h",addr+j,data[j*32+:32]);
+      |                                                                ^
+%Warning-WIDTHEXPAND: sim/media\tb_scaler.sv:32:83: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'addr' generates 19 bits.
+                                                  : ... note: In instance 'tb_scaler'
+   32 |   for(integer j=0;j<8;j=j+1) if(data[j*32+:32]!=={expected(addr+j,1),expected(addr+j,0)}) $fatal(1,"Scaled pixel mismatch %0d got %h",addr+j,data[j*32+:32]);
+      |                                                                                   ^
+%Warning-WIDTHTRUNC: sim/media\tb_scaler.sv:44:25: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'top' generates 32 bits.
+                                                 : ... note: In instance 'tb_scaler'
+   44 |  lx=(OUT_W-dw)/2;py0=top?(OUT_H-dh)/2:OUT_H-dh-(OUT_H-dh)/2;
+      |                         ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.066 MB sources in 4 modules, into 0.229 MB in 8 C++ files needing 0.000 MB
+- Verilator: Walltime 0.037 s (elab=0.000, cvt=0.024, bld=0.000); cpu 0.000 s on 1 threads; alloced 15.309 MB

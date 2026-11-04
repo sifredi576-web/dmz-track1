@@ -1,0 +1,2 @@
+PASS Chinese base+label alpha composition: full frames bottom-up/top-down, five controls, source and destination stalls, SDRAM ACK backpressure
+- sim/platform\tb_page_compositor.sv:43: Verilog $finish

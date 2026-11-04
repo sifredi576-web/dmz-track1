@@ -1,0 +1,42 @@
+[
+  {
+    "file": "使用说明.md",
+    "bytes": 3027,
+    "sha256": "509c2866e8ba5a611f5dab83aafa59fdfd7c48d089a164af82c9e14d63291297"
+  },
+  {
+    "file": "board_controls.json",
+    "bytes": 482271,
+    "sha256": "409325f082099dd79e3737f6bba2803f353c746c3b1f7e0c8612b02f1f4a15a0"
+  },
+  {
+    "file": "dmz_track1_pr.timing",
+    "bytes": 843556,
+    "sha256": "6518b0840305e7dcc88fb56550dd92680be814a95cb45036e415ce84817eb09e"
+  },
+  {
+    "file": "dmz_track1.bit",
+    "bytes": 638947,
+    "sha256": "de75d55d9ccdace2ffb086900457529a2fdcba8f613eb7185be22812b57d2fb0"
+  },
+  {
+    "file": "main_board_status.json",
+    "bytes": 13723,
+    "sha256": "a1fddf28473d8318f50373347ea34673a7a0d27ba6b8a365c191657969a636b7"
+  },
+  {
+    "file": "migration.json",
+    "bytes": 56071,
+    "sha256": "10dd93fffacfcd6022d5b54d9d01658aec71fed8496a5448e71a99dac8a5a7b6"
+  },
+  {
+    "file": "system_download_log.txt",
+    "bytes": 1269,
+    "sha256": "fa281c28a37cac38c2d907e690ac7b6601d3700b014abe2ec4aef9287fd05b1f"
+  },
+  {
+    "file": "validation.json",
+    "bytes": 2057,
+    "sha256": "15a4a0316e2223d1151de646525ff500c95ee88e9a54d0864a82f9363dfe8a31"
+  }
+]

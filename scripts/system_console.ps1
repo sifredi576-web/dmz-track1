@@ -87,7 +87,7 @@ function Assert-Healthy($r,[bool]$Ready=$true){
   return
  }
  if(!$r.pll_locked -or $r.bist_errors -or $r.underflow_pixels -or $r.fifo_fault -or $r.fb_fault -or $r.sd_error -or ($r.image_error -and !($r.version -ge 3 -and $r.display_valid))){throw ('Hardware fault: '+($r | ConvertTo-Json -Compress))}
- if($Ready -and (!$r.init -or !$r.bist_done -or !$r.bist_passed -or !$r.display_valid -or $r.checked_words -ne 8388608 -or $r.pixels -ne 307200)){throw 'Media pipeline not ready'}
+ if($Ready -and (!$r.init -or !$r.bist_done -or !$r.bist_passed -or !$r.display_valid -or $r.checked_words -ne 8388608 -or $r.pixels -ne 691200)){throw 'Media pipeline not ready'}
  if($r.version -eq 4 -and $r.wav_source -and !$r.tone_muted -and !$r.audio_paused -and ($r.wav_error -or $r.audio_underflows)){throw ('WAV playback fault: '+($r | ConvertTo-Json -Compress))}
  if($r.sample_rate -ne 48000 -or $r.acr_n -ne 6144 -or ($r.samples -gt 48000 -and $r.cts -ne 25000)){throw 'Audio clock parameters do not match baseline'}
 }

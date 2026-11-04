@@ -119,7 +119,7 @@ VL_ATTR_COLD void Vtb_scaler___024root___stl_sequent__TOP__0(Vtb_scaler___024roo
     vlSelfRef.tb_scaler__DOT__dut__DOT__actual_y = 
         (0x3ffU & ((IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__top_down)
                     ? (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row)
-                    : ((IData)(0x1dfU) - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row))));
+                    : ((IData)(0x2cfU) - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row))));
     vlSelfRef.tb_scaler__DOT__valid = (VL_LTS_III(32, vlSelfRef.tb_scaler__DOT__pos, vlSelfRef.tb_scaler__DOT__bytes) 
                                        & (0U != VL_MODDIVS_III(32, vlSelfRef.tb_scaler__DOT__cycle, (IData)(0xdU))));
     vlSelfRef.tb_scaler__DOT__dut__DOT__abs_height 
@@ -370,7 +370,7 @@ VL_ATTR_COLD void Vtb_scaler___024root___ctor_var_reset(Vtb_scaler___024root* vl
     vlSelf->tb_scaler__DOT__last = VL_RAND_RESET_I(1);
     vlSelf->tb_scaler__DOT__done = VL_RAND_RESET_I(1);
     vlSelf->tb_scaler__DOT__error = VL_RAND_RESET_I(8);
-    vlSelf->tb_scaler__DOT__addr = VL_RAND_RESET_I(18);
+    vlSelf->tb_scaler__DOT__addr = VL_RAND_RESET_I(19);
     VL_RAND_RESET_W(256, vlSelf->tb_scaler__DOT__data);
     vlSelf->tb_scaler__DOT__pixels = VL_RAND_RESET_I(32);
     vlSelf->tb_scaler__DOT__lr = VL_RAND_RESET_I(1);

@@ -35,33 +35,33 @@ VL_INLINE_OPT VlCoroutine Vtb_scaler___024root___eval_initial__TOP__Vtiming__0(V
                                                                         std::string{"short"})
                                                        ? 7U
                                                        : 0U)));
-    if (VL_GTES_III(32, VL_MULS_III(32, (IData)(0x1e0U), vlSelfRef.tb_scaler__DOT__w), 
-                    VL_MULS_III(32, (IData)(0x280U), vlSelfRef.tb_scaler__DOT__h))) {
-        vlSelfRef.tb_scaler__DOT__dw = 0x280U;
+    if (VL_GTES_III(32, VL_MULS_III(32, (IData)(0x2d0U), vlSelfRef.tb_scaler__DOT__w), 
+                    VL_MULS_III(32, (IData)(0x3c0U), vlSelfRef.tb_scaler__DOT__h))) {
+        vlSelfRef.tb_scaler__DOT__dw = 0x3c0U;
         vlSelfRef.tb_scaler__DOT__dh = VL_DIVS_III(32, 
-                                                   VL_MULS_III(32, (IData)(0x280U), vlSelfRef.tb_scaler__DOT__h), vlSelfRef.tb_scaler__DOT__w);
+                                                   VL_MULS_III(32, (IData)(0x3c0U), vlSelfRef.tb_scaler__DOT__h), vlSelfRef.tb_scaler__DOT__w);
         if ((0U == vlSelfRef.tb_scaler__DOT__dh)) {
             vlSelfRef.tb_scaler__DOT__dh = 1U;
         }
     } else {
-        vlSelfRef.tb_scaler__DOT__dh = 0x1e0U;
+        vlSelfRef.tb_scaler__DOT__dh = 0x2d0U;
         vlSelfRef.tb_scaler__DOT__dw = VL_DIVS_III(32, 
-                                                   VL_MULS_III(32, (IData)(0x1e0U), vlSelfRef.tb_scaler__DOT__w), vlSelfRef.tb_scaler__DOT__h);
+                                                   VL_MULS_III(32, (IData)(0x2d0U), vlSelfRef.tb_scaler__DOT__w), vlSelfRef.tb_scaler__DOT__h);
         if ((0U == vlSelfRef.tb_scaler__DOT__dw)) {
             vlSelfRef.tb_scaler__DOT__dw = 1U;
         }
     }
     vlSelfRef.tb_scaler__DOT__lx = VL_DIVS_III(32, 
-                                               ((IData)(0x280U) 
+                                               ((IData)(0x3c0U) 
                                                 - vlSelfRef.tb_scaler__DOT__dw), (IData)(2U));
     vlSelfRef.tb_scaler__DOT__py0 = ((0U != vlSelfRef.tb_scaler__DOT__top)
                                       ? VL_DIVS_III(32, 
-                                                    ((IData)(0x1e0U) 
+                                                    ((IData)(0x2d0U) 
                                                      - vlSelfRef.tb_scaler__DOT__dh), (IData)(2U))
-                                      : (((IData)(0x1e0U) 
+                                      : (((IData)(0x2d0U) 
                                           - vlSelfRef.tb_scaler__DOT__dh) 
                                          - VL_DIVS_III(32, 
-                                                       ((IData)(0x1e0U) 
+                                                       ((IData)(0x2d0U) 
                                                         - vlSelfRef.tb_scaler__DOT__dh), (IData)(2U))));
     co_await vlSelfRef.__VtrigSched_h91202e27__0.trigger(0U, 
                                                          nullptr, 
@@ -114,8 +114,8 @@ VL_INLINE_OPT VlCoroutine Vtb_scaler___024root___eval_initial__TOP__Vtiming__0(V
                                                                  "sim/media\tb_scaler.sv", 
                                                                  47);
         }
-        if (VL_UNLIKELY(((((0x4b000U != vlSelfRef.tb_scaler__DOT__pixels) 
-                           | (0x4b00U != vlSelfRef.tb_scaler__DOT__bursts)) 
+        if (VL_UNLIKELY(((((0xa8c00U != vlSelfRef.tb_scaler__DOT__pixels) 
+                           | (0xa8c0U != vlSelfRef.tb_scaler__DOT__bursts)) 
                           | (vlSelfRef.tb_scaler__DOT__pos 
                              != vlSelfRef.tb_scaler__DOT__bytes))))) {
             VL_WRITEF_NX("[%0t] %%Fatal: tb_scaler.sv:47: Assertion failed in %Ntb_scaler: Output/source incomplete pixels=%0# bursts=%0d pos=%0d/%0d\n",0,
@@ -127,7 +127,7 @@ VL_INLINE_OPT VlCoroutine Vtb_scaler___024root___eval_initial__TOP__Vtiming__0(V
             VL_STOP_MT("sim/media\\tb_scaler.sv", 47, "", false);
         }
     }
-    VL_WRITEF_NX("PASS aspect-fit BMP %0dx%0d/%0d top=%0d padding, offset, black bars, 307200 exact pixels, backpressure\n",0,
+    VL_WRITEF_NX("PASS aspect-fit BMP %0dx%0d/%0d top=%0d padding, offset, black bars, exact output pixels, backpressure\n",0,
                  32,vlSelfRef.tb_scaler__DOT__w,32,
                  vlSelfRef.tb_scaler__DOT__h,32,vlSelfRef.tb_scaler__DOT__bpp,
                  32,vlSelfRef.tb_scaler__DOT__top);
@@ -344,7 +344,7 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
     __Vdly__tb_scaler__DOT__dut__DOT__burst_pixel = 0;
     SData/*15:0*/ __Vdly__tb_scaler__DOT__dut__DOT__low_pixel;
     __Vdly__tb_scaler__DOT__dut__DOT__low_pixel = 0;
-    IData/*17:0*/ __Vdly__tb_scaler__DOT__addr;
+    IData/*18:0*/ __Vdly__tb_scaler__DOT__addr;
     __Vdly__tb_scaler__DOT__addr = 0;
     CData/*0:0*/ __Vdly__tb_scaler__DOT__last;
     __Vdly__tb_scaler__DOT__last = 0;
@@ -439,14 +439,14 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                         __Vfunc_tb_scaler__DOT__expected__1__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
-                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U))));
+                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U))));
                                         __Vfunc_tb_scaler__DOT__expected__1__y 
-                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U));
+                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U));
                                         __Vfunc_tb_scaler__DOT__expected__1__ord 
                                             = ((0U 
                                                 != vlSelfRef.tb_scaler__DOT__top)
                                                 ? __Vfunc_tb_scaler__DOT__expected__1__y
-                                                : ((IData)(0x1dfU) 
+                                                : ((IData)(0x2cfU) 
                                                    - __Vfunc_tb_scaler__DOT__expected__1__y));
                                         __Vfunc_tb_scaler__DOT__expected__1__Vfuncout = 0U;
                                         if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__1__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -510,13 +510,13 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                     __Vfunc_tb_scaler__DOT__expected__2__b = 0;
                                     __Vfunc_tb_scaler__DOT__expected__2__x 
                                         = VL_MULS_III(32, (IData)(2U), 
-                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U)));
+                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U)));
                                     __Vfunc_tb_scaler__DOT__expected__2__y 
-                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U));
+                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U));
                                     __Vfunc_tb_scaler__DOT__expected__2__ord 
                                         = ((0U != vlSelfRef.tb_scaler__DOT__top)
                                             ? __Vfunc_tb_scaler__DOT__expected__2__y
-                                            : ((IData)(0x1dfU) 
+                                            : ((IData)(0x2cfU) 
                                                - __Vfunc_tb_scaler__DOT__expected__2__y));
                                     __Vfunc_tb_scaler__DOT__expected__2__Vfuncout = 0U;
                                     if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__2__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -589,14 +589,14 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                         __Vfunc_tb_scaler__DOT__expected__1__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
-                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U))));
+                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U))));
                                         __Vfunc_tb_scaler__DOT__expected__1__y 
-                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U));
+                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U));
                                         __Vfunc_tb_scaler__DOT__expected__1__ord 
                                             = ((0U 
                                                 != vlSelfRef.tb_scaler__DOT__top)
                                                 ? __Vfunc_tb_scaler__DOT__expected__1__y
-                                                : ((IData)(0x1dfU) 
+                                                : ((IData)(0x2cfU) 
                                                    - __Vfunc_tb_scaler__DOT__expected__1__y));
                                         __Vfunc_tb_scaler__DOT__expected__1__Vfuncout = 0U;
                                         if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__1__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -661,13 +661,13 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                     __Vfunc_tb_scaler__DOT__expected__2__b = 0;
                                     __Vfunc_tb_scaler__DOT__expected__2__x 
                                         = VL_MULS_III(32, (IData)(2U), 
-                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U)));
+                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U)));
                                     __Vfunc_tb_scaler__DOT__expected__2__y 
-                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U));
+                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U));
                                     __Vfunc_tb_scaler__DOT__expected__2__ord 
                                         = ((0U != vlSelfRef.tb_scaler__DOT__top)
                                             ? __Vfunc_tb_scaler__DOT__expected__2__y
-                                            : ((IData)(0x1dfU) 
+                                            : ((IData)(0x2cfU) 
                                                - __Vfunc_tb_scaler__DOT__expected__2__y));
                                     __Vfunc_tb_scaler__DOT__expected__2__Vfuncout = 0U;
                                     if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__2__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -741,14 +741,14 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                         __Vfunc_tb_scaler__DOT__expected__1__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
-                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U))));
+                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U))));
                                         __Vfunc_tb_scaler__DOT__expected__1__y 
-                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U));
+                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U));
                                         __Vfunc_tb_scaler__DOT__expected__1__ord 
                                             = ((0U 
                                                 != vlSelfRef.tb_scaler__DOT__top)
                                                 ? __Vfunc_tb_scaler__DOT__expected__1__y
-                                                : ((IData)(0x1dfU) 
+                                                : ((IData)(0x2cfU) 
                                                    - __Vfunc_tb_scaler__DOT__expected__1__y));
                                         __Vfunc_tb_scaler__DOT__expected__1__Vfuncout = 0U;
                                         if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__1__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -813,13 +813,13 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                     __Vfunc_tb_scaler__DOT__expected__2__b = 0;
                                     __Vfunc_tb_scaler__DOT__expected__2__x 
                                         = VL_MULS_III(32, (IData)(2U), 
-                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U)));
+                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U)));
                                     __Vfunc_tb_scaler__DOT__expected__2__y 
-                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U));
+                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U));
                                     __Vfunc_tb_scaler__DOT__expected__2__ord 
                                         = ((0U != vlSelfRef.tb_scaler__DOT__top)
                                             ? __Vfunc_tb_scaler__DOT__expected__2__y
-                                            : ((IData)(0x1dfU) 
+                                            : ((IData)(0x2cfU) 
                                                - __Vfunc_tb_scaler__DOT__expected__2__y));
                                     __Vfunc_tb_scaler__DOT__expected__2__Vfuncout = 0U;
                                     if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__2__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -891,14 +891,14 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                         __Vfunc_tb_scaler__DOT__expected__1__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
-                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U))));
+                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U))));
                                         __Vfunc_tb_scaler__DOT__expected__1__y 
-                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U));
+                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U));
                                         __Vfunc_tb_scaler__DOT__expected__1__ord 
                                             = ((0U 
                                                 != vlSelfRef.tb_scaler__DOT__top)
                                                 ? __Vfunc_tb_scaler__DOT__expected__1__y
-                                                : ((IData)(0x1dfU) 
+                                                : ((IData)(0x2cfU) 
                                                    - __Vfunc_tb_scaler__DOT__expected__1__y));
                                         __Vfunc_tb_scaler__DOT__expected__1__Vfuncout = 0U;
                                         if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__1__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -963,13 +963,13 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                     __Vfunc_tb_scaler__DOT__expected__2__b = 0;
                                     __Vfunc_tb_scaler__DOT__expected__2__x 
                                         = VL_MULS_III(32, (IData)(2U), 
-                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U)));
+                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U)));
                                     __Vfunc_tb_scaler__DOT__expected__2__y 
-                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U));
+                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U));
                                     __Vfunc_tb_scaler__DOT__expected__2__ord 
                                         = ((0U != vlSelfRef.tb_scaler__DOT__top)
                                             ? __Vfunc_tb_scaler__DOT__expected__2__y
-                                            : ((IData)(0x1dfU) 
+                                            : ((IData)(0x2cfU) 
                                                - __Vfunc_tb_scaler__DOT__expected__2__y));
                                     __Vfunc_tb_scaler__DOT__expected__2__Vfuncout = 0U;
                                     if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__2__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -1041,14 +1041,14 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                         __Vfunc_tb_scaler__DOT__expected__1__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
-                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U))));
+                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U))));
                                         __Vfunc_tb_scaler__DOT__expected__1__y 
-                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U));
+                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U));
                                         __Vfunc_tb_scaler__DOT__expected__1__ord 
                                             = ((0U 
                                                 != vlSelfRef.tb_scaler__DOT__top)
                                                 ? __Vfunc_tb_scaler__DOT__expected__1__y
-                                                : ((IData)(0x1dfU) 
+                                                : ((IData)(0x2cfU) 
                                                    - __Vfunc_tb_scaler__DOT__expected__1__y));
                                         __Vfunc_tb_scaler__DOT__expected__1__Vfuncout = 0U;
                                         if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__1__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -1113,13 +1113,13 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                     __Vfunc_tb_scaler__DOT__expected__2__b = 0;
                                     __Vfunc_tb_scaler__DOT__expected__2__x 
                                         = VL_MULS_III(32, (IData)(2U), 
-                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U)));
+                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U)));
                                     __Vfunc_tb_scaler__DOT__expected__2__y 
-                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U));
+                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U));
                                     __Vfunc_tb_scaler__DOT__expected__2__ord 
                                         = ((0U != vlSelfRef.tb_scaler__DOT__top)
                                             ? __Vfunc_tb_scaler__DOT__expected__2__y
-                                            : ((IData)(0x1dfU) 
+                                            : ((IData)(0x2cfU) 
                                                - __Vfunc_tb_scaler__DOT__expected__2__y));
                                     __Vfunc_tb_scaler__DOT__expected__2__Vfuncout = 0U;
                                     if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__2__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -1191,14 +1191,14 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                         __Vfunc_tb_scaler__DOT__expected__1__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
-                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U))));
+                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U))));
                                         __Vfunc_tb_scaler__DOT__expected__1__y 
-                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U));
+                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U));
                                         __Vfunc_tb_scaler__DOT__expected__1__ord 
                                             = ((0U 
                                                 != vlSelfRef.tb_scaler__DOT__top)
                                                 ? __Vfunc_tb_scaler__DOT__expected__1__y
-                                                : ((IData)(0x1dfU) 
+                                                : ((IData)(0x2cfU) 
                                                    - __Vfunc_tb_scaler__DOT__expected__1__y));
                                         __Vfunc_tb_scaler__DOT__expected__1__Vfuncout = 0U;
                                         if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__1__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -1263,13 +1263,13 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                     __Vfunc_tb_scaler__DOT__expected__2__b = 0;
                                     __Vfunc_tb_scaler__DOT__expected__2__x 
                                         = VL_MULS_III(32, (IData)(2U), 
-                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U)));
+                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U)));
                                     __Vfunc_tb_scaler__DOT__expected__2__y 
-                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U));
+                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U));
                                     __Vfunc_tb_scaler__DOT__expected__2__ord 
                                         = ((0U != vlSelfRef.tb_scaler__DOT__top)
                                             ? __Vfunc_tb_scaler__DOT__expected__2__y
-                                            : ((IData)(0x1dfU) 
+                                            : ((IData)(0x2cfU) 
                                                - __Vfunc_tb_scaler__DOT__expected__2__y));
                                     __Vfunc_tb_scaler__DOT__expected__2__Vfuncout = 0U;
                                     if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__2__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -1341,14 +1341,14 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                         __Vfunc_tb_scaler__DOT__expected__1__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
-                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U))));
+                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U))));
                                         __Vfunc_tb_scaler__DOT__expected__1__y 
-                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U));
+                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U));
                                         __Vfunc_tb_scaler__DOT__expected__1__ord 
                                             = ((0U 
                                                 != vlSelfRef.tb_scaler__DOT__top)
                                                 ? __Vfunc_tb_scaler__DOT__expected__1__y
-                                                : ((IData)(0x1dfU) 
+                                                : ((IData)(0x2cfU) 
                                                    - __Vfunc_tb_scaler__DOT__expected__1__y));
                                         __Vfunc_tb_scaler__DOT__expected__1__Vfuncout = 0U;
                                         if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__1__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -1413,13 +1413,13 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                     __Vfunc_tb_scaler__DOT__expected__2__b = 0;
                                     __Vfunc_tb_scaler__DOT__expected__2__x 
                                         = VL_MULS_III(32, (IData)(2U), 
-                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U)));
+                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U)));
                                     __Vfunc_tb_scaler__DOT__expected__2__y 
-                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U));
+                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U));
                                     __Vfunc_tb_scaler__DOT__expected__2__ord 
                                         = ((0U != vlSelfRef.tb_scaler__DOT__top)
                                             ? __Vfunc_tb_scaler__DOT__expected__2__y
-                                            : ((IData)(0x1dfU) 
+                                            : ((IData)(0x2cfU) 
                                                - __Vfunc_tb_scaler__DOT__expected__2__y));
                                     __Vfunc_tb_scaler__DOT__expected__2__Vfuncout = 0U;
                                     if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__2__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -1491,14 +1491,14 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                         __Vfunc_tb_scaler__DOT__expected__1__x 
                                             = ((IData)(1U) 
                                                + VL_MULS_III(32, (IData)(2U), 
-                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U))));
+                                                             VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U))));
                                         __Vfunc_tb_scaler__DOT__expected__1__y 
-                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x140U));
+                                            = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__1__wordaddr, (IData)(0x1e0U));
                                         __Vfunc_tb_scaler__DOT__expected__1__ord 
                                             = ((0U 
                                                 != vlSelfRef.tb_scaler__DOT__top)
                                                 ? __Vfunc_tb_scaler__DOT__expected__1__y
-                                                : ((IData)(0x1dfU) 
+                                                : ((IData)(0x2cfU) 
                                                    - __Vfunc_tb_scaler__DOT__expected__1__y));
                                         __Vfunc_tb_scaler__DOT__expected__1__Vfuncout = 0U;
                                         if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__1__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -1563,13 +1563,13 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                                     __Vfunc_tb_scaler__DOT__expected__2__b = 0;
                                     __Vfunc_tb_scaler__DOT__expected__2__x 
                                         = VL_MULS_III(32, (IData)(2U), 
-                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U)));
+                                                      VL_MODDIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U)));
                                     __Vfunc_tb_scaler__DOT__expected__2__y 
-                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x140U));
+                                        = VL_DIVS_III(32, __Vfunc_tb_scaler__DOT__expected__2__wordaddr, (IData)(0x1e0U));
                                     __Vfunc_tb_scaler__DOT__expected__2__ord 
                                         = ((0U != vlSelfRef.tb_scaler__DOT__top)
                                             ? __Vfunc_tb_scaler__DOT__expected__2__y
-                                            : ((IData)(0x1dfU) 
+                                            : ((IData)(0x2cfU) 
                                                - __Vfunc_tb_scaler__DOT__expected__2__y));
                                     __Vfunc_tb_scaler__DOT__expected__2__Vfuncout = 0U;
                                     if ((((VL_GTES_III(32, __Vfunc_tb_scaler__DOT__expected__2__x, vlSelfRef.tb_scaler__DOT__lx) 
@@ -1923,8 +1923,8 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                     __Vdly__tb_scaler__DOT__dut__DOT__height 
                         = (0x7ffU & vlSelfRef.tb_scaler__DOT__dut__DOT__abs_height);
                     __Vdly__tb_scaler__DOT__dut__DOT__width_limited 
-                        = (((IData)(0x1e0U) * (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__raw_width)) 
-                           >= ((IData)(0x280U) * (0x7ffU 
+                        = (((IData)(0x2d0U) * (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__raw_width)) 
+                           >= ((IData)(0x3c0U) * (0x7ffU 
                                                   & vlSelfRef.tb_scaler__DOT__dut__DOT__abs_height)));
                     __Vdly__tb_scaler__DOT__dut__DOT__state = 3U;
                     __Vdly__tb_scaler__DOT__dut__DOT__width 
@@ -1985,7 +1985,7 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
             } else if ((4U == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__state))) {
                 if (vlSelfRef.tb_scaler__DOT__dut__DOT__divider_done) {
                     if (vlSelfRef.tb_scaler__DOT__dut__DOT__width_limited) {
-                        __Vdly__tb_scaler__DOT__dut__DOT__draw_w = 0x280U;
+                        __Vdly__tb_scaler__DOT__dut__DOT__draw_w = 0x3c0U;
                         __Vdly__tb_scaler__DOT__dut__DOT__draw_h 
                             = ((0U == vlSelfRef.tb_scaler__DOT__dut__DOT__scaled)
                                 ? 1U : (0x3ffU & vlSelfRef.tb_scaler__DOT__dut__DOT__scaled));
@@ -1993,31 +1993,31 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                         __Vdly__tb_scaler__DOT__dut__DOT__draw_w 
                             = ((0U == vlSelfRef.tb_scaler__DOT__dut__DOT__scaled)
                                 ? 1U : (0x3ffU & vlSelfRef.tb_scaler__DOT__dut__DOT__scaled));
-                        __Vdly__tb_scaler__DOT__dut__DOT__draw_h = 0x1e0U;
+                        __Vdly__tb_scaler__DOT__dut__DOT__draw_h = 0x2d0U;
                     }
                     __Vdly__tb_scaler__DOT__dut__DOT__state = 5U;
                 }
             } else if ((5U == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__state))) {
                 vlSelfRef.tb_scaler__DOT__dut__DOT__left_pad 
-                    = (0x3ffU & (((IData)(0x280U) - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__draw_w)) 
+                    = (0x3ffU & (((IData)(0x3c0U) - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__draw_w)) 
                                  >> 1U));
                 __Vdly__tb_scaler__DOT__dut__DOT__first_pad 
                     = (0x3ffU & ((IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__top_down)
                                   ? VL_SHIFTR_III(32,32,32, 
-                                                  ((IData)(0x1e0U) 
+                                                  ((IData)(0x2d0U) 
                                                    - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__draw_h)), 1U)
-                                  : (((IData)(0x1e0U) 
+                                  : (((IData)(0x2d0U) 
                                       - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__draw_h)) 
                                      - VL_SHIFTR_III(32,32,32, 
-                                                     ((IData)(0x1e0U) 
+                                                     ((IData)(0x2d0U) 
                                                       - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__draw_h)), 1U))));
                 if ((0U != ((IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__top_down)
                              ? VL_SHIFTR_III(32,32,32, 
-                                             ((IData)(0x1e0U) 
+                                             ((IData)(0x2d0U) 
                                               - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__draw_h)), 1U)
-                             : (((IData)(0x1e0U) - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__draw_h)) 
+                             : (((IData)(0x2d0U) - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__draw_h)) 
                                 - VL_SHIFTR_III(32,32,32, 
-                                                ((IData)(0x1e0U) 
+                                                ((IData)(0x2d0U) 
                                                  - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__draw_h)), 1U))))) {
                     __Vdly__tb_scaler__DOT__dut__DOT__blank_row = 1U;
                     __Vdly__tb_scaler__DOT__dut__DOT__state = 8U;
@@ -2110,9 +2110,9 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
             __Vdly__tb_scaler__DOT__dut__DOT__sample_x = 0U;
             __Vdly__tb_scaler__DOT__dut__DOT__x_error = 0U;
             __Vdly__tb_scaler__DOT__dut__DOT__burst_pixel = 0U;
-            __Vdly__tb_scaler__DOT__addr = (0x3ffffU 
-                                            & (VL_SHIFTL_III(18,32,32, (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__actual_y), 8U) 
-                                               + VL_SHIFTL_III(18,32,32, (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__actual_y), 6U)));
+            __Vdly__tb_scaler__DOT__addr = (0x7ffffU 
+                                            & (VL_SHIFTL_III(19,32,32, (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__actual_y), 9U) 
+                                               - VL_SHIFTL_III(19,32,32, (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__actual_y), 5U)));
             __Vdly__tb_scaler__DOT__dut__DOT__state = 9U;
         } else if ((9U == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__state))) {
             __Vdly__tb_scaler__DOT__dut__DOT__state = 0xaU;
@@ -2139,18 +2139,18 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                 = (0xfU & ((IData)(1U) + (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__burst_pixel)));
             if ((0xfU == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__burst_pixel))) {
                 __Vdly__tb_scaler__DOT__dut__DOT__after_ack 
-                    = ((0x27fU == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__out_x))
+                    = ((0x3bfU == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__out_x))
                         ? 0xcU : ((IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__inside_x)
                                    ? 0xbU : 9U));
-                if ((((0x1dfU == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row)) 
-                      & (0x27fU == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__out_x))) 
+                if ((((0x2cfU == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row)) 
+                      & (0x3bfU == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__out_x))) 
                      & (~ (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__input_finished)))) {
-                    __Vdly__tb_scaler__DOT__dut__DOT__dest_row = 0x1e0U;
+                    __Vdly__tb_scaler__DOT__dut__DOT__dest_row = 0x2d0U;
                     __Vdly__tb_scaler__DOT__dut__DOT__state = 0xeU;
                 } else {
                     __Vdly__tb_scaler__DOT__last = 
-                        ((0x1dfU == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row)) 
-                         & (0x27fU == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__out_x)));
+                        ((0x2cfU == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row)) 
+                         & (0x3bfU == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__out_x)));
                     __Vdly__tb_scaler__DOT__dut__DOT__state = 0xfU;
                 }
             } else {
@@ -2180,7 +2180,7 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
                     __Vdly__tb_scaler__DOT__dut__DOT__state = 0x11U;
                 } else {
                     __Vdly__tb_scaler__DOT__addr = 
-                        (0x3ffffU & ((IData)(8U) + vlSelfRef.tb_scaler__DOT__addr));
+                        (0x7ffffU & ((IData)(8U) + vlSelfRef.tb_scaler__DOT__addr));
                     __Vdly__tb_scaler__DOT__dut__DOT__state 
                         = vlSelfRef.tb_scaler__DOT__dut__DOT__after_ack;
                 }
@@ -2228,7 +2228,7 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
             __Vdly__tb_scaler__DOT__dut__DOT__state = 6U;
         } else {
             __Vdly__tb_scaler__DOT__dut__DOT__input_finished = 1U;
-            if ((0x1e0U == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row))) {
+            if ((0x2d0U == (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row))) {
                 __Vdly__tb_scaler__DOT__last = 1U;
                 __Vdly__tb_scaler__DOT__dut__DOT__state = 0xfU;
             } else {
@@ -2276,7 +2276,7 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
     vlSelfRef.tb_scaler__DOT__dut__DOT__actual_y = 
         (0x3ffU & ((IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__top_down)
                     ? (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row)
-                    : ((IData)(0x1dfU) - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row))));
+                    : ((IData)(0x2cfU) - (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__dest_row))));
     vlSelfRef.tb_scaler__DOT__dut__DOT__inside_x = 
         ((~ (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__blank_row)) 
          & (((IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__out_x) 
@@ -2320,12 +2320,12 @@ VL_INLINE_OPT void Vtb_scaler___024root___nba_sequent__TOP__0(Vtb_scaler___024ro
             __Vdly__tb_scaler__DOT__dut__DOT__divider__DOT__busy = 1U;
             if (vlSelfRef.tb_scaler__DOT__dut__DOT__width_limited) {
                 vlSelfRef.tb_scaler__DOT__dut__DOT__divider__DOT__shift 
-                    = ((IData)(0x280U) * (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__height));
+                    = ((IData)(0x3c0U) * (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__height));
                 __Vdly__tb_scaler__DOT__dut__DOT__divider__DOT__divisor 
                     = vlSelfRef.tb_scaler__DOT__dut__DOT__width;
             } else {
                 vlSelfRef.tb_scaler__DOT__dut__DOT__divider__DOT__shift 
-                    = ((IData)(0x1e0U) * (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__width));
+                    = ((IData)(0x2d0U) * (IData)(vlSelfRef.tb_scaler__DOT__dut__DOT__width));
                 __Vdly__tb_scaler__DOT__dut__DOT__divider__DOT__divisor 
                     = vlSelfRef.tb_scaler__DOT__dut__DOT__height;
             }

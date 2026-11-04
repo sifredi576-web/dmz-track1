@@ -2,17 +2,19 @@
 module tb_wipe;
 reg clk=0;always #5 clk=~clk;reg reset=1,ft=0,lv=0;reg [11:0] used=2040;
 wire lr,ack,req,wr,push,fr,display,front,fault;wire [20:0] addr;wire [31:0] swaps;reg rsp=0;
+integer response_delay=0;
 reg monitor=0;integer step=0,reads=0;reg expected_bank;
-dmz_image_framebuffer dut(.clk(clk),.reset(reset),.bist_done(1'b1),.bist_passed(1'b1),.frame_toggle(ft),
- .load_valid(lv),.load_addr(18'd0),.load_data(256'd0),.load_last(1'b1),.load_ready(lr),.load_ack(ack),
- .req_valid(req),.req_write(wr),.req_addr(addr),.req_wdata(),.req_ready(1'b1),.rsp_valid(rsp),.rsp_rdata(256'd0),
+dmz_image_framebuffer #(.WIDE_MODE(1),.HD(1)) dut(.clk(clk),.reset(reset),.bist_done(1'b1),.bist_passed(1'b1),.frame_toggle(ft),
+ .load_valid(lv),.load_addr(19'd0),.load_data(256'd0),.load_last(1'b1),.load_ready(lr),.load_ack(ack),
+ .req_valid(req),.req_write(wr),.req_addr(addr),.req_wdata(),.req_ready(response_delay==0),.rsp_valid(rsp),.rsp_rdata(256'd0),
  .fifo_used(used),.fifo_full(1'b0),.fifo_push(push),.fifo_data(),.fifo_reset(fr),.display_valid(display),.front_bank(front),
  .swaps(swaps),.frames_written(),.dma_reads(),.fault(fault));
 always @(posedge clk) begin
- rsp<=req;
- if(monitor&&req&&!wr) begin
-  expected_bank=step==11?0:((step>0&&(addr[17:0]%320)<step*32)?0:1);
-  if(addr[18]!==expected_bank) $fatal(1,"Wipe bank mismatch step=%0d addr=%h front=%b swaps=%0d active=%b wipe=%0d",step,addr,front,swaps,dut.transition_active,dut.wipe_words);
+ rsp<=response_delay==1;
+ if(req&&response_delay==0)response_delay<=12;else if(response_delay>0)response_delay<=response_delay-1;
+ if(monitor&&req&&response_delay==0&&!wr) begin
+  expected_bank=step==11?0:((step>0&&(addr[18:0]%480)<step*48)?0:1);
+  if(addr[19]!==expected_bank) $fatal(1,"Wipe bank mismatch step=%0d addr=%h front=%b swaps=%0d active=%b wipe=%0d",step,addr,front,swaps,dut.transition_active,dut.wipe_words);
   reads=reads+1;
  end
  if(fault) $fatal(1,"Framebuffer fault");

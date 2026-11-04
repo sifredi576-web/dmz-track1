@@ -1,0 +1,31 @@
+%Warning-TIMESCALEMOD: build_system/sim_config\dmz_page_compositor_optimized.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module dmz_page_compositor #(parameter HD=0, AW=HD?19:18)(input clk,reset,enabled,page_begin,input [3:0] widget_count,
+      |        ^~~~~~~~~~~~~~~~~~~
+                       sim/platform\tb_page_compositor.sv:2:8: ... Location of module with timescale
+    2 | module tb_page_compositor;
+      |        ^~~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.036
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: sim/platform\tb_page_compositor.sv:16:68: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'address' generates 21 bits.
+                                                              : ... note: In instance 'tb_page_compositor'
+   16 |   else begin for(integer j=0;j<32;j++)md[j*8+:8]<=scene[32+(address-21'h100000)*4+j];mrsp<=1;mpending<=0;end
+      |                                                                    ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.036
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: sim/platform\tb_page_compositor.sv:16:68: Operator SUB expects 32 bits on the RHS, but RHS's CONST '21'h100000' generates 21 bits.
+                                                              : ... note: In instance 'tb_page_compositor'
+   16 |   else begin for(integer j=0;j<32;j++)md[j*8+:8]<=scene[32+(address-21'h100000)*4+j];mrsp<=1;mpending<=0;end
+      |                                                                    ^
+%Warning-WIDTHTRUNC: sim/platform\tb_page_compositor.sv:32:16: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'bottom_up' generates 32 bits.
+                                                             : ... note: In instance 'tb_page_compositor'
+   32 |   row=bottom_up?719-y:y;while(!ir)ticks(1);ia=row*480+col*8;il=y==719&&col==59;iv=1;ticks(1);iv=0;
+      |                ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.036
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: sim/platform\tb_page_compositor.sv:32:46: Operator ASSIGN expects 19 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits.
+                                                             : ... note: In instance 'tb_page_compositor'
+   32 |   row=bottom_up?719-y:y;while(!ir)ticks(1);ia=row*480+col*8;il=y==719&&col==59;iv=1;ticks(1);iv=0;
+      |                                              ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.036 2025-04-27 rev UNKNOWN.REV
+- Verilator: Built from 0.049 MB sources in 3 modules, into 0.759 MB in 8 C++ files needing 0.001 MB
+- Verilator: Walltime 0.064 s (elab=0.000, cvt=0.035, bld=0.000); cpu 0.000 s on 1 threads; alloced 19.605 MB

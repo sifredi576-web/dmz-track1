@@ -1,0 +1,2 @@
+PASS consumed-sample completion, pause gaps, flush/ticket ordering, loops and stop
+- sim/platform\tb_audio_completion.sv:19: Verilog $finish

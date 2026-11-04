@@ -1,6 +1,6 @@
 // Read SCENE.BIN once before media starts. No SCENE.BIN keeps legacy startup.
 // Commit only after both CRC validation and the final SDRAM write response.
-module dmz_platform_boot #(parameter STORE_CONFIG=0)(input clk,reset,catalog_ready,found,
+module dmz_platform_boot #(parameter STORE_CONFIG=0, parameter [20:0] CFG_BASE=21'h080000)(input clk,reset,catalog_ready,found,
  input fat16,input [7:0] spc,input [31:0] fat_base,data_base,first_cluster,file_bytes,
  output wire sd_start,output wire [31:0] sd_lba,input sd_ready,sd_done,sd_byte_valid,
  input [8:0] sd_byte_index,input [7:0] sd_byte_data,sd_error,
@@ -18,7 +18,7 @@ wire aborted=file_error!=0||parse_error!=0;
 wire staging_write,writer_ready,writer_idle,writer_done;wire [19:0] staging_addr;wire [7:0] staging_data;
 
 generate if(STORE_CONFIG)begin
- dmz_cfg_writer writer(.clk(clk),.reset(reset),.start(launch),.abort(aborted),
+ dmz_cfg_writer #(.CFG_BASE(CFG_BASE)) writer(.clk(clk),.reset(reset),.start(launch),.abort(aborted),
  .valid(staging_write),.last(byte_last),.addr(staging_addr),.data(staging_data),.ready(writer_ready),
  .mem_valid(mem_valid),.mem_addr(mem_addr),.mem_data(mem_data),.mem_ready(mem_ready),.mem_response(mem_response),.idle(writer_idle),.done(writer_done));
 end else begin

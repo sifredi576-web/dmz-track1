@@ -30,6 +30,8 @@ VL_ATTR_COLD void Vtb_widescreen___024root___eval_static__TOP(Vtb_widescreen___0
     vlSelfRef.tb_widescreen__DOT__x = 0U;
     vlSelfRef.tb_widescreen__DOT__y = 0U;
     vlSelfRef.tb_widescreen__DOT__ft = 0U;
+    vlSelfRef.tb_widescreen__DOT__aux_timer = 0U;
+    vlSelfRef.tb_widescreen__DOT__aux_count = 0U;
     vlSelfRef.tb_widescreen__DOT__load = 1U;
     vlSelfRef.tb_widescreen__DOT__load_addr = 0U;
     vlSelfRef.tb_widescreen__DOT__fr = 7U;
@@ -51,6 +53,7 @@ VL_ATTR_COLD void Vtb_widescreen___024root___eval_static__TOP(Vtb_widescreen___0
     vlSelfRef.tb_widescreen__DOT__mem__DOT__wr_address = 0U;
     vlSelfRef.tb_widescreen__DOT__mem__DOT__bank_active = 0U;
     vlSelfRef.tb_widescreen__DOT__mem__DOT__mode_set = 0U;
+    vlSelfRef.tb_widescreen__DOT__mem__DOT__auto_close = 1U;
 }
 
 VL_ATTR_COLD void Vtb_widescreen___024root___eval_initial__TOP(Vtb_widescreen___024root* vlSelf) {
@@ -139,13 +142,16 @@ VL_ATTR_COLD void Vtb_widescreen___024root___eval_stl(Vtb_widescreen___024root* 
     }
 }
 
+extern const VlWide<8>/*255:0*/ Vtb_widescreen__ConstPool__CONST_h9e67c271_0;
+extern const VlWide<8>/*255:0*/ Vtb_widescreen__ConstPool__CONST_h14b26c6b_0;
+
 VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtb_widescreen___024root___stl_sequent__TOP__0\n"); );
     Vtb_widescreen__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Init
-    SData/*11:0*/ tb_widescreen__DOT__used;
-    tb_widescreen__DOT__used = 0;
+    CData/*1:0*/ tb_widescreen__DOT____Vcellinp__mux__valid;
+    tb_widescreen__DOT____Vcellinp__mux__valid = 0;
     SData/*15:0*/ __Vfunc_tb_widescreen__DOT__pixel__0__Vfuncout;
     __Vfunc_tb_widescreen__DOT__pixel__0__Vfuncout = 0;
     IData/*31:0*/ __Vfunc_tb_widescreen__DOT__pixel__0__row;
@@ -174,14 +180,20 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
     vlSelfRef.tb_widescreen__DOT__ras = 1U;
     vlSelfRef.tb_widescreen__DOT__cas = 1U;
     vlSelfRef.tb_widescreen__DOT__we = 1U;
-    vlSelfRef.tb_widescreen__DOT__last = (0x257f8U 
+    vlSelfRef.tb_widescreen__DOT__last = (0x545f8U 
                                           == vlSelfRef.tb_widescreen__DOT__load_addr);
     vlSelfRef.tb_widescreen__DOT__sa = 0U;
-    if ((1U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
+    if (((1U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)) 
+         || (0x14U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)))) {
         vlSelfRef.tb_widescreen__DOT__ras = 0U;
         vlSelfRef.tb_widescreen__DOT__we = 0U;
         vlSelfRef.tb_widescreen__DOT__sa = (0x400U 
                                             | (IData)(vlSelfRef.tb_widescreen__DOT__sa));
+    } else if ((0x12U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
+        vlSelfRef.tb_widescreen__DOT__ras = 0U;
+        vlSelfRef.tb_widescreen__DOT__we = 0U;
+        vlSelfRef.tb_widescreen__DOT__sa = (0x3ffU 
+                                            & (IData)(vlSelfRef.tb_widescreen__DOT__sa));
     } else {
         if (((3U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)) 
              || (0x10U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)))) {
@@ -210,45 +222,58 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
                                      >> 8U));
                 } else if ((0xaU == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
                     vlSelfRef.tb_widescreen__DOT__sa 
-                        = (0x400U | (0xffU & vlSelfRef.tb_widescreen__DOT__ctrl__DOT__transaction_addr));
+                        = (0xffU & vlSelfRef.tb_widescreen__DOT__ctrl__DOT__transaction_addr);
                 } else if ((0xdU == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
                     vlSelfRef.tb_widescreen__DOT__sa 
-                        = (0x400U | (0xffU & vlSelfRef.tb_widescreen__DOT__ctrl__DOT__transaction_addr));
+                        = (0xffU & vlSelfRef.tb_widescreen__DOT__ctrl__DOT__transaction_addr);
                 }
             }
         }
     }
     vlSelfRef.tb_widescreen__DOT__bank = (3U & (vlSelfRef.tb_widescreen__DOT__ctrl__DOT__transaction_addr 
                                                 >> 0x13U));
-    if ((1U != (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
-        if (((3U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)) 
-             || (0x10U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)))) {
-            vlSelfRef.tb_widescreen__DOT__cas = 0U;
-        } else if ((5U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
-            vlSelfRef.tb_widescreen__DOT__cas = 0U;
-        } else if ((8U != (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
-            if ((0xaU == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
+    if ((1U & (~ ((1U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)) 
+                  || (0x14U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)))))) {
+        if ((0x12U != (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
+            if (((3U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)) 
+                 || (0x10U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)))) {
                 vlSelfRef.tb_widescreen__DOT__cas = 0U;
-            } else if ((0xdU == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
+            } else if ((5U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
                 vlSelfRef.tb_widescreen__DOT__cas = 0U;
+            } else if ((8U != (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
+                if ((0xaU == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
+                    vlSelfRef.tb_widescreen__DOT__cas = 0U;
+                } else if ((0xdU == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
+                    vlSelfRef.tb_widescreen__DOT__cas = 0U;
+                }
             }
-        }
-        if ((1U & (~ ((3U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)) 
-                      || (0x10U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)))))) {
-            if ((5U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
-                vlSelfRef.tb_widescreen__DOT__bank = 0U;
+            if ((1U & (~ ((3U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)) 
+                          || (0x10U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)))))) {
+                if ((5U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state))) {
+                    vlSelfRef.tb_widescreen__DOT__bank = 0U;
+                }
             }
         }
     }
-    vlSelfRef.tb_widescreen__DOT__ready = ((7U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)) 
-                                           & (0x186U 
-                                              > (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__refresh_age)));
     vlSelfRef.tb_widescreen__DOT__actual = (0xffffU 
                                             & ((1U 
-                                                & (IData)(vlSelfRef.tb_widescreen__DOT__sx))
+                                                & (IData)(vlSelfRef.tb_widescreen__DOT__x))
                                                 ? (vlSelfRef.tb_widescreen__DOT__fifo__DOT__rdata_raw 
                                                    >> 0x10U)
                                                 : vlSelfRef.tb_widescreen__DOT__fifo__DOT__rdata_raw));
+    vlSelfRef.tb_widescreen__DOT__mux_response = 0U;
+    if ((((IData)(vlSelfRef.tb_widescreen__DOT__mux__DOT__busy) 
+          & (IData)(vlSelfRef.tb_widescreen__DOT__rsp)) 
+         & (IData)(vlSelfRef.tb_widescreen__DOT__mux__DOT__owner))) {
+        vlSelfRef.tb_widescreen__DOT__mux_response 
+            = (2U | (IData)(vlSelfRef.tb_widescreen__DOT__mux_response));
+    }
+    if ((((IData)(vlSelfRef.tb_widescreen__DOT__mux__DOT__busy) 
+          & (IData)(vlSelfRef.tb_widescreen__DOT__rsp)) 
+         & (~ (IData)(vlSelfRef.tb_widescreen__DOT__mux__DOT__owner)))) {
+        vlSelfRef.tb_widescreen__DOT__mux_response 
+            = (1U | (IData)(vlSelfRef.tb_widescreen__DOT__mux_response));
+    }
     vlSelfRef.tb_widescreen__DOT__freset = (1U & ((~ 
                                                    ((IData)(vlSelfRef.tb_widescreen__DOT__display_valid) 
                                                     & (0U 
@@ -268,6 +293,9 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
         = __Vfunc_tb_widescreen__DOT__fifo__DOT__physical_addr__4__g;
     vlSelfRef.tb_widescreen__DOT__fifo__DOT__write_addr 
         = __Vfunc_tb_widescreen__DOT__fifo__DOT__physical_addr__4__Vfuncout;
+    vlSelfRef.tb_widescreen__DOT__ready = ((7U == (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__state)) 
+                                           & (0x186U 
+                                              > (IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__refresh_age)));
     vlSelfRef.tb_widescreen__DOT__full = ((IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__wgray) 
                                           == ((0xc00U 
                                                & ((~ 
@@ -277,8 +305,8 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
                                               | (0x3ffU 
                                                  & (IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__rg2))));
     __Vfunc_tb_widescreen__DOT__pixel__0__col = VL_MULS_III(32, (IData)(2U), 
-                                                            VL_MODDIVS_III(32, vlSelfRef.tb_widescreen__DOT__load_addr, (IData)(0x140U)));
-    __Vfunc_tb_widescreen__DOT__pixel__0__row = VL_DIVS_III(32, vlSelfRef.tb_widescreen__DOT__load_addr, (IData)(0x140U));
+                                                            VL_MODDIVS_III(32, vlSelfRef.tb_widescreen__DOT__load_addr, (IData)(0x1e0U)));
+    __Vfunc_tb_widescreen__DOT__pixel__0__row = VL_DIVS_III(32, vlSelfRef.tb_widescreen__DOT__load_addr, (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__0__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__0__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__0__col));
@@ -288,8 +316,8 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
     __Vfunc_tb_widescreen__DOT__pixel__1__col = ((IData)(1U) 
                                                  + 
                                                  VL_MULS_III(32, (IData)(2U), 
-                                                             VL_MODDIVS_III(32, vlSelfRef.tb_widescreen__DOT__load_addr, (IData)(0x140U))));
-    __Vfunc_tb_widescreen__DOT__pixel__1__row = VL_DIVS_III(32, vlSelfRef.tb_widescreen__DOT__load_addr, (IData)(0x140U));
+                                                             VL_MODDIVS_III(32, vlSelfRef.tb_widescreen__DOT__load_addr, (IData)(0x1e0U))));
+    __Vfunc_tb_widescreen__DOT__pixel__1__row = VL_DIVS_III(32, vlSelfRef.tb_widescreen__DOT__load_addr, (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__1__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__1__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__1__col));
@@ -300,10 +328,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
     __Vfunc_tb_widescreen__DOT__pixel__0__col = VL_MULS_III(32, (IData)(2U), 
                                                             VL_MODDIVS_III(32, 
                                                                            ((IData)(1U) 
-                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U)));
+                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U)));
     __Vfunc_tb_widescreen__DOT__pixel__0__row = VL_DIVS_III(32, 
                                                             ((IData)(1U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__0__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__0__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__0__col));
@@ -315,10 +343,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
                                                  VL_MULS_III(32, (IData)(2U), 
                                                              VL_MODDIVS_III(32, 
                                                                             ((IData)(1U) 
-                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U))));
+                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U))));
     __Vfunc_tb_widescreen__DOT__pixel__1__row = VL_DIVS_III(32, 
                                                             ((IData)(1U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__1__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__1__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__1__col));
@@ -329,10 +357,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
     __Vfunc_tb_widescreen__DOT__pixel__0__col = VL_MULS_III(32, (IData)(2U), 
                                                             VL_MODDIVS_III(32, 
                                                                            ((IData)(2U) 
-                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U)));
+                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U)));
     __Vfunc_tb_widescreen__DOT__pixel__0__row = VL_DIVS_III(32, 
                                                             ((IData)(2U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__0__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__0__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__0__col));
@@ -344,10 +372,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
                                                  VL_MULS_III(32, (IData)(2U), 
                                                              VL_MODDIVS_III(32, 
                                                                             ((IData)(2U) 
-                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U))));
+                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U))));
     __Vfunc_tb_widescreen__DOT__pixel__1__row = VL_DIVS_III(32, 
                                                             ((IData)(2U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__1__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__1__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__1__col));
@@ -358,10 +386,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
     __Vfunc_tb_widescreen__DOT__pixel__0__col = VL_MULS_III(32, (IData)(2U), 
                                                             VL_MODDIVS_III(32, 
                                                                            ((IData)(3U) 
-                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U)));
+                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U)));
     __Vfunc_tb_widescreen__DOT__pixel__0__row = VL_DIVS_III(32, 
                                                             ((IData)(3U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__0__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__0__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__0__col));
@@ -373,10 +401,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
                                                  VL_MULS_III(32, (IData)(2U), 
                                                              VL_MODDIVS_III(32, 
                                                                             ((IData)(3U) 
-                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U))));
+                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U))));
     __Vfunc_tb_widescreen__DOT__pixel__1__row = VL_DIVS_III(32, 
                                                             ((IData)(3U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__1__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__1__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__1__col));
@@ -387,10 +415,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
     __Vfunc_tb_widescreen__DOT__pixel__0__col = VL_MULS_III(32, (IData)(2U), 
                                                             VL_MODDIVS_III(32, 
                                                                            ((IData)(4U) 
-                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U)));
+                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U)));
     __Vfunc_tb_widescreen__DOT__pixel__0__row = VL_DIVS_III(32, 
                                                             ((IData)(4U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__0__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__0__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__0__col));
@@ -402,10 +430,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
                                                  VL_MULS_III(32, (IData)(2U), 
                                                              VL_MODDIVS_III(32, 
                                                                             ((IData)(4U) 
-                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U))));
+                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U))));
     __Vfunc_tb_widescreen__DOT__pixel__1__row = VL_DIVS_III(32, 
                                                             ((IData)(4U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__1__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__1__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__1__col));
@@ -416,10 +444,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
     __Vfunc_tb_widescreen__DOT__pixel__0__col = VL_MULS_III(32, (IData)(2U), 
                                                             VL_MODDIVS_III(32, 
                                                                            ((IData)(5U) 
-                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U)));
+                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U)));
     __Vfunc_tb_widescreen__DOT__pixel__0__row = VL_DIVS_III(32, 
                                                             ((IData)(5U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__0__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__0__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__0__col));
@@ -431,10 +459,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
                                                  VL_MULS_III(32, (IData)(2U), 
                                                              VL_MODDIVS_III(32, 
                                                                             ((IData)(5U) 
-                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U))));
+                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U))));
     __Vfunc_tb_widescreen__DOT__pixel__1__row = VL_DIVS_III(32, 
                                                             ((IData)(5U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__1__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__1__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__1__col));
@@ -445,10 +473,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
     __Vfunc_tb_widescreen__DOT__pixel__0__col = VL_MULS_III(32, (IData)(2U), 
                                                             VL_MODDIVS_III(32, 
                                                                            ((IData)(6U) 
-                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U)));
+                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U)));
     __Vfunc_tb_widescreen__DOT__pixel__0__row = VL_DIVS_III(32, 
                                                             ((IData)(6U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__0__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__0__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__0__col));
@@ -460,10 +488,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
                                                  VL_MULS_III(32, (IData)(2U), 
                                                              VL_MODDIVS_III(32, 
                                                                             ((IData)(6U) 
-                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U))));
+                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U))));
     __Vfunc_tb_widescreen__DOT__pixel__1__row = VL_DIVS_III(32, 
                                                             ((IData)(6U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__1__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__1__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__1__col));
@@ -474,10 +502,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
     __Vfunc_tb_widescreen__DOT__pixel__0__col = VL_MULS_III(32, (IData)(2U), 
                                                             VL_MODDIVS_III(32, 
                                                                            ((IData)(7U) 
-                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U)));
+                                                                            + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U)));
     __Vfunc_tb_widescreen__DOT__pixel__0__row = VL_DIVS_III(32, 
                                                             ((IData)(7U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__0__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__0__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__0__col));
@@ -489,10 +517,10 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
                                                  VL_MULS_III(32, (IData)(2U), 
                                                              VL_MODDIVS_III(32, 
                                                                             ((IData)(7U) 
-                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U))));
+                                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U))));
     __Vfunc_tb_widescreen__DOT__pixel__1__row = VL_DIVS_III(32, 
                                                             ((IData)(7U) 
-                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x140U));
+                                                             + vlSelfRef.tb_widescreen__DOT__load_addr), (IData)(0x1e0U));
     __Vfunc_tb_widescreen__DOT__pixel__1__Vfuncout 
         = (0xffffU & (VL_MULS_III(32, (IData)(0x43U), __Vfunc_tb_widescreen__DOT__pixel__1__row) 
                       + __Vfunc_tb_widescreen__DOT__pixel__1__col));
@@ -500,18 +528,19 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
                                                   & vlSelfRef.tb_widescreen__DOT__payload[7U]) 
                                                  | ((IData)(__Vfunc_tb_widescreen__DOT__pixel__1__Vfuncout) 
                                                     << 0x10U));
-    vlSelfRef.tb_widescreen__DOT__fb__DOT__enabled 
-        = ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fault)) 
-           & (IData)(vlSelfRef.tb_widescreen__DOT__init));
-    vlSelfRef.tb_widescreen__DOT__empty = ((IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__rgray) 
-                                           == (IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__wg2));
     vlSelfRef.tb_widescreen__DOT__area = ((0xa0U <= (IData)(vlSelfRef.tb_widescreen__DOT__x)) 
                                           & ((0x460U 
                                               > (IData)(vlSelfRef.tb_widescreen__DOT__x)) 
                                              & (0x2d0U 
                                                 > (IData)(vlSelfRef.tb_widescreen__DOT__y))));
-    tb_widescreen__DOT__used = (0xfffU & ((IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__wp) 
-                                          - ([&]() {
+    vlSelfRef.tb_widescreen__DOT__empty = ((IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__rgray) 
+                                           == (IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__wg2));
+    vlSelfRef.tb_widescreen__DOT__fb__DOT__enabled 
+        = ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fault)) 
+           & (IData)(vlSelfRef.tb_widescreen__DOT__init));
+    vlSelfRef.tb_widescreen__DOT__used = (0xfffU & 
+                                          ((IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__wp) 
+                                           - ([&]() {
                     vlSelfRef.__Vfunc_tb_widescreen__DOT__fifo__DOT__binary__6__g 
                         = vlSelfRef.tb_widescreen__DOT__fifo__DOT__rg2;
                     vlSelfRef.__Vfunc_tb_widescreen__DOT__fifo__DOT__binary__6__Vfuncout 
@@ -608,40 +637,24 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
         (((~ (IData)(vlSelfRef.tb_widescreen__DOT__full)) 
           & (2U == (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__state))) 
          & (0U == (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__flush)));
-    vlSelfRef.tb_widescreen__DOT__pop = ((IData)(vlSelfRef.tb_widescreen__DOT__area) 
-                                         & (2U == (IData)(vlSelfRef.tb_widescreen__DOT__mapper__DOT__hx)));
-    vlSelfRef.tb_widescreen__DOT__fb__DOT__video_req 
-        = ((IData)(vlSelfRef.tb_widescreen__DOT__display_valid) 
-           & ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__read_finished)) 
-              & (0x7f0U >= (IData)(tb_widescreen__DOT__used))));
-    vlSelfRef.tb_widescreen__DOT__fifo__DOT__wn = (0xfffU 
-                                                   & ((IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__wp) 
-                                                      + (IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__push)));
     vlSelfRef.tb_widescreen__DOT__fifo__DOT__rn = (0xfffU 
                                                    & ((IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__rp) 
                                                       + 
                                                       ((~ (IData)(vlSelfRef.tb_widescreen__DOT__empty)) 
-                                                       & ((IData)(vlSelfRef.tb_widescreen__DOT__pop) 
-                                                          & ((~ 
-                                                              ((IData)(vlSelfRef.tb_widescreen__DOT__fr) 
-                                                               >> 2U)) 
-                                                             & ((IData)(vlSelfRef.tb_widescreen__DOT__dv) 
-                                                                >> 1U))))));
-    vlSelfRef.tb_widescreen__DOT__rw = ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__video_req)) 
-                                        & (0U == (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__state)));
-    vlSelfRef.tb_widescreen__DOT__req = ((IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__enabled) 
-                                         & ((0U == (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__flush)) 
-                                            & ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__frame_pending)) 
-                                               & (((0U 
-                                                    == (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__state)) 
-                                                   & ((IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__video_req) 
-                                                      | ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__back_ready)) 
-                                                         & ((~ (IData)(vlSelfRef.tb_widescreen__DOT__ack)) 
-                                                            & (IData)(vlSelfRef.tb_widescreen__DOT__load))))) 
-                                                  | ((2U 
-                                                      == (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__state)) 
-                                                     & ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__prefetched)) 
-                                                        & (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__video_req)))))));
+                                                       & ((IData)(vlSelfRef.tb_widescreen__DOT__area) 
+                                                          & ((IData)(vlSelfRef.tb_widescreen__DOT__x) 
+                                                             & ((~ 
+                                                                 ((IData)(vlSelfRef.tb_widescreen__DOT__fr) 
+                                                                  >> 2U)) 
+                                                                & ((IData)(vlSelfRef.tb_widescreen__DOT__dv) 
+                                                                   >> 1U)))))));
+    vlSelfRef.tb_widescreen__DOT__fb__DOT__video_req 
+        = ((IData)(vlSelfRef.tb_widescreen__DOT__display_valid) 
+           & ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__read_finished)) 
+              & (0x7f0U >= (IData)(vlSelfRef.tb_widescreen__DOT__used))));
+    vlSelfRef.tb_widescreen__DOT__fifo__DOT__wn = (0xfffU 
+                                                   & ((IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__wp) 
+                                                      + (IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__push)));
     __Vfunc_tb_widescreen__DOT__fifo__DOT__physical_addr__5__address 
         = (0x7ffU & (IData)(vlSelfRef.tb_widescreen__DOT__fifo__DOT__rn));
     __Vfunc_tb_widescreen__DOT__fifo__DOT__physical_addr__5__g 
@@ -656,6 +669,103 @@ VL_ATTR_COLD void Vtb_widescreen___024root___stl_sequent__TOP__0(Vtb_widescreen_
         = __Vfunc_tb_widescreen__DOT__fifo__DOT__physical_addr__5__g;
     vlSelfRef.tb_widescreen__DOT__fifo__DOT__read_addr 
         = __Vfunc_tb_widescreen__DOT__fifo__DOT__physical_addr__5__Vfuncout;
+    vlSelfRef.tb_widescreen__DOT__fb_req = ((IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__enabled) 
+                                            & ((0U 
+                                                == (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__flush)) 
+                                               & ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__frame_pending)) 
+                                                  & (((0U 
+                                                       == (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__state)) 
+                                                      & ((IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__video_req) 
+                                                         | ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__back_ready)) 
+                                                            & ((~ (IData)(vlSelfRef.tb_widescreen__DOT__ack)) 
+                                                               & (IData)(vlSelfRef.tb_widescreen__DOT__load))))) 
+                                                     | ((2U 
+                                                         == (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__state)) 
+                                                        & ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__prefetched)) 
+                                                           & (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__video_req)))))));
+    tb_widescreen__DOT____Vcellinp__mux__valid = ((2U 
+                                                   & ((IData)(vlSelfRef.tb_widescreen__DOT__aux_timer) 
+                                                      >> 6U)) 
+                                                  | (IData)(vlSelfRef.tb_widescreen__DOT__fb_req));
+    vlSelfRef.tb_widescreen__DOT__mux__DOT__selected = 0U;
+    vlSelfRef.tb_widescreen__DOT__req = 0U;
+    vlSelfRef.tb_widescreen__DOT__mux_ready = 0U;
+    vlSelfRef.tb_widescreen__DOT__wdata[0U] = Vtb_widescreen__ConstPool__CONST_h9e67c271_0[0U];
+    vlSelfRef.tb_widescreen__DOT__wdata[1U] = Vtb_widescreen__ConstPool__CONST_h9e67c271_0[1U];
+    vlSelfRef.tb_widescreen__DOT__wdata[2U] = Vtb_widescreen__ConstPool__CONST_h9e67c271_0[2U];
+    vlSelfRef.tb_widescreen__DOT__wdata[3U] = Vtb_widescreen__ConstPool__CONST_h9e67c271_0[3U];
+    vlSelfRef.tb_widescreen__DOT__wdata[4U] = Vtb_widescreen__ConstPool__CONST_h9e67c271_0[4U];
+    vlSelfRef.tb_widescreen__DOT__wdata[5U] = Vtb_widescreen__ConstPool__CONST_h9e67c271_0[5U];
+    vlSelfRef.tb_widescreen__DOT__wdata[6U] = Vtb_widescreen__ConstPool__CONST_h9e67c271_0[6U];
+    vlSelfRef.tb_widescreen__DOT__wdata[7U] = Vtb_widescreen__ConstPool__CONST_h9e67c271_0[7U];
+    vlSelfRef.tb_widescreen__DOT__rw = 0U;
+    if (((~ (IData)(vlSelfRef.tb_widescreen__DOT__mux__DOT__busy)) 
+         & ((IData)(tb_widescreen__DOT____Vcellinp__mux__valid) 
+            >> 1U))) {
+        vlSelfRef.tb_widescreen__DOT__mux__DOT__selected = 1U;
+        vlSelfRef.tb_widescreen__DOT__req = 1U;
+        vlSelfRef.tb_widescreen__DOT__mux_ready = 0U;
+        vlSelfRef.tb_widescreen__DOT__mux_ready = (
+                                                   (1U 
+                                                    & (IData)(vlSelfRef.tb_widescreen__DOT__mux_ready)) 
+                                                   | ((IData)(vlSelfRef.tb_widescreen__DOT__ready) 
+                                                      << 1U));
+        vlSelfRef.tb_widescreen__DOT__wdata[0U] = Vtb_widescreen__ConstPool__CONST_h14b26c6b_0[0U];
+        vlSelfRef.tb_widescreen__DOT__wdata[1U] = Vtb_widescreen__ConstPool__CONST_h14b26c6b_0[1U];
+        vlSelfRef.tb_widescreen__DOT__wdata[2U] = Vtb_widescreen__ConstPool__CONST_h14b26c6b_0[2U];
+        vlSelfRef.tb_widescreen__DOT__wdata[3U] = Vtb_widescreen__ConstPool__CONST_h14b26c6b_0[3U];
+        vlSelfRef.tb_widescreen__DOT__wdata[4U] = Vtb_widescreen__ConstPool__CONST_h14b26c6b_0[4U];
+        vlSelfRef.tb_widescreen__DOT__wdata[5U] = Vtb_widescreen__ConstPool__CONST_h14b26c6b_0[5U];
+        vlSelfRef.tb_widescreen__DOT__wdata[6U] = Vtb_widescreen__ConstPool__CONST_h14b26c6b_0[6U];
+        vlSelfRef.tb_widescreen__DOT__wdata[7U] = Vtb_widescreen__ConstPool__CONST_h14b26c6b_0[7U];
+        vlSelfRef.tb_widescreen__DOT__rw = 1U;
+        vlSelfRef.tb_widescreen__DOT__addr = 0U;
+        vlSelfRef.tb_widescreen__DOT__addr = 0x100000U;
+    } else {
+        vlSelfRef.tb_widescreen__DOT__addr = 0U;
+    }
+    if ((1U & ((~ (IData)(vlSelfRef.tb_widescreen__DOT__mux__DOT__busy)) 
+               & (IData)(tb_widescreen__DOT____Vcellinp__mux__valid)))) {
+        vlSelfRef.tb_widescreen__DOT__mux__DOT__selected = 0U;
+        vlSelfRef.tb_widescreen__DOT__req = 1U;
+        vlSelfRef.tb_widescreen__DOT__mux_ready = 0U;
+        vlSelfRef.tb_widescreen__DOT__mux_ready = (
+                                                   (2U 
+                                                    & (IData)(vlSelfRef.tb_widescreen__DOT__mux_ready)) 
+                                                   | (IData)(vlSelfRef.tb_widescreen__DOT__ready));
+        vlSelfRef.tb_widescreen__DOT__wdata[0U] = vlSelfRef.tb_widescreen__DOT__payload[0U];
+        vlSelfRef.tb_widescreen__DOT__wdata[1U] = vlSelfRef.tb_widescreen__DOT__payload[1U];
+        vlSelfRef.tb_widescreen__DOT__wdata[2U] = vlSelfRef.tb_widescreen__DOT__payload[2U];
+        vlSelfRef.tb_widescreen__DOT__wdata[3U] = vlSelfRef.tb_widescreen__DOT__payload[3U];
+        vlSelfRef.tb_widescreen__DOT__wdata[4U] = vlSelfRef.tb_widescreen__DOT__payload[4U];
+        vlSelfRef.tb_widescreen__DOT__wdata[5U] = vlSelfRef.tb_widescreen__DOT__payload[5U];
+        vlSelfRef.tb_widescreen__DOT__wdata[6U] = vlSelfRef.tb_widescreen__DOT__payload[6U];
+        vlSelfRef.tb_widescreen__DOT__wdata[7U] = vlSelfRef.tb_widescreen__DOT__payload[7U];
+        vlSelfRef.tb_widescreen__DOT__rw = ((~ (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__video_req)) 
+                                            & (0U == (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__state)));
+        vlSelfRef.tb_widescreen__DOT__addr = ((IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__video_req)
+                                               ? ((0x80000U 
+                                                   & ((((IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__transition_active) 
+                                                        & ((IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__rd_x) 
+                                                           < (IData)(vlSelfRef.tb_widescreen__DOT__fb__DOT__wipe_words)))
+                                                        ? 
+                                                       (~ (IData)(vlSelfRef.tb_widescreen__DOT__front))
+                                                        : (IData)(vlSelfRef.tb_widescreen__DOT__front)) 
+                                                      << 0x13U)) 
+                                                  | vlSelfRef.tb_widescreen__DOT__fb__DOT__rd_addr)
+                                               : ((0x80000U 
+                                                   & ((~ (IData)(vlSelfRef.tb_widescreen__DOT__front)) 
+                                                      << 0x13U)) 
+                                                  | vlSelfRef.tb_widescreen__DOT__load_addr));
+    }
+    vlSelfRef.tb_widescreen__DOT__ctrl__DOT__hit = 
+        (((IData)(vlSelfRef.tb_widescreen__DOT__ctrl__DOT__row_open) 
+          >> (3U & (vlSelfRef.tb_widescreen__DOT__addr 
+                    >> 0x13U))) & (vlSelfRef.tb_widescreen__DOT__ctrl__DOT__open_row
+                                   [(3U & (vlSelfRef.tb_widescreen__DOT__addr 
+                                           >> 0x13U))] 
+                                   == (0x7ffU & (vlSelfRef.tb_widescreen__DOT__addr 
+                                                 >> 8U))));
 }
 
 VL_ATTR_COLD void Vtb_widescreen___024root___eval_triggers__stl(Vtb_widescreen___024root* vlSelf);
@@ -743,12 +853,13 @@ VL_ATTR_COLD void Vtb_widescreen___024root___ctor_var_reset(Vtb_widescreen___024
     vlSelf->tb_widescreen__DOT__sx = VL_RAND_RESET_I(10);
     vlSelf->tb_widescreen__DOT__sy = VL_RAND_RESET_I(10);
     vlSelf->tb_widescreen__DOT__area = VL_RAND_RESET_I(1);
-    vlSelf->tb_widescreen__DOT__pop = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__req = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__rw = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__ready = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__rsp = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__init = VL_RAND_RESET_I(1);
+    vlSelf->tb_widescreen__DOT__addr = VL_RAND_RESET_I(21);
+    VL_RAND_RESET_W(256, vlSelf->tb_widescreen__DOT__wdata);
     VL_RAND_RESET_W(256, vlSelf->tb_widescreen__DOT__rdata);
     vlSelf->tb_widescreen__DOT__ras = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__cas = VL_RAND_RESET_I(1);
@@ -758,8 +869,13 @@ VL_ATTR_COLD void Vtb_widescreen___024root___ctor_var_reset(Vtb_widescreen___024
     vlSelf->tb_widescreen__DOT__din = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__refreshes = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__oe = VL_RAND_RESET_I(1);
+    vlSelf->tb_widescreen__DOT__fb_req = VL_RAND_RESET_I(1);
+    vlSelf->tb_widescreen__DOT__mux_ready = VL_RAND_RESET_I(2);
+    vlSelf->tb_widescreen__DOT__mux_response = VL_RAND_RESET_I(2);
+    vlSelf->tb_widescreen__DOT__aux_timer = VL_RAND_RESET_I(8);
+    vlSelf->tb_widescreen__DOT__aux_count = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__load = VL_RAND_RESET_I(1);
-    vlSelf->tb_widescreen__DOT__load_addr = VL_RAND_RESET_I(18);
+    vlSelf->tb_widescreen__DOT__load_addr = VL_RAND_RESET_I(19);
     vlSelf->tb_widescreen__DOT__ack = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__last = VL_RAND_RESET_I(1);
     VL_RAND_RESET_W(256, vlSelf->tb_widescreen__DOT__payload);
@@ -772,6 +888,7 @@ VL_ATTR_COLD void Vtb_widescreen___024root___ctor_var_reset(Vtb_widescreen___024
     vlSelf->tb_widescreen__DOT__swaps = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__written = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__reads = VL_RAND_RESET_I(32);
+    vlSelf->tb_widescreen__DOT__used = VL_RAND_RESET_I(12);
     vlSelf->tb_widescreen__DOT__fr = VL_RAND_RESET_I(3);
     vlSelf->tb_widescreen__DOT__dv = VL_RAND_RESET_I(2);
     vlSelf->tb_widescreen__DOT__actual = VL_RAND_RESET_I(16);
@@ -784,6 +901,11 @@ VL_ATTR_COLD void Vtb_widescreen___024root___ctor_var_reset(Vtb_widescreen___024
     vlSelf->tb_widescreen__DOT__last_sample = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__mapper__DOT__hx = VL_RAND_RESET_I(2);
     vlSelf->tb_widescreen__DOT__mapper__DOT__vy = VL_RAND_RESET_I(2);
+    vlSelf->tb_widescreen__DOT__ctrl__DOT__row_open = VL_RAND_RESET_I(4);
+    for (int __Vi0 = 0; __Vi0 < 4; ++__Vi0) {
+        vlSelf->tb_widescreen__DOT__ctrl__DOT__open_row[__Vi0] = VL_RAND_RESET_I(11);
+    }
+    vlSelf->tb_widescreen__DOT__ctrl__DOT__hit = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__ctrl__DOT__dq_capture = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__ctrl__DOT__state = VL_RAND_RESET_I(5);
     vlSelf->tb_widescreen__DOT__ctrl__DOT__wait_count = VL_RAND_RESET_I(16);
@@ -819,17 +941,20 @@ VL_ATTR_COLD void Vtb_widescreen___024root___ctor_var_reset(Vtb_widescreen___024
     vlSelf->tb_widescreen__DOT__mem__DOT__wr_address = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__mem__DOT__bank_active = VL_RAND_RESET_I(32);
     vlSelf->tb_widescreen__DOT__mem__DOT__mode_set = VL_RAND_RESET_I(1);
+    vlSelf->tb_widescreen__DOT__mem__DOT__auto_close = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__mem__DOT__inject = VL_RAND_RESET_I(1);
+    vlSelf->tb_widescreen__DOT__mux__DOT__busy = VL_RAND_RESET_I(1);
+    vlSelf->tb_widescreen__DOT__mux__DOT__owner = VL_RAND_RESET_I(1);
+    vlSelf->tb_widescreen__DOT__mux__DOT__selected = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__fb__DOT__state = VL_RAND_RESET_I(2);
     vlSelf->tb_widescreen__DOT__fb__DOT__ft1 = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__fb__DOT__ft2 = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__fb__DOT__last_frame = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__fb__DOT__frame_pending = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__fb__DOT__flush = VL_RAND_RESET_I(6);
-    vlSelf->tb_widescreen__DOT__fb__DOT__rd_addr = VL_RAND_RESET_I(18);
-    vlSelf->tb_widescreen__DOT__fb__DOT__row_base = VL_RAND_RESET_I(18);
+    vlSelf->tb_widescreen__DOT__fb__DOT__rd_addr = VL_RAND_RESET_I(19);
+    vlSelf->tb_widescreen__DOT__fb__DOT__row_base = VL_RAND_RESET_I(19);
     vlSelf->tb_widescreen__DOT__fb__DOT__out_row = VL_RAND_RESET_I(10);
-    vlSelf->tb_widescreen__DOT__fb__DOT__row_phase = VL_RAND_RESET_I(2);
     vlSelf->tb_widescreen__DOT__fb__DOT__read_finished = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__fb__DOT__back_ready = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__fb__DOT__transition_active = VL_RAND_RESET_I(1);
@@ -856,7 +981,7 @@ VL_ATTR_COLD void Vtb_widescreen___024root___ctor_var_reset(Vtb_widescreen___024
     vlSelf->tb_widescreen__DOT__fifo__DOT__write_addr = VL_RAND_RESET_I(11);
     vlSelf->tb_widescreen__DOT__fifo__DOT__read_addr = VL_RAND_RESET_I(11);
     for (int __Vi0 = 0; __Vi0 < 2048; ++__Vi0) {
-        vlSelf->tb_widescreen__DOT__fifo__DOT__ram9__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);
+        vlSelf->tb_widescreen__DOT__fifo__DOT__ram32__DOT__mem[__Vi0] = VL_RAND_RESET_I(32);
     }
     vlSelf->tb_widescreen__DOT__fifo__DOT____Vlvbound_hd6d3ee30__0 = VL_RAND_RESET_I(1);
     vlSelf->tb_widescreen__DOT__audio__DOT__accumulator = VL_RAND_RESET_I(27);
@@ -865,7 +990,31 @@ VL_ATTR_COLD void Vtb_widescreen___024root___ctor_var_reset(Vtb_widescreen___024
     vlSelf->__Vfunc_tb_widescreen__DOT__fifo__DOT__binary__6__g = VL_RAND_RESET_I(12);
     vlSelf->__Vintraval_he798b52a__0 = VL_RAND_RESET_I(32);
     vlSelf->__Vdly__tb_widescreen__DOT__ft = VL_RAND_RESET_I(1);
-    vlSelf->__Vdly__tb_widescreen__DOT__fr = VL_RAND_RESET_I(3);
+    vlSelf->__Vdly__tb_widescreen__DOT__aux_count = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_widescreen__DOT__load_addr = VL_RAND_RESET_I(19);
+    vlSelf->__Vdly__tb_widescreen__DOT__refreshes = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__row_base = VL_RAND_RESET_I(19);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__out_row = VL_RAND_RESET_I(10);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__transition_active = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__wipe_words = VL_RAND_RESET_I(9);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__rd_x = VL_RAND_RESET_I(9);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__state = VL_RAND_RESET_I(2);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__last_frame = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__frame_pending = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__flush = VL_RAND_RESET_I(6);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__rd_addr = VL_RAND_RESET_I(19);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__back_ready = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__beat = VL_RAND_RESET_I(3);
+    vlSelf->__Vdly__tb_widescreen__DOT__display_valid = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_widescreen__DOT__front = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_widescreen__DOT__swaps = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_widescreen__DOT__written = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_widescreen__DOT__reads = VL_RAND_RESET_I(32);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__transaction_last = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__tb_widescreen__DOT__fb__DOT__prefetched = VL_RAND_RESET_I(1);
+    vlSelf->__VdlyVal__tb_widescreen__DOT__fifo__DOT__ram32__DOT__mem__v0 = VL_RAND_RESET_I(32);
+    vlSelf->__VdlyDim0__tb_widescreen__DOT__fifo__DOT__ram32__DOT__mem__v0 = VL_RAND_RESET_I(11);
+    vlSelf->__VdlySet__tb_widescreen__DOT__fifo__DOT__ram32__DOT__mem__v0 = 0;
     vlSelf->__VdlyVal__tb_widescreen__DOT__din__v0 = VL_RAND_RESET_I(32);
     vlSelf->__VdlySet__tb_widescreen__DOT__din__v0 = 0;
     vlSelf->__Vtrigprevexpr___TOP__tb_widescreen__DOT__pclk__0 = VL_RAND_RESET_I(1);

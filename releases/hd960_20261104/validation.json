@@ -1,0 +1,72 @@
+{
+  "stage": "complete: routed timing, SRAM download and board regression passed",
+  "original_sources": "HD960 implementation migrated into main project; pre-migration files backed up",
+  "output": "HDMI1280x720, central native960x720",
+  "frame_bytes": 1382400,
+  "sdram_byte_bases": [
+    0,
+    2097152,
+    4194304
+  ],
+  "sdram_mhz": 50,
+  "sdram_open_page": true,
+  "simulations_passed": [
+    "960 scaler eight cases",
+    "640 scaler eight cases",
+    "shared SDRAM and native video 2frames",
+    "full SDRAM BIST four patterns",
+    "HD Chinese compositor",
+    "HD 10-step wipe",
+    "relocated SCENE runtime",
+    "audio completion"
+  ],
+  "hardware_download": true,
+  "changed_files": [
+    "rtl\\media\\dmz_bmp_decoder.sv",
+    "rtl\\media\\dmz_image_player.sv",
+    "rtl\\media\\dmz_media_storage.sv",
+    "rtl\\p2\\dmz_sdram_ctrl.sv",
+    "rtl\\p3\\dmz_image_framebuffer.sv",
+    "rtl\\platform\\dmz_cfg_writer.sv",
+    "rtl\\platform\\dmz_page_compositor.sv",
+    "rtl\\platform\\dmz_platform_boot.sv",
+    "rtl\\platform\\dmz_scene_runtime.sv",
+    "rtl\\system\\dmz_track1_top.sv",
+    "scripts\\test_scaler.ps1",
+    "scripts\\test_widescreen.ps1",
+    "sim\\media\\tb_scaler.sv",
+    "sim\\p2\\sdram_model.sv",
+    "sim\\p2\\tb_p2.sv",
+    "sim\\platform\\tb_page_compositor.sv",
+    "sim\\platform\\tb_scene_runtime.sv",
+    "sim\\system\\tb_widescreen.sv",
+    "sim\\system\\tb_wipe.sv"
+  ],
+  "setup_slack_ns": 0.102,
+  "hold_slack_ns": 0.095,
+  "bit_sha256": "de75d55d9ccdace2ffb086900457529a2fdcba8f613eb7185be22812b57d2fb0",
+  "board_validation": {
+    "passed": true,
+    "report": "docs/hd960/board_controls.json",
+    "record_count": 360,
+    "hardware_media_errors": 0,
+    "automatic_pages": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "final_page": 10,
+    "final_score": 0,
+    "physical_keys_tested": false,
+    "screen_or_speaker_observed": false,
+    "flash_written": false
+  }
+}

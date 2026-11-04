@@ -5,17 +5,17 @@
 |     Setup WNS             |          102                |
 |     Setup TNS             |            0                |
 |     Num of violated S-EP  |            0                |
-|     Hold WNS              |           75                |
+|     Hold WNS              |           95                |
 |     Hold TNS              |            0                |
 |     Num of violated H-EP  |            0                |
 -----------------------------------------------------------
 | Routing Resource          |                             |
-|     Wire length           |      2523008                |
+|     Wire length           |      2690712                |
 -----------------------------------------------------------
 | Utilization               |                             |
-|     #slices               |         9312                |
-|     slices percentage     |       95.02%                |
-|     #RAMs                 |           57                |
+|     #slices               |         9335                |
+|     slices percentage     |       95.26%                |
+|     #RAMs                 |           51                |
 |     #DSPs                 |           21                |
 |     #DRAMHARDCON          |            0                |
 -----------------------------------------------------------

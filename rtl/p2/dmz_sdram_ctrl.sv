@@ -1,6 +1,6 @@
 // DMZ P2, 50 MHz SDR SDRAM controller. 32-bit words, aligned BL8 requests.
 // Geometry: 4 banks x 2048 rows x 256 columns. CL3, sequential, auto-precharge.
-module dmz_sdram_ctrl #(parameter integer INIT_CYCLES=10000,REFRESH_CYCLES=390,READ_WAIT_CYCLES=1)(
+module dmz_sdram_ctrl #(parameter integer INIT_CYCLES=10000,REFRESH_CYCLES=390,READ_WAIT_CYCLES=1,OPEN_PAGE=0)(
  input wire clk,reset,
  input wire req_valid,req_write,input wire [20:0] req_addr,input wire [255:0] req_wdata,
  output wire req_ready,output reg rsp_valid,output reg [255:0] rsp_rdata,
@@ -8,7 +8,9 @@ module dmz_sdram_ctrl #(parameter integer INIT_CYCLES=10000,REFRESH_CYCLES=390,R
  output reg ras_n,cas_n,we_n,output reg [10:0] addr,output reg [1:0] ba,
  output wire [31:0] dq_out,output reg dq_oe,input wire [31:0] dq_in);
 localparam POWER=0,IPRE=1,IPWAIT=2,IREF=3,IRWAIT=4,MRS=5,MRWAIT=6,
- IDLE=7,ACT=8,RCD=9,READ=10,RWAIT=11,RDATA=12,WRITE=13,WDATA=14,RECOVER=15,REFRESH=16,RFWAIT=17;
+ IDLE=7,ACT=8,RCD=9,READ=10,RWAIT=11,RDATA=12,WRITE=13,WDATA=14,RECOVER=15,REFRESH=16,RFWAIT=17,CLOSE_ROW=18,CLOSE_WAIT=19,CLOSE_ALL=20,ALL_WAIT=21;
+reg [3:0] row_open;reg [10:0] open_row[0:3];
+wire hit=OPEN_PAGE&&row_open[req_addr[20:19]]&&open_row[req_addr[20:19]]==req_addr[18:8];
 // Capture SDRAM return data on the falling controller edge, then consume
 // it on the next rising edge. This gives package clock/data pads a full cycle.
 reg [31:0] dq_capture;
@@ -25,19 +27,20 @@ assign req_ready=(state==IDLE && refresh_age<REFRESH_CYCLES);
 // between the output register and the SDRAM bidirectional pad enable.
 always @(posedge clk)begin
  if(reset)dq_oe<=0;
- else dq_oe<=(state==RCD&&wait_count==0&&transaction_write)||state==WRITE||(state==WDATA&&beat!=7);
+ else dq_oe<=(state==IDLE&&req_ready&&req_valid&&hit&&req_write)||(state==RCD&&wait_count==0&&transaction_write)||state==WRITE||(state==WDATA&&beat!=7);
 end
 // Shift the BL8 payload instead of putting an 8-way mux on package DQ.
 assign dq_out=write_data[31:0];
 always @* begin
  ras_n=1;cas_n=1;we_n=1;addr=0;ba=transaction_addr[20:19];
  case(state)
- IPRE:begin ras_n=0;we_n=0;addr[10]=1;end
+ IPRE,CLOSE_ALL:begin ras_n=0;we_n=0;addr[10]=1;end
+ CLOSE_ROW:begin ras_n=0;we_n=0;addr[10]=0;end
  IREF,REFRESH:begin ras_n=0;cas_n=0;end
  MRS:begin ras_n=0;cas_n=0;we_n=0;ba=0;addr=11'h033;end
  ACT:begin ras_n=0;addr=transaction_addr[18:8];end
- READ:begin cas_n=0;addr={3'b100,transaction_addr[7:0]};end
- WRITE:begin cas_n=0;we_n=0;addr={3'b100,transaction_addr[7:0]};end
+ READ:begin cas_n=0;addr={2'b00,!OPEN_PAGE,transaction_addr[7:0]};end
+ WRITE:begin cas_n=0;we_n=0;addr={2'b00,!OPEN_PAGE,transaction_addr[7:0]};end
  default:begin end
  endcase
 end
@@ -52,7 +55,7 @@ always @(posedge clk) begin
  if(reset) begin
   state<=POWER;wait_count<=INIT_CYCLES-1;refresh_age<=0;init_refresh<=0;
   init_done<=0;refresh_count<=0;rsp_valid<=0;beat<=0;
-  transaction_addr<=0;transaction_write<=0;
+  transaction_addr<=0;transaction_write<=0;row_open<=0;for(integer i=0;i<4;i=i+1)open_row[i]<=0;
  end else begin
   rsp_valid<=0;
   if(init_done && refresh_age!=65535) refresh_age<=refresh_age+1'b1;
@@ -65,16 +68,21 @@ always @(posedge clk) begin
   MRS:begin state<=MRWAIT;wait_count<=1;end
   MRWAIT:if(wait_count==0) begin state<=IDLE;init_done<=1;refresh_age<=0;end else wait_count<=wait_count-1'b1;
   IDLE:begin
-   if(refresh_age>=REFRESH_CYCLES) state<=REFRESH;
-   else if(req_valid) begin transaction_addr<=req_addr;transaction_write<=req_write;state<=ACT;end
+   if(refresh_age>=REFRESH_CYCLES) state<=OPEN_PAGE?CLOSE_ALL:REFRESH;
+   else if(req_valid) begin transaction_addr<=req_addr;transaction_write<=req_write;beat<=0;
+    if(hit)state<=req_write?WRITE:READ;else state<=OPEN_PAGE&&row_open[req_addr[20:19]]?CLOSE_ROW:ACT;end
   end
-  ACT:begin state<=RCD;wait_count<=1;end
+  ACT:begin state<=RCD;wait_count<=1;row_open[transaction_addr[20:19]]<=1;open_row[transaction_addr[20:19]]<=transaction_addr[18:8];end
+  CLOSE_ROW:begin row_open[transaction_addr[20:19]]<=0;state<=CLOSE_WAIT;wait_count<=1;end
+  CLOSE_WAIT:if(wait_count==0)state<=ACT;else wait_count<=wait_count-1'b1;
+  CLOSE_ALL:begin row_open<=0;state<=ALL_WAIT;wait_count<=1;end
+  ALL_WAIT:if(wait_count==0)state<=REFRESH;else wait_count<=wait_count-1'b1;
   RCD:if(wait_count==0) begin beat<=0;if(transaction_write) state<=WRITE;else state<=READ;end else wait_count<=wait_count-1'b1;
   READ:begin state<=RWAIT;wait_count<=READ_WAIT_CYCLES;end
   RWAIT:if(wait_count==0) state<=RDATA;else wait_count<=wait_count-1'b1;
   RDATA:begin
 
-   if(beat==7) begin state<=RECOVER;wait_count<=3;end else beat<=beat+1'b1;
+   if(beat==7) begin state<=RECOVER;wait_count<=OPEN_PAGE?0:3;end else beat<=beat+1'b1;
   end
   WRITE:begin state<=WDATA;beat<=1;end
   WDATA:begin if(beat==7) begin state<=RECOVER;wait_count<=3;end else beat<=beat+1'b1;end

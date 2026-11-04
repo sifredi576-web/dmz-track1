@@ -3,6 +3,7 @@
 #include "Vtb_widescreen.cpp"
 #include "Vtb_widescreen___024root__DepSet_h93e250a8__0.cpp"
 #include "Vtb_widescreen___024root__DepSet_h07af4e27__0.cpp"
+#include "Vtb_widescreen__ConstPool_0.cpp"
 #include "Vtb_widescreen___024root__Slow.cpp"
 #include "Vtb_widescreen___024root__DepSet_h93e250a8__0__Slow.cpp"
 #include "Vtb_widescreen___024root__DepSet_h07af4e27__0__Slow.cpp"

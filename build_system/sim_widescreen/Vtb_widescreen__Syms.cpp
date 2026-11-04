@@ -18,7 +18,7 @@ Vtb_widescreen__Syms::Vtb_widescreen__Syms(VerilatedContext* contextp, const cha
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(478);
+        Verilated::stackCheck(390);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
     _vm_contextp__->timeprecision(-12);

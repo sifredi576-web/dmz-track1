@@ -1,5 +1,5 @@
 // One shared mounted volume, two reusable file-stream contexts, one SD host.
-module dmz_media_storage #(parameter RT_PLATFORM=0)(input clk,reset,enable,audio_urgent,
+module dmz_media_storage #(parameter RT_PLATFORM=0, HD=0, AW=HD?19:18)(input clk,reset,enable,audio_urgent,
  input pair_enable,input [31:0] frame_swaps,
  input audio_select_request,input [3:0] audio_requested_index,output reg [3:0] audio_selected_index,
  output wire platform_found,platform_ready,output wire [7:0] platform_error,
@@ -8,7 +8,7 @@ module dmz_media_storage #(parameter RT_PLATFORM=0)(input clk,reset,enable,audio
  input select_request,input [4:0] requested_index,output wire [4:0] selected_index,
  output wire catalog_ready,output wire [5:0] image_count,output wire [63:0] image_name,
  output wire image_busy,image_done,output wire [7:0] image_error,image_status,output wire [31:0] image_pixels,
- output wire load_valid,output wire [17:0] load_addr,output wire [255:0] load_data,output wire load_last,input load_ready,load_ack,
+ output wire load_valid,output wire [AW-1:0] load_addr,output wire [255:0] load_data,output wire load_last,input load_ready,load_ack,
  output wire wav_found,output wire [31:0] wav_bytes,decoded_pairs,loop_count,declared_pairs,
  output wire [7:0] wav_error,wav_status,output wire wav_done,
  output wire pcm_valid,input pcm_ready,output wire [31:0] pcm_pair,
@@ -33,7 +33,7 @@ wire [62:0] aux_addresses;wire [767:0] aux_writes_data;
 wire lookup_enable;wire [5:0] lookup_query;wire [31:0] browse_bytes;
 wire rt_image_select,rt_audio_select,rt_audio_stop,page_begin;wire [4:0] rt_image_index,rt_displayed;wire [3:0] rt_audio_index;
 wire [3:0] widget_count;wire [2:0] widget_index;wire [98:0] widget_data;wire compositor_busy;
-wire raw_load_valid,raw_load_ready,raw_load_ack,raw_load_last;wire [17:0] raw_load_addr;wire [255:0] raw_load_data;
+wire raw_load_valid,raw_load_ready,raw_load_ack,raw_load_last;wire [AW-1:0] raw_load_addr;wire [255:0] raw_load_data;
 assign platform_error=boot_error!=0?boot_error:rt_error;
 assign platform_mode=RT_PLATFORM&&platform_ready&&config_version==2&&rt_error==0;
 assign aux_writes=3'b001;
@@ -42,7 +42,7 @@ dmz_mem_mux #(.N(3)) auxiliary(.clk(clk),.reset(reset),.valid(aux_requests),.wri
  .ready(aux_ready_bus),.response(aux_responses),.req_valid(aux_valid),.req_write(aux_write),.req_addr(aux_addr),.req_wdata(aux_data),
  .req_ready(aux_ready),.rsp_valid(aux_response));
 generate if(RT_PLATFORM)begin:configured_ui
- dmz_scene_runtime #(.AUTOPLAY_ON_RESET(1)) runtime(.clk(clk),.reset(reset),.start(boot_finished&&platform_mode),.version(config_version),.payload_length(config_length),
+ dmz_scene_runtime #(.AUTOPLAY_ON_RESET(1),.CFG_BASE(HD?21'h100000:21'h080000)) runtime(.clk(clk),.reset(reset),.start(boot_finished&&platform_mode),.version(config_version),.payload_length(config_length),
  .resource_count(config_resources),.page_count(config_pages),.widget_total(config_widgets),.entry_page(config_entry),.active(rt_active),.error(rt_error),
  .mem_valid(aux_requests[2]),.mem_write(),.mem_addr(aux_addresses[62:42]),.mem_wdata(),.mem_ready(aux_ready_bus[2]),.mem_response(aux_responses[2]),.mem_data(aux_rdata),
  .lookup_enable(lookup_enable),.lookup_query(lookup_query),.browse_tag(browse_tag),.browse_valid(browse_valid),.browse_name(browse_name),.browse_bytes(browse_bytes),.image_count(image_count),.wav_count(wav_count),
@@ -57,7 +57,7 @@ end else begin
  assign rt_audio_select=0;assign rt_audio_stop=0;assign rt_audio_index=0;assign audio_params=0;assign ui_control_valid=0;assign ui_control_byte=0;
  assign widget_count=0;assign widget_data=0;assign rt_displayed=0;assign runtime_status=0;
 end endgenerate
-dmz_page_compositor compositor(.clk(clk),.reset(reset),.enabled(platform_mode&&rt_active),.page_begin(page_begin),.widget_count(widget_count),.widget_index(widget_index),.widget(widget_data),
+dmz_page_compositor #(.HD(HD)) compositor(.clk(clk),.reset(reset),.enabled(platform_mode&&rt_active),.page_begin(page_begin),.widget_count(widget_count),.widget_index(widget_index),.widget(widget_data),
  .in_valid(raw_load_valid),.in_addr(raw_load_addr),.in_data(raw_load_data),.in_last(raw_load_last),.in_ready(raw_load_ready),.in_ack(raw_load_ack),
  .out_valid(load_valid),.out_addr(load_addr),.out_data(load_data),.out_last(load_last),.out_ready(load_ready),.out_ack(load_ack),
  .mem_valid(aux_requests[1]),.mem_addr(aux_addresses[41:21]),.mem_ready(aux_ready_bus[1]),.mem_response(aux_responses[1]),.mem_data(aux_rdata),.busy(compositor_busy));
@@ -65,7 +65,7 @@ wire media_access=raw_catalog_ready&&(!platform_found||boot_finished);
 assign catalog_ready=media_access;
 
 wire fat16;wire [7:0] spc;wire [31:0] fat_base,data_base,image_cluster,image_bytes,wav_cluster;
-dmz_platform_boot #(.STORE_CONFIG(RT_PLATFORM)) platform_boot(.clk(clk),.reset(reset),.catalog_ready(raw_catalog_ready),.found(platform_found),
+dmz_platform_boot #(.STORE_CONFIG(RT_PLATFORM),.CFG_BASE(HD?21'h100000:21'h080000)) platform_boot(.clk(clk),.reset(reset),.catalog_ready(raw_catalog_ready),.found(platform_found),
  .fat16(fat16),.spc(spc),.fat_base(fat_base),.data_base(data_base),.first_cluster(config_cluster),.file_bytes(config_bytes),
  .sd_start(config_start),.sd_lba(config_lba),.sd_ready(config_sd_ready),.sd_done(config_sd_done),.sd_byte_valid(config_bv),
  .sd_byte_index(sd_byte_index),.sd_byte_data(sd_byte_data),.sd_error(sd_error),.finished(boot_finished),
@@ -89,7 +89,7 @@ dmz_fat_catalog catalog(.clk(clk),.reset(reset),.enable(enable),.sd_start(cat_st
  .image_index(selected_index),.image_count(image_count),.image_cluster(image_cluster),.image_bytes(image_bytes),.image_name(image_name),
  .wav_index(audio_selected_index),.wav_count(wav_count),.browse_query(lookup_enable?lookup_query:browse_query),.browse_tag(browse_tag),.browse_name(browse_name),.browse_valid(browse_valid),.browse_bytes(browse_bytes),
  .pair_found(pair_found),.pair_index(pair_index),.wav_found(wav_found),.wav_cluster(wav_cluster),.wav_bytes(wav_bytes));
-dmz_image_player #(.MANUAL_START(RT_PLATFORM)) images(.clk(clk),.reset(reset),.catalog_ready(catalog_ready),.image_count(image_count),
+dmz_image_player #(.MANUAL_START(RT_PLATFORM),.HD(HD)) images(.clk(clk),.reset(reset),.catalog_ready(catalog_ready),.image_count(image_count),
  .manual_mode(platform_mode),.select_request(platform_mode?rt_image_select:select_request),.requested_index(platform_mode?rt_image_index:requested_index),.selected_index(selected_index),
  .fat16(fat16),.spc(spc),.fat_base(fat_base),.data_base(data_base),.image_cluster(image_cluster),.image_bytes(image_bytes),
  .sd_start(img_start),.sd_lba(img_lba),.sd_ready(img_ready&&catalog_ready),.sd_done(img_done&&catalog_ready),.sd_byte_valid(img_bv&&catalog_ready),

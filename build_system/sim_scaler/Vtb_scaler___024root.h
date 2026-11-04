@@ -91,7 +91,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vtb_scaler___024root final : public Verilated
         IData/*31:0*/ tb_scaler__DOT__lx;
         IData/*31:0*/ tb_scaler__DOT__py0;
         IData/*31:0*/ tb_scaler__DOT__filebytes;
-        IData/*17:0*/ tb_scaler__DOT__addr;
+        IData/*18:0*/ tb_scaler__DOT__addr;
         VlWide<8>/*255:0*/ tb_scaler__DOT__data;
         IData/*31:0*/ tb_scaler__DOT__pixels;
         IData/*31:0*/ tb_scaler__DOT__dut__DOT__position;

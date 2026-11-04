@@ -4,7 +4,7 @@
    Executable = D:/ANLU/bin/td_commands_prompt.exe
    Built at =   16:32:07 Jun 12 2025
    Run by =     fushenghe
-   Run Date =   Tue Nov  3 23:46:55 2026
+   Run Date =   Wed Nov  4 11:23:01 2026
 
    Run on =     LAPTOP-6RN9ARE0
 ============================================================
@@ -39,19 +39,38 @@ RUN-1001 : ----------------------------------------------------------------
 RUN-1001 :   default_reg_initial  |    auto    |       auto       |        
 RUN-1001 :    hdl_warning_level   |   normal   |      normal      |        
 RUN-1001 : ----------------------------------------------------------------
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_mem_mux.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_cfg_writer.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_scene_runtime.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_page_compositor.sv
+HDL-5373 WARNING: identifier 'state' is used before its declaration in ../rtl/platform/dmz_page_compositor.sv(14)
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_ui_overlay.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_audio_completion.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_ui_keys.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_ui_controller.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_scene_loader.sv
+HDL-1007 : analyze verilog file ../rtl/platform/dmz_platform_boot.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_pair_control.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_fat_catalog.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_fat_stream.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_sd_arbiter.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_udiv32.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_bmp_decoder.sv
+HDL-5373 WARNING: identifier 'inside_x' is used before its declaration in ../rtl/media/dmz_bmp_decoder.sv(17)
+HDL-1007 : analyze verilog file ../rtl/media/dmz_image_player.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_wav_decoder.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_wav_player.sv
+HDL-1007 : analyze verilog file ../rtl/media/dmz_media_storage.sv
 HDL-1007 : analyze verilog file ../rtl/p2/dmz_p2_pll.v
 HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in ../rtl/p2/dmz_p2_pll.v(83)
+HDL-1007 : analyze verilog file ../rtl/p2/dmz_wide_pll.v
+HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in ../rtl/p2/dmz_wide_pll.v(64)
+HDL-1007 : analyze verilog file ../rtl/system/dmz_wide_mapper.sv
 HDL-1007 : analyze verilog file ../rtl/p2/dmz_sdram_ctrl.sv
 HDL-1007 : analyze verilog file ../rtl/p2/dmz_sdram_bist.sv
 HDL-1007 : analyze verilog file ../rtl/p2/dmz_pixel_fifo.sv
 HDL-5373 WARNING: identifier 'rp' is used before its declaration in ../rtl/p2/dmz_pixel_fifo.sv(6)
 HDL-1007 : analyze verilog file ../rtl/p2/dmz_status_uart.sv
-HDL-1007 : analyze verilog file ../rtl/p3/dmz_bmp_loader.sv
-HDL-5373 WARNING: identifier 'fat16' is used before its declaration in ../rtl/p3/dmz_bmp_loader.sv(15)
-HDL-5373 WARNING: identifier 'state' is used before its declaration in ../rtl/p3/dmz_bmp_loader.sv(16)
-HDL-5373 WARNING: identifier 'state' is used before its declaration in ../rtl/p3/dmz_bmp_loader.sv(16)
-HDL-5373 WARNING: identifier 'dir_pos' is used before its declaration in ../rtl/p3/dmz_bmp_loader.sv(23)
-HDL-5373 WARNING: identifier 'byte_pos' is used before its declaration in ../rtl/p3/dmz_bmp_loader.sv(23)
 HDL-1007 : analyze verilog file ../rtl/p3/dmz_image_framebuffer.sv
 HDL-1007 : analyze verilog file ../rtl/system/dmz_track1_top.sv
 HDL-5373 WARNING: identifier 'mem_command_valid' is used before its declaration in ../rtl/system/dmz_track1_top.sv(67)
@@ -59,8 +78,21 @@ HDL-5373 WARNING: identifier 'mem_command' is used before its declaration in ../
 HDL-5373 WARNING: identifier 'mem_command' is used before its declaration in ../rtl/system/dmz_track1_top.sv(67)
 HDL-5373 WARNING: identifier 'wav_error' is used before its declaration in ../rtl/system/dmz_track1_top.sv(90)
 HDL-5373 WARNING: identifier 'audio_active' is used before its declaration in ../rtl/system/dmz_track1_top.sv(252)
+HDL-1007 : analyze verilog file ../rtl/system/dmz_matrix_keys.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_board_commands.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_file_menu.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_osd.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_top_ticker.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_trigger_button.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_status_panel.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_scene_control.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_audio_visual.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_display_control.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_picture_adjust.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_picture_pipe.sv
 HDL-1007 : analyze verilog file ../rtl/audio_test/dmz_uart_rx.sv
 HDL-1007 : analyze verilog file ../rtl/system/dmz_media_control.sv
+HDL-1007 : analyze verilog file ../rtl/system/dmz_gallery_control.sv
 HDL-1007 : analyze verilog file ../rtl/system/dmz_status_cdc.sv
 HDL-1007 : analyze verilog file ../rtl/p3/dmz_sd_reader.sv
 HDL-1007 : analyze verilog file ../rtl/p3/dmz_spi_byte.sv
@@ -80,45 +112,7 @@ HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/packet_picker.sv
 HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/source_product_description_info_frame.sv
 HDL-1007 : analyze verilog file ../rtl/p1/hdmi_core/tmds_channel.sv
 HDL-5341 WARNING: non-net output port 'tmds' cannot be initialized at declaration in SystemVerilog mode in ../rtl/p1/hdmi_core/tmds_channel.sv(16)
-HDL-1007 : analyze verilog file ../rtl/system/dmz_gallery_control.sv
-HDL-1007 : analyze verilog file ../rtl/media/dmz_fat_catalog.sv
-HDL-1007 : analyze verilog file ../rtl/media/dmz_fat_stream.sv
-HDL-1007 : analyze verilog file ../rtl/media/dmz_sd_arbiter.sv
-HDL-1007 : analyze verilog file ../rtl/media/dmz_bmp_decoder.sv
-HDL-5373 WARNING: identifier 'inside_x' is used before its declaration in ../rtl/media/dmz_bmp_decoder.sv(17)
-HDL-1007 : analyze verilog file ../rtl/media/dmz_image_player.sv
-HDL-1007 : analyze verilog file ../rtl/media/dmz_wav_decoder.sv
-HDL-1007 : analyze verilog file ../rtl/media/dmz_wav_player.sv
-HDL-1007 : analyze verilog file ../rtl/media/dmz_media_storage.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_matrix_keys.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_board_commands.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_file_menu.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_osd.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_display_control.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_picture_adjust.sv
-HDL-1007 : analyze verilog file ../rtl/media/dmz_udiv32.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_scene_control.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_audio_visual.sv
-HDL-1007 : analyze verilog file ../rtl/media/dmz_pair_control.sv
-HDL-1007 : analyze verilog file ../rtl/platform/dmz_scene_loader.sv
-HDL-1007 : analyze verilog file ../rtl/platform/dmz_platform_boot.sv
-HDL-1007 : analyze verilog file ../rtl/platform/dmz_ui_keys.sv
-HDL-1007 : analyze verilog file ../rtl/platform/dmz_ui_controller.sv
-HDL-1007 : analyze verilog file ../rtl/platform/dmz_mem_mux.sv
-HDL-1007 : analyze verilog file ../rtl/platform/dmz_cfg_writer.sv
-HDL-1007 : analyze verilog file ../rtl/platform/dmz_scene_runtime.sv
-HDL-1007 : analyze verilog file ../rtl/platform/dmz_page_compositor.sv
-HDL-5373 WARNING: identifier 'state' is used before its declaration in ../rtl/platform/dmz_page_compositor.sv(14)
-HDL-1007 : analyze verilog file ../rtl/platform/dmz_ui_overlay.sv
-HDL-1007 : analyze verilog file ../rtl/platform/dmz_audio_completion.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_status_panel.sv
-HDL-1007 : analyze verilog file ../rtl/p2/dmz_wide_pll.v
-HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in ../rtl/p2/dmz_wide_pll.v(64)
-HDL-1007 : analyze verilog file ../rtl/system/dmz_wide_mapper.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_picture_pipe.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_trigger_button.sv
-HDL-1007 : analyze verilog file ../rtl/system/dmz_top_ticker.sv
-PRJ-1401 : Successfully analyzed 59 source files.
+PRJ-1401 : Successfully analyzed 58 source files.
 RUN-1002 : start command "reset_runs syn_1"
 PRJ-1412 : reset_run syn_1.
 RUN-1002 : start command "top_module dmz_track1_top"
@@ -326,23 +320,23 @@ RUN-1002 : start command "set_param route swap_pin off -run phy_1"
 PRJ-1105 : Update param phy_1 route::swap_pin::off succeed.
 RUN-1002 : start command "launch_runs syn_1 phy_1"
 PRJ-1403 : syn_1 phy_1 is launched.
-PRJ-1404 : Run log file is D:/QQdownload/HX4S20_Contest_202606.zip/HX4S20_Contest_202606/dmz_track1/build_system/dmz_track1_Runs/syn_1/run.log.
-PRJ-1404 : Run log file is D:/QQdownload/HX4S20_Contest_202606.zip/HX4S20_Contest_202606/dmz_track1/build_system/dmz_track1_Runs/phy_1/run.log.
+PRJ-1404 : Run log file is D:/QQdownload/HX4S20_Contest_202606.zip/HX4S20_Contest_202606/dmz_track1_hd960/build_system/dmz_track1_Runs/syn_1/run.log.
+PRJ-1404 : Run log file is D:/QQdownload/HX4S20_Contest_202606.zip/HX4S20_Contest_202606/dmz_track1_hd960/build_system/dmz_track1_Runs/phy_1/run.log.
 RUN-1002 : start command "wait_run syn_1 -quiet"
 PRJ-1405 : Waiting for run syn_1 to finish.
 PRJ-1409 : launch_runs syn_1 phy_1  -jobs 1.
 PRJ-1410 : Run syn_1 success.
 PRJ-1406 : Run syn_1 finished.
-RUN-1003 : finish command "wait_run syn_1 -quiet" in  80.038327s wall, 0.140625s user + 0.171875s system = 0.312500s CPU (0.4%)
+RUN-1003 : finish command "wait_run syn_1 -quiet" in  90.039263s wall, 0.109375s user + 0.125000s system = 0.234375s CPU (0.3%)
 
-RUN-1004 : used memory is 89 MB, reserved memory is 101 MB, peak memory is 89 MB
+RUN-1004 : used memory is 88 MB, reserved memory is 101 MB, peak memory is 89 MB
 RUN-1002 : start command "wait_run phy_1 -quiet"
 PRJ-1405 : Waiting for run phy_1 to finish.
-RUN-1002 : start command "save_best_bits"
 PRJ-1410 : Run phy_1 success.
+RUN-1002 : start command "save_best_bits"
 PRJ-1424 : The implemented result of phy_1 is saved as best result.
 PRJ-1406 : Run phy_1 finished.
-RUN-1003 : finish command "wait_run phy_1 -quiet" in  270.196738s wall, 0.296875s user + 0.375000s system = 0.671875s CPU (0.2%)
+RUN-1003 : finish command "wait_run phy_1 -quiet" in  240.158009s wall, 0.140625s user + 0.093750s system = 0.234375s CPU (0.1%)
 
 RUN-1004 : used memory is 89 MB, reserved memory is 101 MB, peak memory is 89 MB
 RUN-1002 : start command "close_project"

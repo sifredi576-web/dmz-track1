@@ -14,11 +14,11 @@ wire ctrl;wire [7:0] ctrl_byte;wire [3:0] count;wire [98:0] widget;wire [4:0] di
 integer length_bytes=514272;integer cycle=0,delay=0,imgdelay=0;reg pending=0,pwrite;reg [20:0] address;reg [255:0] write_data;
 dmz_scene_loader loader(.clk(clk),.reset(reset),.start(start),.stream_error(1'b0),.byte_valid(bv),.byte_last(bl),.byte_data(bd),.byte_ready(br),
  .staging_ready(wr),.staging_write(sw),.staging_addr(sa),.staging_data(sb),.busy(),.ready(sv),.commit(commit),.error(loader_error),.resources(resources),.pages(pages),.widgets(widgets),.entry_page(entry),.format_version(version),.payload_length(length));
-dmz_cfg_writer writer(.clk(clk),.reset(reset),.start(start),.abort(loader_error!=0),.valid(sw),.last(bl),.addr(sa),.data(sb),.ready(wr),
+dmz_cfg_writer #(.CFG_BASE(21'h100000)) writer(.clk(clk),.reset(reset),.start(start),.abort(loader_error!=0),.valid(sw),.last(bl),.addr(sa),.data(sb),.ready(wr),
  .mem_valid(wvalid),.mem_addr(wa),.mem_data(wdata),.mem_ready(ready[0]),.mem_response(response[0]),.idle(wi),.done(wd));
 dmz_mem_mux #(.N(2)) mux(.clk(clk),.reset(reset),.valid({rv,wvalid}),.write(2'b01),.addr({ra,wa}),.wdata({256'd0,wdata}),.ready(ready),.response(response),
  .req_valid(mv),.req_write(mwrite),.req_addr(ma),.req_wdata(md),.req_ready(mr),.rsp_valid(mresponse));
-dmz_scene_runtime #(.MS_CYCLES(16)) dut(.clk(clk),.reset(reset),.start(sv&&wd),.version(version),.payload_length(length),.resource_count(resources),.page_count(pages),.widget_total(widgets),.entry_page(entry),
+dmz_scene_runtime #(.MS_CYCLES(16),.CFG_BASE(21'h100000)) dut(.clk(clk),.reset(reset),.start(sv&&wd),.version(version),.payload_length(length),.resource_count(resources),.page_count(pages),.widget_total(widgets),.entry_page(entry),
  .active(active),.error(error),.mem_valid(rv),.mem_write(),.mem_addr(ra),.mem_wdata(unused),.mem_ready(ready[1]),.mem_response(response[1]),.mem_data(memory_data),
  .lookup_enable(lookup),.lookup_query(query),.browse_tag(tag),.browse_valid(valid),.browse_name(name),.browse_bytes(bytes),.image_count(6'd16),.wav_count(5'd7),
  .event_valid(ev),.event_action(action),.menu_open(menu),.paused(paused),.muted(1'b0),.physical_alert(physical),.swaps(swaps),.image_busy(image_busy),.image_error(8'd0),
@@ -28,13 +28,13 @@ always @(posedge clk)begin
  cycle<=cycle+1;mr<=!pending&&(cycle%5!=0);mresponse<=0;
  if(mv&&mr)begin
   if(pending)$fatal(1,"overlapping memory transactions");
-  if(ma<21'h80000||ma>=21'hc0000||ma[2:0]!=0)$fatal(1,"config address bounds %h",ma);
+  if(ma<21'h100000||ma>=21'h140000||ma[2:0]!=0)$fatal(1,"config address bounds %h",ma);
   address<=ma;write_data<=md;pwrite<=mwrite;pending<=1;delay<=2+cycle%7;mr<=0;
  end
  if(pending)begin
   if(delay!=0)delay<=delay-1;
   else begin
-   if(pwrite)memory[(address-21'h80000)>>3]<=write_data;else memory_data<=memory[(address-21'h80000)>>3];
+   if(pwrite)memory[(address-21'h100000)>>3]<=write_data;else memory_data<=memory[(address-21'h100000)>>3];
    mresponse<=1;pending<=0;
   end
  end
